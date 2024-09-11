@@ -86,10 +86,7 @@ h1,h2,h3,h4,h5,h6,a,p,li{
     transform: none;
 }
 
-.footer-last{
-   /* background-image: '../assets/footermap.png'; */
-   background-image: url(/public/assets/footermap.png);
-}
+
 
 .menuItem {
     top: 0;
@@ -226,9 +223,23 @@ ul.custom-bulletssec li{
 }
 
 
+.homeBanner{
+    background-image: url(/public/assets/home_Banner/homebanner.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
 /* media query */
 @media (max-width: 1023px){
     .footer-secpernt{
         height: 100%;
     }
 }
+@media (min-width: 1024px){
+    .footer-last{
+        background-image: url(/public/assets/footermap.png);
+     }
+}
+
+

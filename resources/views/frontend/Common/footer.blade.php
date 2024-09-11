@@ -1,8 +1,8 @@
-<footer class="lg:fixed bottom-0 w-screen bg-[#062357] footer-secpernt mt-6">
-    <div class="relative footer-secpernt w-[100vw]">
+<footer class="w-full bg-[#062357] footer-secpernt mt-6">
+    <div class="relative footer-secpernt w-full">
 
-        <div class="container mx-auto px-5 lg:px-12">
-            <div class="absolute footer-last h-full w-[93%] lg:w-full container mx-auto lg:px-12  bg-center bg-contain bg-no-repeat opacity-10 z-[-1]" style="background-position-y: 50px;"></div>
+        <div class="container mx-auto px-5 lg:px-12 lg:w-screen">
+            <div class="absolute footer-last h-full w-[93%] container mx-auto lg:px-12  bg-center bg-contain bg-no-repeat opacity-10 z-[-1]" style="background-position-y: 50px;"></div>
         </div>
 
         <div class="flex flex-col md:flex-row gap-6 md:gap-0 justify-start md:justify-center items-center py-3 md:py-8 md:mt-[2%] container mx-auto lg:px-12 ">
