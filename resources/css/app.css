@@ -10,6 +10,9 @@
 .font_inter{
     font-family: "Inter", sans-serif;
 }
+.plus_jakarta {
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
 
 h1,h2,h3,h4,h5,h6,a,p,li{
     font-family: "Inter", sans-serif;
@@ -104,8 +107,12 @@ h1,h2,h3,h4,h5,h6,a,p,li{
 
 
 .menu--right .menuToggle {
+    /* position: absolute; */
     position: fixed;
     right: 0;
+    /* top: 0; */
+    /* translate: 88% 0px; */
+    /* right: -40%; */
 }
 .menu--right .menuToggle input {
     right: 50px;
@@ -115,6 +122,8 @@ h1,h2,h3,h4,h5,h6,a,p,li{
 }
 .menu--right .menuItem {
     right: 0;
+    /* right: -40%; */
+
     margin: -100px 0 0 0;
     transform: translate(100%, 0);
 }
@@ -197,17 +206,29 @@ h1,h2,h3,h4,h5,h6,a,p,li{
 
 
 
+ul.custom-bullets ,ul.custom-bulletssec {
+    list-style: none;
+    padding-left: 20px;
+}
 
-/*
-@media (min-width: 1900px) {
-    .logo_text{
-      font-size:40px !important;
+ul.custom-bullets li, ul.custom-bulletssec li {
+    margin-bottom: 8px;
+    background-repeat: no-repeat;
+    background-size: 12px 12px;
+    padding-left: 20px;
+    background-position: 0 5px;
+}
+ul.custom-bullets li{
+    background-image: url(/public/assets/custom-bulletone.png);
+}
+ul.custom-bulletssec li{
+    background-image: url(/public/assets/sidearrow.png);
+}
+
+
+/* media query */
+@media (max-width: 1023px){
+    .footer-secpernt{
+        height: 100%;
     }
-    .logo_image{
-      width: 3.75rem !important;
-    }
-    .logo_title{
-        font-size:10px !important;
-        margin-top:3px !important;
-    }
-} */
+}
