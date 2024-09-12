@@ -224,7 +224,7 @@ ul.custom-bulletssec li{
 
 
 .homeBanner{
-    background-image: url(/public/assets/home_Banner/homebanner.png);
+    background-image: url(/public/assets/home_Banner/bannerCity.jpg) !important;
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -237,9 +237,36 @@ ul.custom-bulletssec li{
     }
 }
 @media (min-width: 1024px){
-    .footer-last{
-        background-image: url(/public/assets/footermap.png);
-     }
+    .footer-last {
+        position: relative;
+        z-index: 1;
+    }
+    /* .footer-last{
+        background-image: url(/public/assets/footermap.png) !important;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+     } */
+     .footer-last::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url(/public/assets/footermap.png) !important;
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* background-position: center; */
+        background-position: 0 140px;
+        opacity: 0.1;
+        z-index: -1;
+    }
 }
-
+.backgroun-nav{
+    background: linear-gradient(180deg, #010101 0%, rgba(1, 1, 1, 0) 100%);
+    position: fixed;
+    width: 100%;
+    top: 0;
+}
 

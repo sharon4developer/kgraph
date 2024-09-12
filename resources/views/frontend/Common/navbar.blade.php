@@ -1,4 +1,4 @@
-<div class="bg-gradient-to-b from-black to-black-semi">
+<div class="backgroun-nav">
     <header class="text-white">
         <div class="container mx-auto px-5 lg:px-12 flex justify-between items-start lg:items-center gap-1 lg:gap-0 flex-col md:flex-row font_aktiv py-[12px] lg:py-[17px]">
             <div>
