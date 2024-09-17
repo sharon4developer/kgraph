@@ -1,6 +1,6 @@
-<div class="backgroun-nav">
-    <header class="text-white">
-        <div class="container mx-auto px-5 lg:px-12 flex justify-between items-start lg:items-center gap-1 lg:gap-0 flex-col md:flex-row font_aktiv py-[12px] lg:py-[17px]">
+<div class="b-backgroun-nav z-50 w-full">
+    <header id="immaintop" class="text-white bg-black fixed top-0 z-50 w-full">
+        <div class="container mx-auto px-5 lg:px-12 flex justify-between items-start lg:items-center gap-1 lg:gap-0 flex-col md:flex-row font_aktiv py-[12px] lg:py-[10px]">
             <div>
                 <small class="uppercase font-light text-[10px] font_aktiv">KGRAPH IMMIGRATION CONSULTANCY INC.</small>
             </div>
@@ -18,7 +18,7 @@
         </div>
     </header>
 
-    <nav class="text-white">
+    <nav id="imHeader" class="text-white bg-gradient-to-b from-black to-transparent fixed top-10 z-50 w-full">
         <div class="flex items-center justify-between container mx-auto px-5 lg:px-12 py-4 lg:py-5">
             <div class="flex items-center gap-[4px] z-10">
                 <img class="w-[1.80rem] logo_image lg:w-[2.5rem]" src="{{asset('assets/KgraphLogo.png')}}" alt="K-graph logo">

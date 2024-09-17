@@ -1,11 +1,11 @@
-<footer class="w-full bg-[#062357] footer-secpernt mt-6">
+<footer class="w-full bg-[#062357] footer-secpernt">
     <div class="relative footer-secpernt w-full footer-last">
 {{--
         <div class="container mx-auto px-5 lg:px-12 lg:w-screen relative">
             <div class="absolute  h-full w-[93%] container mx-auto lg:px-12  bg-center bg-contain bg-no-repeat opacity-10 z-[-1]" style="background-position-y: 50px;"></div>
         </div> --}}
 
-        <div class="flex flex-col md:flex-row gap-6 md:gap-0 justify-start md:justify-center items-center py-3 md:py-8 md:mt-[2%] container mx-auto lg:px-12 ">
+        <div class="flex flex-col md:flex-row gap-6 md:gap-0 justify-start md:justify-center items-center py-3 md:py-8 container mx-auto lg:px-12 ">
             <div class="flex items-start md:items-center gap-5 justify-center">
                 <img src="{{asset('assets/nooneedvisa.png')}}" alt="visa no need">
                 <h2 class="w-[60%] text-[14px] xl:text-[30px] font-semibold plus_jakarta text-white">Need any support for tour and visa?</h2>
