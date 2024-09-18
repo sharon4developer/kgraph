@@ -1,5 +1,5 @@
 <div class="b-backgroun-nav z-50 w-full">
-    <header id="immaintop" class="text-white bg-black fixed top-0 z-50 w-full">
+    <header id="immaintop" class="text-white hidden md:block bg-black md:fixed top-0 z-50 w-full">
         <div class="container mx-auto px-5 lg:px-12 flex justify-between items-start lg:items-center gap-1 lg:gap-0 flex-col md:flex-row font_aktiv py-[12px] lg:py-[10px]">
             <div>
                 <small class="uppercase font-light text-[10px] font_aktiv">KGRAPH IMMIGRATION CONSULTANCY INC.</small>
@@ -18,7 +18,7 @@
         </div>
     </header>
 
-    <nav id="imHeader" class="text-white bg-gradient-to-b from-black to-transparent fixed top-10 z-50 w-full">
+    <nav id="imHeader" class="text-white bg-gradient-to-b from-black to-transparent md:fixed top-10 !z-50 w-full">
         <div class="flex items-center justify-between container mx-auto px-5 lg:px-12 py-4 lg:py-5">
             <div class="flex items-center gap-[4px] z-10">
                 <img class="w-[1.80rem] logo_image lg:w-[2.5rem]" src="{{asset('assets/KgraphLogo.png')}}" alt="K-graph logo">
@@ -28,7 +28,7 @@
                 </div>
             </div>
             {{-- mobile device navigation bar --}}
-            <div class="relative block lg:hidden w-[50px] h-[23px]">
+            <div class="relative block lg:hidden w-[50px] h-[23px] z-50">
                 <nav class="menu--right" role="navigation">
                     <div class="menuToggle">
                         <input type="checkbox"/>
@@ -49,7 +49,7 @@
                                 <li class="px-[16px] py-2"><a href="#">Package</a></li>
                                 <li class="px-[16px] py-2"><a href="#">Careers</a></li>
                                 <div class="bg-white text-blue-600 hover:bg-blue-600 hover:text-white px-[16px] py-[6px] rounded-sm ease-in duration-500 cursor-pointer w-fit">
-                                    <a href="" class="h-full">Contact Us</a>
+                                    <a href="" class="h-full !text-black">Contact Us</a>
                                 </div>
                             </ul>
 

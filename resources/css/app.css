@@ -33,7 +33,8 @@ h1,h2,h3,h4,h5,h6,a,p,li{
 }
 .menuToggle a {
     text-decoration: none;
-    color: #232323;
+    /* color: #232323; */
+    color: white;
     transition: all 0.3s ease;
 }
 .menuToggle a:hover {
@@ -261,19 +262,17 @@ ul.custom-bulletssec li{
     position: relative;
     z-index: 10;
 }
-.banner_text-one::after{
+/* .banner_text-one::after{
     content: "";
     width: 100%;
     height: 75px;
     z-index: 8;
     position: absolute;
-    /* inset: 0; */
     left: -131px;
-    /* top: -26px; */
     bottom: -26px;
     background-repeat: no-repeat;
     background-image: url(/public/assets/home_Banner/rocketicon.png) !important;
-}
+} */
 .banner_main-text::after{
     content: "";
     width: 100%;
@@ -281,7 +280,8 @@ ul.custom-bulletssec li{
     z-index: 8;
     position: absolute;
     bottom: -82px;
-    right: -420px;
+    /* right: -420px; */
+    right: -51%;
     background-repeat: no-repeat;
     background-image: url(/public/assets/home_Banner/underscorebn.png) !important;
 }
@@ -297,16 +297,16 @@ ul.custom-bulletssec li{
     background-color: #051b3bbd;
     backdrop-filter: blur(10px);
 }
-.gradient-text {
+.gradient-text, gradient-text span{
+    color: white;
+    transition: all 500ms ease-in;
+}
+.gradient-text:hover ,gradient-text span:hover {
     background-image: linear-gradient(93.82deg, #FFFFFF 1.14%, #0047FF 172.98%); /* Gradient background */
     background-clip: text; /* Clips the gradient to the text */
     -webkit-background-clip: text; /* For WebKit browsers */
     color: transparent; /* Makes the text color transparent */
     -webkit-text-fill-color: transparent; /* Makes the text color transparent for WebKit browsers */
-}
-.paddadjuster{
-    padding-top: 2.75rem ;
-    padding-bottom: 2.75rem ;
 }
 
 .accordion-content {
@@ -315,12 +315,7 @@ ul.custom-bulletssec li{
     transition: max-height 0.5s ease; /* Smooth transition for max-height */
 }
 
-.faq-parent{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 20px;
-    row-gap: 20px;
-}
+
 .accordion{
     box-shadow: 0px 0px 60px 0px #0000000D;
     cursor: pointer;
@@ -340,6 +335,10 @@ ul.custom-bulletssec li{
 }
 
 .commongrad{
+    transition: 2s all;
+    background-color: transparent;
+}
+.commongrad:hover{
     background: linear-gradient(90deg, #003D99 0%, #0066FF 100%);
 }
 
@@ -350,13 +349,24 @@ ul.custom-bulletssec li{
 .box-grading{
     background: linear-gradient(180deg, #02183F 0%, #0440A5 100%);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    margin-top: 85px;
+    margin-top: 38px;
+}
+
+.knowbutton button{
+    white-space: nowrap;
 }
 
 
 
-
 /* media query */
+@media (max-width: 767px){
+    #imHeader{
+        background-color: black;
+    }
+    .accordion{
+        margin-bottom: 14px;
+    }
+}
 @media (max-width: 1023px){
     .footer-secpernt{
         height: 100%;
@@ -388,6 +398,20 @@ ul.custom-bulletssec li{
         opacity: 0.1;
         z-index: -1;
     }
+    .box-grading{
+        margin-top: 85px;
+    }
+    .paddadjuster{
+        padding-top: 2.75rem ;
+        padding-bottom: 2.75rem ;
+    }
+    .faq-parent{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 20px;
+        row-gap: 20px;
+    }
+
 }
 @media (min-width: 1980px){
     .gettouch{
