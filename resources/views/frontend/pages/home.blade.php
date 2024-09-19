@@ -30,7 +30,7 @@
 <div class="h-full w-full homeBanner">
     <div class="container mx-auto px-5 lg:px-12 h-full w-full">
         <div class="h-full w-full flex flex-col justify-center items-center z-20 text-center mb-4 md:pt-8 pb-14 gap-[20px] md:gap-[31px] lg:gap-0">
-            <div class="z-10 md:flex items-center  pt-[10%] lg:pt-[7%] banner-container-elem">
+            <div class="z-10 md:flex items-center  pt-[10%] lg:pt-[8%] banner-container-elem">
                 <img class="pt-[22px] lg:pt-0 w-[50px] lg:w-[100px]"  src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="">
                 <h2 class="banner_text-one text-[30px] lg:text-3xl font_inter font-semibold text-white text-left md:text-center">Journey with Confidence <span class="text-[#579aff]">Migrate</span> with Us</h2>
             </div>
@@ -38,7 +38,7 @@
             <h6 class="font_inter font-semibold text-[20px] md:text-3xl z-20 text-white lg:mt-20 banner-container-elem">Visa Made Easy Dreams Made Possible</h6>
             <div class="z-10 flex flex-col md:flex-row justify-center items-start md:items-center  gap-4 lg:my-7">
                 <img width="52px" src="{{asset('assets/home_Banner/CanadaFlag.png')}}" alt="CanadaFlag">
-                <div class="duration-200 cursor-pointer ease-linear md:bg-white text-blue-600 bg-blue-600 lg:hover:bg-blue-600 flex justify-center items-center rounded-full gap-5 pl-5">
+                <div class="duration-200 cursor-pointer ease-linear md:bg-transparent text-blue-600 bg-blue-600 lg:hover:bg-blue-600 flex justify-center items-center rounded-full gap-5 pl-5">
                     <h6 class="text-white text-[12px] lg:text-[16px]">Let's turn your vision into reality.</h6>
                     <div class="bg-white text-blue-600 hover:bg-blue-600 hover:text-white px-[20px] py-1 lg:py-[10px] md:rounded-sm ease-in duration-500 cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                         <a href="" class="h-full">Connect Us</a>
