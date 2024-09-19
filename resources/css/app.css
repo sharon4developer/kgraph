@@ -342,6 +342,20 @@ ul.custom-bulletssec li{
     background: linear-gradient(90deg, #003D99 0%, #0066FF 100%);
 }
 
+
+/* .commongrad {
+    transition: background-color 2s ease;
+    background-color: transparent;
+    width: 100px;
+    overflow: hidden;
+}
+
+.commongrad:hover {
+    background: linear-gradient(90deg, #003D99 0%, #0066FF 100%);
+} */
+
+
+
 .scrollbar-hidden::-webkit-scrollbar {
     display: none;
 }
@@ -355,7 +369,6 @@ ul.custom-bulletssec li{
 .knowbutton button{
     white-space: nowrap;
 }
-
 
 
 /* media query */

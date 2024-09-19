@@ -9,12 +9,35 @@
                 <li class="menu-title" data-key="t-menu">Menu</li>
 
                 <li>
-                    <a href="index.html">
+                    <a href="{{ url('admin/dashboard') }}">
                         <i data-feather="home"></i>
-                        <span class="badge rounded-pill bg-success-subtle text-success float-end">9+</span>
                         <span data-key="t-dashboard">Dashboard</span>
                     </a>
                 </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                        <span data-key="t-multi-level">Home</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="true">
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Banners</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li><a href="{{ url('admin/banners') }}" data-key="t-level-2-2">View </a></li>
+                                <li><a href="{{ url('admin/banners/create') }}" data-key="t-level-2-1">Add </a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Services</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li><a href="{{ url('admin/services') }}" data-key="t-level-2-2">View </a></li>
+                                <li><a href="{{ url('admin/services/create') }}" data-key="t-level-2-1">Add </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
 
                 {{-- <li class="menu-title" data-key="t-apps">Apps</li>
 
