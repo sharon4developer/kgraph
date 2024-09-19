@@ -7,6 +7,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+    return view('frontend.pages.home');
+});
+
+Route::get('contact-us', function () {
     return view('main');
 });
 

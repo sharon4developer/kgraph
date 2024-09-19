@@ -10,6 +10,10 @@ export default {
         colors: {
             'black-semi': '#000000bd',
         },
+        borderOpacity: {
+            '15': '0.15', // Example: 15% opacity
+            '85': '0.85', // Example: 85% opacity
+        },
       },
     },
     plugins: [],
