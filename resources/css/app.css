@@ -108,6 +108,7 @@ h1,h2,h3,h4,h5,h6,a,p,li{
     /* position: absolute; */
     position: fixed;
     right: 0;
+    z-index: 999;
     /* top: 0; */
     /* translate: 88% 0px; */
     /* right: -40%; */
@@ -120,10 +121,11 @@ h1,h2,h3,h4,h5,h6,a,p,li{
 }
 .menu--right .menuItem {
     right: 0;
-    /* right: -40%; */
-
     margin: -100px 0 0 0;
     transform: translate(100%, 0);
+}
+.openmobilemenu{
+    transform: translate(0%, 0%) !important;
 }
 .menu--right .menuItem li a:hover {
     padding-left: 5px;
@@ -323,8 +325,28 @@ ul.custom-bulletssec li{
     height: 30px;
 }
 
+.knowbutton button, .knowmore{
+    transition: all 1s;
+}
+.knowmore:hover{
+    background-color: #003D99;
+}
+.knowmore:hover{
+    color: white;
+}
+/* .knowmore:hover svg path{
+    fill:;
+} */
+.knowbutton button:hover div svg path{
+    fill: #003D99;
+}
 
-
+.knowbutton button:hover{
+    background-color: white;
+}
+.knowbutton button:hover div{
+    color: #003D99;
+}
 
 /* .commongrad {
     transition: background-color 2s ease;
@@ -347,11 +369,90 @@ ul.custom-bulletssec li{
     background: linear-gradient(180deg, #02183F 0%, #0440A5 100%);
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
     margin-top: 38px;
+    transition: all 1s;
+}
+
+.box-grading:hover{
+    background: linear-gradient(180deg, #02183F 0%, #0440A5 234.75%);
 }
 
 .knowbutton button{
     white-space: nowrap;
 }
+
+.video-container {
+    position: relative;
+    width: 100%;
+    /* height: 90vh; */
+
+    margin-bottom: 20px;
+}
+
+  .custom-controls {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: white;
+    font-size: 24px;
+    display: none; /* Initially hide the button */
+  }
+
+  .video-container:hover .custom-controls {
+    display: block; /* Show button on hover */
+  }
+
+  video {
+    width: 100%;
+    height: 100%;
+  }
+
+  .serviceSection{
+    position: relative;
+    z-index: 10;
+  }
+  /* .serviceSection::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-image: url(/public/assets/left.png);
+  } */
+
+
+  .aboutusbanner {
+    position: relative;
+    width: 100%;
+    background-image: url(/public/assets/home_Banner/Canadas.jpeg) !important;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.aboutusbanner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #000000 0%, #113165c7 100%);
+    z-index: 1;
+}
+
+.aboutusbanner .container {
+    position: relative;
+    z-index: 2;
+
+}
+
+
 
 
 /* media query */
@@ -430,7 +531,16 @@ ul.custom-bulletssec li{
     .commongrad:hover{
         background: linear-gradient(90deg, #003D99 0%, #0066FF 100%);
     }
+    .video-container {
+        height: 90vh;
+    }
+    .translate-large {
+        transform: translateY(-42%);
+    }
 
+    .aboutnow{
+        grid-template-columns: 1fr 1fr
+    }
 }
 @media (min-width: 1980px){
     .gettouch{

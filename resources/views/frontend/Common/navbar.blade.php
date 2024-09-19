@@ -26,37 +26,39 @@
                     <h2 class="text-base font-bold logo_text lg:text-[30px]">KGRAPH</h2>
                     <h6 class="text-[7px]  font-medium logo_title lg:mt-1">IMMIGRATION CONSULTANCY INC.</h6>
                 </div>
+
             </div>
+
             {{-- mobile device navigation bar --}}
-            <div class="relative block lg:hidden w-[50px] h-[23px] z-50">
+            <div class="relative lg:hidden z-50">
+
                 <nav class="menu--right" role="navigation">
                     <div class="menuToggle">
-                        <input type="checkbox"/>
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                            <ul class="menuItem">
-                                <div class="flex gap-2 items-center justify-start">
-                                    <li class="text-[12px] whitespace-nowrap text-black flex items-center"><a class="" href="#">Blogs</a></li>|
-                                    <li class="text-[12px] whitespace-nowrap text-black flex items-center"><a class="" href="#">Legal</a></li>|
-                                    <li class="text-[12px] whitespace-nowrap text-black flex items-center"><a class="" href="#">News</a></li>|
-                                    <li class="text-[12px] whitespace-nowrap text-black flex items-center"><a class="" href="#">Privacy Policy</a></li>
-                                </div>
+                        <ul id="mobilemenu" class="menuItem">
+                            <div class="flex gap-2 items-center justify-start">
+                                <li class="text-[12px] whitespace-nowrap text-black flex items-center"><a class="" href="#">Blogs</a></li>|
+                                <li class="text-[12px] whitespace-nowrap text-black flex items-center"><a class="" href="#">Legal</a></li>|
+                                <li class="text-[12px] whitespace-nowrap text-black flex items-center"><a class="" href="#">News</a></li>|
+                                <li class="text-[12px] whitespace-nowrap text-black flex items-center"><a class="" href="#">Privacy Policy</a></li>
+                            </div>
 
+                            <li class="mt-4 px-[16px] py-2"><a href="#">About</a></li>
+                            <li class="px-[16px] py-2"><a href="#">Service</a></li>
+                            <li class="px-[16px] py-2"><a href="#">Package</a></li>
+                            <li class="px-[16px] py-2"><a href="#">Careers</a></li>
 
-                                <li class="mt-4 px-[16px] py-2"><a href="#">About</a></li>
-                                <li class="px-[16px] py-2"><a href="#">Service</a></li>
-                                <li class="px-[16px] py-2"><a href="#">Package</a></li>
-                                <li class="px-[16px] py-2"><a href="#">Careers</a></li>
-                                <div class="bg-white text-blue-600 hover:bg-blue-600 hover:text-white px-[16px] py-[6px] rounded-sm ease-in duration-500 cursor-pointer w-fit">
-                                    <a href="" class="h-full !text-black">Contact Us</a>
-                                </div>
-                            </ul>
-
-
+                            <div class="bg-white text-blue-600 hover:bg-blue-600 hover:text-white px-[16px] py-[6px] rounded-sm ease-in duration-500 cursor-pointer w-fit">
+                                <a href="" class="h-full !text-black">Contact Us</a>
+                            </div>
+                        </ul>
                     </div>
                 </nav>
             </div>
+
+            <button id="menuButton" class="lg:hidden">
+                <img id="openicon" class="w-[50px]" src="{{ asset('assets/menuopen.png') }}" alt="">
+                <img id="closeicon" class="hidden w-[50px] z-50 relative" style="scale: 0.6;" src="{{ asset('assets/close.png') }}" alt="">
+            </button>
 
             <div class="capitalize hidden lg:flex gap-4">
                 <ul class="flex items-center gap-4 text-sm font-light">
@@ -72,6 +74,40 @@
         </div>
     </nav>
 </div>
+
+<script>
+
+    const header = document.getElementById('imHeader');
+    const mheader = document.getElementById('immaintop');
+
+    function handleScroll() {
+        if (window.innerWidth >= 768) {
+            if (window.scrollY > 10) {
+                document.body.classList.add('scrolled');
+                header.classList.add('scrolled-header');
+                mheader.classList.add('hidden');
+            } else {
+                document.body.classList.remove('scrolled');
+                header.classList.remove('scrolled-header');
+                mheader.classList.remove('hidden');
+            }
+        }
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleScroll);
+
+
+    let menuItem = document.getElementById('mobilemenu');
+    let closeicon = document.getElementById('closeicon');
+    let openicon = document.getElementById('openicon');
+    document.getElementById('menuButton').addEventListener('click', function() {
+        menuItem.classList.toggle('openmobilemenu');
+        closeicon.classList.toggle('hidden');
+        openicon.classList.toggle('hidden');
+
+    });
+</script>
 
 
 

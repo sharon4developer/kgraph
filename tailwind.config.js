@@ -14,6 +14,9 @@ export default {
             '15': '0.15', // Example: 15% opacity
             '85': '0.85', // Example: 85% opacity
         },
+        translate: {
+            '-42p': '-42%',
+        },
       },
     },
     plugins: [],
