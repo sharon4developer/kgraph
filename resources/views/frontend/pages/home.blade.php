@@ -52,7 +52,7 @@
                 <img width="100px" height="28px" src="{{ asset('assets/home_Banner/asna.png') }}" alt="">
                 <img width="100px" height="28px" src="{{ asset('assets/home_Banner/airtasker.png') }}" alt="">
             </div>
-            <div class="absolute bottom-0 right-0 w-full flex justify-center lg:right-12 lg:bottom-[35%] z-10">
+            <div class="absolute bottom-0 right-0 w-full lg:w-fit flex justify-center lg:right-12 lg:bottom-[35%] z-10">
                 <div class="flex md:flex-col items-center gap-[30px] border border-white py-2 lg:py-4 px-6 lg:px-2 rounded-full mb-3 md:mb-0">
                     <img class="w-[15px]" src="{{ asset('assets/facebookban.png') }}" alt="facebook">
                     <img class="w-[15px]" src="{{ asset('assets/instagramban.png') }}" alt="instagram">
