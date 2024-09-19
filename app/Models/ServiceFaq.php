@@ -7,40 +7,44 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Yajra\DataTables\Facades\DataTables;
 
-class Service extends Model
+class ServiceFaq extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'services';
+    protected $table = 'service_faqs';
 
-    protected $fillable = ['title', 'sub_title', 'image', 'intervention_image', 'status','order'];
+    protected $fillable = ['title', 'description', 'status','order', 'service_id'];
+
+    public function Services(){
+        return  $this->belongsTo(Service::class,'service_id')->withTrashed();
+    }
 
     public static function getFullData($data)
     {
         $locationData = getLocationData();
 
-        $value =  SELF::select('title', 'image', 'id', 'status', 'created_at')->orderBy('order', 'asc');
+        $value =  SELF::with('Services')->select('title', 'id', 'status', 'created_at', 'service_id')
+                ->where(function ($query) use ($data) {
+                    if (isset($data->service_id)) {
+                        $query->where('service_id', $data->service_id);
+                    }
+                })->orderBy('order', 'asc');
 
         return DataTables::of($value)
-            ->editColumn('image', function ($row) use($locationData) {
-                return $locationData['storage_server_path'].$locationData['storage_image_path'].$row->image;
-            })
             ->addIndexColumn()
+            ->editColumn('service_id', function ($row) {
+                return $row->Services->title;
+            })
             ->rawColumns(['action'])
             ->make(true);
     }
 
     public static function createData($data)
     {
-        $value = new Service;
+        $value = new ServiceFaq;
+        $value->service_id   = $data->service_id;
         $value->title        = $data->title;
-        $value->sub_title  = $data->sub_title;
-        if ($data->image) {
-            $value->image = Cms::storeImage($data->image, $data->title);
-            $intervention_image = $value->image;
-            // $intervention_image = Cms::makeInterventionImage($data->image);
-            $value->intervention_image = $intervention_image;
-        };
+        $value->description  = $data->description;
         $value->status       = 1;
         return $value->save();
     }
@@ -52,15 +56,10 @@ class Service extends Model
 
     public static function updateData($data)
     {
-        $value = Service::find($data->service_id);
+        $value = ServiceFaq::find($data->service_faq_id);
+        $value->service_id        = $data->service_id;
         $value->title        = $data->title;
-        $value->sub_title  = $data->sub_title;
-        if ($data->image) {
-            $value->image = Cms::storeImage($data->image, $data->title);
-            $intervention_image = $value->image;
-            // $intervention_image = Cms::makeInterventionImage($data->image);
-            $value->intervention_image = $intervention_image;
-        };
+        $value->description  = $data->description;
         return $value->save();
     }
 
@@ -83,10 +82,6 @@ class Service extends Model
             return true;
         } else
             return false;
-    }
-
-    public static function getFullDataForHome(){
-        return SELF::select('image','id','title','sub_title')->orderBy('order','asc')->where('status',1)->get();
     }
 
     public static function updateOrder($data)

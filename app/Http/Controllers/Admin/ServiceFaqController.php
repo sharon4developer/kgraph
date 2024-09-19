@@ -3,39 +3,45 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\StoreServiceRequest;
-use App\Http\Requests\Admin\UpdateServiceRequest;
+use App\Http\Requests\Admin\StoreServiceFaqRequest;
+use App\Http\Requests\Admin\UpdateServiceFaqRequest;
 use App\Models\Service;
+use App\Models\ServiceFaq;
 use Exception;
 use Illuminate\Http\Request;
 
-class ServiceController extends Controller
+class ServiceFaqController extends Controller
 {
     public function index()
     {
-        $title = 'Services';
-        $sub_title = 'Services';
+        $title = 'Service Faq';
+        $sub_title = 'Service Faq';
 
-        return view('admin.services.index',compact('title','sub_title'));
+        $services = Service::getFullDataForHome();
+
+        return view('admin.service-faqs.index',compact('title','sub_title','services'));
     }
 
     public function create()
     {
-        $title = 'Services';
+        $title = 'Service Faq';
         $sub_title = 'Add';
-        return view('admin.services.create',compact('title','sub_title'));
+
+        $services = Service::getFullDataForHome();
+
+        return view('admin.service-faqs.create',compact('title','sub_title','services'));
     }
 
-    public function store(StoreServiceRequest $request)
+    public function store(StoreServiceFaqRequest $request)
     {
         try{
-            $save= Service::createData($request);
+            $save= ServiceFaq::createData($request);
 
             if($save){
                 $response=[
                     'status'=>true,
                     'message'=>'Saved successfully...',
-                    'return_url'=>'/admin/services',
+                    'return_url'=>'/admin/service-faq',
                 ];
             }else{
                 $response=[
@@ -56,31 +62,34 @@ class ServiceController extends Controller
 
     public function show(Request $request)
     {
-        $data = Service::getFullData($request);
+        $data = ServiceFaq::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
-        $data = Service::getData($id);
+        $data = ServiceFaq::getData($id);
         if(!$data){
             abort(404);
         }
-        $title = 'Services';
+        $title = 'Service Faq';
         $sub_title = 'Edit';
-        return view('admin.services.edit',compact('data','title','sub_title'));
+
+        $services = Service::getFullDataForHome();
+
+        return view('admin.service-faqs.edit',compact('data','title','sub_title','services'));
     }
 
-    public function update(UpdateServiceRequest $request, $id)
+    public function update(UpdateServiceFaqRequest $request, $id)
     {
         try{
-            $save= Service::updateData($request);
+            $save= ServiceFaq::updateData($request);
 
             if($save){
                 $response=[
                     'status'=>true,
                     'message'=>'Saved successfully...',
-                    'return_url'=>'/admin/services',
+                    'return_url'=>'/admin/service-faq',
                 ];
             }else{
                 $response=[
@@ -101,13 +110,13 @@ class ServiceController extends Controller
 
     public function destroy(Request $request)
     {
-        $delete = Service::deleteData($request);
+        $delete = ServiceFaq::deleteData($request);
         return response()->json($delete);
     }
 
     public function changeStatus(Request $request)
     {
-        $data = Service::changeStatus($request);
+        $data = ServiceFaq::changeStatus($request);
         return response()->json($data);
     }
 
@@ -115,7 +124,7 @@ class ServiceController extends Controller
     {
         $newOrder = $request->input('order');
 
-        Service::updateOrder($request);
+        ServiceFaq::updateOrder($request);
 
         return response()->json(['message' => 'Order updated successfully']);
     }

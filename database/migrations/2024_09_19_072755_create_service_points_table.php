@@ -11,12 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('service_points', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('service_id')->nullable();
+            $table->foreign('service_id')->references('id')->on('services');
             $table->string('title')->nullable();
-            $table->string('sub_title')->nullable();
-            $table->string('image')->nullable();
-            $table->string('intervention_image')->nullable();
+            $table->longText('description')->nullable();
             $table->integer('status')->default(1)->nullable();
             $table->integer('order')->nullable()->default(0);
             $table->timestamps();
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('service_points');
     }
 };

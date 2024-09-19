@@ -35,6 +35,20 @@
                                 <li><a href="{{ url('admin/services/create') }}" data-key="t-level-2-1">Add </a></li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Service Points</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li><a href="{{ url('admin/service-points') }}" data-key="t-level-2-2">View </a></li>
+                                <li><a href="{{ url('admin/service-points/create') }}" data-key="t-level-2-1">Add </a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Service Fsw</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li><a href="{{ url('admin/service-faq') }}" data-key="t-level-2-2">View </a></li>
+                                <li><a href="{{ url('admin/service-faq/create') }}" data-key="t-level-2-1">Add </a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
 

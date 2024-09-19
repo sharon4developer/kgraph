@@ -18,13 +18,9 @@ class Banner extends Model
     public static function getFullData($data)
     {
         $locationData = getLocationData();
-        $value =  SELF::select('title', 'image', 'id', 'status', 'created_at')
-            ->where(function ($query) use ($data) {
-                if (isset($data->type)) {
-                    $query->where('type', $data->type);
-                }
-            })
-            ->orderBy('order', 'asc');
+
+        $value =  SELF::select('title', 'image', 'id', 'status', 'created_at')->orderBy('order', 'asc');
+
         return DataTables::of($value)
             ->editColumn('image', function ($row) use($locationData) {
                 return $locationData['storage_server_path'].$locationData['storage_image_path'].$row->image;
@@ -93,7 +89,7 @@ class Banner extends Model
         return SELF::select('image','id','title','sub_title')->orderBy('order','asc')->where('status',1)->get();
     }
 
-    public static function updareOrder($data)
+    public static function updateOrder($data)
     {
         foreach ($data->order as $key => $value) {
             $step = SELF::find($value['id']);
