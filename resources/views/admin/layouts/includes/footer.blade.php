@@ -35,6 +35,7 @@
 
 <!-- JAVASCRIPT -->
 <script src="{{ asset('admin/theme/assets/libs/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('admin/theme/src/assets/js/forms/jquery.validate.min.js')}}"></script>
 <script src="{{ asset('admin/theme/assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('admin/theme/assets/libs/metismenu/metisMenu.min.js') }}"></script>
 <script src="{{ asset('admin/theme/assets/libs/simplebar/simplebar.min.js') }}"></script>
@@ -53,9 +54,22 @@
 
 <script src="{{ asset('admin/theme/assets/js/pages/allchart.js') }}"></script>
 <!-- dashboard init -->
-<script src="{{ asset('admin/theme/assets/js/pages/dashboard.init.js') }}"></script>
+{{-- <script src="{{ asset('admin/theme/assets/js/pages/dashboard.init.js') }}"></script> --}}
 
 <script src="{{ asset('admin/theme/assets/js/app.js') }}"></script>
+
+<script src="{{ asset('admin/theme/alertifyjs/build/alertify.min.js')}}"></script>
+<script src="{{ asset('admin/theme/src/assets/js/forms/sweetalert.min.js')}}"></script>
+<script src="{{ asset('admin/theme/src/plugins/src/sweetalerts2/sweetalerts2.min.js')}}"></script>
+<script src="{{ asset('admin/theme/src/plugins/src/table/datatable/datatables.js')}}"></script>
+<script src="{{ asset('admin/theme/datatable/dataTables.rowReorder.min.js')}}"></script>
+<script src="{{ asset('admin/theme/datatable/Sortable.min.js')}}"></script>
+<script src="{{ asset('admin/theme/datatable/axios.min.js')}}"></script>
+<script src="{{ asset('admin/theme/src/assets/js/select2.full.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+<script src="{{ asset('admin/theme/src/plugins/src/flatpickr/flatpickr.js')}}"></script>
+<script src="{{ asset('admin/theme/js/admin-common.js')}}"></script>
 
 </body>
 

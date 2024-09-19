@@ -19,6 +19,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        view()->composer([
+            '*',
+        ], function ($view) {
+            $locationData = getLocationData();
+            $view->with('locationData', $locationData);
+        });
     }
 }

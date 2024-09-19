@@ -3,39 +3,39 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\StoreBannerRequest;
-use App\Http\Requests\Admin\UpdateBannerRequest;
-use App\Models\Banner;
+use App\Http\Requests\Admin\StoreServiceRequest;
+use App\Http\Requests\Admin\UpdateServiceRequest;
+use App\Models\Service;
 use Exception;
 use Illuminate\Http\Request;
 
-class BannerController extends Controller
+class ServiceController extends Controller
 {
     public function index()
     {
-        $title = 'Banners';
-        $sub_title = 'Banners';
+        $title = 'Services';
+        $sub_title = 'Services';
 
-        return view('admin.banners.index',compact('title','sub_title'));
+        return view('admin.services.index',compact('title','sub_title'));
     }
 
     public function create()
     {
-        $title = 'Banners';
+        $title = 'Services';
         $sub_title = 'Add';
-        return view('admin.banners.create',compact('title','sub_title'));
+        return view('admin.services.create',compact('title','sub_title'));
     }
 
-    public function store(StoreBannerRequest $request)
+    public function store(StoreServiceRequest $request)
     {
         try{
-            $save= Banner::createData($request);
+            $save= Service::createData($request);
 
             if($save){
                 $response=[
                     'status'=>true,
                     'message'=>'Saved successfully...',
-                    'return_url'=>'/admin/banners',
+                    'return_url'=>'/admin/services',
                 ];
             }else{
                 $response=[
@@ -56,31 +56,31 @@ class BannerController extends Controller
 
     public function show(Request $request)
     {
-        $data = Banner::getFullData($request);
+        $data = Service::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
-        $data = Banner::getData($id);
+        $data = Service::getData($id);
         if(!$data){
             abort(404);
         }
-        $title = 'Banners';
+        $title = 'Services';
         $sub_title = 'Edit';
-        return view('admin.banners.edit',compact('data','title','sub_title'));
+        return view('admin.services.edit',compact('data','title','sub_title'));
     }
 
-    public function update(UpdateBannerRequest $request, $id)
+    public function update(UpdateServiceRequest $request, $id)
     {
         try{
-            $save= Banner::updateData($request);
+            $save= Service::updateData($request);
 
             if($save){
                 $response=[
                     'status'=>true,
                     'message'=>'Saved successfully...',
-                    'return_url'=>'/admin/banners',
+                    'return_url'=>'/admin/services',
                 ];
             }else{
                 $response=[
@@ -101,13 +101,13 @@ class BannerController extends Controller
 
     public function destroy(Request $request)
     {
-        $delete = Banner::deleteData($request);
+        $delete = Service::deleteData($request);
         return response()->json($delete);
     }
 
     public function changeStatus(Request $request)
     {
-        $data = Banner::changeStatus($request);
+        $data = Service::changeStatus($request);
         return response()->json($data);
     }
 
@@ -115,7 +115,7 @@ class BannerController extends Controller
     {
         $newOrder = $request->input('order');
 
-        Banner::updareOrder($request);
+        Service::updareOrder($request);
 
         return response()->json(['message' => 'Order updated successfully']);
     }

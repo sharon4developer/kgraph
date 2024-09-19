@@ -7,11 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Yajra\DataTables\Facades\DataTables;
 
-class Banner extends Model
+class Service extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'banners';
+    protected $table = 'services';
 
     protected $fillable = ['title', 'sub_title', 'image', 'intervention_image', 'status','order'];
 
@@ -36,7 +36,7 @@ class Banner extends Model
 
     public static function createData($data)
     {
-        $value = new Banner;
+        $value = new Service;
         $value->title        = $data->title;
         $value->sub_title  = $data->sub_title;
         if ($data->image) {
@@ -56,7 +56,7 @@ class Banner extends Model
 
     public static function updateData($data)
     {
-        $value = Banner::find($data->banner_id);
+        $value = Service::find($data->service_id);
         $value->title        = $data->title;
         $value->sub_title  = $data->sub_title;
         if ($data->image) {

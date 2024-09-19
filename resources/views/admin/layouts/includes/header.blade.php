@@ -4,7 +4,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>Dashboard | Admin</title>
+    <title>K Graph | Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -24,7 +24,17 @@
     <link href="{{ asset('admin/theme/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
     <link href="{{ asset('admin/theme/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
-
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700') }}" rel="stylesheet">
+    <link href="{{ asset('admin/theme/alertifyjs/build/css/alertify.min.css')}}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('admin/theme/src/plugins/src/sweetalerts2/sweetalerts2.css')}}">
+    <link href="{{ asset('admin/backend/css/custom.css') }}" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/theme/src/plugins/src/table/datatable/datatables.css')}}">
+    <link rel="stylesheet" href="{{ asset('admin/theme/src/plugins/src/font-icons/fontawesome/css/fontawesome.css')}}">
+    <link href="{{ asset('admin/theme/src/assets/css/select2.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('admin/theme/src/plugins/src/flatpickr/flatpickr.css')}}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('admin/theme/datatable/rowReorder.dataTables.min.css')}}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body data-topbar="dark">
@@ -99,7 +109,7 @@
                         </div>
                     </div>
 
-                    <div class="dropdown d-none d-sm-inline-block">
+                    {{-- <div class="dropdown d-none d-sm-inline-block">
                         <button type="button" class="btn header-item" data-bs-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
                             <img id="header-lang-img" src="{{ asset('admin/theme/assets/images/flags/us.jpg') }}" alt="Header Language"
@@ -136,15 +146,15 @@
                                     height="12"> <span class="align-middle">Russian</span>
                             </a>
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <div class="dropdown d-none d-sm-inline-block">
+                    {{-- <div class="dropdown d-none d-sm-inline-block">
                         <button type="button" class="btn header-item" id="mode-setting-btn">
                             <i data-feather="moon" class="icon-lg layout-mode-dark"></i>
                             <i data-feather="sun" class="icon-lg layout-mode-light"></i>
                         </button>
-                    </div>
-
+                    </div> --}}
+{{--
                     <div class="dropdown d-none d-lg-inline-block ms-1">
                         <button type="button" class="btn header-item" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
@@ -299,7 +309,7 @@
                         <button type="button" class="btn header-item right-bar-toggle me-2">
                             <i data-feather="settings" class="icon-lg"></i>
                         </button>
-                    </div>
+                    </div> --}}
 
                     <div class="dropdown d-inline-block">
                         <button type="button" class="btn header-item bg-light-subtle border-start border-end"
