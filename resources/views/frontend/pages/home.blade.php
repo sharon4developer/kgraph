@@ -16,23 +16,31 @@
         transform: translateX(20%);
         scale: 0.5;
     }
+    .left-to-right-animation, .secleft-to-right-animation, .thirdleft-to-right-animation, .fourthleft-to-right-animation {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    .left-to-right-width-animation, .secleft-to-right-width-animation, .thirdleft-to-right-width-animation, .fourthleft-to-right-width-animation{
+        opacity: 0;
+        transform: translateX(-100%);
+        width: 0;
+    }
 </style>
 {{-- banner section --}}
-<div class="h-screen lg:h-full w-full homeBanner">
+<div class="h-full w-full homeBanner">
     <div class="container mx-auto px-5 lg:px-12 h-full w-full">
-        <div class="h-full w-full flex flex-col justify-center items-center z-20 text-center pt-8 pb-14 gap-[20px] md:gap-[31px] lg:gap-0">
-            <div class="z-10 flex items-center md:items-end  pt-[10%] banner-container-elem">
-                <img class="pt-[22px]" width="50px" src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="">
-                <h2 class="banner_text-one text-[19px] lg:text-3xl font_inter font-semibold text-white text-left md:text-center">Journey with Confidence <span class="text-[#579aff]">Migrate</span> with Us</h2>
+        <div class="h-full w-full flex flex-col justify-center items-center z-20 text-center mb-4 md:pt-8 pb-14 gap-[20px] md:gap-[31px] lg:gap-0">
+            <div class="z-10 md:flex items-center  pt-[10%] lg:pt-[8%] banner-container-elem">
+                <img class="pt-[22px] lg:pt-0 w-[50px] lg:w-[100px]"  src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="">
+                <h2 class="banner_text-one text-[30px] lg:text-3xl font_inter font-semibold text-white text-left md:text-center">Journey with Confidence <span class="text-[#579aff]">Migrate</span> with Us</h2>
             </div>
-
-            <h1 class="text-left md:text-center text-[15px] lg:text-8xl font-medium font_inter gradient-text z-10 lg:mt-16 banner_main-text lg:inline-block banner-contain-text">Your Trusted Partner for Immigration.</h1>
-            <h6 class="text-left font_inter font-semibold text-[20px] md:text-3xl z-20 text-white lg:mt-20 banner-container-elem">Visa Made Easy Dreams Made Possible</h6>
+            <h1 class="md:text-center text-[15px] lg:text-8xl font-medium font_inter gradient-text z-10 lg:mt-16 banner_main-text lg:inline-block banner-contain-text">Your Trusted Partner for Immigration.</h1>
+            <h6 class="font_inter font-semibold text-[20px] md:text-3xl z-20 text-white lg:mt-20 banner-container-elem">Visa Made Easy Dreams Made Possible</h6>
             <div class="z-10 flex flex-col md:flex-row justify-center items-start md:items-center  gap-4 lg:my-7">
                 <img width="52px" src="{{asset('assets/home_Banner/CanadaFlag.png')}}" alt="CanadaFlag">
-                <div class="duration-200 cursor-pointer ease-linear hover:bg-blue-500 flex justify-center items-center rounded-full gap-5 pl-5">
+                <div class="duration-200 cursor-pointer ease-linear md:bg-transparent text-blue-600 bg-blue-600 lg:hover:bg-blue-600 flex justify-center items-center rounded-full gap-5 pl-5">
                     <h6 class="text-white text-[12px] lg:text-[16px]">Let's turn your vision into reality.</h6>
-                    <div class="bg-white text-blue-600 hover:bg-blue-600 hover:text-white px-[20px] py-0 lg:py-[10px] md:rounded-sm ease-in duration-500 cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                    <div class="bg-white text-blue-600 hover:bg-blue-600 hover:text-white px-[20px] py-1 lg:py-[10px] md:rounded-sm ease-in duration-500 cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                         <a href="" class="h-full">Connect Us</a>
                     </div>
                 </div>
@@ -44,6 +52,14 @@
                 <img width="100px" height="28px" src="{{ asset('assets/home_Banner/asna.png') }}" alt="">
                 <img width="100px" height="28px" src="{{ asset('assets/home_Banner/airtasker.png') }}" alt="">
             </div>
+            <div class="absolute bottom-0 right-0 w-full lg:w-fit flex justify-center lg:right-12 lg:bottom-[35%] z-10">
+                <div class="flex md:flex-col items-center gap-[30px] border border-white py-2 lg:py-4 px-6 lg:px-2 rounded-full mb-3 md:mb-0">
+                    <img class="w-[15px]" src="{{ asset('assets/facebookban.png') }}" alt="facebook">
+                    <img class="w-[15px]" src="{{ asset('assets/instagramban.png') }}" alt="instagram">
+                    <img class="w-[15px]" src="{{ asset('assets/linkedinban.png') }}" alt="linked">
+                    <img class="w-[15px]" src="{{ asset('assets/youtubeban.png') }}" alt="youtube">
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -53,7 +69,7 @@
     <div class="serviceSection bg-[#051b3b]">
         <div class="container mx-auto px-5 lg:px-12 lg:py-16 h-full w-full pt-10 lg:pt0">
             <div class="md:flex items-center">
-                <h2 class="font_inter font-semibold text-[50px] lg:text-[80px] text-white leading-none uppercase"><span class="inline-block">Our</span><span class="inline-block">Services</span></h2>
+                <h2 class="left-to-right-animation font_inter font-semibold text-[50px] lg:text-[80px] text-white leading-none uppercase"><span class="inline-block">Our</span><span class="inline-block">Services</span></h2>
                 <div class="md:pl-2 w-full" style="margin-bottom: -6%;">
                     <div class="my-4 md:my-0 flex justify-end items-center">
                         <div class="commongrad rounded-full md:py-[2.5px] flex items-center">
@@ -61,12 +77,11 @@
                             <button class="bg-white px-8 py-1 text-[#0153d0] rounded-full whitespace-nowrap">Connect Us</button>
                         </div>
                     </div>
-                    <div class="w-full my-6" style="border: 2px solid #FFFFFF8C;"></div>
+                    <div class="w-full my-6 left-to-right-width-animation" style="border: 2px solid #FFFFFF8C;"></div>
                 </div>
             </div>
             <h4 class="text-white font_inter font-semibold text-[26px] py-4 lg:pb-0">Visa Immigration for a Brighter You Future</h4>
             <p class="text-white font_inter font-thin text-justify text-[14px]">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
-
             <div class="grid gap-5 scrollbar-hidden overflow-x-scroll " style="grid-template-columns: 1fr 1fr 1fr 1fr;">
                 <div class="box-grading mb-9 lg:mb-0 p-4 lg:p-6 rounded-xl">
                     <h2 class="text-white font_inter text-[20px] font-bold pb-8 flex flex-col"><span class="inline-block">Foreign</span><span class="inline-block">nationals</span></h2>
@@ -268,9 +283,9 @@
     <div class="whoSec bg-[#051b3b]">
         <div class="container mx-auto px-5 lg:px-12 lg:py-16 h-full w-full">
             <div class="md:flex items-center">
-                <h2 class="font_inter font-semibold text-[50px] lg:text-[80px] text-white leading-none uppercase"><span class="inline-block">Who</span><span class="inline-block whitespace-nowrap">We Are</span></h2>
+                <h2 class="font_inter font-semibold text-[50px] lg:text-[80px] text-white leading-none uppercase secleft-to-right-animation"><span class="inline-block">Who</span><span class="inline-block whitespace-nowrap">We Are</span></h2>
                 <div class="w-full" style="margin-bottom: -6%;">
-                    <div class="flex justify-end items-center">
+                    <div class="flex lg:justify-end items-center pt-4 lg:pt-0">
                         <div class="flex items-center gap-7 whitespace-nowrap">
                             <div class="text-white">Meet our Firm</div>
                             <button class="flex items-center gap-4 rounded-full border border-white px-6 py-2">
@@ -279,9 +294,10 @@
                                     <path d="M13.7266 5.37891L10.2266 8.87891C9.89844 9.23438 9.32422 9.23438 8.99609 8.87891C8.64062 8.55078 8.64062 7.97656 8.99609 7.64844L10.9922 5.625H0.875C0.382812 5.625 0 5.24219 0 4.75C0 4.23047 0.382812 3.875 0.875 3.875H10.9922L8.99609 1.87891C8.64062 1.55078 8.64062 0.976562 8.99609 0.648438C9.32422 0.292969 9.89844 0.292969 10.2266 0.648438L13.7266 4.14844C14.082 4.47656 14.082 5.05078 13.7266 5.37891Z" fill="white"/>
                                 </svg>
                             </button>
+                            <div class="hidden md:block w-full my-6" style="border: 2px solid #FFFFFF8C;"></div>
                         </div>
                     </div>
-                    <div class="w-full my-6" style="border: 2px solid #FFFFFF8C;"></div>
+                    <div class="w-full my-6 secleft-to-right-width-animation" style="border: 2px solid #FFFFFF8C;"></div>
                 </div>
             </div>
             <p class="py-5 text-white font_inter font-medium text-[18px] lg:w-[30%]">Navigate Your Canadian Immigration Journey with Confidence</p>
@@ -296,7 +312,7 @@
                 <div class="md:w-1/2">
                     <h4 class="text-white font_inter font-semibold text-[22px] lg:text-[30px] lg:w-[75%]">Navigate Your Canadian Immigration Journey with Confidence</h4>
                     <p class="text-white font_inter font-thin text-justify text-[14px] py-4  lg:w-[75%]">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
-                    <h2 class="text-white font_inter font-bold text-[85px] leading-none">60+</h2>
+                    <h2 id="count-number" class="text-white font_inter font-bold text-[85px] leading-none">60+</h2>
                     <p class="text-white">Years of Experience</p>
                     <div class="my-6 flex flex-wrap md:flex-nowrap items-start gap-5">
                         <div>
@@ -335,7 +351,7 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-4 bg-[#0d2139] w-1/2">
+                <div class="grid grid-cols-2 gap-4 bg-[#0d2139] lg:w-1/2 mb-4 lg:mb-0">
                     <!-- Top Left -->
                     <div class="flex justify-center items-center rounded-lg overflow-hidden">
                         <img src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="Immigration" class="w-full h-full object-cover" />
@@ -391,11 +407,11 @@
     {{-- testimonial sect --}}
     <div class="testimonial bg-[#051b3b]">
         <div class="container mx-auto px-5 lg:px-12 py-8 lg:py-16 h-full w-full">
-            <div class="flex items-end w-full gap-2">
-                <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] leading-none">Testimonials</h2>
-                <div class="w-full" style="border: 2px solid #FFFFFF8C;margin-bottom: 8px;"></div>
+            <div class="flex items-end w-full gap-2 lg:gap-7">
+                <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] lg:text-[65px] leading-none thirdleft-to-right-animation">Testimonials</h2>
+                <div class="w-full thirdleft-to-right-width-animation" style="border: 2px solid #FFFFFF8C;margin-bottom: 8px;"></div>
             </div>
-            <p class="py-5 text-white font_inter font-medium text-[18px] lg:w-[30%]">Let’s See what our customers want to say</p>
+            <p class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%]">Let’s See what our customers want to say</p>
             <p class="text-white font_inter font-normal text-justify text-[14px] md:w-[45%]">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
 
             <div class="flex justify-between items-center overflow-x-scroll gap-6 scrollbar-hidden py-[70px]">
@@ -417,11 +433,11 @@
     {{-- Blog sect --}}
     <div class="BlogCRDS bg-[#051b3b]">
         <div class="container mx-auto px-5 lg:px-12 lg:py-16 h-full w-full">
-            <div class="flex items-end w-full gap-2">
-                <h2 class="uppercase text-white font_inter font-semibold text-[50px] leading-none">Blogs</h2>
-                <div class="w-full" style="border: 2px solid #FFFFFF8C;margin-bottom: 8px;"></div>
+            <div class="flex items-end w-full gap-2 lg:gap-7">
+                <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] lg:text-[65px] leading-none fourthleft-to-right-animation">Blogs</h2>
+                <div class="w-full fourthleft-to-right-width-animation" style="border: 2px solid #FFFFFF8C;margin-bottom: 8px;"></div>
             </div>
-            <p class="py-5 text-white font_inter font-medium text-[18px] lg:w-[30%]">Canadian Immigration News, Tips, and Resources</p>
+            <p class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%]">Canadian Immigration News, Tips, and Resources</p>
             <p class="text-white font_inter font-normal text-justify text-[14px] md:w-[45%]">Stay in the loop and keep up with all our news and updates!</p>
             <div class="flex justify-start items-center my-12">
                 <div class="commongrad rounded-full py-[2.5px]  w-fit">
@@ -700,7 +716,6 @@
     </div>
 </div>
 
-
 {{-- get in touch section --}}
 <div class="get-in-Touch bg-[#051b3b] py-28">
     <div class="container mx-auto px-5 lg:px-12 h-full w-full">
@@ -741,29 +756,58 @@
 
     document.querySelectorAll('.accordion-header').forEach(header => {
         header.addEventListener('click', function () {
-            const content = this.nextElementSibling;  // The accordion content
-            const iconCollapsed = this.querySelector('.icon-collapsed');  // Collapsed icon
-            const iconExpanded = this.querySelector('.icon-expanded');    // Expanded icon
+            const content = this.nextElementSibling;
+            const iconCollapsed = this.querySelector('.icon-collapsed');
+            const iconExpanded = this.querySelector('.icon-expanded');
 
-            // Check if the content is currently expanded
             if (content.style.maxHeight) {
-                // Collapse the current content
                 content.style.maxHeight = null;
-                iconCollapsed.classList.remove('hidden');  // Show the collapsed icon
-                iconExpanded.classList.add('hidden');      // Hide the expanded icon
+                iconCollapsed.classList.remove('hidden');
+                iconExpanded.classList.add('hidden');
             } else {
-                // Collapse all other contents
                 document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
-                // Reset all icons to collapsed state
                 document.querySelectorAll('.icon-collapsed').forEach(i => i.classList.remove('hidden'));
                 document.querySelectorAll('.icon-expanded').forEach(i => i.classList.add('hidden'));
 
-                // Expand the clicked content
-                content.style.maxHeight = content.scrollHeight + "px";  // Dynamically set height
-                iconCollapsed.classList.add('hidden');  // Hide the collapsed icon
-                iconExpanded.classList.remove('hidden');  // Show the expanded icon
+                content.style.maxHeight = content.scrollHeight + "px";
+                iconCollapsed.classList.add('hidden');
+                iconExpanded.classList.remove('hidden');
             }
         });
+    });
+
+    // counting animtion
+    function animateCountUp(el, start, end, duration) {
+        let startTime = null;
+
+        function count(timestamp) {
+            if (!startTime) startTime = timestamp;
+            const progress = Math.min((timestamp - startTime) / duration, 1);
+            el.textContent = Math.floor(progress * (end - start) + start) + "+";
+            if (progress < 1) {
+                requestAnimationFrame(count);
+            }
+        }
+
+        requestAnimationFrame(count);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const numberElement = document.getElementById('count-number');
+        const sectionToObserve = document.querySelector('.Navigatesec');
+
+        let hasCounted = false;
+
+        const observer = new IntersectionObserver(function(entries) {
+            if (entries[0].isIntersecting && !hasCounted) {
+                hasCounted = true;
+                animateCountUp(numberElement, 0, 60, 2000);
+            }
+        }, {
+            threshold: 0.5
+        });
+
+        observer.observe(sectionToObserve);
     });
 </script>
 
@@ -797,6 +841,103 @@
         duration: 0.5,
         ease: "power2.out"
     });
+
+    gsap.to(".left-to-right-animation", {
+        scrollTrigger: {
+            trigger: ".serviceSection",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        },
+        x: 0,
+        opacity: 1,
+        duration: 2,
+        ease: "power2.out"
+    });
+    gsap.to(".left-to-right-width-animation", {
+        scrollTrigger: {
+            trigger: ".serviceSection",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        },
+        x: 0,
+        width: "100%",
+        opacity: 1,
+        duration: 2,
+        ease: "power2.out"
+    });
+
+    gsap.to(".secleft-to-right-animation", {
+        scrollTrigger: {
+            trigger: ".whoSec",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        },
+        x: 0,
+        opacity: 1,
+        duration: 2,
+        ease: "power2.out"
+    });
+    gsap.to(".secleft-to-right-width-animation", {
+        scrollTrigger: {
+            trigger: ".whoSec",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        },
+        x: 0,
+        width: "100%",
+        opacity: 1,
+        duration: 2,
+        ease: "power2.out"
+    });
+
+    gsap.to(".thirdleft-to-right-animation", {
+        scrollTrigger: {
+            trigger: ".testimonial",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        },
+        x: 0,
+        opacity: 1,
+        duration: 2,
+        ease: "power2.out"
+    });
+    gsap.to(".thirdleft-to-right-width-animation", {
+        scrollTrigger: {
+            trigger: ".testimonial",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        },
+        x: 0,
+        width: "100%",
+        opacity: 1,
+        duration: 2,
+        ease: "power2.out"
+    });
+
+    gsap.to(".fourthleft-to-right-animation", {
+        scrollTrigger: {
+            trigger: ".BlogCRDS",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        },
+        x: 0,
+        opacity: 1,
+        duration: 2,
+        ease: "power2.out"
+    });
+    gsap.to(".fourthleft-to-right-width-animation", {
+        scrollTrigger: {
+            trigger: ".BlogCRDS",
+            start: "top 80%",
+            toggleActions: "play none none none"
+        },
+        x: 0,
+        width: "100%",
+        opacity: 1,
+        duration: 2,
+        ease: "power2.out"
+    });
+
 </script>
 
 @endsection

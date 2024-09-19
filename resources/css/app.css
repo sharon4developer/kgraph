@@ -273,18 +273,7 @@ ul.custom-bulletssec li{
     background-repeat: no-repeat;
     background-image: url(/public/assets/home_Banner/rocketicon.png) !important;
 } */
-.banner_main-text::after{
-    content: "";
-    width: 100%;
-    height: 75px;
-    z-index: 8;
-    position: absolute;
-    bottom: -82px;
-    /* right: -420px; */
-    right: -51%;
-    background-repeat: no-repeat;
-    background-image: url(/public/assets/home_Banner/underscorebn.png) !important;
-}
+
 
 
 .scrolled-header{
@@ -334,13 +323,21 @@ ul.custom-bulletssec li{
     height: 30px;
 }
 
-.commongrad{
-    transition: 2s all;
+
+
+
+/* .commongrad {
+    transition: background-color 2s ease;
     background-color: transparent;
+    width: 100px;
+    overflow: hidden;
 }
-.commongrad:hover{
+
+.commongrad:hover {
     background: linear-gradient(90deg, #003D99 0%, #0066FF 100%);
-}
+} */
+
+
 
 .scrollbar-hidden::-webkit-scrollbar {
     display: none;
@@ -357,7 +354,6 @@ ul.custom-bulletssec li{
 }
 
 
-
 /* media query */
 @media (max-width: 767px){
     #imHeader{
@@ -367,9 +363,25 @@ ul.custom-bulletssec li{
         margin-bottom: 14px;
     }
 }
+@media (min-width: 768px) {
+    .banner_main-text::after{
+        content: "";
+        width: 100%;
+        height: 75px;
+        z-index: 8;
+        position: absolute;
+        bottom: -82px;
+        right: -51%;
+        background-repeat: no-repeat;
+        background-image: url(/public/assets/home_Banner/underscorebn.png) !important;
+    }
+}
 @media (max-width: 1023px){
     .footer-secpernt{
         height: 100%;
+    }
+    .commongrad{
+        background: linear-gradient(90deg, #003D99 0%, #0066FF 100%);
     }
 }
 @media (min-width: 1024px){
@@ -410,6 +422,13 @@ ul.custom-bulletssec li{
         grid-template-columns: 1fr 1fr;
         column-gap: 20px;
         row-gap: 20px;
+    }
+    .commongrad{
+        transition: 2s all;
+        background-color: transparent;
+    }
+    .commongrad:hover{
+        background: linear-gradient(90deg, #003D99 0%, #0066FF 100%);
     }
 
 }

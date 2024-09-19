@@ -16,6 +16,10 @@ Route::get('contact-us', function () {
     return view('main');
 });
 
+Route::get('about-us', function () {
+    return view('frontend.pages.about');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
