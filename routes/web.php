@@ -2,9 +2,12 @@
 
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ServiceFaqController;
 use App\Http\Controllers\Admin\ServicePointController;
+use App\Http\Controllers\Admin\TestimonialController;
+use App\Http\Controllers\Admin\WhoWeAreController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +25,11 @@ Route::get('about-us', function () {
 
 Auth::routes();
 
+Route::get('/logout-me', function () {
+    Auth::logout();
+    return redirect('/');
+});
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
@@ -37,6 +45,9 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'services' => ServiceController::class,
         'service-points' => ServicePointController::class,
         'service-faq' => ServiceFaqController::class,
+        'who-we-are' => WhoWeAreController::class,
+        'testimonials' => TestimonialController::class,
+        'faq' => FaqController::class,
     ]);
 
     Route::prefix('banners')->name('.banners')->group(function () {
@@ -61,5 +72,23 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
 
         Route::post('change/status', [ServiceFaqController::class, 'changeStatus'])->name('change-status');
         Route::post('update/order', [ServiceFaqController::class, 'changeOrder'])->name('update-order');
+    });
+
+    Route::prefix('who-we-are')->name('.who-we-are')->group(function () {
+
+        Route::post('change/status', [WhoWeAreController::class, 'changeStatus'])->name('change-status');
+        Route::post('update/order', [WhoWeAreController::class, 'changeOrder'])->name('update-order');
+    });
+
+    Route::prefix('testimonials')->name('.testimonials')->group(function () {
+
+        Route::post('change/status', [TestimonialController::class, 'changeStatus'])->name('change-status');
+        Route::post('update/order', [TestimonialController::class, 'changeOrder'])->name('update-order');
+    });
+
+    Route::prefix('faq')->name('.faq')->group(function () {
+
+        Route::post('change/status', [FaqController::class, 'changeStatus'])->name('change-status');
+        Route::post('update/order', [FaqController::class, 'changeOrder'])->name('update-order');
     });
 });

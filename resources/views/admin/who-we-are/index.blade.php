@@ -1,0 +1,44 @@
+@extends('admin.layouts.app')
+@section('content')
+    <!-- end page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <h4 class="box-title">Who We Are</h4>
+                        </div>
+                        <div class="col-md-2">
+                            <a class="btn btn-outline-info btn-rounded m-3 _effect--ripple waves-effect waves-light float-end"
+                                href="{{ url('admin/who-we-are/create') }}"><i class="fa fa-plus" aria-hidden="true"></i>
+                                Add</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table id="who-we-are-details-table" class="table table-bordered dt-responsive  nowrap w-100">
+                        <thead>
+                            <tr>
+                                <th>SL No</th>
+                                <th>Title</th>
+                                <th>File</th>
+                                <th>Status</th>
+                                <th>Created Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div> <!-- end col -->
+    </div> <!-- end row -->
+@endsection
+@push('style')
+@endpush
+@push('script')
+    <script src="{{ asset('admin/backend/js/who-we-are.js') }}"></script>
+@endpush

@@ -4,7 +4,7 @@
     <head>
 
         <meta charset="utf-8" />
-        <title>Login | Dason - Admin & Dashboard Template</title>
+        <title>Login | K Graph</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
@@ -37,7 +37,7 @@
                                 <div class="d-flex flex-column h-100">
                                     <div class="mb-4 mb-md-5 text-center">
                                         <a href="#" class="d-block auth-logo">
-                                            <img src="{{ asset('admin/theme/assets/images/logo-sm.svg') }}" alt="" height="28"> <span class="logo-txt">Dason</span>
+                                            <img src="{{ asset('admin/theme/assets/images/logo-sm.svg') }}" alt="" height="28"> <span class="logo-txt">K Graph</span>
                                         </a>
                                     </div>
                                     <div class="auth-content my-auto">

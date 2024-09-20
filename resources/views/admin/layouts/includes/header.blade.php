@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 
 <head>
 
@@ -50,23 +50,23 @@
                 <div class="d-flex">
                     <!-- LOGO -->
                     <div class="navbar-brand-box">
-                        <a href="index.html" class="logo logo-dark">
+                        <a href="#" class="logo logo-dark">
                             <span class="logo-sm">
                                 <img src="{{ asset('admin/theme/assets/images/logo-sm.svg') }}" alt="" height="30">
                             </span>
                             <span class="logo-lg">
                                 <img src="{{ asset('admin/theme/assets/images/logo-sm.svg') }}" alt="" height="24"> <span
-                                    class="logo-txt">Dason</span>
+                                    class="logo-txt">K Graph</span>
                             </span>
                         </a>
 
-                        <a href="index.html" class="logo logo-light">
+                        <a href="#" class="logo logo-light">
                             <span class="logo-sm">
                                 <img src="{{ asset('admin/theme/assets/images/logo-sm.svg') }}" alt="" height="30">
                             </span>
                             <span class="logo-lg">
                                 <img src="{{ asset('admin/theme/assets/images/logo-sm.svg') }}" alt="" height="24"> <span
-                                    class="logo-txt">Dason</span>
+                                    class="logo-txt">K Graph</span>
                             </span>
                         </a>
                     </div>
@@ -322,12 +322,12 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">
                             <!-- item-->
-                            <a class="dropdown-item" href="apps-contacts-profile.html"><i
+                            <a class="dropdown-item" href="#"><i
                                     class="mdi mdi-face-profile font-size-16 align-middle me-1"></i> Profile</a>
-                            <a class="dropdown-item" href="auth-lock-screen.html"><i
-                                    class="mdi mdi-lock font-size-16 align-middle me-1"></i> Lock screen</a>
+                            {{-- <a class="dropdown-item" href="auth-lock-screen.html"><i
+                                    class="mdi mdi-lock font-size-16 align-middle me-1"></i> Lock screen</a> --}}
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="auth-logout.html"><i
+                            <a class="dropdown-item" href="#" onclick="logout()"><i
                                     class="mdi mdi-logout font-size-16 align-middle me-1"></i> Logout</a>
                         </div>
                     </div>

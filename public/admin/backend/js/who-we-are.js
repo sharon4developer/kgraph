@@ -1,20 +1,20 @@
 $(document).ready(function () {
 
-    loadDataTableForServices();
+    loadDataTableForWhoWeAre();
 
-    if(document.getElementById('service-details-table')){
+    if(document.getElementById('who-we-are-details-table')){
 
-        Sortable.create(document.getElementById('service-details-table').getElementsByTagName('tbody')[0], {
+        Sortable.create(document.getElementById('who-we-are-details-table').getElementsByTagName('tbody')[0], {
             onEnd: function (event) {
                 // Get the new order of the rows
                 var newOrder = [];
-                $('#service-details-table tbody tr').each(function () {
+                $('#who-we-are-details-table tbody tr').each(function () {
                     newOrder.push(table.row(this).data());
                 });
 
                 // Pass the new order to the backend (e.g., using AJAX)
                 $.ajax({
-                    url: $('#route-for-user').val() + '/service-faq/update/order', // Replace with your Laravel route URL
+                    url: $('#route-for-user').val() + '/who-we-are/update/order', // Replace with your Laravel route URL
                     method: 'POST',
                     data: {
                         order: newOrder
@@ -31,22 +31,29 @@ $(document).ready(function () {
     }
 });
 
-function loadDataTableForServices() {
-    table = $('#service-details-table').DataTable({
+function loadDataTableForWhoWeAre() {
+    table = $('#who-we-are-details-table').DataTable({
         processing: true,
         serverSide: true,
-        "ajax": {
-            "url": $('#route-for-user').val() + '/service-faq/show',
-            "dataType": "json",
-            "type": "GET",
-            "data": function(d) {
-                d.service_id=$('#select-service').val();
-            }
-        },
+        ajax: $('#route-for-user').val() + '/who-we-are/show',
         columns: [
             { data: 'DT_RowIndex', orderable: false, searchable: false },
-            { data: 'service_id' },
             { data: 'title' },
+            {
+                data: null,
+                render: function (row) {
+                    if(row.type ==1)
+                        return `<img class="table-img" src=` + row.file + `>`;
+                    else
+                        return `<video width="320" height="240" controls class="table-iframe">
+                                    <source src="`+row.file+`" type="video/mp4">
+                                    <source src="`+row.file+`" type="video/ogg">
+                                    Your browser does not support the video tag.
+                                </video>`;
+                },
+                orderable: false,
+                searchable: false,
+            },
             {
                 data: null,
                 render: function (row) {
@@ -81,7 +88,7 @@ function loadDataTableForServices() {
                                             <i class="fa fa-check"></i>
                                         </a>`;
                     return (`<div style="white-space:no-wrap">
-                                    <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Edit" data-bs-placement="top"  href="` + $("#route-for-user").val() + `/service-faq/` + row.id + `/edit">
+                                    <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Edit" data-bs-placement="top"  href="` + $("#route-for-user").val() + `/who-we-are/` + row.id + `/edit">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     `+ statusCheck + `
@@ -108,22 +115,19 @@ function loadDataTableForServices() {
     });
 }
 
-$('#service-add-form').validate({
+$('#who-we-are-add-form').validate({
     rules: {
         title: {
             required: true,
         },
-        description: {
-            required: true,
-        },
-        service_id: {
+        file: {
             required: true,
         },
     },
     messages: {
         title: "Title field is required",
-        description: "Description field is required",
-        service_id: "Service field is required",
+        sub_title: "Sub title field is required",
+        file: "File field is required",
     },
     errorElement: 'span',
     submitHandler: function (form, event) {
@@ -136,7 +140,7 @@ $('#service-add-form').validate({
         // Create
         $.ajax({
             type: "POST",
-            url: $('#route-for-user').val() + '/service-faq',
+            url: $('#route-for-user').val() + '/who-we-are',
             contentType: false,
             processData: false,
             data: formData,
@@ -193,25 +197,18 @@ $('#service-add-form').validate({
     }
 });
 
-$('#service-edit-form').validate({
+$('#who-we-are-edit-form').validate({
     rules: {
         title: {
             required: true,
         },
-        description: {
-            required: true,
-        },
-        service_id: {
-            required: true,
-        },
-        service_faq_id: {
+        who_we_are_id: {
             required: true,
         },
     },
     messages: {
         title: "Title field is required",
-        description: "Description field is required",
-        service_id: "Service field is required",
+        sub_title: "Sub title field is required",
     },
     errorElement: 'span',
     submitHandler: function (form, event) {
@@ -221,11 +218,11 @@ $('#service-edit-form').validate({
         var submitButton = $(form).find('[type=submit]');
         var current_btn_text = submitButton.html();
         button_loading_text = 'Saving...';
-        var service_point_id = $(form).find('input[name=service_point_id]').val();
+        var who_we_are_id = $(form).find('input[name=who_we_are_id]').val();
         // Create
         $.ajax({
             type: "POST",
-            url: $('#route-for-user').val() + '/service-faq/' + service_point_id,
+            url: $('#route-for-user').val() + '/who-we-are/' + who_we_are_id,
             contentType: false,
             processData: false,
             data: formData,
@@ -285,11 +282,11 @@ $('#service-edit-form').validate({
 
 function changeStatus(id, status) {
     if (status == 1) {
-        text = 'You want to deactivate this service faq!';
+        text = 'You want to deactivate this who we are!';
         message = 'Deactivated successfully';
     }
     else {
-        text = 'You want to activate this service faq!';
+        text = 'You want to activate this who we are!';
         message = 'Activated successfully';
     }
     Swal.fire({
@@ -304,7 +301,7 @@ function changeStatus(id, status) {
         if (result.isConfirmed) {
             $.ajax({
                 type: "POST",
-                url: $("#route-for-user").val() + "/service-faq/change/status",
+                url: $("#route-for-user").val() + "/who-we-are/change/status",
                 data: {
                     id: id,
                 },
@@ -327,7 +324,7 @@ function changeStatus(id, status) {
 function deleteData(id) {
     Swal.fire({
         title: 'Are you sure?',
-        text: "Are you sure, do yo want to delete the service faq ?",
+        text: "Are you sure, do yo want to delete the who we are ?",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Yes!',
@@ -337,14 +334,14 @@ function deleteData(id) {
         if (result.isConfirmed) {
             $.ajax({
                 type: "DELETE",
-                url: $("#route-for-user").val() + '/service-faq/' + id,
+                url: $("#route-for-user").val() + '/who-we-are/' + id,
                 data: {
                     id: id,
                 },
                 success: function (data) {
                     table.ajax.reload(null, false);
                     if (data == true)
-                        showMessage('success', "Service faq deleted successfully");
+                        showMessage('success', "Who we are deleted successfully");
                 },
                 error: function (data) {
                     showMessage("warning", "Something went wrong...");
@@ -354,7 +351,3 @@ function deleteData(id) {
     })
 }
 
-$('#select-service').on('change',function (e) {
-
-    table.ajax.reload();
-})

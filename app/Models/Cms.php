@@ -80,7 +80,8 @@ class Cms extends Model
         $filePath =  $slugTitle . '-' . $fileName . '-' . Str::random(15) . '.' . $video->getClientOriginalExtension();
         $locationData = getLocationData();
         $fileNewPath = $locationData['storage_video_path'] . $filePath;
-        Storage::disk('s3')->put($fileNewPath, fopen($video, 'r+'), ['visibility' => 'public']);
+        // dd(Storage::disk('s3')->put($fileNewPath, file_get_contents($video)),$fileNewPath );
+        Storage::disk('s3')->put($fileNewPath, file_get_contents($video));
         return $filePath;
     }
 
