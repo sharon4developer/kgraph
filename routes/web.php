@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\CertificateController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExploreController;
 use App\Http\Controllers\Admin\FaqController;
@@ -52,6 +53,7 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'faq' => FaqController::class,
         'blogs' => BlogController::class,
         'explore' => ExploreController::class,
+        'certificates' => CertificateController::class,
     ]);
 
     Route::prefix('banners')->name('.banners')->group(function () {
@@ -100,5 +102,11 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
 
         Route::post('change/status', [ExploreController::class, 'changeStatus'])->name('change-status');
         Route::post('update/order', [ExploreController::class, 'changeOrder'])->name('update-order');
+    });
+
+    Route::prefix('certificates')->name('.certificates')->group(function () {
+
+        Route::post('change/status', [CertificateController::class, 'changeStatus'])->name('change-status');
+        Route::post('update/order', [CertificateController::class, 'changeOrder'])->name('update-order');
     });
 });
