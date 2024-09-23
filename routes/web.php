@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\ServiceController;
@@ -48,6 +49,7 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'who-we-are' => WhoWeAreController::class,
         'testimonials' => TestimonialController::class,
         'faq' => FaqController::class,
+        'blogs' => BlogController::class,
     ]);
 
     Route::prefix('banners')->name('.banners')->group(function () {
@@ -90,5 +92,11 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
 
         Route::post('change/status', [FaqController::class, 'changeStatus'])->name('change-status');
         Route::post('update/order', [FaqController::class, 'changeOrder'])->name('update-order');
+    });
+
+    Route::prefix('blogs')->name('.blogs')->group(function () {
+
+        Route::post('change/status', [BlogController::class, 'changeStatus'])->name('change-status');
+        Route::post('update/order', [BlogController::class, 'changeOrder'])->name('update-order');
     });
 });
