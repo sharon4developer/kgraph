@@ -25,6 +25,15 @@ Route::get('about-us', function () {
 Route::get('services', function () {
     return view('frontend.pages.services');
 });
+Route::get('services', function () {
+    return view('frontend.pages.services');
+});
+Route::get('service-detail', function () {
+    return view('frontend.pages.servicesinner');
+});
+Route::get('blogs', function () {
+    return view('frontend.pages.blogs');
+});
 
 Auth::routes();
 

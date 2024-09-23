@@ -13,7 +13,7 @@
             <div class="flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-20">
                 <div class="w-full">
                     <img class="w-[30px]" src="{{ asset('assets/about/rolloutimage.webp') }}" alt="roll">
-                    <p class="font_inter font-medium text-[20px] text-justify mt-8">
+                    <p class="font_inter font-medium text-[14px] md:text-[20px] text-justify mt-8">
                         “Just like the philosophy of Google, we incorporated our
                         company with the belief in ‘not being evil’. At Kansas,
                         we inspire our teams to be straight-forward, transparent,
@@ -32,24 +32,20 @@
     <div class="container mx-auto px-5 lg:px-12 py-8">
         <div class="z-10 relative translate-large md:py-10">
             <h6 class="capitalize mb-5 text-white font_inter font-semibold text-[19px]">Meet Our crew</h6>
-            <div class="flex items-center justify-evenly overflow-scroll scrollbar-hidden gap-4">
-                <div class=" w-[273px]">
-                    <img class="w-[273px]" src="{{ asset('assets/about/ctasectionbox.png') }}" alt="">
-                </div>
-                <div class="hidden md:block w-[273px]">
-                    <img class="w-[273px]" src="{{ asset('assets/about/ctasectionbox.png') }}" alt="">
-                </div>
-                <div class="hidden md:block w-[273px]">
-                    <img class="w-[273px]" src="{{ asset('assets/about/ctasectionbox.png') }}" alt="">
-                </div>
-                <div class="hidden md:block w-[273px]">
-                    <img class="w-[273px]" src="{{ asset('assets/about/ctasectionbox.png') }}" alt="">
-                </div>
-                <div class="hidden md:block w-[273px]">
-                    <img class="w-[273px]" src="{{ asset('assets/about/ctasectionbox.png') }}" alt="">
-                </div>
-                <div class="hidden md:block w-[273px]">
-                    <img class="w-[273px]" src="{{ asset('assets/about/ctasectionbox.png') }}" alt="">
+            <div class="flex items-center overflow-scroll scrollbar-hidden gap-4 mb-6">
+                <div class="w-full md:w-[273px] border rounded-xl">
+                    <img class="md:w-[273px] rounded-xl" src="{{ asset('assets/about/ctaabout.png') }}" alt="">
+                    <div class="text-white font_inter px-5 pb-4">
+                        <h5 class="pt-[10px] font-semibold text-base">Eric J.Befli</h5>
+                        <h6 class="font-semibold text-xs">Partner</h6>
+
+                        <div class="py-[25px] font-bold text-[10px]">
+                            <p>140 Broadway, New York, NY 10005</p>
+                            <a class="" href="mail.ebelfi@labaton.com">ebelfi@labaton.com</a>
+                        </div>
+
+                        <a class="underline underline-offset-2 font-bold text-[10px]" href="#">Read full bio ></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -69,7 +65,7 @@
                     <h2 id="count-number" class="text-white font_inter font-bold text-[85px] leading-none">60+</h2>
                     <p class="text-white">Years of Experience</p>
                 </div>
-                <div class="my-0 flex flex-wrap md:flex-nowrap items-start gap-5">
+                <div class="my-6 md:my-0 flex flex-wrap md:flex-nowrap items-start gap-5">
                     <div>
                         <h2 class="text-white font_inter font-bold text-[25px] leading-none">60+</h2>
                         <span class="text-white whitespace-nowrap">Employes</span>
@@ -101,6 +97,11 @@
     </div>
 </div>
 
+<div class="bg-white our-story">
+    <div class="container mx-auto px-5 lg:px-12 h-full w-full py-12">
+
+    </div>
+</div>
 
 <div class="loaction bg-[#062358]">
     <div class="container mx-auto px-5 lg:px-12 h-full w-full py-12">
