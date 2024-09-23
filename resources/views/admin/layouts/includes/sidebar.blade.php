@@ -70,6 +70,27 @@
                                 <li><a href="{{ url('admin/faq/create') }}" data-key="t-level-2-1">Add </a></li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Blogs</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li><a href="{{ url('admin/blogs') }}" data-key="t-level-2-2">View </a></li>
+                                <li><a href="{{ url('admin/blogs/create') }}" data-key="t-level-2-1">Add </a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Explore</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li><a href="{{ url('admin/explore') }}" data-key="t-level-2-2">View </a></li>
+                                <li><a href="{{ url('admin/explore/create') }}" data-key="t-level-2-1">Add </a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Certificates</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li><a href="{{ url('admin/certificates') }}" data-key="t-level-2-2">View </a></li>
+                                <li><a href="{{ url('admin/certificates/create') }}" data-key="t-level-2-1">Add </a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
 
