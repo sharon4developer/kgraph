@@ -20,14 +20,14 @@
 
     <nav id="imHeader" class="text-white bg-gradient-to-b from-black to-transparent md:fixed top-10 !z-50 w-full">
         <div class="flex items-center justify-between container mx-auto px-5 lg:px-12 py-4 lg:py-5">
-            <div class="flex items-center gap-[4px] z-10">
+            <a href="{{ url('/') }}"  class="flex items-center gap-[4px] z-10">
                 <img class="w-[1.80rem] logo_image lg:w-[2.5rem]" src="{{asset('assets/KgraphLogo.png')}}" alt="K-graph logo">
                 <div>
                     <h2 class="text-base font-bold logo_text lg:text-[30px]">KGRAPH</h2>
                     <h6 class="text-[7px]  font-medium logo_title lg:mt-1">IMMIGRATION CONSULTANCY INC.</h6>
                 </div>
 
-            </div>
+            </a>
 
             {{-- mobile device navigation bar --}}
             <div class="relative lg:hidden z-50">
