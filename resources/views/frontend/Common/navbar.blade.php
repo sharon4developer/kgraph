@@ -63,7 +63,7 @@
             <div class="capitalize hidden lg:flex gap-4">
                 <ul class="flex items-center gap-4 text-sm font-light">
                     <li><a href="{{ url('about-us') }}">About</a></li>
-                    <li>Services</li>
+                    <li><a href="{{ url('services') }}">Services</a></li>
                     <li>Packages</li>
                     <li>Careers</li>
                 </ul>

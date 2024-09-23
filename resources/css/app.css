@@ -415,15 +415,6 @@ ul.custom-bulletssec li{
     position: relative;
     z-index: 10;
   }
-  /* .serviceSection::after{
-    content: "";
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-    background-image: url(/public/assets/left.png);
-  } */
 
 
   .aboutusbanner {
@@ -452,6 +443,15 @@ ul.custom-bulletssec li{
 
 }
 
+.services-banner{
+    background-image: url(/public/assets/home_Banner/bannerCity.jpg) !important;
+    background-position-y: center;
+    background-position-x: center;
+}
+.services-banner-overlay{
+    background: linear-gradient(180deg, #000000 0%, #113165e8 100%);
+    height: 100%;
+}
 
 
 

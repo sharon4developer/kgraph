@@ -111,7 +111,7 @@
 
         <div class="lg:flex lg:gap-[10%] mt-9">
             <div class="w-full mb-6 lg:mb-0">
-                <h4 class="font_inter font-semibold text-[20px] text-white py-4">Find Your Licensed Immigration Consultant Wherever You Are Located</h4>
+                <h4 class="font_inter font-semibold text-[20px] text-white py-4">Find Your Licensed Immigration ConsultantWherever You Are Located</h4>
                 <div class="grid gap-3 aboutnow knowbutton" style="">
                     <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-2">
                         <div class="text-white">Study in Canada</div>
