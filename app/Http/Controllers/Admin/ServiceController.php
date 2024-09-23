@@ -115,7 +115,7 @@ class ServiceController extends Controller
     {
         $newOrder = $request->input('order');
 
-        Service::updareOrder($request);
+        Service::updateOrder($request);
 
         return response()->json(['message' => 'Order updated successfully']);
     }

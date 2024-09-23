@@ -115,7 +115,7 @@ class BannerController extends Controller
     {
         $newOrder = $request->input('order');
 
-        Banner::updareOrder($request);
+        Banner::updateOrder($request);
 
         return response()->json(['message' => 'Order updated successfully']);
     }

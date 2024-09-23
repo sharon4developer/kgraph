@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
+            $table->string('sub_title')->nullable();
+            $table->string('image')->nullable();
+            $table->string('intervention_image')->nullable();
+            $table->integer('status')->default(1)->nullable();
+            $table->integer('order')->nullable()->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
