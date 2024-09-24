@@ -38,6 +38,10 @@ Route::get('blogs', function () {
     return view('frontend.pages.blogs');
 });
 
+Route::get('services-form', function () {
+    return view('frontend.pages.servicesinerform');
+});
+
 Auth::routes();
 
 Route::get('/logout-me', function () {

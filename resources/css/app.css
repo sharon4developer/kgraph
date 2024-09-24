@@ -13,6 +13,9 @@
 .font_jakarta {
     font-family: "Plus Jakarta Sans", sans-serif;
 }
+.font_arial {
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 h1,h2,h3,h4,h5,h6,a,p,li{
     font-family: "Inter", sans-serif;

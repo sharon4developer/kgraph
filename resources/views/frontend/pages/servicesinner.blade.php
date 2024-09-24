@@ -56,6 +56,10 @@
      .blufader-grade{
         background: linear-gradient(90deg, #072558 0%, rgba(7, 37, 88, 0) 100%);
      }
+     .Realize{
+        background-image: url(assets/whitefader.png) !important;
+        background-size: cover;
+     }
 </style>
 
 
@@ -86,8 +90,8 @@
 </div>
 
 {{-- Realize can section --}}
-<div class="Realize">
-    <div class="bg-whitefader-garde">
+<div class="">
+    <div class="Realize">
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%]">
             <div class="lg:w-1/2 font_inter">
                 <h2 class="font-semibold text-xl lg:text-4xl text-[#062358]">Realize Your Canadian Education Goals</h2>
