@@ -11,9 +11,6 @@
         font-size: 13px;
         font-family: Arial, Helvetica, sans-serif;
     }
-    .services-grade{
-        background: linear-gradient(22deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
-    }
     .contact-form div{
         margin-top: 16px;
         margin-bottom: 16px;

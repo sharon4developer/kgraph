@@ -41,6 +41,9 @@ Route::get('blogs', function () {
 Route::get('services-form', function () {
     return view('frontend.pages.servicesinerform');
 });
+Route::get('packages', function () {
+    return view('frontend.pages.packages');
+});
 
 Auth::routes();
 

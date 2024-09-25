@@ -21,6 +21,16 @@ h1,h2,h3,h4,h5,h6,a,p,li{
     font-family: "Inter", sans-serif;
 }
 
+@media (min-width: 767px){
+    .packages-boxes{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+        justify-items: center;
+        gap: 26px;
+    }
+}
+
 
 
 /* hamburger styles start*/

@@ -64,7 +64,7 @@
                 <ul class="flex items-center gap-4 text-sm font-light">
                     <li><a href="{{ url('about-us') }}">About</a></li>
                     <li><a href="{{ url('services') }}">Services</a></li>
-                    <li><a href="{{ url('#') }}">Packages</a></li>
+                    <li><a href="{{ url('packages') }}">Packages</a></li>
                     <li>Careers</li>
                 </ul>
                 <div class="bg-white text-blue-600 hover:bg-blue-600 hover:text-white px-[26px] py-[7px] rounded-3xl ease-in duration-500 cursor-pointer">
