@@ -91,6 +91,7 @@
                                 <li><a href="{{ url('admin/certificates/create') }}" data-key="t-level-2-1">Add </a></li>
                             </ul>
                         </li>
+                        <li><a href="{{ url('admin/journey') }}" data-key="t-level-2-2">Journey </a></li>
                     </ul>
                 </li>
 

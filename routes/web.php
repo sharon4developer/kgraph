@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CertificateController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExploreController;
 use App\Http\Controllers\Admin\FaqController;
+use App\Http\Controllers\Admin\JourneyController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ServiceFaqController;
 use App\Http\Controllers\Admin\ServicePointController;
@@ -54,6 +55,7 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'blogs' => BlogController::class,
         'explore' => ExploreController::class,
         'certificates' => CertificateController::class,
+        'journey' => JourneyController::class,
     ]);
 
     Route::prefix('banners')->name('.banners')->group(function () {
@@ -108,5 +110,11 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
 
         Route::post('change/status', [CertificateController::class, 'changeStatus'])->name('change-status');
         Route::post('update/order', [CertificateController::class, 'changeOrder'])->name('update-order');
+    });
+
+    Route::prefix('journey')->name('.journey')->group(function () {
+
+        Route::post('change/status', [JourneyController::class, 'changeStatus'])->name('change-status');
+        Route::post('update/order', [JourneyController::class, 'changeOrder'])->name('update-order');
     });
 });
