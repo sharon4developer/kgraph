@@ -1,13 +1,18 @@
 @extends('layouts.main')
 @section('content')
 
+{{-- Load GSAP --}}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+
 <div class="aboutusbanner relative h-full">
     <div class="absolute w-full h-full aboutbackgroundimage"></div>
     <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 lg:py-[8%]">
         <div class="flex flex-col justify-center items-start h-full w-full text-left text-white z-10 md:mt-[16%] lg:mt-8">
             <h2 class="font_inter font-semibold text-[40px] uppercase leading-normal">About Us</h2>
-            <div class="flex items-center gap-4 py-8">
-                <h3 class="font_inter font-normal text-[15px] text-justify">Take a sneak peek in to our journey</h3>
+            <div class="flex items-center gap-4 py-8 lg:py-4">
+                <h3 class="font_inter font-normal text-[15px] lg:text-[20px] text-justify">Take a sneak peek in to our journey</h3>
                 <img class="w-[50px]" src="{{ asset('assets/about/aboutrocket.png') }}" alt="rocket">
             </div>
             <div class="flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-20">
@@ -20,8 +25,8 @@
                         and customer-centric and the rest is history.”
                     </p>
                 </div>
-                <div class="w-full">
-                    <img src="{{ asset('assets/about/videodummy.png') }}" alt="">
+                <div class="w-full cursor-pointer">
+                    <img class="hover:scale-105 ease-linear duration-300" src="{{ asset('assets/about/videodummy.png') }}" alt="">
                 </div>
             </div>
         </div>
@@ -97,9 +102,40 @@
     </div>
 </div>
 
-<div class="bg-white our-story">
-    <div class="container mx-auto px-5 lg:px-12 h-full w-full py-12">
+<div id="aboutOurStory" class="bg-white our-story my-10 h-[50vh]">
+    <div class="container mx-auto px-5 lg:px-12">
+        <h2>Our Story</h2>
+    </div>
+    <div class="mt-6 flex justify-center items-center">
+        <div class="h-[2px] w-[95vw] bg-[#0E3065]">
+            <div id="movebarparent" class="container mx-auto px-5 lg:px-12 w-full h-full flex items-center relative">
+                <div class="absolute bottom-0" style="right: 1%;z-index: 10;top: -61px;">
+                    <img class="w-[500px]" src="{{ asset('assets/home_Banner/canadaanimated.png') }}" alt="">
+                </div>
+                <div id="movedBar" class="bg-[#0E3065] rounded-full h-[6px] w-[30%]"></div>
+            </div>
+        </div>
+    </div>
 
+    <div class="container mx-auto px-5 lg:px-12">
+        <div class="flex items-center gap-[50px] mt-6">
+            <p class="w-[30%] text-[#06245A] font_inter font-semibold text-justify">
+                “<strong>Our Mission</strong> Just like the philosophy of Google,
+                we incorporated our company with the belief in
+                ‘not being evil’. At Kansas,
+                we inspire our teams to be straight-forward,
+                transparent, and customer-centric and the rest
+                is history.”
+            </p>
+            <p class="w-[30%] text-[#06245A] font_inter font-semibold text-justify">
+                “<strong>Our Mission</strong> Just like the philosophy of Google,
+                we incorporated our company with the belief in
+                ‘not being evil’. At Kansas,
+                we inspire our teams to be straight-forward,
+                transparent, and customer-centric and the rest
+                is history.”
+            </p>
+        </div>
     </div>
 </div>
 
@@ -182,6 +218,59 @@
 
     </div>
 </div>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Get the parent container where the bar should move within
+        const moveBarParent = document.querySelector("#movebarparent");
+        const movedBar = document.querySelector("#movedBar");
+        const animatedImage = document.querySelector("#movebarparent img"); // Select the image
+
+        // Set the initial height of the image
+        animatedImage.style.height = "10px";
+
+        // Calculate the available width in the parent container for movement
+        const parentWidth = moveBarParent.offsetWidth;
+        const movedBarWidth = movedBar.offsetWidth;
+
+        // Calculate the maximum distance the bar can move within the container
+        const maxMoveDistance = (parentWidth - movedBarWidth) * 0.9; // Moves 90% of the way
+
+        // GSAP animation to move the bar within its parent but not fully to the end
+        gsap.to(movedBar, {
+            x: maxMoveDistance, // Move the bar but stop before the end of the parent container
+            ease: "power3.out", // Smooth easing function
+            duration: 1, // Increase the duration to slow down the movement
+            scrollTrigger: {
+                trigger: "#aboutOurStory", // Trigger the animation when this section comes into view
+                start: "top 80%", // Animation starts when 80% of the viewport reaches the top of #aboutOurStory
+                end: "top 20%", // Animation ends when 20% of the viewport reaches the top of the section
+                scrub: 6, // Higher value to slow down the scroll effect
+                toggleActions: "play none none none", // Play animation when scrolling down
+                invalidateOnRefresh: true, // Recalculate values on page resize
+            }
+        });
+
+        // GSAP animation to resize the image when the bar reaches the end
+        gsap.to(animatedImage, {
+            height: "360px", // Target height when the bar reaches the end
+            ease: "power3.out", // Smooth easing
+            duration: 1, // Increase the duration for a slower animation
+            scrollTrigger: {
+                trigger: "#aboutOurStory", // Trigger the animation when this section comes into view
+                start: "top 80%", // Same scroll trigger as the bar
+                end: "top 20%", // Animation ends when 20% of the viewport reaches the top of the section
+                scrub: 6, // Slower scroll effect to match the bar animation
+                toggleActions: "play none none none", // Play the animation on scroll
+                invalidateOnRefresh: true, // Recalculate the layout on window resize
+            },
+        });
+    });
+</script>
 
 
 
