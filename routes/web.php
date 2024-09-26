@@ -2,12 +2,14 @@
 
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\CareerController;
 use App\Http\Controllers\Admin\CertificateController;
 use App\Http\Controllers\Admin\CrewController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExploreController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\JourneyController;
+use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Admin\OurStoryController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ServiceFaqController;
@@ -60,6 +62,8 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'journey' => JourneyController::class,
         'crew' => CrewController::class,
         'our-story' => OurStoryController::class,
+        'locations' => LocationController::class,
+        'careers' => CareerController::class,
     ]);
 
     Route::prefix('banners')->name('.banners')->group(function () {
@@ -132,5 +136,17 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
 
         Route::post('change/status', [OurStoryController::class, 'changeStatus'])->name('change-status');
         Route::post('update/order', [OurStoryController::class, 'changeOrder'])->name('update-order');
+    });
+
+    Route::prefix('locations')->name('.locations')->group(function () {
+
+        Route::post('change/status', [LocationController::class, 'changeStatus'])->name('change-status');
+        Route::post('update/order', [LocationController::class, 'changeOrder'])->name('update-order');
+    });
+
+    Route::prefix('careers')->name('.careers')->group(function () {
+
+        Route::post('change/status', [CareerController::class, 'changeStatus'])->name('change-status');
+        Route::post('update/order', [CareerController::class, 'changeOrder'])->name('update-order');
     });
 });

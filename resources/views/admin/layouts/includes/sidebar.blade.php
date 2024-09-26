@@ -116,6 +116,29 @@
                                 <li><a href="{{ url('admin/our-story/create') }}" data-key="t-level-2-1">Add </a></li>
                             </ul>
                         </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Locations</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li><a href="{{ url('admin/locations') }}" data-key="t-level-2-2">View </a></li>
+                                <li><a href="{{ url('admin/locations/create') }}" data-key="t-level-2-1">Add </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                        <span data-key="t-multi-level">Careers</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="true">
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Careers</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li><a href="{{ url('admin/careers') }}" data-key="t-level-2-2">View </a></li>
+                                <li><a href="{{ url('admin/careers/create') }}" data-key="t-level-2-1">Add </a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
                 {{-- <li class="menu-title" data-key="t-apps">Apps</li>

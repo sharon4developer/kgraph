@@ -5,7 +5,7 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Add Blogs</h4>
+                    <h4 class="card-title">Add Blog</h4>
                 </div>
                 <div class="card-body">
                     <form class="needs-validation" novalidate id="blog-add-form" method="POST">
