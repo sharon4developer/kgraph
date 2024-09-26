@@ -1,0 +1,107 @@
+@extends('layouts.main')
+@section('content')
+<style>
+    .services-grade{
+        background: linear-gradient(22deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
+    }
+</style>
+
+{{-- services banner --}}
+<div class="services-banner md:h-[50vh]">
+    <div class="services-banner-overlay">
+        <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[8%]">
+            <div class="text-left text-white mt-10">
+                <h2 class="uppercase font_inter font-semibold text-[40px]">Services</h2>
+                <p class="lg:w-[35%] mt-5 font_inter font-semibold text-[12px]">
+                    Studying in America can be an exciting experience, but it also comes with its own set of challenges.
+                    One such challenge is getting your US student visa approved by the US embassy or consulate
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{-- services section --}}
+<div class="choose-yor h-full bg-[#081e44]">
+    <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 lg:py-12">
+        <div class="services-grade w-full py-2 rounded-md">
+            <h2 class="text-[#072459] font_inter text-[20px] pl-4 font-extrabold capitalize">Foriegn Nationals</h2>
+        </div>
+        <h6 class="py-6 text-white">Choose your Services</h6>
+
+        {{-- scroll need --}}
+        <div class="flex justify-between items-center">
+            <div class="w-full md:w-[317px] bg-white rounded-xl">
+                <img src="{{ asset('assets/agile.png') }}" alt="">
+                <div class="text-left px-5 pt-2 pb-8">
+                    <h6 class="py-3 font-bold font_inter text-[20px]">Study in Canada</h6>
+                    <p class="">Studying in America can be an exciting experience,</p>
+                </div>
+
+                <div class="flex justify-center pb-8">
+                    <button class="flex items-center justify-between gap-4 border border-black rounded-full px-6 py-2">
+                        <div class="text-black">Study in Canada</div>
+                        <div>
+                            <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="black" d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div class="hidden md:block w-full md:w-[317px] bg-white rounded-xl">
+                <img src="{{ asset('assets/agile.png') }}" alt="">
+                <div class="text-left px-5 pt-2 pb-8">
+                    <h6 class="py-3 font-bold font_inter text-[20px]">Study in Canada</h6>
+                    <p class="">Studying in America can be an exciting experience,</p>
+                </div>
+
+                <div class="flex justify-center pb-8">
+                    <button class="flex items-center justify-between gap-4 border border-black rounded-full px-6 py-2">
+                        <div class="text-black">Study in Canada</div>
+                        <div>
+                            <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="black" d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{-- regulated section --}}
+<div class="RegulatedSec bg-black">
+    <div class="container mx-auto px-5 lg:px-12 py-6 lg:py-16 h-full w-full">
+        <div class="md:flex justify-center items-start gap-5">
+            <div class="md:w-3/4 flex flex-col justify-center items-center text-center">
+                <h2 class="text-white font_inter font-semibold text-2xl lg:text-3xl lg:w-[55%]">Regulated Canadian Immigration Consultants (RCIC-IRB)</h2>
+                <p class="py-5 text-white font-normal font_inter text-[14px] lg:w-[50%]">Proudly regulated by and in good standing with the College of Immigration and Citizenship Consultants (CICC). Jamie Dowla, registration #: R507233</p>
+                <div class="flex flex-col md:flex-row gap-5 items-center">
+                    <img class="w-[200px]" src="{{ asset('assets/home_Banner/ciccc.png') }}" alt="">
+                    <img class="w-[200px]" src="{{ asset('assets/home_Banner/capic.png') }}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{-- get in touch section --}}
+<div class="get-in-Touch bg-[#051b3b] py-28">
+    <div class="container mx-auto px-5 lg:px-12 h-full w-full">
+        <div class="flex justify-center items-center flex-col ">
+            <div class="flex flex-col-reverse md:flex-row items-center">
+                <h2 class="font_inter font-semibold text-4xl text-center md:text-left gettouch uppercase gradient-text">Get IN TOUCH WITH US</h2>
+                <img class="w-[70px]" src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="">
+            </div>
+            <p class="text-white py-6 paddadjuster md:w-3/5 lg:w-1/2 text-center font_inter font-semibold lg:text-[22px] gettouchpara">Labaton Keller Sucharow is elevating excellence through innovation, client service, and teamwork.</p>
+            <div class="bg-[#0153d0] flex rounded-full py-[6px]">
+                <span class="px-5 text-white">Have any doubt</span>
+                <button class="bg-white px-8 py-1 text-[#0153d0] rounded-full whitespace-nowrap">Enquiry Now</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@endsection

@@ -38,9 +38,9 @@
             <h6 class="font_inter font-semibold text-[20px] md:text-3xl z-20 text-white lg:mt-20 banner-container-elem">Visa Made Easy Dreams Made Possible</h6>
             <div class="z-10 flex flex-col md:flex-row justify-center items-start md:items-center  gap-4 lg:my-7">
                 <img width="52px" src="{{asset('assets/home_Banner/CanadaFlag.png')}}" alt="CanadaFlag">
-                <div class="duration-200 cursor-pointer ease-linear md:bg-transparent text-blue-600 bg-blue-600 lg:hover:bg-blue-600 flex justify-center items-center rounded-full gap-5 pl-5">
+                <div class="duration-200 cursor-pointer ease-linear md:bg-transparent text-blue-600 bg-blue-600 lg:hover:bg-blue-600 flex justify-center items-center rounded-full gap-5 py-[6.5px] pl-5 lg:pr-2">
                     <h6 class="text-white text-[12px] lg:text-[16px]">Let's turn your vision into reality.</h6>
-                    <div class="bg-white text-blue-600 hover:bg-blue-600 hover:text-white px-[20px] py-1 lg:py-[10px] md:rounded-sm ease-in duration-500 cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                    <div class="bg-white text-blue-600 hover:bg-blue-600 hover:text-white px-[20px] py-1 lg:py-[6px] md:rounded-sm ease-in duration-500 cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                         <a href="" class="h-full">Connect Us</a>
                     </div>
                 </div>
@@ -288,7 +288,7 @@
                     <div class="flex lg:justify-end items-center pt-4 lg:pt-0">
                         <div class="flex items-center gap-7 whitespace-nowrap">
                             <div class="text-white">Meet our Firm</div>
-                            <button class="flex items-center gap-4 rounded-full border border-white px-6 py-2">
+                            <button class="flex items-center gap-4 rounded-full knowmore border border-white px-6 py-2">
                                 <div class="text-white">Know more</div>
                                 <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M13.7266 5.37891L10.2266 8.87891C9.89844 9.23438 9.32422 9.23438 8.99609 8.87891C8.64062 8.55078 8.64062 7.97656 8.99609 7.64844L10.9922 5.625H0.875C0.382812 5.625 0 5.24219 0 4.75C0 4.23047 0.382812 3.875 0.875 3.875H10.9922L8.99609 1.87891C8.64062 1.55078 8.64062 0.976562 8.99609 0.648438C9.32422 0.292969 9.89844 0.292969 10.2266 0.648438L13.7266 4.14844C14.082 4.47656 14.082 5.05078 13.7266 5.37891Z" fill="white"/>
@@ -301,6 +301,18 @@
                 </div>
             </div>
             <p class="py-5 text-white font_inter font-medium text-[18px] lg:w-[30%]">Navigate Your Canadian Immigration Journey with Confidence</p>
+            <div class="video-container">
+                <video id="customVideo" width="320" height="240">
+                  <source src="{{ asset('assets/kgraphvideo.mp4') }}" type="video/mp4">
+                  <source src="{{ asset('assets/kgraphvideo.ogg') }}" type="video/ogg">
+                  Your browser does not support the video tag.
+                </video>
+
+                <!-- Custom Play/Pause Button -->
+                <div id="playPauseButton" class="custom-controls">
+                    <img src="{{ asset('assets/pause.png') }}" alt="Pause" width="50" height="50">
+                </div>
+              </div>
         </div>
     </div>
 
@@ -342,7 +354,7 @@
 
                     <div class="flex items-center gap-7 py-6 lg:py-0 whitespace-nowrap">
                         <div class="text-white">Meet our Firm</div>
-                        <button class="flex items-center gap-4 rounded-full border border-white px-6 py-2">
+                        <button class="flex items-center gap-4 rounded-full knowmore border border-white px-6 py-2">
                             <div class="text-white">Know more</div>
                             <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M13.7266 5.37891L10.2266 8.87891C9.89844 9.23438 9.32422 9.23438 8.99609 8.87891C8.64062 8.55078 8.64062 7.97656 8.99609 7.64844L10.9922 5.625H0.875C0.382812 5.625 0 5.24219 0 4.75C0 4.23047 0.382812 3.875 0.875 3.875H10.9922L8.99609 1.87891C8.64062 1.55078 8.64062 0.976562 8.99609 0.648438C9.32422 0.292969 9.89844 0.292969 10.2266 0.648438L13.7266 4.14844C14.082 4.47656 14.082 5.05078 13.7266 5.37891Z" fill="white"/>
@@ -734,26 +746,6 @@
 </div>
 
 <script>
-    const header = document.getElementById('imHeader');
-    const mheader = document.getElementById('immaintop');
-
-    function handleScroll() {
-        if (window.innerWidth >= 768) {
-            if (window.scrollY > 10) {
-                document.body.classList.add('scrolled');
-                header.classList.add('scrolled-header');
-                mheader.classList.add('hidden');
-            } else {
-                document.body.classList.remove('scrolled');
-                header.classList.remove('scrolled-header');
-                mheader.classList.remove('hidden');
-            }
-        }
-    }
-
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleScroll);
-
     document.querySelectorAll('.accordion-header').forEach(header => {
         header.addEventListener('click', function () {
             const content = this.nextElementSibling;
@@ -809,6 +801,42 @@
 
         observer.observe(sectionToObserve);
     });
+
+    const video = document.getElementById('customVideo');
+    const playPauseButton = document.getElementById('playPauseButton');
+
+    playPauseButton.addEventListener('click', function () {
+        if (video.paused) {
+            video.play();
+            playPauseButton.innerHTML = '<img src="{{ asset('assets/pause.png') }}" alt="Pause" width="50" height="50">';
+        } else {
+            video.pause();
+            playPauseButton.innerHTML = '<img src="{{ asset('assets/play.png') }}" alt="Play" width="50" height="50">';
+        }
+    });
+
+    // Automatically update play/pause button when the video ends
+    video.addEventListener('ended', function () {
+        playPauseButton.innerHTML = '<img src="{{ asset('assets/play.png') }}" alt="Play" width="50" height="50">';
+    });
+
+
+
+
+    // playPauseButton.addEventListener('click', function () {
+    //     if (video.paused) {
+    //     video.play();
+    //     playPauseButton.innerHTML = '⏸️'; // Change to pause icon
+    //     } else {
+    //     video.pause();
+    //     playPauseButton.innerHTML = '▶️'; // Change to play icon
+    //     }
+    // });
+
+    // // Optional: Automatically update play/pause button when video ends
+    // video.addEventListener('ended', function () {
+    //     playPauseButton.innerHTML = '▶️'; // Reset to play icon when video ends
+    // });
 </script>
 
 {{-- gsap animtion --}}

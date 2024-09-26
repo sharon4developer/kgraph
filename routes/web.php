@@ -30,6 +30,25 @@ Route::get('contact-us', function () {
 Route::get('about-us', function () {
     return view('frontend.pages.about');
 });
+Route::get('services', function () {
+    return view('frontend.pages.services');
+});
+Route::get('services', function () {
+    return view('frontend.pages.services');
+});
+Route::get('service-detail', function () {
+    return view('frontend.pages.servicesinner');
+});
+Route::get('blogs', function () {
+    return view('frontend.pages.blogs');
+});
+
+Route::get('services-form', function () {
+    return view('frontend.pages.servicesinerform');
+});
+Route::get('packages', function () {
+    return view('frontend.pages.packages');
+});
 
 Auth::routes();
 
