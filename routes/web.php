@@ -46,6 +46,9 @@ Route::get('services-form', function () {
 Route::get('packages', function () {
     return view('frontend.pages.packages');
 });
+Route::get('contact-us', function () {
+    return view('frontend.pages.contact-us');
+});
 
 Auth::routes();
 

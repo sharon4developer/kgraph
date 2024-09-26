@@ -68,7 +68,7 @@
                     <li>Careers</li>
                 </ul>
                 <div class="bg-white text-blue-600 hover:bg-blue-600 hover:text-white px-[26px] py-[7px] rounded-3xl ease-in duration-500 cursor-pointer">
-                    <a href="" class="h-full font-semibold">Contact Us</a>
+                    <a href="{{ url('contact-us') }}" class="h-full font-semibold">Contact Us</a>
                 </div>
             </div>
         </div>
