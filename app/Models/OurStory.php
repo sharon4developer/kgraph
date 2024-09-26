@@ -7,23 +7,26 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Yajra\DataTables\Facades\DataTables;
 
-class Explore extends Model
+class OurStory extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'explores';
+    protected $table = 'our_stories';
 
-    protected $fillable = ['image', 'intervention_image', 'status','order'];
+    protected $fillable = ['title', 'description', 'image','second_image','second_intervention_image', 'intervention_image', 'status','order','year'];
 
     public static function getFullData($data)
     {
         $locationData = getLocationData();
 
-        $value =  SELF::select('image', 'id', 'status', 'created_at')->orderBy('order', 'asc');
+        $value =  SELF::select('title','year', 'image', 'second_image', 'id', 'status', 'created_at')->orderBy('order', 'asc');
 
         return DataTables::of($value)
             ->editColumn('image', function ($row) use($locationData) {
                 return $locationData['storage_server_path'].$locationData['storage_image_path'].$row->image;
+            })
+            ->editColumn('second_image', function ($row) use($locationData) {
+                return $locationData['storage_server_path'].$locationData['storage_image_path'].$row->second_image;
             })
             ->addIndexColumn()
             ->rawColumns(['action'])
@@ -32,12 +35,21 @@ class Explore extends Model
 
     public static function createData($data)
     {
-        $value = new Explore;
+        $value = new OurStory;
+        $value->title        = $data->title;
+        $value->description  = $data->description;
+        $value->year  = $data->year;
         if ($data->image) {
-            $value->image = Cms::storeImage($data->image, 'crew');
+            $value->image = Cms::storeImage($data->image, $data->title);
             $intervention_image = $value->image;
             // $intervention_image = Cms::makeInterventionImage($data->image);
             $value->intervention_image = $intervention_image;
+        };
+        if ($data->second_image) {
+            $value->second_image = Cms::storeImage($data->second_image, $data->title);
+            $second_intervention_image = $value->second_image;
+            // $intervention_image = Cms::makeInterventionImage($data->image);
+            $value->second_intervention_image = $second_intervention_image;
         };
         $value->status       = 1;
         return $value->save();
@@ -50,12 +62,21 @@ class Explore extends Model
 
     public static function updateData($data)
     {
-        $value = Explore::find($data->explore_id);
+        $value = OurStory::find($data->our_story_id);
+        $value->title        = $data->title;
+        $value->description  = $data->description;
+        $value->year  = $data->year;
         if ($data->image) {
-            $value->image = Cms::storeImage($data->image, 'crew');
+            $value->image = Cms::storeImage($data->image, $data->title);
             $intervention_image = $value->image;
             // $intervention_image = Cms::makeInterventionImage($data->image);
             $value->intervention_image = $intervention_image;
+        };
+        if ($data->second_image) {
+            $value->second_image = Cms::storeImage($data->second_image, $data->title);
+            $second_intervention_image = $value->second_image;
+            // $intervention_image = Cms::makeInterventionImage($data->image);
+            $value->second_intervention_image = $second_intervention_image;
         };
         return $value->save();
     }
@@ -82,7 +103,7 @@ class Explore extends Model
     }
 
     public static function getFullDataForHome(){
-        return SELF::select('image','id')->orderBy('order','asc')->where('status',1)->get();
+        return SELF::select('image','id','title','description','year','second_image')->orderBy('order','asc')->where('status',1)->get();
     }
 
     public static function updateOrder($data)

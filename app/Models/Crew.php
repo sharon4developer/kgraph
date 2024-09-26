@@ -40,7 +40,7 @@ class Crew extends Model
         $value->description  = $data->description;
         $value->position  = $data->position;
         if ($data->image) {
-            $value->image = Cms::storeImage($data->image, $data->title);
+            $value->image = Cms::storeImage($data->image, $data->name);
             $intervention_image = $value->image;
             // $intervention_image = Cms::makeInterventionImage($data->image);
             $value->intervention_image = $intervention_image;
@@ -63,7 +63,7 @@ class Crew extends Model
         $value->description  = $data->description;
         $value->email        = $data->email;
         if ($data->image) {
-            $value->image = Cms::storeImage($data->image, $data->title);
+            $value->image = Cms::storeImage($data->image, $data->name);
             $intervention_image = $value->image;
             // $intervention_image = Cms::makeInterventionImage($data->image);
             $value->intervention_image = $intervention_image;
