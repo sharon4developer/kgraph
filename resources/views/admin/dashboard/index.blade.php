@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
     <div class="row">
-        <div class="col-xl-3 col-md-6">
+        {{-- <div class="col-xl-3 col-md-6">
             <!-- card -->
             <div class="card card-h-100">
                 <!-- card body -->
@@ -96,10 +96,10 @@
                     </div>
                 </div><!-- end card body -->
             </div><!-- end card -->
-        </div><!-- end col -->
+        </div><!-- end col --> --}}
     </div><!-- end row-->
 
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-xl-8">
             <!-- card -->
             <div class="card">
@@ -1011,7 +1011,7 @@
             <!-- end card -->
         </div>
         <!-- end col -->
-    </div><!-- end row -->
+    </div><!-- end row --> --}}
 @endsection
 @push('style')
 @endpush

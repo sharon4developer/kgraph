@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExploreController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\JourneyController;
+use App\Http\Controllers\Admin\OurStoryController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ServiceFaqController;
 use App\Http\Controllers\Admin\ServicePointController;
@@ -58,6 +59,7 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'certificates' => CertificateController::class,
         'journey' => JourneyController::class,
         'crew' => CrewController::class,
+        'our-story' => OurStoryController::class,
     ]);
 
     Route::prefix('banners')->name('.banners')->group(function () {
@@ -119,9 +121,16 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         Route::post('change/status', [JourneyController::class, 'changeStatus'])->name('change-status');
         Route::post('update/order', [JourneyController::class, 'changeOrder'])->name('update-order');
     });
+
     Route::prefix('crew')->name('.crew')->group(function () {
 
         Route::post('change/status', [CrewController::class, 'changeStatus'])->name('change-status');
         Route::post('update/order', [CrewController::class, 'changeOrder'])->name('update-order');
+    });
+
+    Route::prefix('our-story')->name('.our-story')->group(function () {
+
+        Route::post('change/status', [OurStoryController::class, 'changeStatus'])->name('change-status');
+        Route::post('update/order', [OurStoryController::class, 'changeOrder'])->name('update-order');
     });
 });
