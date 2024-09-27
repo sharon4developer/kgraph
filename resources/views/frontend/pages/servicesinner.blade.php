@@ -146,9 +146,9 @@
                         <img class="accordion-icon transition-transform duration-300 w-2 lg:w-[14px]" src="{{ asset('assets/faqplus.png') }}" alt="Plus Icon">
                         <h3 class="text-[12px] font-semibold lg:text-[14px] lg:font-medium">1. Can I get interviewed at the nearest US Embassy or Consulate?</h3>
                     </div>
-                    <p class="pl-10 pt-4 accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ea perferendis reprehenderit! Harum facilis voluptates necessitatibus debitis eius aliquam dolor hic, corporis, delectus laboriosam dolores vitae magnam voluptatem iusto esse!
-                    </p>
+                    <div class="pl-10 accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <p class="pt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ea perferendis reprehenderit! Harum facilis voluptates necessitatibus debitis eius aliquam dolor hic, corporis, delectus laboriosam dolores vitae magnam voluptatem iusto esse!</p>
+                    </div>
                 </div>
 
                 <div class="accordion-item bg-white p-5 lg:w-1/2 rounded-xl overflow-hidden cursor-pointer transition-all duration-300">
@@ -156,9 +156,9 @@
                         <img class="accordion-icon transition-transform duration-300 w-2 lg:w-[14px]" src="{{ asset('assets/faqplus.png') }}" alt="Plus Icon">
                         <h3 class="text-[12px] font-semibold lg:text-[14px] lg:font-medium">2. Can I get interviewed at the nearest US Embassy or Consulate?</h3>
                     </div>
-                    <p class="pl-10 pt-4 accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ea perferendis reprehenderit! Harum facilis voluptates necessitatibus debitis eius aliquam dolor hic, corporis, delectus laboriosam dolores vitae magnam voluptatem iusto esse!
-                    </p>
+                    <div class="pl-10 accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <p class="pt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ea perferendis reprehenderit! Harum facilis voluptates necessitatibus debitis eius aliquam dolor hic, corporis, delectus laboriosam dolores vitae magnam voluptatem iusto esse!</p>
+                    </div>
                 </div>
             </div>
         </div>
