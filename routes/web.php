@@ -52,6 +52,12 @@ Route::get('packages', function () {
 Route::get('contact-us', function () {
     return view('frontend.pages.contact-us');
 });
+Route::get('careers', function () {
+    return view('frontend.pages.careers');
+});
+Route::get('packages-detail', function () {
+    return view('frontend.pages.packages-detail');
+});
 
 Auth::routes();
 

@@ -5,6 +5,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+
 <style>
     .banner-container-elem {
         opacity: 0;
@@ -24,6 +32,11 @@
         opacity: 0;
         transform: translateX(-100%);
         width: 0;
+    }
+    @media (min-width: 1900px){
+        .left-aligner{
+            padding-left: 15rem
+        }
     }
 </style>
 {{-- banner section --}}
@@ -66,7 +79,7 @@
 
 <div class="bg-[#051b3b]">
     {{-- our service section --}}
-    <div class="serviceSection bg-[#051b3b]">
+    <div class="serviceSection gradient-evition relative overflow-hidden z-10 bg-[#051b3b]">
         <div class="container mx-auto px-5 lg:px-12 lg:py-16 h-full w-full pt-10 lg:pt0">
             <div class="md:flex items-center">
                 <h2 class="left-to-right-animation font_inter font-semibold text-[50px] lg:text-[80px] text-white leading-none uppercase"><span class="inline-block">Our</span><span class="inline-block">Services</span></h2>
@@ -310,14 +323,14 @@
 
                 <!-- Custom Play/Pause Button -->
                 <div id="playPauseButton" class="custom-controls">
-                    <img src="{{ asset('assets/pause.png') }}" alt="Pause" width="50" height="50">
+                    <img src="{{ asset('assets/play.png') }}" alt="Pause" width="50" height="50">
                 </div>
               </div>
         </div>
     </div>
 
     {{-- navigate section --}}
-    <div class="Navigatesec bg-[#051b3b]">
+    <div class="Navigatesec gradient-evition relative overflow-hidden z-10 bg-[#051b3b]">
         <div class="container mx-auto px-5 lg:px-12 lg:py-16 h-full w-full">
 
             <div class="md:flex justify-between items-start gap-5">
@@ -417,29 +430,32 @@
     </div>
 
     {{-- testimonial sect --}}
-    <div class="testimonial bg-[#051b3b]">
-        <div class="container mx-auto px-5 lg:px-12 py-8 lg:py-16 h-full w-full">
-            <div class="flex items-end w-full gap-2 lg:gap-7">
-                <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] lg:text-[65px] leading-none thirdleft-to-right-animation">Testimonials</h2>
-                <div class="w-full thirdleft-to-right-width-animation" style="border: 2px solid #FFFFFF8C;margin-bottom: 8px;"></div>
-            </div>
-            <p class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%]">Let’s See what our customers want to say</p>
-            <p class="text-white font_inter font-normal text-justify text-[14px] md:w-[45%]">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
-
-            <div class="flex justify-between items-center overflow-x-scroll gap-6 scrollbar-hidden py-[70px]">
-                <img class="" src="{{ asset('assets/home_Banner/cardone.png') }}" alt="">
-                <img src="{{ asset('assets/home_Banner/jithcaredtwo.png') }}" alt="">
-                <img src="{{ asset('assets/home_Banner/cardone.png') }}" alt="">
-                <img src="{{ asset('assets/home_Banner/jithcaredtwo.png') }}" alt="">
+    <div class="testimonial bg-[#051b3b] gradient-evition relative overflow-hidden z-10">
+            <div class="container mx-auto px-5 lg:px-12 py-8 lg:py-16 h-full w-full">
+                <div class="flex items-end w-full gap-2 lg:gap-7">
+                    <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] lg:text-[65px] leading-none thirdleft-to-right-animation">Testimonials</h2>
+                    <div class="w-full thirdleft-to-right-width-animation" style="border: 2px solid #FFFFFF8C;margin-bottom: 8px;"></div>
+                </div>
+                <p class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%]">Let’s See what our customers want to say</p>
+                <p class="text-white font_inter font-normal text-justify text-[14px] md:w-[45%]">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
             </div>
 
-            <div class="flex justify-start items-center mb-12">
-                <div class="commongrad rounded-full py-[2.5px]  w-fit">
-                    <span class="px-5 text-white">Be One of Them</span>
-                    <button class="bg-white px-8 py-1 text-[#0153d0] rounded-full">Write</button>
+            <div class="pl-5 lg:pl-12 left-aligner py-[70px] your-slider-class z-50">
+                <div><img class="" src="{{ asset('assets/home_Banner/cardone.png') }}" alt=""></div>
+                <div><img src="{{ asset('assets/home_Banner/jithcaredtwo.png') }}" alt=""></div>
+                <div><img src="{{ asset('assets/home_Banner/cardone.png') }}" alt=""></div>
+                <div><img src="{{ asset('assets/home_Banner/jithcaredtwo.png') }}" alt=""></div>
+            </div>
+
+
+            <div class="container mx-auto px-5 lg:px-12 py-8 lg:py-16 h-full w-full">
+                <div class="flex justify-start items-center mb-12">
+                    <div class="commongrad rounded-full py-[2.5px]  w-fit">
+                        <span class="px-5 text-white">Be One of Them</span>
+                        <button class="bg-white px-8 py-1 text-[#0153d0] rounded-full">Write</button>
+                    </div>
                 </div>
             </div>
-        </div>
     </div>
 
     {{-- Blog sect --}}
@@ -533,7 +549,7 @@
                 <h2 class="text-white font_inter font-semibold text-5xl">Explore</h2>
                 <div class="w-full" style="border: 2px solid #FFFFFF8C; margin-bottom: 8px;"></div>
             </div>
-            <p class="text-white font_inter font-semibold text-[26px] lg:w-[35%] mt-6">Learn About All of the Great Things Canada Has to Offer!</p>
+            <p class="text-white font_inter font-semibold text-[26px] lg:w-[35%] mt-6">Learn About All of the Great ThingsCanada Has to Offer!</p>
         </div>
         <div class="flex justify-between items-center overflow-x-scroll gap-6 scrollbar-hidden pb-[100px]">
             <img class="pl-8 lg:pl-12" src="{{ asset('assets/home_Banner/sliderone.png') }}" alt="">
@@ -966,6 +982,22 @@
         ease: "power2.out"
     });
 
+</script>
+
+{{-- slick slider --}}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.your-slider-class').slick({
+            autoplay: true,
+            autoplaySpeed: 3000,
+            dots: true,
+            arrows: true,
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 1
+        });
+
+    });
 </script>
 
 @endsection

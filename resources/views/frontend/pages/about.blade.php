@@ -5,6 +5,27 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
+<style>
+    .slider-endballs::after{
+        content:"";
+        position: absolute;
+        background-color:#062358;
+        width:15px;
+        height:15px;
+        right: 0;
+        top: -7px;
+
+    }
+    .slider-endballs::before{
+        content:"";
+        position: absolute;
+        background-color:#062358;
+        width:15px;
+        height:15px;
+        left: 0;
+        top: -7px;
+    }
+</style>
 
 <div class="aboutusbanner relative h-full">
     <div class="absolute w-full h-full aboutbackgroundimage"></div>
@@ -102,7 +123,7 @@
     </div>
 </div>
 
-<div id="aboutOurStory" class="bg-white our-story my-10 h-[50vh]">
+<div id="aboutOurStory" class="bg-white our-story my-10 h-full">
     <div class="container mx-auto px-5 lg:px-12">
         <h2>Our Story</h2>
     </div>
@@ -137,9 +158,72 @@
             </p>
         </div>
     </div>
+
+    <div class="px-5 lg:px-12 py-8 flex">
+        <div class="flex items-center gap-3 pt-[3%] mr-4">
+            <div class="bg-[#062358] rounded-full w-8 h-8 flex justify-center items-center text-white font-semibold cursor-pointer pb-[3.5px]"><</div>
+            <div class="bg-[#062358] rounded-full w-8 h-8 flex justify-center items-center text-white font-semibold cursor-pointer pb-[3.5px]">></div>
+        </div>
+        <div class="flex overflow-x-scroll items-center w-[100vw] scrollbar-hidden">
+            <div class="flex flex-col gap-4 w-[100vw]">
+                <div class="flex items-end gap-10">
+                    <h5 class="pl-[30px] text-[#072558] font_inter font-semibold text-[16px]">1963</h5>
+                    <div class="flex gap-4 pl-[21%]">
+                        <img src="{{ asset('assets/slider.png') }}" alt="">
+                        <img src="{{ asset('assets/sliderthree.png') }}" alt="">
+                    </div>
+                </div>
+                <div class="bg-[#062358] w-full h-[1px] slider-endballs relative"></div>
+                <div class="flex gap-8 pl-[3%]">
+                    <h3 class="w-[25%] text-[#07245A] font_inter font-semibold text-[12px]">K Graph International is Established in New York City</h3>
+                    <p class="w-[50%] text-[#07245A] opacity-40 font_inter font-semibold text-[16px]">
+                        The Firm was founded in 1963 as Matson Kass Goodkind LLP.
+                        Located in the heart of New York's Financial District, the
+                        Firm launched its Securities Litigation Practice that same ye
+                    </p>
+                </div>
+            </div>
+            <div class="flex flex-col gap-4 w-[100vw]">
+                <div class="flex items-end gap-10">
+                    <h5 class="pl-[30px] text-[#072558] font_inter font-semibold text-[16px]">1963</h5>
+                    <div class="flex gap-4 pl-[21%]">
+                        <img src="{{ asset('assets/slider.png') }}" alt="">
+                        <img src="{{ asset('assets/sliderthree.png') }}" alt="">
+                    </div>
+                </div>
+                <div class="bg-[#062358] w-full h-[1px] slider-endballs relative"></div>
+                <div class="flex gap-8 pl-[3%]">
+                    <h3 class="w-[25%] text-[#07245A] font_inter font-semibold text-[12px]">K Graph International is Established in New York City</h3>
+                    <p class="w-[50%] text-[#07245A] opacity-40 font_inter font-semibold text-[16px]">
+                        The Firm was founded in 1963 as Matson Kass Goodkind LLP.
+                        Located in the heart of New York's Financial District, the
+                        Firm launched its Securities Litigation Practice that same ye
+                    </p>
+                </div>
+            </div>
+            <div class="flex flex-col gap-4 w-[100vw]">
+                <div class="flex items-end gap-10">
+                    <h5 class="pl-[30px] text-[#072558] font_inter font-semibold text-[16px]">1963</h5>
+                    <div class="flex gap-4 pl-[21%]">
+                        <img src="{{ asset('assets/slider.png') }}" alt="">
+                        <img src="{{ asset('assets/sliderthree.png') }}" alt="">
+                    </div>
+                </div>
+                <div class="bg-[#062358] w-full h-[1px] slider-endballs relative"></div>
+                <div class="flex gap-8 pl-[3%]">
+                    <h3 class="w-[25%] text-[#07245A] font_inter font-semibold text-[12px]">K Graph International is Established in New York City</h3>
+                    <p class="w-[50%] text-[#07245A] opacity-40 font_inter font-semibold text-[16px]">
+                        The Firm was founded in 1963 as Matson Kass Goodkind LLP.
+                        Located in the heart of New York's Financial District, the
+                        Firm launched its Securities Litigation Practice that same ye
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="loaction bg-[#062358]">
+<div class="loaction bg-[#062358] gradient-evition relative overflow-hidden z-10">
     <div class="container mx-auto px-5 lg:px-12 h-full w-full py-12">
         <div class="flex items-end w-full gap-2 lg:gap-7">
             <h2 class="uppercase text-white font_inter font-semibold text-[30px] lg:text-[45px] leading-none thirdleft-to-right-animation">Locations</h2>
