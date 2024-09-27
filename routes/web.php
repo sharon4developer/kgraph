@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CareerController;
 use App\Http\Controllers\Admin\CertificateController;
+use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\CrewController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExploreController;
@@ -11,9 +12,11 @@ use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\JourneyController;
 use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Admin\OurStoryController;
+use App\Http\Controllers\Admin\PrivacyPolicyController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ServiceFaqController;
 use App\Http\Controllers\Admin\ServicePointController;
+use App\Http\Controllers\Admin\TermsAndConditionController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\WhoWeAreController;
 use Illuminate\Support\Facades\Auth;
@@ -83,6 +86,9 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'our-story' => OurStoryController::class,
         'locations' => LocationController::class,
         'careers' => CareerController::class,
+        'privacy-policy' => PrivacyPolicyController::class,
+        'terms-and-condition' => TermsAndConditionController::class,
+        'contact-us' => ContactUsController::class,
     ]);
 
     Route::prefix('banners')->name('.banners')->group(function () {
@@ -137,12 +143,6 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
 
         Route::post('change/status', [CertificateController::class, 'changeStatus'])->name('change-status');
         Route::post('update/order', [CertificateController::class, 'changeOrder'])->name('update-order');
-    });
-
-    Route::prefix('journey')->name('.journey')->group(function () {
-
-        Route::post('change/status', [JourneyController::class, 'changeStatus'])->name('change-status');
-        Route::post('update/order', [JourneyController::class, 'changeOrder'])->name('update-order');
     });
 
     Route::prefix('crew')->name('.crew')->group(function () {

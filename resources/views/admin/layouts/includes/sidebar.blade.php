@@ -141,6 +141,19 @@
                         </li>
                     </ul>
                 </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i class="fa fa-link" aria-hidden="true"></i>
+                        <span data-key="t-multi-level">Footer Links</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="true">
+                        <li><a href="{{ url('admin/terms-and-condition') }}" data-key="t-level-2-2">Terms And Conditions </a></li>
+                        <li><a href="{{ url('admin/privacy-policy') }}" data-key="t-level-2-2">Privacy Policy </a></li>
+                        <li><a href="{{ url('admin/contact-us') }}" data-key="t-level-2-2">Contact Us </a></li>
+                    </ul>
+                </li>
+
                 {{-- <li class="menu-title" data-key="t-apps">Apps</li>
 
                 <li>
