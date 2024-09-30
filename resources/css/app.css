@@ -305,13 +305,24 @@ ul.custom-bulletssec li{
     color: white;
     transition: all 500ms ease-in;
 }
-.gradient-text:hover ,gradient-text span:hover {
-    background-image: linear-gradient(93.82deg, #FFFFFF 1.14%, #0047FF 172.98%); /* Gradient background */
-    background-clip: text; /* Clips the gradient to the text */
-    -webkit-background-clip: text; /* For WebKit browsers */
-    color: transparent; /* Makes the text color transparent */
-    -webkit-text-fill-color: transparent; /* Makes the text color transparent for WebKit browsers */
-}
+.gradient-text {
+    background-image: linear-gradient(93.82deg, #FFFFFF 1.14%, #0047FF 172.98%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%; /* Makes gradient large enough to move */
+    animation: gradientMove 4s ease infinite; /* Continuous animation */
+  }
+
+  @keyframes gradientMove {
+    0% {
+      background-position: 100% 50%; /* Start from right */
+    }
+    100% {
+      background-position: 0% 50%; /* Move to left */
+    }
+  }
 
 .accordion-content {
     max-height: 0; /* Collapsed state */
