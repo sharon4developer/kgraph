@@ -1,6 +1,7 @@
 @extends('layouts.main')
 @section('content')
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <style>
     .contact-US{
         background: linear-gradient(180deg, #02050B 20.98%, rgba(0, 0, 0, 0) 302.7%);
@@ -18,17 +19,19 @@
     .canada-flag{
         position: relative;
     }
-    .canada-flag::after{
+    /* .canada-flag::after {
         content: "";
-        /* display: block; */
         position: absolute;
         right: 10%;
-        top: -10px;
+        top: -150px;
         width: 100px;
         height: 100px;
         background-image: url(assets/home_Banner/reduse.png) !important;
         background-repeat: no-repeat;
-    }
+        opacity: 0;
+        z-index: 99;
+    } */
+
     .enquiry-form{
         padding: 30px;
         margin-top: 30px;
@@ -71,9 +74,17 @@
         transition: max-height 0.5s ease-in-out;
     }
 
+    .flag-img {
+        position: relative;
+        top: -150px; /* Start off-screen */
+        opacity: 0;  /* Start invisible */
+        width: 100px;
+        height: 100px;
+    }
+
 </style>
 
-<div class="contact-US-banner h-full w-full">
+<div class="careers-parent contact-US-banner h-full w-full">
     <div class="contact-US h-full w-full">
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 lg:pt-[8%] text-white">
             <div class="flex flex-col lg:flex-row justify-between items-start gap-[15%] lg:py-[50px] md:mt-36 lg:mt-0">
@@ -88,7 +99,10 @@
                         <li class="py-1">Replace Self - Mentoring Other Team Members</li>
                     </ul>
                 </div>
-                <div class="bg-white rounded-xl h-fit w-full canada-flag">
+                <div class="bg-white rounded-xl h-fit w-full canada-flag relative">
+                    <div class="absolute right-6 top-[-10px]">
+                        <img src="assets/home_Banner/reduse.png" class="flag-img" alt="Canada Flag" />
+                    </div>
                     <div>
                         <form action="" class="text-black enquiry-form">
                             <h4 class="font_inter font-semibold text-black text-[32px] pb-10">Enquiry</h4>
@@ -255,6 +269,26 @@
                 }
             });
         });
+</script>
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function() {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.to(".flag-img", {
+            scrollTrigger: {
+            trigger: ".careers-parent", // The section that triggers the animation
+            start: "top center", // When the top of the trigger hits the center of the viewport
+            toggleActions: "play none none none", // Play animation when triggered
+            },
+            duration: 2, // Duration of the animation
+            top: "-10px", // Final position of the flag (curtain falling to this point)
+            opacity: 1, // Fade in the flag as it falls
+            ease: "bounce.out", // Bounce effect to mimic a natural falling curtain
+        });
+    });
+
 </script>
 
 @endsection

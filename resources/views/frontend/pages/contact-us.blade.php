@@ -1,5 +1,8 @@
 @extends('layouts.main')
 @section('content')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
 
 <style>
 
@@ -19,9 +22,8 @@
  .canada-flag{
     position: relative;
  }
- .canada-flag::after{
+ /* .canada-flag::after{
     content: "";
-    /* display: block; */
     position: absolute;
     right: 10%;
     top: -10px;
@@ -29,7 +31,7 @@
     height: 100px;
     background-image: url(assets/home_Banner/reduse.png) !important;
     background-repeat: no-repeat;
- }
+ } */
  .enquiry-form{
     padding: 30px;
     margin-top: 30px;
@@ -68,6 +70,13 @@
  .phone-text{
     color: #034833;
  }
+ .flag-img-contact {
+        position: relative;
+        top: -150px; /* Start off-screen */
+        opacity: 0;  /* Start invisible */
+        width: 100px;
+        height: 100px;
+    }
 </style>
 
 <div class="contact-US-banner h-full w-full">
@@ -85,7 +94,10 @@
                         <li class="py-1">Replace Self - Mentoring Other Team Members</li>
                     </ul>
                 </div>
-                <div class="bg-white rounded-xl h-fit w-full canada-flag mt-[52px] lg:mt-0">
+                <div class="bg-white rounded-xl h-fit w-full mt-[52px] lg:mt-0 relative">
+                    <div class="absolute right-6 top-[-10px]">
+                        <img src="assets/home_Banner/reduse.png" class="flag-img-contact" alt="Canada Flag" />
+                    </div>
                     <div>
                         <form action="" class="text-black enquiry-form">
                             <h4 class="font_inter font-semibold text-black text-[32px] pb-10">Enquiry</h4>
@@ -375,6 +387,25 @@
 
     </div>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.to(".flag-img-contact", {
+            scrollTrigger: {
+            trigger: ".contact-US-banner", // The section that triggers the animation
+            start: "top center", // When the top of the trigger hits the center of the viewport
+            toggleActions: "play none none none", // Play animation when triggered
+            },
+            duration: 2, // Duration of the animation
+            top: "-10px", // Final position of the flag (curtain falling to this point)
+            opacity: 1, // Fade in the flag as it falls
+            ease: "bounce.out", // Bounce effect to mimic a natural falling curtain
+        });
+    });
+
+</script>
+
 
 <script>
     function handleFileChange() {
