@@ -52,12 +52,16 @@
             <h6 class="font_inter font-semibold text-base md:text-[20px] md:text-3xl lg:text-base xl:text-3xl z-20 text-white lg:mt-14 xl:mt-20 banner-container-elem">Visa Made Easy Dreams Made Possible</h6>
             <div class="z-10 flex flex-col md:flex-row justify-center items-start md:items-center  gap-4 lg:my-7">
                 <img width="52px" src="{{asset('assets/home_Banner/CanadaFlag.png')}}" alt="CanadaFlag">
-                <div class="duration-200 cursor-pointer ease-linear md:bg-transparent text-blue-600 bg-blue-600 lg:hover:bg-blue-600 flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 lg:pr-2">
-                    <h6 class="text-white text-[12px] xl:text-[16px]">Let's turn your vision into reality.</h6>
-                    <div class="bg-white text-blue-600   px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-sm ease-in duration-500 cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 lg:pr-2 overflow-hidden group">
+                    <!-- Background animation using pseudo-element -->
+                    <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-0 group-hover:w-full w-0 left-full"></div>
+
+                    <h6 class="relative z-10 text-white text-[12px] xl:text-[16px]">Let's turn your vision into reality.</h6>
+                    <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-sm cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                         <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
                     </div>
                 </div>
+
             </div>
             <div class="z-10 flex flex-wrap md:flex-nowrap justify-around items-center w-full lg:mb-1 xl:mb-10">
                 <img width="100px" height="28px" src="{{ asset('assets/home_Banner/segment.png') }}" alt="">
@@ -86,9 +90,14 @@
                 <h2 class="left-to-right-animation font_inter font-semibold text-[50px] xl:text-[80px] text-white leading-none uppercase"><span class="inline-block">Our</span><span class="inline-block">Services</span></h2>
                 <div class="md:pl-2 w-full" style="margin-bottom: -6%;">
                     <div class="my-4 md:my-0 flex justify-end items-center">
-                        <div class="commongrad p-[6px] rounded-full md:py-[2.5px] flex items-center">
-                            <span class="px-5 text-white text-[10px] md:text-[12px]">Let's turn your vision into reality.</span>
-                            <button class="bg-white px-8 py-1 text-[#0153d0] rounded-full whitespace-nowrap">Connect Us</button>
+                        <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 lg:pr-2 overflow-hidden group">
+                            <!-- Background animation using pseudo-element -->
+                            <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-0 group-hover:w-full w-0 left-full"></div>
+
+                            <h6 class="relative z-10 text-white text-[12px] xl:text-[16px]">Let's turn your vision into reality.</h6>
+                            <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-sm cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                                <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
+                            </div>
                         </div>
                     </div>
                     <div class="w-full my-6 left-to-right-width-animation" style="border: 2px solid #FFFFFF8C;"></div>
@@ -430,10 +439,16 @@
 
             <div class="container mx-auto px-5 lg:px-12 py-8 lg:py-16 h-full w-full flex flex-col-reverse md:flex-row gap-4 items-center justify-between">
                 <div class="flex justify-start items-center">
-                    <div class="commongrad rounded-full py-[2.5px]  w-fit">
-                        <span class="px-5 text-white">Be One of Them</span>
-                        <button class="bg-white px-8 py-1 text-[#0153d0] rounded-full">Write</button>
+                    <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 lg:pr-2 overflow-hidden group">
+                        <!-- Background animation using pseudo-element -->
+                        <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-0 group-hover:w-full w-0 left-full"></div>
+
+                        <h6 class="relative z-10 text-white text-[12px] xl:text-[16px]">Be One of Them</h6>
+                        <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-sm cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                            <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
+                        </div>
                     </div>
+
                 </div>
 
                 <div class="flex justify-center gap-3 items-center">
@@ -457,10 +472,16 @@
             <p class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%]">Canadian Immigration News, Tips, and Resources</p>
             <p class="text-white font_inter font-normal text-justify text-[14px] md:w-[45%]">Stay in the loop and keep up with all our news and updates!</p>
             <div class="flex justify-start items-center my-12">
-                <div class="commongrad rounded-full py-[2.5px]  w-fit">
-                    <span class="px-5 text-white">Be One of Them</span>
-                    <button class="bg-white px-8 py-1 text-[#0153d0] rounded-full">Write</button>
+                <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 lg:pr-2 overflow-hidden group">
+                    <!-- Background animation using pseudo-element -->
+                    <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-0 group-hover:w-full w-0 left-full"></div>
+
+                    <h6 class="relative z-10 text-white text-[12px] xl:text-[16px]">Be One of Them</h6>
+                    <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-sm cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                        <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
+                    </div>
                 </div>
+
             </div>
 
 
@@ -772,10 +793,16 @@
                 <img class="w-[70px]" src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="">
             </div>
             <p class="text-white py-6 paddadjuster md:w-3/5 lg:w-1/2 text-center font_inter font-semibold lg:text-[22px] gettouchpara">Labaton Keller Sucharow is elevating excellence through innovation, client service, and teamwork.</p>
-            <div class="bg-[#0153d0] flex rounded-full py-[6px]">
-                <span class="px-5 text-white">Have any doubt</span>
-                <button class="bg-white px-8 py-1 text-[#0153d0] rounded-full whitespace-nowrap">Enquiry Now</button>
+            <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 lg:pr-2 overflow-hidden group">
+                <!-- Background animation using pseudo-element -->
+                <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-0 group-hover:w-full w-0 left-full"></div>
+
+                <h6 class="relative z-10 text-white text-[12px] xl:text-[16px]">Have any doubt</h6>
+                <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-sm cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                    <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
+                </div>
             </div>
+
         </div>
     </div>
 </div>
