@@ -113,7 +113,7 @@ $('#service-add-form').validate({
         title: {
             required: true,
         },
-        sub_title: {
+        description: {
             required: true,
         },
         service_id: {
@@ -122,7 +122,7 @@ $('#service-add-form').validate({
     },
     messages: {
         title: "Title field is required",
-        sub_title: "Sub title field is required",
+        description: "Description field is required",
         service_id: "Service field is required",
     },
     errorElement: 'span',
@@ -199,7 +199,7 @@ $('#service-edit-form').validate({
         title: {
             required: true,
         },
-        sub_title: {
+        description: {
             required: true,
         },
         service_id: {
@@ -211,7 +211,7 @@ $('#service-edit-form').validate({
     },
     messages: {
         title: "Title field is required",
-        sub_title: "Sub title field is required",
+        description: "Description field is required",
         service_id: "Service field is required",
     },
     errorElement: 'span',

@@ -23,6 +23,7 @@ class UpdatePackageRequest extends FormRequest
     {
         return [
             'country' => 'required',
+            'title' => 'required',
             'description' => 'required',
             'image' => 'mimes:jpeg,png,jpg,gif,webp',
             'package_id' => 'required|exists:services,id',

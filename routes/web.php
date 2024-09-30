@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\JourneyController;
 use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Admin\OurStoryController;
 use App\Http\Controllers\Admin\PackageController;
+use App\Http\Controllers\Admin\PackagePointController;
 use App\Http\Controllers\Admin\PrivacyPolicyController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ServiceFaqController;
@@ -91,6 +92,7 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'terms-and-condition' => TermsAndConditionController::class,
         'contact-us' => ContactUsController::class,
         'packages' => PackageController::class,
+        'package-points' => PackagePointController::class,
     ]);
 
     Route::prefix('banners')->name('.banners')->group(function () {
@@ -175,5 +177,11 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
 
         Route::post('change/status', [PackageController::class, 'changeStatus'])->name('change-status');
         Route::post('update/order', [PackageController::class, 'changeOrder'])->name('update-order');
+    });
+
+    Route::prefix('package-points')->name('.package-points')->group(function () {
+
+        Route::post('change/status', [PackagePointController::class, 'changeStatus'])->name('change-status');
+        Route::post('update/order', [PackagePointController::class, 'changeOrder'])->name('update-order');
     });
 });

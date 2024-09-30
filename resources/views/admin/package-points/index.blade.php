@@ -7,12 +7,27 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-md-10">
-                            <h4 class="box-title">Packages</h4>
+                            <h4 class="box-title">Package Points</h4>
                         </div>
+
                         <div class="col-md-2">
                             <a class="btn btn-outline-info btn-rounded m-3 _effect--ripple waves-effect waves-light float-end"
-                                href="{{ url('admin/packages/create') }}"><i class="fa fa-plus" aria-hidden="true"></i>
+                                href="{{ url('admin/package-points/create') }}"><i class="fa fa-plus"
+                                    aria-hidden="true"></i>
                                 Add</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            {{-- <label class="form-label" for="sub_title">Select Package</label> --}}
+                            <select class="form-select" name="package_id" id="select-package">
+                                <option value="" selected>All</option>
+                                @foreach ($packages as $package)
+                                    <option value="{{ $package->id }}">{{ $package->title }}</option>
+                                @endforeach
+                            </select>
+                            <div class="valid-feedback">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -21,9 +36,8 @@
                         <thead>
                             <tr>
                                 <th>SL No</th>
+                                <th>Package</th>
                                 <th>Title</th>
-                                <th>Country</th>
-                                <th>Image</th>
                                 <th>Status</th>
                                 <th>Created Date</th>
                                 <th>Action</th>
@@ -41,5 +55,5 @@
 @push('style')
 @endpush
 @push('script')
-    <script src="{{ asset('admin/backend/js/packages.js') }}"></script>
+    <script src="{{ asset('admin/backend/js/package-points.js') }}"></script>
 @endpush

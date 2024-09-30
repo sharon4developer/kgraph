@@ -14,7 +14,7 @@ $(document).ready(function () {
 
                 // Pass the new order to the backend (e.g., using AJAX)
                 $.ajax({
-                    url: $('#route-for-user').val() + '/packages/update/order', // Replace with your Laravel route URL
+                    url: $('#route-for-user').val() + '/package-points/update/order', // Replace with your Laravel route URL
                     method: 'POST',
                     data: {
                         order: newOrder
@@ -35,19 +35,18 @@ function loadDataTableForPackages() {
     table = $('#package-details-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: $('#route-for-user').val() + '/packages/show',
+        "ajax": {
+            "url": $('#route-for-user').val() + '/package-points/show',
+            "dataType": "json",
+            "type": "GET",
+            "data": function(d) {
+                d.package_id=$('#select-package').val();
+            }
+        },
         columns: [
             { data: 'DT_RowIndex', orderable: false, searchable: false },
+            { data: 'package_id' },
             { data: 'title' },
-            { data: 'country' },
-            {
-                data: null,
-                render: function (row) {
-                    return `<img class="table-img" src=` + row.image + `>`;
-                },
-                orderable: false,
-                searchable: false,
-            },
             {
                 data: null,
                 render: function (row) {
@@ -82,7 +81,7 @@ function loadDataTableForPackages() {
                                             <i class="fa fa-check"></i>
                                         </a>`;
                     return (`<div style="white-space:no-wrap">
-                                    <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Edit" data-bs-placement="top"  href="` + $("#route-for-user").val() + `/packages/` + row.id + `/edit">
+                                    <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Edit" data-bs-placement="top"  href="` + $("#route-for-user").val() + `/package-points/` + row.id + `/edit">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     `+ statusCheck + `
@@ -111,24 +110,20 @@ function loadDataTableForPackages() {
 
 $('#package-add-form').validate({
     rules: {
-        country: {
-            required: true,
-        },
         title: {
             required: true,
         },
         description: {
             required: true,
         },
-        image: {
+        package_id: {
             required: true,
         },
     },
     messages: {
-        country: "Country field is required",
         title: "Title field is required",
         description: "Description field is required",
-        image: "Image field is required",
+        package_id: "Package field is required",
     },
     errorElement: 'span',
     submitHandler: function (form, event) {
@@ -137,11 +132,12 @@ $('#package-add-form').validate({
         $('.error').html('');
         var submitButton = $(form).find('[type=submit]');
         var current_btn_text = submitButton.html();
+        formData.append('description', $('.ck-content').html());
         button_loading_text = 'Saving...';
         // Create
         $.ajax({
             type: "POST",
-            url: $('#route-for-user').val() + '/packages',
+            url: $('#route-for-user').val() + '/package-points',
             contentType: false,
             processData: false,
             data: formData,
@@ -200,9 +196,6 @@ $('#package-add-form').validate({
 
 $('#package-edit-form').validate({
     rules: {
-        country: {
-            required: true,
-        },
         title: {
             required: true,
         },
@@ -212,12 +205,14 @@ $('#package-edit-form').validate({
         package_id: {
             required: true,
         },
+        package_point_id: {
+            required: true,
+        },
     },
     messages: {
-        country: "Country field is required",
         title: "Title field is required",
         description: "Description field is required",
-        image: "Image field is required",
+        package_id: "Package field is required",
     },
     errorElement: 'span',
     submitHandler: function (form, event) {
@@ -227,11 +222,12 @@ $('#package-edit-form').validate({
         var submitButton = $(form).find('[type=submit]');
         var current_btn_text = submitButton.html();
         button_loading_text = 'Saving...';
-        var package_id = $(form).find('input[name=package_id]').val();
+        var package_point_id = $(form).find('input[name=package_point_id]').val();
+        formData.append('description', $('.ck-content').html());
         // Create
         $.ajax({
             type: "POST",
-            url: $('#route-for-user').val() + '/packages/' + package_id,
+            url: $('#route-for-user').val() + '/package-points/' + package_point_id,
             contentType: false,
             processData: false,
             data: formData,
@@ -291,11 +287,11 @@ $('#package-edit-form').validate({
 
 function changeStatus(id, status) {
     if (status == 1) {
-        text = 'You want to deactivate this package!';
+        text = 'You want to deactivate this package point!';
         message = 'Deactivated successfully';
     }
     else {
-        text = 'You want to activate this package!';
+        text = 'You want to activate this package point!';
         message = 'Activated successfully';
     }
     Swal.fire({
@@ -310,7 +306,7 @@ function changeStatus(id, status) {
         if (result.isConfirmed) {
             $.ajax({
                 type: "POST",
-                url: $("#route-for-user").val() + "/packages/change/status",
+                url: $("#route-for-user").val() + "/package-points/change/status",
                 data: {
                     id: id,
                 },
@@ -333,7 +329,7 @@ function changeStatus(id, status) {
 function deleteData(id) {
     Swal.fire({
         title: 'Are you sure?',
-        text: "Are you sure, do yo want to delete the package ?",
+        text: "Are you sure, do yo want to delete the package point ?",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Yes!',
@@ -343,14 +339,14 @@ function deleteData(id) {
         if (result.isConfirmed) {
             $.ajax({
                 type: "DELETE",
-                url: $("#route-for-user").val() + '/packages/' + id,
+                url: $("#route-for-user").val() + '/package-points/' + id,
                 data: {
                     id: id,
                 },
                 success: function (data) {
                     table.ajax.reload(null, false);
                     if (data == true)
-                        showMessage('success', "Package deleted successfully");
+                        showMessage('success', "Package point deleted successfully");
                 },
                 error: function (data) {
                     showMessage("warning", "Something went wrong...");
@@ -360,3 +356,7 @@ function deleteData(id) {
     })
 }
 
+$('#select-package').on('change',function (e) {
+
+    table.ajax.reload();
+})

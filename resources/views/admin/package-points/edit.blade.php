@@ -5,17 +5,23 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Add Package</h4>
+                    <h4 class="card-title">Edit Package Points</h4>
                 </div>
                 <div class="card-body">
-                    <form class="needs-validation" novalidate id="package-add-form" method="POST">
+                    <form class="needs-validation" novalidate id="package-edit-form" method="POST">
+                        @method('PUT')
+                        <input type="hidden" name="package_point_id" value="{{$data->id}}">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="country">Country</label>
-                                        <input type="text" class="form-control" id="country" name="country"
-                                            placeholder="Country" required>
+                                        <label class="form-label" for="sub_title">Select Package</label>
+                                        <select class="form-select" name="package_id">
+                                            <option value="" selected disabled>---Select---</option>
+                                            @foreach ($packages as $package)
+                                                <option value="{{$package->id}}" @if($package->id == $data->package_id) selected @endif>{{$package->title}}</option>
+                                            @endforeach
+                                        </select>
                                         <div class="valid-feedback">
                                         </div>
                                     </div>
@@ -26,18 +32,17 @@
                                     <div class="form-group">
                                         <label class="form-label" for="title">Title</label>
                                         <input type="text" class="form-control" id="title" name="title"
-                                            placeholder="Title" required>
+                                            placeholder="Title" required  value="{{$data->title}}">
                                         <div class="valid-feedback">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="description">Description</label>
-                                        <textarea type="text" class="form-control" id="description" name="description"
-                                            placeholder="Description" required></textarea>
+                                        <label class="form-label" for="ckeditor-classic">Description</label>
+                                        <div id="ckeditor-classic">{!!$data->description!!}</div>
                                         <div class="valid-feedback">
                                         </div>
                                     </div>
@@ -45,20 +50,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <div class="form-group">
-                                        <label class="form-label" for="sub_title">Image</label>
-                                        <input type="file" accept=".png, .jpg, .jpeg,.webp" class="form-control"
-                                            id="image" name="image" required>
-                                        <div class="valid-feedback">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <a type="button" href="{{ url('admin/packages') }}"
+                                    <a type="button" href="{{ url('admin/package-points') }}"
                                         class="btn btn-outline-warning btn-rounded mb-2">
                                         <i class="ti-close"></i> Cancel
                                     </a>
@@ -77,5 +69,7 @@
 @push('style')
 @endpush
 @push('script')
-    <script src="{{ asset('admin/backend/js/packages.js') }}"></script>
+    <script src="{{ asset('admin/theme/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js')}}"></script>
+    <script src="{{ asset('admin/theme/assets/js/pages/form-editor.init.js')}}"></script>
+    <script src="{{ asset('admin/backend/js/package-points.js') }}"></script>
 @endpush

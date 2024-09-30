@@ -26,6 +26,17 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
+                                        <label class="form-label" for="title">Title</label>
+                                        <input type="text" class="form-control" id="title" name="title"
+                                            placeholder="Title" required  value="{{$data->title}}">
+                                        <div class="valid-feedback">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <div class="form-group">
                                         <label class="form-label" for="description">Description</label>
                                         <textarea type="text" class="form-control" id="description" name="description"
                                             placeholder="Description" required>{{$data->description}}</textarea>

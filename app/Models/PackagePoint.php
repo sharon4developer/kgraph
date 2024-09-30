@@ -7,41 +7,42 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Yajra\DataTables\Facades\DataTables;
 
-class Package extends Model
+class PackagePoint extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'packages';
+    protected $table = 'package_points';
 
-    protected $fillable = ['country', 'description', 'image', 'intervention_image', 'status','order','title'];
+    protected $fillable = ['title', 'description', 'status','order', 'package_id'];
+
+    public function Packages(){
+        return  $this->belongsTo(Package::class,'package_id')->withTrashed();
+    }
 
     public static function getFullData($data)
     {
-        $locationData = getLocationData();
-
-        $value =  SELF::select('country', 'image', 'id', 'status', 'created_at','title')->orderBy('order', 'asc');
+        $value =  SELF::with('Packages')->select('title', 'id', 'status', 'created_at', 'package_id')
+                ->where(function ($query) use ($data) {
+                    if (isset($data->package_id)) {
+                        $query->where('package_id', $data->package_id);
+                    }
+                })->orderBy('order', 'asc');
 
         return DataTables::of($value)
-            ->editColumn('image', function ($row) use($locationData) {
-                return $locationData['storage_server_path'].$locationData['storage_image_path'].$row->image;
-            })
             ->addIndexColumn()
+            ->editColumn('package_id', function ($row) {
+                return $row->Packages->title;
+            })
             ->rawColumns(['action'])
             ->make(true);
     }
 
     public static function createData($data)
     {
-        $value = new Package;
+        $value = new PackagePoint;
+        $value->package_id   = $data->package_id;
         $value->title        = $data->title;
-        $value->country        = $data->country;
         $value->description  = $data->description;
-        if ($data->image) {
-            $value->image = Cms::storeImage($data->image, $data->title);
-            $intervention_image = $value->image;
-            // $intervention_image = Cms::makeInterventionImage($data->image);
-            $value->intervention_image = $intervention_image;
-        };
         $value->status       = 1;
         return $value->save();
     }
@@ -53,16 +54,10 @@ class Package extends Model
 
     public static function updateData($data)
     {
-        $value = Package::find($data->package_id);
+        $value = PackagePoint::find($data->package_point_id);
+        $value->package_id        = $data->package_id;
         $value->title        = $data->title;
-        $value->country        = $data->country;
         $value->description  = $data->description;
-        if ($data->image) {
-            $value->image = Cms::storeImage($data->image, $data->title);
-            $intervention_image = $value->image;
-            // $intervention_image = Cms::makeInterventionImage($data->image);
-            $value->intervention_image = $intervention_image;
-        };
         return $value->save();
     }
 
@@ -85,10 +80,6 @@ class Package extends Model
             return true;
         } else
             return false;
-    }
-
-    public static function getFullDataForHome(){
-        return SELF::select('image','id','country','description','title')->orderBy('order','asc')->where('status',1)->get();
     }
 
     public static function updateOrder($data)

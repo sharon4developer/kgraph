@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StorePackageRequest extends FormRequest
+class StorePackagePointRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,10 +22,9 @@ class StorePackageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'country' => 'required',
             'title' => 'required',
             'description' => 'required',
-            'image' => 'mimes:jpeg,png,jpg,gif,webp',
+            'package_id' => 'required|exists:packages,id',
         ];
     }
 }

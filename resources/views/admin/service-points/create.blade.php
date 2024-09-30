@@ -71,5 +71,5 @@
 @push('script')
     <script src="{{ asset('admin/theme/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js')}}"></script>
     <script src="{{ asset('admin/theme/assets/js/pages/form-editor.init.js')}}"></script>
-    <script src="{{ asset('admin/backend/js/service-faq.js') }}"></script>
+    <script src="{{ asset('admin/backend/js/service-points.js') }}"></script>
 @endpush
