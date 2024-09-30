@@ -5,7 +5,7 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Edit Package Points</h4>
+                    <h4 class="card-title">Edit Package Point</h4>
                 </div>
                 <div class="card-body">
                     <form class="needs-validation" novalidate id="package-edit-form" method="POST">
