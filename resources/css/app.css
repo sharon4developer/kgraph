@@ -491,6 +491,11 @@ ul.custom-bulletssec li{
     background-repeat: no-repeat;
 }
 
+.slider-image-parent img{
+    width: 100%;
+    height: 50px;
+}
+
 
 /* media query */
 @media (max-width: 767px){
@@ -595,8 +600,8 @@ ul.custom-bulletssec li{
 @media (min-width: 1200px){
     .banner_main-text::after{
         scale: unset;
-        bottom: -82px;
-        right: -51%;
+        bottom: -70px;
+        right: -58%;
     }
 }
 @media (min-width: 1280px){
