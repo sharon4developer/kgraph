@@ -502,17 +502,7 @@ ul.custom-bulletssec li{
     }
 }
 @media (min-width: 768px) {
-    .banner_main-text::after{
-        content: "";
-        width: 100%;
-        height: 75px;
-        z-index: 8;
-        position: absolute;
-        bottom: -82px;
-        right: -51%;
-        background-repeat: no-repeat;
-        background-image: url(/public/assets/home_Banner/underscorebn.png) !important;
-    }
+
 }
 @media (max-width: 1023px){
     .footer-secpernt{
@@ -580,10 +570,23 @@ ul.custom-bulletssec li{
         width: 150px;
         height: auto;
     }
-    .banner_main-text::after{
+    /* .banner_main-text::after{
         scale: 0.5;
         bottom: -53px;
         right: -33%;
+    } */
+
+    .banner_main-text::after{
+        content: "";
+        width: 100%;
+        height: 75px;
+        z-index: 8;
+        position: absolute;
+        scale: 0.5;
+        bottom: -53px;
+        right: -33%;
+        background-repeat: no-repeat;
+        background-image: url(/public/assets/home_Banner/underscorebn.png) !important;
     }
     .translate-large {
         transform: translateY(-17%);

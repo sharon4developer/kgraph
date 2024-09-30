@@ -45,10 +45,10 @@
     <div class="container mx-auto px-5 lg:px-12 h-full w-full">
         <div class="h-full w-full flex flex-col justify-center items-center z-20 text-center mb-4 md:pt-8 pb-14 gap-[20px] md:gap-[31px] lg:gap-0">
             <div class="z-10 md:flex items-center pt-[10%] lg:pt-[13%] xl:pt-[8%] banner-container-elem">
-                <img class="pt-[22px] lg:pt-0 w-[40px] xl:w-[100px]"  src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="">
+                <img class="pt-[22px] md:pt-0 w-[40px] xl:w-[100px]"  src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="">
                 <h2 class="banner_text-one lg:text-base xl:text-3xl font_inter font-semibold text-white text-left md:text-center">Journey with Confidence <span class="text-[#579aff]">Migrate</span> with Us</h2>
             </div>
-            <h1 class="md:text-center text-[28px] md:text-[15px] lg:text-5xl xl:text-8xl lg:w-[60%] xl:w-[70%] font-medium font_inter gradient-text z-10 lg:mt-4 xl:mt-16 banner_main-text xl:inline-block banner-contain-text">Your Trusted Partner for Immigration.</h1>
+            <h1 class="md:text-center text-[28px] md:text-[55px] lg:text-5xl xl:text-8xl lg:w-[60%] xl:w-[70%] font-medium font_inter gradient-text z-10 lg:mt-4 xl:mt-16 banner_main-text xl:inline-block banner-contain-text">Your Trusted Partner for Immigration.</h1>
             <h6 class="font_inter font-semibold text-base md:text-[20px] md:text-3xl lg:text-base xl:text-3xl z-20 text-white lg:mt-14 xl:mt-20 banner-container-elem">Visa Made Easy Dreams Made Possible</h6>
             <div class="z-10 flex flex-col md:flex-row justify-center items-start md:items-center  gap-4 lg:my-7">
                 <img width="52px" src="{{asset('assets/home_Banner/CanadaFlag.png')}}" alt="CanadaFlag">
@@ -67,7 +67,7 @@
                 <img width="100px" height="28px" src="{{ asset('assets/home_Banner/airtasker.png') }}" alt="">
             </div>
             <div class="absolute bottom-0 right-0 w-full lg:w-fit flex justify-center lg:right-12 lg:bottom-[35%] z-10">
-                <div class="flex md:flex-col items-center gap-[30px] border border-white py-2 lg:py-4 px-6 lg:px-2 rounded-full mb-3 md:mb-0">
+                <div class="flex lg:flex-col items-center gap-[30px] border border-white py-2 lg:py-4 px-6 lg:px-2 rounded-full mb-3 lg:mb-0">
                     <img class="w-[15px]" src="{{ asset('assets/facebookban.png') }}" alt="facebook">
                     <img class="w-[15px]" src="{{ asset('assets/instagramban.png') }}" alt="instagram">
                     <img class="w-[15px]" src="{{ asset('assets/linkedinban.png') }}" alt="linked">
@@ -97,7 +97,7 @@
             <h4 class="text-white font_inter font-semibold text-[22px] xl:text-[26px] py-4 lg:pb-0">Visa Immigration for a Brighter You Future</h4>
             <p class="text-white font_inter font-thin text-justify text-[14px]">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
             <div class="gap-5 flex justify-start md:justify-center lg:justify-between items-center scrollbar-hidden" style="">
-                <div class="box-grading mb-9 lg:mb-0 p-4 lg:p-6 lg:h-[300px] xl:h-[450px] w-full md:w-[22%] rounded-xl cursor-pointer">
+                <div class="box-grading mb-9 lg:mb-0 p-4 lg:p-6 lg:h-[300px] xl:h-[450px] w-full md:w-[28%] lg:w-[22%] rounded-xl cursor-pointer">
                     <h2 class="text-white font_inter text-[10px] xl:text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">Foreign</span><span class="xl:inline-block">nationals</span></h2>
                     <div class="text-white font_inter font-bold text-[10px] xl:text-sm py-3">Choose Your Services</div>
 
@@ -140,7 +140,7 @@
                     </div>
                 </div>
 
-                <div class="hidden md:block box-grading mb-9 lg:mb-0 p-4 lg:p-6 lg:h-[300px] xl:h-[450px] w-full md:w-[22%] rounded-xl cursor-pointer">
+                <div class="hidden md:block box-grading mb-9 lg:mb-0 p-4 lg:p-6 lg:h-[300px] xl:h-[450px] w-full md:w-[28%] lg:w-[22%] rounded-xl cursor-pointer">
                     <h2 class="text-white font_inter text-[10px] xl:text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">Foreign</span><span class="xl:inline-block">nationals</span></h2>
                     <div class="text-white font_inter font-bold text-[10px] xl:text-sm py-3">Choose Your Services</div>
 
@@ -183,7 +183,7 @@
                     </div>
                 </div>
 
-                <div class="hidden lg:block box-grading mb-9 lg:mb-0 p-4 lg:p-6 lg:h-[300px] xl:h-[450px] w-full md:w-[22%] rounded-xl cursor-pointer">
+                <div class="hidden lg:block box-grading mb-9 lg:mb-0 p-4 lg:p-6 lg:h-[300px] xl:h-[450px] w-full md:w-[28%] lg:w-[22%] rounded-xl cursor-pointer">
                     <h2 class="text-white font_inter text-[10px] xl:text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">Foreign</span><span class="xl:inline-block">nationals</span></h2>
                     <div class="text-white font_inter font-bold text-[10px] xl:text-sm py-3">Choose Your Services</div>
 
@@ -226,7 +226,7 @@
                     </div>
                 </div>
 
-                <div class="hidden lg:block box-grading mb-9 lg:mb-0 p-4 lg:p-6 lg:h-[300px] xl:h-[450px] w-full md:w-[22%] rounded-xl cursor-pointer">
+                <div class="hidden lg:block box-grading mb-9 lg:mb-0 p-4 lg:p-6 lg:h-[300px] xl:h-[450px] w-full md:w-[28%] lg:w-[22%] rounded-xl cursor-pointer">
                     <h2 class="text-white font_inter text-[10px] xl:text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">Foreign</span><span class="xl:inline-block">nationals</span></h2>
                     <div class="text-white font_inter font-bold text-[10px] xl:text-sm py-3">Choose Your Services</div>
 
@@ -420,15 +420,15 @@
                 <p class="text-white font_inter font-normal text-justify text-[14px] md:w-[45%]">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
             </div>
 
-            <div class="pl-5 lg:pl-12 left-aligner py-[70px] your-slider-class z-50">
-                <div class="ml-[25px]"><img class="" src="{{ asset('assets/home_Banner/cardone.png') }}" alt=""></div>
-                <div class="ml-[25px]"><img src="{{ asset('assets/home_Banner/jithcaredtwo.png') }}" alt=""></div>
-                <div class="ml-[25px]"><img src="{{ asset('assets/home_Banner/cardone.png') }}" alt=""></div>
-                <div class="ml-[25px]"><img src="{{ asset('assets/home_Banner/jithcaredtwo.png') }}" alt=""></div>
+            <div class="pl-5 lg:pl-12 left-aligner pt-9 pb-0 lg:py-[70px] your-slider-class z-50">
+                <div class="mr-[20px] md:ml-[25px]"><img class="" src="{{ asset('assets/home_Banner/cardone.png') }}" alt=""></div>
+                <div class="mr-[20px] md:ml-[25px]"><img src="{{ asset('assets/home_Banner/jithcaredtwo.png') }}" alt=""></div>
+                <div class="mr-[20px] md:ml-[25px]"><img src="{{ asset('assets/home_Banner/cardone.png') }}" alt=""></div>
+                <div class="mr-[20px] md:ml-[25px]"><img src="{{ asset('assets/home_Banner/jithcaredtwo.png') }}" alt=""></div>
             </div>
 
 
-            <div class="container mx-auto px-5 lg:px-12 py-8 lg:py-16 h-full w-full flex items-center justify-between">
+            <div class="container mx-auto px-5 lg:px-12 py-8 lg:py-16 h-full w-full flex flex-col-reverse md:flex-row gap-4 items-center justify-between">
                 <div class="flex justify-start items-center">
                     <div class="commongrad rounded-full py-[2.5px]  w-fit">
                         <span class="px-5 text-white">Be One of Them</span>
@@ -464,7 +464,7 @@
             </div>
 
 
-            <div class="pt-[20px] pb-[70px] gap-6 w-full blog-slider-class" style="">
+            <div class="pt-[20px] md:pb-[70px] gap-6 w-full blog-slider-class" style="">
                 <div class="bg-white w-[350px] mr-5">
                     <img class="h-[200px] w-full object-cover" src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="blog_image"/>
                     <div class="py-4 px-6">
@@ -549,11 +549,19 @@
             </div>
             <p class="text-white font_inter font-semibold text-[26px] lg:w-[35%] mt-6">Learn About All of the Great ThingsCanada Has to Offer!</p>
         </div>
-        <div class="flex justify-between items-center pb-[100px] explore-slider-class">
-            <img class="pl-8 lg:pl-12" src="{{ asset('assets/home_Banner/sliderone.png') }}" alt="">
-            <img class="pl-8 lg:pl-12" src="{{ asset('assets/home_Banner/slidertwo.png') }}" alt="">
-            <img class="pl-8 lg:pl-12" src="{{ asset('assets/home_Banner/sliderThree.png') }}" alt="">
-            <img class="pl-8 lg:pl-12" src="{{ asset('assets/home_Banner/sliderFour.png') }}" alt="">
+        <div class="flex justify-between items-center pb-8 md:pb-[100px] explore-slider-class">
+            <div class="my-4 !w-[300px] xl:!w-[480px] md:pl-8 lg:pl-12">
+                <img src="{{ asset('assets/home_Banner/sliderone.png') }}" alt="">
+            </div>
+            <div class="my-4 !w-[300px] xl:!w-[480px] md:pl-8 lg:pl-12">
+                <img src="{{ asset('assets/home_Banner/slidertwo.png') }}" alt="">
+            </div>
+            <div class="my-4 !w-[300px] xl:!w-[480px] md:pl-8 lg:pl-12" >
+                <img src="{{ asset('assets/home_Banner/sliderThree.png') }}" alt="">
+            </div>
+            <div class="my-4 !w-[300px] xl:!w-[480px] md:pl-8 lg:pl-12" >
+                <img src="{{ asset('assets/home_Banner/sliderFour.png') }}" alt="">
+            </div>
         </div>
 
         <div class="container mx-auto px-5 lg:px-12 py-8 lg:pt-1 lg:pb-16 h-full w-full">
@@ -1033,7 +1041,34 @@
             pauseOnFocus: false,
             prevArrow: $('.card-home-slide-prev-button'),
             nextArrow: $('.card-home-slide-next-button'),
+            responsive: [
+                {
+                    breakpoint: 1200, // extra large devices
+                    settings: {
+                        slidesToShow: 3.5
+                    }
+                },
+                {
+                    breakpoint: 992, // desktop view
+                    settings: {
+                        slidesToShow: 2.5
+                    }
+                },
+                {
+                    breakpoint: 768, // tablet view
+                    settings: {
+                        slidesToShow: 1.5
+                    }
+                },
+                {
+                    breakpoint: 576, // mobile view
+                    settings: {
+                        slidesToShow: 1
+                    }
+                }
+            ]
         });
+
         $('.blog-slider-class').slick({
             autoplay: true,
             autoplaySpeed: 3000,
@@ -1046,7 +1081,34 @@
             pauseOnFocus: false,
             prevArrow: $('.card-blog-slide-prev-button'),
             nextArrow: $('.card-blog-slide-next-button'),
+            responsive: [
+                {
+                    breakpoint: 1200, // extra large devices
+                    settings: {
+                        slidesToShow: 3.5
+                    }
+                },
+                {
+                    breakpoint: 992, // desktop view
+                    settings: {
+                        slidesToShow: 2.5
+                    }
+                },
+                {
+                    breakpoint: 768, // tablet view
+                    settings: {
+                        slidesToShow: 1.5
+                    }
+                },
+                {
+                    breakpoint: 576, // mobile view
+                    settings: {
+                        slidesToShow: 1
+                    }
+                }
+            ]
         });
+
         $('.explore-slider-class').slick({
             autoplay: true,
             autoplaySpeed: 3000,
@@ -1059,8 +1121,35 @@
             pauseOnFocus: false,
             prevArrow: $('.card-explore-slide-prev-button'),
             nextArrow: $('.card-explore-slide-next-button'),
+            responsive: [
+                {
+                    breakpoint: 1200, // extra large devices
+                    settings: {
+                        slidesToShow: 3.5
+                    }
+                },
+                {
+                    breakpoint: 992, // desktop view
+                    settings: {
+                        slidesToShow: 2.5
+                    }
+                },
+                {
+                    breakpoint: 768, // tablet view
+                    settings: {
+                        slidesToShow: 1.5
+                    }
+                },
+                {
+                    breakpoint: 576, // mobile view
+                    settings: {
+                        slidesToShow: 1
+                    }
+                }
+            ]
         });
     });
 </script>
+
 
 @endsection
