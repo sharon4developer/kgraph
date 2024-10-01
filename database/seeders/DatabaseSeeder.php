@@ -21,5 +21,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@kgraph.com',
             'password'=> Hash::make('kgraph@123'),
         ]);
+
+        $this->call(PageSeeder::class);
     }
 }
