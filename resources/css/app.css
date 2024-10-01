@@ -239,32 +239,29 @@ ul.custom-bulletssec li{
 }
 
 
-.homeBanner {
-    position: relative; /* Make sure the pseudo-element is positioned correctly */
-    /* height: 100vh; */
+/* .homeBanner {
+    position: relative;
     width: 100%;
-    background-image: url(/public/assets/home_Banner/Canadas.jpeg) !important; /* Background image */
-    background-position: center; /* Center the image */
-    background-repeat: no-repeat; /* Prevent the image from repeating */
-    background-size: cover; /* Ensure the image covers the entire element */
-    overflow: hidden; /* Hide any overflow from the pseudo-element */
-}
+    background-image: url(/public/assets/home_Banner/Canadas.jpeg) !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+} */
 
-.homeBanner::after {
+/* .homeBanner::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* background: linear-gradient(0deg, rgba(19,19,19,0.891281512605042) 0%, rgba(8,8,8,0.756827731092437) 15%, rgba(12,12,12,0.6587885154061625) 30%, rgba(0,0,0,0.510329131652661) 50%, rgba(27,27,27,0.7512254901960784) 70%, rgba(20,20,20,0.8408613445378151) 85%, rgba(19,19,19,0.9360994397759104) 94%, rgba(18,18,18,1) 100%); */
     background: linear-gradient(0deg, rgba(19,19,19,0.891281512605042) 0%, rgba(8,8,8,0.756827731092437) 15%, rgba(12,12,12,0.8212535014005602) 30%, rgba(0,0,0,0.7960434173669468) 50%, rgba(27,27,27,0.9248949579831933) 70%, rgba(20,20,20,0.9360994397759104) 85%, rgba(19,19,19,0.9389005602240896) 94%, rgba(18,18,18,1) 100%);
     z-index: 1;
     pointer-events: none;
-}
+} */
 
 .backgroun-nav{
-    /* background: linear-gradient(180deg, #010101 0%, rgba(1, 1, 1, 0) 100%); */
     background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 80%);
     z-index: 999;
     position: fixed;
@@ -297,15 +294,14 @@ ul.custom-bulletssec li{
     width: 100%;
     top: 0px;
     background-image: none;
-    /* background-color: #232323d5; */
     background-color: #051b3bbd;
     backdrop-filter: blur(10px);
 }
 .gradient-text, gradient-text span{
     color: white;
-    transition: all 500ms ease-in;
+    transition: background 500ms ease-in;
 }
-.gradient-text {
+.gradient-text:hover{
     background-image: linear-gradient(93.82deg, #FFFFFF 1.14%, #0047FF 172.98%);
     background-clip: text;
     -webkit-background-clip: text;
@@ -315,14 +311,14 @@ ul.custom-bulletssec li{
     animation: gradientMove 4s ease infinite; /* Continuous animation */
   }
 
-  @keyframes gradientMove {
+  /* @keyframes gradientMove {
     0% {
-      background-position: 100% 50%; /* Start from right */
+      background-position: 100% 50%;
     }
     100% {
-      background-position: 0% 50%; /* Move to left */
+      background-position: 0% 50%;
     }
-  }
+  } */
 
 .accordion-content {
     max-height: 0; /* Collapsed state */
@@ -351,6 +347,9 @@ ul.custom-bulletssec li{
 
 .knowbutton button, .knowmore{
     transition: all 1s;
+    font-weight: 700;
+    font-family: "Inter", sans-serif;
+    font-size: 17px;
 }
 .knowmore:hover{
     background-color: #003D99;
