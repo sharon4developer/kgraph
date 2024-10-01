@@ -4,15 +4,17 @@
     .services-grade{
         background: linear-gradient(22deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
     }
-    .servicesIIner-banner{
-        background-image: url(assets/servicesinner.jpg) !important;
+    .packaginner-banner{
+        background-image: url(assets/home_Banner/bannerCity.jpg) !important;
         /* background-position-y: center;
         background-position-x: center; */
         background-size: cover;
         background-repeat: no-repeat;
     }
-    .services-banner-overlay{
-        background: linear-gradient(180deg, #000000 0%, #113165e8 100%);
+    .packages-banner-overlay{
+        /* background: linear-gradient(180deg, #000000 0%, #113165e8 100%); */
+        background: #00000099;
+
         height: 100%;
     }
     .services-inner> h2,h3,h4,h5,h6{
@@ -65,15 +67,15 @@
 
 
 {{-- services banner --}}
-<div class="servicesIIner-banner h-full">
-    <div class="services-banner-overlay">
+<div class="packaginner-banner h-full">
+    <div class="packages-banner-overlay">
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[8%]">
             <div class="text-white text-[12px] font_inter font-semibold">
                 <a href="#">Study</a> > <a href="#">Study in Canada</a>
             </div>
             <div class="text-center text-white my-10 flex flex-col justify-center items-center">
                 <h1 class="uppercase font_inter font-semibold text-3xl lg:text-[40px]">Student Visa Consultant</h1>
-                <p class="lg:w-1/2 mt-5 font_inter font-semibold text-sm lg:text-[18px]">
+                <p class="lg:w-1/2 mt-5 font_inter font-medium text-sm lg:text-[14px]">
                     Studying in America can be an exciting experience, but it also comes with its own set of challenges. One such challenge is getting your US student visa approved by the US embassy or consulate
                 </p>
             </div>
@@ -83,30 +85,6 @@
                     <div class="bg-white text-blue-600 hover:bg-blue-600 hover:text-white px-[20px] py-1 lg:py-[6px] md:rounded-sm ease-in duration-500 cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                         <a href="" class="h-full">Connect Us</a>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-{{-- Realize can section --}}
-<div class="">
-    <div class="Realize">
-        <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%]">
-            <div class="lg:w-1/2 font_inter">
-                <h2 class="font-semibold text-xl lg:text-4xl text-[#062358]">Realize Your Canadian Education Goals</h2>
-                <div class="blufader-grade text-white my-6 px-5 rounded-md py-3">Key Highlight</div>
-                <div>
-                    <ul class="list-disc pl-5 text-[#062358] leading-normal">
-                        <li class="py-1">What is a US Student Visa?</li>
-                        <li class="py-1">What is a US Student Visa?</li>
-                        <li class="py-1">What is a US Student Visa?</li>
-                        <li class="py-1">What is a US Student Visa?</li>
-                        <li class="py-1">What is a US Student Visa?</li>
-                        <li class="py-1">What is a US Student Visa?</li>
-                        <li class="py-1">What is a US Student Visa?</li>
-                        <li class="py-1">What is a US Student Visa?</li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -188,7 +166,7 @@
                 <!-- Background animation using pseudo-element -->
                 <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-0 group-hover:w-full w-0 left-full"></div>
 
-                <h6 class="relative z-10 text-white text-[12px] xl:text-[16px]">Have any doubtZ</h6>
+                <h6 class="relative z-10 text-white text-[12px] xl:text-[16px]">Have any doubt</h6>
                 <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-sm cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                     <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
                 </div>

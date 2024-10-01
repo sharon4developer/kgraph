@@ -305,13 +305,24 @@ ul.custom-bulletssec li{
     color: white;
     transition: all 500ms ease-in;
 }
-.gradient-text:hover ,gradient-text span:hover {
-    background-image: linear-gradient(93.82deg, #FFFFFF 1.14%, #0047FF 172.98%); /* Gradient background */
-    background-clip: text; /* Clips the gradient to the text */
-    -webkit-background-clip: text; /* For WebKit browsers */
-    color: transparent; /* Makes the text color transparent */
-    -webkit-text-fill-color: transparent; /* Makes the text color transparent for WebKit browsers */
-}
+.gradient-text {
+    background-image: linear-gradient(93.82deg, #FFFFFF 1.14%, #0047FF 172.98%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%; /* Makes gradient large enough to move */
+    animation: gradientMove 4s ease infinite; /* Continuous animation */
+  }
+
+  @keyframes gradientMove {
+    0% {
+      background-position: 100% 50%; /* Start from right */
+    }
+    100% {
+      background-position: 0% 50%; /* Move to left */
+    }
+  }
 
 .accordion-content {
     max-height: 0; /* Collapsed state */
@@ -466,6 +477,35 @@ ul.custom-bulletssec li{
     height: 100%;
 }
 
+.gradient-evition::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url(/public/assets/Group.png) !important;
+    background-size: 1000px 1000px !important;
+    z-index: -1;
+    bottom: -16%;
+    right: -66%;
+    background-repeat: no-repeat;
+}
+.gradient-evition::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url(/public/assets/Group.png) !important;
+    background-size: 600px 600px !important;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    background-repeat: no-repeat;
+}
+
+.slider-image-parent img{
+    width: 100%;
+    height: 50px;
+}
 
 
 /* media query */
@@ -478,17 +518,7 @@ ul.custom-bulletssec li{
     }
 }
 @media (min-width: 768px) {
-    .banner_main-text::after{
-        content: "";
-        width: 100%;
-        height: 75px;
-        z-index: 8;
-        position: absolute;
-        bottom: -82px;
-        right: -51%;
-        background-repeat: no-repeat;
-        background-image: url(/public/assets/home_Banner/underscorebn.png) !important;
-    }
+
 }
 @media (max-width: 1023px){
     .footer-secpernt{
@@ -547,15 +577,56 @@ ul.custom-bulletssec li{
     .video-container {
         height: 90vh;
     }
-    .translate-large {
-        transform: translateY(-42%);
-    }
+
 
     .aboutnow{
         grid-template-columns: 1fr 1fr
     }
+    .slider-image-parent img{
+        width: 150px;
+        height: auto;
+    }
+    /* .banner_main-text::after{
+        scale: 0.5;
+        bottom: -53px;
+        right: -33%;
+    } */
+
+    .banner_main-text::after{
+        content: "";
+        width: 100%;
+        height: 75px;
+        z-index: 8;
+        position: absolute;
+        scale: 0.5;
+        bottom: -53px;
+        right: -33%;
+        background-repeat: no-repeat;
+        background-image: url(/public/assets/home_Banner/underscorebn.png) !important;
+    }
+    .translate-large {
+        transform: translateY(-17%);
+    }
 }
-@media (min-width: 1980px){
+@media (min-width: 1200px){
+    .banner_main-text::after{
+        scale: unset;
+        bottom: -70px;
+        right: -58%;
+    }
+}
+@media (min-width: 1280px){
+    .translate-large {
+        transform: translateY(-21%);
+    }
+}
+
+@media (min-width: 1706px){
+    .bigscreen-sizing {
+        padding-left: 8rem !important;
+    }
+}
+@media (min-width: 1920px){
     .gettouch{
         font-size: 3.75rem;
     }
@@ -567,6 +638,9 @@ ul.custom-bulletssec li{
     }
     .faqSectHeading{
         font-size: 40px;
+    }
+    .bigscreen-sizing {
+        padding-left: 15.5rem !important;
     }
 }
 

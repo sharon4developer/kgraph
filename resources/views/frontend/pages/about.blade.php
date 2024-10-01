@@ -5,22 +5,51 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+<style>
+    /* .slider-endballs::after{
+        content:"";
+        position: absolute;
+        background-color:#062358;
+        width:15px;
+        height:15px;
+        right: 0;
+        top: -7px;
+
+    } */
+    .slider-endballs::before{
+        content:"";
+        position: absolute;
+        background-color:#062358;
+        width:15px;
+        height:15px;
+        left: 0;
+        top: -7px;
+    }
+
+</style>
 
 <div class="aboutusbanner relative h-full">
     <div class="absolute w-full h-full aboutbackgroundimage"></div>
     <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 lg:py-[8%]">
-        <div class="flex flex-col justify-center items-start h-full w-full text-left text-white z-10 md:mt-[16%] lg:mt-8">
-            <h2 class="font_inter font-semibold text-[40px] uppercase leading-normal">About Us</h2>
-            <div class="flex items-center gap-4 py-8 lg:py-4">
+        <div class="flex flex-col justify-center items-start h-full w-full text-left text-white z-10 md:mt-[16%] lg:mt-12 xl:mt-8">
+            <h2 class="font_inter font-semibold text-[28px] xl:text-[40px] uppercase leading-normal">About Us</h2>
+            <div class="flex items-center gap-4 py-8 lg:py-2 xl:py-4">
                 <h3 class="font_inter font-normal text-[15px] lg:text-[20px] text-justify">Take a sneak peek in to our journey</h3>
                 <img class="w-[50px]" src="{{ asset('assets/about/aboutrocket.png') }}" alt="rocket">
             </div>
             <div class="flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-20">
                 <div class="w-full">
                     <img class="w-[30px]" src="{{ asset('assets/about/rolloutimage.webp') }}" alt="roll">
-                    <p class="font_inter font-medium text-[14px] md:text-[20px] text-justify mt-8">
+                    <p class="font_inter font-medium text-[14px] xl:text-[20px] text-justify mt-8">
                         “Just like the philosophy of Google, we incorporated our
-                        company with the belief in ‘not being evil’. At Kansas,
+                        company with the belief in 'not being evil'. At Kansas,
                         we inspire our teams to be straight-forward, transparent,
                         and customer-centric and the rest is history.”
                     </p>
@@ -34,8 +63,8 @@
 </div>
 
 <div class="cta bg-[#062358]">
-    <div class="container mx-auto px-5 lg:px-12 py-8">
-        <div class="z-10 relative translate-large md:py-10">
+    <div class="container mx-auto px-5 lg:px-12 py-8 translate-large z-10 relative">
+        <div class="md:py-10">
             <h6 class="capitalize mb-5 text-white font_inter font-semibold text-[19px]">Meet Our crew</h6>
             <div class="flex items-center overflow-scroll scrollbar-hidden gap-4 mb-6">
                 <div class="w-full md:w-[273px] border rounded-xl">
@@ -102,24 +131,26 @@
     </div>
 </div>
 
-<div id="aboutOurStory" class="bg-white our-story my-10 h-[50vh]">
+<div id="aboutOurStory" class="bg-white our-story my-10 h-full">
     <div class="container mx-auto px-5 lg:px-12">
         <h2>Our Story</h2>
-    </div>
-    <div class="mt-6 flex justify-center items-center">
-        <div class="h-[2px] w-[95vw] bg-[#0E3065]">
-            <div id="movebarparent" class="container mx-auto px-5 lg:px-12 w-full h-full flex items-center relative">
-                <div class="absolute bottom-0" style="right: 1%;z-index: 10;top: -61px;">
-                    <img class="w-[500px]" src="{{ asset('assets/home_Banner/canadaanimated.png') }}" alt="">
+
+        <div class="mt-6 flex justify-center items-center">
+            <div class="h-[2px] w-[95vw] bg-[#0E3065]">
+                <div id="movebarparent" class="container mx-auto px-5 lg:px-12 w-full h-full flex items-center relative">
+                    <div class="hidden lg:block absolute bottom-0" style="right: -5%;z-index: 10;top: -48px;">
+                        <img class="w-[340px] h-[250px]" src="{{ asset('assets/home_Banner/canadaanimated.png') }}" alt="">
+                    </div>
+                    <div id="movedBar" class="bg-[#0E3065] rounded-full h-[6px] w-[30%]"></div>
                 </div>
-                <div id="movedBar" class="bg-[#0E3065] rounded-full h-[6px] w-[30%]"></div>
             </div>
         </div>
     </div>
 
+
     <div class="container mx-auto px-5 lg:px-12">
-        <div class="flex items-center gap-[50px] mt-6">
-            <p class="w-[30%] text-[#06245A] font_inter font-semibold text-justify">
+        <div class="flex flex-col lg:flex-row items-center gap-[50px] mt-6">
+            <p class="lg:w-[30%] text-[#06245A] font_inter font-semibold text-justify">
                 “<strong>Our Mission</strong> Just like the philosophy of Google,
                 we incorporated our company with the belief in
                 ‘not being evil’. At Kansas,
@@ -127,7 +158,7 @@
                 transparent, and customer-centric and the rest
                 is history.”
             </p>
-            <p class="w-[30%] text-[#06245A] font_inter font-semibold text-justify">
+            <p class="lg:w-[30%] text-[#06245A] font_inter font-semibold text-justify">
                 “<strong>Our Mission</strong> Just like the philosophy of Google,
                 we incorporated our company with the belief in
                 ‘not being evil’. At Kansas,
@@ -137,9 +168,93 @@
             </p>
         </div>
     </div>
+
+    <div class="pl-5 lg:pl-[9rem] 2xl:pl-12 bigscreen-sizing py-8 flex flex-col-reverse lg:flex-row overflow-x-hidden">
+        <div class="flex justify-end lg:justify-start items-center gap-3 lg:pt-[3%] mr-4">
+            <div class="aboutnext bg-[#062358] rounded-full w-8 h-8 flex justify-center items-center text-white font-semibold cursor-pointer pb-[3.5px]"><</div>
+            <div class="aboutprev bg-[#062358] rounded-full w-8 h-8 flex justify-center items-center text-white font-semibold cursor-pointer pb-[3.5px]">></div>
+        </div>
+        <div class="flex items-center w-[100vw] about-slider xl:pt-[4%]">
+            <div class="flex flex-col gap-4 w-[100vw]">
+                <div class="flex items-end md:gap-10">
+                    <h5 class="pl-[30px] text-[#072558] font_inter font-semibold text-[10px] xl:text-[16px]">1963</h5>
+                    <div class="flex gap-2 md:gap-4 pl-[11%] pb-2 slider-image-parent">
+                        <img class="w-[100px]" src="{{ asset('assets/slider.png') }}" alt="">
+                        <img class="w-[100px]" src="{{ asset('assets/sliderthree.png') }}" alt="">
+                    </div>
+                </div>
+                <div class="bg-[#062358] w-full h-[1px] slider-endballs relative"></div>
+                <div class="flex gap-8 pl-[6%] pt-2">
+                    <h3 class="w-[25%] text-[#07245A] font_inter font-semibold md:text-[10px] text-[5px] xl:text-[12px]">K Graph International is Established in New York City</h3>
+                    <p class="w-[50%] text-[#07245A] opacity-40 font_inter font-semibold text-[5px] md:text-[10px] xl:text-[16px]">
+                        The Firm was founded in 1963 as Matson Kass Goodkind LLP.
+                        Located in the heart of New York's Financial District, the
+                        Firm launched its Securities Litigation Practice that same ye
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-4 w-[100vw]">
+                <div class="flex items-end md:gap-10">
+                    <h5 class="pl-[30px] text-[#072558] font_inter font-semibold text-[10px] xl:text-[16px]">1963</h5>
+                    <div class="flex gap-2 md:gap-4 pl-[11%] pb-2 slider-image-parent">
+                        <img class="w-[100px]" src="{{ asset('assets/slider.png') }}" alt="">
+                        <img class="w-[100px]" src="{{ asset('assets/sliderthree.png') }}" alt="">
+                    </div>
+                </div>
+                <div class="bg-[#062358] w-full h-[1px] slider-endballs relative"></div>
+                <div class="flex gap-8 pl-[6%] pt-2">
+                    <h3 class="w-[25%] text-[#07245A] font_inter font-semibold md:text-[10px] text-[5px] xl:text-[12px]">K Graph International is Established in New York City</h3>
+                    <p class="w-[50%] text-[#07245A] opacity-40 font_inter font-semibold text-[5px] md:text-[10px] xl:text-[16px]">
+                        The Firm was founded in 1963 as Matson Kass Goodkind LLP.
+                        Located in the heart of New York's Financial District, the
+                        Firm launched its Securities Litigation Practice that same ye
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-4 w-[100vw]">
+                <div class="flex items-end md:gap-10">
+                    <h5 class="pl-[30px] text-[#072558] font_inter font-semibold text-[10px] xl:text-[16px]">1963</h5>
+                    <div class="flex gap-2 md:gap-4 pl-[11%] pb-2 slider-image-parent">
+                        <img class="w-[100px]" src="{{ asset('assets/slider.png') }}" alt="">
+                        <img class="w-[100px]" src="{{ asset('assets/sliderthree.png') }}" alt="">
+                    </div>
+                </div>
+                <div class="bg-[#062358] w-full h-[1px] slider-endballs relative"></div>
+                <div class="flex gap-8 pl-[6%] pt-2">
+                    <h3 class="w-[25%] text-[#07245A] font_inter font-semibold md:text-[10px] text-[5px] xl:text-[12px]">K Graph International is Established in New York City</h3>
+                    <p class="w-[50%] text-[#07245A] opacity-40 font_inter font-semibold text-[5px] md:text-[10px] xl:text-[16px]">
+                        The Firm was founded in 1963 as Matson Kass Goodkind LLP.
+                        Located in the heart of New York's Financial District, the
+                        Firm launched its Securities Litigation Practice that same ye
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-4 w-[100vw]">
+                <div class="flex items-end md:gap-10">
+                    <h5 class="pl-[30px] text-[#072558] font_inter font-semibold text-[10px] xl:text-[16px]">1963</h5>
+                    <div class="flex gap-2 md:gap-4 pl-[11%] pb-2 slider-image-parent">
+                        <img class="w-[100px]" src="{{ asset('assets/slider.png') }}" alt="">
+                        <img class="w-[100px]" src="{{ asset('assets/sliderthree.png') }}" alt="">
+                    </div>
+                </div>
+                <div class="bg-[#062358] w-full h-[1px] slider-endballs relative"></div>
+                <div class="flex gap-8 pl-[6%] pt-2">
+                    <h3 class="w-[25%] text-[#07245A] font_inter font-semibold md:text-[10px] text-[5px] xl:text-[12px]">K Graph International is Established in New York City</h3>
+                    <p class="w-[50%] text-[#07245A] opacity-40 font_inter font-semibold text-[5px] md:text-[10px] xl:text-[16px]">
+                        The Firm was founded in 1963 as Matson Kass Goodkind LLP.
+                        Located in the heart of New York's Financial District, the
+                        Firm launched its Securities Litigation Practice that same ye
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="loaction bg-[#062358]">
+<div class="loaction bg-[#062358] gradient-evition relative overflow-hidden z-10">
     <div class="container mx-auto px-5 lg:px-12 h-full w-full py-12">
         <div class="flex items-end w-full gap-2 lg:gap-7">
             <h2 class="uppercase text-white font_inter font-semibold text-[30px] lg:text-[45px] leading-none thirdleft-to-right-animation">Locations</h2>
@@ -231,7 +346,7 @@
         const animatedImage = document.querySelector("#movebarparent img"); // Select the image
 
         // Set the initial height of the image
-        animatedImage.style.height = "10px";
+        // animatedImage.style.height = "10px";
 
         // Calculate the available width in the parent container for movement
         const parentWidth = moveBarParent.offsetWidth;
@@ -248,7 +363,7 @@
             scrollTrigger: {
                 trigger: "#aboutOurStory", // Trigger the animation when this section comes into view
                 start: "top 80%", // Animation starts when 80% of the viewport reaches the top of #aboutOurStory
-                end: "top 20%", // Animation ends when 20% of the viewport reaches the top of the section
+                end: "top 10%", // Animation ends when 20% of the viewport reaches the top of the section
                 scrub: 6, // Higher value to slow down the scroll effect
                 toggleActions: "play none none none", // Play animation when scrolling down
                 invalidateOnRefresh: true, // Recalculate values on page resize
@@ -256,22 +371,40 @@
         });
 
         // GSAP animation to resize the image when the bar reaches the end
-        gsap.to(animatedImage, {
-            height: "360px", // Target height when the bar reaches the end
-            ease: "power3.out", // Smooth easing
-            duration: 1, // Increase the duration for a slower animation
-            scrollTrigger: {
-                trigger: "#aboutOurStory", // Trigger the animation when this section comes into view
-                start: "top 80%", // Same scroll trigger as the bar
-                end: "top 20%", // Animation ends when 20% of the viewport reaches the top of the section
-                scrub: 6, // Slower scroll effect to match the bar animation
-                toggleActions: "play none none none", // Play the animation on scroll
-                invalidateOnRefresh: true, // Recalculate the layout on window resize
-            },
-        });
+        // gsap.to(animatedImage, {
+        //     height: "360px", // Target height when the bar reaches the end
+        //     ease: "power3.out", // Smooth easing
+        //     duration: 1, // Increase the duration for a slower animation
+        //     scrollTrigger: {
+        //         trigger: "#aboutOurStory", // Trigger the animation when this section comes into view
+        //         start: "top 80%", // Same scroll trigger as the bar
+        //         end: "top 20%", // Animation ends when 20% of the viewport reaches the top of the section
+        //         scrub: 6, // Slower scroll effect to match the bar animation
+        //         toggleActions: "play none none none", // Play the animation on scroll
+        //         invalidateOnRefresh: true, // Recalculate the layout on window resize
+        //     },
+        // });
     });
 </script>
 
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.about-slider').slick({
+            autoplay: true,
+            autoplaySpeed: 3000,
+            dots: false,
+            arrows: true,
+            infinite: true,
+            slidesToShow: 2,
+            slidesToScroll: 1,
+            pauseOnHover: false,
+            pauseOnFocus: false,
+            prevArrow: $('.aboutprev'),
+            nextArrow: $('.aboutnext'),
+        });
+
+    });
+</script>
 
 
 @endsection
