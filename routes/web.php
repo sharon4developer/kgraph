@@ -23,12 +23,11 @@ use App\Http\Controllers\Admin\ServicePointController;
 use App\Http\Controllers\Admin\TermsAndConditionController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\WhoWeAreController;
+use App\Http\Controllers\FrontEnd\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('frontend.pages.home');
-});
+Route::post('/', [HomeController::class, 'index']);
 
 Route::get('contact-us', function () {
     return view('main');
