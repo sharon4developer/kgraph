@@ -44,9 +44,9 @@
 <div class="h-full w-full homeBanner">
     <div class="container mx-auto px-5 lg:px-12 h-full w-full">
         <div class="h-full w-full flex flex-col justify-center items-center z-20 text-center mb-4 md:pt-8 pb-14 gap-[20px] md:gap-[31px] lg:gap-0">
-            <div class="z-10 md:flex items-center pt-[10%] lg:pt-[13%] xl:pt-[8%] banner-container-elem">
+            <div class="z-10 md:flex items-center pt-[10%] lg:pt-[13%] xl:pt-[12%] banner-container-elem">
                 <img class="pt-[22px] md:pt-0 w-[40px] xl:w-[100px]"  src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="">
-                <h2 class="banner_text-one lg:text-base xl:text-3xl font_inter font-semibold text-white text-left md:text-center">Journey with Confidence <span class="text-[#579aff]">Migrate</span> with Us</h2>
+                <h2 class="banner_text-one lg:text-base xl:text-2xl font_inter font-semibold text-white text-left md:text-center">Journey with Confidence <span class="text-[#579aff]">Migrate</span> with Us</h2>
             </div>
             <h1 class="md:text-center text-[28px] md:text-[55px] lg:text-5xl xl:text-8xl lg:w-[60%] xl:w-[70%] font-medium font_inter gradient-text z-10 lg:mt-4 xl:mt-16 banner_main-text xl:inline-block banner-contain-text">Your Trusted Partner for Immigration.</h1>
             <h6 class="font_inter font-semibold text-base md:text-[20px] md:text-3xl lg:text-base xl:text-3xl z-20 text-white lg:mt-14 xl:mt-20 banner-container-elem">Visa Made Easy Dreams Made Possible</h6>
