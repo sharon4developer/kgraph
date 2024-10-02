@@ -352,15 +352,15 @@ ul.custom-bulletssec li{
     font-size: 17px;
 }
 .knowmore:hover{
-    background-color: #003D99;
+    background-color: white;
 }
-.knowmore:hover{
-    color: white;
+.knowmore:hover >div{
+    color: #003D99;
 }
-/* .knowmore:hover svg path{
-    fill:;
-} */
-.knowbutton button:hover div svg path{
+.knowmore:hover> svg path{
+    fill: #003D99;
+}
+.knowbutton button:hover svg path{
     fill: #003D99;
 }
 
@@ -617,6 +617,9 @@ ul.custom-bulletssec li{
 @media (min-width: 1280px){
     .translate-large {
         transform: translateY(-21%);
+    }
+    .RegulatedSec-right{
+        width: 80% !important;
     }
 }
 

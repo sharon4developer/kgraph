@@ -63,6 +63,33 @@
         background-color: #000000ba;
         z-index: 1; /* Ensure the gradient is above the slider but below the content */
     }
+    /* Set initial width and transition */
+    .expandable-line {
+        width: 5%;
+        transition: width 0.5s ease-in-out;
+    }
+    .expandable-line {
+        width: 5%;
+        transition: width 0.5s ease-in-out;
+    }
+
+
+    /* Trigger the width change on hover */
+    .knowmore:hover + .w-full .expandable-line {
+        width: 100%;
+    }
+    .RegulatedSec-left-wrapper, .RegulatedSec-right-wrapper {
+  position: relative;
+  width: 100%; /* Ensure it takes full width of the parent */
+  overflow: hidden; /* Prevent elements from moving outside */
+}
+
+.RegulatedSec-left, .RegulatedSec-right {
+  position: relative;
+  width: 100%;
+}
+
+
 </style>
 
 {{-- banner section --}}
@@ -314,23 +341,24 @@
                     </h2>
                     <div class="w-full mb-4 secleft-to-right-width-animation" style="border: 1px solid #FFFFFF8C;"></div>
                 </div>
-                <div class="" style="">
+                {{-- know more button animtion --}}
+                <div class="animation-section" style="">
                     <div class="flex lg:justify-end lg:flex-col items-center pt-4 lg:pt-0">
                         <div class="flex items-center gap-7 whitespace-nowrap mb-7">
                             <div class="text-white">Meet our Firm</div>
-                            <button class="flex items-center gap-4 rounded-full knowmore border border-white px-6 py-2">
+                            <button class="flex items-center gap-4 rounded-full knowmore border border-white px-6 py-2" data-line="1">
                                 <div class="text-white">Know more</div>
                                 <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M13.7266 5.37891L10.2266 8.87891C9.89844 9.23438 9.32422 9.23438 8.99609 8.87891C8.64062 8.55078 8.64062 7.97656 8.99609 7.64844L10.9922 5.625H0.875C0.382812 5.625 0 5.24219 0 4.75C0 4.23047 0.382812 3.875 0.875 3.875H10.9922L8.99609 1.87891C8.64062 1.55078 8.64062 0.976562 8.99609 0.648438C9.32422 0.292969 9.89844 0.292969 10.2266 0.648438L13.7266 4.14844C14.082 4.47656 14.082 5.05078 13.7266 5.37891Z" fill="white"/>
                                 </svg>
                             </button>
-                            {{-- <div class="hidden md:block w-full my-6" style="border: 2px solid #FFFFFF8C;"></div> --}}
                         </div>
                         <div class="w-full h-[1px] mb-4 bg-[#FFFFFF8C] flex items-center">
-                            <div class="w-[5%] h-[5px] bg-[#FFFFFF8C] rounded-full"></div>
+                            <div class="w-[5%] h-[5px] bg-[#FFFFFF8C] rounded-full expandable-line" data-line="1"></div>
                         </div>
                     </div>
                 </div>
+
             </div>
             <p class="py-5 text-white font_inter font-medium text-[18px] xl:text-[36px] lg:w-[30%] xl:w-[60%]">Navigate Your Canadian Immigration Journey with Confidence</p>
             <div class="video-container">
@@ -384,18 +412,27 @@
                         </div>
                     </div>
 
-                    <div class="flex items-center gap-7 py-6 lg:py-0 whitespace-nowrap">
-                        <div class="text-white">Meet our Firm</div>
-                        <button class="flex items-center gap-4 rounded-full knowmore border border-white px-6 py-2">
-                            <div class="text-white">Know more</div>
-                            <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M13.7266 5.37891L10.2266 8.87891C9.89844 9.23438 9.32422 9.23438 8.99609 8.87891C8.64062 8.55078 8.64062 7.97656 8.99609 7.64844L10.9922 5.625H0.875C0.382812 5.625 0 5.24219 0 4.75C0 4.23047 0.382812 3.875 0.875 3.875H10.9922L8.99609 1.87891C8.64062 1.55078 8.64062 0.976562 8.99609 0.648438C9.32422 0.292969 9.89844 0.292969 10.2266 0.648438L13.7266 4.14844C14.082 4.47656 14.082 5.05078 13.7266 5.37891Z" fill="white"/>
-                            </svg>
-                        </button>
+                    {{-- know more button animtion --}}
+                    <div class="animation-section w-fit" style="">
+                        <div class="flex lg:justify-end lg:flex-col items-start pt-4 lg:pt-0">
+                            <div class="flex items-center gap-7 whitespace-nowrap mb-7">
+                                <div class="text-white">Meet our Firm Again</div>
+                                <button class="flex items-center gap-4 rounded-full knowmore border border-white px-6 py-2" data-line="2">
+                                    <div class="text-white">Know more</div>
+                                    <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13.7266 5.37891L10.2266 8.87891C9.89844 9.23438 9.32422 9.23438 8.99609 8.87891C8.64062 8.55078 8.64062 7.97656 8.99609 7.64844L10.9922 5.625H0.875C0.382812 5.625 0 5.24219 0 4.75C0 4.23047 0.382812 3.875 0.875 3.875H10.9922L8.99609 1.87891C8.64062 1.55078 8.64062 0.976562 8.99609 0.648438C9.32422 0.292969 9.89844 0.292969 10.2266 0.648438L13.7266 4.14844C14.082 4.47656 14.082 5.05078 13.7266 5.37891Z" fill="white"/>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="w-full h-[1px] mb-4 bg-[#FFFFFF8C] flex items-center">
+                                <div class="w-[5%] h-[5px] bg-[#FFFFFF8C] rounded-full expandable-line" data-line="2"></div>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
 
-                <div class="grid grid-cols-2 gap-4 bg-[#0d2139] lg:w-1/2 mb-4 lg:mb-0">
+                <div class="Navigatesec-image grid grid-cols-2 gap-4 bg-[#0d2139] lg:w-1/2 mb-4 lg:mb-0">
                     <!-- Top Left -->
                     <div class="flex justify-center items-center rounded-lg overflow-hidden">
                         <img src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="Immigration" class="w-full h-full object-cover" />
@@ -420,16 +457,16 @@
     <div class="RegulatedSec bg-black">
         <div class="container mx-auto px-5 lg:px-12 py-6 lg:py-16 h-full w-full">
             <div class="md:flex justify-center items-start gap-5">
-                <div class="md:w-1/2">
-                    <h2 class="text-white font_inter font-semibold text-2xl lg:text-3xl xl:w-[55%]">Regulated Canadian Immigration Consultants (RCIC-IRB)</h2>
-                    <p class="py-5 text-white font-normal font_inter text-[14px] lg:w-[80%]">Proudly regulated by and in good standing with the College of Immigration and Citizenship Consultants (CICC). Jamie Dowla, registration #: R507233</p>
+                <div class="RegulatedSec-left md:w-1/2">
+                    <h2 class="text-white font_inter font-semibold text-2xl lg:text-3xl xl:text-4xl">Regulated Canadian Immigration Consultants (RCIC-IRB)</h2>
+                    <p class="py-5 text-white font-normal font_inter text-[14px] xl:text-lg lg:py-10">Proudly regulated by and in good standing with the College of Immigration and Citizenship Consultants (CICC). Jamie Dowla, registration #: R507233</p>
                     <div class="flex flex-col lg:flex-row gap-5 items-center mb-8">
                         <img class="w-[200px]" src="{{ asset('assets/home_Banner/ciccc.png') }}" alt="">
                         <img class="w-[200px]" src="{{ asset('assets/home_Banner/capic.png') }}" alt="">
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 gap-4">
+                <div class="RegulatedSec-right grid grid-cols-2 gap-4">
                     <!-- Right Side (Spans both rows) -->
                     <div class="row-span-2 rounded-lg overflow-hidden">
                         <img src="{{ asset('assets/home_Banner/cityrectangle.png') }}" alt="Cityscape" class="w-[200px] xl:w-[300px] h-full object-cover" />
@@ -459,11 +496,13 @@
                 <p class="text-white font_inter font-normal text-justify text-[14px] md:w-[45%]">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
             </div>
 
-            <div class="pl-5 lg:pl-12 left-aligner pt-9 pb-0 lg:py-[70px] your-slider-class z-50">
-                <div class="mr-[20px] md:ml-[25px]"><img class="" src="{{ asset('assets/home_Banner/cardone.png') }}" alt=""></div>
-                <div class="mr-[20px] md:ml-[25px]"><img src="{{ asset('assets/home_Banner/jithcaredtwo.png') }}" alt=""></div>
-                <div class="mr-[20px] md:ml-[25px]"><img src="{{ asset('assets/home_Banner/cardone.png') }}" alt=""></div>
-                <div class="mr-[20px] md:ml-[25px]"><img src="{{ asset('assets/home_Banner/jithcaredtwo.png') }}" alt=""></div>
+            <div class="testimonial-slider-wrapper pl-5 lg:pl-12 pt-9 pb-0 lg:py-[70px] z-50">
+                <div class="your-slider-class">
+                    <div class="mr-[20px] md:ml-[25px]"><img src="{{ asset('assets/home_Banner/cardone.png') }}" alt=""></div>
+                    <div class="mr-[20px] md:ml-[25px]"><img src="{{ asset('assets/home_Banner/jithcaredtwo.png') }}" alt=""></div>
+                    <div class="mr-[20px] md:ml-[25px]"><img src="{{ asset('assets/home_Banner/cardone.png') }}" alt=""></div>
+                    <div class="mr-[20px] md:ml-[25px]"><img src="{{ asset('assets/home_Banner/jithcaredtwo.png') }}" alt=""></div>
+                </div>
             </div>
 
 
@@ -910,8 +949,6 @@
     });
 
 
-
-
     // playPauseButton.addEventListener('click', function () {
     //     if (video.paused) {
     //     video.play();
@@ -926,6 +963,24 @@
     // video.addEventListener('ended', function () {
     //     playPauseButton.innerHTML = '▶️'; // Reset to play icon when video ends
     // });
+
+    // Select the knowmore button and expandable line
+    document.querySelectorAll('.knowmore').forEach(button => {
+        const lineId = button.getAttribute('data-line');
+        const line = document.querySelector(`.expandable-line[data-line="${lineId}"]`);
+
+        button.addEventListener('mouseenter', () => {
+            line.style.transition = 'width 0.5s ease-in-out';
+            line.style.width = '100%';
+        });
+
+        button.addEventListener('mouseleave', () => {
+            line.style.transition = 'width 0.5s ease-in-out';
+            line.style.width = '5%';
+        });
+    });
+
+
 </script>
 
 {{-- gsap animtion --}}
@@ -1077,6 +1132,75 @@
         duration: 2,
         ease: "power2.out"
     });
+
+    gsap.fromTo(".video-container",
+        { scale: 0.5 },
+        {
+            scale: 1,
+            scrollTrigger: {
+            trigger: ".whoSec",
+            start: "top center",
+            end: "bottom center",
+            scrub: false,
+            markers: false,
+            once: true
+            }
+        }
+    );
+
+    gsap.fromTo(".Navigatesec-image",
+        { scale: 0.5 },
+        {
+            scale: 1,
+            scrollTrigger: {
+            trigger: ".Navigatesec",
+            start: "top center",
+            end: "bottom center",
+            scrub: true,
+            markers: false,
+            once: true
+            }
+        }
+    );
+
+// Animate the left element from offscreen to its normal position
+gsap.fromTo(".RegulatedSec-left",
+  {
+    x: "-100%",     // Start from offscreen (left)
+    opacity: 0      // Initially invisible
+  },
+  {
+    scrollTrigger: {
+      trigger: ".RegulatedSec",
+      start: "top 80%",  // Start animation when the section enters the viewport
+      toggleActions: "play none none none"
+    },
+    x: 0,                // Move back to the original position
+    opacity: 1,          // Fade in
+    duration: 2,
+    ease: "power2.out"
+  }
+);
+
+// Animate the right element from offscreen to its normal position
+gsap.fromTo(".RegulatedSec-right",
+  {
+    x: "100%",      // Start from offscreen (right)
+    opacity: 0      // Initially invisible
+  },
+  {
+    scrollTrigger: {
+      trigger: ".RegulatedSec",
+      start: "top 80%",  // Start animation when the section enters the viewport
+      toggleActions: "play none none none"
+    },
+    x: 0,                // Move back to the original position
+    opacity: 1,          // Fade in
+    duration: 2,
+    ease: "power2.out"
+  }
+);
+
 
 </script>
 
