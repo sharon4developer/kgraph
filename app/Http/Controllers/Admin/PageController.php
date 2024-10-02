@@ -3,65 +3,77 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StorePageRequest;
-use App\Http\Requests\UpdatePageRequest;
+use App\Http\Requests\Admin\StorePageRequest;
+use App\Http\Requests\Admin\UpdatePageRequest;
+use App\Models\Cms;
 use App\Models\Page;
+use Exception;
+use Illuminate\Http\Request;
 
 class PageController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-        //
+        $title = 'Pages';
+        $sub_title = 'Pages';
+        return view('admin.pages.index',compact('title','sub_title'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function show()
     {
-        //
+        $data = Page::getFullData();
+        return $data;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(StorePageRequest $request)
+    public function edit($id)
     {
-        //
+        $data = Page::getData($id);
+        if(!$data){
+            abort(404);
+        }
+        $title = 'Pages';
+        $sub_title = 'Edit';
+        return view('admin.pages.edit',compact('data','title','sub_title'));
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Page $page)
+    public function update(UpdatePageRequest $request,$id)
     {
-        //
+        try{
+            $save= Page::updateData($request);
+
+            if($save){
+                $response=[
+                    'status'=>true,
+                    'message'=>'Saved successfully...',
+                    'return_url'=>'/admin/pages',
+                ];
+            }else{
+                $response=[
+                    'status'=>false,
+                    'message'=>'Something wrong please try again.',
+                ];
+            }
+
+        }catch(Exception $e){
+            $response=[
+                'status'=>false,
+                'message'=>'Something went wrong please try again.',
+                'error'=>$e->getMessage(),
+            ];
+        }
+        return response()->json($response);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Page $page)
+    public function changeStatus(Request $request)
     {
-        //
+        $data = Page::changeStatus($request);
+        return response()->json($data);
     }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdatePageRequest $request, Page $page)
+    public function changeSectionContent($id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Page $page)
-    {
-        //
+        $title = 'Pages';
+        $sub_title = 'Section Contents';
+        $data = Cms::getData($id);
+        return view('admin.pages.contents',compact('data','title','sub_title','id'));
     }
 }

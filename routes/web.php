@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\OurStoryController;
 use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\PackageFaqController;
 use App\Http\Controllers\Admin\PackagePointController;
+use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\PrivacyPolicyController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ServiceFaqController;
@@ -104,6 +105,7 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'packages' => PackageController::class,
         'package-points' => PackagePointController::class,
         'package-faq' => PackageFaqController::class,
+        'pages' => PageController::class,
     ]);
 
     Route::prefix('banners')->name('.banners')->group(function () {

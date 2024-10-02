@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -22,7 +22,8 @@ class UpdatePageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required',
+            'page_id' => 'required|exists:pages,id',
         ];
     }
 }

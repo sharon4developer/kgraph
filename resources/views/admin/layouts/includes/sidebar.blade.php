@@ -16,6 +16,13 @@
                 </li>
 
                 <li>
+                    <a href="{{ url('admin/pages') }}">
+                        <i class="fa fa-files-o" aria-hidden="true"></i>
+                        <span data-key="t-dashboard">Pages</span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <i class="fa fa-home" aria-hidden="true"></i>
                         <span data-key="t-multi-level">Home</span>
