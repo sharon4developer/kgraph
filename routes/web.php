@@ -26,10 +26,12 @@ use App\Http\Controllers\Admin\TermsAndConditionController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\WhoWeAreController;
 use App\Http\Controllers\FrontEnd\HomeController;
+use App\Http\Controllers\FrontEnd\ServiceController as FrontEndServiceController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('services', [FrontEndServiceController::class, 'index']);
 
 Route::get('contact-us', function () {
     return view('main');
@@ -38,12 +40,7 @@ Route::get('contact-us', function () {
 Route::get('about-us', function () {
     return view('frontend.pages.about');
 });
-Route::get('services', function () {
-    return view('frontend.pages.services');
-});
-Route::get('services', function () {
-    return view('frontend.pages.services');
-});
+
 Route::get('service-detail', function () {
     return view('frontend.pages.servicesinner');
 });

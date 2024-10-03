@@ -7,6 +7,8 @@ use App\Models\Banner;
 use App\Models\Blog;
 use App\Models\Certificate;
 use App\Models\Cms;
+use App\Models\Explore;
+use App\Models\Faq;
 use App\Models\Journey;
 use App\Models\Page;
 use App\Models\Service;
@@ -25,11 +27,13 @@ class HomeController extends Controller
         $certificate = Certificate::getFullDataForHome();
         $testimonials = Testimonial::getFullDataForHome();
         $blogs = Blog::getFullDataForHome();
+        $explore = Explore::getFullDataForHome();
+        $faqs = Faq::getFullDataForHome();
         $seo = Page::getSeoDetails(request()->path());
         $cms = $titles = NULL;
         if ($seo && $seo->id) {
             $cms = Cms::getContents($seo->id);
         }
-        return view('frontend.pages.home', compact('certificate', 'testimonials', 'seo', 'cms', 'banner','services','whoweare','journey','blogs'));
+        return view('frontend.pages.home', compact('certificate', 'testimonials', 'seo', 'cms', 'banner','services','whoweare','journey','blogs','explore','faqs'));
     }
 }

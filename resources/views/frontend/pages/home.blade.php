@@ -489,31 +489,15 @@
         </div>
 
         <div class="flex justify-between items-center pb-8 md:pb-[100px] xl:pl-[50px] explore-slider-class">
-            <div class="my-4 !w-[300px] xl:!w-[480px] md:pl-8 lg:pl-12 relative image-card-explore">
-                <img src="{{ asset('assets/home_Banner/sliderone.png') }}" alt="">
-                <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
-                    <button class="text-white">view</button>
-                </div>
-            </div>
-            <div class="my-4 !w-[300px] xl:!w-[480px] md:pl-8 lg:pl-12 relative image-card-explore">
-                <img src="{{ asset('assets/home_Banner/slidertwo.png') }}" alt="">
-                <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
-                    <button class="text-white">view</button>
-                </div>
-            </div>
-            <div class="my-4 !w-[300px] xl:!w-[480px] md:pl-8 lg:pl-12 relative image-card-explore">
-                <img src="{{ asset('assets/home_Banner/sliderThree.png') }}" alt="">
-                <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
-                    <button class="text-white">view</button>
-                </div>
-            </div>
-            <div class="my-4 !w-[300px] xl:!w-[480px] md:pl-8 lg:pl-12 relative image-card-explore">
-                <img src="{{ asset('assets/home_Banner/sliderFour.png') }}" alt="">
-                <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
-                    <button class="text-white">view</button>
-                </div>
-            </div>
+            @foreach ($explore as $data)
 
+            <div class="my-4 !w-[300px] xl:!w-[480px] md:pl-8 lg:pl-12 relative image-card-explore">
+                <img src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="">
+                <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
+                    <button class="text-white">view</button>
+                </div>
+            </div>
+            @endforeach
         </div>
 
         <div class="container mx-auto px-5 lg:px-12 py-8 lg:pt-1 lg:pb-16 h-full w-full">
@@ -542,10 +526,11 @@
             </div>
         </div>
         <div class="mt-8 faq-parent lg:px-[10%]">
+            @foreach ($faqs as $data)
 
             <div class="accordion bg-white rounded-2xl h-fit p-6">
                 <div class="accordion-header flex justify-between items-center cursor-pointer">
-                    <h6>What is the purpose of a visa?</h6>
+                    <h6>{{$data->title}}</h6>
                     <div class="icon">
                         <!-- Collapsed Icon -->
                         <svg class="icon-collapsed" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -560,150 +545,10 @@
                     </div>
                 </div>
                 <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 ease-out">
-                    Lorem Ipsum is simply dummy text the printing and typese Lorem Ipsum has been the industry's standard dummy text ever.
+                    {{$data->description}}
                 </div>
             </div>
-            <div class="accordion bg-white rounded-2xl h-fit p-6">
-                <div class="accordion-header flex justify-between items-center cursor-pointer">
-                    <h6 class="font_jakarta">What is the purpose of a visa?</h6>
-                    <div class="icon">
-                        <!-- Collapsed Icon -->
-                        <svg class="icon-collapsed" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#E4E4E4" />
-                            <path d="M14 18C14 17.7188 14.0938 17.4688 14.2812 17.2812C14.6562 16.875 15.3125 16.875 15.6875 17.2812L20 21.5625L24.2812 17.2812C24.6562 16.875 25.3125 16.875 25.6875 17.2812C26.0938 17.6562 26.0938 18.3125 25.6875 18.6875L20.6875 23.6875C20.3125 24.0938 19.6562 24.0938 19.2812 23.6875L14.2812 18.6875C14.0938 18.5 14 18.25 14 18Z" fill="#072558" />
-                        </svg>
-                        <!-- Expanded Icon -->
-                        <svg class="icon-expanded hidden" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#072558" />
-                            <path d="M26 22C26 22.2813 25.9062 22.5313 25.7188 22.7188C25.3438 23.125 24.6875 23.125 24.3125 22.7188L20 18.4375L15.7188 22.7188C15.3438 23.125 14.6875 23.125 14.3125 22.7188C13.9062 22.3438 13.9062 21.6875 14.3125 21.3125L19.3125 16.3125C19.6875 15.9063 20.3438 15.9063 20.7188 16.3125L25.7188 21.3125C25.9062 21.5 26 21.75 26 22Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <div class="accordion-content font_jakarta overflow-hidden max-h-0 transition-all duration-500 ease-out">
-                    Lorem Ipsum is simply dummy text the printing and typese Lorem Ipsum has been the industry's standard dummy text ever.
-                </div>
-            </div>
-            <div class="accordion bg-white rounded-2xl h-fit p-6">
-                <div class="accordion-header flex justify-between items-center cursor-pointer">
-                    <h6>What is the purpose of a visa?</h6>
-                    <div class="icon">
-                        <!-- Collapsed Icon -->
-                        <svg class="icon-collapsed" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#E4E4E4" />
-                            <path d="M14 18C14 17.7188 14.0938 17.4688 14.2812 17.2812C14.6562 16.875 15.3125 16.875 15.6875 17.2812L20 21.5625L24.2812 17.2812C24.6562 16.875 25.3125 16.875 25.6875 17.2812C26.0938 17.6562 26.0938 18.3125 25.6875 18.6875L20.6875 23.6875C20.3125 24.0938 19.6562 24.0938 19.2812 23.6875L14.2812 18.6875C14.0938 18.5 14 18.25 14 18Z" fill="#072558" />
-                        </svg>
-                        <!-- Expanded Icon -->
-                        <svg class="icon-expanded hidden" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#072558" />
-                            <path d="M26 22C26 22.2813 25.9062 22.5313 25.7188 22.7188C25.3438 23.125 24.6875 23.125 24.3125 22.7188L20 18.4375L15.7188 22.7188C15.3438 23.125 14.6875 23.125 14.3125 22.7188C13.9062 22.3438 13.9062 21.6875 14.3125 21.3125L19.3125 16.3125C19.6875 15.9063 20.3438 15.9063 20.7188 16.3125L25.7188 21.3125C25.9062 21.5 26 21.75 26 22Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 ease-out">
-                    Lorem Ipsum is simply dummy text the printing and typese Lorem Ipsum has been the industry's standard dummy text ever.
-                </div>
-            </div>
-            <div class="accordion bg-white rounded-2xl h-fit p-6">
-                <div class="accordion-header flex justify-between items-center cursor-pointer">
-                    <h6>What is the purpose of a visa?</h6>
-                    <div class="icon">
-                        <!-- Collapsed Icon -->
-                        <svg class="icon-collapsed" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#E4E4E4" />
-                            <path d="M14 18C14 17.7188 14.0938 17.4688 14.2812 17.2812C14.6562 16.875 15.3125 16.875 15.6875 17.2812L20 21.5625L24.2812 17.2812C24.6562 16.875 25.3125 16.875 25.6875 17.2812C26.0938 17.6562 26.0938 18.3125 25.6875 18.6875L20.6875 23.6875C20.3125 24.0938 19.6562 24.0938 19.2812 23.6875L14.2812 18.6875C14.0938 18.5 14 18.25 14 18Z" fill="#072558" />
-                        </svg>
-                        <!-- Expanded Icon -->
-                        <svg class="icon-expanded hidden" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#072558" />
-                            <path d="M26 22C26 22.2813 25.9062 22.5313 25.7188 22.7188C25.3438 23.125 24.6875 23.125 24.3125 22.7188L20 18.4375L15.7188 22.7188C15.3438 23.125 14.6875 23.125 14.3125 22.7188C13.9062 22.3438 13.9062 21.6875 14.3125 21.3125L19.3125 16.3125C19.6875 15.9063 20.3438 15.9063 20.7188 16.3125L25.7188 21.3125C25.9062 21.5 26 21.75 26 22Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 ease-out">
-                    Lorem Ipsum is simply dummy text the printing and typese Lorem Ipsum has been the industry's standard dummy text ever.
-                </div>
-            </div>
-            <div class="accordion bg-white rounded-2xl h-fit p-6">
-                <div class="accordion-header flex justify-between items-center cursor-pointer">
-                    <h6>What is the purpose of a visa?</h6>
-                    <div class="icon">
-                        <!-- Collapsed Icon -->
-                        <svg class="icon-collapsed" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#E4E4E4" />
-                            <path d="M14 18C14 17.7188 14.0938 17.4688 14.2812 17.2812C14.6562 16.875 15.3125 16.875 15.6875 17.2812L20 21.5625L24.2812 17.2812C24.6562 16.875 25.3125 16.875 25.6875 17.2812C26.0938 17.6562 26.0938 18.3125 25.6875 18.6875L20.6875 23.6875C20.3125 24.0938 19.6562 24.0938 19.2812 23.6875L14.2812 18.6875C14.0938 18.5 14 18.25 14 18Z" fill="#072558" />
-                        </svg>
-                        <!-- Expanded Icon -->
-                        <svg class="icon-expanded hidden" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#072558" />
-                            <path d="M26 22C26 22.2813 25.9062 22.5313 25.7188 22.7188C25.3438 23.125 24.6875 23.125 24.3125 22.7188L20 18.4375L15.7188 22.7188C15.3438 23.125 14.6875 23.125 14.3125 22.7188C13.9062 22.3438 13.9062 21.6875 14.3125 21.3125L19.3125 16.3125C19.6875 15.9063 20.3438 15.9063 20.7188 16.3125L25.7188 21.3125C25.9062 21.5 26 21.75 26 22Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 ease-out">
-                    Lorem Ipsum is simply dummy text the printing and typese Lorem Ipsum has been the industry's standard dummy text ever.
-                </div>
-            </div>
-            <div class="accordion bg-white rounded-2xl h-fit p-6">
-                <div class="accordion-header flex justify-between items-center cursor-pointer">
-                    <h6>What is the purpose of a visa?</h6>
-                    <div class="icon">
-                        <!-- Collapsed Icon -->
-                        <svg class="icon-collapsed" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#E4E4E4" />
-                            <path d="M14 18C14 17.7188 14.0938 17.4688 14.2812 17.2812C14.6562 16.875 15.3125 16.875 15.6875 17.2812L20 21.5625L24.2812 17.2812C24.6562 16.875 25.3125 16.875 25.6875 17.2812C26.0938 17.6562 26.0938 18.3125 25.6875 18.6875L20.6875 23.6875C20.3125 24.0938 19.6562 24.0938 19.2812 23.6875L14.2812 18.6875C14.0938 18.5 14 18.25 14 18Z" fill="#072558" />
-                        </svg>
-                        <!-- Expanded Icon -->
-                        <svg class="icon-expanded hidden" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#072558" />
-                            <path d="M26 22C26 22.2813 25.9062 22.5313 25.7188 22.7188C25.3438 23.125 24.6875 23.125 24.3125 22.7188L20 18.4375L15.7188 22.7188C15.3438 23.125 14.6875 23.125 14.3125 22.7188C13.9062 22.3438 13.9062 21.6875 14.3125 21.3125L19.3125 16.3125C19.6875 15.9063 20.3438 15.9063 20.7188 16.3125L25.7188 21.3125C25.9062 21.5 26 21.75 26 22Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 ease-out">
-                    Lorem Ipsum is simply dummy text the printing and typese Lorem Ipsum has been the industry's standard dummy text ever.
-                </div>
-            </div>
-            <div class="accordion bg-white rounded-2xl h-fit p-6">
-                <div class="accordion-header flex justify-between items-center cursor-pointer">
-                    <h6>What is the purpose of a visa?</h6>
-                    <div class="icon">
-                        <!-- Collapsed Icon -->
-                        <svg class="icon-collapsed" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#E4E4E4" />
-                            <path d="M14 18C14 17.7188 14.0938 17.4688 14.2812 17.2812C14.6562 16.875 15.3125 16.875 15.6875 17.2812L20 21.5625L24.2812 17.2812C24.6562 16.875 25.3125 16.875 25.6875 17.2812C26.0938 17.6562 26.0938 18.3125 25.6875 18.6875L20.6875 23.6875C20.3125 24.0938 19.6562 24.0938 19.2812 23.6875L14.2812 18.6875C14.0938 18.5 14 18.25 14 18Z" fill="#072558" />
-                        </svg>
-                        <!-- Expanded Icon -->
-                        <svg class="icon-expanded hidden" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#072558" />
-                            <path d="M26 22C26 22.2813 25.9062 22.5313 25.7188 22.7188C25.3438 23.125 24.6875 23.125 24.3125 22.7188L20 18.4375L15.7188 22.7188C15.3438 23.125 14.6875 23.125 14.3125 22.7188C13.9062 22.3438 13.9062 21.6875 14.3125 21.3125L19.3125 16.3125C19.6875 15.9063 20.3438 15.9063 20.7188 16.3125L25.7188 21.3125C25.9062 21.5 26 21.75 26 22Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 ease-out">
-                    Lorem Ipsum is simply dummy text the printing and typese Lorem Ipsum has been the industry's standard dummy text ever.
-                </div>
-            </div>
-            <div class="accordion bg-white rounded-2xl h-fit p-6">
-                <div class="accordion-header flex justify-between items-center cursor-pointer">
-                    <h6>What is the purpose of a visa?</h6>
-                    <div class="icon">
-                        <!-- Collapsed Icon -->
-                        <svg class="icon-collapsed" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#E4E4E4" />
-                            <path d="M14 18C14 17.7188 14.0938 17.4688 14.2812 17.2812C14.6562 16.875 15.3125 16.875 15.6875 17.2812L20 21.5625L24.2812 17.2812C24.6562 16.875 25.3125 16.875 25.6875 17.2812C26.0938 17.6562 26.0938 18.3125 25.6875 18.6875L20.6875 23.6875C20.3125 24.0938 19.6562 24.0938 19.2812 23.6875L14.2812 18.6875C14.0938 18.5 14 18.25 14 18Z" fill="#072558" />
-                        </svg>
-                        <!-- Expanded Icon -->
-                        <svg class="icon-expanded hidden" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#072558" />
-                            <path d="M26 22C26 22.2813 25.9062 22.5313 25.7188 22.7188C25.3438 23.125 24.6875 23.125 24.3125 22.7188L20 18.4375L15.7188 22.7188C15.3438 23.125 14.6875 23.125 14.3125 22.7188C13.9062 22.3438 13.9062 21.6875 14.3125 21.3125L19.3125 16.3125C19.6875 15.9063 20.3438 15.9063 20.7188 16.3125L25.7188 21.3125C25.9062 21.5 26 21.75 26 22Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 ease-out">
-                    Lorem Ipsum is simply dummy text the printing and typese Lorem Ipsum has been the industry's standard dummy text ever.
-                </div>
-            </div>
-
+            @endforeach
 
         </div>
         <div class="flex justify-center items-center my-12">
