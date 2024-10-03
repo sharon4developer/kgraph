@@ -506,8 +506,14 @@
                     <h2 class="text-white font_inter font-semibold text-2xl lg:text-3xl xl:text-4xl">Regulated Canadian Immigration Consultants (RCIC-IRB)</h2>
                     <p class="py-5 text-white font-normal font_inter text-[14px] xl:text-lg lg:py-10">Proudly regulated by and in good standing with the College of Immigration and Citizenship Consultants (CICC). Jamie Dowla, registration #: R507233</p>
                     <div class="flex flex-col lg:flex-row gap-5 items-center mb-8">
-                        <img class="w-[200px]" src="{{ asset('assets/home_Banner/ciccc.png') }}" alt="">
-                        <img class="w-[200px]" src="{{ asset('assets/home_Banner/capic.png') }}" alt="">
+                        <div>
+                            <img class="w-[200px]" src="{{ asset('assets/navigation/logo.png') }}" alt="">
+                            <h6 class="font_inter font-semibold text-white text-[14px] w-[80%] text-center py-2">#1 Team in the world on Dribbble</h6>
+                        </div>
+                        <div>
+                            <img class="w-[200px]" src="{{ asset('assets/navigation/seclogo.png') }}" alt="">
+                            <h6 class="font_inter font-semibold text-white text-[14px] w-[80%] text-center py-2">#1 Team in the world on Dribbble</h6>
+                        </div>
                     </div>
                 </div>
 

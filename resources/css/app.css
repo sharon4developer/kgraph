@@ -334,7 +334,7 @@ ul.custom-bulletssec li{
 .accordion-header>h6{
     color: #072558;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 15px;
 }
 .accordion-content{
     color: #072558;
@@ -528,11 +528,14 @@ ul.custom-bulletssec li{
     }
     .slick-slider-background img {
         width: 100%;
-        height: 100vh;
+        height: 100dvh;
         object-fit: cover;
     }
 }
 @media (min-width: 1024px){
+    .accordion-header>h6{
+        font-size: 18px;
+    }
     .slick-slider-background img {
         width: 100%;
         height: 100%;
