@@ -75,7 +75,7 @@
                 </div>
             </div>
         </div>
-        <div class="hidden lg:flex justify-center">
+        <div class="hidden lg:flex justify-center opacity-20">
             <div class="bg-white line-animation mx-8 w-[98%] h-[0.5px]"></div>
         </div>
 
