@@ -376,18 +376,44 @@
 
             </div>
             <p class="py-5 text-white font_inter font-medium text-[18px] xl:text-[36px] lg:w-[30%] xl:w-[60%] secleft-to-right-animation">Navigate Your Canadian Immigration Journey with Confidence</p>
-            <div class="video-container">
-                <video id="customVideo" width="320" height="240">
-                  <source src="{{ asset('assets/kgraphvideo.mp4') }}" type="video/mp4">
-                  <source src="{{ asset('assets/kgraphvideo.ogg') }}" type="video/ogg">
-                  Your browser does not support the video tag.
-                </video>
+            <div class="video-carousel">
+                <div class="video-container z-99">
+                    <video id="customVideo1" width="320" height="240">
+                        <source src="{{ asset('assets/kgraphvideo.mp4') }}" type="video/mp4">
+                        <source src="{{ asset('assets/kgraphvideo.ogg') }}" type="video/ogg">
+                        Your browser does not support the video tag.
+                    </video>
 
-                <!-- Custom Play/Pause Button -->
-                <div id="playPauseButton" class="custom-controls">
-                    <img src="{{ asset('assets/play.png') }}" alt="Pause" width="50" height="50">
+                    <!-- Custom Play/Pause Button -->
+                    <div id="playPauseButton1" class="custom-controls">
+                        <img src="{{ asset('assets/play.png') }}" alt="Play" width="50" height="50">
+                    </div>
                 </div>
-              </div>
+                <div class="video-container z-99">
+                    <video id="customVideo2" width="320" height="240">
+                        <source src="{{ asset('assets/kgraphvideo.mp4') }}" type="video/mp4">
+                        <source src="{{ asset('assets/kgraphvideo.ogg') }}" type="video/ogg">
+                        Your browser does not support the video tag.
+                    </video>
+
+                    <!-- Custom Play/Pause Button -->
+                    <div id="playPauseButton2" class="custom-controls">
+                        <img src="{{ asset('assets/play.png') }}" alt="Play" width="50" height="50">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="container mx-auto px-5 lg:px-12 py-8 lg:pt-1 lg:pb-16 h-full w-full">
+                <div class="flex justify-end gap-3 items-center">
+                    <div class="card-whosec-slide-next-button cursor-pointer">
+                        <img class="w-[40px]" src="{{ asset('assets/Button-Previous.png') }}" alt="">
+                    </div>
+                    <div class="cursor-pointer card-whosec-slide-prev-button">
+                        <img class="w-[40px]" src="{{ asset('assets/nextbutton.png') }}" alt="">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -513,15 +539,141 @@
 
             <div class="testimonial-slider-wrapper pl-5 lg:pl-12 pt-9 pb-0 lg:py-[70px] z-50">
                 <div class="your-slider-class">
-                    <div class="mr-[20px] md:ml-[25px]"><img src="{{ asset('assets/home_Banner/cardone.png') }}" alt=""></div>
-                    <div class="mr-[20px] md:ml-[25px]"><img src="{{ asset('assets/home_Banner/jithcaredtwo.png') }}" alt=""></div>
-                    <div class="mr-[20px] md:ml-[25px]"><img src="{{ asset('assets/home_Banner/cardone.png') }}" alt=""></div>
-                    <div class="mr-[20px] md:ml-[25px]"><img src="{{ asset('assets/home_Banner/jithcaredtwo.png') }}" alt=""></div>
+                    <div class="mr-[20px] md:ml-[25px] !flex items-start !w-[450px] !h-[228px] bg-white rounded-xl overflow-hidden">
+                        <img src="{{ asset('assets/Navigation/pottan.png') }}" alt="">
+                        <div class="w-full py-4 px-4">
+                            <div class="flex items-center justify-end">
+                                <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">5.0</div>
+                                <div class="flex items-center gap-1">
+                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                </div>
+                            </div>
+                            <div>
+                                <img src="{{ asset('assets/Navigation/doubleinverted-comma.png') }}" alt="">
+                            </div>
+                            <div class="py-2 font_inter text-[#072558]">
+                                <h4 class="font-extrabold">No Extra Charges, Less Royalties</h4>
+                                <p class="text-[8px] py-2 font-semibold">The client is proud of Halo Lab's work, which their customers have praised. They lead a communicativeprocess to enable the team to reach</p>
+                                <div>
+                                    <h5 class="font-bold">Manjul</h5>
+                                    <h6 class="text-[10px] font-semibold">PR Canada</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mr-[20px] md:ml-[25px] !flex items-start !w-[450px] !h-[228px] bg-white rounded-xl overflow-hidden">
+                        <img src="{{ asset('assets/Navigation/pottan.png') }}" alt="">
+                        <div class="w-full py-4 px-4">
+                            <div class="flex items-center justify-end">
+                                <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">5.0</div>
+                                <div class="flex items-center gap-1">
+                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                </div>
+                            </div>
+                            <div>
+                                <img src="{{ asset('assets/Navigation/doubleinverted-comma.png') }}" alt="">
+                            </div>
+                            <div class="py-2 font_inter text-[#072558]">
+                                <h4 class="font-extrabold">No Extra Charges, Less Royalties</h4>
+                                <p class="text-[8px] py-2 font-semibold">The client is proud of Halo Lab's work, which their customers have praised. They lead a communicativeprocess to enable the team to reach</p>
+                                <div>
+                                    <h5 class="font-bold">Manjul</h5>
+                                    <h6 class="text-[10px] font-semibold">PR Canada</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mr-[20px] md:ml-[25px] !flex items-start !w-[450px] !h-[228px] bg-white rounded-xl overflow-hidden">
+                        <img src="{{ asset('assets/Navigation/pottan.png') }}" alt="">
+                        <div class="w-full py-4 px-4">
+                            <div class="flex items-center justify-end">
+                                <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">5.0</div>
+                                <div class="flex items-center gap-1">
+                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                </div>
+                            </div>
+                            <div>
+                                <img src="{{ asset('assets/Navigation/doubleinverted-comma.png') }}" alt="">
+                            </div>
+                            <div class="py-2 font_inter text-[#072558]">
+                                <h4 class="font-extrabold">No Extra Charges, Less Royalties</h4>
+                                <p class="text-[8px] py-2 font-semibold">The client is proud of Halo Lab's work, which their customers have praised. They lead a communicativeprocess to enable the team to reach</p>
+                                <div>
+                                    <h5 class="font-bold">Manjul</h5>
+                                    <h6 class="text-[10px] font-semibold">PR Canada</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mr-[20px] md:ml-[25px] !flex items-start !w-[450px] !h-[228px] bg-white rounded-xl overflow-hidden">
+                        <img src="{{ asset('assets/Navigation/pottan.png') }}" alt="">
+                        <div class="w-full py-4 px-4">
+                            <div class="flex items-center justify-end">
+                                <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">5.0</div>
+                                <div class="flex items-center gap-1">
+                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                </div>
+                            </div>
+                            <div>
+                                <img src="{{ asset('assets/Navigation/doubleinverted-comma.png') }}" alt="">
+                            </div>
+                            <div class="py-2 font_inter text-[#072558]">
+                                <h4 class="font-extrabold">No Extra Charges, Less Royalties</h4>
+                                <p class="text-[8px] py-2 font-semibold">The client is proud of Halo Lab's work, which their customers have praised. They lead a communicativeprocess to enable the team to reach</p>
+                                <div>
+                                    <h5 class="font-bold">Manjul</h5>
+                                    <h6 class="text-[10px] font-semibold">PR Canada</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mr-[20px] md:ml-[25px] !flex items-start !w-[450px] !h-[228px] bg-white rounded-xl overflow-hidden">
+                        <img src="{{ asset('assets/Navigation/pottan.png') }}" alt="">
+                        <div class="w-full py-4 px-4">
+                            <div class="flex items-center justify-end">
+                                <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">5.0</div>
+                                <div class="flex items-center gap-1">
+                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                </div>
+                            </div>
+                            <div>
+                                <img src="{{ asset('assets/Navigation/doubleinverted-comma.png') }}" alt="">
+                            </div>
+                            <div class="py-2 font_inter text-[#072558]">
+                                <h4 class="font-extrabold">No Extra Charges, Less Royalties</h4>
+                                <p class="text-[8px] py-2 font-semibold">The client is proud of Halo Lab's work, which their customers have praised. They lead a communicativeprocess to enable the team to reach</p>
+                                <div>
+                                    <h5 class="font-bold">Manjul</h5>
+                                    <h6 class="text-[10px] font-semibold">PR Canada</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
 
-            <div class="container mx-auto px-5 lg:px-12 py-8 lg:py-16 h-full w-full flex flex-col-reverse md:flex-row gap-4 items-center justify-between">
+            <div class="container mx-auto px-5 lg:px-12 py-8 lg:py-16 h-full w-full flex flex-col-reverse md:flex-row gap-4 items-center justify-between xl:mt-[-271px] relative z-20">
                 <div class="flex justify-start items-center">
                     <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 lg:pr-2 overflow-hidden group">
                         <!-- Initially the background will cover the full button -->
@@ -691,8 +843,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 </div>
 
@@ -959,23 +1109,30 @@
         observer.observe(sectionToObserve);
     });
 
-    const video = document.getElementById('customVideo');
-    const playPauseButton = document.getElementById('playPauseButton');
+    document.addEventListener('DOMContentLoaded', function () {
+        const videos = document.querySelectorAll('video');
+        const playPauseButtons = document.querySelectorAll('.custom-controls');
 
-    playPauseButton.addEventListener('click', function () {
-        if (video.paused) {
-            video.play();
-            playPauseButton.innerHTML = '<img src="{{ asset('assets/pause.png') }}" alt="Pause" width="50" height="50">';
-        } else {
-            video.pause();
-            playPauseButton.innerHTML = '<img src="{{ asset('assets/play.png') }}" alt="Play" width="50" height="50">';
-        }
+        playPauseButtons.forEach((button, index) => {
+            const video = videos[index]; // Corresponding video for the button
+
+            button.addEventListener('click', function () {
+                if (video.paused) {
+                    video.play();
+                    button.innerHTML = '<img src="{{ asset('assets/pause.png') }}" alt="Pause" width="50" height="50">';
+                } else {
+                    video.pause();
+                    button.innerHTML = '<img src="{{ asset('assets/play.png') }}" alt="Play" width="50" height="50">';
+                }
+            });
+
+                // Automatically update play/pause button when the video ends
+                video.addEventListener('ended', function () {
+                    button.innerHTML = '<img src="{{ asset('assets/play.png') }}" alt="Play" width="50" height="50">';
+                });
+            });
     });
 
-    // Automatically update play/pause button when the video ends
-    video.addEventListener('ended', function () {
-        playPauseButton.innerHTML = '<img src="{{ asset('assets/play.png') }}" alt="Play" width="50" height="50">';
-    });
 
 
     // playPauseButton.addEventListener('click', function () {
@@ -1192,43 +1349,43 @@
         }
     );
 
-// Animate the left element from offscreen to its normal position
-gsap.fromTo(".RegulatedSec-left",
-  {
-    x: "-100%",     // Start from offscreen (left)
-    opacity: 0      // Initially invisible
-  },
-  {
-    scrollTrigger: {
-      trigger: ".RegulatedSec",
-      start: "top 80%",  // Start animation when the section enters the viewport
-      toggleActions: "play none none none"
+    // Animate the left element from offscreen to its normal position
+    gsap.fromTo(".RegulatedSec-left",
+    {
+        x: "-100%",     // Start from offscreen (left)
+        opacity: 0      // Initially invisible
     },
-    x: 0,                // Move back to the original position
-    opacity: 1,          // Fade in
-    duration: 2,
-    ease: "power2.out"
-  }
-);
+    {
+        scrollTrigger: {
+        trigger: ".RegulatedSec",
+        start: "top 80%",  // Start animation when the section enters the viewport
+        toggleActions: "play none none none"
+        },
+        x: 0,                // Move back to the original position
+        opacity: 1,          // Fade in
+        duration: 2,
+        ease: "power2.out"
+    }
+    );
 
-// Animate the right element from offscreen to its normal position
-gsap.fromTo(".RegulatedSec-right",
-  {
-    x: "100%",      // Start from offscreen (right)
-    opacity: 0      // Initially invisible
-  },
-  {
-    scrollTrigger: {
-      trigger: ".RegulatedSec",
-      start: "top 80%",  // Start animation when the section enters the viewport
-      toggleActions: "play none none none"
+    // Animate the right element from offscreen to its normal position
+    gsap.fromTo(".RegulatedSec-right",
+    {
+        x: "100%",      // Start from offscreen (right)
+        opacity: 0      // Initially invisible
     },
-    x: 0,                // Move back to the original position
-    opacity: 1,          // Fade in
-    duration: 2,
-    ease: "power2.out"
-  }
-);
+    {
+        scrollTrigger: {
+        trigger: ".RegulatedSec",
+        start: "top 80%",  // Start animation when the section enters the viewport
+        toggleActions: "play none none none"
+        },
+        x: 0,                // Move back to the original position
+        opacity: 1,          // Fade in
+        duration: 2,
+        ease: "power2.out"
+    }
+    );
 
 
 </script>
@@ -1363,6 +1520,13 @@ gsap.fromTo(".RegulatedSec-right",
             speed: 1000,
             arrows: false,
             dots: false
+        });
+        $('.video-carousel').slick({
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            prevArrow: $('.card-whosec-slide-prev-button'),
+            nextArrow: $('.card-whosec-slide-next-button'),
+            infinite: false,
         });
     });
 </script>
