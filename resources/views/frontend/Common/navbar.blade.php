@@ -1,3 +1,6 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
+
 <div class="b-backgroun-nav z-50 w-full">
     <header id="immaintop" class="text-white hidden md:block bg-black md:fixed top-0 z-50 w-full">
         <div class="container mx-auto px-5 lg:px-12 flex justify-between items-start lg:items-center gap-1 lg:gap-0 flex-col md:flex-row font_aktiv py-[12px] lg:py-[10px]">
@@ -18,7 +21,7 @@
         </div>
     </header>
 
-    <nav id="imHeader" class="text-white bg-gradient-to-b from-black to-transparent md:fixed top-10 !z-50 w-full">
+    <nav id="imHeader" class="text-white bg-gradient-to-b from-black to-transparent md:fixed top-10 !z-50 w-full overflow-hidden">
         <div class="flex items-center justify-between container mx-auto px-5 lg:px-12 py-4 lg:py-5">
             <a href="{{ url('/') }}"  class="flex items-center gap-[4px] z-10">
                 <img class="w-[1.80rem] logo_image lg:w-[2.5rem]" src="{{asset('assets/KgraphLogo.png')}}" alt="K-graph logo">
@@ -72,6 +75,10 @@
                 </div>
             </div>
         </div>
+        <div class="hidden lg:flex justify-center">
+            <div class="bg-white line-animation mx-8 w-[98%] h-[0.5px]"></div>
+        </div>
+
     </nav>
 </div>
 
@@ -107,6 +114,30 @@
         openicon.classList.toggle('hidden');
 
     });
+</script>
+
+<script>
+    // Wait for the DOM to load
+// Wait for the DOM to load
+document.addEventListener("DOMContentLoaded", function() {
+
+    // GSAP animation for the left-to-right line fill
+    gsap.fromTo(".line-animation",
+        { scaleX: 0, transformOrigin: "left center" },  // Start with scaleX 0, origin at the left
+        {
+            scaleX: 1,  // Animate to full width (scaleX 1)
+            duration: 2,  // Duration of the animation (2 seconds)
+            ease: "power2.inOut",  // Smooth ease-in-out animation
+            scrollTrigger: {
+                trigger: ".imHeader",  // Trigger the animation when .imHeader is reached
+                start: "top center",  // Start animation when the top of .imHeader is at the center of the viewport
+                toggleActions: "play none none none"  // Play animation once
+            }
+        }
+    );
+});
+
+
 </script>
 
 

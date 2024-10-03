@@ -175,7 +175,7 @@
             <div class="md:flex items-center">
                 <h2 class="left-to-right-animation font_inter font-semibold text-[46px] md:text-[50px] xl:text-[100px] text-white leading-none uppercase gradient-text"><span class="inline-block">Our</span><span class="inline-block">Services</span></h2>
                 <div class="md:pl-2 w-full" style="margin-bottom: -6%;">
-                    <div class="my-4 md:my-0 flex justify-end items-center">
+                    <div class="my-4 md:my-0 flex justify-center md:justify-end items-center">
                         <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group">
                             <!-- Initially the background will cover the full button -->
                             <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
@@ -499,7 +499,7 @@
     </div>
 
     {{-- regulated section --}}
-    <div class="RegulatedSec bg-black">
+    <div class="RegulatedSec bg-black overflow-hidden">
         <div class="container mx-auto px-5 lg:px-12 py-6 lg:py-16 h-full w-full">
             <div class="md:flex justify-center items-start gap-5">
                 <div class="RegulatedSec-left md:w-1/2">
