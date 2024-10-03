@@ -42,10 +42,10 @@
                                 <li class="text-[12px] whitespace-nowrap text-black flex items-center"><a class="" href="#">Privacy Policy</a></li>
                             </div>
 
-                            <li class="mt-4 px-[16px] py-2"><a href="#">About</a></li>
-                            <li class="px-[16px] py-2"><a href="#">Service</a></li>
-                            <li class="px-[16px] py-2"><a href="#">Package</a></li>
-                            <li class="px-[16px] py-2"><a href="#">Careers</a></li>
+                            <li class="mt-4 px-[16px] py-2"><a href="{{ url('about-us') }}">About</a></li>
+                            <li class="px-[16px] py-2"><a href="{{ url('services') }}">Service</a></li>
+                            <li class="px-[16px] py-2"><a href="{{ url('packages') }}">Package</a></li>
+                            <li class="px-[16px] py-2"><a href="{{ url('careers') }}">Careers</a></li>
 
                             <div class="bg-white text-blue-600 hover:bg-blue-600 hover:text-white px-[16px] py-[6px] rounded-sm ease-in duration-500 cursor-pointer w-fit">
                                 <a href="" class="h-full !text-black">Contact Us</a>

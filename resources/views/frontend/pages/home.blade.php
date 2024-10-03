@@ -47,11 +47,7 @@
         z-index: -1; /* This ensures it stays behind the content */
     }
 
-    .slick-slider-background img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+
     .banner-gradient-overlay {
         position: absolute;
         inset: 0;
@@ -104,6 +100,14 @@
 .image-card-explore:hover>.view-button{
     display: flex;
 }
+/* .your-slider-class {
+    width: 100%;
+    display: flex;
+} */
+ .your-slider-class .slick-track , .explore-section .slick-track{
+    width: 20000px !important;
+ }
+
 
 </style>
 
@@ -122,35 +126,35 @@
     <!-- Banner Content -->
     <div class="container mx-auto px-5 lg:px-12 h-full w-full relative z-10">
         <div class="h-full w-full flex flex-col justify-center items-center text-center mb-4 md:pt-8 pb-14 gap-[20px] md:gap-[31px] lg:gap-0">
-            <div class="z-10 md:flex items-center pt-[10%] lg:pt-[13%] xl:pt-[12%] banner-container-elem">
+            <div class="z-10 flex flex-col lg:flex-row items-center pt-[10%] lg:pt-[13%] xl:pt-[12%] banner-container-elem">
                 <img class="pt-[22px] md:pt-0 w-[40px] xl:w-[100px]" src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="">
-                <h2 class="banner_text-one lg:text-base xl:text-2xl font_inter font-semibold text-white text-left md:text-center">
+                <h2 class="banner_text-one text-[20px]  lg:text-base xl:text-[26px] font_inter font-semibold text-white text-center">
                     Journey with Confidence <span class="text-[#579aff]">Migrate</span> with Us
                 </h2>
             </div>
-            <h1 class="md:text-center text-[28px] md:text-[55px] lg:text-5xl xl:text-8xl lg:w-[60%] xl:w-[70%] font-medium font_inter gradient-text z-10 lg:mt-4 xl:mt-16 banner_main-text xl:inline-block banner-contain-text">
+            <h1 class="md:text-center text-[31px] md:text-[55px] lg:text-5xl xl:text-8xl lg:w-[60%] xl:w-[70%] font-medium font_inter gradient-text z-10 lg:mt-4 xl:mt-16 banner_main-text xl:inline-block banner-contain-text">
                 Your Trusted Partner for Immigration.
             </h1>
-            <h6 class="font_inter font-semibold text-base md:text-[20px] md:text-3xl lg:text-base xl:text-3xl z-20 text-white lg:mt-14 xl:mt-20 banner-container-elem">
+            <h6 class="font_inter font-semibold text-[12px] md:text-[20px] md:text-3xl lg:text-base xl:text-3xl z-20 text-white lg:mt-14 xl:mt-20 banner-container-elem">
                 Visa Made Easy Dreams Made Possible
             </h6>
-            <div class="z-10 flex flex-col md:flex-row justify-center items-start md:items-center gap-4 lg:my-7">
+            <div class="z-10 flex flex-row justify-center items-start md:items-center gap-4 lg:my-7">
                 <img width="52px" src="{{ asset('assets/home_Banner/CanadaFlag.png') }}" alt="CanadaFlag">
-                <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 lg:pr-2 overflow-hidden group">
+                <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group">
                     <!-- Background animation using pseudo-element -->
                     <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
-                    <h6 class="relative z-10 text-white text-[12px] xl:text-[16px]">Let's turn your vision into reality.</h6>
+                    <h6 class="relative z-10 text-white text-[10px] md:text-[12px] xl:text-[16px]">Let's turn your vision into reality.</h6>
                     <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-sm cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                         <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
                     </div>
                 </div>
             </div>
-            <div class="z-10 flex flex-wrap md:flex-nowrap justify-around items-center w-full lg:mb-1 xl:mb-10">
-                <img width="100px" height="28px" src="{{ asset('assets/home_Banner/segment.png') }}" alt="">
-                <img width="100px" height="28px" src="{{ asset('assets/home_Banner/splunk.png') }}" alt="">
-                <img width="100px" height="28px" src="{{ asset('assets/home_Banner/Hubspot.png') }}" alt="">
-                <img width="100px" height="28px" src="{{ asset('assets/home_Banner/asna.png') }}" alt="">
-                <img width="100px" height="28px" src="{{ asset('assets/home_Banner/airtasker.png') }}" alt="">
+            <div class="z-10 flex flex-wrap md:flex-nowrap justify-around items-center py-5 w-full lg:mb-1 xl:mb-10">
+                <img class="w-[50px] md:w-[100px] "  src="{{ asset('assets/home_Banner/segment.png') }}" alt="">
+                <img class="w-[50px] md:w-[100px] "  src="{{ asset('assets/home_Banner/splunk.png') }}" alt="">
+                <img class="w-[50px] md:w-[100px] "  src="{{ asset('assets/home_Banner/Hubspot.png') }}" alt="">
+                <img class="w-[50px] md:w-[100px] "  src="{{ asset('assets/home_Banner/asna.png') }}" alt="">
+                <img class="w-[50px] md:w-[100px] "  src="{{ asset('assets/home_Banner/airtasker.png') }}" alt="">
             </div>
             <div class="absolute bottom-0 right-0 w-full lg:w-fit flex justify-center lg:right-12 lg:bottom-[35%] z-10">
                 <div class="flex lg:flex-col items-center gap-[30px] border border-white py-2 lg:py-4 px-6 lg:px-2 rounded-full mb-3 lg:mb-0">
@@ -169,13 +173,13 @@
     <div class="serviceSection gradient-evition relative overflow-hidden z-10 bg-[#051b3b]">
         <div class="container mx-auto px-5 lg:px-12 lg:py-16 h-full w-full pt-10 lg:pt0">
             <div class="md:flex items-center">
-                <h2 class="left-to-right-animation font_inter font-semibold text-[50px] xl:text-[100px] text-white leading-none uppercase gradient-text"><span class="inline-block">Our</span><span class="inline-block">Services</span></h2>
+                <h2 class="left-to-right-animation font_inter font-semibold text-[46px] md:text-[50px] xl:text-[100px] text-white leading-none uppercase gradient-text"><span class="inline-block">Our</span><span class="inline-block">Services</span></h2>
                 <div class="md:pl-2 w-full" style="margin-bottom: -6%;">
                     <div class="my-4 md:my-0 flex justify-end items-center">
-                        <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 lg:pr-2 overflow-hidden group">
+                        <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group">
                             <!-- Initially the background will cover the full button -->
                             <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
-                            <h6 class="relative z-10 text-white text-[12px] xl:text-[16px]">Let's turn your vision into reality.</h6>
+                            <h6 class="relative z-10 text-white text-[10px] md:text-[12px] xl:text-[16px]">Let's turn your vision into reality.</h6>
                             <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-sm cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                                 <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
                             </div>
@@ -187,12 +191,12 @@
             <h4 class="text-white font_inter font-semibold text-[22px] xl:text-[36px] py-4 lg:pb-0 left-to-right-animation">Visa Immigration for a Brighter You Future</h4>
             <p class="text-white font_inter font-thin text-justify text-[14px] xl:text-[20px] left-to-right-animation">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
             <div class="gap-5 flex justify-start md:justify-center lg:justify-between items-center scrollbar-hidden" style="">
-                <div class="box-grading mb-9 lg:mb-0 p-4 lg:p-6 lg:h-[300px] xl:h-[450px] w-full md:w-[28%] lg:w-full rounded-xl cursor-pointer">
-                    <h2 class="text-white font_inter text-[10px] xl:text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">Foreign</span><span class="xl:inline-block">nationals</span></h2>
-                    <div class="text-white font_inter font-bold text-[10px] xl:text-sm py-3">Choose Your Services</div>
+                <div class="box-grading mb-9 lg:mb-0 p-4 lg:p-6 h-[400px] lg:h-[300px] xl:h-[450px] w-full md:w-[28%] lg:w-full rounded-xl cursor-pointer">
+                    <h2 class="text-white font_inter text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">Foreign</span><span class="xl:inline-block">nationals</span></h2>
+                    <div class="text-white font_inter font-bold text-[16px] md:text-sm py-3">Choose Your Services</div>
 
                     <div class="flex flex-col xl:mt-4 gap-3 knowbutton ">
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
+                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
                             <div class="text-xs xl:text-sm text-white">Study in Canada</div>
                             <div>
                                 <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -201,7 +205,7 @@
                             </div>
                         </button>
 
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
+                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
                             <div class="text-xs xl:text-sm text-white">Study in Canada</div>
                             <div>
                                 <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -210,7 +214,7 @@
                             </div>
                         </button>
 
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
+                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
                             <div class="text-xs xl:text-sm text-white">Study in Canada</div>
                             <div>
                                 <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -219,50 +223,7 @@
                             </div>
                         </button>
 
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="hidden md:block box-grading mb-9 lg:mb-0 p-4 lg:p-6 lg:h-[300px] xl:h-[450px] w-full md:w-[28%] lg:w-full rounded-xl cursor-pointer">
-                    <h2 class="text-white font_inter text-[10px] xl:text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">Business </span><span class="xl:inline-block">Investors</span></h2>
-                    <div class="text-white font_inter font-bold text-[10px] xl:text-sm py-3">Choose Your Services</div>
-
-                    <div class="flex flex-col gap-3 xl:mt-4 knowbutton ">
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
+                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
                             <div class="text-xs xl:text-sm text-white">Study in Canada</div>
                             <div>
                                 <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -273,12 +234,12 @@
                     </div>
                 </div>
 
-                <div class="hidden lg:block box-grading mb-9 lg:mb-0 p-4 lg:p-6 lg:h-[300px] xl:h-[450px] w-full md:w-[28%] lg:w-full rounded-xl cursor-pointer">
-                    <h2 class="text-white font_inter text-[10px] xl:text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">Canadian</span><span class="xl:inline-block">Employees</span></h2>
+                <div class="hidden md:block box-grading mb-9 lg:mb-0 p-4 lg:p-6 h-[400px] lg:h-[300px] xl:h-[450px] w-full md:w-[28%] lg:w-full rounded-xl cursor-pointer">
+                    <h2 class="text-white font_inter text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">Business </span><span class="xl:inline-block">Investors</span></h2>
                     <div class="text-white font_inter font-bold text-[10px] xl:text-sm py-3">Choose Your Services</div>
 
                     <div class="flex flex-col gap-3 xl:mt-4 knowbutton ">
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
+                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
                             <div class="text-xs xl:text-sm text-white">Study in Canada</div>
                             <div>
                                 <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -287,7 +248,7 @@
                             </div>
                         </button>
 
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
+                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
                             <div class="text-xs xl:text-sm text-white">Study in Canada</div>
                             <div>
                                 <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -296,7 +257,7 @@
                             </div>
                         </button>
 
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
+                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
                             <div class="text-xs xl:text-sm text-white">Study in Canada</div>
                             <div>
                                 <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -305,7 +266,7 @@
                             </div>
                         </button>
 
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
+                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
                             <div class="text-xs xl:text-sm text-white">Study in Canada</div>
                             <div>
                                 <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -316,12 +277,12 @@
                     </div>
                 </div>
 
-                <div class="hidden lg:block box-grading mb-9 lg:mb-0 p-4 lg:p-6 lg:h-[300px] xl:h-[450px] w-full md:w-[28%] lg:w-full rounded-xl cursor-pointer">
-                    <h2 class="text-white font_inter text-[10px] xl:text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">Canadian Citizens</span><span class="xl:inline-block">and PR</span></h2>
+                <div class="hidden lg:block box-grading mb-9 lg:mb-0 p-4 lg:p-6 h-[400px] lg:h-[300px] xl:h-[450px] w-full md:w-[28%] lg:w-full rounded-xl cursor-pointer">
+                    <h2 class="text-white font_inter text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">Canadian</span><span class="xl:inline-block">Employees</span></h2>
                     <div class="text-white font_inter font-bold text-[10px] xl:text-sm py-3">Choose Your Services</div>
 
                     <div class="flex flex-col gap-3 xl:mt-4 knowbutton ">
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
+                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
                             <div class="text-xs xl:text-sm text-white">Study in Canada</div>
                             <div>
                                 <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -330,7 +291,50 @@
                             </div>
                         </button>
 
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
+                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
+                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
+                            <div>
+                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
+                                </svg>
+                            </div>
+                        </button>
+
+                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
+                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
+                            <div>
+                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
+                                </svg>
+                            </div>
+                        </button>
+
+                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
+                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
+                            <div>
+                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
+                                </svg>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="hidden lg:block box-grading mb-9 lg:mb-0 p-4 lg:p-6 h-[400px] lg:h-[300px] xl:h-[450px] w-full md:w-[28%] lg:w-full rounded-xl cursor-pointer">
+                    <h2 class="text-white font_inter text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">Canadian Citizens</span><span class="xl:inline-block">and PR</span></h2>
+                    <div class="text-white font_inter font-bold text-[10px] xl:text-sm py-3">Choose Your Services</div>
+
+                    <div class="flex flex-col gap-3 xl:mt-4 knowbutton ">
+                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
+                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
+                            <div>
+                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
+                                </svg>
+                            </div>
+                        </button>
+
+                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
                             <div class="text-xs xl:text-sm text-white">Study in Canada</div>
                             <div>
                                 <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -350,7 +354,7 @@
         <div class="container mx-auto px-5 lg:px-12 lg:py-16 h-full w-full">
             <div class="md:flex items-end ">
                 <div class="lg:w-full flex items-end">
-                    <h2 class="font_inter font-semibold text-[50px] xl:text-[100px] text-white leading-none uppercase secleft-to-right-animation flex flex-col">
+                    <h2 class="font_inter font-semibold text-[46px] md:text-[50px] xl:text-[100px] text-white leading-none uppercase secleft-to-right-animation flex flex-col">
                         <span class="inline-block">Who</span>
                         <span class="inline-block whitespace-nowrap">We Are</span>
                     </h2>
@@ -358,7 +362,7 @@
                 </div>
                 {{-- know more button animtion --}}
                 <div class="animation-section" style="">
-                    <div class="flex lg:justify-end lg:flex-col items-center pt-4 lg:pt-0">
+                    <div class="flex lg:justify-end flex-col items-center pt-4 lg:pt-0">
                         <div class="flex items-center gap-7 whitespace-nowrap mb-7">
                             <div class="text-white">Meet our Firm</div>
                             <button class="flex items-center gap-4 rounded-full knowmore border border-white px-6 py-2" data-line="1">
@@ -376,6 +380,7 @@
 
             </div>
             <p class="py-5 text-white font_inter font-medium text-[18px] xl:text-[36px] lg:w-[30%] xl:w-[60%] secleft-to-right-animation">Navigate Your Canadian Immigration Journey with Confidence</p>
+
             <div class="video-carousel">
                 <div class="video-container z-99">
                     <video id="customVideo1" width="320" height="240">
@@ -402,7 +407,6 @@
                     </div>
                 </div>
             </div>
-
 
             <div class="container mx-auto px-5 lg:px-12 py-8 lg:pt-1 lg:pb-16 h-full w-full">
                 <div class="flex justify-end gap-3 items-center">
@@ -455,7 +459,7 @@
 
                     {{-- know more button animtion --}}
                     <div class="animation-section w-fit" style="">
-                        <div class="flex lg:justify-end lg:flex-col items-start pt-4 lg:pt-0">
+                        <div class="flex lg:justify-end flex-col items-start pt-4 lg:pt-0">
                             <div class="flex items-center gap-7 whitespace-nowrap mb-7">
                                 <div class="text-white">Meet our Firm Again</div>
                                 <button class="flex items-center gap-4 rounded-full knowmore border border-white px-6 py-2" data-line="2">
@@ -526,175 +530,200 @@
         </div>
     </div>
 
-    {{-- testimonial sect --}}
+    {{-- testimonial section --}}
     <div class="testimonial bg-[#051b3b] gradient-evition relative overflow-hidden z-10">
-            <div class="container mx-auto px-5 lg:px-12 py-8 lg:py-16 h-full w-full">
-                <div class="flex items-end w-full gap-2 lg:gap-7">
-                    <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] xl:text-[65px] leading-none thirdleft-to-right-animation">Testimonials</h2>
-                    <div class="w-full thirdleft-to-right-width-animation" style="border: 2px solid #FFFFFF8C;margin-bottom: 8px;"></div>
+        <div class="container mx-auto px-5 lg:px-12 py-8 lg:py-16 h-full w-full">
+            <div class="flex items-end w-full gap-2 lg:gap-7">
+                <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] xl:text-[65px] leading-none thirdleft-to-right-animation">Testimonials</h2>
+                <div class="w-full thirdleft-to-right-width-animation" style="border: 2px solid #FFFFFF8C;margin-bottom: 8px;"></div>
+            </div>
+            <p class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%] thirdleft-to-right-animation">Let’s See what our customers want to say</p>
+            <p class="text-white font_inter font-normal text-justify text-[14px] md:w-[45%] thirdleft-to-right-animation">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
+        </div>
+
+        <div class="testimonial-slider-wrapper pl-5 lg:pl-12 pt-9 pb-0 lg:py-[70px] z-50">
+            <div class="your-slider-class">
+                <div class="!flex !w-[400px] md:w-[440px] overflow-hidden mr-5 !h-[250px] bg-white rounded-xl">
+                    <img src="{{ asset('assets/Navigation/pottan.png') }}" alt="">
+                    <div class="w-full py-4 px-4">
+                        <div class="flex items-center justify-end">
+                            <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">5.0</div>
+                            <div class="flex items-center gap-1">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <img src="{{ asset('assets/Navigation/doubleinverted-comma.png') }}" alt="">
+                        </div>
+                        <div class="py-2 font_inter text-[#072558]">
+                            <h4 class="font-extrabold">No Extra Charges, Less Royalties</h4>
+                            <p class="text-[8px] py-2 font-semibold">The client is proud of Halo Lab's work, which their customers have praised. They lead a communicativeprocess to enable the team to reach</p>
+                            <div>
+                                <h5 class="font-bold">Manjul</h5>
+                                <h6 class="text-[10px] font-semibold">PR Canada</h6>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%] thirdleft-to-right-animation">Let’s See what our customers want to say</p>
-                <p class="text-white font_inter font-normal text-justify text-[14px] md:w-[45%] thirdleft-to-right-animation">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
+                <div class="!flex !w-[400px] md:w-[440px] overflow-hidden mr-5 !h-[250px] bg-white rounded-xl">
+                    <img src="{{ asset('assets/Navigation/pottan.png') }}" alt="">
+                    <div class="w-full py-4 px-4">
+                        <div class="flex items-center justify-end">
+                            <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">5.0</div>
+                            <div class="flex items-center gap-1">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <img src="{{ asset('assets/Navigation/doubleinverted-comma.png') }}" alt="">
+                        </div>
+                        <div class="py-2 font_inter text-[#072558]">
+                            <h4 class="font-extrabold">No Extra Charges, Less Royalties</h4>
+                            <p class="text-[8px] py-2 font-semibold">The client is proud of Halo Lab's work, which their customers have praised. They lead a communicativeprocess to enable the team to reach</p>
+                            <div>
+                                <h5 class="font-bold">Manjul</h5>
+                                <h6 class="text-[10px] font-semibold">PR Canada</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="!flex !w-[400px] md:w-[440px] overflow-hidden mr-5 !h-[250px] bg-white rounded-xl">
+                    <img src="{{ asset('assets/Navigation/pottan.png') }}" alt="">
+                    <div class="w-full py-4 px-4">
+                        <div class="flex items-center justify-end">
+                            <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">5.0</div>
+                            <div class="flex items-center gap-1">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <img src="{{ asset('assets/Navigation/doubleinverted-comma.png') }}" alt="">
+                        </div>
+                        <div class="py-2 font_inter text-[#072558]">
+                            <h4 class="font-extrabold">No Extra Charges, Less Royalties</h4>
+                            <p class="text-[8px] py-2 font-semibold">The client is proud of Halo Lab's work, which their customers have praised. They lead a communicativeprocess to enable the team to reach</p>
+                            <div>
+                                <h5 class="font-bold">Manjul</h5>
+                                <h6 class="text-[10px] font-semibold">PR Canada</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="!flex !w-[400px] md:w-[440px] overflow-hidden mr-5 !h-[250px] bg-white rounded-xl">
+                    <img src="{{ asset('assets/Navigation/pottan.png') }}" alt="">
+                    <div class="w-full py-4 px-4">
+                        <div class="flex items-center justify-end">
+                            <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">5.0</div>
+                            <div class="flex items-center gap-1">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <img src="{{ asset('assets/Navigation/doubleinverted-comma.png') }}" alt="">
+                        </div>
+                        <div class="py-2 font_inter text-[#072558]">
+                            <h4 class="font-extrabold">No Extra Charges, Less Royalties</h4>
+                            <p class="text-[8px] py-2 font-semibold">The client is proud of Halo Lab's work, which their customers have praised. They lead a communicativeprocess to enable the team to reach</p>
+                            <div>
+                                <h5 class="font-bold">Manjul</h5>
+                                <h6 class="text-[10px] font-semibold">PR Canada</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="!flex !w-[400px] md:w-[440px] overflow-hidden mr-5 !h-[250px] bg-white rounded-xl">
+                    <img src="{{ asset('assets/Navigation/pottan.png') }}" alt="">
+                    <div class="w-full py-4 px-4">
+                        <div class="flex items-center justify-end">
+                            <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">5.0</div>
+                            <div class="flex items-center gap-1">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <img src="{{ asset('assets/Navigation/doubleinverted-comma.png') }}" alt="">
+                        </div>
+                        <div class="py-2 font_inter text-[#072558]">
+                            <h4 class="font-extrabold">No Extra Charges, Less Royalties</h4>
+                            <p class="text-[8px] py-2 font-semibold">The client is proud of Halo Lab's work, which their customers have praised. They lead a communicativeprocess to enable the team to reach</p>
+                            <div>
+                                <h5 class="font-bold">Manjul</h5>
+                                <h6 class="text-[10px] font-semibold">PR Canada</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="!flex !w-[400px] md:w-[440px] overflow-hidden mr-5 !h-[250px] bg-white rounded-xl">
+                    <img src="{{ asset('assets/Navigation/pottan.png') }}" alt="">
+                    <div class="w-full py-4 px-4">
+                        <div class="flex items-center justify-end">
+                            <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">5.0</div>
+                            <div class="flex items-center gap-1">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                            </div>
+                        </div>
+                        <div>
+                            <img src="{{ asset('assets/Navigation/doubleinverted-comma.png') }}" alt="">
+                        </div>
+                        <div class="py-2 font_inter text-[#072558]">
+                            <h4 class="font-extrabold">No Extra Charges, Less Royalties</h4>
+                            <p class="text-[8px] py-2 font-semibold">The client is proud of Halo Lab's work, which their customers have praised. They lead a communicativeprocess to enable the team to reach</p>
+                            <div>
+                                <h5 class="font-bold">Manjul</h5>
+                                <h6 class="text-[10px] font-semibold">PR Canada</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-5 lg:px-12 py-8 lg:py-16 h-full w-full flex flex-col-reverse md:flex-row gap-4 items-center justify-between relative z-20">
+            <div class="flex justify-start items-center">
+                <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group">
+                    <!-- Initially the background will cover the full button -->
+                    <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
+                    <h6 class="relative z-10 text-white text-[12px] xl:text-[16px]">Be One of Them</h6>
+                    <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-sm cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                        <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
+                    </div>
+                </div>
+
             </div>
 
-            <div class="testimonial-slider-wrapper pl-5 lg:pl-12 pt-9 pb-0 lg:py-[70px] z-50">
-                <div class="your-slider-class">
-                    <div class="mr-[20px] md:ml-[25px] !flex items-start !w-[450px] !h-[228px] bg-white rounded-xl overflow-hidden">
-                        <img src="{{ asset('assets/Navigation/pottan.png') }}" alt="">
-                        <div class="w-full py-4 px-4">
-                            <div class="flex items-center justify-end">
-                                <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">5.0</div>
-                                <div class="flex items-center gap-1">
-                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                </div>
-                            </div>
-                            <div>
-                                <img src="{{ asset('assets/Navigation/doubleinverted-comma.png') }}" alt="">
-                            </div>
-                            <div class="py-2 font_inter text-[#072558]">
-                                <h4 class="font-extrabold">No Extra Charges, Less Royalties</h4>
-                                <p class="text-[8px] py-2 font-semibold">The client is proud of Halo Lab's work, which their customers have praised. They lead a communicativeprocess to enable the team to reach</p>
-                                <div>
-                                    <h5 class="font-bold">Manjul</h5>
-                                    <h6 class="text-[10px] font-semibold">PR Canada</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mr-[20px] md:ml-[25px] !flex items-start !w-[450px] !h-[228px] bg-white rounded-xl overflow-hidden">
-                        <img src="{{ asset('assets/Navigation/pottan.png') }}" alt="">
-                        <div class="w-full py-4 px-4">
-                            <div class="flex items-center justify-end">
-                                <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">5.0</div>
-                                <div class="flex items-center gap-1">
-                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                </div>
-                            </div>
-                            <div>
-                                <img src="{{ asset('assets/Navigation/doubleinverted-comma.png') }}" alt="">
-                            </div>
-                            <div class="py-2 font_inter text-[#072558]">
-                                <h4 class="font-extrabold">No Extra Charges, Less Royalties</h4>
-                                <p class="text-[8px] py-2 font-semibold">The client is proud of Halo Lab's work, which their customers have praised. They lead a communicativeprocess to enable the team to reach</p>
-                                <div>
-                                    <h5 class="font-bold">Manjul</h5>
-                                    <h6 class="text-[10px] font-semibold">PR Canada</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mr-[20px] md:ml-[25px] !flex items-start !w-[450px] !h-[228px] bg-white rounded-xl overflow-hidden">
-                        <img src="{{ asset('assets/Navigation/pottan.png') }}" alt="">
-                        <div class="w-full py-4 px-4">
-                            <div class="flex items-center justify-end">
-                                <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">5.0</div>
-                                <div class="flex items-center gap-1">
-                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                </div>
-                            </div>
-                            <div>
-                                <img src="{{ asset('assets/Navigation/doubleinverted-comma.png') }}" alt="">
-                            </div>
-                            <div class="py-2 font_inter text-[#072558]">
-                                <h4 class="font-extrabold">No Extra Charges, Less Royalties</h4>
-                                <p class="text-[8px] py-2 font-semibold">The client is proud of Halo Lab's work, which their customers have praised. They lead a communicativeprocess to enable the team to reach</p>
-                                <div>
-                                    <h5 class="font-bold">Manjul</h5>
-                                    <h6 class="text-[10px] font-semibold">PR Canada</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mr-[20px] md:ml-[25px] !flex items-start !w-[450px] !h-[228px] bg-white rounded-xl overflow-hidden">
-                        <img src="{{ asset('assets/Navigation/pottan.png') }}" alt="">
-                        <div class="w-full py-4 px-4">
-                            <div class="flex items-center justify-end">
-                                <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">5.0</div>
-                                <div class="flex items-center gap-1">
-                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                </div>
-                            </div>
-                            <div>
-                                <img src="{{ asset('assets/Navigation/doubleinverted-comma.png') }}" alt="">
-                            </div>
-                            <div class="py-2 font_inter text-[#072558]">
-                                <h4 class="font-extrabold">No Extra Charges, Less Royalties</h4>
-                                <p class="text-[8px] py-2 font-semibold">The client is proud of Halo Lab's work, which their customers have praised. They lead a communicativeprocess to enable the team to reach</p>
-                                <div>
-                                    <h5 class="font-bold">Manjul</h5>
-                                    <h6 class="text-[10px] font-semibold">PR Canada</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mr-[20px] md:ml-[25px] !flex items-start !w-[450px] !h-[228px] bg-white rounded-xl overflow-hidden">
-                        <img src="{{ asset('assets/Navigation/pottan.png') }}" alt="">
-                        <div class="w-full py-4 px-4">
-                            <div class="flex items-center justify-end">
-                                <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">5.0</div>
-                                <div class="flex items-center gap-1">
-                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                </div>
-                            </div>
-                            <div>
-                                <img src="{{ asset('assets/Navigation/doubleinverted-comma.png') }}" alt="">
-                            </div>
-                            <div class="py-2 font_inter text-[#072558]">
-                                <h4 class="font-extrabold">No Extra Charges, Less Royalties</h4>
-                                <p class="text-[8px] py-2 font-semibold">The client is proud of Halo Lab's work, which their customers have praised. They lead a communicativeprocess to enable the team to reach</p>
-                                <div>
-                                    <h5 class="font-bold">Manjul</h5>
-                                    <h6 class="text-[10px] font-semibold">PR Canada</h6>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+            <div class="flex justify-center gap-3 items-center">
+                <div class="card-home-slide-prev-button cursor-pointer">
+                    <img class="w-[40px]" src="{{ asset('assets/Button-Previous.png') }}" alt="">
+                </div>
+                <div class="cursor-pointer card-home-slide-next-button">
+                    <img class="w-[40px]" src="{{ asset('assets/nextbutton.png') }}" alt="">
                 </div>
             </div>
-
-
-            <div class="container mx-auto px-5 lg:px-12 py-8 lg:py-16 h-full w-full flex flex-col-reverse md:flex-row gap-4 items-center justify-between xl:mt-[-271px] relative z-20">
-                <div class="flex justify-start items-center">
-                    <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 lg:pr-2 overflow-hidden group">
-                        <!-- Initially the background will cover the full button -->
-                        <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
-                        <h6 class="relative z-10 text-white text-[12px] xl:text-[16px]">Be One of Them</h6>
-                        <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-sm cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
-                            <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="flex justify-center gap-3 items-center">
-                    <div class="card-home-slide-prev-button cursor-pointer">
-                        <img class="w-[40px]" src="{{ asset('assets/Button-Previous.png') }}" alt="">
-                    </div>
-                    <div class="cursor-pointer card-home-slide-next-button">
-                        <img class="w-[40px]" src="{{ asset('assets/nextbutton.png') }}" alt="">
-                    </div>
-                </div>
-            </div>
+        </div>
     </div>
 
     {{-- Blog sect --}}
@@ -707,7 +736,7 @@
             <p class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%] fourthleft-to-right-animation">Canadian Immigration News, Tips, and Resources</p>
             <p class="text-white font_inter font-normal text-justify text-[14px] md:w-[45%] fourthleft-to-right-animation">Stay in the loop and keep up with all our news and updates!</p>
             <div class="flex justify-start items-center my-12">
-                <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 lg:pr-2 overflow-hidden group">
+                <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group">
                     <!-- Initially the background will cover the full button -->
                     <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
                     <h6 class="relative z-10 text-white text-[12px] xl:text-[16px]">Be One of Them</h6>
@@ -805,27 +834,59 @@
             <p class="text-white font_inter font-semibold text-[26px] lg:w-[35%] mt-6 fifthleft-to-right-animation">Learn About All of the Great ThingsCanada Has to Offer!</p>
         </div>
 
-        <div class="flex justify-between items-center pb-8 md:pb-[100px] xl:pl-[50px] explore-slider-class">
-            <div class="my-4 !w-[300px] xl:!w-[480px] md:pl-8 lg:pl-12 relative image-card-explore">
-                <img src="{{ asset('assets/home_Banner/sliderone.png') }}" alt="">
+        <div class="pb-8 md:pb-[100px] xl:pl-[50px] explore-slider-class h-[380px] z-0">
+            <div class="my-0 mx-4 !w-[300px] xl:!w-[380px] md:mx-4 lg:mx-8 relative image-card-explore">
+                <img class="w-[300px] md:w-[380px]" src="{{ asset('assets/home_Banner/sliderone.png') }}" alt="">
                 <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
                     <button class="text-white">view</button>
                 </div>
             </div>
-            <div class="my-4 !w-[300px] xl:!w-[480px] md:pl-8 lg:pl-12 relative image-card-explore">
-                <img src="{{ asset('assets/home_Banner/slidertwo.png') }}" alt="">
+            <div class="my-0 mx-4 !w-[300px] xl:!w-[380px] md:mx-4 lg:mx-8 relative image-card-explore">
+                <img class="w-[300px] md:w-[380px]" src="{{ asset('assets/home_Banner/slidertwo.png') }}" alt="">
                 <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
                     <button class="text-white">view</button>
                 </div>
             </div>
-            <div class="my-4 !w-[300px] xl:!w-[480px] md:pl-8 lg:pl-12 relative image-card-explore">
-                <img src="{{ asset('assets/home_Banner/sliderThree.png') }}" alt="">
+            <div class="my-0 mx-4 !w-[300px] xl:!w-[380px] md:mx-4 lg:mx-8 relative image-card-explore">
+                <img class="w-[300px] md:w-[380px]" src="{{ asset('assets/home_Banner/sliderThree.png') }}" alt="">
                 <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
                     <button class="text-white">view</button>
                 </div>
             </div>
-            <div class="my-4 !w-[300px] xl:!w-[480px] md:pl-8 lg:pl-12 relative image-card-explore">
-                <img src="{{ asset('assets/home_Banner/sliderFour.png') }}" alt="">
+
+            <div class="my-0 mx-4 !w-[300px] xl:!w-[380px] md:mx-4 lg:mx-8 relative image-card-explore">
+                <img class="w-[300px] md:w-[380px]" src="{{ asset('assets/home_Banner/sliderone.png') }}" alt="">
+                <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
+                    <button class="text-white">view</button>
+                </div>
+            </div>
+            <div class="my-0 mx-4 !w-[300px] xl:!w-[380px] md:mx-4 lg:mx-8 relative image-card-explore">
+                <img class="w-[300px] md:w-[380px]" src="{{ asset('assets/home_Banner/slidertwo.png') }}" alt="">
+                <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
+                    <button class="text-white">view</button>
+                </div>
+            </div>
+            <div class="my-0 mx-4 !w-[300px] xl:!w-[380px] md:mx-4 lg:mx-8 relative image-card-explore">
+                <img class="w-[300px] md:w-[380px]" src="{{ asset('assets/home_Banner/sliderThree.png') }}" alt="">
+                <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
+                    <button class="text-white">view</button>
+                </div>
+            </div>
+
+            <div class="my-0 mx-4 !w-[300px] xl:!w-[380px] md:mx-4 lg:mx-8 relative image-card-explore">
+                <img class="w-[300px] md:w-[380px]" src="{{ asset('assets/home_Banner/sliderone.png') }}" alt="">
+                <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
+                    <button class="text-white">view</button>
+                </div>
+            </div>
+            <div class="my-0 mx-4 !w-[300px] xl:!w-[380px] md:mx-4 lg:mx-8 relative image-card-explore">
+                <img class="w-[300px] md:w-[380px]" src="{{ asset('assets/home_Banner/slidertwo.png') }}" alt="">
+                <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
+                    <button class="text-white">view</button>
+                </div>
+            </div>
+            <div class="my-0 mx-4 !w-[300px] xl:!w-[380px] md:mx-4 lg:mx-8 relative image-card-explore">
+                <img class="w-[300px] md:w-[380px]" src="{{ asset('assets/home_Banner/sliderThree.png') }}" alt="">
                 <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
                     <button class="text-white">view</button>
                 </div>
@@ -833,12 +894,12 @@
 
         </div>
 
-        <div class="container mx-auto px-5 lg:px-12 py-8 lg:pt-1 lg:pb-16 h-full w-full">
+        <div class="container mx-auto px-5 lg:px-12 py-8 lg:pt-1 lg:pb-16  z-[99] h-full w-full">
             <div class="flex justify-end gap-3 items-center">
                 <div class="card-explore-slide-prev-button cursor-pointer">
                     <img class="w-[40px]" src="{{ asset('assets/Button-Previous.png') }}" alt="">
                 </div>
-                <div class="cursor-pointer card-explore-slide-prev-button">
+                <div class="cursor-pointer card-explore-slide-next-button">
                     <img class="w-[40px]" src="{{ asset('assets/nextbutton.png') }}" alt="">
                 </div>
             </div>
@@ -1021,12 +1082,24 @@
 
 
         </div>
-        <div class="flex justify-center items-center my-12">
-            <div class="commongrad flex items-center rounded-full py-[2.5px]  w-fit">
-                <span class="px-5 text-white">Ask your questions through</span>
-                <button class="bg-white px-8 py-1 text-[#0153d0] rounded-full">Email</button>
+        <div class="flex justify-center py-6">
+            <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group w-fit">
+                <!-- Background that moves on hover -->
+                <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
+
+                <!-- Text color that changes on hover -->
+                <h6 class="relative z-10 text-white text-[10px] md:text-[12px] xl:text-[16px] transition-colors duration-500 group-hover:text-[#072558]">Let's turn your vision into reality.</h6>
+
+                <!-- "Connect Us" button, background changes to #072558 on hover -->
+                <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-sm cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full transition-all duration-500 group-hover:bg-[#072558] group-hover:text-white">
+                    <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
+                </div>
             </div>
         </div>
+
+
+
+
     </div>
 </div>
 
@@ -1039,7 +1112,7 @@
                 <img class="w-[70px]" src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="">
             </div>
             <p class="text-white py-6 paddadjuster md:w-3/5 lg:w-1/2 text-center font_inter font-semibold lg:text-[22px] gettouchpara">Labaton Keller Sucharow is elevating excellence through innovation, client service, and teamwork.</p>
-            <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 lg:pr-2 overflow-hidden group">
+            <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group">
                 <!-- Initially the background will cover the full button -->
                 <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
                 <h6 class="relative z-10 text-white text-[12px] xl:text-[16px]">Have any doubt</h6>
@@ -1075,7 +1148,6 @@
         });
     });
 
-    // counting animtion
     function animateCountUp(el, start, end, duration) {
         let startTime = null;
 
@@ -1133,8 +1205,6 @@
             });
     });
 
-
-
     // playPauseButton.addEventListener('click', function () {
     //     if (video.paused) {
     //     video.play();
@@ -1151,6 +1221,7 @@
     // });
 
     // Select the knowmore button and expandable line
+
     document.querySelectorAll('.knowmore').forEach(button => {
         const lineId = button.getAttribute('data-line');
         const line = document.querySelector(`.expandable-line[data-line="${lineId}"]`);
@@ -1407,27 +1478,32 @@
             nextArrow: $('.card-home-slide-next-button'),
             responsive: [
                 {
-                    breakpoint: 1200, // extra large devices
+                    breakpoint: 1200, // Extra large devices
                     settings: {
-                        slidesToShow: 3.5
+                        slidesToShow: 3.5,
+                        slidesToScroll: 1
                     }
                 },
                 {
-                    breakpoint: 992, // desktop view
+                    breakpoint: 992, // Desktop view
                     settings: {
-                        slidesToShow: 2.5
+                        slidesToShow: 2.5,
+                        slidesToScroll: 1
                     }
                 },
                 {
-                    breakpoint: 768, // tablet view
+                    breakpoint: 768, // Tablet view
                     settings: {
-                        slidesToShow: 1.5
+                        slidesToShow: 1.5,
+                        slidesToScroll: 1
                     }
                 },
                 {
-                    breakpoint: 576, // mobile view
+                    breakpoint: 576, // Mobile view (Updated)
                     settings: {
-                        slidesToShow: 1
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        arrows: false
                     }
                 }
             ]
@@ -1479,7 +1555,7 @@
             dots: false,
             arrows: true,
             infinite: true,
-            slidesToShow: 3,
+            slidesToShow: 5,
             slidesToScroll: 1,
             pauseOnHover: false,
             pauseOnFocus: false,
@@ -1521,12 +1597,15 @@
             arrows: false,
             dots: false
         });
+
         $('.video-carousel').slick({
             slidesToShow: 1,
             slidesToScroll: 1,
             prevArrow: $('.card-whosec-slide-prev-button'),
             nextArrow: $('.card-whosec-slide-next-button'),
-            infinite: false,
+            infinite: true,
+            fade: true,
+            adaptiveHeight: true,
         });
     });
 </script>
