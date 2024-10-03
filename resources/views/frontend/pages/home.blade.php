@@ -89,6 +89,21 @@
   width: 100%;
 }
 
+.image-card-explore>.view-button{
+    display: none;
+}
+.image-card-explore>.view-button>button{
+    color: #051b3b;
+    background: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+.image-card-explore:hover>.view-button{
+    display: flex;
+}
 
 </style>
 
@@ -537,8 +552,8 @@
                 <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] xl:text-[65px] leading-none fourthleft-to-right-animation">Blogs</h2>
                 <div class="w-full fourthleft-to-right-width-animation" style="border: 2px solid #FFFFFF8C;margin-bottom: 8px;"></div>
             </div>
-            <p class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%]">Canadian Immigration News, Tips, and Resources</p>
-            <p class="text-white font_inter font-normal text-justify text-[14px] md:w-[45%]">Stay in the loop and keep up with all our news and updates!</p>
+            <p class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%] fourthleft-to-right-animation">Canadian Immigration News, Tips, and Resources</p>
+            <p class="text-white font_inter font-normal text-justify text-[14px] md:w-[45%] fourthleft-to-right-animation">Stay in the loop and keep up with all our news and updates!</p>
             <div class="flex justify-start items-center my-12">
                 <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 lg:pr-2 overflow-hidden group">
                     <!-- Initially the background will cover the full button -->
@@ -637,19 +652,33 @@
             </div>
             <p class="text-white font_inter font-semibold text-[26px] lg:w-[35%] mt-6 fifthleft-to-right-animation">Learn About All of the Great ThingsCanada Has to Offer!</p>
         </div>
-        <div class="flex justify-between items-center pb-8 md:pb-[100px] explore-slider-class">
-            <div class="my-4 !w-[300px] xl:!w-[480px] md:pl-8 lg:pl-12">
+
+        <div class="flex justify-between items-center pb-8 md:pb-[100px] xl:pl-[50px] explore-slider-class">
+            <div class="my-4 !w-[300px] xl:!w-[480px] md:pl-8 lg:pl-12 relative image-card-explore">
                 <img src="{{ asset('assets/home_Banner/sliderone.png') }}" alt="">
+                <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
+                    <button class="text-white">view</button>
+                </div>
             </div>
-            <div class="my-4 !w-[300px] xl:!w-[480px] md:pl-8 lg:pl-12">
+            <div class="my-4 !w-[300px] xl:!w-[480px] md:pl-8 lg:pl-12 relative image-card-explore">
                 <img src="{{ asset('assets/home_Banner/slidertwo.png') }}" alt="">
+                <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
+                    <button class="text-white">view</button>
+                </div>
             </div>
-            <div class="my-4 !w-[300px] xl:!w-[480px] md:pl-8 lg:pl-12" >
+            <div class="my-4 !w-[300px] xl:!w-[480px] md:pl-8 lg:pl-12 relative image-card-explore">
                 <img src="{{ asset('assets/home_Banner/sliderThree.png') }}" alt="">
+                <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
+                    <button class="text-white">view</button>
+                </div>
             </div>
-            <div class="my-4 !w-[300px] xl:!w-[480px] md:pl-8 lg:pl-12" >
+            <div class="my-4 !w-[300px] xl:!w-[480px] md:pl-8 lg:pl-12 relative image-card-explore">
                 <img src="{{ asset('assets/home_Banner/sliderFour.png') }}" alt="">
+                <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
+                    <button class="text-white">view</button>
+                </div>
             </div>
+
         </div>
 
         <div class="container mx-auto px-5 lg:px-12 py-8 lg:pt-1 lg:pb-16 h-full w-full">
