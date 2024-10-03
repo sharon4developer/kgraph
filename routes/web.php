@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CareerController;
 use App\Http\Controllers\Admin\CertificateController;
+use App\Http\Controllers\Admin\CmsController;
 use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\CrewController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -17,6 +18,7 @@ use App\Http\Controllers\Admin\PackageFaqController;
 use App\Http\Controllers\Admin\PackagePointController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\PrivacyPolicyController;
+use App\Http\Controllers\Admin\SeoController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ServiceFaqController;
 use App\Http\Controllers\Admin\ServicePointController;
@@ -107,6 +109,14 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'package-faq' => PackageFaqController::class,
         'pages' => PageController::class,
     ]);
+
+    Route::prefix('pages')->name('.pages')->group(function () {
+        Route::resources([
+            'seo' => SeoController::class,
+            'cms' => CmsController::class,
+        ]);
+        Route::post('change/status', [PageController::class, 'changeStatus'])->name('change-status');
+    });
 
     Route::prefix('banners')->name('.banners')->group(function () {
 

@@ -13,6 +13,15 @@ return new class extends Migration
     {
         Schema::create('seos', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('page_id')->nullable();
+            $table->string('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
+            $table->text('meta_keywords')->nullable();
+            $table->string('og_title')->nullable();
+            $table->text('og_description')->nullable();
+            $table->string('og_url')->nullable();
+            $table->string('og_image')->nullable();
+            $table->foreign('page_id')->references('id')->on('pages');
             $table->timestamps();
         });
     }
