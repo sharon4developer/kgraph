@@ -54,7 +54,7 @@ class Journey extends Model
     }
 
     public static function getFullDataForHome(){
-        return SELF::get();
+        return SELF::first();
     }
 
     public static function getCount(){

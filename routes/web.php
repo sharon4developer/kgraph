@@ -29,7 +29,7 @@ use App\Http\Controllers\FrontEnd\HomeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('contact-us', function () {
     return view('main');

@@ -99,9 +99,9 @@
 
     <!-- Slick Slider for Background Images -->
     <div class="slick-slider-background absolute inset-0 z-[-1]">
-        <div><img class="w-full h-full object-cover" src="{{ asset('assets/home_Banner/bannerCity.jpg') }}" alt="Slide 1"></div>
-        <div><img class="w-full h-full object-cover" src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="Slide 2"></div>
-        <div><img class="w-full h-full object-cover" src="{{ asset('assets/home_Banner/Canadas.jpeg') }}" alt="Slide 3"></div>
+        @foreach ($banner as $data)
+        <div><img class="w-full h-full object-cover" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="Slide 1"></div>
+        @endforeach
     </div>
 
     <!-- Banner Content -->
@@ -172,160 +172,30 @@
             <h4 class="text-white font_inter font-semibold text-[22px] xl:text-[36px] py-4 lg:pb-0 left-to-right-animation">Visa Immigration for a Brighter You Future</h4>
             <p class="text-white font_inter font-thin text-justify text-[14px] xl:text-[20px] left-to-right-animation">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
             <div class="gap-5 flex justify-start md:justify-center lg:justify-between items-center scrollbar-hidden" style="">
+
+                @foreach ($services as $data)
+
                 <div class="box-grading mb-9 lg:mb-0 p-4 lg:p-6 lg:h-[300px] xl:h-[450px] w-full md:w-[28%] lg:w-full rounded-xl cursor-pointer">
-                    <h2 class="text-white font_inter text-[10px] xl:text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">Foreign</span><span class="xl:inline-block">nationals</span></h2>
+                    <h2 class="text-white font_inter text-[10px] xl:text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">{{$data->title}}</span>
+                        {{-- <span class="xl:inline-block">nationals</span> --}}
+                    </h2>
                     <div class="text-white font_inter font-bold text-[10px] xl:text-sm py-3">Choose Your Services</div>
 
                     <div class="flex flex-col xl:mt-4 gap-3 knowbutton ">
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
+                        @foreach ($data->ServicePoint as $points)
 
                         <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
+                            <div class="text-xs xl:text-sm text-white">{{$points->title}}</div>
                             <div>
                                 <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
                                 </svg>
                             </div>
                         </button>
-
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
+                        @endforeach
                     </div>
                 </div>
-
-                <div class="hidden md:block box-grading mb-9 lg:mb-0 p-4 lg:p-6 lg:h-[300px] xl:h-[450px] w-full md:w-[28%] lg:w-full rounded-xl cursor-pointer">
-                    <h2 class="text-white font_inter text-[10px] xl:text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">Business </span><span class="xl:inline-block">Investors</span></h2>
-                    <div class="text-white font_inter font-bold text-[10px] xl:text-sm py-3">Choose Your Services</div>
-
-                    <div class="flex flex-col gap-3 xl:mt-4 knowbutton ">
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="hidden lg:block box-grading mb-9 lg:mb-0 p-4 lg:p-6 lg:h-[300px] xl:h-[450px] w-full md:w-[28%] lg:w-full rounded-xl cursor-pointer">
-                    <h2 class="text-white font_inter text-[10px] xl:text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">Canadian</span><span class="xl:inline-block">Employees</span></h2>
-                    <div class="text-white font_inter font-bold text-[10px] xl:text-sm py-3">Choose Your Services</div>
-
-                    <div class="flex flex-col gap-3 xl:mt-4 knowbutton ">
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="hidden lg:block box-grading mb-9 lg:mb-0 p-4 lg:p-6 lg:h-[300px] xl:h-[450px] w-full md:w-[28%] lg:w-full rounded-xl cursor-pointer">
-                    <h2 class="text-white font_inter text-[10px] xl:text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">Canadian Citizens</span><span class="xl:inline-block">and PR</span></h2>
-                    <div class="text-white font_inter font-bold text-[10px] xl:text-sm py-3">Choose Your Services</div>
-
-                    <div class="flex flex-col gap-3 xl:mt-4 knowbutton ">
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 xl:py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -362,11 +232,14 @@
             </div>
             <p class="py-5 text-white font_inter font-medium text-[18px] xl:text-[36px] lg:w-[30%] xl:w-[60%]">Navigate Your Canadian Immigration Journey with Confidence</p>
             <div class="video-container">
+                @foreach ($whoweare as $data)
+
                 <video id="customVideo" width="320" height="240">
-                  <source src="{{ asset('assets/kgraphvideo.mp4') }}" type="video/mp4">
-                  <source src="{{ asset('assets/kgraphvideo.ogg') }}" type="video/ogg">
+                  <source src="{{ $locationData['storage_server_path'].$locationData['storage_video_path'].$data->file }}" type="video/mp4">
+                  <source src="{{ $locationData['storage_server_path'].$locationData['storage_video_path'].$data->file }}" type="video/ogg">
                   Your browser does not support the video tag.
                 </video>
+                @endforeach
 
                 <!-- Custom Play/Pause Button -->
                 <div id="playPauseButton" class="custom-controls">
@@ -384,30 +257,31 @@
                 <div class="md:w-1/2">
                     <h4 class="text-white font_inter font-semibold text-[22px] lg:text-[30px] lg:w-[75%]">Navigate Your Canadian Immigration Journey with Confidence</h4>
                     <p class="text-white font_inter font-thin text-justify text-[14px] py-4  lg:w-[75%]">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
-                    <h2 id="count-number" class="text-white font_inter font-bold text-[85px] leading-none">60+</h2>
+                    <h2 id="count-number" class="text-white font_inter font-bold text-[85px] leading-none">@if(isset($journey)) {{$journey->experience}} @endif</h2>
+                    <input type="hidden" id="exp-count" value=@if(isset($journey)){{$journey->experience}}@endif>
                     <p class="text-white">Years of Experience</p>
                     <div class="my-6 flex flex-wrap md:flex-nowrap items-start gap-5">
                         <div>
-                            <h2 class="text-white font_inter font-bold text-[25px] leading-none">60+</h2>
+                            <h2 class="text-white font_inter font-bold text-[25px] leading-none">@if(isset($journey)) {{$journey->employees}} @endif</h2>
                             <span class="text-white">Employes</span>
                         </div>
 
                         <div>
-                            <h2 class="text-white font_inter font-bold text-[25px] leading-none">4.5</h2>
+                            <h2 class="text-white font_inter font-bold text-[25px] leading-none">@if(isset($journey)) {{$journey->ratings}} @endif</h2>
                             <span class="text-white block leading-none">Google</span>
                             <span class="text-white">Rating</span>
                         </div>
 
                         <div>
-                            <h2 class="text-white font_inter font-bold text-[25px] leading-none">4.5</h2>
+                            <h2 class="text-white font_inter font-bold text-[25px] leading-none">@if(isset($journey)) {{$journey->offices}} @endif</h2>
                             <span class="text-white">Offices</span>
                         </div>
                         <div>
-                            <h2 class="text-white font_inter font-bold text-[25px] leading-none">30k+</h2>
+                            <h2 class="text-white font_inter font-bold text-[25px] leading-none">@if(isset($journey)) {{$journey->customers}} @endif</h2>
                             <span class="text-white">Customers Served</span>
                         </div>
                         <div>
-                            <h2 class="text-white font_inter font-bold text-[25px] leading-none">3k</h2>
+                            <h2 class="text-white font_inter font-bold text-[25px] leading-none">@if(isset($journey)) {{$journey->cases}} @endif</h2>
                             <span class="text-white">Active Cases</span>
                         </div>
                     </div>
@@ -461,8 +335,10 @@
                     <h2 class="text-white font_inter font-semibold text-2xl lg:text-3xl xl:text-4xl">Regulated Canadian Immigration Consultants (RCIC-IRB)</h2>
                     <p class="py-5 text-white font-normal font_inter text-[14px] xl:text-lg lg:py-10">Proudly regulated by and in good standing with the College of Immigration and Citizenship Consultants (CICC). Jamie Dowla, registration #: R507233</p>
                     <div class="flex flex-col lg:flex-row gap-5 items-center mb-8">
-                        <img class="w-[200px]" src="{{ asset('assets/home_Banner/ciccc.png') }}" alt="">
-                        <img class="w-[200px]" src="{{ asset('assets/home_Banner/capic.png') }}" alt="">
+                        @foreach ($certificate as $data)
+
+                        <img class="w-[200px]" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="">
+                        @endforeach
                     </div>
                 </div>
 
@@ -553,66 +429,25 @@
 
 
             <div class="pt-[20px] md:pb-[70px] gap-6 w-full blog-slider-class" style="">
+                @foreach ($blogs as $data)
+
                 <div class="bg-white w-[350px] mr-5">
-                    <img class="h-[200px] w-full object-cover" src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="blog_image"/>
+                    <img class="h-[200px] w-full object-cover" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="blog_image"/>
                     <div class="py-4 px-6">
                         <div class="flex items-center gap-4">
-                            <img class="w-[50px] h-[50px]" src="{{ asset('assets/home_Banner/athulraj.png') }}" alt="profile_image"/>
+                            <img class="w-[50px] h-[50px]" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->user_image }}" alt="profile_image"/>
                             <div>
-                                <h6 class="font_inter font-semibold text-16px text-[#072558]">Anusha</h6>
-                                <p class="text-[#072558] font_inter font-medium text-[14px]">by Anusha, on Aug 5, 2024 11:46:47 AM</p>
-                                <p class="text-[#072558] font_inter font-medium text-[14px]">Topics: Canada Immigration</p>
+                                <h6 class="font_inter font-semibold text-16px text-[#072558]">{{$data->name}}</h6>
+                                <?php $date = $data->date.' '.$data->time; ?>
+                                <p class="text-[#072558] font_inter font-medium text-[14px]">by {{$data->name}}, on {{date('M j, Y h:i:s A', strtotime($date))}}</p>
+                                <p class="text-[#072558] font_inter font-medium text-[14px]">Topics: {{$data->topics}}</p>
                             </div>
                         </div>
-                        <h5 class="text-[#072558] font_inter font-bold text-[14px] py-5">Top Immigration Consultant in Bangalore for 2024</h5>
-                        <p class="text-[#072558] font_inter font-normal text-justify text-[14px]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </p>
+                        <h5 class="text-[#072558] font_inter font-bold text-[14px] py-5">{{$data->title}}</h5>
+                        <p class="text-[#072558] font_inter font-normal text-justify text-[14px]">{{$data->description}} </p>
                     </div>
                 </div>
-                <div class="bg-white w-[350px] mr-5">
-                    <img class="h-[200px] w-full object-cover" src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="blog_image"/>
-                    <div class="py-4 px-6">
-                        <div class="flex items-center gap-4">
-                            <img class="w-[50px] h-[50px]" src="{{ asset('assets/home_Banner/athulraj.png') }}" alt="profile_image"/>
-                            <div>
-                                <h6 class="font_inter font-semibold text-16px text-[#072558]">Anusha</h6>
-                                <p class="text-[#072558] font_inter font-medium text-[14px]">by Anusha, on Aug 5, 2024 11:46:47 AM</p>
-                                <p class="text-[#072558] font_inter font-medium text-[14px]">Topics: Canada Immigration</p>
-                            </div>
-                        </div>
-                        <h5 class="text-[#072558] font_inter font-bold text-[14px] py-5">Top Immigration Consultant in Bangalore for 2024</h5>
-                        <p class="text-[#072558] font_inter font-normal text-justify text-[14px]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </p>
-                    </div>
-                </div>
-                <div class="bg-white w-[350px] mr-5">
-                    <img class="h-[200px] w-full object-cover" src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="blog_image"/>
-                    <div class="py-4 px-6">
-                        <div class="flex items-center gap-4">
-                            <img class="w-[50px] h-[50px]" src="{{ asset('assets/home_Banner/athulraj.png') }}" alt="profile_image"/>
-                            <div>
-                                <h6 class="font_inter font-semibold text-16px text-[#072558]">Anusha</h6>
-                                <p class="text-[#072558] font_inter font-medium text-[14px]">by Anusha, on Aug 5, 2024 11:46:47 AM</p>
-                                <p class="text-[#072558] font_inter font-medium text-[14px]">Topics: Canada Immigration</p>
-                            </div>
-                        </div>
-                        <h5 class="text-[#072558] font_inter font-bold text-[14px] py-5">Top Immigration Consultant in Bangalore for 2024</h5>
-                        <p class="text-[#072558] font_inter font-normal text-justify text-[14px]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </p>
-                    </div>
-                </div>
-                <div class="bg-white w-[350px] mr-5">
-                    <img class="h-[200px] w-full object-cover" src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="blog_image"/>
-                    <div class="py-4 px-6">
-                        <div class="flex items-center gap-4">
-                            <img class="w-[50px] h-[50px]" src="{{ asset('assets/home_Banner/athulraj.png') }}" alt="profile_image"/>
-                            <div>
-                                <h6 class="font_inter font-semibold text-16px text-[#072558]">Anusha</h6>
-                                <p class="text-[#072558] font_inter font-medium text-[14px]">by Anusha, on Aug 5, 2024 11:46:47 AM</p>
-                                <p class="text-[#072558] font_inter font-medium text-[14px]">Topics: Canada Immigration</p>
-                            </div>
-                        </div>
-                        <h5 class="text-[#072558] font_inter font-bold text-[14px] py-5">Top Immigration Consultant in Bangalore for 2024</h5>
-                        <p class="text-[#072558] font_inter font-normal text-justify text-[14px]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </p>
-                    </div>
-                </div>
+                @endforeach
             </div>
 
             <div class="container mx-auto px-5 lg:px-12 py-8 lg:py-16 h-full w-full flex items-center justify-end">
@@ -918,10 +753,12 @@
 
         let hasCounted = false;
 
+        var counterVal = $('#exp-count').val();
+
         const observer = new IntersectionObserver(function(entries) {
             if (entries[0].isIntersecting && !hasCounted) {
                 hasCounted = true;
-                animateCountUp(numberElement, 0, 60, 2000);
+                animateCountUp(numberElement, 0, counterVal, 2000);
             }
         }, {
             threshold: 0.5

@@ -15,6 +15,10 @@ class Service extends Model
 
     protected $fillable = ['title', 'sub_title', 'image', 'intervention_image', 'status','order'];
 
+    public function ServicePoint(){
+        return  $this->hasMany(ServicePoint::class);
+    }
+
     public static function getFullData($data)
     {
         $locationData = getLocationData();
@@ -86,7 +90,7 @@ class Service extends Model
     }
 
     public static function getFullDataForHome(){
-        return SELF::select('image','id','title','sub_title')->orderBy('order','asc')->where('status',1)->get();
+        return SELF::with('ServicePoint')->select('image','id','title','sub_title')->orderBy('order','asc')->where('status',1)->get();
     }
 
     public static function updateOrder($data)
