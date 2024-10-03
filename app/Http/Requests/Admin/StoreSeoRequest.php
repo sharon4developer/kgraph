@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -11,7 +11,7 @@ class StoreSeoRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,14 @@ class StoreSeoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'meta_title' => 'required',
+            'meta_description' => 'required',
+            'meta_keywords' => 'required',
+            'og_title' => 'required',
+            'og_description' => 'required',
+            'og_url' => 'required',
+            'og_image' => 'required_if:seo_id,""|mimes:jpeg,png,jpg,gif',
+            'page_id' => 'required|exists:pages,id',
         ];
     }
 }

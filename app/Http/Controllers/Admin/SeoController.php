@@ -3,65 +3,44 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreSeoRequest;
-use App\Http\Requests\UpdateSeoRequest;
+use App\Http\Requests\Admin\StoreSeoRequest;
+use App\Http\Requests\Admin\UpdateSeoRequest;
 use App\Models\Seo;
+use Exception;
+use Illuminate\Http\Request;
 
 class SeoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(StoreSeoRequest $request)
     {
-        //
+        try{
+            $save= Seo::createData($request);
+
+            if($save){
+                $response=[
+                    'status'=>true,
+                    'message'=>'Saved successfully...',
+                ];
+            }else{
+                $response=[
+                    'status'=>false,
+                    'message'=>'Something wrong please try again.',
+                ];
+            }
+
+        }catch(Exception $e){
+            $response=[
+                'status'=>false,
+                'message'=>'Something went wrong please try again.',
+                'error'=>$e->getMessage(),
+            ];
+        }
+        return response()->json($response);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Seo $seo)
+    public function show(Request $request)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Seo $seo)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateSeoRequest $request, Seo $seo)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(Seo $seo)
-    {
-        //
+        $data = Seo::getData($request->page_id);
+        return $data;
     }
 }
