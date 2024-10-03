@@ -360,7 +360,7 @@
                 </div>
 
             </div>
-            <p class="py-5 text-white font_inter font-medium text-[18px] xl:text-[36px] lg:w-[30%] xl:w-[60%]">Navigate Your Canadian Immigration Journey with Confidence</p>
+            <p class="py-5 text-white font_inter font-medium text-[18px] xl:text-[36px] lg:w-[30%] xl:w-[60%] secleft-to-right-animation">Navigate Your Canadian Immigration Journey with Confidence</p>
             <div class="video-container">
                 <video id="customVideo" width="320" height="240">
                   <source src="{{ asset('assets/kgraphvideo.mp4') }}" type="video/mp4">
@@ -492,8 +492,8 @@
                     <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] xl:text-[65px] leading-none thirdleft-to-right-animation">Testimonials</h2>
                     <div class="w-full thirdleft-to-right-width-animation" style="border: 2px solid #FFFFFF8C;margin-bottom: 8px;"></div>
                 </div>
-                <p class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%]">Let’s See what our customers want to say</p>
-                <p class="text-white font_inter font-normal text-justify text-[14px] md:w-[45%]">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
+                <p class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%] thirdleft-to-right-animation">Let’s See what our customers want to say</p>
+                <p class="text-white font_inter font-normal text-justify text-[14px] md:w-[45%] thirdleft-to-right-animation">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
             </div>
 
             <div class="testimonial-slider-wrapper pl-5 lg:pl-12 pt-9 pb-0 lg:py-[70px] z-50">
@@ -635,7 +635,7 @@
                 <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] xl:text-[65px] leading-none fifthleft-to-right-animation">Explore</h2>
                 <div class="w-full fifthleft-to-right-width-animation" style="border: 2px solid #FFFFFF8C;margin-bottom: 8px;"></div>
             </div>
-            <p class="text-white font_inter font-semibold text-[26px] lg:w-[35%] mt-6">Learn About All of the Great ThingsCanada Has to Offer!</p>
+            <p class="text-white font_inter font-semibold text-[26px] lg:w-[35%] mt-6 fifthleft-to-right-animation">Learn About All of the Great ThingsCanada Has to Offer!</p>
         </div>
         <div class="flex justify-between items-center pb-8 md:pb-[100px] explore-slider-class">
             <div class="my-4 !w-[300px] xl:!w-[480px] md:pl-8 lg:pl-12">
@@ -653,14 +653,14 @@
         </div>
 
         <div class="container mx-auto px-5 lg:px-12 py-8 lg:pt-1 lg:pb-16 h-full w-full">
-        <div class="flex justify-end gap-3 items-center">
-            <div class="card-explore-slide-prev-button cursor-pointer">
-                <img class="w-[40px]" src="{{ asset('assets/Button-Previous.png') }}" alt="">
+            <div class="flex justify-end gap-3 items-center">
+                <div class="card-explore-slide-prev-button cursor-pointer">
+                    <img class="w-[40px]" src="{{ asset('assets/Button-Previous.png') }}" alt="">
+                </div>
+                <div class="cursor-pointer card-explore-slide-prev-button">
+                    <img class="w-[40px]" src="{{ asset('assets/nextbutton.png') }}" alt="">
+                </div>
             </div>
-            <div class="cursor-pointer card-explore-slide-prev-button">
-                <img class="w-[40px]" src="{{ asset('assets/nextbutton.png') }}" alt="">
-            </div>
-        </div>
         </div>
 
 
