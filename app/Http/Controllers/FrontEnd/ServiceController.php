@@ -22,4 +22,11 @@ class ServiceController extends Controller
         }
         return view('frontend.pages.services', compact('certificate','services'));
     }
+
+    public function serviceDetails($id)
+    {
+        $services = Service::getData($id);
+
+        return view('frontend.pages.servicesinner', compact('services'));
+    }
 }
