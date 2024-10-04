@@ -334,7 +334,7 @@ ul.custom-bulletssec li{
 .accordion-header>h6{
     color: #072558;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 15px;
 }
 .accordion-content{
     color: #072558;
@@ -526,8 +526,21 @@ ul.custom-bulletssec li{
     .commongrad{
         background: linear-gradient(90deg, #003D99 0%, #0066FF 100%);
     }
+    .slick-slider-background img {
+        width: 100%;
+        height: 100dvh;
+        object-fit: cover;
+    }
 }
 @media (min-width: 1024px){
+    .accordion-header>h6{
+        font-size: 18px;
+    }
+    .slick-slider-background img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
     .footer-last {
         position: relative;
         z-index: 1;
