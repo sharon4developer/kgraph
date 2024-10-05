@@ -33,6 +33,42 @@ h1,h2,h3,h4,h5,h6,a,p,li{
 
 
 
+.nav-link {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 3px;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    border-radius: 25px;
+    background-color: white;
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+.nav-link::after {
+    right: 0;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+
+
 /* hamburger styles start*/
 
 
@@ -623,8 +659,9 @@ ul.custom-bulletssec li{
 @media (min-width: 1200px){
     .banner_main-text::after{
         scale: unset;
-        bottom: -70px;
-        right: -58%;
+        bottom: -88px;
+        right: -51%;
+
     }
 }
 @media (min-width: 1280px){

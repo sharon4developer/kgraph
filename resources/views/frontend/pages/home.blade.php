@@ -125,31 +125,31 @@
 
     <!-- Banner Content -->
     <div class="container mx-auto px-5 lg:px-12 h-full w-full relative z-10">
-        <div class="h-full w-full flex flex-col justify-center items-center text-center mb-4 md:pt-8 pb-14 gap-[20px] md:gap-[31px] lg:gap-0">
-            <div class="z-10 flex flex-col lg:flex-row items-center pt-[10%] lg:pt-[13%] xl:pt-[12%] banner-container-elem">
+        <div class="h-full w-full flex flex-col justify-center items-center text-center mb-4 md:pt-8 pb-0 gap-[20px] md:gap-[31px] lg:gap-0">
+            <div class="z-10 flex flex-col lg:flex-row items-center lg:gap-[23px] pt-[10%] lg:pt-[13%] xl:pt-[205px] banner-container-elem">
                 <img class="pt-[22px] md:pt-0 w-[40px] xl:w-[100px]" src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="">
-                <h2 class="banner_text-one text-[20px]  lg:text-base xl:text-[26px] font_inter font-semibold text-white text-center">
+                <h2 class="banner_text-one text-[20px]  lg:text-base xl:text-[26px] font_inter font-medium text-white text-center capitalize">
                     Journey with Confidence <span class="text-[#579aff]">Migrate</span> with Us
                 </h2>
             </div>
-            <h1 class="md:text-center text-[31px] md:text-[55px] lg:text-5xl xl:text-8xl lg:w-[60%] xl:w-[70%] font-medium font_inter gradient-text z-10 lg:mt-4 xl:mt-16 banner_main-text xl:inline-block banner-contain-text">
-                Your Trusted Partner for Immigration.
+            <h1 class="md:text-center text-[31px] md:text-[55px] lg:text-5xl xl:text-[85px] lg:w-[80%] font-medium font_inter gradient-text z-10 lg:mt-4 xl:mt-12 banner_main-text xl:inline-block banner-contain-text">
+                Visa Made Easy Dreams Made Possible
             </h1>
-            <h6 class="font_inter font-semibold text-[12px] md:text-[20px] md:text-3xl lg:text-base xl:text-3xl z-20 text-white lg:mt-14 xl:mt-20 banner-container-elem">
+            <h6 class="font_inter font-medium text-[20px]  lg:text-base xl:text-[26px] z-20 text-white lg:mt-14 xl:mt-24 banner-container-elem">
                 Visa Made Easy Dreams Made Possible
             </h6>
-            <div class="z-10 flex flex-row justify-center items-start md:items-center gap-4 lg:my-7">
+            <div class="z-10 flex flex-row justify-center items-start md:items-center gap-4 lg:mb-7 lg:mt-10">
                 <img width="52px" src="{{ asset('assets/home_Banner/CanadaFlag.png') }}" alt="CanadaFlag">
-                <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group">
+                <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[4.5px] pl-5 pr-1 overflow-hidden group">
                     <!-- Background animation using pseudo-element -->
                     <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
                     <h6 class="relative z-10 text-white text-[10px] md:text-[12px] xl:text-[16px]">Let's turn your vision into reality.</h6>
-                    <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-sm cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                    <div class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[4px] md:rounded-sm cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                         <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
                     </div>
                 </div>
             </div>
-            <div class="z-10 flex flex-wrap md:flex-nowrap justify-around items-center py-5 w-full lg:mb-1 xl:mb-10">
+            <div class="z-10 flex flex-wrap md:flex-nowrap justify-around items-center py-5 w-full lg:mb-0">
                 <img class="w-[50px] md:w-[100px] "  src="{{ asset('assets/home_Banner/segment.png') }}" alt="">
                 <img class="w-[50px] md:w-[100px] "  src="{{ asset('assets/home_Banner/splunk.png') }}" alt="">
                 <img class="w-[50px] md:w-[100px] "  src="{{ asset('assets/home_Banner/Hubspot.png') }}" alt="">
@@ -174,22 +174,22 @@
         <div class="container mx-auto px-5 lg:px-12 lg:py-16 h-full w-full pt-10 lg:pt0">
             <div class="md:flex items-center">
                 <h2 class="left-to-right-animation font_inter font-semibold text-[46px] md:text-[50px] xl:text-[100px] text-white leading-none uppercase gradient-text"><span class="inline-block">Our</span><span class="inline-block">Services</span></h2>
-                <div class="md:pl-2 w-full" style="margin-bottom: -6%;">
+                <div class="md:pl-2 lg:pl-10 w-full" style="margin-bottom: -6%;">
                     <div class="my-4 md:my-0 flex justify-center md:justify-end items-center">
-                        <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group">
-                            <!-- Initially the background will cover the full button -->
+                        <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[4.5px] pl-5 pr-1 overflow-hidden group">
+                            <!-- Background animation using pseudo-element -->
                             <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
                             <h6 class="relative z-10 text-white text-[10px] md:text-[12px] xl:text-[16px]">Let's turn your vision into reality.</h6>
-                            <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-sm cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                            <div class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[4px] md:rounded-sm cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                                 <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
                             </div>
                         </div>
                     </div>
-                    <div class="w-full my-6 left-to-right-width-animation" style="border: 2px solid #FFFFFF8C;"></div>
+                    <div class="w-full mt-6 left-to-right-width-animation" style="border: 1px solid #FFFFFF8C;"></div>
                 </div>
             </div>
-            <h4 class="text-white font_inter font-semibold text-[22px] xl:text-[36px] py-4 lg:pb-0 left-to-right-animation">Visa Immigration for a Brighter You Future</h4>
-            <p class="text-white font_inter font-thin text-justify text-[14px] xl:text-[20px] left-to-right-animation">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
+            <h4 class="text-white font_inter font-semibold text-[22px] xl:text-[36px] py-4 lg:pb-0 left-to-right-animation capitalize lg:mt-6">Visa Immigration for a Brighter You Future</h4>
+            <p class="text-white font_inter font-extralight text-justify text-[14px] xl:text-[16px] left-to-right-animation lg:w-[80%]">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
             <div class="gap-5 flex justify-start md:justify-center lg:justify-between items-center scrollbar-hidden" style="">
                 <div class="box-grading mb-9 lg:mb-0 p-4 lg:p-6 h-[400px] lg:h-[300px] xl:h-[450px] w-full md:w-[28%] lg:w-full rounded-xl cursor-pointer">
                     <h2 class="text-white font_inter text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">Foreign</span><span class="xl:inline-block">nationals</span></h2>
