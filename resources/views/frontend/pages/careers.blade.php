@@ -166,12 +166,12 @@
                                 <input id="imageUploader" type="file" accept="image/*" style="display: none;" onchange="handleFileChange()" />
                             </div>
 
-                            <div class="flex justify-end items-center">
+                            <div class="flex justify-end items-center overflow-hidden rounded-full">
                                 <div class="border rounded-full border-[#072558] cursor-pointer">
-                                    {{-- <input class="!px-[50px] py-1 uppercase text-[#072558] cursor-pointer" type="button" value="Submit"> --}}
-                                    <button class="!px-[80px] py-3 uppercase text-[#072558] cursor-pointer text-[16px] font-bold">Submit</button>
+                                    <button class="!px-[80px] py-3 uppercase text-[#072558] cursor-pointer text-[16px] font-bold bg-transparent hover:bg-[#072558] hover:text-white transition-colors duration-300 rounded-full">Submit</button>
                                 </div>
                             </div>
+
 
                         </form>
                     </div>
