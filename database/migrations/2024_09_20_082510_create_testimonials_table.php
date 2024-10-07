@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('place')->nullable();
             $table->string('occupation')->nullable();
             $table->string('image')->nullable();
+            $table->string('alt_tag')->nullable()->default('k-graph');
             $table->string('intervention_image')->nullable();
             $table->text('description')->nullable();
             $table->integer('status')->default(1)->nullable();

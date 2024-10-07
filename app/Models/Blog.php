@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Yajra\DataTables\Facades\DataTables;
+use Str;
 
 class Blog extends Model
 {
@@ -13,7 +14,7 @@ class Blog extends Model
 
     protected $table = 'blogs';
 
-    protected $fillable = ['title', 'description', 'image', 'intervention_image', 'status','order','date','time','user_image','user_intervention_image','name','topics'];
+    protected $fillable = ['title', 'description', 'image', 'intervention_image', 'status','order','date','time','user_image','user_intervention_image','name','topics','slug','alt_tag'];
 
     public static function getFullData($data)
     {
@@ -45,6 +46,10 @@ class Blog extends Model
         $value->time  = $data->time;
         $value->name  = $data->name;
         $value->topics  = $data->topics;
+        $slug = Str::slug($data->name);
+        $value->slug = $slug;
+        $value->alt_tag           =  $data->alt_tag;
+        $value->user_alt_tag           =  $data->user_alt_tag;
         if ($data->image) {
             $value->image = Cms::storeImage($data->image, $data->title);
             $intervention_image = $value->image;
@@ -75,6 +80,10 @@ class Blog extends Model
         $value->time  = $data->time;
         $value->name  = $data->name;
         $value->topics  = $data->topics;
+        $slug = Str::slug($data->title);
+        $value->slug = $slug;
+        $value->alt_tag           =  $data->alt_tag;
+        $value->user_alt_tag           =  $data->user_alt_tag;
         if ($data->image) {
             $value->image = Cms::storeImage($data->image, $data->title);
             $intervention_image = $value->image;
@@ -112,7 +121,7 @@ class Blog extends Model
     }
 
     public static function getFullDataForHome(){
-        return SELF::select('image','id','title','description','name','date','time','topics','user_image')->orderBy('order','asc')->where('status',1)->get();
+        return SELF::select('image','id','title','description','name','date','time','topics','user_image','alt_tag','user_alt_tag','slug')->orderBy('order','asc')->where('status',1)->get();
     }
 
     public static function updateOrder($data)

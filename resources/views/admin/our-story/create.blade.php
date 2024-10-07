@@ -46,6 +46,28 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
+                                        <label class="form-label" for="title">Alt Tag</label>
+                                        <input type="text" class="form-control" id="alt_tag" name="alt_tag"
+                                            placeholder="Alt Tag" required>
+                                        <div class="valid-feedback">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label class="form-label" for="title">Second Alt Tag</label>
+                                        <input type="text" class="form-control" id="second_alt_tag" name="second_alt_tag"
+                                            placeholder="Second Alt Tag" required>
+                                        <div class="valid-feedback">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <div class="form-group">
                                         <label class="form-label" for="sub_title">Image</label>
                                         <input type="file" accept=".png, .jpg, .jpeg,.webp" class="form-control"
                                             id="image" name="image" required>

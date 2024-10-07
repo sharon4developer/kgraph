@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Yajra\DataTables\Facades\DataTables;
+use Str;
 
 class Package extends Model
 {
@@ -13,7 +14,7 @@ class Package extends Model
 
     protected $table = 'packages';
 
-    protected $fillable = ['country', 'description', 'image', 'intervention_image', 'status','order','title'];
+    protected $fillable = ['country', 'description', 'image', 'intervention_image', 'status','order','title','alt_tag','slug'];
 
     public function PackagePoint(){
         return  $this->hasMany(PackagePoint::class);
@@ -44,6 +45,9 @@ class Package extends Model
         $value->title        = $data->title;
         $value->country        = $data->country;
         $value->description  = $data->description;
+        $slug = Str::slug($data->name);
+        $value->slug = $slug;
+        $value->alt_tag           =  $data->alt_tag;
         if ($data->image) {
             $value->image = Cms::storeImage($data->image, $data->title);
             $intervention_image = $value->image;
@@ -65,6 +69,9 @@ class Package extends Model
         $value->title        = $data->title;
         $value->country        = $data->country;
         $value->description  = $data->description;
+        $slug = Str::slug($data->title);
+        $value->slug = $slug;
+        $value->alt_tag           =  $data->alt_tag;
         if ($data->image) {
             $value->image = Cms::storeImage($data->image, $data->title);
             $intervention_image = $value->image;
@@ -96,7 +103,7 @@ class Package extends Model
     }
 
     public static function getFullDataForHome(){
-        return SELF::select('image','id','country','description','title')->orderBy('order','asc')->where('status',1)->get();
+        return SELF::select('image','id','country','description','title','slug','alt_tag')->orderBy('order','asc')->where('status',1)->get();
     }
 
     public static function updateOrder($data)

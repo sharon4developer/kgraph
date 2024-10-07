@@ -22,6 +22,9 @@ return new class extends Migration
             $table->string('third_intervention_image')->nullable();
             $table->integer('status')->default(1)->nullable();
             $table->integer('order')->nullable()->default(0);
+            $table->string('alt_tag')->nullable()->default('k-graph');
+            $table->string('second_alt_tag')->nullable()->default('k-graph');
+            $table->string('third_alt_tag')->nullable()->default('k-graph');
             $table->timestamps();
             $table->softDeletes();
         });

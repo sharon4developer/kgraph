@@ -21,6 +21,17 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label class="form-label" for="title">Alt Tag</label>
+                                        <input type="text" class="form-control" id="alt_tag" name="alt_tag"
+                                            placeholder="Alt Tag" required>
+                                        <div class="valid-feedback">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">

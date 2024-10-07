@@ -13,7 +13,7 @@ class OurStory extends Model
 
     protected $table = 'our_stories';
 
-    protected $fillable = ['title', 'description', 'image','second_image','second_intervention_image', 'intervention_image', 'status','order','year'];
+    protected $fillable = ['title', 'description', 'image','second_image','second_intervention_image', 'intervention_image', 'status','order','year','second_alt_tag','alt_tag'];
 
     public static function getFullData($data)
     {
@@ -39,6 +39,8 @@ class OurStory extends Model
         $value->title        = $data->title;
         $value->description  = $data->description;
         $value->year  = $data->year;
+        $value->alt_tag           =  $data->alt_tag;
+        $value->second_alt_tag           =  $data->second_alt_tag;
         if ($data->image) {
             $value->image = Cms::storeImage($data->image, $data->title);
             $intervention_image = $value->image;
@@ -66,6 +68,8 @@ class OurStory extends Model
         $value->title        = $data->title;
         $value->description  = $data->description;
         $value->year  = $data->year;
+        $value->alt_tag           =  $data->alt_tag;
+        $value->second_alt_tag           =  $data->second_alt_tag;
         if ($data->image) {
             $value->image = Cms::storeImage($data->image, $data->title);
             $intervention_image = $value->image;
@@ -103,7 +107,7 @@ class OurStory extends Model
     }
 
     public static function getFullDataForHome(){
-        return SELF::select('image','id','title','description','year','second_image')->orderBy('order','asc')->where('status',1)->get();
+        return SELF::select('image','id','title','description','year','second_image','alt_tag','alt_tag','second_alt_tag')->orderBy('order','asc')->where('status',1)->get();
     }
 
     public static function updateOrder($data)

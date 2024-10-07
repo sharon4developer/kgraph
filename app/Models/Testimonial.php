@@ -13,7 +13,7 @@ class Testimonial extends Model
 
     protected $table = 'testimonials';
 
-    protected $fillable = ['title', 'name','place','occupation','image','description','status','intervention_image','order', 'rating'];
+    protected $fillable = ['title', 'name','place','occupation','image','description','status','intervention_image','order', 'rating','alt_tag'];
 
     public static function getFullData($data)
     {
@@ -39,6 +39,7 @@ class Testimonial extends Model
         $value->occupation  = $data->occupation;
         $value->description  = $data->description;
         $value->rating  = $data->rating;
+        $value->alt_tag           =  $data->alt_tag;
         if ($data->image) {
             $value->image = Cms::storeImage($data->image, $data->title);
             $intervention_image = $value->image;
@@ -63,6 +64,7 @@ class Testimonial extends Model
         $value->occupation  = $data->occupation;
         $value->description  = $data->description;
         $value->rating  = $data->rating;
+        $value->alt_tag           =  $data->alt_tag;
         if ($data->image) {
             $value->image = Cms::storeImage($data->image, $data->title);
             $intervention_image = $value->image;
@@ -94,7 +96,7 @@ class Testimonial extends Model
     }
 
     public static function getFullDataForHome(){
-        return SELF::select('title', 'name','place','occupation','image','description','status','intervention_image','id', 'rating')->orderBy('order','asc')->where('status',1)->get();
+        return SELF::select('title', 'name','place','occupation','image','description','status','intervention_image','id', 'rating','alt_tag')->orderBy('order','asc')->where('status',1)->get();
     }
 
     public static function updateOrder($data)

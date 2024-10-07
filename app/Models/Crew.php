@@ -14,7 +14,7 @@ class Crew extends Model
 
     protected $table = 'crews';
 
-    protected $fillable = ['name', 'position', 'image', 'intervention_image', 'status','order','address','email','description'];
+    protected $fillable = ['name', 'position', 'image', 'intervention_image', 'status','order','address','email','description','alt_tag'];
 
     public static function getFullData($data)
     {
@@ -40,6 +40,7 @@ class Crew extends Model
         $value->email        = $data->email;
         $value->description  = $data->description;
         $value->position  = $data->position;
+        $value->alt_tag           =  $data->alt_tag;
         if ($data->image) {
             $value->image = Cms::storeImage($data->image, $data->name);
             $intervention_image = $value->image;
@@ -63,6 +64,7 @@ class Crew extends Model
         $value->address        = $data->address;
         $value->description  = $data->description;
         $value->email        = $data->email;
+        $value->alt_tag           =  $data->alt_tag;
         if ($data->image) {
             $value->image = Cms::storeImage($data->image, $data->name);
             $intervention_image = $value->image;
@@ -97,7 +99,7 @@ class Crew extends Model
 
         $locationData = getLocationData();
 
-        return SELF::select(DB::raw("CONCAT('{$locationData['storage_server_path']}', '{$locationData['storage_image_path']}', image) as image"),'id','address','email','description','name', 'position')->orderBy('order','asc')->where('status',1);
+        return SELF::select(DB::raw("CONCAT('{$locationData['storage_server_path']}', '{$locationData['storage_image_path']}', image) as image"),'id','address','email','description','name', 'position','alt_tag')->orderBy('order','asc')->where('status',1);
     }
 
     public static function updateOrder($data)
