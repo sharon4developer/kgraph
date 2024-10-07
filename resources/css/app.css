@@ -676,8 +676,8 @@ ul.custom-bulletssec li{
         bottom: -74px;
         right: -64%;
         background-repeat: no-repeat;
-        /* background-image: url(/public/assets/home_Banner/underscorebn.png) !important; */
-        background-image: url(/public/assets/home_Banner/about-us.png) !important;
+        background-image: url(/public/assets/home_Banner/underscorebn.png) !important;
+        /* background-image: url(/public/assets/home_Banner/about-us.png) !important; */
     }
     .translate-large {
         transform: translateY(-7%);
