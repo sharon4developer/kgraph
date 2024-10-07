@@ -66,9 +66,13 @@
 
  .requst-text{
     color: #727272;
+    font-size: 10px;
+    white-space: nowrap;
  }
  .phone-text{
     color: #034833;
+    font-size: 12px;
+    white-space: nowrap;
  }
  .flag-img-contact {
         position: relative;
@@ -81,17 +85,17 @@
 
 <div class="contact-US-banner h-full w-full">
     <div class="contact-US h-full w-full">
-        <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 lg:pt-[8%] text-white">
+        <div class="container mx-auto px-5 xl:px-12 h-full w-full py-8 lg:pt-[8%] text-white">
             <div class="flex flex-col lg:flex-row justify-between items-start gap-[15%] lg:py-[50px] md:mt-[100px] lg:mt-0">
                 <div class="w-full h-full font_inter">
-                    <h1 class="mainHead font-semibold text-[40px] md:w-[70%]">Grow Your Career with K-GRAPH</h1>
+                    <h1 class="mainHead font-semibold text-[40px] 2xl:w-[70%] uppercase">Grow Your Career with K-GRAPH</h1>
                     <p class="font-semibold text-[15px] py-[30px]">Kansas Overseas has prided itself on customer and employee satisfaction since its inception. This commitment to its staff has allowed the company to grow to over 200 employees across 5 cities. Kansas is one of the fastest-growing visa companies and is on track to double its workforce:</p>
                     <h2 class="font-semibold text-[30px]">Our Team Identity :</h2>
                     <ul class="list-disc pl-5 text-[18px]">
-                        <li class="py-1">Assist with Value-added services</li>
-                        <li class="py-1">Learners Before Leaders</li>
-                        <li class="py-1">Prepared for marathon</li>
-                        <li class="py-1">Replace Self - Mentoring Other Team Members</li>
+                        <li class="py-2">Assist with Value-added services</li>
+                        <li class="py-2">Learners Before Leaders</li>
+                        <li class="py-2">Prepared for marathon</li>
+                        <li class="py-2">Replace Self - Mentoring Other Team Members</li>
                     </ul>
                 </div>
                 <div class="bg-white rounded-xl h-fit w-full mt-[52px] lg:mt-0 relative">
@@ -163,7 +167,8 @@
 
                             <div class="flex justify-end items-center">
                                 <div class="border rounded-full border-[#072558] cursor-pointer">
-                                    <input class="!px-[50px] py-1 uppercase text-[#072558] cursor-pointer" type="button" value="Submit">
+                                    {{-- <input class="!px-[50px] py-1 uppercase text-[#072558] cursor-pointer" type="button" value="Submit"> --}}
+                                    <button class="!px-[80px] py-3 uppercase text-[#072558] cursor-pointer text-[16px] font-bold">Submit</button>
                                 </div>
                             </div>
 
@@ -176,16 +181,16 @@
 </div>
 
 <div class="open-positions bg-[#04183c]">
-    <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 lg:py-[8%] text-white">
+    <div class="container mx-auto px-5 xl:px-12 h-full w-full py-8 lg:py-[8%] text-white">
         <div class="md:flex items-center">
             <h2 class="left-to-right-animation font_inter font-semibold text-[50px] text-white leading-none uppercase"><span class="inline-block">WE </span><span class="inline-block">ARE IN</span></h2>
             <div class="md:pl-2 w-full" style="margin-bottom: -6%;">
-                <div class="w-full my-6 left-to-right-width-animation" style="border: 2px solid #FFFFFF8C;"></div>
+                <div class="w-full my-6 left-to-right-width-animation" style="border: 1px solid #FFFFFF8C;"></div>
             </div>
         </div>
 
-        <div class="lg:flex py-[56px] justify-between">
-            <div class="bg-white my-4 lg:my-0 p-5 w-full md:w-fit rounded-md">
+        <div class="lg:flex lg:gap-6 py-[56px] justify-between">
+            <div class="bg-white my-4 lg:my-0 p-5 w-full rounded-xl">
                 <div class="flex items-center justify-between">
                     <h5 class="text-black uppercase">Office Address</h5>
                     <img src="{{ asset('assets/indian-flag.png') }}" alt="">
@@ -195,7 +200,7 @@
                 </div>
 
                 <div class="flex flex-col md:flex-row items-start gap-[35px]">
-                    <div class="border-r pr-8">
+                    <div class="border-r pr-24">
                         <div class="flex items-center gap-[20px] my-4">
                             <div>
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -250,9 +255,7 @@
                     </div>
                 </div>
             </div>
-
-
-            <div class="bg-white my-4 lg:my-0 p-5 w-full md:w-fit rounded-md">
+            <div class="bg-white my-4 lg:my-0 p-5 w-full rounded-xl">
                 <div class="flex items-center justify-between">
                     <h5 class="text-black uppercase">Office Address</h5>
                     <img src="{{ asset('assets/indian-flag.png') }}" alt="">
@@ -262,7 +265,7 @@
                 </div>
 
                 <div class="flex flex-col md:flex-row items-start gap-[35px]">
-                    <div class="border-r pr-8">
+                    <div class="border-r pr-24">
                         <div class="flex items-center gap-[20px] my-4">
                             <div>
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -317,8 +320,7 @@
                     </div>
                 </div>
             </div>
-
-            <div class="bg-white my-4 lg:my-0 p-5 w-full md:w-fit rounded-md">
+            <div class="bg-white my-4 lg:my-0 p-5 w-full rounded-xl hidden xl:block">
                 <div class="flex items-center justify-between">
                     <h5 class="text-black uppercase">Office Address</h5>
                     <img src="{{ asset('assets/indian-flag.png') }}" alt="">
@@ -328,7 +330,7 @@
                 </div>
 
                 <div class="flex flex-col md:flex-row items-start gap-[35px]">
-                    <div class="border-r pr-8">
+                    <div class="border-r pr-24">
                         <div class="flex items-center gap-[20px] my-4">
                             <div>
                                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -9,10 +9,10 @@
 {{-- services banner --}}
 <div class="services-banner md:h-fit">
     <div class="services-banner-overlay">
-        <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[8%]">
+        <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:pt-[8%] lg:pb-[5%]">
             <div class="text-left text-white mt-10">
                 <h2 class="uppercase font_inter font-semibold text-[40px] mt-[90px]">Immigration packages</h2>
-                <p class="lg:w-[35%] mt-5 font_inter font-semibold text-[12px]">
+                <p class="lg:w-[46%] mt-5 font_inter font-semibold text-[16px]">
                     Studying in America can be an exciting experience, but it also comes with its own set of challenges.
                     One such challenge is getting your US student visa approved by the US embassy or consulate
                 </p>
