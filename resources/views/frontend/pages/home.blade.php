@@ -75,44 +75,44 @@
         width: 100%;
     }
     .RegulatedSec-left-wrapper, .RegulatedSec-right-wrapper {
-  position: relative;
-  width: 100%; /* Ensure it takes full width of the parent */
-  overflow: hidden; /* Prevent elements from moving outside */
-}
+        position: relative;
+        width: 100%; /* Ensure it takes full width of the parent */
+        overflow: hidden; /* Prevent elements from moving outside */
+    }
 
-.RegulatedSec-left, .RegulatedSec-right {
-  position: relative;
-  width: 100%;
-}
-
-.image-card-explore>.view-button{
-    display: none;
-}
-.image-card-explore>.view-button>button{
-    color: #051b3b;
-    background: white;
-    padding-left: 15px;
-    padding-right: 15px;
-    border-radius: 10px;
-    font-weight: 600;
-    text-transform: capitalize;
-}
-.image-card-explore:hover>.view-button{
-    display: flex;
-}
-/* .your-slider-class {
+    .RegulatedSec-left, .RegulatedSec-right {
+    position: relative;
     width: 100%;
-    display: flex;
-} */
- .your-slider-class .slick-track , .explore-section .slick-track{
-    width: 20000px !important;
- }
+    }
+
+    .image-card-explore>.view-button{
+        display: none;
+    }
+    .image-card-explore>.view-button>button{
+        color: #051b3b;
+        background: white;
+        padding-left: 15px;
+        padding-right: 15px;
+        border-radius: 10px;
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+    .image-card-explore:hover>.view-button{
+        display: flex;
+    }
+    /* .your-slider-class {
+        width: 100%;
+        display: flex;
+    } */
+    .your-slider-class .slick-track , .explore-section .slick-track{
+        width: 20000px !important;
+    }
 
 
 </style>
 
 {{-- banner section --}}
-<div class="h-full w-full homeBanner relative">
+<div class="h-dvh md:h-screen lg:h-full w-full homeBanner relative overflow-hidden">
     <!-- Gradient overlay -->
     <div class="banner-gradient-overlay absolute inset-0"></div>
 
@@ -124,39 +124,39 @@
     </div>
 
     <!-- Banner Content -->
-    <div class="container mx-auto px-5 lg:px-12 h-full w-full relative z-10">
-        <div class="h-full w-full flex flex-col justify-center items-center text-center mb-4 md:pt-8 pb-0 gap-[20px] md:gap-[31px] lg:gap-0">
-            <div class="z-10 flex flex-col lg:flex-row items-center lg:gap-[23px] pt-[10%] lg:pt-[13%] xl:pt-[205px] banner-container-elem">
-                <img class="pt-[22px] md:pt-0 w-[40px] xl:w-[100px]" src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="">
-                <h2 class="banner_text-one text-[20px]  lg:text-base xl:text-[26px] font_inter font-medium text-white text-center capitalize">
+    <div class="container mx-auto px-5 xl:px-12 h-full w-full relative z-10">
+        <div class="h-full w-full flex flex-col justify-start md:justify-center items-center text-center mb-4 md:pt-8 pb-0 gap-[5%] md:gap-[31px] lg:gap-0">
+            <div class="z-10 flex flex-col lg:flex-row items-center lg:gap-[23px] pt-[10%] lg:pt-[22%] xl:pt-[205px] banner-container-elem">
+                <img class="pt-[22px] md:pt-0 w-[40px] lg:w-[100px]" src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="rocket icon">
+                <h2 class="banner_text-one text-[20px] lg:text-[23px] font_inter font-medium text-white text-center capitalize">
                     Journey with Confidence <span class="text-[#579aff]">Migrate</span> with Us
                 </h2>
             </div>
-            <h1 class="md:text-center text-[31px] md:text-[55px] lg:text-5xl xl:text-[85px] lg:w-[80%] font-medium font_inter gradient-text z-10 lg:mt-4 xl:mt-12 banner_main-text xl:inline-block banner-contain-text">
+            <h1 class="md:text-center text-[31px] md:text-[55px] xl:text-[85px] lg:text-[70px] lg:w-[80%] font-medium font_inter gradient-text z-10 lg:mt-8 banner_main-text lg:inline-block banner-contain-text leading-[1.2]">
                 Visa Made Easy Dreams Made Possible
             </h1>
-            <h6 class="font_inter font-medium text-[20px]  lg:text-base xl:text-[26px] z-20 text-white lg:mt-14 xl:mt-24 banner-container-elem">
+            <h6 class="font_inter font-medium text-[20px] lg:text-[23px] z-20 text-white lg:mt-14 banner-container-elem">
                 Visa Made Easy Dreams Made Possible
             </h6>
-            <div class="z-10 flex flex-row justify-center items-start md:items-center gap-4 lg:mb-7 lg:mt-10">
+            <div class="z-10 flex flex-col md:flex-row justify-center items-start md:items-center gap-4 lg:mb-7 lg:mt-10">
                 <img width="52px" src="{{ asset('assets/home_Banner/CanadaFlag.png') }}" alt="CanadaFlag">
-                <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[4.5px] pl-5 pr-1 overflow-hidden group">
+                <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-[4.5px] pl-6 pr-1 overflow-hidden group">
                     <!-- Background animation using pseudo-element -->
                     <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
-                    <h6 class="relative z-10 text-white text-[10px] md:text-[12px] xl:text-[16px]">Let's turn your vision into reality.</h6>
-                    <div class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[4px] md:rounded-sm cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
-                        <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
+                    <h6 class="relative z-10 text-white text-[10px] md:text-[14px]">Let's turn your vision into reality.</h6>
+                    <div class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:py-[4px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                        <a href="" class="h-full text-[12px] lg:text-[16px] font-semibold">Connect Us</a>
                     </div>
                 </div>
             </div>
             <div class="z-10 flex flex-wrap md:flex-nowrap justify-around items-center py-5 w-full lg:mb-0">
-                <img class="w-[50px] md:w-[100px] "  src="{{ asset('assets/home_Banner/segment.png') }}" alt="">
-                <img class="w-[50px] md:w-[100px] "  src="{{ asset('assets/home_Banner/splunk.png') }}" alt="">
-                <img class="w-[50px] md:w-[100px] "  src="{{ asset('assets/home_Banner/Hubspot.png') }}" alt="">
-                <img class="w-[50px] md:w-[100px] "  src="{{ asset('assets/home_Banner/asna.png') }}" alt="">
-                <img class="w-[50px] md:w-[100px] "  src="{{ asset('assets/home_Banner/airtasker.png') }}" alt="">
+                <img class="w-[50px] lg:w-[100px]"  src="{{ asset('assets/home_Banner/segment.png') }}" alt="">
+                <img class="w-[50px] lg:w-[100px]"  src="{{ asset('assets/home_Banner/splunk.png') }}" alt="">
+                <img class="w-[50px] lg:w-[100px]"  src="{{ asset('assets/home_Banner/Hubspot.png') }}" alt="">
+                <img class="w-[50px] lg:w-[100px]"  src="{{ asset('assets/home_Banner/asna.png') }}" alt="">
+                <img class="w-[50px] lg:w-[100px]"  src="{{ asset('assets/home_Banner/airtasker.png') }}" alt="">
             </div>
-            <div class="absolute bottom-0 right-0 w-full lg:w-fit flex justify-center lg:right-12 lg:bottom-[35%] z-10">
+            <div class="lg:absolute bottom-0 right-0 w-full lg:w-fit flex justify-center lg:right-12 lg:bottom-[35%] z-10">
                 <div class="flex lg:flex-col items-center gap-[30px] border border-white py-2 lg:py-4 px-6 lg:px-2 rounded-full mb-3 lg:mb-0">
                     <img class="w-[15px]" src="{{ asset('assets/facebookban.png') }}" alt="facebook">
                     <img class="w-[15px]" src="{{ asset('assets/instagramban.png') }}" alt="instagram">
@@ -171,16 +171,16 @@
 <div class="bg-[#051b3b]">
     {{-- our service section --}}
     <div class="serviceSection gradient-evition relative overflow-hidden z-10 bg-[#051b3b]">
-        <div class="container mx-auto px-5 lg:px-12 lg:py-16 h-full w-full pt-10 lg:pt0">
+        <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full pt-10 lg:pt0">
             <div class="md:flex items-center">
                 <h2 class="left-to-right-animation font_inter font-semibold text-[46px] md:text-[50px] xl:text-[100px] text-white leading-none uppercase gradient-text"><span class="inline-block">Our</span><span class="inline-block">Services</span></h2>
                 <div class="md:pl-2 lg:pl-10 w-full" style="margin-bottom: -6%;">
-                    <div class="my-4 md:my-0 flex justify-center md:justify-end items-center">
+                    <div class="my-4 md:my-0 flex justify-start md:justify-end items-center">
                         <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[4.5px] pl-5 pr-1 overflow-hidden group">
                             <!-- Background animation using pseudo-element -->
                             <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
                             <h6 class="relative z-10 text-white text-[10px] md:text-[12px] xl:text-[16px]">Let's turn your vision into reality.</h6>
-                            <div class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[4px] md:rounded-sm cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                            <div class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[4px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                                 <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
                             </div>
                         </div>
@@ -188,10 +188,10 @@
                     <div class="w-full mt-6 left-to-right-width-animation" style="border: 1px solid #FFFFFF8C;"></div>
                 </div>
             </div>
-            <h4 class="text-white font_inter font-semibold text-[22px] xl:text-[36px] py-4 lg:pb-0 left-to-right-animation capitalize lg:mt-6">Visa Immigration for a Brighter You Future</h4>
-            <p class="text-white font_inter font-extralight text-justify text-[14px] xl:text-[16px] left-to-right-animation lg:w-[80%]">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
-            <div class="gap-5 flex justify-start md:justify-center lg:justify-between items-center scrollbar-hidden" style="">
-                <div class="box-grading mb-9 lg:mb-0 p-4 lg:p-6 h-[400px] lg:h-[300px] xl:h-[450px] w-full md:w-[28%] lg:w-full rounded-xl cursor-pointer">
+            <h4 class="text-white font_inter font-semibold text-[22px] xl:text-[36px] py-4 lg:pb-0 left-to-right-animation capitalize mt-6">Visa Immigration for a Brighter You Future</h4>
+            <p class="text-white font_inter font-extralight text-justify text-[14px] xl:text-[16px] left-to-right-animation">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
+            <div class="gap-5 flex justify-start lg:justify-between items-center scrollbar-hidden" style="">
+                <div class="box-grading mb-9 lg:mb-0 p-4 lg:p-6 h-[400px] lg:min-h-[360px] lg:max-h-[360px] xl:max-h-[450px] w-full md:w-[33%] lg:w-full rounded-xl cursor-pointer">
                     <h2 class="text-white font_inter text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">Foreign</span><span class="xl:inline-block">nationals</span></h2>
                     <div class="text-white font_inter font-bold text-[16px] md:text-sm py-3">Choose Your Services</div>
 
@@ -234,12 +234,12 @@
                     </div>
                 </div>
 
-                <div class="hidden md:block box-grading mb-9 lg:mb-0 p-4 lg:p-6 h-[400px] lg:h-[300px] xl:h-[450px] w-full md:w-[28%] lg:w-full rounded-xl cursor-pointer">
+                <div class="hidden md:block box-grading mb-9 lg:mb-0 p-4 lg:p-6 h-[400px] lg:min-h-[360px] lg:max-h-[360px] xl:max-h-[450px] w-full md:w-[33%] lg:w-full rounded-xl cursor-pointer">
                     <h2 class="text-white font_inter text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">Business </span><span class="xl:inline-block">Investors</span></h2>
                     <div class="text-white font_inter font-bold text-[10px] xl:text-sm py-3">Choose Your Services</div>
 
                     <div class="flex flex-col gap-3 xl:mt-4 knowbutton ">
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
+                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6  py-2">
                             <div class="text-xs xl:text-sm text-white">Study in Canada</div>
                             <div>
                                 <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -277,7 +277,7 @@
                     </div>
                 </div>
 
-                <div class="hidden lg:block box-grading mb-9 lg:mb-0 p-4 lg:p-6 h-[400px] lg:h-[300px] xl:h-[450px] w-full md:w-[28%] lg:w-full rounded-xl cursor-pointer">
+                <div class="hidden lg:block box-grading mb-9 lg:mb-0 p-4 lg:p-6 h-[400px] lg:min-h-[360px] lg:max-h-[360px] xl:max-h-[450px] w-full md:w-[28%] lg:w-full rounded-xl cursor-pointer">
                     <h2 class="text-white font_inter text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">Canadian</span><span class="xl:inline-block">Employees</span></h2>
                     <div class="text-white font_inter font-bold text-[10px] xl:text-sm py-3">Choose Your Services</div>
 
@@ -320,7 +320,7 @@
                     </div>
                 </div>
 
-                <div class="hidden lg:block box-grading mb-9 lg:mb-0 p-4 lg:p-6 h-[400px] lg:h-[300px] xl:h-[450px] w-full md:w-[28%] lg:w-full rounded-xl cursor-pointer">
+                <div class="hidden lg:block box-grading mb-9 lg:mb-0 p-4 lg:p-6 h-[400px] lg:min-h-[360px] lg:max-h-[360px] xl:max-h-[450px] w-full md:w-[28%] lg:w-full rounded-xl cursor-pointer">
                     <h2 class="text-white font_inter text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">Canadian Citizens</span><span class="xl:inline-block">and PR</span></h2>
                     <div class="text-white font_inter font-bold text-[10px] xl:text-sm py-3">Choose Your Services</div>
 
@@ -351,8 +351,8 @@
 
     {{-- who are --}}
     <div class="whoSec bg-[#051b3b]">
-        <div class="container mx-auto px-5 lg:px-12 lg:py-16 h-full w-full">
-            <div class="md:flex items-end ">
+        <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full">
+            <div class="md:flex md:justify-between items-end ">
                 <div class="lg:w-full flex items-end">
                     <h2 class="font_inter font-semibold text-[46px] md:text-[50px] xl:text-[100px] text-white leading-none uppercase secleft-to-right-animation flex flex-col">
                         <span class="inline-block">Who</span>
@@ -379,9 +379,9 @@
                 </div>
 
             </div>
-            <p class="py-5 text-white font_inter font-medium text-[18px] xl:text-[36px] lg:w-[30%] xl:w-[60%] secleft-to-right-animation">Navigate Your Canadian Immigration Journey with Confidence</p>
+            <p class="py-5 text-white font_inter font-medium text-[18px] xl:text-[36px] lg:w-[50%] xl:w-[60%]  secleft-to-right-animation">Navigate Your Canadian Immigration Journey with Confidence</p>
 
-            <div class="video-carousel">
+            <div class="video-carousel lg:mt-10">
                 <div class="video-container z-99">
                     <video id="customVideo1" width="320" height="240">
                         <source src="{{ asset('assets/kgraphvideo.mp4') }}" type="video/mp4">
@@ -408,7 +408,7 @@
                 </div>
             </div>
 
-            <div class="container mx-auto px-5 lg:px-12 py-8 lg:pt-1 lg:pb-16 h-full w-full">
+            <div class="container mx-auto px-5 xl:px-12 py-8 lg:pt-1 lg:pb-16 h-full w-full">
                 <div class="flex justify-end gap-3 items-center">
                     <div class="card-whosec-slide-next-button cursor-pointer">
                         <img class="w-[40px]" src="{{ asset('assets/Button-Previous.png') }}" alt="">
@@ -423,7 +423,7 @@
 
     {{-- navigate section --}}
     <div class="Navigatesec gradient-evition relative overflow-hidden z-10 bg-[#051b3b]">
-        <div class="container mx-auto px-5 lg:px-12 lg:py-16 h-full w-full">
+        <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full">
 
             <div class="md:flex justify-between items-start gap-5">
                 <div class="md:w-1/2">
@@ -449,7 +449,7 @@
                         </div>
                         <div>
                             <h2 class="text-white font_inter font-bold text-[25px] leading-none">30k+</h2>
-                            <span class="text-white">Customers Served</span>
+                            <span class="text-white w-[30%] block">Customers Served</span>
                         </div>
                         <div>
                             <h2 class="text-white font_inter font-bold text-[25px] leading-none">3k</h2>
@@ -500,7 +500,7 @@
 
     {{-- regulated section --}}
     <div class="RegulatedSec bg-black overflow-hidden">
-        <div class="container mx-auto px-5 lg:px-12 py-6 lg:py-16 h-full w-full">
+        <div class="container mx-auto px-5 xl:px-12 py-6 lg:py-16 h-full w-full">
             <div class="md:flex justify-center items-start gap-5">
                 <div class="RegulatedSec-left md:w-1/2">
                     <h2 class="text-white font_inter font-semibold text-2xl lg:text-3xl xl:text-4xl">Regulated Canadian Immigration Consultants (RCIC-IRB)</h2>
@@ -538,7 +538,7 @@
 
     {{-- testimonial section --}}
     <div class="testimonial bg-[#051b3b] gradient-evition relative overflow-hidden z-10">
-        <div class="container mx-auto px-5 lg:px-12 py-8 lg:py-16 h-full w-full">
+        <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full">
             <div class="flex items-end w-full gap-2 lg:gap-7">
                 <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] xl:text-[65px] leading-none thirdleft-to-right-animation">Testimonials</h2>
                 <div class="w-full thirdleft-to-right-width-animation" style="border: 2px solid #FFFFFF8C;margin-bottom: 8px;"></div>
@@ -708,13 +708,13 @@
             </div>
         </div>
 
-        <div class="container mx-auto px-5 lg:px-12 py-8 lg:py-16 h-full w-full flex flex-col-reverse md:flex-row gap-4 items-center justify-between relative z-20">
+        <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full flex flex-col-reverse md:flex-row gap-4 items-center justify-between relative z-20">
             <div class="flex justify-start items-center">
                 <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group">
                     <!-- Initially the background will cover the full button -->
                     <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
                     <h6 class="relative z-10 text-white text-[12px] xl:text-[16px]">Be One of Them</h6>
-                    <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-sm cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                    <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                         <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
                     </div>
                 </div>
@@ -734,7 +734,7 @@
 
     {{-- Blog sect --}}
     <div class="BlogCRDS bg-[#051b3b]">
-        <div class="container mx-auto px-5 lg:px-12 lg:py-16 h-full w-full">
+        <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full">
             <div class="flex items-end w-full gap-2 lg:gap-7">
                 <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] xl:text-[65px] leading-none fourthleft-to-right-animation">Blogs</h2>
                 <div class="w-full fourthleft-to-right-width-animation" style="border: 2px solid #FFFFFF8C;margin-bottom: 8px;"></div>
@@ -746,78 +746,143 @@
                     <!-- Initially the background will cover the full button -->
                     <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
                     <h6 class="relative z-10 text-white text-[12px] xl:text-[16px]">Be One of Them</h6>
-                    <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-sm cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                    <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                         <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
                     </div>
                 </div>
 
             </div>
 
-
             <div class="pt-[20px] md:pb-[70px] gap-6 w-full blog-slider-class" style="">
                 <div class="bg-white w-[350px] mr-5">
                     <img class="h-[200px] w-full object-cover" src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="blog_image"/>
                     <div class="py-4 px-6">
                         <div class="flex items-center gap-4">
-                            <img class="w-[50px] h-[50px]" src="{{ asset('assets/home_Banner/athulraj.png') }}" alt="profile_image"/>
+                            <img class="w-[50px] lg:w-[70px] h-[50px] lg:h-[70px]" src="{{ asset('assets/home_Banner/athulraj.png') }}" alt="profile_image"/>
                             <div>
-                                <h6 class="font_inter font-semibold text-16px text-[#072558]">Anusha</h6>
-                                <p class="text-[#072558] font_inter font-medium text-[14px]">by Anusha, on Aug 5, 2024 11:46:47 AM</p>
-                                <p class="text-[#072558] font_inter font-medium text-[14px]">Topics: Canada Immigration</p>
+                                <h6 class="font_inter font-semibold text-16px text-[#072558] xl:text-[22px]">Anusha</h6>
+                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">by Anusha, on Aug 5, 2024 11:46:47 AM</p>
+                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">Topics: Canada Immigration</p>
                             </div>
                         </div>
-                        <h5 class="text-[#072558] font_inter font-bold text-[14px] py-5">Top Immigration Consultant in Bangalore for 2024</h5>
-                        <p class="text-[#072558] font_inter font-normal text-justify text-[14px]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </p>
+                        <h5 class="text-[#072558] font_inter font-bold text-[14px] xl:text-[20px] py-5 xl:pb-[15px] xl:pt-[42px]">Top Immigration Consultant in Bangalore for 2024</h5>
+                        <p class="text-[#072558] font_inter font-normal text-justify text-[14px] lg:text-[16px] xl:text-[20px]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </p>
+                        <div class="flex justify-end items-center pt-8 pb-2">
+                            <a class="capitalize text-[#062358] underline font-bold font_inter text-lg" href="">Read more</a>
+                        </div>
                     </div>
                 </div>
                 <div class="bg-white w-[350px] mr-5">
                     <img class="h-[200px] w-full object-cover" src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="blog_image"/>
                     <div class="py-4 px-6">
                         <div class="flex items-center gap-4">
-                            <img class="w-[50px] h-[50px]" src="{{ asset('assets/home_Banner/athulraj.png') }}" alt="profile_image"/>
+                            <img class="w-[50px] lg:w-[70px] h-[50px] lg:h-[70px]" src="{{ asset('assets/home_Banner/athulraj.png') }}" alt="profile_image"/>
                             <div>
-                                <h6 class="font_inter font-semibold text-16px text-[#072558]">Anusha</h6>
-                                <p class="text-[#072558] font_inter font-medium text-[14px]">by Anusha, on Aug 5, 2024 11:46:47 AM</p>
-                                <p class="text-[#072558] font_inter font-medium text-[14px]">Topics: Canada Immigration</p>
+                                <h6 class="font_inter font-semibold text-16px text-[#072558] xl:text-[22px]">Anusha</h6>
+                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">by Anusha, on Aug 5, 2024 11:46:47 AM</p>
+                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">Topics: Canada Immigration</p>
                             </div>
                         </div>
-                        <h5 class="text-[#072558] font_inter font-bold text-[14px] py-5">Top Immigration Consultant in Bangalore for 2024</h5>
-                        <p class="text-[#072558] font_inter font-normal text-justify text-[14px]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </p>
+                        <h5 class="text-[#072558] font_inter font-bold text-[14px] xl:text-[20px] py-5 xl:pb-[15px] xl:pt-[42px]">Top Immigration Consultant in Bangalore for 2024</h5>
+                        <p class="text-[#072558] font_inter font-normal text-justify text-[14px] lg:text-[16px] xl:text-[20px]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </p>
+                        <div class="flex justify-end items-center pt-8 pb-2">
+                            <a class="capitalize text-[#062358] underline font-bold font_inter text-lg" href="">Read more</a>
+                        </div>
                     </div>
                 </div>
                 <div class="bg-white w-[350px] mr-5">
                     <img class="h-[200px] w-full object-cover" src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="blog_image"/>
                     <div class="py-4 px-6">
                         <div class="flex items-center gap-4">
-                            <img class="w-[50px] h-[50px]" src="{{ asset('assets/home_Banner/athulraj.png') }}" alt="profile_image"/>
+                            <img class="w-[50px] lg:w-[70px] h-[50px] lg:h-[70px]" src="{{ asset('assets/home_Banner/athulraj.png') }}" alt="profile_image"/>
                             <div>
-                                <h6 class="font_inter font-semibold text-16px text-[#072558]">Anusha</h6>
-                                <p class="text-[#072558] font_inter font-medium text-[14px]">by Anusha, on Aug 5, 2024 11:46:47 AM</p>
-                                <p class="text-[#072558] font_inter font-medium text-[14px]">Topics: Canada Immigration</p>
+                                <h6 class="font_inter font-semibold text-16px text-[#072558] xl:text-[22px]">Anusha</h6>
+                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">by Anusha, on Aug 5, 2024 11:46:47 AM</p>
+                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">Topics: Canada Immigration</p>
                             </div>
                         </div>
-                        <h5 class="text-[#072558] font_inter font-bold text-[14px] py-5">Top Immigration Consultant in Bangalore for 2024</h5>
-                        <p class="text-[#072558] font_inter font-normal text-justify text-[14px]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </p>
+                        <h5 class="text-[#072558] font_inter font-bold text-[14px] xl:text-[20px] py-5 xl:pb-[15px] xl:pt-[42px]">Top Immigration Consultant in Bangalore for 2024</h5>
+                        <p class="text-[#072558] font_inter font-normal text-justify text-[14px] lg:text-[16px] xl:text-[20px]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </p>
+                        <div class="flex justify-end items-center pt-8 pb-2">
+                            <a class="capitalize text-[#062358] underline font-bold font_inter text-lg" href="">Read more</a>
+                        </div>
                     </div>
                 </div>
                 <div class="bg-white w-[350px] mr-5">
                     <img class="h-[200px] w-full object-cover" src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="blog_image"/>
                     <div class="py-4 px-6">
                         <div class="flex items-center gap-4">
-                            <img class="w-[50px] h-[50px]" src="{{ asset('assets/home_Banner/athulraj.png') }}" alt="profile_image"/>
+                            <img class="w-[50px] lg:w-[70px] h-[50px] lg:h-[70px]" src="{{ asset('assets/home_Banner/athulraj.png') }}" alt="profile_image"/>
                             <div>
-                                <h6 class="font_inter font-semibold text-16px text-[#072558]">Anusha</h6>
-                                <p class="text-[#072558] font_inter font-medium text-[14px]">by Anusha, on Aug 5, 2024 11:46:47 AM</p>
-                                <p class="text-[#072558] font_inter font-medium text-[14px]">Topics: Canada Immigration</p>
+                                <h6 class="font_inter font-semibold text-16px text-[#072558] xl:text-[22px]">Anusha</h6>
+                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">by Anusha, on Aug 5, 2024 11:46:47 AM</p>
+                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">Topics: Canada Immigration</p>
                             </div>
                         </div>
-                        <h5 class="text-[#072558] font_inter font-bold text-[14px] py-5">Top Immigration Consultant in Bangalore for 2024</h5>
-                        <p class="text-[#072558] font_inter font-normal text-justify text-[14px]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </p>
+                        <h5 class="text-[#072558] font_inter font-bold text-[14px] xl:text-[20px] py-5 xl:pb-[15px] xl:pt-[42px]">Top Immigration Consultant in Bangalore for 2024</h5>
+                        <p class="text-[#072558] font_inter font-normal text-justify text-[14px] lg:text-[16px] xl:text-[20px]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </p>
+                        <div class="flex justify-end items-center pt-8 pb-2">
+                            <a class="capitalize text-[#062358] underline font-bold font_inter text-lg" href="">Read more</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white w-[350px] mr-5">
+                    <img class="h-[200px] w-full object-cover" src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="blog_image"/>
+                    <div class="py-4 px-6">
+                        <div class="flex items-center gap-4">
+                            <img class="w-[50px] lg:w-[70px] h-[50px] lg:h-[70px]" src="{{ asset('assets/home_Banner/athulraj.png') }}" alt="profile_image"/>
+                            <div>
+                                <h6 class="font_inter font-semibold text-16px text-[#072558] xl:text-[22px]">Anusha</h6>
+                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">by Anusha, on Aug 5, 2024 11:46:47 AM</p>
+                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">Topics: Canada Immigration</p>
+                            </div>
+                        </div>
+                        <h5 class="text-[#072558] font_inter font-bold text-[14px] xl:text-[20px] py-5 xl:pb-[15px] xl:pt-[42px]">Top Immigration Consultant in Bangalore for 2024</h5>
+                        <p class="text-[#072558] font_inter font-normal text-justify text-[14px] lg:text-[16px] xl:text-[20px]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </p>
+                        <div class="flex justify-end items-center pt-8 pb-2">
+                            <a class="capitalize text-[#062358] underline font-bold font_inter text-lg" href="">Read more</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white w-[350px] mr-5">
+                    <img class="h-[200px] w-full object-cover" src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="blog_image"/>
+                    <div class="py-4 px-6">
+                        <div class="flex items-center gap-4">
+                            <img class="w-[50px] lg:w-[70px] h-[50px] lg:h-[70px]" src="{{ asset('assets/home_Banner/athulraj.png') }}" alt="profile_image"/>
+                            <div>
+                                <h6 class="font_inter font-semibold text-16px text-[#072558] xl:text-[22px]">Anusha</h6>
+                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">by Anusha, on Aug 5, 2024 11:46:47 AM</p>
+                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">Topics: Canada Immigration</p>
+                            </div>
+                        </div>
+                        <h5 class="text-[#072558] font_inter font-bold text-[14px] xl:text-[20px] py-5 xl:pb-[15px] xl:pt-[42px]">Top Immigration Consultant in Bangalore for 2024</h5>
+                        <p class="text-[#072558] font_inter font-normal text-justify text-[14px] lg:text-[16px] xl:text-[20px]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </p>
+                        <div class="flex justify-end items-center pt-8 pb-2">
+                            <a class="capitalize text-[#062358] underline font-bold font_inter text-lg" href="">Read more</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white w-[350px] mr-5">
+                    <img class="h-[200px] w-full object-cover" src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="blog_image"/>
+                    <div class="py-4 px-6">
+                        <div class="flex items-center gap-4">
+                            <img class="w-[50px] lg:w-[70px] h-[50px] lg:h-[70px]" src="{{ asset('assets/home_Banner/athulraj.png') }}" alt="profile_image"/>
+                            <div>
+                                <h6 class="font_inter font-semibold text-16px text-[#072558] xl:text-[22px]">Anusha</h6>
+                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">by Anusha, on Aug 5, 2024 11:46:47 AM</p>
+                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">Topics: Canada Immigration</p>
+                            </div>
+                        </div>
+                        <h5 class="text-[#072558] font_inter font-bold text-[14px] xl:text-[20px] py-5 xl:pb-[15px] xl:pt-[42px]">Top Immigration Consultant in Bangalore for 2024</h5>
+                        <p class="text-[#072558] font_inter font-normal text-justify text-[14px] lg:text-[16px] xl:text-[20px]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </p>
+                        <div class="flex justify-end items-center pt-8 pb-2">
+                            <a class="capitalize text-[#062358] underline font-bold font_inter text-lg" href="">Read more</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="container mx-auto px-5 lg:px-12 py-8 lg:py-16 h-full w-full flex items-center justify-end">
+            <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full flex items-center justify-end">
                 <div class="flex justify-center gap-3 items-center">
                     <div class="card-blog-slide-prev-button cursor-pointer">
                         <img class="w-[40px]" src="{{ asset('assets/Button-Previous.png') }}" alt="">
@@ -832,7 +897,7 @@
 
     {{-- explore section --}}
     <div class="explore-section bg-black">
-        <div class="container mx-auto px-5 lg:px-12 py-8 lg:py-16 h-full w-full">
+        <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full">
             <div class="flex items-end w-full gap-2 lg:gap-7">
                 <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] xl:text-[65px] leading-none fifthleft-to-right-animation">Explore</h2>
                 <div class="w-full fifthleft-to-right-width-animation" style="border: 2px solid #FFFFFF8C;margin-bottom: 8px;"></div>
@@ -900,7 +965,7 @@
 
         </div>
 
-        <div class="container mx-auto px-5 lg:px-12 py-8 lg:pt-1 lg:pb-16  z-[99] h-full w-full">
+        <div class="container mx-auto px-5 xl:px-12 py-8 lg:pt-1 lg:pb-16  z-[99] h-full w-full">
             <div class="flex justify-end gap-3 items-center">
                 <div class="card-explore-slide-prev-button cursor-pointer">
                     <img class="w-[40px]" src="{{ asset('assets/Button-Previous.png') }}" alt="">
@@ -915,7 +980,7 @@
 
 {{-- faq section --}}
 <div class="faq-section bg-[#F7FCFF]">
-    <div class="container mx-auto px-5 lg:px-12 py-8 lg:py-16 h-full w-full">
+    <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full">
         <div class="flex justify-center items-center flex-col">
             <h2 class="font_aktiv font-bold text-[18px] faqSectHead text-[#07245A]">Have Any Questions?</h2>
             <div>
@@ -1097,7 +1162,7 @@
                 <h6 class="relative z-10 text-white text-[10px] md:text-[12px] xl:text-[16px] transition-colors duration-500 group-hover:text-[#072558]">Let's turn your vision into reality.</h6>
 
                 <!-- "Connect Us" button, background changes to #072558 on hover -->
-                <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-sm cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full transition-all duration-500 group-hover:bg-[#072558] group-hover:text-white">
+                <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full transition-all duration-500 group-hover:bg-[#072558] group-hover:text-white">
                     <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
                 </div>
             </div>
@@ -1111,7 +1176,7 @@
 
 {{-- get in touch section --}}
 <div class="get-in-Touch bg-[#051b3b] py-28">
-    <div class="container mx-auto px-5 lg:px-12 h-full w-full">
+    <div class="container mx-auto px-5xlg:px-12 h-full w-full">
         <div class="flex justify-center items-center flex-col ">
             <div class="flex flex-col-reverse md:flex-row items-center">
                 <h2 class="font_inter font-semibold text-4xl text-center md:text-left gettouch uppercase gradient-text">Get IN TOUCH WITH US</h2>
@@ -1122,7 +1187,7 @@
                 <!-- Initially the background will cover the full button -->
                 <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
                 <h6 class="relative z-10 text-white text-[12px] xl:text-[16px]">Have any doubt</h6>
-                <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-sm cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                     <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
                 </div>
             </div>

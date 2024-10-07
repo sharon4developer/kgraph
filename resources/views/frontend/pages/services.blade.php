@@ -7,11 +7,11 @@
 </style>
 
 {{-- services banner --}}
-<div class="services-banner md:h-[50vh]">
+<div class="services-banner">
     <div class="services-banner-overlay">
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[8%]">
-            <div class="text-left text-white mt-10">
-                <h2 class="uppercase font_inter font-semibold text-[40px]">Services</h2>
+            <div class="text-left text-white">
+                <h2 class="uppercase font_inter font-semibold text-[40px] lg:mt-[6rem]">Services</h2>
                 <p class="lg:w-[35%] mt-5 font_inter font-semibold text-[12px]">
                     Studying in America can be an exciting experience, but it also comes with its own set of challenges.
                     One such challenge is getting your US student visa approved by the US embassy or consulate
@@ -30,9 +30,9 @@
         <h6 class="py-6 text-white">Choose your Services</h6>
 
         {{-- scroll need --}}
-        <div class="flex justify-between items-center">
-            <div class="w-full md:w-[317px] bg-white rounded-xl">
-                <img src="{{ asset('assets/agile.png') }}" alt="">
+        <div class="grid justify-start gap-4 items-center choose-you-service">
+            <div class="w-full bg-white rounded-xl">
+                <img class="w-full" src="{{ asset('assets/agile.png') }}" alt="">
                 <div class="text-left px-5 pt-2 pb-8">
                     <h6 class="py-3 font-bold font_inter text-[20px]">Study in Canada</h6>
                     <p class="">Studying in America can be an exciting experience,</p>
@@ -49,8 +49,62 @@
                     </button>
                 </div>
             </div>
-            <div class="hidden md:block w-full md:w-[317px] bg-white rounded-xl">
-                <img src="{{ asset('assets/agile.png') }}" alt="">
+            <div class="w-full bg-white rounded-xl">
+                <img class="w-full" src="{{ asset('assets/agile.png') }}" alt="">
+                <div class="text-left px-5 pt-2 pb-8">
+                    <h6 class="py-3 font-bold font_inter text-[20px]">Study in Canada</h6>
+                    <p class="">Studying in America can be an exciting experience,</p>
+                </div>
+
+                <div class="flex justify-center pb-8">
+                    <button class="flex items-center justify-between gap-4 border border-black rounded-full px-6 py-2">
+                        <div class="text-black">Study in Canada</div>
+                        <div>
+                            <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="black" d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div class="w-full bg-white rounded-xl">
+                <img class="w-full" src="{{ asset('assets/agile.png') }}" alt="">
+                <div class="text-left px-5 pt-2 pb-8">
+                    <h6 class="py-3 font-bold font_inter text-[20px]">Study in Canada</h6>
+                    <p class="">Studying in America can be an exciting experience,</p>
+                </div>
+
+                <div class="flex justify-center pb-8">
+                    <button class="flex items-center justify-between gap-4 border border-black rounded-full px-6 py-2">
+                        <div class="text-black">Study in Canada</div>
+                        <div>
+                            <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="black" d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div class="w-full bg-white rounded-xl">
+                <img class="w-full" src="{{ asset('assets/agile.png') }}" alt="">
+                <div class="text-left px-5 pt-2 pb-8">
+                    <h6 class="py-3 font-bold font_inter text-[20px]">Study in Canada</h6>
+                    <p class="">Studying in America can be an exciting experience,</p>
+                </div>
+
+                <div class="flex justify-center pb-8">
+                    <button class="flex items-center justify-between gap-4 border border-black rounded-full px-6 py-2">
+                        <div class="text-black">Study in Canada</div>
+                        <div>
+                            <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill="black" d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+            </div>
+            <div class="w-full bg-white rounded-xl">
+                <img class="w-full" src="{{ asset('assets/agile.png') }}" alt="">
                 <div class="text-left px-5 pt-2 pb-8">
                     <h6 class="py-3 font-bold font_inter text-[20px]">Study in Canada</h6>
                     <p class="">Studying in America can be an exciting experience,</p>

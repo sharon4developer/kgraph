@@ -3,19 +3,28 @@
 @tailwind utilities;
 
 
-.font_aktiv{
+/* .font_aktiv{
     font-family: aktiv-grotesk, sans-serif;
+} */
+.font_aktiv{
+    font-family: "Inter", sans-serif;
 }
 
 .font_inter{
     font-family: "Inter", sans-serif;
 }
-.font_jakarta {
+/* .font_jakarta {
     font-family: "Plus Jakarta Sans", sans-serif;
+} */
+.font_jakarta {
+    font-family: "Inter", sans-serif;
 }
 .font_arial {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Inter", sans-serif;
 }
+/* .font_arial {
+    font-family: Arial, Helvetica, sans-serif;
+} */
 
 h1,h2,h3,h4,h5,h6,a,p,li{
     font-family: "Inter", sans-serif;
@@ -488,11 +497,14 @@ ul.custom-bulletssec li{
 .aboutusbanner::before {
     content: "";
     position: absolute;
+    opacity: 0.97;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, #000000 0%, #113165c7 100%);
+    /* background: linear-gradient(180deg, #000000 0%, #113165c7 100%); */
+    /* background: linear-gradient(0deg, rgba(6,35,88,1) 0%, rgba(18,18,18,1) 85%); */
+    background: linear-gradient(0deg, rgba(6,35,88,1) 0%, rgba(18,18,18,1) 53%);
     z-index: 1;
 }
 
@@ -542,6 +554,9 @@ ul.custom-bulletssec li{
     height: 50px;
 }
 
+.choose-you-service{
+    grid-template-columns: 1fr;
+}
 
 /* media query */
 @media (max-width: 767px){
@@ -551,9 +566,23 @@ ul.custom-bulletssec li{
     .accordion{
         margin-bottom: 14px;
     }
+    .banner_main-text::after{
+        content: "";
+        width: 100%;
+        height: 75px;
+        z-index: 8;
+        position: absolute;
+        scale: 0.5;
+        bottom: -57px;
+        right: -5%;
+        background-repeat: no-repeat;
+        background-image: url(/public/assets/home_Banner/underscorebn.png) !important;
+    }
 }
 @media (min-width: 768px) {
-
+    .choose-you-service{
+        grid-template-columns: 1fr 1fr;
+    }
 }
 @media (max-width: 1023px){
     .footer-secpernt{
@@ -574,19 +603,16 @@ ul.custom-bulletssec li{
     }
     .slick-slider-background img {
         width: 100%;
-        height: 100%;
+        height: 120vh;
         object-fit: cover;
     }
     .footer-last {
         position: relative;
         z-index: 1;
     }
-    /* .footer-last{
-        background-image: url(/public/assets/footermap.png) !important;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-     } */
+    .choose-you-service{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
      .footer-last::before {
         content: '';
         position: absolute;
@@ -646,33 +672,49 @@ ul.custom-bulletssec li{
         height: 75px;
         z-index: 8;
         position: absolute;
-        scale: 0.5;
-        bottom: -53px;
-        right: -33%;
+        /* scale: 0.5; */
+        bottom: -74px;
+        right: -64%;
         background-repeat: no-repeat;
-        background-image: url(/public/assets/home_Banner/underscorebn.png) !important;
+        /* background-image: url(/public/assets/home_Banner/underscorebn.png) !important; */
+        background-image: url(/public/assets/home_Banner/about-us.png) !important;
     }
     .translate-large {
-        transform: translateY(-17%);
+        transform: translateY(-7%);
     }
 }
 @media (min-width: 1200px){
     .banner_main-text::after{
         scale: unset;
-        bottom: -88px;
-        right: -51%;
-
+        bottom: -75px;
+        right: -64%;
     }
 }
 @media (min-width: 1280px){
     .translate-large {
-        transform: translateY(-21%);
+        transform: translateY(-9%);
     }
     .RegulatedSec-right{
         width: 80% !important;
     }
+    .choose-you-service{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 }
-
+@media (min-width: 1280px){
+    .slick-slider-background img {
+        width: 100%;
+        height: 122vh;
+        object-fit: cover;
+    }
+}
+@media (min-width: 1536px){
+    .banner_main-text::after {
+        scale: unset;
+        bottom: -75px;
+        right: -53%;
+    }
+}
 @media (min-width: 1706px){
     .bigscreen-sizing {
         padding-left: 8rem !important;

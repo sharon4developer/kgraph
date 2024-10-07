@@ -398,7 +398,7 @@
             toggleActions: "play none none none", // Play animation when triggered
             },
             duration: 2, // Duration of the animation
-            top: "-10px", // Final position of the flag (curtain falling to this point)
+            top: "4px", // Final position of the flag (curtain falling to this point)
             opacity: 1, // Fade in the flag as it falls
             ease: "bounce.out", // Bounce effect to mimic a natural falling curtain
         });
