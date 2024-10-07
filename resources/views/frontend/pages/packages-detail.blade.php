@@ -74,9 +74,9 @@
                 <a href="#">Study</a> > <a href="#">Study in Canada</a>
             </div>
             <div class="text-center text-white my-10 flex flex-col justify-center items-center">
-                <h1 class="uppercase font_inter font-semibold text-3xl lg:text-[40px]">Student Visa Consultant</h1>
+                <h1 class="uppercase font_inter font-semibold text-3xl lg:text-[40px]">{{$package->title}}</h1>
                 <p class="lg:w-1/2 mt-5 font_inter font-medium text-sm lg:text-[14px]">
-                    Studying in America can be an exciting experience, but it also comes with its own set of challenges. One such challenge is getting your US student visa approved by the US embassy or consulate
+                    {{$package->description}}
                 </p>
             </div>
             <div class="flex justify-center items-center">
@@ -95,11 +95,13 @@
 <div class="bg-[#062358]">
     <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[8%]">
         <div>
+            @foreach ($package->PackagePoint as $PackagePoint)
             <div class="services-grade w-full py-2 rounded-md my-8">
-                <h2 class="text-[#072459] font_inter text-[20px] pl-4 font-extrabold capitalize">Foriegn Nationals</h2>
+                <h2 class="text-[#072459] font_inter text-[20px] pl-4 font-extrabold capitalize">{{$PackagePoint->title}}</h2>
             </div>
             <div class="services-inner text-white font_inter py-4">
-                <h3 class="py-1">There are 3 different types of US Student visas:</h3>
+                {!!$PackagePoint->description!!}
+                {{-- <h3 class="py-1">There are 3 different types of US Student visas:</h3>
                 <h2 class="py-1">It is the most common of all the USA student visas.</h2>
                 <p class="py-1">The F1 visa is issued to international students for academic studies. It is issued to students attending a regular</p>
                 <p class="py-1">The F1 visa is issued to international students for academic studies. It is issued to students attending a regular</p>
@@ -110,8 +112,9 @@
                     <li>Have a completed application form</li>
                     <li>Have a completed application form</li>
                     <li>Have a completed application form</li>
-                </ul>
+                </ul> --}}
             </div>
+            @endforeach
         </div>
 
         <div>
@@ -119,25 +122,17 @@
                 <h2 class="text-[#072459] font_inter text-[20px] pl-4 font-extrabold capitalize">other important FAQs</h2>
             </div>
             <div class="services-inner faq text-[#2D3E50] font_inter py-4 flex flex-col justify-start items-start gap-4">
+                @foreach ($package->PackageFaq as $PackageFaq)
                 <div class="accordion-item bg-white p-5 lg:w-1/2 rounded-xl overflow-hidden cursor-pointer transition-all duration-300">
                     <div class="flex justify-between items-center w-full accordion-header gap-4" onclick="toggleAccordion(this)">
                         <img class="accordion-icon transition-transform duration-300 w-2 lg:w-[14px]" src="{{ asset('assets/faqplus.png') }}" alt="Plus Icon">
-                        <h3 class="text-[12px] font-semibold lg:text-[14px] lg:font-medium">1. Can I get interviewed at the nearest US Embassy or Consulate?</h3>
+                        <h3 class="text-[12px] font-semibold lg:text-[14px] lg:font-medium">{{$PackageFaq->title}}</h3>
                     </div>
                     <div class="pl-10 accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                        <p class="pt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ea perferendis reprehenderit! Harum facilis voluptates necessitatibus debitis eius aliquam dolor hic, corporis, delectus laboriosam dolores vitae magnam voluptatem iusto esse!</p>
+                        <p class="pt-3">{{$PackageFaq->description}}</p>
                     </div>
                 </div>
-
-                <div class="accordion-item bg-white p-5 lg:w-1/2 rounded-xl overflow-hidden cursor-pointer transition-all duration-300">
-                    <div class="flex justify-between items-center w-full accordion-header gap-4" onclick="toggleAccordion(this)">
-                        <img class="accordion-icon transition-transform duration-300 w-2 lg:w-[14px]" src="{{ asset('assets/faqplus.png') }}" alt="Plus Icon">
-                        <h3 class="text-[12px] font-semibold lg:text-[14px] lg:font-medium">2. Can I get interviewed at the nearest US Embassy or Consulate?</h3>
-                    </div>
-                    <div class="pl-10 accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                        <p class="pt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores ea perferendis reprehenderit! Harum facilis voluptates necessitatibus debitis eius aliquam dolor hic, corporis, delectus laboriosam dolores vitae magnam voluptatem iusto esse!</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>

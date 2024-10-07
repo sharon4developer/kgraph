@@ -15,6 +15,14 @@ class Package extends Model
 
     protected $fillable = ['country', 'description', 'image', 'intervention_image', 'status','order','title'];
 
+    public function PackagePoint(){
+        return  $this->hasMany(PackagePoint::class);
+    }
+
+    public function PackageFaq(){
+        return  $this->hasMany(PackageFaq::class);
+    }
+
     public static function getFullData($data)
     {
         $locationData = getLocationData();
@@ -48,7 +56,7 @@ class Package extends Model
 
     public static function getData($id)
     {
-        return SELF::find($id);
+        return SELF::with(['PackagePoint','PackageFaq'])->find($id);
     }
 
     public static function updateData($data)

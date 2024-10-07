@@ -25,58 +25,22 @@
 <div class="bg-[#062358]">
     <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[8%]">
         <div class="packages-boxes">
+
+            @foreach ($packages as $data)
+
             <div class="lg:min-w-[600px] mb-10 lg:mb-0 rounded-xl overflow-hidden">
                 <div class="lg:max-h-[200px] overflow-hidden">
-                    <img class="object-cover" src="{{ asset('assets/home_Banner/bannerCity.jpg') }}" alt="">
+                    <img class="object-cover" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="">
                 </div>
                 <div class="bg-white px-7 py-4">
-                    <h5 class="font_inter font-bold text-base text-[#082559]">Canada</h5>
+                    <h5 class="font_inter font-bold text-base text-[#082559]">{{$data->country}}</h5>
                     <p class="font_inter font-semibold text-sm text-[#082559] py-4">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi et illo ut,
-                        omnis facere itaque, nam cumque possimus laborum
+                        {{$data->description}}
                     </p>
-                    <button class="border border-[#082559] text-[#082559] font_inter font-semibold text-sm px-10 py-2 rounded-full">View -></button>
+                    <a href="{{url('package-details/'.$data->id)}}" class="border border-[#082559] text-[#082559] font_inter font-semibold text-sm px-10 py-2 rounded-full">View -></a>
                 </div>
             </div>
-            <div class="lg:min-w-[600px] mb-10 lg:mb-0 rounded-xl overflow-hidden">
-                <div class="lg:max-h-[200px] overflow-hidden">
-                    <img class="object-cover" src="{{ asset('assets/home_Banner/bannerCity.jpg') }}" alt="">
-                </div>
-                <div class="bg-white px-7 py-4">
-                    <h5 class="font_inter font-bold text-base text-[#082559]">Canada</h5>
-                    <p class="font_inter font-semibold text-sm text-[#082559] py-4">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi et illo ut,
-                        omnis facere itaque, nam cumque possimus laborum
-                    </p>
-                    <button class="border border-[#082559] text-[#082559] font_inter font-semibold text-sm px-10 py-2 rounded-full">View -></button>
-                </div>
-            </div>
-            <div class="lg:min-w-[600px] mb-10 lg:mb-0 rounded-xl overflow-hidden">
-                <div class="lg:max-h-[200px] overflow-hidden">
-                    <img class="object-cover" src="{{ asset('assets/home_Banner/bannerCity.jpg') }}" alt="">
-                </div>
-                <div class="bg-white px-7 py-4">
-                    <h5 class="font_inter font-bold text-base text-[#082559]">Canada</h5>
-                    <p class="font_inter font-semibold text-sm text-[#082559] py-4">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi et illo ut,
-                        omnis facere itaque, nam cumque possimus laborum
-                    </p>
-                    <button class="border border-[#082559] text-[#082559] font_inter font-semibold text-sm px-10 py-2 rounded-full">View -></button>
-                </div>
-            </div>
-            <div class="lg:min-w-[600px] mb-10 lg:mb-0 rounded-xl overflow-hidden">
-                <div class="lg:max-h-[200px] overflow-hidden">
-                    <img class="object-cover" src="{{ asset('assets/home_Banner/bannerCity.jpg') }}" alt="">
-                </div>
-                <div class="bg-white px-7 py-4">
-                    <h5 class="font_inter font-bold text-base text-[#082559]">Canada</h5>
-                    <p class="font_inter font-semibold text-sm text-[#082559] py-4">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi et illo ut,
-                        omnis facere itaque, nam cumque possimus laborum
-                    </p>
-                    <button class="border border-[#082559] text-[#082559] font_inter font-semibold text-sm px-10 py-2 rounded-full">View -></button>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>
