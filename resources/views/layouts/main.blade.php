@@ -4,9 +4,11 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+        <title>K-Graph</title>
         <link rel="preconnect" href="https://fonts.bunny.net">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" href="">
+        <link rel="shortcut icon" href="{{ asset('admin/theme/assets/images/favicon.ico') }}">
 
         @vite('resources/css/app.css')
         {{-- font installation --}}
@@ -19,7 +21,7 @@
     </head>
     <body style="overflow-x: hidden;">
         @include('frontend.Common.navbar')
-
+        <input type="hidden" id="base-route" value="{{ url('/') }}">
         <main class="content-container h-full w-full">
             @yield('content')
         </main>

@@ -89,3 +89,5 @@
 
     </div>
 </footer>
+<script src="{{ asset('common/theme/js/common.js')}}?v={{ config('app.version')}}"></script>
+

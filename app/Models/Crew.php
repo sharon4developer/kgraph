@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 
 class Crew extends Model
@@ -93,7 +94,10 @@ class Crew extends Model
     }
 
     public static function getFullDataForHome(){
-        return SELF::select('image','id','address','email','description','name', 'position')->orderBy('order','asc')->where('status',1)->get();
+
+        $locationData = getLocationData();
+
+        return SELF::select(DB::raw("CONCAT('{$locationData['storage_server_path']}', '{$locationData['storage_image_path']}', image) as image"),'id','address','email','description','name', 'position')->orderBy('order','asc')->where('status',1);
     }
 
     public static function updateOrder($data)

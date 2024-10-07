@@ -30,7 +30,7 @@
         <h6 class="py-6 text-white">Choose your Services</h6>
 
         {{-- scroll need --}}
-        <div class="flex justify-between items-center">
+        <div class="flex justify-start gap-4 items-center">
 
             @foreach ($services as $data)
 
