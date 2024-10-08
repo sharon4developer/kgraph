@@ -742,6 +742,9 @@ ul.custom-bulletssec li{
     .bigscreen-sizing {
         padding-left: 8rem !important;
     }
+    .rasing-falg-wrpr {
+        right: -12.5%;
+    }
 }
 @media (min-width: 1920px){
     .gettouch{
