@@ -27,6 +27,7 @@ use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\WhoWeAreController;
 use App\Http\Controllers\FrontEnd\AboutController;
 use App\Http\Controllers\FrontEnd\BlogController as FrontEndBlogController;
+use App\Http\Controllers\FrontEnd\CareerController as FrontEndCareerController;
 use App\Http\Controllers\FrontEnd\HomeController;
 use App\Http\Controllers\FrontEnd\PackageController as FrontEndPackageController;
 use App\Http\Controllers\FrontEnd\ServiceController as FrontEndServiceController;
@@ -41,6 +42,7 @@ Route::get('about-us', [AboutController::class, 'index']);
 Route::post('fetch-crew', [AboutController::class, 'crewShow']);
 Route::get('packages', [FrontEndPackageController::class, 'index']);
 Route::get('package-details/{id}', [FrontEndPackageController::class, 'packageDetails']);
+Route::get('careers', [FrontEndCareerController::class, 'index']);
 
 Route::get('contact-us', function () {
     return view('main');
@@ -52,9 +54,6 @@ Route::get('services-form', function () {
 
 Route::get('contact-us', function () {
     return view('frontend.pages.contact-us');
-});
-Route::get('careers', function () {
-    return view('frontend.pages.careers');
 });
 
 Auth::routes();

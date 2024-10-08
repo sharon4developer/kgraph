@@ -118,7 +118,7 @@
 
                             <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent mobile">
                                 <div>
-                                    <select name="country" id="">
+                                    <select name="country" id=""  class="bg-transparent">
                                         <option value="">+91</option>
                                         <option value="">+93</option>
                                         <option value="">+94</option>
@@ -135,19 +135,21 @@
 
                             <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
                                 <label class="md:whitespace-nowrap" for="email">select branch<span>*</span></label>
-                                <select name="" id="">
-                                    <option value=""></option>
-                                    <option value=""></option>
-                                    <option value=""></option>
+                                <select name="" id="" class="bg-transparent">
+                                    <option value="" selected disabled>---Select Branch---</option>
+                                    <option value="">Branch 1</option>
+                                    <option value="">Branch 2</option>
+                                    <option value="">Branch 3</option>
                                 </select>
                             </div>
 
                             <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
                                 <label class="md:whitespace-nowrap" for="email">department<span>*</span></label>
-                                <select name="" id="">
-                                    <option value=""></option>
-                                    <option value=""></option>
-                                    <option value=""></option>
+                                <select name="" id="" class="bg-transparent">
+                                    <option value="" selected disabled>---Select Department---</option>
+                                    <option value="">Department 1</option>
+                                    <option value="">Department 2</option>
+                                    <option value="">Department 3</option>
                                 </select>
                             </div>
 
@@ -184,9 +186,11 @@
     <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 lg:py-[8%] text-white">
         <h2 class="my-10 font_inter font-semibold text-[25px] md:text-[50px] uppercase w-[50%]">Open positions</h2>
 
+        @foreach ($careers as $data)
+
         <div class="bg-[#072f77] cursor-pointer rounded-[8px] my-4 border-b border-b-[#868686]" data-accordion>
             <div class="flex justify-between items-center px-5 py-4 accordion-header-careers">
-                <h2 class="font_inter font-bold text-[15px] text-white">Marketing, Kochi, Kerala</h2>
+                <h2 class="font_inter font-bold text-[15px] text-white">{{$data->title}}, {{$data->location}}</h2>
                 <div>
                     <svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg" class="accordion-icon">
                         <path d="M1 1L9 9L17 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -195,27 +199,11 @@
             </div>
             <div class="accordion-content-careers">
                 <p class="px-5 py-4 text-white">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum recusandae ut, obcaecati eius quia omnis error quidem non deserunt animi, modi, possimus quod officiis. Cum modi sequi quidem iste laudantium.
+                    {!!$data->description!!}
                 </p>
             </div>
         </div>
-
-        <div class="bg-[#072f77] cursor-pointer rounded-[8px] my-4 border-b border-b-[#868686]" data-accordion>
-            <div class="flex justify-between items-center px-5 py-4 accordion-header-careers">
-                <h2 class="font_inter font-bold text-[15px] text-white">Sales, Bangalore, Karnataka</h2>
-                <div>
-                    <svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg" class="accordion-icon">
-                        <path d="M1 1L9 9L17 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </div>
-            </div>
-            <div class="accordion-content-careers">
-                <p class="px-5 py-4 text-white">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum recusandae ut, obcaecati eius quia omnis error quidem non deserunt animi, modi, possimus quod officiis. Cum modi sequi quidem iste laudantium.
-                </p>
-            </div>
-        </div>
-
+        @endforeach
 
     </div>
 </div>
