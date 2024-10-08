@@ -3,19 +3,28 @@
 @tailwind utilities;
 
 
-.font_aktiv{
+/* .font_aktiv{
     font-family: aktiv-grotesk, sans-serif;
+} */
+.font_aktiv{
+    font-family: "Inter", sans-serif;
 }
 
 .font_inter{
     font-family: "Inter", sans-serif;
 }
-.font_jakarta {
+/* .font_jakarta {
     font-family: "Plus Jakarta Sans", sans-serif;
+} */
+.font_jakarta {
+    font-family: "Inter", sans-serif;
 }
 .font_arial {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: "Inter", sans-serif;
 }
+/* .font_arial {
+    font-family: Arial, Helvetica, sans-serif;
+} */
 
 h1,h2,h3,h4,h5,h6,a,p,li{
     font-family: "Inter", sans-serif;
@@ -29,6 +38,42 @@ h1,h2,h3,h4,h5,h6,a,p,li{
         justify-items: center;
         gap: 26px;
     }
+}
+
+
+
+.nav-link {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 3px;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    border-radius: 25px;
+    background-color: white;
+    left: 0;
+    bottom: 0;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.nav-link:hover {
+    color: white;
+}
+
+.nav-link::after {
+    right: 0;
+    transition: width 0.3s ease, left 0.3s ease;
 }
 
 
@@ -452,11 +497,14 @@ ul.custom-bulletssec li{
 .aboutusbanner::before {
     content: "";
     position: absolute;
+    opacity: 0.97;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(180deg, #000000 0%, #113165c7 100%);
+    /* background: linear-gradient(180deg, #000000 0%, #113165c7 100%); */
+    /* background: linear-gradient(0deg, rgba(6,35,88,1) 0%, rgba(18,18,18,1) 85%); */
+    background: linear-gradient(0deg, rgba(6,35,88,1) 0%, rgba(18,18,18,1) 53%);
     z-index: 1;
 }
 
@@ -506,6 +554,124 @@ ul.custom-bulletssec li{
     height: 50px;
 }
 
+.choose-you-service{
+    grid-template-columns: 1fr;
+}
+
+.image-height-adjuster{
+    max-height: 150px;
+}
+
+
+#crew-list-pagination .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 1rem 0;
+}
+
+#crew-list-pagination .page-item {
+    border: 1px solid white;
+    padding: 0.25rem 0.5rem;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+#crew-list-pagination .page-item .page-link {
+    color: #ffffff;
+}
+
+#crew-list-pagination .page-item.active .page-link {
+    background-color: white;
+    color: #072558;
+}
+
+#crew-list-pagination .page-item:hover .page-link {
+    background-color: white;
+    color: #072558;
+}
+
+#crew-list-pagination .page-item.disabled .page-link {
+    cursor: not-allowed;
+    color: grey;
+}
+
+#crew-list-pagination .page-item:hover {
+    background-color: white;
+    color: #072558;
+}
+
+#crew-list-pagination .page-link {
+    padding: 0.25rem 0.5rem;
+}
+
+.crew-card {
+    width: 100%;
+    border: 1px solid #E5E7EB; /* Replace with desired border color */
+    border-radius: 1rem; /* Rounded corners */
+    margin-left: 1rem; /* Add space for medium and large screens */
+    margin-right: 1rem;
+    overflow: hidden;
+}
+
+.crew-card img {
+    width: 100%;
+    max-height: 150px; /* Limit the image height */
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 1rem;
+}
+
+.crew-card-content {
+    padding: 0.25rem 1rem 1rem 1rem; /* padding: 20px left/right, 16px bottom */
+    color: #FFFFFF;
+    font-family: 'Inter', sans-serif; /* Assuming you're using Inter font */
+}
+
+.crew-card h5 {
+    padding-top: 0px;
+    font-weight: 600; /* Semi-bold */
+    font-size: 1rem; /* Base size (16px) */
+}
+
+.crew-card h6 {
+    font-weight: 600;
+    font-size: 0.75rem; /* Extra small size (12px) */
+}
+
+.crew-card .address {
+    padding: 25px 0px 25px 0px;
+    font-weight: 700; /* Bold */
+    font-size: 0.625rem; /* Small size (10px) */
+}
+
+.crew-card .email-link {
+    text-decoration: underline;
+    font-weight: 700; /* Bold */
+    font-size: 0.625rem; /* Small size (10px) */
+    text-underline-offset: 2px;
+}
+
+.crew-card .read-bio-link {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    font-weight: 700; /* Bold */
+    font-size: 0.625rem; /* Small size (10px) */
+}
+
+.truncate-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+
 
 /* media query */
 @media (max-width: 767px){
@@ -515,9 +681,23 @@ ul.custom-bulletssec li{
     .accordion{
         margin-bottom: 14px;
     }
+    .banner_main-text::after{
+        content: "";
+        width: 100%;
+        height: 75px;
+        z-index: 8;
+        position: absolute;
+        scale: 0.5;
+        bottom: -57px;
+        right: -5%;
+        background-repeat: no-repeat;
+        background-image: url(/public/assets/home_Banner/underscorebn.png) !important;
+    }
 }
 @media (min-width: 768px) {
-
+    .choose-you-service{
+        grid-template-columns: 1fr 1fr;
+    }
 }
 @media (max-width: 1023px){
     .footer-secpernt{
@@ -531,6 +711,11 @@ ul.custom-bulletssec li{
         height: 100dvh;
         object-fit: cover;
     }
+    .blog-box{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 37px;
+    }
 }
 @media (min-width: 1024px){
     .accordion-header>h6{
@@ -538,19 +723,16 @@ ul.custom-bulletssec li{
     }
     .slick-slider-background img {
         width: 100%;
-        height: 100%;
+        height: 157vh;
         object-fit: cover;
     }
     .footer-last {
         position: relative;
         z-index: 1;
     }
-    /* .footer-last{
-        background-image: url(/public/assets/footermap.png) !important;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-     } */
+    .choose-you-service{
+        grid-template-columns: 1fr 1fr 1fr;
+    }
      .footer-last::before {
         content: '';
         position: absolute;
@@ -610,38 +792,63 @@ ul.custom-bulletssec li{
         height: 75px;
         z-index: 8;
         position: absolute;
-        scale: 0.5;
-        bottom: -53px;
-        right: -33%;
+        /* scale: 0.5; */
+        bottom: -74px;
+        right: -64%;
         background-repeat: no-repeat;
         background-image: url(/public/assets/home_Banner/underscorebn.png) !important;
+        /* background-image: url(/public/assets/home_Banner/about-us.png) !important; */
     }
     .translate-large {
-        transform: translateY(-17%);
+        transform: translateY(-7%);
+    }
+    .blog-box{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
     }
 }
 @media (min-width: 1200px){
     .banner_main-text::after{
         scale: unset;
-        bottom: -70px;
-        right: -58%;
+        bottom: -75px;
+        right: -64%;
     }
 }
 @media (min-width: 1280px){
     .translate-large {
-        transform: translateY(-21%);
+        transform: translateY(-9%);
     }
     .RegulatedSec-right{
         width: 80% !important;
     }
+    .choose-you-service{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
 }
-
+@media (min-width: 1280px){
+    .slick-slider-background img {
+        width: 100%;
+        height: 122vh;
+        object-fit: cover;
+    }
+}
+@media (min-width: 1536px){
+    .banner_main-text::after {
+        scale: unset;
+        bottom: -75px;
+        right: -53%;
+    }
+}
 @media (min-width: 1706px){
     .bigscreen-sizing {
         padding-left: 8rem !important;
     }
 }
 @media (min-width: 1920px){
+    .blog-box{
+        gap: 37px;
+    }
     .gettouch{
         font-size: 3.75rem;
     }

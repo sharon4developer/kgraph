@@ -7,11 +7,11 @@
 </style>
 
 {{-- services banner --}}
-<div class="services-banner md:h-[50vh]">
+<div class="services-banner">
     <div class="services-banner-overlay">
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[8%]">
-            <div class="text-left text-white mt-10">
-                <h2 class="uppercase font_inter font-semibold text-[40px]">Services</h2>
+            <div class="text-left text-white">
+                <h2 class="uppercase font_inter font-semibold text-[40px] lg:mt-[6rem]">Services</h2>
                 <p class="lg:w-[35%] mt-5 font_inter font-semibold text-[12px]">
                     Studying in America can be an exciting experience, but it also comes with its own set of challenges.
                     One such challenge is getting your US student visa approved by the US embassy or consulate
@@ -30,12 +30,10 @@
         <h6 class="py-6 text-white">Choose your Services</h6>
 
         {{-- scroll need --}}
-        <div class="flex justify-start gap-4 items-center">
-
+        <div class="grid justify-start gap-4 items-center choose-you-service">
             @foreach ($services as $data)
-
-            <div class="w-full md:w-[317px] bg-white rounded-xl">
-                <img src="{{ asset('assets/agile.png') }}" alt="">
+            <div class="w-full bg-white rounded-xl">
+                <img class="w-full" src="{{ asset('assets/agile.png') }}" alt="">
                 <div class="text-left px-5 pt-2 pb-8">
                     <h6 class="py-3 font-bold font_inter text-[20px]">{{$data->title}}</h6>
                     <p class="">{{$data->sub_title}},</p>

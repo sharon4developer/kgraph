@@ -86,17 +86,17 @@
 
 <div class="careers-parent contact-US-banner h-full w-full">
     <div class="contact-US h-full w-full">
-        <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 lg:pt-[8%] text-white">
+        <div class="container mx-auto px-5 xl:px-12 h-full w-full py-8 lg:pt-[8%] text-white">
             <div class="flex flex-col lg:flex-row justify-between items-start gap-[15%] lg:py-[50px] md:mt-36 lg:mt-0">
                 <div class="w-full h-full font_inter">
-                    <h1 class="mainHead font-semibold text-[40px] lg:w-[70%]">Grow Your Career with K-GRAPH</h1>
+                    <h1 class="mainHead font-semibold text-[40px] xl:w-[70%] uppercase">Grow Your Career with K-GRAPH</h1>
                     <p class="font-semibold text-[15px] py-[30px]">Kansas Overseas has prided itself on customer and employee satisfaction since its inception. This commitment to its staff has allowed the company to grow to over 200 employees across 5 cities. Kansas is one of the fastest-growing visa companies and is on track to double its workforce:</p>
                     <h2 class="font-semibold text-[30px]">Our Team Identity :</h2>
                     <ul class="list-disc pl-5 text-[18px] mb-6 lg:mb-0">
-                        <li class="py-1">Assist with Value-added services</li>
-                        <li class="py-1">Learners Before Leaders</li>
-                        <li class="py-1">Prepared for marathon</li>
-                        <li class="py-1">Replace Self - Mentoring Other Team Members</li>
+                        <li class="py-2">Assist with Value-added services</li>
+                        <li class="py-2">Learners Before Leaders</li>
+                        <li class="py-2">Prepared for marathon</li>
+                        <li class="py-2">Replace Self - Mentoring Other Team Members</li>
                     </ul>
                 </div>
                 <div class="bg-white rounded-xl h-fit w-full canada-flag relative">
@@ -118,7 +118,7 @@
 
                             <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent mobile">
                                 <div>
-                                    <select name="country" id=""  class="bg-transparent">
+                                    <select name="country" id="" class="bg-transparent">
                                         <option value="">+91</option>
                                         <option value="">+93</option>
                                         <option value="">+94</option>
@@ -136,20 +136,18 @@
                             <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
                                 <label class="md:whitespace-nowrap" for="email">select branch<span>*</span></label>
                                 <select name="" id="" class="bg-transparent">
-                                    <option value="" selected disabled>---Select Branch---</option>
+                                    <option value="" selected disabled>---Select---</option>
                                     <option value="">Branch 1</option>
                                     <option value="">Branch 2</option>
-                                    <option value="">Branch 3</option>
                                 </select>
                             </div>
 
                             <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
                                 <label class="md:whitespace-nowrap" for="email">department<span>*</span></label>
                                 <select name="" id="" class="bg-transparent">
-                                    <option value="" selected disabled>---Select Department---</option>
+                                    <option value="" selected disabled>---Select---</option>
                                     <option value="">Department 1</option>
                                     <option value="">Department 2</option>
-                                    <option value="">Department 3</option>
                                 </select>
                             </div>
 
@@ -168,11 +166,12 @@
                                 <input id="imageUploader" type="file" accept="image/*" style="display: none;" onchange="handleFileChange()" />
                             </div>
 
-                            <div class="flex justify-end items-center">
+                            <div class="flex justify-end items-center overflow-hidden rounded-full">
                                 <div class="border rounded-full border-[#072558] cursor-pointer">
-                                    <input class="!px-[50px] py-1 uppercase text-[#072558] cursor-pointer" type="button" value="Submit">
+                                    <button class="!px-[80px] py-3 uppercase text-[#072558] cursor-pointer text-[16px] font-bold bg-transparent hover:bg-[#072558] hover:text-white transition-colors duration-300 rounded-full">Submit</button>
                                 </div>
                             </div>
+
 
                         </form>
                     </div>
@@ -183,9 +182,8 @@
 </div>
 
 <div class="open-positions bg-[#04183c]">
-    <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 lg:py-[8%] text-white">
+    <div class="container mx-auto px-5 xl:px-12 h-full w-full py-8 lg:py-[8%] text-white">
         <h2 class="my-10 font_inter font-semibold text-[25px] md:text-[50px] uppercase w-[50%]">Open positions</h2>
-
         @foreach ($careers as $data)
 
         <div class="bg-[#072f77] cursor-pointer rounded-[8px] my-4 border-b border-b-[#868686]" data-accordion>
@@ -198,9 +196,9 @@
                 </div>
             </div>
             <div class="accordion-content-careers">
-                <p class="px-5 py-4 text-white">
+                <div class="px-5 py-4 text-white">
                     {!!$data->description!!}
-                </p>
+                </div>
             </div>
         </div>
         @endforeach
@@ -210,7 +208,7 @@
 
 {{-- get in touch section --}}
 <div class="get-in-Touch bg-[#051b3b] py-28">
-    <div class="container mx-auto px-5 lg:px-12 h-full w-full">
+    <div class="container mx-auto px-5 xl:px-12 h-full w-full">
         <div class="flex justify-center items-center flex-col ">
             <div class="flex flex-col-reverse md:flex-row items-center">
                 <h2 class="font_inter font-semibold text-4xl text-center md:text-left gettouch uppercase gradient-text">Get IN TOUCH WITH US</h2>
@@ -271,7 +269,7 @@
             toggleActions: "play none none none", // Play animation when triggered
             },
             duration: 2, // Duration of the animation
-            top: "-10px", // Final position of the flag (curtain falling to this point)
+            top: "4px", // Final position of the flag (curtain falling to this point)
             opacity: 1, // Fade in the flag as it falls
             ease: "bounce.out", // Bounce effect to mimic a natural falling curtain
         });

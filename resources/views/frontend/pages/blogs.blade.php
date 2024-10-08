@@ -51,7 +51,7 @@
 {{-- Blog sect --}}
 <div class="BlogCRDS bg-[#051b3b]">
     <div class="gradient-evition relative overflow-hidden z-10">
-        <div class="container mx-auto px-5 lg:px-12 lg:py-16 h-full w-full">
+        <div class="container mx-auto px-5 lg:px-12 lg:py-16 h-full w-full blog-box">
                 @foreach ($blogs as $data)
                 <div class="bg-white w-full h-[450px] mr-5">
                     <img class="h-[150px] w-full object-cover object-top" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="blog_image"/>
@@ -66,7 +66,7 @@
                             </div>
                         </div>
                         <h5 class="text-[#072558] font_inter font-bold text-[10px] lg:text-[12px] xl:text-[14px] py-5">{{ $data->title }}</h5>
-                        <p class="text-[#072558] font_inter font-normal text-justify text-[10px] lg:text-[12px] xl:text-[14px]">{{ $data->description }}</p>
+                        <p class="text-[#072558] font_inter font-normal text-justify text-[10px] lg:text-[12px] xl:text-[14px] truncate-text">{{ $data->description }}</p>
                         <div class="flex justify-end">
                             <button class="border border-[#072558] rounded-full px-10 py-1 my-4 text-[#072558] hover:bg-[#072558] hover:text-white ease-linear duration-300">View</button>
                         </div>
