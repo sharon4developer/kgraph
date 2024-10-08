@@ -195,7 +195,7 @@
                 @foreach ($services as $data)
                     <div class="box-grading mb-9 lg:mb-0 p-4 lg:p-6 h-[400px] lg:min-h-[360px] lg:max-h-[360px] xl:max-h-[450px] w-full md:w-[33%] lg:w-full rounded-xl cursor-pointer">
                         <h2 class="text-white font_inter text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">{{ $data->title }}</span>
-                            {# <span class="xl:inline-block">nationals</span> #}
+                           {{-- <span class="xl:inline-block">nationals</span>  --}}
                         </h2>
                         <div class="text-white font_inter font-bold text-[16px] md:text-sm py-3">Choose Your Services</div>
 
