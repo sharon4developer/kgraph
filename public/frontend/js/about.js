@@ -12,6 +12,8 @@ $('body').on('click','#crew-list-pagination a', function(e) {
     }
 });
 
+let isSlickInitialized = false;
+
 function fetchCrew(url=''){
 
     if (!url.length) {
@@ -57,8 +59,14 @@ function showCrew(data){
     $('#crew-list-pagination').html(data.pagination??"");
     $('#crew-list').html(crewHtml);
 
-     $slider = $('.about-meet-slider');
+    // $slider = $('.about-meet-slider');
 
+
+    if (isSlickInitialized) {
+
+        $('.about-meet-slider').slick('unslick');
+    }
+    isSlickInitialized = true;
     $slider = $('.about-meet-slider');
         $slider.slick({
             autoplay: true,
@@ -97,4 +105,5 @@ function showCrew(data){
                 }
             ]
         });
+
 }
