@@ -273,7 +273,7 @@
         </div>
     </div>
 
-    <div class="pl-5 lg:pl-[9rem] 2xl:pl-12 bigscreen-sizing py-8 flex flex-col-reverse lg:flex-row overflow-x-hidden">
+    <div class="pl-5 lg:pl-[9rem] xl:pl-16 2xl:pl-12 bigscreen-sizing py-8 top-height-adjust flex flex-col-reverse lg:flex-row overflow-x-hidden">
         <div class="flex justify-end lg:justify-start items-center gap-3 lg:pt-[3%] mr-4">
             <div class="aboutnext bg-[#062358] rounded-full w-8 h-8 flex justify-center items-center text-white font-semibold cursor-pointer pb-[3.5px]"><</div>
             <div class="aboutprev bg-[#062358] rounded-full w-8 h-8 flex justify-center items-center text-white font-semibold cursor-pointer pb-[3.5px]">></div>
