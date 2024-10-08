@@ -737,6 +737,9 @@ ul.custom-bulletssec li{
         width: 433px;
         height: 325px;
     }
+    .top-height-adjust{
+        padding-top: 101px;
+    }
 }
 @media (min-width: 1706px){
     .bigscreen-sizing {
@@ -745,9 +748,7 @@ ul.custom-bulletssec li{
     .rasing-falg-wrpr {
         right: -12.5%;
     }
-    .top-height-adjust{
-        padding-top: 101px;
-    }
+
 }
 @media (min-width: 1920px){
     .gettouch{
