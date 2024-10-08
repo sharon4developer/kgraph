@@ -30,9 +30,17 @@
     }
     .left-to-right-width-animation, .secleft-to-right-width-animation, .thirdleft-to-right-width-animation, .fourthleft-to-right-width-animation,.fifthleft-to-right-width-animation{
         opacity: 0;
-        transform: translateX(-100%);
+        transform: translateX(100%);
         width: 0;
     }
+    @media (min-width: 1520px){
+        .left-to-right-width-animation, .secleft-to-right-width-animation, .thirdleft-to-right-width-animation, .fourthleft-to-right-width-animation,.fifthleft-to-right-width-animation{
+            opacity: 0;
+            transform: translateX(-100%);
+            width: 0;
+        }
+    }
+
     @media (min-width: 1900px){
         .left-aligner{
             padding-left: 15rem
@@ -109,6 +117,7 @@
     }
 
 
+
 </style>
 
 {{-- banner section --}}
@@ -132,7 +141,7 @@
                     Journey with Confidence <span class="text-[#579aff]">Migrate</span> with Us
                 </h2>
             </div>
-            <h1 class="md:text-center text-[31px] md:text-[55px] xl:text-[85px] lg:text-[70px] lg:w-[80%] font-medium font_inter gradient-text z-10 lg:mt-8 banner_main-text lg:inline-block banner-contain-text leading-[1.2]">
+            <h1 class="md:text-center text-[31px] md:text-[55px] 2xl:text-[85px] lg:text-[70px] lg:w-[80%] font-medium font_inter gradient-text z-10 lg:mt-8 banner_main-text lg:inline-block banner-contain-text leading-[1.2]">
                 Visa Made Easy Dreams Made Possible
             </h1>
             <h6 class="font_inter font-medium text-[20px] lg:text-[23px] z-20 text-white lg:mt-14 banner-container-elem">
@@ -143,7 +152,7 @@
                 <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-[4.5px] pl-6 pr-1 overflow-hidden group">
                     <!-- Background animation using pseudo-element -->
                     <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
-                    <h6 class="relative z-10 text-white text-[10px] md:text-[14px]">Let's turn your vision into reality.</h6>
+                    <h6 class="relative z-10 text-white text-[10px] md:text-[14px] 2xl">Let's turn your vision into reality.</h6>
                     <div class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:py-[4px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                         <a href="" class="h-full text-[12px] lg:text-[16px] font-semibold">Connect Us</a>
                     </div>
@@ -173,19 +182,18 @@
     <div class="serviceSection gradient-evition relative overflow-hidden z-10 bg-[#051b3b]">
         <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full pt-10 lg:pt0">
             <div class="md:flex items-center">
-                <h2 class="left-to-right-animation font_inter font-semibold text-[46px] md:text-[50px] xl:text-[100px] text-white leading-none uppercase gradient-text"><span class="inline-block">Our</span><span class="inline-block">Services</span></h2>
-                <div class="md:pl-2 lg:pl-10 w-full" style="margin-bottom: -6%;">
-                    <div class="my-4 md:my-0 flex justify-start md:justify-end items-center">
-                        <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[4.5px] pl-5 pr-1 overflow-hidden group">
-                            <!-- Background animation using pseudo-element -->
+                <h2 class="left-to-right-animation font_inter font-semibold text-[46px] md:text-[50px] lg:text-[65px] 2xl:text-[100px] text-white leading-none uppercase gradient-text"><span class="inline-block">Our</span><span class="inline-block">Services</span></h2>
+                <div class="md:pl-2 lg:pl-10 w-full lg:mb-[-8%] 2xl:mb-[-10%]">
+                    <div class="my-4 md:my-0 lg:mt-[16px] flex justify-start md:justify-end items-center">
+                        <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[4.5px] pl-5 pr-1 lg:mt-[-76px] overflow-hidden group">
                             <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
-                            <h6 class="relative z-10 text-white text-[10px] md:text-[12px] xl:text-[16px]">Let's turn your vision into reality.</h6>
+                            <h6 class="relative z-10 text-white text-[10px] md:text-[12px] 2xl:text-[16px]">Let's turn your vision into reality.</h6>
                             <div class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[4px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                                 <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
                             </div>
                         </div>
                     </div>
-                    <div class="w-full mt-6 left-to-right-width-animation" style="border: 1px solid #FFFFFF8C;"></div>
+                    <div class="w-full left-to-right-width-animation" style="border: 1px solid #FFFFFF8C;"></div>
                 </div>
             </div>
             <h4 class="text-white font_inter font-semibold text-[22px] xl:text-[36px] py-4 lg:pb-0 left-to-right-animation capitalize mt-6">Visa Immigration for a Brighter You Future</h4>
@@ -196,7 +204,7 @@
                     <div class="text-white font_inter font-bold text-[16px] md:text-sm py-3">Choose Your Services</div>
 
                     <div class="flex flex-col xl:mt-4 gap-3 knowbutton ">
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
+                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-2">
                             <div class="text-xs xl:text-sm text-white">Study in Canada</div>
                             <div>
                                 <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -354,11 +362,11 @@
         <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full">
             <div class="md:flex md:justify-between items-end ">
                 <div class="lg:w-full flex items-end">
-                    <h2 class="font_inter font-semibold text-[46px] md:text-[50px] xl:text-[100px] text-white leading-none uppercase secleft-to-right-animation flex flex-col">
+                    <h2 class="font_inter font-semibold text-[46px] md:text-[50px] lg:text-[65px] 2xl:text-[100px] text-white leading-none uppercase secleft-to-right-animation flex flex-col">
                         <span class="inline-block">Who</span>
                         <span class="inline-block whitespace-nowrap">We Are</span>
                     </h2>
-                    <div class="w-full mb-4 secleft-to-right-width-animation" style="border: 1px solid #FFFFFF8C;"></div>
+                    <div class="w-full mb-4 secleft-to-right-width-animation lg:ml-10" style="border: 1px solid #FFFFFF8C;"></div>
                 </div>
                 {{-- know more button animtion --}}
                 <div class="animation-section" style="">
@@ -540,8 +548,8 @@
     <div class="testimonial bg-[#051b3b] gradient-evition relative overflow-hidden z-10">
         <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full">
             <div class="flex items-end w-full gap-2 lg:gap-7">
-                <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] xl:text-[65px] leading-none thirdleft-to-right-animation">Testimonials</h2>
-                <div class="w-full thirdleft-to-right-width-animation" style="border: 2px solid #FFFFFF8C;margin-bottom: 8px;"></div>
+                <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] 2xl:text-[65px] leading-none thirdleft-to-right-animation">Testimonials</h2>
+                <div class="w-full thirdleft-to-right-width-animation" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
             </div>
             <p class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%] thirdleft-to-right-animation">Let’s See what our customers want to say</p>
             <p class="text-white font_inter font-normal text-justify text-[14px] md:w-[45%] thirdleft-to-right-animation">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
@@ -736,8 +744,8 @@
     <div class="BlogCRDS bg-[#051b3b]">
         <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full">
             <div class="flex items-end w-full gap-2 lg:gap-7">
-                <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] xl:text-[65px] leading-none fourthleft-to-right-animation">Blogs</h2>
-                <div class="w-full fourthleft-to-right-width-animation" style="border: 2px solid #FFFFFF8C;margin-bottom: 8px;"></div>
+                <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] 2xl:text-[65px] leading-none fourthleft-to-right-animation">Blogs</h2>
+                <div class="w-full fourthleft-to-right-width-animation" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
             </div>
             <p class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%] fourthleft-to-right-animation">Canadian Immigration News, Tips, and Resources</p>
             <p class="text-white font_inter font-normal text-justify text-[14px] md:w-[45%] fourthleft-to-right-animation">Stay in the loop and keep up with all our news and updates!</p>
@@ -899,8 +907,8 @@
     <div class="explore-section bg-black">
         <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full">
             <div class="flex items-end w-full gap-2 lg:gap-7">
-                <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] xl:text-[65px] leading-none fifthleft-to-right-animation">Explore</h2>
-                <div class="w-full fifthleft-to-right-width-animation" style="border: 2px solid #FFFFFF8C;margin-bottom: 8px;"></div>
+                <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] 2xl:text-[65px] leading-none fifthleft-to-right-animation">Explore</h2>
+                <div class="w-full fifthleft-to-right-width-animation" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
             </div>
             <p class="text-white font_inter font-semibold text-[26px] lg:w-[35%] mt-6 fifthleft-to-right-animation">Learn About All of the Great ThingsCanada Has to Offer!</p>
         </div>
@@ -1159,7 +1167,7 @@
                 <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
 
                 <!-- Text color that changes on hover -->
-                <h6 class="relative z-10 text-white text-[10px] md:text-[12px] xl:text-[16px] transition-colors duration-500 group-hover:text-[#072558]">Let's turn your vision into reality.</h6>
+                <h6 class="relative z-10 text-white text-[10px] md:text-[12px] 2xl:text-[16px] transition-colors duration-500 group-hover:text-[#072558]">Let's turn your vision into reality.</h6>
 
                 <!-- "Connect Us" button, background changes to #072558 on hover -->
                 <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full transition-all duration-500 group-hover:bg-[#072558] group-hover:text-white">
