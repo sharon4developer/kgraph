@@ -24,8 +24,8 @@ class Page extends Model
                 ->make(true);
 	}
 
-    public function seo(){
-        return  $this->hasOne(seo::class);
+    public function Seo(){
+        return  $this->hasOne(Seo::class);
     }
 
     public static function getData($id){
@@ -50,9 +50,9 @@ class Page extends Model
     }
     public static function getSeoDetails($url){
         $locationData = getLocationData();
-        $data = SELF::where('url',$url)->with('seo')->first('id');
-        if($data && $data['seo'])
-            $data['seo']->og_image = $locationData['storage_server_path'].$locationData['storage_image_path'].$data['seo']->og_image;
+        $data = SELF::where('url',$url)->with('Seo')->first('id');
+        if($data && $data['Seo'])
+            $data['Seo']->og_image = $locationData['storage_server_path'].$locationData['storage_image_path'].$data['Seo']->og_image;
         return $data;
     }
 }

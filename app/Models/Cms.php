@@ -16,7 +16,7 @@ class Cms extends Model
 
     protected $fillable = [
         'slug', 'title', 'sub_title', 'short_description', 'description', 'first_image', 'second_image',
-        'button_enabled', 'button_text', 'button_url', 'status', 'page_id', 'first_image_intervention', 'second_image_intervention'
+        'button_enabled', 'button_text', 'button_url', 'status', 'page_id', 'first_image_intervention', 'second_image_intervention','alt_tag','second_alt_tag'
     ];
 
     public static function makeInterventionImage($image)

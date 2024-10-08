@@ -117,10 +117,11 @@
     <div class="banner-gradient-overlay absolute inset-0"></div>
 
     <!-- Slick Slider for Background Images -->
+
     <div class="slick-slider-background absolute inset-0 z-[-1]">
-        <div><img class="w-full h-full object-cover" src="{{ asset('assets/home_Banner/bannerCity.jpg') }}" alt="Slide 1"></div>
-        <div><img class="w-full h-full object-cover" src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="Slide 2"></div>
-        <div><img class="w-full h-full object-cover" src="{{ asset('assets/home_Banner/Canadas.jpeg') }}" alt="Slide 3"></div>
+        @foreach ($banner as $data)
+        <div><img class="w-full h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="Slide 1"></div>
+        @endforeach
     </div>
 
     <!-- Banner Content -->
@@ -191,160 +192,27 @@
             <h4 class="text-white font_inter font-semibold text-[22px] xl:text-[36px] py-4 lg:pb-0 left-to-right-animation capitalize mt-6">Visa Immigration for a Brighter You Future</h4>
             <p class="text-white font_inter font-extralight text-justify text-[14px] xl:text-[16px] left-to-right-animation">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
             <div class="gap-5 flex justify-start lg:justify-between items-center scrollbar-hidden" style="">
-                <div class="box-grading mb-9 lg:mb-0 p-4 lg:p-6 h-[400px] lg:min-h-[360px] lg:max-h-[360px] xl:max-h-[450px] w-full md:w-[33%] lg:w-full rounded-xl cursor-pointer">
-                    <h2 class="text-white font_inter text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">Foreign</span><span class="xl:inline-block">nationals</span></h2>
-                    <div class="text-white font_inter font-bold text-[16px] md:text-sm py-3">Choose Your Services</div>
+                @foreach ($services as $data)
+                    <div class="box-grading mb-9 lg:mb-0 p-4 lg:p-6 h-[400px] lg:min-h-[360px] lg:max-h-[360px] xl:max-h-[450px] w-full md:w-[33%] lg:w-full rounded-xl cursor-pointer">
+                        <h2 class="text-white font_inter text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">{{ $data->title }}</span>
+                            {# <span class="xl:inline-block">nationals</span> #}
+                        </h2>
+                        <div class="text-white font_inter font-bold text-[16px] md:text-sm py-3">Choose Your Services</div>
 
-                    <div class="flex flex-col xl:mt-4 gap-3 knowbutton ">
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
+                        <div class="flex flex-col xl:mt-4 gap-3 knowbutton ">
+                            @foreach ($data->ServicePoint as $points)
+                            <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
+                                <div class="text-xs xl:text-sm text-white">{{ $points->title }}</div>
+                                <div>
+                                    <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
+                                    </svg>
+                                </div>
+                            </button>
+                            @endforeach
+                        </div>
                     </div>
-                </div>
-
-                <div class="hidden md:block box-grading mb-9 lg:mb-0 p-4 lg:p-6 h-[400px] lg:min-h-[360px] lg:max-h-[360px] xl:max-h-[450px] w-full md:w-[33%] lg:w-full rounded-xl cursor-pointer">
-                    <h2 class="text-white font_inter text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">Business </span><span class="xl:inline-block">Investors</span></h2>
-                    <div class="text-white font_inter font-bold text-[10px] xl:text-sm py-3">Choose Your Services</div>
-
-                    <div class="flex flex-col gap-3 xl:mt-4 knowbutton ">
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6  py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="hidden lg:block box-grading mb-9 lg:mb-0 p-4 lg:p-6 h-[400px] lg:min-h-[360px] lg:max-h-[360px] xl:max-h-[450px] w-full md:w-[28%] lg:w-full rounded-xl cursor-pointer">
-                    <h2 class="text-white font_inter text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">Canadian</span><span class="xl:inline-block">Employees</span></h2>
-                    <div class="text-white font_inter font-bold text-[10px] xl:text-sm py-3">Choose Your Services</div>
-
-                    <div class="flex flex-col gap-3 xl:mt-4 knowbutton ">
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="hidden lg:block box-grading mb-9 lg:mb-0 p-4 lg:p-6 h-[400px] lg:min-h-[360px] lg:max-h-[360px] xl:max-h-[450px] w-full md:w-[28%] lg:w-full rounded-xl cursor-pointer">
-                    <h2 class="text-white font_inter text-[20px] font-bold pb-8 flex flex-col"><span class="xl:inline-block">Canadian Citizens</span><span class="xl:inline-block">and PR</span></h2>
-                    <div class="text-white font_inter font-bold text-[10px] xl:text-sm py-3">Choose Your Services</div>
-
-                    <div class="flex flex-col gap-3 xl:mt-4 knowbutton ">
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-1 py-2">
-                            <div class="text-xs xl:text-sm text-white">Study in Canada</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -382,10 +250,11 @@
             <p class="py-5 text-white font_inter font-medium text-[18px] xl:text-[36px] lg:w-[50%] xl:w-[60%]  secleft-to-right-animation">Navigate Your Canadian Immigration Journey with Confidence</p>
 
             <div class="video-carousel lg:mt-10">
+                @foreach ($whoweare as $data)
                 <div class="video-container z-99">
                     <video id="customVideo1" width="320" height="240">
-                        <source src="{{ asset('assets/kgraphvideo.mp4') }}" type="video/mp4">
-                        <source src="{{ asset('assets/kgraphvideo.ogg') }}" type="video/ogg">
+                        <source src="{{ $locationData['storage_server_path'] . $locationData['storage_video_path'] . $data->file }}" type="video/mp4">
+                        <source src="{{ $locationData['storage_server_path'] . $locationData['storage_video_path'] . $data->file }}" type="video/ogg">
                         Your browser does not support the video tag.
                     </video>
 
@@ -394,18 +263,7 @@
                         <img src="{{ asset('assets/play.png') }}" alt="Play" width="50" height="50">
                     </div>
                 </div>
-                <div class="video-container z-99">
-                    <video id="customVideo2" width="320" height="240">
-                        <source src="{{ asset('assets/kgraphvideo.mp4') }}" type="video/mp4">
-                        <source src="{{ asset('assets/kgraphvideo.ogg') }}" type="video/ogg">
-                        Your browser does not support the video tag.
-                    </video>
-
-                    <!-- Custom Play/Pause Button -->
-                    <div id="playPauseButton2" class="custom-controls">
-                        <img src="{{ asset('assets/play.png') }}" alt="Play" width="50" height="50">
-                    </div>
-                </div>
+                @endforeach
             </div>
 
             <div class="container mx-auto px-5 xl:px-12 py-8 lg:pt-1 lg:pb-16 h-full w-full">
@@ -429,30 +287,34 @@
                 <div class="md:w-1/2">
                     <h4 class="text-white font_inter font-semibold text-[22px] lg:text-[30px] lg:w-[75%]">Navigate Your Canadian Immigration Journey with Confidence</h4>
                     <p class="text-white font_inter font-thin text-justify text-[14px] py-4  lg:w-[75%]">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
-                    <h2 id="count-number" class="text-white font_inter font-bold text-[85px] leading-none">60+</h2>
+                    <h2 id="count-number" class="text-white font_inter font-bold text-[85px] leading-none">@if (isset($journey))
+                        {{ $journey->experience }}
+                    @endif</h2>
+                    <input type="hidden" id="exp-count" value=@if (isset($journey)) {{ $journey->experience }} @endif>
+
                     <p class="text-white">Years of Experience</p>
                     <div class="my-6 flex flex-wrap md:flex-nowrap items-start gap-5">
                         <div>
-                            <h2 class="text-white font_inter font-bold text-[25px] leading-none">60+</h2>
+                            <h2 class="text-white font_inter font-bold text-[25px] leading-none">@if (isset($journey)){{ $journey->employees }}@endif</h2>
                             <span class="text-white">Employes</span>
                         </div>
 
                         <div>
-                            <h2 class="text-white font_inter font-bold text-[25px] leading-none">4.5</h2>
+                            <h2 class="text-white font_inter font-bold text-[25px] leading-none">@if (isset($journey)){{ $journey->ratings }}@endif</h2>
                             <span class="text-white block leading-none">Google</span>
                             <span class="text-white">Rating</span>
                         </div>
 
                         <div>
-                            <h2 class="text-white font_inter font-bold text-[25px] leading-none">4.5</h2>
+                            <h2 class="text-white font_inter font-bold text-[25px] leading-none">@if (isset($journey)){{ $journey->offices }}@endif</h2>
                             <span class="text-white">Offices</span>
                         </div>
                         <div>
-                            <h2 class="text-white font_inter font-bold text-[25px] leading-none">30k+</h2>
+                            <h2 class="text-white font_inter font-bold text-[25px] leading-none">@if (isset($journey)){{ $journey->customers }}@endif</h2>
                             <span class="text-white w-[30%] block">Customers Served</span>
                         </div>
                         <div>
-                            <h2 class="text-white font_inter font-bold text-[25px] leading-none">3k</h2>
+                            <h2 class="text-white font_inter font-bold text-[25px] leading-none">@if (isset($journey)){{ $journey->cases }}@endif</h2>
                             <span class="text-white">Active Cases</span>
                         </div>
                     </div>
@@ -474,7 +336,6 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="Navigatesec-image grid grid-cols-2 gap-4 bg-[#0d2139] lg:w-1/2 mb-4 lg:mb-0">
@@ -506,14 +367,13 @@
                     <h2 class="text-white font_inter font-semibold text-2xl lg:text-3xl xl:text-4xl">Regulated Canadian Immigration Consultants (RCIC-IRB)</h2>
                     <p class="py-5 text-white font-normal font_inter text-[14px] xl:text-lg lg:py-10">Proudly regulated by and in good standing with the College of Immigration and Citizenship Consultants (CICC). Jamie Dowla, registration #: R507233</p>
                     <div class="flex flex-col lg:flex-row gap-5 items-center mb-8">
+                        @foreach ($certificate as $data)
                         <div>
-                            <img class="w-[200px]" src="{{ asset('assets/navigation/logo.png') }}" alt="">
-                            <h6 class="font_inter font-semibold text-white text-[14px] w-[80%] text-center py-2">#1 Team in the world on Dribbble</h6>
+                            <img class="w-[200px]" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
+                            <h6 class="font_inter font-semibold text-white text-[14px] w-[80%] text-center py-2">{{ $data->title }} {{ $data->sub_title }}</h6>
                         </div>
-                        <div>
-                            <img class="w-[200px]" src="{{ asset('assets/navigation/seclogo.png') }}" alt="">
-                            <h6 class="font_inter font-semibold text-white text-[14px] w-[80%] text-center py-2">#1 Team in the world on Dribbble</h6>
-                        </div>
+                        @endforeach
+
                     </div>
                 </div>
 
@@ -549,162 +409,32 @@
 
         <div class="testimonial-slider-wrapper pl-5 lg:pl-12 pt-9 pb-0 lg:py-[70px] z-50">
             <div class="your-slider-class">
+                @foreach ($testimonials as $data)
                 <div class="!flex !w-[400px] md:w-[440px] overflow-hidden mr-5 !h-[250px] bg-white rounded-xl">
-                    <img src="{{ asset('assets/Navigation/pottan.png') }}" alt="">
+                    <img src={{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
                     <div class="w-full py-4 px-4">
                         <div class="flex items-center justify-end">
-                            <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">5.0</div>
+                            <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">{{$data->rating}}</div>
                             <div class="flex items-center gap-1">
+                                @for($i=1;$i<=$data->rating;$i++)
                                 <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                @endfor
                             </div>
                         </div>
                         <div>
-                            <img src="{{ asset('assets/Navigation/doubleinverted-comma.png') }}" alt="">
+                            <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
                         </div>
                         <div class="py-2 font_inter text-[#072558]">
-                            <h4 class="font-extrabold">No Extra Charges, Less Royalties</h4>
-                            <p class="text-[8px] py-2 font-semibold">The client is proud of Halo Lab's work, which their customers have praised. They lead a communicativeprocess to enable the team to reach</p>
+                            <h4 class="font-extrabold">{{$data->title}}</h4>
+                            <p class="text-[8px] py-2 font-semibold">{{$data->description}}</p>
                             <div>
-                                <h5 class="font-bold">Manjul</h5>
-                                <h6 class="text-[10px] font-semibold">PR Canada</h6>
+                                <h5 class="font-bold">{{$data->name}}</h5>
+                                <h6 class="text-[10px] font-semibold">{{$data->occupation}} {{$data->place}}</h6>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="!flex !w-[400px] md:w-[440px] overflow-hidden mr-5 !h-[250px] bg-white rounded-xl">
-                    <img src="{{ asset('assets/Navigation/pottan.png') }}" alt="">
-                    <div class="w-full py-4 px-4">
-                        <div class="flex items-center justify-end">
-                            <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">5.0</div>
-                            <div class="flex items-center gap-1">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                            </div>
-                        </div>
-                        <div>
-                            <img src="{{ asset('assets/Navigation/doubleinverted-comma.png') }}" alt="">
-                        </div>
-                        <div class="py-2 font_inter text-[#072558]">
-                            <h4 class="font-extrabold">No Extra Charges, Less Royalties</h4>
-                            <p class="text-[8px] py-2 font-semibold">The client is proud of Halo Lab's work, which their customers have praised. They lead a communicativeprocess to enable the team to reach</p>
-                            <div>
-                                <h5 class="font-bold">Manjul</h5>
-                                <h6 class="text-[10px] font-semibold">PR Canada</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="!flex !w-[400px] md:w-[440px] overflow-hidden mr-5 !h-[250px] bg-white rounded-xl">
-                    <img src="{{ asset('assets/Navigation/pottan.png') }}" alt="">
-                    <div class="w-full py-4 px-4">
-                        <div class="flex items-center justify-end">
-                            <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">5.0</div>
-                            <div class="flex items-center gap-1">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                            </div>
-                        </div>
-                        <div>
-                            <img src="{{ asset('assets/Navigation/doubleinverted-comma.png') }}" alt="">
-                        </div>
-                        <div class="py-2 font_inter text-[#072558]">
-                            <h4 class="font-extrabold">No Extra Charges, Less Royalties</h4>
-                            <p class="text-[8px] py-2 font-semibold">The client is proud of Halo Lab's work, which their customers have praised. They lead a communicativeprocess to enable the team to reach</p>
-                            <div>
-                                <h5 class="font-bold">Manjul</h5>
-                                <h6 class="text-[10px] font-semibold">PR Canada</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="!flex !w-[400px] md:w-[440px] overflow-hidden mr-5 !h-[250px] bg-white rounded-xl">
-                    <img src="{{ asset('assets/Navigation/pottan.png') }}" alt="">
-                    <div class="w-full py-4 px-4">
-                        <div class="flex items-center justify-end">
-                            <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">5.0</div>
-                            <div class="flex items-center gap-1">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                            </div>
-                        </div>
-                        <div>
-                            <img src="{{ asset('assets/Navigation/doubleinverted-comma.png') }}" alt="">
-                        </div>
-                        <div class="py-2 font_inter text-[#072558]">
-                            <h4 class="font-extrabold">No Extra Charges, Less Royalties</h4>
-                            <p class="text-[8px] py-2 font-semibold">The client is proud of Halo Lab's work, which their customers have praised. They lead a communicativeprocess to enable the team to reach</p>
-                            <div>
-                                <h5 class="font-bold">Manjul</h5>
-                                <h6 class="text-[10px] font-semibold">PR Canada</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="!flex !w-[400px] md:w-[440px] overflow-hidden mr-5 !h-[250px] bg-white rounded-xl">
-                    <img src="{{ asset('assets/Navigation/pottan.png') }}" alt="">
-                    <div class="w-full py-4 px-4">
-                        <div class="flex items-center justify-end">
-                            <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">5.0</div>
-                            <div class="flex items-center gap-1">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                            </div>
-                        </div>
-                        <div>
-                            <img src="{{ asset('assets/Navigation/doubleinverted-comma.png') }}" alt="">
-                        </div>
-                        <div class="py-2 font_inter text-[#072558]">
-                            <h4 class="font-extrabold">No Extra Charges, Less Royalties</h4>
-                            <p class="text-[8px] py-2 font-semibold">The client is proud of Halo Lab's work, which their customers have praised. They lead a communicativeprocess to enable the team to reach</p>
-                            <div>
-                                <h5 class="font-bold">Manjul</h5>
-                                <h6 class="text-[10px] font-semibold">PR Canada</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="!flex !w-[400px] md:w-[440px] overflow-hidden mr-5 !h-[250px] bg-white rounded-xl">
-                    <img src="{{ asset('assets/Navigation/pottan.png') }}" alt="">
-                    <div class="w-full py-4 px-4">
-                        <div class="flex items-center justify-end">
-                            <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">5.0</div>
-                            <div class="flex items-center gap-1">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                            </div>
-                        </div>
-                        <div>
-                            <img src="{{ asset('assets/Navigation/doubleinverted-comma.png') }}" alt="">
-                        </div>
-                        <div class="py-2 font_inter text-[#072558]">
-                            <h4 class="font-extrabold">No Extra Charges, Less Royalties</h4>
-                            <p class="text-[8px] py-2 font-semibold">The client is proud of Halo Lab's work, which their customers have praised. They lead a communicativeprocess to enable the team to reach</p>
-                            <div>
-                                <h5 class="font-bold">Manjul</h5>
-                                <h6 class="text-[10px] font-semibold">PR Canada</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
 
@@ -754,132 +484,30 @@
             </div>
 
             <div class="pt-[20px] md:pb-[70px] gap-6 w-full blog-slider-class" style="">
+
+
+                @foreach ($blogs as $data)
                 <div class="bg-white w-[350px] mr-5">
-                    <img class="h-[200px] w-full object-cover" src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="blog_image"/>
+                    <img class="h-[200px] w-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="blog_image"/>
                     <div class="py-4 px-6">
                         <div class="flex items-center gap-4">
-                            <img class="w-[50px] lg:w-[70px] h-[50px] lg:h-[70px]" src="{{ asset('assets/home_Banner/athulraj.png') }}" alt="profile_image"/>
+                            <img class="w-[50px] lg:w-[70px] h-[50px] lg:h-[70px]" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->user_image }}" alt="profile_image"/>
                             <div>
-                                <h6 class="font_inter font-semibold text-16px text-[#072558] xl:text-[22px]">Anusha</h6>
-                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">by Anusha, on Aug 5, 2024 11:46:47 AM</p>
-                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">Topics: Canada Immigration</p>
+                                <h6 class="font_inter font-semibold text-16px text-[#072558] xl:text-[22px]">{{ $data->name }}</h6>
+                                <?php $date = $data->date . ' ' . $data->time; ?>
+                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">by {{ $data->name }}, on  {{ $data->name }}, on {{ date('M j, Y h:i:s A', strtotime($date)) }}</p>
+                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">Topics: {{ $data->topics }}</p>
                             </div>
                         </div>
-                        <h5 class="text-[#072558] font_inter font-bold text-[14px] xl:text-[20px] py-5 xl:pb-[15px] xl:pt-[42px]">Top Immigration Consultant in Bangalore for 2024</h5>
-                        <p class="text-[#072558] font_inter font-normal text-justify text-[14px] lg:text-[16px] xl:text-[20px]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </p>
+                        <h5 class="text-[#072558] font_inter font-bold text-[14px] xl:text-[20px] py-5 xl:pb-[15px] xl:pt-[42px]">{{ $data->title }}</h5>
+                        <p class="text-[#072558] font_inter font-normal text-justify text-[14px] lg:text-[16px] xl:text-[20px]"> {{ $data->description }}</p>
                         <div class="flex justify-end items-center pt-8 pb-2">
                             <a class="capitalize text-[#062358] underline font-bold font_inter text-lg" href="">Read more</a>
                         </div>
                     </div>
                 </div>
-                <div class="bg-white w-[350px] mr-5">
-                    <img class="h-[200px] w-full object-cover" src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="blog_image"/>
-                    <div class="py-4 px-6">
-                        <div class="flex items-center gap-4">
-                            <img class="w-[50px] lg:w-[70px] h-[50px] lg:h-[70px]" src="{{ asset('assets/home_Banner/athulraj.png') }}" alt="profile_image"/>
-                            <div>
-                                <h6 class="font_inter font-semibold text-16px text-[#072558] xl:text-[22px]">Anusha</h6>
-                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">by Anusha, on Aug 5, 2024 11:46:47 AM</p>
-                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">Topics: Canada Immigration</p>
-                            </div>
-                        </div>
-                        <h5 class="text-[#072558] font_inter font-bold text-[14px] xl:text-[20px] py-5 xl:pb-[15px] xl:pt-[42px]">Top Immigration Consultant in Bangalore for 2024</h5>
-                        <p class="text-[#072558] font_inter font-normal text-justify text-[14px] lg:text-[16px] xl:text-[20px]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </p>
-                        <div class="flex justify-end items-center pt-8 pb-2">
-                            <a class="capitalize text-[#062358] underline font-bold font_inter text-lg" href="">Read more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white w-[350px] mr-5">
-                    <img class="h-[200px] w-full object-cover" src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="blog_image"/>
-                    <div class="py-4 px-6">
-                        <div class="flex items-center gap-4">
-                            <img class="w-[50px] lg:w-[70px] h-[50px] lg:h-[70px]" src="{{ asset('assets/home_Banner/athulraj.png') }}" alt="profile_image"/>
-                            <div>
-                                <h6 class="font_inter font-semibold text-16px text-[#072558] xl:text-[22px]">Anusha</h6>
-                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">by Anusha, on Aug 5, 2024 11:46:47 AM</p>
-                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">Topics: Canada Immigration</p>
-                            </div>
-                        </div>
-                        <h5 class="text-[#072558] font_inter font-bold text-[14px] xl:text-[20px] py-5 xl:pb-[15px] xl:pt-[42px]">Top Immigration Consultant in Bangalore for 2024</h5>
-                        <p class="text-[#072558] font_inter font-normal text-justify text-[14px] lg:text-[16px] xl:text-[20px]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </p>
-                        <div class="flex justify-end items-center pt-8 pb-2">
-                            <a class="capitalize text-[#062358] underline font-bold font_inter text-lg" href="">Read more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white w-[350px] mr-5">
-                    <img class="h-[200px] w-full object-cover" src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="blog_image"/>
-                    <div class="py-4 px-6">
-                        <div class="flex items-center gap-4">
-                            <img class="w-[50px] lg:w-[70px] h-[50px] lg:h-[70px]" src="{{ asset('assets/home_Banner/athulraj.png') }}" alt="profile_image"/>
-                            <div>
-                                <h6 class="font_inter font-semibold text-16px text-[#072558] xl:text-[22px]">Anusha</h6>
-                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">by Anusha, on Aug 5, 2024 11:46:47 AM</p>
-                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">Topics: Canada Immigration</p>
-                            </div>
-                        </div>
-                        <h5 class="text-[#072558] font_inter font-bold text-[14px] xl:text-[20px] py-5 xl:pb-[15px] xl:pt-[42px]">Top Immigration Consultant in Bangalore for 2024</h5>
-                        <p class="text-[#072558] font_inter font-normal text-justify text-[14px] lg:text-[16px] xl:text-[20px]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </p>
-                        <div class="flex justify-end items-center pt-8 pb-2">
-                            <a class="capitalize text-[#062358] underline font-bold font_inter text-lg" href="">Read more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white w-[350px] mr-5">
-                    <img class="h-[200px] w-full object-cover" src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="blog_image"/>
-                    <div class="py-4 px-6">
-                        <div class="flex items-center gap-4">
-                            <img class="w-[50px] lg:w-[70px] h-[50px] lg:h-[70px]" src="{{ asset('assets/home_Banner/athulraj.png') }}" alt="profile_image"/>
-                            <div>
-                                <h6 class="font_inter font-semibold text-16px text-[#072558] xl:text-[22px]">Anusha</h6>
-                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">by Anusha, on Aug 5, 2024 11:46:47 AM</p>
-                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">Topics: Canada Immigration</p>
-                            </div>
-                        </div>
-                        <h5 class="text-[#072558] font_inter font-bold text-[14px] xl:text-[20px] py-5 xl:pb-[15px] xl:pt-[42px]">Top Immigration Consultant in Bangalore for 2024</h5>
-                        <p class="text-[#072558] font_inter font-normal text-justify text-[14px] lg:text-[16px] xl:text-[20px]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </p>
-                        <div class="flex justify-end items-center pt-8 pb-2">
-                            <a class="capitalize text-[#062358] underline font-bold font_inter text-lg" href="">Read more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white w-[350px] mr-5">
-                    <img class="h-[200px] w-full object-cover" src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="blog_image"/>
-                    <div class="py-4 px-6">
-                        <div class="flex items-center gap-4">
-                            <img class="w-[50px] lg:w-[70px] h-[50px] lg:h-[70px]" src="{{ asset('assets/home_Banner/athulraj.png') }}" alt="profile_image"/>
-                            <div>
-                                <h6 class="font_inter font-semibold text-16px text-[#072558] xl:text-[22px]">Anusha</h6>
-                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">by Anusha, on Aug 5, 2024 11:46:47 AM</p>
-                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">Topics: Canada Immigration</p>
-                            </div>
-                        </div>
-                        <h5 class="text-[#072558] font_inter font-bold text-[14px] xl:text-[20px] py-5 xl:pb-[15px] xl:pt-[42px]">Top Immigration Consultant in Bangalore for 2024</h5>
-                        <p class="text-[#072558] font_inter font-normal text-justify text-[14px] lg:text-[16px] xl:text-[20px]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </p>
-                        <div class="flex justify-end items-center pt-8 pb-2">
-                            <a class="capitalize text-[#062358] underline font-bold font_inter text-lg" href="">Read more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-white w-[350px] mr-5">
-                    <img class="h-[200px] w-full object-cover" src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="blog_image"/>
-                    <div class="py-4 px-6">
-                        <div class="flex items-center gap-4">
-                            <img class="w-[50px] lg:w-[70px] h-[50px] lg:h-[70px]" src="{{ asset('assets/home_Banner/athulraj.png') }}" alt="profile_image"/>
-                            <div>
-                                <h6 class="font_inter font-semibold text-16px text-[#072558] xl:text-[22px]">Anusha</h6>
-                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">by Anusha, on Aug 5, 2024 11:46:47 AM</p>
-                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">Topics: Canada Immigration</p>
-                            </div>
-                        </div>
-                        <h5 class="text-[#072558] font_inter font-bold text-[14px] xl:text-[20px] py-5 xl:pb-[15px] xl:pt-[42px]">Top Immigration Consultant in Bangalore for 2024</h5>
-                        <p class="text-[#072558] font_inter font-normal text-justify text-[14px] lg:text-[16px] xl:text-[20px]">Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. </p>
-                        <div class="flex justify-end items-center pt-8 pb-2">
-                            <a class="capitalize text-[#062358] underline font-bold font_inter text-lg" href="">Read more</a>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
 
             <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full flex items-center justify-end">
@@ -906,63 +534,14 @@
         </div>
 
         <div class="pb-8 md:pb-[100px] xl:pl-[50px] explore-slider-class h-[380px] z-0">
+            @foreach ($explore as $data)
             <div class="my-0 mx-4 !w-[300px] xl:!w-[380px] md:mx-4 lg:mx-8 relative image-card-explore">
-                <img class="w-[300px] md:w-[380px]" src="{{ asset('assets/home_Banner/sliderone.png') }}" alt="">
+                <img class="w-[300px] md:w-[380px]" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
                 <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
                     <button class="text-white">view</button>
                 </div>
             </div>
-            <div class="my-0 mx-4 !w-[300px] xl:!w-[380px] md:mx-4 lg:mx-8 relative image-card-explore">
-                <img class="w-[300px] md:w-[380px]" src="{{ asset('assets/home_Banner/slidertwo.png') }}" alt="">
-                <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
-                    <button class="text-white">view</button>
-                </div>
-            </div>
-            <div class="my-0 mx-4 !w-[300px] xl:!w-[380px] md:mx-4 lg:mx-8 relative image-card-explore">
-                <img class="w-[300px] md:w-[380px]" src="{{ asset('assets/home_Banner/sliderThree.png') }}" alt="">
-                <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
-                    <button class="text-white">view</button>
-                </div>
-            </div>
-
-            <div class="my-0 mx-4 !w-[300px] xl:!w-[380px] md:mx-4 lg:mx-8 relative image-card-explore">
-                <img class="w-[300px] md:w-[380px]" src="{{ asset('assets/home_Banner/sliderone.png') }}" alt="">
-                <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
-                    <button class="text-white">view</button>
-                </div>
-            </div>
-            <div class="my-0 mx-4 !w-[300px] xl:!w-[380px] md:mx-4 lg:mx-8 relative image-card-explore">
-                <img class="w-[300px] md:w-[380px]" src="{{ asset('assets/home_Banner/slidertwo.png') }}" alt="">
-                <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
-                    <button class="text-white">view</button>
-                </div>
-            </div>
-            <div class="my-0 mx-4 !w-[300px] xl:!w-[380px] md:mx-4 lg:mx-8 relative image-card-explore">
-                <img class="w-[300px] md:w-[380px]" src="{{ asset('assets/home_Banner/sliderThree.png') }}" alt="">
-                <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
-                    <button class="text-white">view</button>
-                </div>
-            </div>
-
-            <div class="my-0 mx-4 !w-[300px] xl:!w-[380px] md:mx-4 lg:mx-8 relative image-card-explore">
-                <img class="w-[300px] md:w-[380px]" src="{{ asset('assets/home_Banner/sliderone.png') }}" alt="">
-                <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
-                    <button class="text-white">view</button>
-                </div>
-            </div>
-            <div class="my-0 mx-4 !w-[300px] xl:!w-[380px] md:mx-4 lg:mx-8 relative image-card-explore">
-                <img class="w-[300px] md:w-[380px]" src="{{ asset('assets/home_Banner/slidertwo.png') }}" alt="">
-                <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
-                    <button class="text-white">view</button>
-                </div>
-            </div>
-            <div class="my-0 mx-4 !w-[300px] xl:!w-[380px] md:mx-4 lg:mx-8 relative image-card-explore">
-                <img class="w-[300px] md:w-[380px]" src="{{ asset('assets/home_Banner/sliderThree.png') }}" alt="">
-                <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
-                    <button class="text-white">view</button>
-                </div>
-            </div>
-
+            @endforeach
         </div>
 
         <div class="container mx-auto px-5 xl:px-12 py-8 lg:pt-1 lg:pb-16  z-[99] h-full w-full">
@@ -989,10 +568,10 @@
             </div>
         </div>
         <div class="mt-8 faq-parent lg:px-[10%]">
-
+            @foreach ($faqs as $data)
             <div class="accordion bg-white rounded-2xl h-fit p-6">
                 <div class="accordion-header flex justify-between items-center cursor-pointer">
-                    <h6>What is the purpose of a visa?</h6>
+                    <h6>{{ $data->title }}</h6>
                     <div class="icon">
                         <!-- Collapsed Icon -->
                         <svg class="icon-collapsed" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1007,149 +586,10 @@
                     </div>
                 </div>
                 <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 ease-out">
-                    Lorem Ipsum is simply dummy text the printing and typese Lorem Ipsum has been the industry's standard dummy text ever.
+                    {{ $data->description }}
                 </div>
             </div>
-            <div class="accordion bg-white rounded-2xl h-fit p-6">
-                <div class="accordion-header flex justify-between items-center cursor-pointer">
-                    <h6 class="font_jakarta">What is the purpose of a visa?</h6>
-                    <div class="icon">
-                        <!-- Collapsed Icon -->
-                        <svg class="icon-collapsed" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#E4E4E4" />
-                            <path d="M14 18C14 17.7188 14.0938 17.4688 14.2812 17.2812C14.6562 16.875 15.3125 16.875 15.6875 17.2812L20 21.5625L24.2812 17.2812C24.6562 16.875 25.3125 16.875 25.6875 17.2812C26.0938 17.6562 26.0938 18.3125 25.6875 18.6875L20.6875 23.6875C20.3125 24.0938 19.6562 24.0938 19.2812 23.6875L14.2812 18.6875C14.0938 18.5 14 18.25 14 18Z" fill="#072558" />
-                        </svg>
-                        <!-- Expanded Icon -->
-                        <svg class="icon-expanded hidden" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#072558" />
-                            <path d="M26 22C26 22.2813 25.9062 22.5313 25.7188 22.7188C25.3438 23.125 24.6875 23.125 24.3125 22.7188L20 18.4375L15.7188 22.7188C15.3438 23.125 14.6875 23.125 14.3125 22.7188C13.9062 22.3438 13.9062 21.6875 14.3125 21.3125L19.3125 16.3125C19.6875 15.9063 20.3438 15.9063 20.7188 16.3125L25.7188 21.3125C25.9062 21.5 26 21.75 26 22Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <div class="accordion-content font_jakarta overflow-hidden max-h-0 transition-all duration-500 ease-out">
-                    Lorem Ipsum is simply dummy text the printing and typese Lorem Ipsum has been the industry's standard dummy text ever.
-                </div>
-            </div>
-            <div class="accordion bg-white rounded-2xl h-fit p-6">
-                <div class="accordion-header flex justify-between items-center cursor-pointer">
-                    <h6>What is the purpose of a visa?</h6>
-                    <div class="icon">
-                        <!-- Collapsed Icon -->
-                        <svg class="icon-collapsed" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#E4E4E4" />
-                            <path d="M14 18C14 17.7188 14.0938 17.4688 14.2812 17.2812C14.6562 16.875 15.3125 16.875 15.6875 17.2812L20 21.5625L24.2812 17.2812C24.6562 16.875 25.3125 16.875 25.6875 17.2812C26.0938 17.6562 26.0938 18.3125 25.6875 18.6875L20.6875 23.6875C20.3125 24.0938 19.6562 24.0938 19.2812 23.6875L14.2812 18.6875C14.0938 18.5 14 18.25 14 18Z" fill="#072558" />
-                        </svg>
-                        <!-- Expanded Icon -->
-                        <svg class="icon-expanded hidden" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#072558" />
-                            <path d="M26 22C26 22.2813 25.9062 22.5313 25.7188 22.7188C25.3438 23.125 24.6875 23.125 24.3125 22.7188L20 18.4375L15.7188 22.7188C15.3438 23.125 14.6875 23.125 14.3125 22.7188C13.9062 22.3438 13.9062 21.6875 14.3125 21.3125L19.3125 16.3125C19.6875 15.9063 20.3438 15.9063 20.7188 16.3125L25.7188 21.3125C25.9062 21.5 26 21.75 26 22Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 ease-out">
-                    Lorem Ipsum is simply dummy text the printing and typese Lorem Ipsum has been the industry's standard dummy text ever.
-                </div>
-            </div>
-            <div class="accordion bg-white rounded-2xl h-fit p-6">
-                <div class="accordion-header flex justify-between items-center cursor-pointer">
-                    <h6>What is the purpose of a visa?</h6>
-                    <div class="icon">
-                        <!-- Collapsed Icon -->
-                        <svg class="icon-collapsed" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#E4E4E4" />
-                            <path d="M14 18C14 17.7188 14.0938 17.4688 14.2812 17.2812C14.6562 16.875 15.3125 16.875 15.6875 17.2812L20 21.5625L24.2812 17.2812C24.6562 16.875 25.3125 16.875 25.6875 17.2812C26.0938 17.6562 26.0938 18.3125 25.6875 18.6875L20.6875 23.6875C20.3125 24.0938 19.6562 24.0938 19.2812 23.6875L14.2812 18.6875C14.0938 18.5 14 18.25 14 18Z" fill="#072558" />
-                        </svg>
-                        <!-- Expanded Icon -->
-                        <svg class="icon-expanded hidden" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#072558" />
-                            <path d="M26 22C26 22.2813 25.9062 22.5313 25.7188 22.7188C25.3438 23.125 24.6875 23.125 24.3125 22.7188L20 18.4375L15.7188 22.7188C15.3438 23.125 14.6875 23.125 14.3125 22.7188C13.9062 22.3438 13.9062 21.6875 14.3125 21.3125L19.3125 16.3125C19.6875 15.9063 20.3438 15.9063 20.7188 16.3125L25.7188 21.3125C25.9062 21.5 26 21.75 26 22Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 ease-out">
-                    Lorem Ipsum is simply dummy text the printing and typese Lorem Ipsum has been the industry's standard dummy text ever.
-                </div>
-            </div>
-            <div class="accordion bg-white rounded-2xl h-fit p-6">
-                <div class="accordion-header flex justify-between items-center cursor-pointer">
-                    <h6>What is the purpose of a visa?</h6>
-                    <div class="icon">
-                        <!-- Collapsed Icon -->
-                        <svg class="icon-collapsed" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#E4E4E4" />
-                            <path d="M14 18C14 17.7188 14.0938 17.4688 14.2812 17.2812C14.6562 16.875 15.3125 16.875 15.6875 17.2812L20 21.5625L24.2812 17.2812C24.6562 16.875 25.3125 16.875 25.6875 17.2812C26.0938 17.6562 26.0938 18.3125 25.6875 18.6875L20.6875 23.6875C20.3125 24.0938 19.6562 24.0938 19.2812 23.6875L14.2812 18.6875C14.0938 18.5 14 18.25 14 18Z" fill="#072558" />
-                        </svg>
-                        <!-- Expanded Icon -->
-                        <svg class="icon-expanded hidden" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#072558" />
-                            <path d="M26 22C26 22.2813 25.9062 22.5313 25.7188 22.7188C25.3438 23.125 24.6875 23.125 24.3125 22.7188L20 18.4375L15.7188 22.7188C15.3438 23.125 14.6875 23.125 14.3125 22.7188C13.9062 22.3438 13.9062 21.6875 14.3125 21.3125L19.3125 16.3125C19.6875 15.9063 20.3438 15.9063 20.7188 16.3125L25.7188 21.3125C25.9062 21.5 26 21.75 26 22Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 ease-out">
-                    Lorem Ipsum is simply dummy text the printing and typese Lorem Ipsum has been the industry's standard dummy text ever.
-                </div>
-            </div>
-            <div class="accordion bg-white rounded-2xl h-fit p-6">
-                <div class="accordion-header flex justify-between items-center cursor-pointer">
-                    <h6>What is the purpose of a visa?</h6>
-                    <div class="icon">
-                        <!-- Collapsed Icon -->
-                        <svg class="icon-collapsed" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#E4E4E4" />
-                            <path d="M14 18C14 17.7188 14.0938 17.4688 14.2812 17.2812C14.6562 16.875 15.3125 16.875 15.6875 17.2812L20 21.5625L24.2812 17.2812C24.6562 16.875 25.3125 16.875 25.6875 17.2812C26.0938 17.6562 26.0938 18.3125 25.6875 18.6875L20.6875 23.6875C20.3125 24.0938 19.6562 24.0938 19.2812 23.6875L14.2812 18.6875C14.0938 18.5 14 18.25 14 18Z" fill="#072558" />
-                        </svg>
-                        <!-- Expanded Icon -->
-                        <svg class="icon-expanded hidden" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#072558" />
-                            <path d="M26 22C26 22.2813 25.9062 22.5313 25.7188 22.7188C25.3438 23.125 24.6875 23.125 24.3125 22.7188L20 18.4375L15.7188 22.7188C15.3438 23.125 14.6875 23.125 14.3125 22.7188C13.9062 22.3438 13.9062 21.6875 14.3125 21.3125L19.3125 16.3125C19.6875 15.9063 20.3438 15.9063 20.7188 16.3125L25.7188 21.3125C25.9062 21.5 26 21.75 26 22Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 ease-out">
-                    Lorem Ipsum is simply dummy text the printing and typese Lorem Ipsum has been the industry's standard dummy text ever.
-                </div>
-            </div>
-            <div class="accordion bg-white rounded-2xl h-fit p-6">
-                <div class="accordion-header flex justify-between items-center cursor-pointer">
-                    <h6>What is the purpose of a visa?</h6>
-                    <div class="icon">
-                        <!-- Collapsed Icon -->
-                        <svg class="icon-collapsed" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#E4E4E4" />
-                            <path d="M14 18C14 17.7188 14.0938 17.4688 14.2812 17.2812C14.6562 16.875 15.3125 16.875 15.6875 17.2812L20 21.5625L24.2812 17.2812C24.6562 16.875 25.3125 16.875 25.6875 17.2812C26.0938 17.6562 26.0938 18.3125 25.6875 18.6875L20.6875 23.6875C20.3125 24.0938 19.6562 24.0938 19.2812 23.6875L14.2812 18.6875C14.0938 18.5 14 18.25 14 18Z" fill="#072558" />
-                        </svg>
-                        <!-- Expanded Icon -->
-                        <svg class="icon-expanded hidden" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#072558" />
-                            <path d="M26 22C26 22.2813 25.9062 22.5313 25.7188 22.7188C25.3438 23.125 24.6875 23.125 24.3125 22.7188L20 18.4375L15.7188 22.7188C15.3438 23.125 14.6875 23.125 14.3125 22.7188C13.9062 22.3438 13.9062 21.6875 14.3125 21.3125L19.3125 16.3125C19.6875 15.9063 20.3438 15.9063 20.7188 16.3125L25.7188 21.3125C25.9062 21.5 26 21.75 26 22Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 ease-out">
-                    Lorem Ipsum is simply dummy text the printing and typese Lorem Ipsum has been the industry's standard dummy text ever.
-                </div>
-            </div>
-            <div class="accordion bg-white rounded-2xl h-fit p-6">
-                <div class="accordion-header flex justify-between items-center cursor-pointer">
-                    <h6>What is the purpose of a visa?</h6>
-                    <div class="icon">
-                        <!-- Collapsed Icon -->
-                        <svg class="icon-collapsed" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#E4E4E4" />
-                            <path d="M14 18C14 17.7188 14.0938 17.4688 14.2812 17.2812C14.6562 16.875 15.3125 16.875 15.6875 17.2812L20 21.5625L24.2812 17.2812C24.6562 16.875 25.3125 16.875 25.6875 17.2812C26.0938 17.6562 26.0938 18.3125 25.6875 18.6875L20.6875 23.6875C20.3125 24.0938 19.6562 24.0938 19.2812 23.6875L14.2812 18.6875C14.0938 18.5 14 18.25 14 18Z" fill="#072558" />
-                        </svg>
-                        <!-- Expanded Icon -->
-                        <svg class="icon-expanded hidden" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="20" cy="20" r="20" fill="#072558" />
-                            <path d="M26 22C26 22.2813 25.9062 22.5313 25.7188 22.7188C25.3438 23.125 24.6875 23.125 24.3125 22.7188L20 18.4375L15.7188 22.7188C15.3438 23.125 14.6875 23.125 14.3125 22.7188C13.9062 22.3438 13.9062 21.6875 14.3125 21.3125L19.3125 16.3125C19.6875 15.9063 20.3438 15.9063 20.7188 16.3125L25.7188 21.3125C25.9062 21.5 26 21.75 26 22Z" fill="white" />
-                        </svg>
-                    </div>
-                </div>
-                <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 ease-out">
-                    Lorem Ipsum is simply dummy text the printing and typese Lorem Ipsum has been the industry's standard dummy text ever.
-                </div>
-            </div>
+            @endforeach
 
 
         </div>
@@ -1198,7 +638,7 @@
 
 <script>
     document.querySelectorAll('.accordion-header').forEach(header => {
-        header.addEventListener('click', function () {
+        header.addEventListener('click', function() {
             const content = this.nextElementSibling;
             const iconCollapsed = this.querySelector('.icon-collapsed');
             const iconExpanded = this.querySelector('.icon-expanded');
@@ -1234,16 +674,18 @@
         requestAnimationFrame(count);
     }
 
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         const numberElement = document.getElementById('count-number');
         const sectionToObserve = document.querySelector('.Navigatesec');
 
         let hasCounted = false;
 
+        var counterVal = $('#exp-count').val();
+
         const observer = new IntersectionObserver(function(entries) {
             if (entries[0].isIntersecting && !hasCounted) {
                 hasCounted = true;
-                animateCountUp(numberElement, 0, 60, 2000);
+                animateCountUp(numberElement, 0, counterVal, 2000);
             }
         }, {
             threshold: 0.5
@@ -1252,28 +694,31 @@
         observer.observe(sectionToObserve);
     });
 
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         const videos = document.querySelectorAll('video');
         const playPauseButtons = document.querySelectorAll('.custom-controls');
 
         playPauseButtons.forEach((button, index) => {
             const video = videos[index]; // Corresponding video for the button
 
-            button.addEventListener('click', function () {
+            button.addEventListener('click', function() {
                 if (video.paused) {
                     video.play();
-                    button.innerHTML = '<img src="{{ asset('assets/pause.png') }}" alt="Pause" width="50" height="50">';
+                    button.innerHTML =
+                        '<img src="{{ asset('assets/pause.png') }}" alt="Pause" width="50" height="50">';
                 } else {
                     video.pause();
-                    button.innerHTML = '<img src="{{ asset('assets/play.png') }}" alt="Play" width="50" height="50">';
+                    button.innerHTML =
+                        '<img src="{{ asset('assets/play.png') }}" alt="Play" width="50" height="50">';
                 }
             });
 
-                // Automatically update play/pause button when the video ends
-                video.addEventListener('ended', function () {
-                    button.innerHTML = '<img src="{{ asset('assets/play.png') }}" alt="Play" width="50" height="50">';
-                });
+            // Automatically update play/pause button when the video ends
+            video.addEventListener('ended', function() {
+                button.innerHTML =
+                    '<img src="{{ asset('assets/play.png') }}" alt="Play" width="50" height="50">';
             });
+        });
     });
 
     // playPauseButton.addEventListener('click', function () {
@@ -1307,8 +752,6 @@
             line.style.width = '5%';
         });
     });
-
-
 </script>
 
 {{-- gsap animtion --}}
@@ -1461,80 +904,70 @@
         ease: "power2.out"
     });
 
-    gsap.fromTo(".video-container",
-        { scale: 0.5 },
-        {
-            scale: 1,
-            scrollTrigger: {
+    gsap.fromTo(".video-container", {
+        scale: 0.5
+    }, {
+        scale: 1,
+        scrollTrigger: {
             trigger: ".whoSec",
             start: "top center",
             end: "bottom center",
             scrub: false,
             markers: false,
             once: true
-            }
         }
-    );
+    });
 
-    gsap.fromTo(".Navigatesec-image",
-        { scale: 0.5 },
-        {
-            scale: 1,
-            scrollTrigger: {
+    gsap.fromTo(".Navigatesec-image", {
+        scale: 0.5
+    }, {
+        scale: 1,
+        scrollTrigger: {
             trigger: ".Navigatesec",
             start: "top center",
             end: "bottom center",
             scrub: true,
             markers: false,
             once: true
-            }
         }
-    );
+    });
 
     // Animate the left element from offscreen to its normal position
-    gsap.fromTo(".RegulatedSec-left",
-    {
-        x: "-100%",     // Start from offscreen (left)
-        opacity: 0      // Initially invisible
-    },
-    {
+    gsap.fromTo(".RegulatedSec-left", {
+        x: "-100%", // Start from offscreen (left)
+        opacity: 0 // Initially invisible
+    }, {
         scrollTrigger: {
-        trigger: ".RegulatedSec",
-        start: "top 80%",  // Start animation when the section enters the viewport
-        toggleActions: "play none none none"
+            trigger: ".RegulatedSec",
+            start: "top 80%", // Start animation when the section enters the viewport
+            toggleActions: "play none none none"
         },
-        x: 0,                // Move back to the original position
-        opacity: 1,          // Fade in
+        x: 0, // Move back to the original position
+        opacity: 1, // Fade in
         duration: 2,
         ease: "power2.out"
-    }
-    );
+    });
 
     // Animate the right element from offscreen to its normal position
-    gsap.fromTo(".RegulatedSec-right",
-    {
-        x: "100%",      // Start from offscreen (right)
-        opacity: 0      // Initially invisible
-    },
-    {
+    gsap.fromTo(".RegulatedSec-right", {
+        x: "100%", // Start from offscreen (right)
+        opacity: 0 // Initially invisible
+    }, {
         scrollTrigger: {
-        trigger: ".RegulatedSec",
-        start: "top 80%",  // Start animation when the section enters the viewport
-        toggleActions: "play none none none"
+            trigger: ".RegulatedSec",
+            start: "top 80%", // Start animation when the section enters the viewport
+            toggleActions: "play none none none"
         },
-        x: 0,                // Move back to the original position
-        opacity: 1,          // Fade in
+        x: 0, // Move back to the original position
+        opacity: 1, // Fade in
         duration: 2,
         ease: "power2.out"
-    }
-    );
-
-
+    });
 </script>
 
 {{-- slick slider --}}
 <script type="text/javascript">
-    $(document).ready(function(){
+    $(document).ready(function() {
         $('.your-slider-class').slick({
             autoplay: true,
             autoplaySpeed: 3000,
@@ -1547,8 +980,7 @@
             pauseOnFocus: false,
             prevArrow: $('.card-home-slide-prev-button'),
             nextArrow: $('.card-home-slide-next-button'),
-            responsive: [
-                {
+            responsive: [{
                     breakpoint: 1200, // Extra large devices
                     settings: {
                         slidesToShow: 3.5,
@@ -1592,8 +1024,7 @@
             pauseOnFocus: false,
             prevArrow: $('.card-blog-slide-prev-button'),
             nextArrow: $('.card-blog-slide-next-button'),
-            responsive: [
-                {
+            responsive: [{
                     breakpoint: 1200, // extra large devices
                     settings: {
                         slidesToShow: 3.5
@@ -1632,8 +1063,7 @@
             pauseOnFocus: false,
             prevArrow: $('.card-explore-slide-prev-button'),
             nextArrow: $('.card-explore-slide-next-button'),
-            responsive: [
-                {
+            responsive: [{
                     breakpoint: 1200, // extra large devices
                     settings: {
                         slidesToShow: 3.5

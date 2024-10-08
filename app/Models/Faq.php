@@ -13,7 +13,7 @@ class Faq extends Model
 
     protected $table = 'faqs';
 
-    protected $fillable = ['title', 'description', 'status','order', 'service_id'];
+    protected $fillable = ['title', 'description', 'status','order'];
 
     public static function getFullData($data)
     {
@@ -80,5 +80,9 @@ class Faq extends Model
             }
         }
         return true;
+    }
+
+    public static function getFullDataForHome(){
+        return SELF::select('title', 'description', 'id')->orderBy('order','asc')->where('status',1)->get();
     }
 }

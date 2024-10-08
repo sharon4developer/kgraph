@@ -13,7 +13,7 @@ class Explore extends Model
 
     protected $table = 'explores';
 
-    protected $fillable = ['image', 'intervention_image', 'status','order'];
+    protected $fillable = ['image', 'intervention_image', 'status','order','alt_tag'];
 
     public static function getFullData($data)
     {
@@ -33,6 +33,7 @@ class Explore extends Model
     public static function createData($data)
     {
         $value = new Explore;
+        $value->alt_tag           =  $data->alt_tag;
         if ($data->image) {
             $value->image = Cms::storeImage($data->image, 'crew');
             $intervention_image = $value->image;
@@ -51,6 +52,7 @@ class Explore extends Model
     public static function updateData($data)
     {
         $value = Explore::find($data->explore_id);
+        $value->alt_tag           =  $data->alt_tag;
         if ($data->image) {
             $value->image = Cms::storeImage($data->image, 'crew');
             $intervention_image = $value->image;
@@ -82,7 +84,7 @@ class Explore extends Model
     }
 
     public static function getFullDataForHome(){
-        return SELF::select('image','id')->orderBy('order','asc')->where('status',1)->get();
+        return SELF::select('image','id','alt_tag')->orderBy('order','asc')->where('status',1)->get();
     }
 
     public static function updateOrder($data)

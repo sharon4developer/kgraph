@@ -68,6 +68,28 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label class="form-label" for="title">Alt Tag</label>
+                                        <input type="text" class="form-control" id="alt_tag" name="alt_tag"
+                                            placeholder="Alt Tag" required value="{{ $data->alt_tag }}">
+                                        <div class="valid-feedback">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label class="form-label" for="title">Second Alt Tag</label>
+                                        <input type="text" class="form-control" id="second_alt_tag" name="second_alt_tag"
+                                            placeholder="Second Alt Tag" required value="{{ $data->second_alt_tag }}">
+                                        <div class="valid-feedback">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Previous Image</label>
                                     <div class="avatar-preview">

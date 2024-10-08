@@ -13,7 +13,7 @@ class Location extends Model
 
     protected $table = 'locations';
 
-    protected $fillable = ['location','image','second_image','second_intervention_image', 'intervention_image', 'status','order','third_image','third_intervention_image'];
+    protected $fillable = ['location','image','second_image','second_intervention_image', 'intervention_image', 'status','order','third_image','third_intervention_image','alt_tag','second_alt_tag','third_alt_tag'];
 
     public static function getFullData($data)
     {
@@ -40,6 +40,9 @@ class Location extends Model
     {
         $value = new Location;
         $value->location        = $data->location;
+        $value->alt_tag           =  $data->alt_tag;
+        $value->second_alt_tag           =  $data->second_alt_tag;
+        $value->third_alt_tag           =  $data->third_alt_tag;
         if ($data->image) {
             $value->image = Cms::storeImage($data->image, $data->title);
             $intervention_image = $value->image;
@@ -71,6 +74,9 @@ class Location extends Model
     {
         $value = Location::find($data->location_id);
         $value->location        = $data->location;
+        $value->alt_tag           =  $data->alt_tag;
+        $value->second_alt_tag           =  $data->second_alt_tag;
+        $value->third_alt_tag           =  $data->third_alt_tag;
         if ($data->image) {
             $value->image = Cms::storeImage($data->image, $data->title);
             $intervention_image = $value->image;
@@ -114,7 +120,7 @@ class Location extends Model
     }
 
     public static function getFullDataForHome(){
-        return SELF::select('image','id','location','third_image','second_image')->orderBy('order','asc')->where('status',1)->get();
+        return SELF::select('image','id','location','third_image','second_image','alt_tag','second_alt_tag','third_alt_tag')->orderBy('order','asc')->where('status',1)->get();
     }
 
     public static function updateOrder($data)

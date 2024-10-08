@@ -16,9 +16,11 @@ return new class extends Migration
             $table->string('title')->nullable();
             $table->string('sub_title')->nullable();
             $table->string('image')->nullable();
+            $table->string('alt_tag')->nullable()->default('k-graph');
             $table->string('intervention_image')->nullable();
             $table->integer('status')->default(1)->nullable();
             $table->integer('order')->nullable()->default(0);
+            $table->string('slug')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

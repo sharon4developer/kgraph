@@ -13,7 +13,7 @@ class Certificate extends Model
 
     protected $table = 'certificates';
 
-    protected $fillable = ['title', 'sub_title', 'image', 'intervention_image', 'status','order'];
+    protected $fillable = ['title', 'sub_title', 'image', 'intervention_image', 'status','order','alt_tag'];
 
     public static function getFullData($data)
     {
@@ -35,6 +35,7 @@ class Certificate extends Model
         $value = new Certificate;
         $value->title        = $data->title;
         $value->sub_title  = $data->sub_title;
+        $value->alt_tag           =  $data->alt_tag;
         if ($data->image) {
             $value->image = Cms::storeImage($data->image, $data->title);
             $intervention_image = $value->image;
@@ -55,6 +56,7 @@ class Certificate extends Model
         $value = Certificate::find($data->certificate_id);
         $value->title        = $data->title;
         $value->sub_title  = $data->sub_title;
+        $value->alt_tag           =  $data->alt_tag;
         if ($data->image) {
             $value->image = Cms::storeImage($data->image, $data->title);
             $intervention_image = $value->image;
@@ -86,7 +88,7 @@ class Certificate extends Model
     }
 
     public static function getFullDataForHome(){
-        return SELF::select('image','id','title','sub_title')->orderBy('order','asc')->where('status',1)->get();
+        return SELF::select('image','id','title','sub_title','alt_tag')->orderBy('order','asc')->where('status',1)->get();
     }
 
     public static function updateOrder($data)

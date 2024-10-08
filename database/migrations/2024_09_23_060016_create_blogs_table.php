@@ -22,9 +22,12 @@ return new class extends Migration
             $table->integer('status')->default(1)->nullable();
             $table->integer('order')->nullable()->default(0);
             $table->string('image')->nullable();
+            $table->string('alt_tag')->nullable()->default('k-graph');
             $table->string('intervention_image')->nullable();
             $table->string('user_image')->nullable();
             $table->string('user_intervention_image')->nullable();
+            $table->string('user_alt_tag')->nullable()->default('k-graph');
+            $table->string('slug')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

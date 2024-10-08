@@ -25,47 +25,36 @@ use App\Http\Controllers\Admin\ServicePointController;
 use App\Http\Controllers\Admin\TermsAndConditionController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\WhoWeAreController;
+use App\Http\Controllers\FrontEnd\AboutController;
+use App\Http\Controllers\FrontEnd\BlogController as FrontEndBlogController;
+use App\Http\Controllers\FrontEnd\HomeController;
+use App\Http\Controllers\FrontEnd\PackageController as FrontEndPackageController;
+use App\Http\Controllers\FrontEnd\ServiceController as FrontEndServiceController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('frontend.pages.home');
-});
+Route::get('/', [HomeController::class, 'index']);
+Route::get('services', [FrontEndServiceController::class, 'index']);
+Route::get('service-details/{id}', [FrontEndServiceController::class, 'serviceDetails']);
+Route::get('blogs', [FrontEndBlogController::class, 'index']);
+Route::get('about-us', [AboutController::class, 'index']);
+Route::post('fetch-crew', [AboutController::class, 'crewShow']);
+Route::get('packages', [FrontEndPackageController::class, 'index']);
+Route::get('package-details/{id}', [FrontEndPackageController::class, 'packageDetails']);
 
 Route::get('contact-us', function () {
     return view('main');
 });
 
-Route::get('about-us', function () {
-    return view('frontend.pages.about');
-});
-Route::get('services', function () {
-    return view('frontend.pages.services');
-});
-Route::get('services', function () {
-    return view('frontend.pages.services');
-});
-Route::get('service-detail', function () {
-    return view('frontend.pages.servicesinner');
-});
-Route::get('blogs', function () {
-    return view('frontend.pages.blogs');
-});
-
 Route::get('services-form', function () {
     return view('frontend.pages.servicesinerform');
 });
-Route::get('packages', function () {
-    return view('frontend.pages.packages');
-});
+
 Route::get('contact-us', function () {
     return view('frontend.pages.contact-us');
 });
 Route::get('careers', function () {
     return view('frontend.pages.careers');
-});
-Route::get('packages-detail', function () {
-    return view('frontend.pages.packages-detail');
 });
 
 Auth::routes();

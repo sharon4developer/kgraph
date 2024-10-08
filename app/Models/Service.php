@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Yajra\DataTables\Facades\DataTables;
+use Str;
 
 class Service extends Model
 {
@@ -13,7 +14,15 @@ class Service extends Model
 
     protected $table = 'services';
 
-    protected $fillable = ['title', 'sub_title', 'image', 'intervention_image', 'status','order'];
+    protected $fillable = ['title', 'sub_title', 'image', 'intervention_image', 'status','order','alt_tag','slug'];
+
+    public function ServicePoint(){
+        return  $this->hasMany(ServicePoint::class);
+    }
+
+    public function ServiceFaq(){
+        return  $this->hasMany(ServiceFaq::class);
+    }
 
     public static function getFullData($data)
     {
@@ -35,6 +44,9 @@ class Service extends Model
         $value = new Service;
         $value->title        = $data->title;
         $value->sub_title  = $data->sub_title;
+        $value->alt_tag           =  $data->alt_tag;
+        $slug = Str::slug($data->name);
+        $value->slug = $slug;
         if ($data->image) {
             $value->image = Cms::storeImage($data->image, $data->title);
             $intervention_image = $value->image;
@@ -47,7 +59,7 @@ class Service extends Model
 
     public static function getData($id)
     {
-        return SELF::find($id);
+        return SELF::with(['ServicePoint','ServiceFaq'])->find($id);
     }
 
     public static function updateData($data)
@@ -55,6 +67,9 @@ class Service extends Model
         $value = Service::find($data->service_id);
         $value->title        = $data->title;
         $value->sub_title  = $data->sub_title;
+        $value->alt_tag           =  $data->alt_tag;
+        $slug = Str::slug($data->title);
+        $value->slug = $slug;
         if ($data->image) {
             $value->image = Cms::storeImage($data->image, $data->title);
             $intervention_image = $value->image;
@@ -86,7 +101,7 @@ class Service extends Model
     }
 
     public static function getFullDataForHome(){
-        return SELF::select('image','id','title','sub_title')->orderBy('order','asc')->where('status',1)->get();
+        return SELF::with(['ServicePoint','ServiceFaq'])->select('image','id','title','sub_title','alt_tag','slug')->orderBy('order','asc')->where('status',1)->get();
     }
 
     public static function updateOrder($data)

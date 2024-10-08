@@ -22,6 +22,8 @@ return new class extends Migration
             $table->string('second_image')->nullable();
             $table->string('first_image_intervention')->nullable();
             $table->string('second_image_intervention')->nullable();
+            $table->string('alt_tag')->nullable()->default('k-graph');
+            $table->string('second_alt_tag')->nullable()->default('k-graph');
             $table->integer('button_enabled')->nullable();
             $table->string('button_text')->nullable();
             $table->string('button_url')->nullable();

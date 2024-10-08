@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('order')->nullable()->default(0);
             $table->string('image')->nullable();
             $table->string('intervention_image')->nullable();
+            $table->string('alt_tag')->nullable()->default('k-graph');
             $table->timestamps();
             $table->softDeletes();
         });
