@@ -65,7 +65,7 @@
                     <h2 class="text-white">Subscribe Our Newsletter</h2>
                     <p class="text-white text-sm">Corporate business typically refers to large-scale mansola it.</p>
                     <div class="rounded-full bg-black border border-solid border-neutral-700 flex items-center relative w-full">
-                        <input class="border-none outline-none bg-transparent py-3 lg:py-6 h-full px-4 w-full text-white placeholder:text-white" type="email" name="" id="" placeholder="Enter Email">
+                        <input class="border-none outline-none bg-transparent py-3 2xl:py-6 h-full px-4 w-full text-white placeholder:text-white" type="email" name="" id="" placeholder="Enter Email">
                         <button class=" absolute right-0 p-6 rounded-full bg-blue-900"><img class="md:w-6 lg:w-4" src="{{ asset('assets//sendingg.png') }}" alt=""></button>
                     </div>
                 </div>

@@ -167,8 +167,8 @@
         <div class="mt-6 flex justify-center items-center">
             <div class="h-[2px] w-[95vw] bg-[#0E3065]">
                 <div id="movebarparent" class="container mx-auto px-5 lg:px-12 w-full h-full flex items-center relative">
-                    <div class="hidden lg:block absolute bottom-0" style="right: 2%;z-index: 10;top: -61px;">
-                        <img class="w-[468px] h-[250px]" src="{{ asset('assets/home_Banner/canadaanimated.png') }}" alt="">
+                    <div class="hidden lg:block absolute bottom-0 rasing-falg-wrpr" style="">
+                        <img class="rasing-falg" src="{{ asset('assets/home_Banner/canadaanimated.png') }}" alt="">
                     </div>
                     <div id="movedBar" class="bg-[#0E3065] rounded-full h-[6px] w-[30%]"></div>
                 </div>
@@ -198,28 +198,32 @@
         </div>
     </div>
 
-    <div class="pl-5 lg:pl-[9rem] 2xl:pl-12 bigscreen-sizing py-8 flex flex-col-reverse lg:flex-row overflow-x-hidden">
+    <div class="pl-5 lg:pl-[9rem] xl:pl-16 2xl:pl-12 bigscreen-sizing py-8 top-height-adjust flex flex-col-reverse lg:flex-row overflow-x-hidden">
         <div class="flex justify-end lg:justify-start items-center gap-3 lg:pt-[3%] mr-4">
             <div class="aboutnext bg-[#062358] rounded-full w-8 h-8 flex justify-center items-center text-white font-semibold cursor-pointer pb-[3.5px]"><</div>
             <div class="aboutprev bg-[#062358] rounded-full w-8 h-8 flex justify-center items-center text-white font-semibold cursor-pointer pb-[3.5px]">></div>
         </div>
-        <div class="flex items-center w-[100vw] about-slider xl:pt-[4%]">
+        <div class="flex items-center w-[100vw] about-slider 2xl:pt-[4%] pt-[8%]">
+
             @foreach ($ourStory as $data)
-                <div class="flex flex-col gap-4 w-[100vw]">
-                    <div class="flex items-end md:gap-10">
-                        <h5 class="pl-[30px] text-[#072558] font_inter font-semibold text-[10px] xl:text-[16px]">{{$data->year}}</h5>
-                        <div class="flex gap-2 md:gap-4 pl-[11%] pb-2 slider-image-parent">
-                            <img class="w-[100px]" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="">
-                            <img class="w-[100px]" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->second_image }}" alt="">
-                        </div>
-                    </div>
-                    <div class="bg-[#062358] w-full h-[1px] slider-endballs relative"></div>
-                    <div class="flex gap-8 pl-[6%] pt-2">
-                        <h3 class="w-[25%] text-[#07245A] font_inter font-semibold md:text-[10px] text-[5px] xl:text-[12px]">{{$data->title}}</h3>
-                        <p class="w-[50%] text-[#07245A] opacity-40 font_inter font-semibold text-[5px] md:text-[10px] xl:text-[16px]">{{$data->description}}</p>
+            <div class="flex flex-col gap-4 w-[100vw]">
+                <div class="flex items-end md:gap-10">
+                    <h5 class="pl-[30px] text-[#072558] font_inter font-semibold text-[10px] xl:text-[16px]">{{$data->year}}</h5>
+                    <div class="flex gap-2 md:gap-4 pl-[11%] pb-2 slider-image-parent">
+                        <img class="w-[100px]" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="">
+                        <img class="w-[100px]" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->second_image }}" alt="">
                     </div>
                 </div>
+                <div class="bg-[#062358] w-full h-[1px] slider-endballs relative"></div>
+                <div class="flex gap-8 pl-[6%] pt-2">
+                    <h3 class="w-[25%] text-[#07245A] font_inter font-semibold md:text-[10px] text-[5px] xl:text-[12px]">{{$data->title}}</h3>
+                    <p class="w-[50%] text-[#07245A] opacity-40 font_inter font-semibold text-[5px] md:text-[10px] xl:text-[16px]">
+                        {{$data->description}}
+                    </p>
+                </div>
+            </div>
             @endforeach
+
         </div>
     </div>
 </div>
@@ -274,49 +278,86 @@
 
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        gsap.registerPlugin(ScrollTrigger);
+document.addEventListener('DOMContentLoaded', () => {
+    gsap.registerPlugin(ScrollTrigger);
 
-        // Get the parent container where the bar should move within
-        const moveBarParent = document.querySelector("#movebarparent");
-        const movedBar = document.querySelector("#movedBar");
-        const animatedImage = document.querySelector("#movebarparent img"); // Select the image
+    // Get the parent container where the bar should move within
+    const moveBarParent = document.querySelector("#movebarparent");
+    const movedBar = document.querySelector("#movedBar");
+    const animatedImage = document.querySelector(".rasing-falg"); // Select the image
 
-        // Calculate the available width in the parent container for movement
-        const parentWidth = moveBarParent.offsetWidth;
-        const movedBarWidth = movedBar.offsetWidth;
+    // Set the initial height to 0 for the animated image
+    gsap.set(animatedImage, { height: 0 });
 
-        // Calculate the maximum distance the bar can move within the container
-        // const maxMoveDistance = parentWidth - movedBarWidth; // Moves fully to the end
-        const maxMoveDistance = "60vw";
-        // GSAP animation to move the bar to the end of the parent container
-        gsap.to(movedBar, {
-            x: maxMoveDistance, // Move the bar to the end of the container
-            ease: "power3.out", // Smooth easing function
-            duration: 1, // Increase the duration to slow down the movement
+    // Function to calculate and animate image height based on media query
+    function animateImageHeight() {
+        let flagHeight = 0;
+
+        // Use window.innerWidth to determine which media query is active
+        if (window.innerWidth >= 1536) {
+            // Screen size > 1536px
+            flagHeight = 325; // Set the height for this screen size
+        } else if (window.innerWidth >= 1200) {
+            // Screen size > 1200px
+            flagHeight = 273;
+        } else if (window.innerWidth >= 1024) {
+            // Screen size > 1024px
+            flagHeight = 273;
+        } else {
+            // Default smaller screen height
+            flagHeight = animatedImage.naturalHeight || animatedImage.offsetHeight; // Fallback to image's natural height
+        }
+
+        console.log("Calculated flag height based on media query: ", flagHeight); // Debugging
+
+        // GSAP animation for image height
+        gsap.to(animatedImage, {
+            height: flagHeight,  // Target height based on calculated flag height
+            ease: "power3.out",  // Smooth easing
+            duration: 1,         // Duration for animation
             scrollTrigger: {
-                trigger: "#aboutOurStory", // Trigger the animation when this section comes into view
-                start: "top 80%", // Animation starts when 80% of the viewport reaches the top of #aboutOurStory
-                end: "top 10%", // Animation ends when 20% of the viewport reaches the top of the section
-                toggleActions: "play none none none", // Play animation when scrolling down
-                invalidateOnRefresh: true, // Recalculate values on page resize
+                trigger: "#aboutOurStory",  // Trigger animation when #aboutOurStory comes into view
+                start: "top 80%",           // Start when top 80% of the viewport reaches the section
+                end: "top 20%",             // End when top 20% of the viewport reaches the section
+                toggleActions: "play none none none",  // Play animation when scrolling down
+                invalidateOnRefresh: true,  // Recalculate values on page resize
             }
         });
+    }
 
-        // GSAP animation to resize the image when the bar reaches the end
-        gsap.to(animatedImage, {
-            height: "360px", // Target height when the bar reaches the end
-            ease: "power3.out", // Smooth easing
-            duration: 1, // Increase the duration for a slower animation
-            scrollTrigger: {
-                trigger: "#aboutOurStory", // Trigger the animation when this section comes into view
-                start: "top 80%", // Same scroll trigger as the bar
-                end: "top 20%", // Animation ends when 20% of the viewport reaches the top of the section
-                toggleActions: "play none none none", // Play the animation on scroll
-                invalidateOnRefresh: true, // Recalculate the layout on window resize
-            },
-        });
+    // Add load event listener to image to ensure correct height calculation after it loads
+    animatedImage.addEventListener('load', () => {
+        animateImageHeight(); // Call the function to animate the image height
     });
+
+    // Fallback in case the image is already loaded (e.g., from cache)
+    if (animatedImage.complete) {
+        animateImageHeight();
+    }
+
+    // Recalculate and re-animate the image on window resize to account for media queries
+    window.addEventListener('resize', () => {
+        gsap.set(animatedImage, { height: 0 }); // Reset to height 0 on resize
+        animateImageHeight();  // Recalculate and animate the image height based on new viewport
+    });
+
+    // Move Bar Animation
+    const maxMoveDistance = "60vw";
+    gsap.to(movedBar, {
+        x: maxMoveDistance, // Move the bar to the end of the container
+        ease: "power3.out", // Smooth easing function
+        duration: 1, // Increase the duration to slow down the movement
+        scrollTrigger: {
+            trigger: "#aboutOurStory", // Trigger the animation when this section comes into view
+            start: "top 80%", // Animation starts when 80% of the viewport reaches the top of #aboutOurStory
+            end: "top 10%", // Animation ends when 20% of the viewport reaches the top of the section
+            toggleActions: "play none none none", // Play animation when scrolling down
+            invalidateOnRefresh: true, // Recalculate values on page resize
+        }
+    });
+});
+
+
 </script>
 
 <script type="text/javascript">

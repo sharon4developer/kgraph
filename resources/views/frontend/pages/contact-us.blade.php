@@ -62,6 +62,7 @@
  }
  .enquiry-form select{
     width: 100%;
+    background-color: transparent;
  }
 
  .requst-text{

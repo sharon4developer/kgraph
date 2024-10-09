@@ -62,6 +62,7 @@
     }
     .enquiry-form select{
         width: 100%;
+        background: transparent;
     }
     .accordion-content-careers {
         max-height: 0;
