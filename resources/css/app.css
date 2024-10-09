@@ -557,6 +557,13 @@ ul.custom-bulletssec li{
 .choose-you-service{
     grid-template-columns: 1fr;
 }
+.clamp-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 8; /* Limit to 5 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
 /* media query */
 @media (max-width: 767px){

@@ -390,6 +390,8 @@
     </div>
 </div>
 
+@include('frontend.Common.getintouch')
+
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         gsap.registerPlugin(ScrollTrigger);

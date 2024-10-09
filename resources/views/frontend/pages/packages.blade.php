@@ -81,5 +81,7 @@
     </div>
 </div>
 
+@include('frontend.Common.getintouch')
+
 @endsection
 {{-- Immigration packages --}}
