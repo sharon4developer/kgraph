@@ -274,9 +274,9 @@
     </div>
 
     <div class="pl-5 lg:pl-[9rem] xl:pl-16 2xl:pl-12 bigscreen-sizing py-8 top-height-adjust flex flex-col-reverse lg:flex-row overflow-x-hidden">
-        <div class="flex justify-end lg:justify-start items-center gap-3 lg:pt-[3%] mr-4">
-            <div class="aboutnext bg-[#062358] rounded-full w-8 h-8 flex justify-center items-center text-white font-semibold cursor-pointer pb-[3.5px]"><</div>
-            <div class="aboutprev bg-[#062358] rounded-full w-8 h-8 flex justify-center items-center text-white font-semibold cursor-pointer pb-[3.5px]">></div>
+        <div class="flex justify-end lg:justify-start items-center gap-3 pt-[5%] lg:pt-[3%] mr-4">
+            <div class="aboutprev bg-[#062358] rounded-full w-8 h-8 flex justify-center items-center text-white font-semibold cursor-pointer pb-[3.5px]"><</div>
+            <div class="aboutnext bg-[#062358] rounded-full w-8 h-8 flex justify-center items-center text-white font-semibold cursor-pointer pb-[3.5px]">></div>
         </div>
         <div class="flex items-center w-[100vw] about-slider 2xl:pt-[4%] pt-[8%]">
             <div class="flex flex-col gap-4 w-[100vw]">
@@ -418,7 +418,7 @@
 
             <div class="grid grid-cols-2 gap-4 lg:gap-[12px] lg:w-full mb-4 lg:mb-0 py-8">
                 <!-- Top Left -->
-                <div class="flex justify-center items-center rounded-lg overflow-hidden h-[270px]">
+                <div class="flex justify-center items-center rounded-lg overflow-hidden h-[260px]">
                     <img src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="Immigration" class="w-full h-full object-cover" />
                 </div>
 
