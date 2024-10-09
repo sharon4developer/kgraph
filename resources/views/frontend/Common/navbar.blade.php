@@ -2,7 +2,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/ScrollTrigger.min.js"></script>
 
 <div class="b-backgroun-nav z-50 w-full">
-    <header id="immaintop" class="text-white hidden md:block bg-black md:fixed top-0 z-50 w-full">
+    {{-- <header id="immaintop" class="text-white hidden md:block bg-black md:fixed top-0 z-50 w-full" style="display: none !important;">
         <div class="container mx-auto px-5 xl:px-12 flex justify-between items-start lg:items-center gap-1 lg:gap-0 flex-col md:flex-row font_aktiv py-[12px] lg:py-[10px] opacity-50">
             <div>
                 <small class="uppercase font-light text-[10px] font_aktiv">KGRAPH IMMIGRATION CONSULTANCY INC.</small>
@@ -19,9 +19,9 @@
                 <small class="capitalize font-light text-[10px] font_aktiv">© 2024 - CanDo Canadian Immigration Services.</small>
             </div>
         </div>
-    </header>
+    </header> --}}
 
-    <nav id="imHeader" class="text-white bg-gradient-to-b from-black to-transparent md:fixed top-10 !z-50 w-full overflow-hidden">
+    <nav id="imHeader" class="text-white bg-gradient-to-b from-black to-transparent md:fixed top-0 !z-50 w-full overflow-hidden">
         <div class="flex items-center justify-between container mx-auto px-5 xl:px-12 py-4 lg:py-5">
             <a href="{{ url('/') }}"  class="flex items-center gap-[4px] z-10 cursor-pointer">
                 <img class="w-[1.80rem] logo_image lg:w-[2.5rem] xl:w-[3.5rem]" src="{{asset('assets/KgraphLogo.png')}}" alt="K-graph logo">

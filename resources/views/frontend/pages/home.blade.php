@@ -133,7 +133,7 @@
 {{-- banner section --}}
 <div class="h-dvh md:h-screen lg:h-full w-full homeBanner relative overflow-hidden">
     <!-- Gradient overlay -->
-    <div class="banner-gradient-overlay absolute inset-0"></div>
+    {{-- <div class="banner-gradient-overlay absolute inset-0"></div> --}}
 
     <!-- Slick Slider for Background Images -->
 
@@ -169,13 +169,13 @@
                     </div>
                 </div>
             </div>
-            <div class="z-10 flex flex-wrap md:flex-nowrap justify-around items-center py-5 w-full lg:mb-0">
+            {{-- <div class="z-10 flex flex-wrap md:flex-nowrap justify-around items-center py-5 w-full lg:mb-0">
                 <img class="w-[50px] lg:w-[100px]"  src="{{ asset('assets/home_Banner/segment.png') }}" alt="">
                 <img class="w-[50px] lg:w-[100px]"  src="{{ asset('assets/home_Banner/splunk.png') }}" alt="">
                 <img class="w-[50px] lg:w-[100px]"  src="{{ asset('assets/home_Banner/Hubspot.png') }}" alt="">
                 <img class="w-[50px] lg:w-[100px]"  src="{{ asset('assets/home_Banner/asna.png') }}" alt="">
                 <img class="w-[50px] lg:w-[100px]"  src="{{ asset('assets/home_Banner/airtasker.png') }}" alt="">
-            </div>
+            </div> --}}
             <div class="lg:absolute bottom-0 right-0 w-full lg:w-fit flex justify-center lg:right-12 lg:bottom-[35%] z-10">
                 <div class="flex lg:flex-col items-center gap-[30px] border border-white py-2 lg:py-4 px-6 lg:px-2 rounded-full mb-3 lg:mb-0">
                     <img class="w-[15px]" src="{{ asset('assets/facebookban.png') }}" alt="facebook">
