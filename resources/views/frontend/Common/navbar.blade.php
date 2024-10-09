@@ -23,7 +23,7 @@
 
     <nav id="imHeader" class="text-white bg-gradient-to-b from-black to-transparent md:fixed top-10 !z-50 w-full overflow-hidden">
         <div class="flex items-center justify-between container mx-auto px-5 xl:px-12 py-4 lg:py-5">
-            <a href="{{ url('/') }}"  class="flex items-center gap-[4px] z-10">
+            <a href="{{ url('/') }}"  class="flex items-center gap-[4px] z-10 cursor-pointer">
                 <img class="w-[1.80rem] logo_image lg:w-[2.5rem] xl:w-[3.5rem]" src="{{asset('assets/KgraphLogo.png')}}" alt="K-graph logo">
                 <div>
                     <h2 class="lg:text-3xl 2xl:text-[34px] font_inter font-bold logo_text">KGRAPH</h2>
@@ -39,7 +39,7 @@
                     <div class="menuToggle">
                         <ul id="mobilemenu" class="menuItem">
                             <div class="flex gap-2 items-center justify-start">
-                                <li class="text-[12px] whitespace-nowrap text-black flex items-center"><a class="" href="#">Blogs</a></li>|
+                                <li class="text-[12px] whitespace-nowrap text-black flex items-center"><a href="{{ url('blogs') }}">blogs</a></li>|
                                 <li class="text-[12px] whitespace-nowrap text-black flex items-center"><a class="" href="#">Legal</a></li>|
                                 <li class="text-[12px] whitespace-nowrap text-black flex items-center"><a class="" href="#">News</a></li>|
                                 <li class="text-[12px] whitespace-nowrap text-black flex items-center"><a class="" href="#">Privacy Policy</a></li>

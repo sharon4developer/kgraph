@@ -12,6 +12,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
 
 <style>
     .banner-container-elem {
@@ -89,8 +90,8 @@
     }
 
     .RegulatedSec-left, .RegulatedSec-right {
-    position: relative;
-    width: 100%;
+        position: relative;
+        width: 100%;
     }
 
     .image-card-explore>.view-button{
@@ -115,6 +116,15 @@
     .your-slider-class .slick-track , .explore-section .slick-track{
         width: 20000px !important;
     }
+
+    /* Additional CSS to ensure slides take full width on mobile */
+   .your-slider-class .slick-slide {
+        /* width: 100% !important; */
+        /* box-sizing: border-box; */
+        transform: translateX(144px)
+    }
+
+
 
 
 
@@ -376,10 +386,10 @@
                 <div class="RegulatedSec-left md:w-1/2">
                     <h2 class="text-white font_inter font-semibold text-2xl lg:text-3xl xl:text-4xl">Regulated Canadian Immigration Consultants (RCIC-IRB)</h2>
                     <p class="py-5 text-white font-normal font_inter text-[14px] xl:text-lg lg:py-10">Proudly regulated by and in good standing with the College of Immigration and Citizenship Consultants (CICC). Jamie Dowla, registration #: R507233</p>
-                    <div class="flex flex-col lg:flex-row gap-5 items-center mb-8">
+                    <div class="flex flex-col flex-wrap lg:flex-row gap-5 items-center mb-8">
                         @foreach ($certificate as $data)
                         <div>
-                            <img class="w-[200px]" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
+                            <img class="w-[200px] max-h-[66px]" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
                             <h6 class="font_inter font-semibold text-white text-[14px] w-[80%] text-center py-2">{{ $data->title }} {{ $data->sub_title }}</h6>
                         </div>
                         @endforeach
@@ -418,33 +428,39 @@
         </div>
 
         <div class="testimonial-slider-wrapper pl-5 lg:pl-12 pt-9 pb-0 lg:py-[70px] z-50">
-            <div class="your-slider-class">
-                @foreach ($testimonials as $data)
-                <div class="!flex !w-[400px] md:w-[440px] overflow-hidden mr-5 !h-[250px] bg-white rounded-xl">
-                    <img src={{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
-                    <div class="w-full py-4 px-4">
-                        <div class="flex items-center justify-end">
-                            <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">{{$data->rating}}</div>
-                            <div class="flex items-center gap-1">
-                                @for($i=1;$i<=$data->rating;$i++)
-                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
-                                @endfor
+            <div id="splide" class="splide">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        @foreach ($testimonials as $data)
+                        <li class="splide__slide">
+                            <div class="!flex !w-[89vw] md:!w-[440px] overflow-hidden !h-[250px] bg-white rounded-xl relative">
+                                <img class="absolute md:relative w-full opacity-30 md:opacity-100" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
+                                <div class="w-full py-4 px-4 z-10">
+                                    <div class="flex items-center justify-end">
+                                        <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">{{$data->rating}}</div>
+                                        <div class="flex items-center gap-1">
+                                            @for($i=1;$i<=$data->rating;$i++)
+                                            <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                            @endfor
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
+                                    </div>
+                                    <div class="py-2 font_inter text-[#072558]">
+                                        <h4 class="font-extrabold">{{$data->title}}</h4>
+                                        <p class="text-[8px] py-2 font-semibold">{{$data->description}}</p>
+                                        <div>
+                                            <h5 class="font-bold">{{$data->name}}</h5>
+                                            <h6 class="text-[10px] font-semibold">{{$data->occupation}} {{$data->place}}</h6>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div>
-                            <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
-                        </div>
-                        <div class="py-2 font_inter text-[#072558]">
-                            <h4 class="font-extrabold">{{$data->title}}</h4>
-                            <p class="text-[8px] py-2 font-semibold">{{$data->description}}</p>
-                            <div>
-                                <h5 class="font-bold">{{$data->name}}</h5>
-                                <h6 class="text-[10px] font-semibold">{{$data->occupation}} {{$data->place}}</h6>
-                            </div>
-                        </div>
-                    </div>
+                        </li>
+                        @endforeach
+                    </ul>
                 </div>
-                @endforeach
             </div>
         </div>
 
@@ -493,39 +509,42 @@
 
             </div>
 
-            <div class="pt-[20px] md:pb-[70px] gap-6 w-full blog-slider-class" style="">
 
-
-                @foreach ($blogs as $data)
-                <div class="bg-white w-[350px] mr-5">
-                    <img class="h-[200px] w-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="blog_image"/>
-                    <div class="py-4 px-6">
-                        <div class="flex items-center gap-4">
-                            <img class="w-[50px] lg:w-[70px] h-[50px] lg:h-[70px]" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->user_image }}" alt="profile_image"/>
-                            <div>
-                                <h6 class="font_inter font-semibold text-16px text-[#072558] xl:text-[22px]">{{ $data->name }}</h6>
-                                <?php $date = $data->date . ' ' . $data->time; ?>
-                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">by {{ $data->name }}, on  {{ $data->name }}, on {{ date('M j, Y h:i:s A', strtotime($date)) }}</p>
-                                <p class="text-[#072558] font_inter font-medium text-[14px] xl:text-[16px]">Topics: {{ $data->topics }}</p>
-                            </div>
-                        </div>
-                        <h5 class="text-[#072558] font_inter font-bold text-[14px] xl:text-[20px] py-5 xl:pb-[15px] xl:pt-[42px]">{{ $data->title }}</h5>
-                        <p class="text-[#072558] font_inter font-normal text-justify text-[14px] lg:text-[16px] xl:text-[20px]"> {{ $data->description }}</p>
-                        <div class="flex justify-end items-center pt-8 pb-2">
-                            <a class="capitalize text-[#062358] underline font-bold font_inter text-lg" href="">Read more</a>
-                        </div>
-                    </div>
+            <div id="blogSplide" class="splide pt-[20px] md:pb-[70px]">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        @foreach ($blogs as $data)
+                            <li class="splide__slide bg-white w-[350px] mr-5">
+                                <img class="h-[200px] w-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="blog_image"/>
+                                <div class="py-4 px-6">
+                                    <div class="flex items-center gap-4">
+                                        <img class="w-[50px] lg:w-[70px] h-[50px] lg:h-[70px]" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->user_image }}" alt="profile_image"/>
+                                        <div>
+                                            <h6 class="font_inter font-semibold text-16px text-[#072558] xl:text-[22px]">{{ $data->name }}</h6>
+                                            <?php $date = $data->date . ' ' . $data->time; ?>
+                                            <p class="text-[#072558] font_inter font-medium text-[10px] xl:text-[16px]">by {{ $data->name }}, on  {{ $data->name }}, on {{ date('M j, Y h:i:s A', strtotime($date)) }}</p>
+                                            <p class="text-[#072558] font_inter font-medium text-[10px] xl:text-[16px]">Topics: {{ $data->topics }}</p>
+                                        </div>
+                                    </div>
+                                    <h5 class="text-[#072558] font_inter font-bold text-[10px] xl:text-[20px] py-5 xl:pb-[15px] xl:pt-[42px]">{{ $data->title }}</h5>
+                                    <p class="clamp-text text-[#072558] font_inter font-normal text-justify text-[14px] lg:text-[16px] xl:text-[20px] ">{{ $data->description }}</p>
+                                    <div class="flex justify-end items-center pt-8 pb-2">
+                                        <a class="capitalize text-[#062358] underline font-bold font_inter text-lg" href="">Read more</a>
+                                    </div>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
                 </div>
-                @endforeach
-
             </div>
+
 
             <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full flex items-center justify-end">
                 <div class="flex justify-center gap-3 items-center">
-                    <div class="card-blog-slide-prev-button cursor-pointer">
+                    <div class="blog-slider-prev cursor-pointer">
                         <img class="w-[40px]" src="{{ asset('assets/Button-Previous.png') }}" alt="">
                     </div>
-                    <div class="cursor-pointer card-blog-slide-next-button">
+                    <div class="cursor-pointer blog-slider-next">
                         <img class="w-[40px]" src="{{ asset('assets/nextbutton.png') }}" alt="">
                     </div>
                 </div>
@@ -543,16 +562,23 @@
             <p class="text-white font_inter font-semibold text-[26px] lg:w-[35%] mt-6 fifthleft-to-right-animation">Learn About All of the Great ThingsCanada Has to Offer!</p>
         </div>
 
-        <div class="pb-8 md:pb-[100px] xl:pl-[50px] explore-slider-class h-[380px] z-0">
-            @foreach ($explore as $data)
-            <div class="my-0 mx-4 !w-[300px] xl:!w-[380px] md:mx-4 lg:mx-8 relative image-card-explore">
-                <img class="w-[300px] md:w-[380px]" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
-                <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
-                    <button class="text-white">view</button>
-                </div>
+        <div id="exploreSplide" class="splide pb-8 md:pb-[100px] xl:pl-[50px] explore-slider-class h-[380px] z-0">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    @foreach ($explore as $data)
+                    <li class="splide__slide">
+                        <div class="my-0 mx-4 !w-[89vw] xl:!w-[380px] md:mx-4 lg:mx-8 relative image-card-explore">
+                            <img class="w-full md:w-[380px] h-[300px]" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
+                            <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
+                                <button class="text-white">view</button>
+                            </div>
+                        </div>
+                    </li>
+                    @endforeach
+                </ul>
             </div>
-            @endforeach
         </div>
+
 
         <div class="container mx-auto px-5 xl:px-12 py-8 lg:pt-1 lg:pb-16  z-[99] h-full w-full">
             <div class="flex justify-end gap-3 items-center">
@@ -624,28 +650,11 @@
     </div>
 </div>
 
-{{-- get in touch section --}}
-<div class="get-in-Touch bg-[#051b3b] py-28">
-    <div class="container mx-auto px-5xlg:px-12 h-full w-full">
-        <div class="flex justify-center items-center flex-col ">
-            <div class="flex flex-col-reverse md:flex-row items-center">
-                <h2 class="font_inter font-semibold text-4xl text-center md:text-left gettouch uppercase gradient-text">Get IN TOUCH WITH US</h2>
-                <img class="w-[70px]" src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="">
-            </div>
-            <p class="text-white py-6 paddadjuster md:w-3/5 lg:w-1/2 text-center font_inter font-semibold lg:text-[22px] gettouchpara">Labaton Keller Sucharow is elevating excellence through innovation, client service, and teamwork.</p>
-            <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group">
-                <!-- Initially the background will cover the full button -->
-                <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
-                <h6 class="relative z-10 text-white text-[12px] xl:text-[16px]">Have any doubt</h6>
-                <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
-                    <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
-                </div>
-            </div>
 
-        </div>
-    </div>
-</div>
+@include('frontend.Common.getintouch')
 
+
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
 <script>
     document.querySelectorAll('.accordion-header').forEach(header => {
         header.addEventListener('click', function() {
@@ -977,128 +986,133 @@
 
 {{-- slick slider --}}
 <script type="text/javascript">
-    $(document).ready(function() {
-        $('.your-slider-class').slick({
-            autoplay: true,
-            autoplaySpeed: 3000,
-            dots: false,
-            arrows: true,
-            infinite: true,
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            pauseOnHover: false,
-            pauseOnFocus: false,
-            prevArrow: $('.card-home-slide-prev-button'),
-            nextArrow: $('.card-home-slide-next-button'),
-            responsive: [{
-                    breakpoint: 1200, // Extra large devices
-                    settings: {
-                        slidesToShow: 3.5,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 992, // Desktop view
-                    settings: {
-                        slidesToShow: 2.5,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 768, // Tablet view
-                    settings: {
-                        slidesToShow: 1.5,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 576, // Mobile view (Updated)
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
-                        arrows: false
-                    }
-                }
-            ]
-        });
+    $(document).ready(function(){
+        // $('.your-slider-class').slick({
+        //     autoplay: false,
+        //     autoplaySpeed: 3000,
+        //     dots: false,
+        //     arrows: true,
+        //     infinite: true,
+        //     slidesToShow: 3,
+        //     slidesToScroll: 1,
+        //     pauseOnHover: false,
+        //     pauseOnFocus: false,
+        //     prevArrow: $('.card-home-slide-prev-button'),
+        //     nextArrow: $('.card-home-slide-next-button'),
+        //     responsive: [
+        //         {
+        //             breakpoint: 1200, // Extra large devices
+        //             settings: {
+        //                 slidesToShow: 3.5,
+        //                 slidesToScroll: 1
+        //             }
+        //         },
+        //         {
+        //             breakpoint: 992, // Desktop view
+        //             settings: {
+        //                 slidesToShow: 2.5,
+        //                 slidesToScroll: 1
+        //             }
+        //         },
+        //         {
+        //             breakpoint: 768, // Tablet view
+        //             settings: {
+        //                 slidesToShow: 1.5,
+        //                 slidesToScroll: 1
+        //             }
+        //         },
+        //         {
+        //             breakpoint: 576, // Mobile view
+        //             settings: {
+        //                 slidesToShow: 1, // Ensure only one slide is shown on mobile
+        //                 slidesToScroll: 1,
+        //                 arrows: false,
+        //                 centerMode: true, // Use centerMode to center the slide properly
+        //                 variableWidth: false, // Ensure the width is constant
+        //             }
+        //         }
+        //     ]
+        // });
 
-        $('.blog-slider-class').slick({
-            autoplay: true,
-            autoplaySpeed: 3000,
-            dots: false,
-            arrows: true,
-            infinite: true,
-            slidesToShow: 3,
-            slidesToScroll: 1,
-            pauseOnHover: false,
-            pauseOnFocus: false,
-            prevArrow: $('.card-blog-slide-prev-button'),
-            nextArrow: $('.card-blog-slide-next-button'),
-            responsive: [{
-                    breakpoint: 1200, // extra large devices
-                    settings: {
-                        slidesToShow: 3.5
-                    }
-                },
-                {
-                    breakpoint: 992, // desktop view
-                    settings: {
-                        slidesToShow: 2.5
-                    }
-                },
-                {
-                    breakpoint: 768, // tablet view
-                    settings: {
-                        slidesToShow: 1.5
-                    }
-                },
-                {
-                    breakpoint: 576, // mobile view
-                    settings: {
-                        slidesToShow: 1
-                    }
-                }
-            ]
-        });
+        // $('.blog-slider-class').slick({
+        //     autoplay: true,
+        //     autoplaySpeed: 3000,
+        //     dots: false,
+        //     arrows: true,
+        //     infinite: true,
+        //     slidesToShow: 3,
+        //     slidesToScroll: 1,
+        //     pauseOnHover: false,
+        //     pauseOnFocus: false,
+        //     prevArrow: $('.card-blog-slide-prev-button'),
+        //     nextArrow: $('.card-blog-slide-next-button'),
+        //     responsive: [
+        //         {
+        //             breakpoint: 1200, // extra large devices
+        //             settings: {
+        //                 slidesToShow: 3.5
+        //             }
+        //         },
+        //         {
+        //             breakpoint: 992, // desktop view
+        //             settings: {
+        //                 slidesToShow: 2.5
+        //             }
+        //         },
+        //         {
+        //             breakpoint: 768, // tablet view
+        //             settings: {
+        //                 slidesToShow: 1.5
+        //             }
+        //         },
+        //         {
+        //             breakpoint: 576, // mobile view
+        //             settings: {
+        //                 slidesToShow: 1
+        //             }
+        //         }
+        //     ]
+        // });
 
-        $('.explore-slider-class').slick({
-            autoplay: true,
-            autoplaySpeed: 3000,
-            dots: false,
-            arrows: true,
-            infinite: true,
-            slidesToShow: 5,
-            slidesToScroll: 1,
-            pauseOnHover: false,
-            pauseOnFocus: false,
-            prevArrow: $('.card-explore-slide-prev-button'),
-            nextArrow: $('.card-explore-slide-next-button'),
-            responsive: [{
-                    breakpoint: 1200, // extra large devices
-                    settings: {
-                        slidesToShow: 3.5
-                    }
-                },
-                {
-                    breakpoint: 992, // desktop view
-                    settings: {
-                        slidesToShow: 2.5
-                    }
-                },
-                {
-                    breakpoint: 768, // tablet view
-                    settings: {
-                        slidesToShow: 1.5
-                    }
-                },
-                {
-                    breakpoint: 576, // mobile view
-                    settings: {
-                        slidesToShow: 1
-                    }
-                }
-            ]
-        });
+        // $('.explore-slider-class').slick({
+        //     autoplay: true,
+        //     autoplaySpeed: 3000,
+        //     dots: false,
+        //     arrows: true,
+        //     infinite: true,
+        //     slidesToShow: 5,
+        //     slidesToScroll: 1,
+        //     pauseOnHover: false,
+        //     pauseOnFocus: false,
+        //     prevArrow: $('.card-explore-slide-prev-button'),
+        //     nextArrow: $('.card-explore-slide-next-button'),
+        //     responsive: [
+        //         {
+        //             breakpoint: 1200, // extra large devices
+        //             settings: {
+        //                 slidesToShow: 3.5
+        //             }
+        //         },
+        //         {
+        //             breakpoint: 992, // desktop view
+        //             settings: {
+        //                 slidesToShow: 2.5
+        //             }
+        //         },
+        //         {
+        //             breakpoint: 768, // tablet view
+        //             settings: {
+        //                 slidesToShow: 1.5
+        //             }
+        //         },
+        //         {
+        //             breakpoint: 576, // mobile view
+        //             settings: {
+        //                 slidesToShow: 1
+        //             }
+        //         }
+        //     ]
+        // });
 
         $('.slick-slider-background').slick({
             autoplay: true,
@@ -1120,6 +1134,109 @@
         });
     });
 </script>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var splide = new Splide('#splide', {
+            type: 'loop',
+            autoplay: true,
+            interval: 3000,
+            arrows: false,
+            pagination: false,
+            perPage: 4,
+            gap: '16px',
+            drag: true,
+            snap: true,
+            perMove: 1,
+            breakpoints: {
+                640: {  // Mobile devices
+                    perPage: 1,
+                },
+                768: {  // Tablets
+                    perPage: 1.5,
+                },
+                1024: {  // Large devices (lg)
+                    perPage: 2,
+                },
+                1280: {  // XL devices
+                    perPage: 2.5,
+                },
+                1536: {  // 2XL devices
+                    perPage: 3,
+                },
+            }
+        }).mount();
+
+        // Custom Previous Button
+        document.querySelector('.card-home-slide-prev-button').addEventListener('click', function () {
+            splide.go('<'); // Go to the previous slide
+        });
+
+        // Custom Next Button
+        document.querySelector('.card-home-slide-next-button').addEventListener('click', function () {
+            splide.go('>'); // Go to the next slide
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var splide = new Splide('#blogSplide', {
+            type: 'loop',
+            autoplay: true,
+            interval: 3000,
+            arrows: false, // Disable default arrows
+            pagination: false,
+            perPage: 3.2,
+            perMove: 1,
+            gap: '16px',
+            breakpoints: {
+                640: { perPage: 1, gap: '12px' },
+                768: { perPage: 1.5, gap: '16px' },
+                1024: { perPage: 2, gap: '20px' },
+                1280: { perPage: 2.5, gap: '24px' },
+                1536: { perPage: 2.9, gap: '28px' },
+            }
+        }).mount();
+
+        document.querySelector('.blog-slider-prev').addEventListener('click', function () {
+            splide.go('<'); // Go to previous slide
+        });
+
+        document.querySelector('.blog-slider-next').addEventListener('click', function () {
+            splide.go('>'); // Go to next slide
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var splide = new Splide('#exploreSplide', {
+            type: 'loop',   // Loop through the slides
+            perMove: 1,     // Moves one slide at a time
+            perPage: 3.5,     // Shows one slide per page
+            arrows: false,  // Disable default arrows
+            pagination: false, // Disable the dots (pagination)
+            autoplay: true,
+            interval: 3000, // Auto-slide interval
+            gap: '16px',    // Gap between slides
+            breakpoints: {
+                640: { perPage: 1 },
+                768: { perPage: 1.5},
+                1024: { perPage: 2},
+                1280: { perPage: 2.8 },
+            }
+        }).mount();
+
+        // Custom Previous Button
+        document.querySelector('.card-explore-slide-prev-button').addEventListener('click', function () {
+            splide.go('<'); // Go to the previous slide
+        });
+
+        // Custom Next Button
+        document.querySelector('.card-explore-slide-next-button').addEventListener('click', function () {
+            splide.go('>'); // Go to the next slide
+        });
+    });
+</script>
+
 
 
 @endsection

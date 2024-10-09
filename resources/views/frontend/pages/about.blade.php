@@ -199,9 +199,9 @@
     </div>
 
     <div class="pl-5 lg:pl-[9rem] xl:pl-16 2xl:pl-12 bigscreen-sizing py-8 top-height-adjust flex flex-col-reverse lg:flex-row overflow-x-hidden">
-        <div class="flex justify-end lg:justify-start items-center gap-3 lg:pt-[3%] mr-4">
-            <div class="aboutnext bg-[#062358] rounded-full w-8 h-8 flex justify-center items-center text-white font-semibold cursor-pointer pb-[3.5px]"><</div>
-            <div class="aboutprev bg-[#062358] rounded-full w-8 h-8 flex justify-center items-center text-white font-semibold cursor-pointer pb-[3.5px]">></div>
+        <div class="flex justify-end lg:justify-start items-center gap-3 pt-[5%] lg:pt-[3%] mr-4">
+            <div class="aboutprev bg-[#062358] rounded-full w-8 h-8 flex justify-center items-center text-white font-semibold cursor-pointer pb-[3.5px]"><</div>
+            <div class="aboutnext bg-[#062358] rounded-full w-8 h-8 flex justify-center items-center text-white font-semibold cursor-pointer pb-[3.5px]">></div>
         </div>
         <div class="flex items-center w-[100vw] about-slider 2xl:pt-[4%] pt-[8%]">
 
@@ -255,7 +255,7 @@
 
             <div class="grid grid-cols-2 gap-4 lg:gap-[12px] lg:w-full mb-4 lg:mb-0 py-8">
                 <!-- Top Left -->
-                <div class="flex justify-center items-center rounded-lg overflow-hidden h-[270px]">
+                <div class="flex justify-center items-center rounded-lg overflow-hidden h-[260px]">
                     <img src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="Immigration" class="w-full h-full object-cover" />
                 </div>
 
@@ -275,87 +275,87 @@
     </div>
 </div>
 
-
+@include('frontend.Common.getintouch')
 
 <script>
-document.addEventListener('DOMContentLoaded', () => {
-    gsap.registerPlugin(ScrollTrigger);
+    document.addEventListener('DOMContentLoaded', () => {
+        gsap.registerPlugin(ScrollTrigger);
 
-    // Get the parent container where the bar should move within
-    const moveBarParent = document.querySelector("#movebarparent");
-    const movedBar = document.querySelector("#movedBar");
-    const animatedImage = document.querySelector(".rasing-falg"); // Select the image
+        // Get the parent container where the bar should move within
+        const moveBarParent = document.querySelector("#movebarparent");
+        const movedBar = document.querySelector("#movedBar");
+        const animatedImage = document.querySelector(".rasing-falg"); // Select the image
 
-    // Set the initial height to 0 for the animated image
-    gsap.set(animatedImage, { height: 0 });
+        // Set the initial height to 0 for the animated image
+        gsap.set(animatedImage, { height: 0 });
 
-    // Function to calculate and animate image height based on media query
-    function animateImageHeight() {
-        let flagHeight = 0;
+        // Function to calculate and animate image height based on media query
+        function animateImageHeight() {
+            let flagHeight = 0;
 
-        // Use window.innerWidth to determine which media query is active
-        if (window.innerWidth >= 1536) {
-            // Screen size > 1536px
-            flagHeight = 325; // Set the height for this screen size
-        } else if (window.innerWidth >= 1200) {
-            // Screen size > 1200px
-            flagHeight = 273;
-        } else if (window.innerWidth >= 1024) {
-            // Screen size > 1024px
-            flagHeight = 273;
-        } else {
-            // Default smaller screen height
-            flagHeight = animatedImage.naturalHeight || animatedImage.offsetHeight; // Fallback to image's natural height
+            // Use window.innerWidth to determine which media query is active
+            if (window.innerWidth >= 1536) {
+                // Screen size > 1536px
+                flagHeight = 325; // Set the height for this screen size
+            } else if (window.innerWidth >= 1200) {
+                // Screen size > 1200px
+                flagHeight = 273;
+            } else if (window.innerWidth >= 1024) {
+                // Screen size > 1024px
+                flagHeight = 273;
+            } else {
+                // Default smaller screen height
+                flagHeight = animatedImage.naturalHeight || animatedImage.offsetHeight; // Fallback to image's natural height
+            }
+
+            console.log("Calculated flag height based on media query: ", flagHeight); // Debugging
+
+            // GSAP animation for image height
+            gsap.to(animatedImage, {
+                height: flagHeight,  // Target height based on calculated flag height
+                ease: "power3.out",  // Smooth easing
+                duration: 1,         // Duration for animation
+                scrollTrigger: {
+                    trigger: "#aboutOurStory",  // Trigger animation when #aboutOurStory comes into view
+                    start: "top 80%",           // Start when top 80% of the viewport reaches the section
+                    end: "top 20%",             // End when top 20% of the viewport reaches the section
+                    toggleActions: "play none none none",  // Play animation when scrolling down
+                    invalidateOnRefresh: true,  // Recalculate values on page resize
+                }
+            });
         }
 
-        console.log("Calculated flag height based on media query: ", flagHeight); // Debugging
+        // Add load event listener to image to ensure correct height calculation after it loads
+        animatedImage.addEventListener('load', () => {
+            animateImageHeight(); // Call the function to animate the image height
+        });
 
-        // GSAP animation for image height
-        gsap.to(animatedImage, {
-            height: flagHeight,  // Target height based on calculated flag height
-            ease: "power3.out",  // Smooth easing
-            duration: 1,         // Duration for animation
+        // Fallback in case the image is already loaded (e.g., from cache)
+        if (animatedImage.complete) {
+            animateImageHeight();
+        }
+
+        // Recalculate and re-animate the image on window resize to account for media queries
+        window.addEventListener('resize', () => {
+            gsap.set(animatedImage, { height: 0 }); // Reset to height 0 on resize
+            animateImageHeight();  // Recalculate and animate the image height based on new viewport
+        });
+
+        // Move Bar Animation
+        const maxMoveDistance = "60vw";
+        gsap.to(movedBar, {
+            x: maxMoveDistance, // Move the bar to the end of the container
+            ease: "power3.out", // Smooth easing function
+            duration: 1, // Increase the duration to slow down the movement
             scrollTrigger: {
-                trigger: "#aboutOurStory",  // Trigger animation when #aboutOurStory comes into view
-                start: "top 80%",           // Start when top 80% of the viewport reaches the section
-                end: "top 20%",             // End when top 20% of the viewport reaches the section
-                toggleActions: "play none none none",  // Play animation when scrolling down
-                invalidateOnRefresh: true,  // Recalculate values on page resize
+                trigger: "#aboutOurStory", // Trigger the animation when this section comes into view
+                start: "top 80%", // Animation starts when 80% of the viewport reaches the top of #aboutOurStory
+                end: "top 10%", // Animation ends when 20% of the viewport reaches the top of the section
+                toggleActions: "play none none none", // Play animation when scrolling down
+                invalidateOnRefresh: true, // Recalculate values on page resize
             }
         });
-    }
-
-    // Add load event listener to image to ensure correct height calculation after it loads
-    animatedImage.addEventListener('load', () => {
-        animateImageHeight(); // Call the function to animate the image height
     });
-
-    // Fallback in case the image is already loaded (e.g., from cache)
-    if (animatedImage.complete) {
-        animateImageHeight();
-    }
-
-    // Recalculate and re-animate the image on window resize to account for media queries
-    window.addEventListener('resize', () => {
-        gsap.set(animatedImage, { height: 0 }); // Reset to height 0 on resize
-        animateImageHeight();  // Recalculate and animate the image height based on new viewport
-    });
-
-    // Move Bar Animation
-    const maxMoveDistance = "60vw";
-    gsap.to(movedBar, {
-        x: maxMoveDistance, // Move the bar to the end of the container
-        ease: "power3.out", // Smooth easing function
-        duration: 1, // Increase the duration to slow down the movement
-        scrollTrigger: {
-            trigger: "#aboutOurStory", // Trigger the animation when this section comes into view
-            start: "top 80%", // Animation starts when 80% of the viewport reaches the top of #aboutOurStory
-            end: "top 10%", // Animation ends when 20% of the viewport reaches the top of the section
-            toggleActions: "play none none none", // Play animation when scrolling down
-            invalidateOnRefresh: true, // Recalculate values on page resize
-        }
-    });
-});
 
 
 </script>

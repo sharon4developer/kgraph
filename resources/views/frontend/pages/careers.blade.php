@@ -207,28 +207,7 @@
     </div>
 </div>
 
-{{-- get in touch section --}}
-<div class="get-in-Touch bg-[#051b3b] py-28">
-    <div class="container mx-auto px-5 xl:px-12 h-full w-full">
-        <div class="flex justify-center items-center flex-col ">
-            <div class="flex flex-col-reverse md:flex-row items-center">
-                <h2 class="font_inter font-semibold text-4xl text-center md:text-left gettouch uppercase gradient-text">Get IN TOUCH WITH US</h2>
-                <img class="w-[70px]" src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="">
-            </div>
-            <p class="text-white py-6 paddadjuster md:w-3/5 lg:w-1/2 text-center font_inter font-semibold lg:text-[22px] gettouchpara">Labaton Keller Sucharow is elevating excellence through innovation, client service, and teamwork.</p>
-            <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 lg:pr-2 overflow-hidden group">
-                <!-- Background animation using pseudo-element -->
-                <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-0 group-hover:w-full w-0 left-full"></div>
-
-                <h6 class="relative z-10 text-white text-[12px] xl:text-[16px]">Have any doubt</h6>
-                <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-sm cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
-                    <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
+@include('frontend.Common.getintouch')
 
 <script>
     function handleFileChange() {
