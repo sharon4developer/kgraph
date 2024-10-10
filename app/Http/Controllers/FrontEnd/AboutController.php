@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\FrontEnd;
 
 use App\Http\Controllers\Controller;
+use App\Models\AboutUs;
 use App\Models\Crew;
 use App\Models\Journey;
 use App\Models\Location;
@@ -16,8 +17,9 @@ class AboutController extends Controller
         $journey = Journey::getFullDataForHome();
         $ourStory = OurStory::getFullDataForHome();
         $locations = Location::getFullDataForHome();
+        $aboutUs = AboutUs::getFullDataForHome();
 
-        return view('frontend.pages.about',compact('journey','ourStory','locations'));
+        return view('frontend.pages.about',compact('journey','ourStory','locations','aboutUs'));
     }
 
     public function crewShow()
