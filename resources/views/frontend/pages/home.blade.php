@@ -519,9 +519,9 @@
                     <ul class="splide__list">
                         @foreach ($blogs as $data)
                             <li class="splide__slide">
-                                <div class="bg-white w-[350px] lg:w-fit lg:max-w-[417px] 2xl:h-[75vh] lg:max-h-[600px] 2xl:max-h-[590px] mb-8 mr-5">
-                                    <img class="max-h-[18vh] w-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="blog_image"/>
-                                    <div class="py-4 px-6">
+                                <div class="bg-white w-[350px] lg:w-[450px]  mb-8 mr-5">
+                                    <img class="h-full w-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="blog_image"/>
+                                    <div class="py-4 px-6 bg-white z-10 relative">
                                         <div class="flex items-center gap-4">
                                             <img class="w-[50px] h-[50px] rounded-full" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->user_image }}" alt="profile_image"/>
                                             <div>
@@ -574,7 +574,7 @@
                     @foreach ($explore as $data)
                     <li class="splide__slide">
                         <div class="!w-[90vw] xl:!w-[385px] relative image-card-explore">
-                            <img class="w-full md:w-full h-[300px] object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
+                            <img class="w-full md:w-full h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
                             <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
                                 <button class="text-white">view</button>
                             </div>
@@ -1082,7 +1082,7 @@
             perPage: 3.5,     // Shows one slide per page
             arrows: false,  // Disable default arrows
             pagination: false, // Disable the dots (pagination)
-            autoplay: true,
+            autoplay: false,
             interval: 3000, // Auto-slide interval
             breakpoints: {
                 640: { perPage: 1 },
