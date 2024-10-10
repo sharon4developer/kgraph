@@ -692,7 +692,9 @@ video {
     text-overflow: ellipsis;
 }
 
-
+.grade-box-home-who{
+    background: linear-gradient(0deg, #000, rgba(0, 0, 0, .5) 59.43%, #000 115.27%);
+}
 
 
 
