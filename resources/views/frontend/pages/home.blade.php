@@ -527,7 +527,7 @@
                                         </div>
                                     </div>
                                     <h5 class="text-[#072558] font_inter font-bold text-[10px] xl:text-[20px] py-5 xl:pb-[15px] xl:pt-[42px]">{{ $data->title }}</h5>
-                                    <p class="clamp-text text-[#072558] font_inter font-normal text-justify text-[14px] lg:text-[16px] xl:text-[20px] ">{{ $data->description }}</p>
+                                    <p class="clamp-text text-[#072558] font_inter font-normal text-justify text-[14px] lg:text-[16px] xl:text-[20px] ">{!! $data->description !!}</p>
                                     <div class="flex justify-end items-center pt-8 pb-2">
                                         <a class="capitalize text-[#062358] underline font-bold font_inter text-lg" href="">Read more</a>
                                     </div>

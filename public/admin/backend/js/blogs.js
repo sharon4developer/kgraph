@@ -154,6 +154,7 @@ $('#blog-add-form').validate({
         $('.error').html('');
         var submitButton = $(form).find('[type=submit]');
         var current_btn_text = submitButton.html();
+        formData.append('description', $('.ck-content').html());
         button_loading_text = 'Saving...';
         // Create
         $.ajax({
@@ -255,6 +256,7 @@ $('#blog-edit-form').validate({
         var submitButton = $(form).find('[type=submit]');
         var current_btn_text = submitButton.html();
         button_loading_text = 'Saving...';
+        formData.append('description', $('.ck-content').html());
         var blog_id = $(form).find('input[name=blog_id]').val();
         // Create
         $.ajax({

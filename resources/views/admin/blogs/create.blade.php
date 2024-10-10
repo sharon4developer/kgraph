@@ -54,18 +54,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="mb-3">
                                     <div class="form-group">
                                         <label class="form-label" for="description">Description</label>
-                                        <textarea type="text" class="form-control" id="description" name="description"
-                                            placeholder="Description" required></textarea>
+                                        <div id="ckeditor-classic"></div>
                                         <div class="valid-feedback">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="mb-3">
                                     <div class="form-group">
                                         <label class="form-label" for="topics">Topics</label>
@@ -143,5 +142,7 @@
 @push('style')
 @endpush
 @push('script')
+    <script src="{{ asset('admin/theme/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js')}}"></script>
+    <script src="{{ asset('admin/theme/assets/js/pages/form-editor.init.js')}}"></script>
     <script src="{{ asset('admin/backend/js/blogs.js') }}"></script>
 @endpush
