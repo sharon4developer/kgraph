@@ -131,7 +131,7 @@
 </style>
 
 {{-- banner section --}}
-<div class="h-dvh md:h-screen lg:h-full w-full homeBanner relative overflow-hidden">
+<div class="h-dvh md:h-screen lg:h-full 2xl:h-screen w-full homeBanner relative overflow-hidden">
     <!-- Gradient overlay -->
     {{-- <div class="banner-gradient-overlay absolute inset-0"></div> --}}
 
@@ -514,26 +514,28 @@
             </div>
 
 
-            <div id="blogSplide" class="splide pt-[20px] md:pb-[70px]">
+            <div id="blogSplide" class="splide pt-[20px] md:pb-[40px]">
                 <div class="splide__track">
                     <ul class="splide__list">
                         @foreach ($blogs as $data)
-                            <li class="splide__slide bg-white w-[350px] mr-5">
-                                <img class="h-[200px] w-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="blog_image"/>
-                                <div class="py-4 px-6">
-                                    <div class="flex items-center gap-4">
-                                        <img class="w-[50px] lg:w-[70px] h-[50px] lg:h-[70px]" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->user_image }}" alt="profile_image"/>
-                                        <div>
-                                            <h6 class="font_inter font-semibold text-16px text-[#072558] xl:text-[22px]">{{ $data->name }}</h6>
-                                            <?php $date = $data->date . ' ' . $data->time; ?>
-                                            <p class="text-[#072558] font_inter font-medium text-[10px] xl:text-[16px]">by {{ $data->name }}, on  {{ $data->name }}, on {{ date('M j, Y h:i:s A', strtotime($date)) }}</p>
-                                            <p class="text-[#072558] font_inter font-medium text-[10px] xl:text-[16px]">Topics: {{ $data->topics }}</p>
+                            <li class="splide__slide">
+                                <div class="bg-white w-[350px] lg:w-fit lg:max-w-[417px] 2xl:h-[75vh] lg:max-h-[600px] 2xl:max-h-[590px] mb-8 mr-5">
+                                    <img class="max-h-[18vh] w-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="blog_image"/>
+                                    <div class="py-4 px-6">
+                                        <div class="flex items-center gap-4">
+                                            <img class="w-[50px] h-[50px] rounded-full" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->user_image }}" alt="profile_image"/>
+                                            <div>
+                                                <h6 class="font_inter font-semibold text-16px text-[#072558]  2xl:text-[18px]">{{ $data->name }}</h6>
+                                                <?php $date = $data->date . ' ' . $data->time; ?>
+                                                <p class="text-[#072558] font_inter font-medium text-[10px] 2xl:text-[12px] lg:whitespace-nowrap">by {{ $data->name }}, on  {{ $data->name }}, on {{ date('M j, Y h:i:s A', strtotime($date)) }}</p>
+                                                <p class="text-[#072558] font_inter font-medium text-[10px] 2xl:text-[12px]">Topics: {{ $data->topics }}</p>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <h5 class="text-[#072558] font_inter font-bold text-[10px] xl:text-[20px] py-5 xl:pb-[15px] xl:pt-[42px]">{{ $data->title }}</h5>
-                                    <p class="clamp-text text-[#072558] font_inter font-normal text-justify text-[14px] lg:text-[16px] xl:text-[20px] ">{{ $data->description }}</p>
-                                    <div class="flex justify-end items-center pt-8 pb-2">
-                                        <a class="capitalize text-[#062358] underline font-bold font_inter text-lg" href="">Read more</a>
+                                        <h5 class="text-[#072558] font_inter font-bold text-[10px] xl:text-[20px] py-5 xl:pb-[15px] 2xl:pt-[32px] clamp-text-two">{{ $data->title }}</h5>
+                                        <p class="clamp-text text-[#072558] font_inter font-normal text-[14px] lg:text-[16px] 2xl:text-[20px] pt-4">{{ $data->description }}</p>
+                                        <div class="flex justify-end items-center pt-8 pb-2">
+                                            <a class="capitalize text-[#062358] underline font-bold font_inter text-lg" href="">Read more</a>
+                                        </div>
                                     </div>
                                 </div>
                             </li>
@@ -543,7 +545,7 @@
             </div>
 
 
-            <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full flex items-center justify-end">
+            <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-2 h-full w-full flex items-center justify-end">
                 <div class="flex justify-center gap-3 items-center">
                     <div class="blog-slider-prev cursor-pointer">
                         <img class="w-[40px]" src="{{ asset('assets/Button-Previous.png') }}" alt="">
@@ -571,8 +573,8 @@
                 <ul class="splide__list">
                     @foreach ($explore as $data)
                     <li class="splide__slide">
-                        <div class="my-0 mx-4 !w-[89vw] xl:!w-[380px] md:mx-4 lg:mx-8 relative image-card-explore">
-                            <img class="w-full md:w-[380px] h-[300px]" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
+                        <div class="!w-[90vw] xl:!w-[385px] relative image-card-explore">
+                            <img class="w-full md:w-full h-[300px] object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
                             <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
                                 <button class="text-white">view</button>
                             </div>
@@ -1048,20 +1050,19 @@
 
     document.addEventListener('DOMContentLoaded', function () {
         var splide = new Splide('#blogSplide', {
-            type: 'loop',
+            type: 'slide',
+            perMove: 1,
+            perPage: 3.1,
+            arrows: false,
+            pagination: false,
             autoplay: true,
             interval: 3000,
-            arrows: false, // Disable default arrows
-            pagination: false,
-            perPage: 3.2,
-            perMove: 1,
             gap: '16px',
             breakpoints: {
                 640: { perPage: 1, gap: '12px' },
                 768: { perPage: 1.5, gap: '16px' },
                 1024: { perPage: 2, gap: '20px' },
                 1280: { perPage: 2.5, gap: '24px' },
-                1536: { perPage: 2.9, gap: '28px' },
             }
         }).mount();
 
@@ -1083,7 +1084,6 @@
             pagination: false, // Disable the dots (pagination)
             autoplay: true,
             interval: 3000, // Auto-slide interval
-            gap: '16px',    // Gap between slides
             breakpoints: {
                 640: { perPage: 1 },
                 768: { perPage: 1.5},
@@ -1112,14 +1112,35 @@
             pagination: false, // Disable the dots (pagination)
             autoplay: true,
             interval: 3000,  // Auto-slide interval
-            gap: '16px',     // Gap between slides
+            gap: '2px',     // Gap between slides
             breakpoints: {
-                640: { perPage: 1 },
-                768: { perPage: 1.5 },
-                1024: { perPage: 2 },
-                1280: { perPage: 2.8 },
+                640: {
+                    perPage: 1,
+                    gap: '16px'  // Adjust gap for smaller screens
+                },
+                768: {
+                    perPage: 1.5,
+                    gap: '16px'  // Adjust gap for medium screens
+                },
+                1024: {
+                    perPage: 2,
+                    gap: '16px'  // Adjust gap for larger screens
+                },
+                1280: {
+                    perPage: 2.8,
+                    gap: '70px'  // Adjust gap for large screens
+                },
+                1536: {
+                    perPage: 2.8,
+                    gap: '0px',  // Larger gap for extra-large screens
+                },
+                1920: {
+                    perPage: 2.8,
+                    gap: '0px',  // Larger gap for extra-large screens
+                },
             }
         }).mount();
+
 
         // Custom Previous Button
         document.querySelector('.card-testi-slide-prev-button').addEventListener('click', function () {

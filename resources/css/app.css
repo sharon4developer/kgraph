@@ -565,11 +565,21 @@ video {
 }
 .clamp-text {
     display: -webkit-box;
-    -webkit-line-clamp: 8; /* Limit to 5 lines */
+    -webkit-line-clamp:5 ; /* Limit to 5 lines */
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+.clamp-text-two {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.5; /* Adjust this value based on your design */
+    max-height: calc(2.2em * 2); /* 1.5 is line-height and 2 is the number of lines */
   }
+
 
 .image-height-adjuster{
     max-height: 150px;
@@ -912,7 +922,7 @@ video {
         bottom: -75px;
         right: -38%;
     } */
-    .testimonial-slider-wrapper .splide__list{
+    .testimonial-slider-wrapper .splide__list, #exploreSplide .splide__track  {
         margin-left: 200px !important;
     }
 }
