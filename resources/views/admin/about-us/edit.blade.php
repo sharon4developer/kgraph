@@ -1,0 +1,59 @@
+@extends('admin.layouts.app')
+@section('content')
+    <!-- end page title -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">About Us</h4>
+                </div>
+                <div class="card-body">
+                    <form class="needs-validation" novalidate id="about-edit-form" method="POST">
+                        @method('PUT')
+                        <input type="hidden" name="about_us_id" value="{{$data->id}}">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label class="form-label" for="ckeditor-classic">Mission</label>
+                                        <textarea type="text" class="form-control" id="mission" name="mission"
+                                        placeholder="Mission" required>{{$data->mission}}</textarea>
+                                        <div class="valid-feedback">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label class="form-label" for="ckeditor-classic">Vision</label>
+                                        <textarea type="text" class="form-control" id="vision" name="vision"
+                                            placeholder="Vision" required>{{$data->vision}}</textarea>
+                                        <div class="valid-feedback">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <a type="button" href="{{ url('admin/about-us') }}"
+                                        class="btn btn-outline-warning btn-rounded mb-2">
+                                        <i class="ti-close"></i> Cancel
+                                    </a>
+                                    <button class="btn btn-outline-secondary btn-rounded mb-2" type="submit"> <i class="ti-save-alt"></i>
+                                        Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- end card -->
+        </div> <!-- end col -->
+    </div>
+@endsection
+@push('style')
+@endpush
+@push('script')
+    <script src="{{ asset('admin/backend/js/about-us.js') }}"></script>
+@endpush

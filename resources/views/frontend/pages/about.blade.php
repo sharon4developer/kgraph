@@ -180,20 +180,12 @@
     <div class="container mx-auto px-5 lg:px-12">
         <div class="flex flex-col lg:flex-row items-center gap-[50px] mt-6">
             <p class="lg:w-[30%] text-[#06245A] font_inter font-semibold text-justify">
-                “<strong>Our Mission</strong> Just like the philosophy of Google,
-                we incorporated our company with the belief in
-                ‘not being evil’. At Kansas,
-                we inspire our teams to be straight-forward,
-                transparent, and customer-centric and the rest
-                is history.”
+                “<strong>Our Mission</strong>
+                @if(isset($aboutUs)) {{$aboutUs->mission}} @endif
             </p>
             <p class="lg:w-[30%] text-[#06245A] font_inter font-semibold text-justify">
-                “<strong>Our Mission</strong> Just like the philosophy of Google,
-                we incorporated our company with the belief in
-                ‘not being evil’. At Kansas,
-                we inspire our teams to be straight-forward,
-                transparent, and customer-centric and the rest
-                is history.”
+                “<strong>Our Vision</strong>
+                @if(isset($aboutUs)) {{$aboutUs->vision}} @endif
             </p>
         </div>
     </div>

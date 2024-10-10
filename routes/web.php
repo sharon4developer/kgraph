@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CareerBranchController;
@@ -100,6 +101,7 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'pages' => PageController::class,
         'career-departments' => CareerDepartmentController::class,
         'career-branches' => CareerBranchController::class,
+        'about-us' => AboutUsController::class,
     ]);
 
     Route::prefix('pages')->name('.pages')->group(function () {

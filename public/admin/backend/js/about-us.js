@@ -1,20 +1,20 @@
 $(document).ready(function () {
 
-    loadDataTableForBlogs();
+    loadDataTableForAbout();
 
-    if(document.getElementById('blog-details-table')){
+    if(document.getElementById('about-details-table')){
 
-        Sortable.create(document.getElementById('blog-details-table').getElementsByTagName('tbody')[0], {
+        Sortable.create(document.getElementById('about-details-table').getElementsByTagName('tbody')[0], {
             onEnd: function (event) {
                 // Get the new order of the rows
                 var newOrder = [];
-                $('#blog-details-table tbody tr').each(function () {
+                $('#about-details-table tbody tr').each(function () {
                     newOrder.push(table.row(this).data());
                 });
 
                 // Pass the new order to the backend (e.g., using AJAX)
                 $.ajax({
-                    url: $('#route-for-user').val() + '/blogs/update/order', // Replace with your Laravel route URL
+                    url: $('#route-for-user').val() + '/about-us/update/order', // Replace with your Laravel route URL
                     method: 'POST',
                     data: {
                         order: newOrder
@@ -31,64 +31,23 @@ $(document).ready(function () {
     }
 });
 
-function loadDataTableForBlogs() {
-    table = $('#blog-details-table').DataTable({
+function loadDataTableForAbout() {
+    table = $('#about-details-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: $('#route-for-user').val() + '/blogs/show',
+        ajax: $('#route-for-user').val() + '/about-us/show',
         columns: [
             { data: 'DT_RowIndex', orderable: false, searchable: false },
-            { data: 'name' },
-            { data: 'title' },
-            { data: 'date' },
-            {
-                data: null,
-                render: function (row) {
-                    return `<img class="table-img" src=` + row.image + `>`;
-                },
-                orderable: false,
-                searchable: false,
-            },
+            { data: 'mission' },
+            { data: 'vision' },
             {
                 data: null,
                 render: function (row) {
 
-                    if (row.status == 1)
-                        return `<span class="badge rounded-pill bg-success-subtle text-success">Active</span>`;
-                    else
-                        return `<span class="badge rounded-pill bg-danger-subtle text-danger">Deactivated</span>`;
 
-
-                }, orderable: false, searchable: false
-            },
-            {
-                data: null,
-                render: function (row) {
-                    return moment(row.created_at).format('DD MMM  YYYY hh:mm:a')
-                },
-                orderable:
-                    false,
-                searchable: false
-            },
-            {
-                data: null,
-                render: function (row) {
-
-                    if (row.status == 1)
-                        statusCheck = ` <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light" href="#"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Deactivate" data-bs-placement="top"   onclick="changeStatus(` + row.id + `,` + row.status + `)">
-                                            <i class="fa fa-ban"></i>
-                                        </a>`;
-                    else
-                        statusCheck = ` <a class="datatable-buttons btn btn-outline-success btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light" href="#"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Activate" data-bs-placement="top" onclick="changeStatus(` + row.id + `,` + row.status + `)">
-                                            <i class="fa fa-check"></i>
-                                        </a>`;
                     return (`<div style="white-space:no-wrap">
-                                    <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Edit" data-bs-placement="top"  href="` + $("#route-for-user").val() + `/blogs/` + row.id + `/edit">
+                                    <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Edit" data-bs-placement="top"  href="` + $("#route-for-user").val() + `/about-us/` + row.id + `/edit">
                                         <i class="fa fa-edit"></i>
-                                    </a>
-                                    `+ statusCheck + `
-                                    <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light" href="#"   data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Delete" data-bs-placement="top"   onclick="deleteData(`+ row.id + `)">
-                                         <i class="fa fa-trash"></i>
                                     </a>
                                  </div>`);
 
@@ -110,42 +69,18 @@ function loadDataTableForBlogs() {
     });
 }
 
-$('#blog-add-form').validate({
+$('#about-add-form').validate({
     rules: {
-        title: {
+        mission: {
             required: true,
         },
-        description: {
-            required: true,
-        },
-        date: {
-            required: true,
-        },
-        time: {
-            required: true,
-        },
-        name: {
-            required: true,
-        },
-        topics: {
-            required: true,
-        },
-        image: {
-            required: true,
-        },
-        user_image: {
+        vision: {
             required: true,
         },
     },
     messages: {
-        title: "Title field is required",
-        description: "Description field is required",
-        date: "Date field is required",
-        time: "Time field is required",
-        name: "Name field is required",
-        topics: "Topics field is required",
-        image: "Image field is required",
-        user_image: "User Image field is required",
+        mission: "Mission field is required",
+        vision: "Vision field is required",
     },
     errorElement: 'span',
     submitHandler: function (form, event) {
@@ -154,12 +89,11 @@ $('#blog-add-form').validate({
         $('.error').html('');
         var submitButton = $(form).find('[type=submit]');
         var current_btn_text = submitButton.html();
-        formData.append('description', $('.ck-content').html());
         button_loading_text = 'Saving...';
         // Create
         $.ajax({
             type: "POST",
-            url: $('#route-for-user').val() + '/blogs',
+            url: $('#route-for-user').val() + '/about-us',
             contentType: false,
             processData: false,
             data: formData,
@@ -216,37 +150,21 @@ $('#blog-add-form').validate({
     }
 });
 
-$('#blog-edit-form').validate({
+$('#about-edit-form').validate({
     rules: {
-        title: {
+        mission: {
             required: true,
         },
-        description: {
+        vision: {
             required: true,
         },
-        date: {
-            required: true,
-        },
-        time: {
-            required: true,
-        },
-        name: {
-            required: true,
-        },
-        topics: {
-            required: true,
-        },
-        blog_id: {
+        about_us_id: {
             required: true,
         },
     },
     messages: {
-        title: "Title field is required",
-        description: "Description field is required",
-        date: "Date field is required",
-        time: "Time field is required",
-        name: "Name field is required",
-        topics: "Topics field is required",
+        mission: "Mission field is required",
+        vision: "Vision field is required",
     },
     errorElement: 'span',
     submitHandler: function (form, event) {
@@ -256,12 +174,11 @@ $('#blog-edit-form').validate({
         var submitButton = $(form).find('[type=submit]');
         var current_btn_text = submitButton.html();
         button_loading_text = 'Saving...';
-        formData.append('description', $('.ck-content').html());
-        var blog_id = $(form).find('input[name=blog_id]').val();
+        var about_us_id = $(form).find('input[name=about_us_id]').val();
         // Create
         $.ajax({
             type: "POST",
-            url: $('#route-for-user').val() + '/blogs/' + blog_id,
+            url: $('#route-for-user').val() + '/about-us/' + about_us_id,
             contentType: false,
             processData: false,
             data: formData,
@@ -318,75 +235,3 @@ $('#blog-edit-form').validate({
         $(element).removeClass('is-invalid');
     }
 });
-
-function changeStatus(id, status) {
-    if (status == 1) {
-        text = 'You want to deactivate this blog!';
-        message = 'Deactivated successfully';
-    }
-    else {
-        text = 'You want to activate this blog!';
-        message = 'Activated successfully';
-    }
-    Swal.fire({
-        title: 'Are you sure?',
-        text: text,
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Yes!',
-        cancelButtonText: 'No, cancel!',
-        reverseButtons: true
-    }).then((result) => {
-        if (result.isConfirmed) {
-            $.ajax({
-                type: "POST",
-                url: $("#route-for-user").val() + "/blogs/change/status",
-                data: {
-                    id: id,
-                },
-                success: function (data) {
-                    table.ajax.reload(null, false);
-                    if (data == true)
-                        showMessage(
-                            "success",
-                            message
-                        );
-                },
-                error: function (data) {
-                    showMessage("warning", "Something went wrong...");
-                },
-            });
-        }
-    })
-}
-
-function deleteData(id) {
-    Swal.fire({
-        title: 'Are you sure?',
-        text: "Are you sure, do yo want to delete the blog ?",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Yes!',
-        cancelButtonText: 'No, cancel!',
-        reverseButtons: true
-    }).then((result) => {
-        if (result.isConfirmed) {
-            $.ajax({
-                type: "DELETE",
-                url: $("#route-for-user").val() + '/blogs/' + id,
-                data: {
-                    id: id,
-                },
-                success: function (data) {
-                    table.ajax.reload(null, false);
-                    if (data == true)
-                        showMessage('success', "Blog deleted successfully");
-                },
-                error: function (data) {
-                    showMessage("warning", "Something went wrong...");
-                },
-            });
-        }
-    })
-}
-
