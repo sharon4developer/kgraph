@@ -438,10 +438,10 @@
                         @foreach ($testimonials as $data)
                         <li class="splide__slide">
                             <div class="!flex !w-[89vw] md:!w-[440px] overflow-hidden !h-[250px] bg-white rounded-xl relative">
-                                <img class="absolute md:relative object-scale-down w-full lg:w-[40%] opacity-30 md:opacity-100" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
+                                <img class="absolute md:relative object-cover w-full lg:w-[40%] opacity-30 md:opacity-100" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
                                 <div class="w-full py-4 px-4 z-10">
                                     <div class="flex items-center justify-end">
-                                        <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">{{$data->rating}}</div>
+                                        <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">5.0</div>
                                         <div class="flex items-center gap-1">
                                             @for($i=1;$i<=$data->rating;$i++)
                                             <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
@@ -449,7 +449,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <img width="30px" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
+                                        <img width="30px" src="{{ asset('assets/Navigation/doubleinverted-comma.png') }}" alt="">
                                     </div>
                                     <div class="py-2 font_inter text-[#072558]">
                                         <h4 class="font-extrabold">{{$data->title}}</h4>
