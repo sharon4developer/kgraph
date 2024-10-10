@@ -388,7 +388,7 @@
         <div class="container mx-auto px-5 xl:px-12 py-6 lg:py-16 h-full w-full">
             <div class="md:flex justify-center items-start gap-5">
                 <div class="RegulatedSec-left md:w-1/2">
-                    <h2 class="text-white font_inter font-semibold text-2xl lg:text-3xl xl:text-4xl">Regulated Canadian Immigration Consultants (RCIC-IRB)</h2>
+                    <h2 class="text-white font_inter font-semibold text-2xl lg:text-3xl xl:text-4xl xl:w-[80%]">Regulated Canadian Immigration Consultants (RCIC-IRB)</h2>
                     <p class="py-5 text-white font-normal font_inter text-[14px] xl:text-lg lg:py-10">Proudly regulated by and in good standing with the College of Immigration and Citizenship Consultants (CICC). Jamie Dowla, registration #: R507233</p>
                     <div class="flex flex-col flex-wrap lg:flex-row gap-5 items-center mb-8">
                         @foreach ($certificate as $data)
