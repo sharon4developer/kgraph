@@ -209,7 +209,7 @@
             </div>
             <h4 class="text-white font_inter font-semibold text-[22px] xl:text-[36px] py-4 lg:pb-0 left-to-right-animation capitalize mt-6">Visa Immigration for a Brighter You Future</h4>
             <p class="text-white font_inter font-extralight text-justify text-[14px] xl:text-[16px] left-to-right-animation">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
-            <div class="gap-5 flex justify-start lg:justify-between items-center scrollbar-hidden" style="">
+            <div class="gap-5 flex w-full justify-start lg:justify-between items-center scrollbar-hidden" style="">
 
                 @foreach ($services as $data)
                 <div class="box-grading mb-9 lg:mb-0 p-4 lg:p-6 h-[400px] lg:min-h-[360px] lg:max-h-[360px] xl:max-h-[450px] w-full md:w-[33%] lg:w-full rounded-xl cursor-pointer">
@@ -269,24 +269,28 @@
             </div>
             <p class="py-5 text-white font_inter font-medium text-[18px] xl:text-[36px] lg:w-[50%] xl:w-[60%]  secleft-to-right-animation">Navigate Your Canadian Immigration Journey with Confidence</p>
 
-            <div class="video-carousel lg:mt-10">
+            <div class="video-carousel w-full lg:mt-10">
                 @foreach ($whoweare as $data)
-                <div class="video-container z-99">
-                    <video id="customVideo1" width="320" height="240">
-                        <source src="{{ $locationData['storage_server_path'] . $locationData['storage_video_path'] . $data->file }}" type="video/mp4">
-                        <source src="{{ $locationData['storage_server_path'] . $locationData['storage_video_path'] . $data->file }}" type="video/ogg">
-                        Your browser does not support the video tag.
-                    </video>
+                <div class="video-container relative w-full h-auto aspect-w-16 aspect-h-9"> <!-- Maintain 16:9 Aspect Ratio -->
+                    <div class="video-wrapper relative w-full h-full">
+                        <video id="customVideo{{ $loop->index }}" class="absolute top-0 left-0 w-full h-full object-contain">
+                            <source src="{{ $locationData['storage_server_path'] . $locationData['storage_video_path'] . $data->file }}" type="video/mp4">
+                            <source src="{{ $locationData['storage_server_path'] . $locationData['storage_video_path'] . $data->file }}" type="video/ogg">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
 
                     <!-- Custom Play/Pause Button -->
-                    <div id="playPauseButton1" class="custom-controls">
-                        <img src="{{ asset('assets/play.png') }}" alt="Play" width="50" height="50">
+                    <div id="playPauseButton{{ $loop->index }}" class="custom-controls absolute inset-0 flex justify-center items-center">
+                        <img src="{{ asset('assets/play.png') }}" alt="Play" class="play-icon w-12 h-12">
                     </div>
                 </div>
                 @endforeach
             </div>
 
-            <div class="container mx-auto px-5 xl:px-12 py-8 lg:pt-1 lg:pb-16 h-full w-full">
+
+
+            <div class="container mx-auto px-5 xl:px-12 py-8 lg:pt-16 lg:pb-16 h-full w-full">
                 <div class="flex justify-end gap-3 items-center">
                     <div class="card-whosec-slide-next-button cursor-pointer">
                         <img class="w-[40px]" src="{{ asset('assets/Button-Previous.png') }}" alt="">
@@ -428,13 +432,13 @@
         </div>
 
         <div class="testimonial-slider-wrapper pl-5 lg:pl-12 pt-9 pb-0 lg:py-[70px] z-50">
-            <div id="splide" class="splide">
+            <div id="testimonial-slider" class="splide">
                 <div class="splide__track">
                     <ul class="splide__list">
                         @foreach ($testimonials as $data)
                         <li class="splide__slide">
                             <div class="!flex !w-[89vw] md:!w-[440px] overflow-hidden !h-[250px] bg-white rounded-xl relative">
-                                <img class="absolute md:relative w-full opacity-30 md:opacity-100" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
+                                <img class="absolute md:relative object-scale-down w-full lg:w-[40%] opacity-30 md:opacity-100" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
                                 <div class="w-full py-4 px-4 z-10">
                                     <div class="flex items-center justify-end">
                                         <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">{{$data->rating}}</div>
@@ -445,12 +449,12 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
+                                        <img width="30px" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
                                     </div>
                                     <div class="py-2 font_inter text-[#072558]">
                                         <h4 class="font-extrabold">{{$data->title}}</h4>
-                                        <p class="text-[8px] py-2 font-semibold">{{$data->description}}</p>
-                                        <div>
+                                        <p class="text-[8px] py-2 font-semibold truncate-text">{{$data->description}}</p>
+                                        <div class="py-3">
                                             <h5 class="font-bold">{{$data->name}}</h5>
                                             <h6 class="text-[10px] font-semibold">{{$data->occupation}} {{$data->place}}</h6>
                                         </div>
@@ -478,10 +482,10 @@
             </div>
 
             <div class="flex justify-center gap-3 items-center">
-                <div class="card-home-slide-prev-button cursor-pointer">
+                <div class="card-testi-slide-prev-button cursor-pointer">
                     <img class="w-[40px]" src="{{ asset('assets/Button-Previous.png') }}" alt="">
                 </div>
-                <div class="cursor-pointer card-home-slide-next-button">
+                <div class="cursor-pointer card-testi-slide-next-button">
                     <img class="w-[40px]" src="{{ asset('assets/nextbutton.png') }}" alt="">
                 </div>
             </div>
@@ -677,7 +681,6 @@
             }
         });
     });
-
     function animateCountUp(el, start, end, duration) {
         let startTime = null;
 
@@ -692,7 +695,6 @@
 
         requestAnimationFrame(count);
     }
-
     document.addEventListener('DOMContentLoaded', function() {
         const numberElement = document.getElementById('count-number');
         const sectionToObserve = document.querySelector('.Navigatesec');
@@ -717,46 +719,39 @@
         const videos = document.querySelectorAll('video');
         const playPauseButtons = document.querySelectorAll('.custom-controls');
 
-        playPauseButtons.forEach((button, index) => {
-            const video = videos[index]; // Corresponding video for the button
+        // Loop through all videos
+        videos.forEach((video, index) => {
+            const playPauseButton = playPauseButtons[index]; // Get corresponding play/pause button
 
-            button.addEventListener('click', function() {
+            // Play video when hovering over the video
+            video.addEventListener('mouseenter', function() {
+                video.play();
+                playPauseButton.querySelector('img').src = "{{ asset('assets/pause.png') }}"; // Update button to pause icon
+            });
+
+            // Pause video when mouse leaves the video
+            video.addEventListener('mouseleave', function() {
+                video.pause();
+                playPauseButton.querySelector('img').src = "{{ asset('assets/play.png') }}"; // Update button to play icon
+            });
+
+            // Manually toggle play/pause on button click
+            playPauseButton.addEventListener('click', function() {
                 if (video.paused) {
                     video.play();
-                    button.innerHTML =
-                        '<img src="{{ asset('assets/pause.png') }}" alt="Pause" width="50" height="50">';
+                    playPauseButton.querySelector('img').src = "{{ asset('assets/pause.png') }}"; // Update to pause icon
                 } else {
                     video.pause();
-                    button.innerHTML =
-                        '<img src="{{ asset('assets/play.png') }}" alt="Play" width="50" height="50">';
+                    playPauseButton.querySelector('img').src = "{{ asset('assets/play.png') }}"; // Update to play icon
                 }
             });
 
-            // Automatically update play/pause button when the video ends
+            // Reset to play button when video ends
             video.addEventListener('ended', function() {
-                button.innerHTML =
-                    '<img src="{{ asset('assets/play.png') }}" alt="Play" width="50" height="50">';
+                playPauseButton.querySelector('img').src = "{{ asset('assets/play.png') }}";
             });
         });
     });
-
-    // playPauseButton.addEventListener('click', function () {
-    //     if (video.paused) {
-    //     video.play();
-    //     playPauseButton.innerHTML = '⏸️'; // Change to pause icon
-    //     } else {
-    //     video.pause();
-    //     playPauseButton.innerHTML = '▶️'; // Change to play icon
-    //     }
-    // });
-
-    // // Optional: Automatically update play/pause button when video ends
-    // video.addEventListener('ended', function () {
-    //     playPauseButton.innerHTML = '▶️'; // Reset to play icon when video ends
-    // });
-
-    // Select the knowmore button and expandable line
-
     document.querySelectorAll('.knowmore').forEach(button => {
         const lineId = button.getAttribute('data-line');
         const line = document.querySelector(`.expandable-line[data-line="${lineId}"]`);
@@ -987,133 +982,6 @@
 {{-- slick slider --}}
 <script type="text/javascript">
     $(document).ready(function(){
-        // $('.your-slider-class').slick({
-        //     autoplay: false,
-        //     autoplaySpeed: 3000,
-        //     dots: false,
-        //     arrows: true,
-        //     infinite: true,
-        //     slidesToShow: 3,
-        //     slidesToScroll: 1,
-        //     pauseOnHover: false,
-        //     pauseOnFocus: false,
-        //     prevArrow: $('.card-home-slide-prev-button'),
-        //     nextArrow: $('.card-home-slide-next-button'),
-        //     responsive: [
-        //         {
-        //             breakpoint: 1200, // Extra large devices
-        //             settings: {
-        //                 slidesToShow: 3.5,
-        //                 slidesToScroll: 1
-        //             }
-        //         },
-        //         {
-        //             breakpoint: 992, // Desktop view
-        //             settings: {
-        //                 slidesToShow: 2.5,
-        //                 slidesToScroll: 1
-        //             }
-        //         },
-        //         {
-        //             breakpoint: 768, // Tablet view
-        //             settings: {
-        //                 slidesToShow: 1.5,
-        //                 slidesToScroll: 1
-        //             }
-        //         },
-        //         {
-        //             breakpoint: 576, // Mobile view
-        //             settings: {
-        //                 slidesToShow: 1, // Ensure only one slide is shown on mobile
-        //                 slidesToScroll: 1,
-        //                 arrows: false,
-        //                 centerMode: true, // Use centerMode to center the slide properly
-        //                 variableWidth: false, // Ensure the width is constant
-        //             }
-        //         }
-        //     ]
-        // });
-
-        // $('.blog-slider-class').slick({
-        //     autoplay: true,
-        //     autoplaySpeed: 3000,
-        //     dots: false,
-        //     arrows: true,
-        //     infinite: true,
-        //     slidesToShow: 3,
-        //     slidesToScroll: 1,
-        //     pauseOnHover: false,
-        //     pauseOnFocus: false,
-        //     prevArrow: $('.card-blog-slide-prev-button'),
-        //     nextArrow: $('.card-blog-slide-next-button'),
-        //     responsive: [
-        //         {
-        //             breakpoint: 1200, // extra large devices
-        //             settings: {
-        //                 slidesToShow: 3.5
-        //             }
-        //         },
-        //         {
-        //             breakpoint: 992, // desktop view
-        //             settings: {
-        //                 slidesToShow: 2.5
-        //             }
-        //         },
-        //         {
-        //             breakpoint: 768, // tablet view
-        //             settings: {
-        //                 slidesToShow: 1.5
-        //             }
-        //         },
-        //         {
-        //             breakpoint: 576, // mobile view
-        //             settings: {
-        //                 slidesToShow: 1
-        //             }
-        //         }
-        //     ]
-        // });
-
-        // $('.explore-slider-class').slick({
-        //     autoplay: true,
-        //     autoplaySpeed: 3000,
-        //     dots: false,
-        //     arrows: true,
-        //     infinite: true,
-        //     slidesToShow: 5,
-        //     slidesToScroll: 1,
-        //     pauseOnHover: false,
-        //     pauseOnFocus: false,
-        //     prevArrow: $('.card-explore-slide-prev-button'),
-        //     nextArrow: $('.card-explore-slide-next-button'),
-        //     responsive: [
-        //         {
-        //             breakpoint: 1200, // extra large devices
-        //             settings: {
-        //                 slidesToShow: 3.5
-        //             }
-        //         },
-        //         {
-        //             breakpoint: 992, // desktop view
-        //             settings: {
-        //                 slidesToShow: 2.5
-        //             }
-        //         },
-        //         {
-        //             breakpoint: 768, // tablet view
-        //             settings: {
-        //                 slidesToShow: 1.5
-        //             }
-        //         },
-        //         {
-        //             breakpoint: 576, // mobile view
-        //             settings: {
-        //                 slidesToShow: 1
-        //             }
-        //         }
-        //     ]
-        // });
-
         $('.slick-slider-background').slick({
             autoplay: true,
             autoplaySpeed: 3000,
@@ -1134,7 +1002,6 @@
         });
     });
 </script>
-
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -1235,6 +1102,36 @@
             splide.go('>'); // Go to the next slide
         });
     });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var splide = new Splide('#testimonial-slider', {
+            type: 'slide',   // Switch to 'slide' to prevent cloning (No loop)
+            perMove: 1,      // Moves one slide at a time
+            perPage: 3.5,    // Shows one slide per page
+            arrows: false,   // Disable default arrows
+            pagination: false, // Disable the dots (pagination)
+            autoplay: true,
+            interval: 3000,  // Auto-slide interval
+            gap: '16px',     // Gap between slides
+            breakpoints: {
+                640: { perPage: 1 },
+                768: { perPage: 1.5 },
+                1024: { perPage: 2 },
+                1280: { perPage: 2.8 },
+            }
+        }).mount();
+
+        // Custom Previous Button
+        document.querySelector('.card-testi-slide-prev-button').addEventListener('click', function () {
+            splide.go('<'); // Go to the previous slide
+        });
+
+        // Custom Next Button
+        document.querySelector('.card-testi-slide-next-button').addEventListener('click', function () {
+            splide.go('>'); // Go to the next slide
+        });
+    });
+
 </script>
 
 

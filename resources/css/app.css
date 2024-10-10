@@ -451,33 +451,39 @@ ul.custom-bulletssec li{
 .video-container {
     position: relative;
     width: 100%;
-    /* height: 90vh; */
-
-    margin-bottom: 20px;
+    max-height: 80vh; /* Ensure video fits within viewport height */
 }
 
-  .custom-controls {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* background-color: rgba(0, 0, 0, 0.5); */
-    padding: 10px;
-    border-radius: 50%;
-    cursor: pointer;
-    color: white;
-    font-size: 24px;
-    display: none; /* Initially hide the button */
-  }
-
-  .video-container:hover .custom-controls {
-    display: block; /* Show button on hover */
-  }
-
-  video {
+.video-wrapper {
+    position: relative;
     width: 100%;
-    height: 100%;
-  }
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+video {
+    object-fit: cover;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.custom-controls {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    opacity: 1; /* Initially visible */
+}
+
+.custom-controls img {
+    width: 50px;
+    height: 50px;
+}
+
+.video-container:hover .custom-controls {
+    opacity: 1;
+}
+
+.video-container:hover video {
+    opacity: 0.9;
+}
+
 
   .serviceSection{
     position: relative;
@@ -906,5 +912,8 @@ ul.custom-bulletssec li{
         bottom: -75px;
         right: -38%;
     } */
+    .testimonial-slider-wrapper .splide__list{
+        margin-left: 200px !important;
+    }
 }
 
