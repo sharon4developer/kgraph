@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\CareerBranchController;
 use App\Http\Controllers\Admin\CareerController;
+use App\Http\Controllers\Admin\CareerDepartmentController;
 use App\Http\Controllers\Admin\CertificateController;
 use App\Http\Controllers\Admin\CmsController;
 use App\Http\Controllers\Admin\ContactUsController;
@@ -96,6 +98,8 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'package-points' => PackagePointController::class,
         'package-faq' => PackageFaqController::class,
         'pages' => PageController::class,
+        'career-departments' => CareerDepartmentController::class,
+        'career-branches' => CareerBranchController::class,
     ]);
 
     Route::prefix('pages')->name('.pages')->group(function () {
@@ -200,5 +204,17 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
 
         Route::post('change/status', [PackageFaqController::class, 'changeStatus'])->name('change-status');
         Route::post('update/order', [PackageFaqController::class, 'changeOrder'])->name('update-order');
+    });
+
+    Route::prefix('career-departments')->name('.career-departments')->group(function () {
+
+        Route::post('change/status', [CareerDepartmentController::class, 'changeStatus'])->name('change-status');
+        Route::post('update/order', [CareerDepartmentController::class, 'changeOrder'])->name('update-order');
+    });
+
+    Route::prefix('career-branches')->name('.career-branches')->group(function () {
+
+        Route::post('change/status', [CareerBranchController::class, 'changeStatus'])->name('change-status');
+        Route::post('update/order', [CareerBranchController::class, 'changeOrder'])->name('update-order');
     });
 });

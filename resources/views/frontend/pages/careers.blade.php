@@ -138,8 +138,9 @@
                                 <label class="md:whitespace-nowrap" for="email">select branch<span>*</span></label>
                                 <select name="" id="" class="bg-transparent">
                                     <option value="" selected disabled>---Select---</option>
-                                    <option value="">Branch 1</option>
-                                    <option value="">Branch 2</option>
+                                    @foreach ($branches as $data)
+                                    <option value="{{$data->id}}">{{$data->title}}</option>
+                                    @endforeach
                                 </select>
                             </div>
 
@@ -147,8 +148,9 @@
                                 <label class="md:whitespace-nowrap" for="email">department<span>*</span></label>
                                 <select name="" id="" class="bg-transparent">
                                     <option value="" selected disabled>---Select---</option>
-                                    <option value="">Department 1</option>
-                                    <option value="">Department 2</option>
+                                    @foreach ($departments as $data)
+                                    <option value="{{$data->id}}">{{$data->title}}</option>
+                                    @endforeach
                                 </select>
                             </div>
 

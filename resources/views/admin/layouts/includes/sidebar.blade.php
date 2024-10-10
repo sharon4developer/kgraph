@@ -146,6 +146,22 @@
                                 <li><a href="{{ url('admin/careers/create') }}" data-key="t-level-2-1">Add </a></li>
                             </ul>
                         </li>
+
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Branches</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li><a href="{{ url('admin/career-branches') }}" data-key="t-level-2-2">View </a></li>
+                                <li><a href="{{ url('admin/career-branches/create') }}" data-key="t-level-2-1">Add </a></li>
+                            </ul>
+                        </li>
+
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Departments</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li><a href="{{ url('admin/career-departments') }}" data-key="t-level-2-2">View </a></li>
+                                <li><a href="{{ url('admin/career-departments/create') }}" data-key="t-level-2-1">Add </a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
 
