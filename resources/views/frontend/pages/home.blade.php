@@ -192,63 +192,62 @@
 </div>
 
 <div class="bg-[#051b3b]">
-        {{-- our service section --}}
-        <div class="serviceSection gradient-evition relative overflow-hidden z-10 bg-[#051b3b]">
-            <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full pt-10 lg:pt0">
-                <div class="md:flex items-center">
-                    <h2 class="left-to-right-animation font_inter font-semibold text-[46px] md:text-[50px] lg:text-[65px] 2xl:text-[100px] text-white leading-none uppercase gradient-text"><span class="inline-block">Our</span><span class="inline-block">Services</span></h2>
-                    <div class="md:pl-2 lg:pl-10 w-full lg:mb-[-8%] 2xl:mb-[-10%]">
-                        <div class="my-4 md:my-0 lg:mt-[16px] flex justify-start md:justify-end items-center">
-                            <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[4.5px] pl-5 pr-1 lg:mt-[-76px] overflow-hidden group">
-                                <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
-                                <h6 class="relative z-10 text-white text-[10px] md:text-[12px] 2xl:text-[16px]">Let's turn your vision into reality.</h6>
-                                <div class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[4px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
-                                    <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="w-full left-to-right-width-animation" style="border: 1px solid #FFFFFF8C;"></div>
-                    </div>
-                </div>
-                <h4 class="text-white font_inter font-semibold text-[22px] xl:text-[36px] py-4 lg:pb-0 left-to-right-animation capitalize mt-6">Visa Immigration for a Brighter You Future</h4>
-                <p class="text-white font_inter font-extralight text-justify text-[14px] xl:text-[16px] left-to-right-animation">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
-                <div class="gap-5 lg:flex w-full justify-start lg:justify-between items-center scrollbar-hidden" style="">
-                    @foreach ($services as $data)
-                    <div class="relative w-full lg:w-[350px] h-[500px] mt-[10%] parent-card-our-serv">
-                        <img class="absolute w-full h-full" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
-                        <div class="grade-box-home-who w-full h-full z-20 relative">
-                            <div class="h-full w-full z-10 relative bg-[#001836ad] flex justify-end items-end">
-                                <div class="h-[400px] w-full z-30 relative ease-in-out duration-300">
-                                    <!-- This div's height will expand on hover -->
-                                    <div class="bg-red-700 h-[2%] w-full absolute bottom-0 ease-in-out duration-300 height-fuller"></div>
-
-                                    <div class="z-50 relative h-full w-full px-3 py-8">
-                                        <h2 class="text-white font_inter text-[20px] font-bold pb-8 flex flex-col">{{ $data->title }}</h2>
-                                        <div class="text-white font_inter font-bold text-[16px] md:text-sm py-3">Choose Your Services</div>
-                                        <div>
-                                             <!-- First Button -->
-                                             @foreach ($data->ServicePoint as $points)
-                                            <button class="flex items-center justify-between gap-4 mb-1 bg-[#071b3a] hover:bg-white ease-in-out duration-300 group w-full rounded-md px-6 py-3">
-                                                <div class="text-xs xl:text-sm text-white group-hover:text-[#071b3a] font-semibold">{{ $points->title }}</div>
-                                                <div>
-                                                    <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path class="group-hover:fill-[#071b3a]" d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                                    </svg>
-                                                </div>
-                                            </button>
-                                            @endforeach
-                                        </div>
-
-                                    </div>
-                                </div>
+    {{-- our service section --}}
+    <div class="serviceSection gradient-evition relative overflow-hidden z-10 bg-[#051b3b]">
+        <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full pt-10 lg:pt0">
+            <div class="md:flex items-center">
+                <h2 class="left-to-right-animation font_inter font-semibold text-[46px] md:text-[50px] lg:text-[65px] 2xl:text-[100px] text-white leading-none uppercase gradient-text"><span class="inline-block">Our</span><span class="inline-block">Services</span></h2>
+                <div class="md:pl-2 lg:pl-10 w-full lg:mb-[-8%] 2xl:mb-[-10%]">
+                    <div class="my-4 md:my-0 lg:mt-[16px] flex justify-start md:justify-end items-center">
+                        <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[4.5px] pl-5 pr-1 lg:mt-[-76px] overflow-hidden group">
+                            <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
+                            <h6 class="relative z-10 text-white text-[10px] md:text-[12px] 2xl:text-[16px]">Let's turn your vision into reality.</h6>
+                            <div class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[4px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                                <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
                             </div>
                         </div>
                     </div>
-                    @endforeach
+                    <div class="w-full left-to-right-width-animation" style="border: 1px solid #FFFFFF8C;"></div>
                 </div>
             </div>
-        </div>
+            <h4 class="text-white font_inter font-semibold text-[22px] xl:text-[36px] py-4 lg:pb-0 left-to-right-animation capitalize mt-6">Visa Immigration for a Brighter You Future</h4>
+            <p class="text-white font_inter font-extralight text-justify text-[14px] xl:text-[16px] left-to-right-animation">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
+            <div class="gap-5 lg:flex w-full justify-start lg:justify-between items-center scrollbar-hidden" style="">
+                @foreach ($services as $data)
+                <div class="relative w-full lg:w-[350px] h-[500px] mt-[10%] parent-card-our-serv">
+                    <img class="absolute w-full h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
+                    <div class="grade-box-home-who w-full h-full z-20 relative">
+                        <div class="h-full w-full z-10 relative bg-[#001836ad] flex justify-end items-end">
+                            <div class="h-[400px] w-full z-30 relative ease-in-out duration-300">
+                                <!-- This div's height will expand on hover -->
+                                <div class="bg-red-700 h-[2%] w-full absolute bottom-0 ease-in-out duration-300 height-fuller"></div>
 
+                                <div class="z-50 relative h-full w-full px-3 py-8">
+                                    <h2 class="text-white font_inter text-[20px] font-bold pb-8 flex flex-col">{{ $data->title }}</h2>
+                                    <div class="text-white font_inter font-bold text-[16px] md:text-sm py-3">Choose Your Services</div>
+                                    <div>
+                                            <!-- First Button -->
+                                            @foreach ($data->ServicePoint as $points)
+                                        <button class="flex items-center justify-between gap-4 mb-1 bg-[#071b3a] hover:bg-white ease-in-out duration-300 group w-full rounded-md px-6 py-3">
+                                            <div class="text-xs xl:text-sm text-white group-hover:text-[#071b3a] font-semibold">{{ $points->title }}</div>
+                                            <div>
+                                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path class="group-hover:fill-[#071b3a]" d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
+                                                </svg>
+                                            </div>
+                                        </button>
+                                        @endforeach
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
 
     {{-- who are --}}
     <div class="whoSec bg-[#051b3b]">
