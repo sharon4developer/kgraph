@@ -250,7 +250,7 @@
     </div>
 
     {{-- who are --}}
-    <div class="whoSec bg-[#051b3b]">
+    <div class="whoSec bg-[#051b3b] my-8 lg:my-0">
         <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full">
             <div class="md:flex md:justify-between items-end ">
                 <div class="lg:w-full flex items-end">

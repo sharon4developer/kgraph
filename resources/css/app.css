@@ -648,10 +648,13 @@ video {
     margin-right: 1rem;
     overflow: hidden;
 }
-
+.crew-card-img-parent{
+    background-color: white;
+}
 .crew-card img {
     width: 100%;
-    max-height: 150px; /* Limit the image height */
+    max-height: 200px; /* Limit the image height */
+    object-position: top;
     object-fit: cover; /* Maintain aspect ratio */
     border-radius: 1rem;
 }
@@ -726,6 +729,9 @@ video {
         right: -5%;
         background-repeat: no-repeat;
         background-image: url(/public/assets/home_Banner/underscorebn.png) !important;
+    }
+    #exploreSplide .splide__track{
+        transform: translateX(20px);
     }
 }
 @media (min-width: 768px) {

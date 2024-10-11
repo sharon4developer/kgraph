@@ -36,20 +36,24 @@ function showCrew(data){
     crewHtml = '';
     if(data.crew.data.length){
         $.each(data.crew.data, function(index, crew) {
-            crewHtml += `<div class="crew-card">
-                            <img class="crew-card-img" src="`+crew.image+`" alt="Crew Image">
-                            <div class="crew-card-content">
-                                <h5>`+crew.name+`</h5>
-                                <h6>`+crew.position+`</h6>
-
-                                <div class="address">
-                                    <p>`+crew.address+`</p>
-                                    <a class="email-link" href="mail.`+crew.email+`">`+crew.email+`</a>
+            crewHtml += `<li class="splide__slide">
+                            <div class="crew-card">
+                                <div class="crew-card-img-parent">
+                                    <img class="crew-card-img" src="`+crew.image+`" alt="Crew Image">
                                 </div>
+                                <div class="crew-card-content">
+                                    <h5>`+crew.name+`</h5>
+                                    <h6>`+crew.position+`</h6>
 
-                                <a class="read-bio-link" href="#">Read full bio ></a>
+                                    <div class="address">
+                                        <p>`+crew.address+`</p>
+                                        <a class="email-link" href="mail.`+crew.email+`">`+crew.email+`</a>
+                                    </div>
+
+                                    <a class="read-bio-link" href="#">Read full bio ></a>
+                                </div>
                             </div>
-                        </div>`;
+                        </li>`;
         });
         $('#crew-list').show();
     }

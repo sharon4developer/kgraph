@@ -10,7 +10,9 @@
 
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+{{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script> --}}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
 
 <style>
     /* .slider-endballs::after{
@@ -69,10 +71,23 @@
     <div class="container mx-auto px-5 lg:px-12 py-8 translate-large z-10 relative">
         <div class="md:py-10">
             <h6 class="capitalize mb-5 text-white font_inter font-semibold text-[19px]">Meet Our crew</h6>
-            <div  id="crew-list" class="about-meet-slider">
+
+
+            <div class="about-meet-slider">
+                <div class="splide__track">
+                  <ul id="crew-list" class="splide__list">
+
+
+
+                  </ul>
+                </div>
+              </div>
+
+
+
+            <div id="crew-list-pagination" class="flex items-center custom-navigation text-white space-x-2 justify-center py-8 md:py-5 md:mt-[66px]">
 
             </div>
-            <div id="crew-list-pagination" class="flex items-center custom-navigation text-white space-x-2 justify-center py-8 md:py-5 md:mt-[66px]"></div>
              {{-- <div class="flex items-center custom-navigation text-white space-x-2 justify-center py-8 md:py-5 md:mt-[66px]">
                 <div class="prev-button bg-white px-2 py-2 cursor-pointer font-bold">
                     <svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -268,7 +283,7 @@
 </div>
 
 @include('frontend.Common.getintouch')
-
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         gsap.registerPlugin(ScrollTrigger);
@@ -354,19 +369,19 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-        $('.about-slider').slick({
-            autoplay: true,
-            autoplaySpeed: 3000,
-            dots: false,
-            arrows: true,
-            infinite: true,
-            slidesToShow: 2,
-            slidesToScroll: 1,
-            pauseOnHover: false,
-            pauseOnFocus: false,
-            prevArrow: $('.aboutprev'),
-            nextArrow: $('.aboutnext'),
-        });
+        // $('.about-slider').slick({
+        //     autoplay: true,
+        //     autoplaySpeed: 3000,
+        //     dots: false,
+        //     arrows: true,
+        //     infinite: true,
+        //     slidesToShow: 2,
+        //     slidesToScroll: 1,
+        //     pauseOnHover: false,
+        //     pauseOnFocus: false,
+        //     prevArrow: $('.aboutprev'),
+        //     nextArrow: $('.aboutnext'),
+        // });
 
         // const $slider = $('.about-meet-slider');
         // $slider.slick({
@@ -431,6 +446,36 @@
 
 
     });
+</script>
+
+<script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var splide = new Splide('.about-meet-slider', {
+                type: 'loop',   // Loop through the slides
+                perMove: 1,     // Moves one slide at a time
+                perPage: 3.5,     // Shows one slide per page
+                arrows: false,  // Disable default arrows
+                pagination: false, // Disable the dots (pagination)
+                autoplay: false,
+                interval: 3000, // Auto-slide interval
+                breakpoints: {
+                    640: { perPage: 1 },
+                    768: { perPage: 1.5},
+                    1024: { perPage: 2},
+                    1280: { perPage: 2.8 },
+                }
+            }).mount();
+
+            // Custom Previous Button
+            document.querySelector('.card-explore-slide-prev-button').addEventListener('click', function () {
+                splide.go('<'); // Go to the previous slide
+            });
+
+            // Custom Next Button
+            document.querySelector('.card-explore-slide-next-button').addEventListener('click', function () {
+                splide.go('>'); // Go to the next slide
+            });
+        });
 </script>
 
 <script src="{{ asset('frontend/js/about.js') }}"></script>
