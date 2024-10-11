@@ -142,7 +142,7 @@
 
     <div class="slick-slider-background absolute inset-0 z-[-1]">
         @foreach ($banner as $data)
-        <div><img class="w-full h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="Slide 1"></div>
+        <div><img class="w-full h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{$data->alt_tag}}"></div>
         @endforeach
     </div>
 
@@ -215,7 +215,7 @@
             <div class="gap-5 lg:flex w-full justify-start lg:justify-between items-center scrollbar-hidden" style="">
                 @foreach ($services as $data)
                 <div class="relative w-full lg:w-[350px] h-[500px] mt-[10%] parent-card-our-serv">
-                    <img class="absolute w-full h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
+                    <img class="absolute w-full h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{$data->alt_tag}}">
                     <div class="grade-box-home-who w-full h-full z-20 relative">
                         <div class="h-full w-full z-10 relative bg-[#001836ad] flex justify-end items-end">
                             <div class="h-[400px] w-full z-30 relative ease-in-out duration-300">
@@ -405,7 +405,7 @@
                     <div class="flex flex-col flex-wrap lg:flex-row gap-5 items-center mb-8">
                         @foreach ($certificate as $data)
                         <div class="flex items-center flex-col justify-center">
-                            <img class="w-[200px] max-h-[66px]" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
+                            <img class="w-[200px] max-h-[66px]" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{$data->alt_tag}}">
                             <h6 class="font_inter font-semibold text-white text-[14px] w-[80%] text-center py-2">{{ $data->title }} {{ $data->sub_title }}</h6>
                         </div>
                         @endforeach
@@ -450,7 +450,7 @@
                         @foreach ($testimonials as $data)
                         <li class="splide__slide">
                             <div class="!flex !w-[89vw] md:!w-[440px] overflow-hidden !h-[250px] bg-white rounded-xl relative">
-                                <img class="absolute md:relative object-cover w-full lg:w-[40%] opacity-30 md:opacity-100" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
+                                <img class="absolute md:relative object-cover w-full lg:w-[40%] opacity-30 md:opacity-100" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{$data->alt_tag}}">
                                 <div class="w-full py-4 px-4 z-10">
                                     <div class="flex items-center justify-end">
                                         <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">{{$data->rating}}</div>
@@ -536,10 +536,10 @@
                         @foreach ($blogs as $data)
                             <li class="splide__slide">
                                 <div class="bg-white w-[350px] lg:w-[450px]  mb-8 mr-5">
-                                    <img class="h-full w-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="blog_image"/>
+                                    <img class="h-full w-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{$data->alt_tag}}"/>
                                     <div class="py-4 px-6 bg-white z-10 relative">
                                         <div class="flex items-center gap-4">
-                                            <img class="w-[50px] h-[50px] rounded-full" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->user_image }}" alt="profile_image"/>
+                                            <img class="w-[50px] h-[50px] rounded-full" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->user_image }}" alt="{{$data->user_alt_tag}}"/>
                                             <div>
                                                 <h6 class="font_inter font-semibold text-16px text-[#072558]  2xl:text-[18px]">{{ $data->name }}</h6>
                                                 <?php $date = $data->date . ' ' . $data->time; ?>
@@ -590,7 +590,7 @@
                     @foreach ($explore as $data)
                     <li class="splide__slide">
                         <div class="!w-[90vw] xl:!w-[385px] relative image-card-explore">
-                            <img class="w-full md:w-full h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
+                            <img class="w-full md:w-full h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{$data->alt_tag}}">
                             <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
                                 <button class="text-white">view</button>
                             </div>

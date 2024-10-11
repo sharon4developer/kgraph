@@ -28,7 +28,7 @@
             @foreach ($packages as $data)
             <div class="mb-10 lg:mb-0 rounded-xl overflow-hidden">
                 <div class="lg:max-h-[200px] overflow-hidden">
-                    <img class="object-cover" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="">
+                    <img class="object-cover" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="{{$data->alt_tag}}">
                 </div>
                 <div class="bg-white px-7 py-4">
                     <h5 class="font_inter font-bold text-base text-[#082559]">{{$data->country}}</h5>

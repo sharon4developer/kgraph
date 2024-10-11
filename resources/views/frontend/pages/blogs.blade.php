@@ -53,7 +53,7 @@
     <div class="gradient-evition relative overflow-hidden z-10">
         <div class="container mx-auto px-5 lg:px-12 lg:py-16 h-full w-full blog-box my-16">
                 @foreach ($blogs as $data)
-                <div class="bg-white w-full h-full lg:mr-5 my-12 lg:max-h-[720px] relative">
+                <div class="bg-white w-full h-full lg:mr-5 my-12 2xl:max-h-[800px] relative">
                     <img class="aspect-[1/1] object-cover object-top" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="blog_image"/>
                     <div class="relative">
                         <img class="w-[50px] h-[50px] absolute left-2 top-[-25px] rounded-full" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->user_image }}" alt="profile_image"/>
@@ -61,7 +61,7 @@
                             <p class="text-[#072558] font_inter font-medium text-[14px] mr-2 w-[70%]">Topics: {{ $data->topics }}</p>
                         </div>
                     </div>
-                    <div class="py-4 px-6 pb-[68px]">
+                    <div class="py-4 px-6 pb-[68px] lg:pb-4">
                         <div class="flex items-center gap-4 relative">
                             <div class="mt-2">
                                 <h6 class="font_inter font-semibold text-16px text-[#072558]">{{ $data->name }}</h6>
