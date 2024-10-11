@@ -455,9 +455,13 @@
                                     <div class="flex items-center justify-end">
                                         <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">{{$data->rating}}</div>
                                         <div class="flex items-center gap-1">
-                                            @for($i=1;$i<=$data->rating;$i++)
-                                            <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="">
+                                            @for($i = 1; $i <= floor($data->rating); $i++)
+                                                <img class="w-[12px]" src="{{ asset('assets/Navigation/ratingstar.png') }}" alt="Full Star">
                                             @endfor
+
+                                            @if(($data->rating - floor($data->rating)) >= 0.5)
+                                                <img class="w-[12px]" src="{{ asset('assets/Navigation/halfstar.png') }}" alt="Half Star">
+                                            @endif
                                         </div>
                                     </div>
                                     <div>
