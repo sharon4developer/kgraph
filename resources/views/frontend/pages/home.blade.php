@@ -404,7 +404,7 @@
                     <p class="py-5 text-white font-normal font_inter text-[14px] xl:text-lg lg:py-10">Proudly regulated by and in good standing with the College of Immigration and Citizenship Consultants (CICC). Jamie Dowla, registration #: R507233</p>
                     <div class="flex flex-col flex-wrap lg:flex-row gap-5 items-center mb-8">
                         @foreach ($certificate as $data)
-                        <div>
+                        <div class="flex items-center flex-col justify-center">
                             <img class="w-[200px] max-h-[66px]" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="">
                             <h6 class="font_inter font-semibold text-white text-[14px] w-[80%] text-center py-2">{{ $data->title }} {{ $data->sub_title }}</h6>
                         </div>

@@ -738,6 +738,11 @@ video {
     .choose-you-service{
         grid-template-columns: 1fr 1fr;
     }
+    .blog-box{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 37px;
+    }
 }
 @media (max-width: 1023px){
     .footer-secpernt{
@@ -750,11 +755,6 @@ video {
         width: 100%;
         height: 100dvh;
         object-fit: cover;
-    }
-    .blog-box{
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 37px;
     }
 }
 @media (min-width: 1024px){
@@ -844,7 +844,7 @@ video {
     }
     .blog-box{
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr;
         gap: 30px;
     }
     .rasing-falg-wrpr{
