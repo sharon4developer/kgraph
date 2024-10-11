@@ -217,8 +217,8 @@
                 <div class="flex items-end md:gap-10">
                     <h5 class="pl-[30px] text-[#072558] font_inter font-semibold text-[10px] xl:text-[16px]">{{$data->year}}</h5>
                     <div class="flex gap-2 md:gap-4 pl-[11%] pb-2 slider-image-parent">
-                        <img class="w-[100px]" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="">
-                        <img class="w-[100px]" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->second_image }}" alt="">
+                        <img class="w-[100px]" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="{{$data->alt_tag}}">
+                        <img class="w-[100px]" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->second_image }}" alt="{{$data->second_alt_tag}}">
                     </div>
                 </div>
                 <div class="bg-[#062358] w-full h-[1px] slider-endballs relative"></div>
