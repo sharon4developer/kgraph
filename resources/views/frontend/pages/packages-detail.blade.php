@@ -106,22 +106,19 @@
                     {{$package->description}}
                 </p>
             </div>
-            {{-- <div class="flex justify-center items-center">
-                <div class="duration-200 cursor-pointer ease-linear md:bg-transparent text-blue-600 bg-blue-600 lg:hover:bg-blue-600 flex justify-center items-center rounded-full gap-5 py-[6.5px] pl-5 lg:pr-2 w-fit">
-                    <h6 class="text-white text-[12px] lg:text-[16px]">Let's turn your vision into reality.</h6>
-                    <div class="bg-white text-blue-600 hover:bg-blue-600 hover:text-white px-[20px] py-1 lg:py-[6px] md:rounded-sm ease-in duration-500 cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
-                        <a href="" class="h-full">Connect Us</a>
+            <div class="flex justify-center items-center">
+                <div class="w-fit">
+                    <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-[4.5px] pl-6 pr-1 overflow-hidden group">
+                        <!-- Background animation using pseudo-element -->
+                        <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
+                        <h6 class="relative z-10 text-white text-[10px] md:text-[14px] 2xl">Let's turn your vision into reality.</h6>
+                        <div class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:py-[4px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                            <a href="" class="h-full text-[12px] lg:text-[16px] font-semibold">Connect Us</a>
+                        </div>
                     </div>
                 </div>
-            </div> --}}
-            <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-[4.5px] pl-6 pr-1 overflow-hidden group">
-                <!-- Background animation using pseudo-element -->
-                <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
-                <h6 class="relative z-10 text-white text-[10px] md:text-[14px] 2xl">Let's turn your vision into reality.</h6>
-                <div class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:py-[4px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
-                    <a href="" class="h-full text-[12px] lg:text-[16px] font-semibold">Connect Us</a>
-                </div>
             </div>
+
         </div>
     </div>
 </div>
@@ -162,7 +159,7 @@
                 <div class="accordion-item bg-white p-5 lg:w-1/2 rounded-xl overflow-hidden cursor-pointer transition-all duration-300">
                     <div class="flex justify-start items-center w-full accordion-header gap-4" onclick="toggleAccordion(this)">
                         <img class="accordion-icon transition-transform duration-300 w-2 lg:w-[14px]" src="{{ asset('assets/faqplus.png') }}" alt="Plus Icon">
-                        <h3 class="text-[12px] font-semibold lg:text-[14px] lg:font-medium">{{$PackageFaq->title}}</h3>
+                        <h3 class="text-[12px] text-[#2D3E50] font-semibold lg:text-[14px] lg:font-medium">{{$PackageFaq->title}}</h3>
                     </div>
                     <div class="pl-10 accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
                         <p class="pt-3">{{$PackageFaq->description}}</p>
