@@ -33,7 +33,7 @@
         <div class="grid justify-start gap-4 items-center choose-you-service">
             @foreach ($services as $data)
             <div class="w-full bg-white rounded-xl overflow-hidden lg:h-[380px]">
-                <img class="w-full aspect-[3/2] object-cover object-top rounded-xl" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{$data->alt_tag}}">
+                <img class="w-full aspect-[16/9] object-cover object-top rounded-xl" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{$data->alt_tag}}">
                 <div class="text-left px-5 pt-2 pb-8">
                     <h6 class="clamp-text-one py-3 font-bold font_inter text-[20px]">{{$data->title}}</h6>
                     <p class="mt-[5px]">{{$data->sub_title}},</p>
