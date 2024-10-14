@@ -83,5 +83,5 @@
 
 
 <a href="http://wa.me/+16473956682" class="block fixed bottom-[5%] w-[60px] right-[4%] z-[9999999999999] chatlogo" style="background: #00800063; border-radius: 100%; width: 54px; height: 54px; display: flex; justify-content: center; align-items: center;" target="_blank">
-    <img src="{{asset('assets/navigation/latest-whatsapplogo.png')}}" style="width: 50px; height: 50px;" />
+    <img src="{{asset('assets/Navigation/latest-whatsapplogo.png')}}" style="width: 50px; height: 50px;" />
 </a>
