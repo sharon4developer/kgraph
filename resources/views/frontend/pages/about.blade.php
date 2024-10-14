@@ -39,7 +39,7 @@
     }
 
 </style>
-
+@include('frontend.Common.whatsapplogo')
 <div class="aboutusbanner relative h-full 2xl::h-[100vh]">
     <div class="absolute w-full h-full aboutbackgroundimage"></div>
     <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 lg:py-[8%]">
@@ -373,32 +373,39 @@
 
 <script>
         document.addEventListener('DOMContentLoaded', function () {
-            var splide = new Splide('.about-meet-slider', {
-                type: 'loop',   // Loop through the slides
-                perMove: 1,     // Moves one slide at a time
-                perPage: 3.5,     // Shows one slide per page
-                arrows: false,  // Disable default arrows
-                pagination: false, // Disable the dots (pagination)
-                autoplay: false,
-                interval: 3000, // Auto-slide interval
-                breakpoints: {
-                    640: { perPage: 1 },
-                    768: { perPage: 1.5},
-                    1024: { perPage: 2},
-                    1280: { perPage: 2.8 },
-                }
-            }).mount();
+            var slides = document.querySelectorAll('.about-meet-slider .splide__slide'); // Select all slides
 
-            // Custom Previous Button
-            document.querySelector('.card-explore-slide-prev-button').addEventListener('click', function () {
-                splide.go('<'); // Go to the previous slide
-            });
+            if (slides.length > 1) { // Only initialize the slider if there are more than 1 slide
+                var splide = new Splide('.about-meet-slider', {
+                    type: 'loop',   // Loop through the slides
+                    perMove: 1,     // Moves one slide at a time
+                    perPage: 3.5,   // Shows multiple slides per page
+                    arrows: false,  // Disable default arrows
+                    pagination: false, // Disable the dots (pagination)
+                    autoplay: false,
+                    interval: 3000, // Auto-slide interval
+                    breakpoints: {
+                        640: { perPage: 1 },
+                        768: { perPage: 1.5 },
+                        1024: { perPage: 2 },
+                        1280: { perPage: 2.8 },
+                    }
+                }).mount();
 
-            // Custom Next Button
-            document.querySelector('.card-explore-slide-next-button').addEventListener('click', function () {
-                splide.go('>'); // Go to the next slide
-            });
+                // Custom Previous Button
+                document.querySelector('.card-explore-slide-prev-button').addEventListener('click', function () {
+                    splide.go('<'); // Go to the previous slide
+                });
+
+                // Custom Next Button
+                document.querySelector('.card-explore-slide-next-button').addEventListener('click', function () {
+                    splide.go('>'); // Go to the next slide
+                });
+            } else {
+                console.log("Not enough slides to initialize the slider.");
+            }
         });
+
 
         document.addEventListener('DOMContentLoaded', function () {
             var splide = new Splide('#aboutSplide', {

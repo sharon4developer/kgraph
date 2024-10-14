@@ -5,7 +5,7 @@
 
 </style>
 
-
+@include('frontend.Common.whatsapplogo')
 {{-- services banner --}}
 <div class="services-banner md:h-fit">
     <div class="services-banner-overlay">

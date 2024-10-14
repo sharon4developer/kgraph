@@ -83,7 +83,7 @@
         height: 100px;
     }
 </style>
-
+@include('frontend.Common.whatsapplogo')
 <div class="contact-US-banner h-full w-full">
     <div class="contact-US h-full w-full">
         <div class="container mx-auto px-5 xl:px-12 h-full w-full py-8 lg:pt-[8%] text-white">

@@ -5,7 +5,7 @@
         background: linear-gradient(22deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
     }
 </style>
-
+@include('frontend.Common.whatsapplogo')
 {{-- services banner --}}
 <div class="services-banner">
     <div class="services-banner-overlay">

@@ -129,15 +129,15 @@
     }
 
     .explore-section {
-    overflow-x: hidden; /* Prevents horizontal scroll */
-}
-.explore-section .splide__list {
-    display: flex;
-    justify-content: center;
-}
-.explore-section .splide__slide {
-    flex: 1 0 auto; /* Ensures slides don't shrink */
-}
+        overflow-x: hidden; /* Prevents horizontal scroll */
+    }
+    .explore-section .splide__list {
+        display: flex;
+        justify-content: center;
+    }
+    .explore-section .splide__slide {
+        flex: 1 0 auto; /* Ensures slides don't shrink */
+    }
 
 
 
@@ -203,7 +203,7 @@
     </div>
     @include('frontend.Common.modal-contact')
 </div>
-
+@include('frontend.Common.whatsapplogo')
 <div class="bg-[#051b3b]">
     {{-- our service section --}}
     <div class="serviceSection gradient-evition relative overflow-hidden z-10 bg-[#051b3b]">
@@ -686,7 +686,6 @@
 </div>
 
 @include('frontend.Common.getintouch')
-
 
 <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
 <script>
