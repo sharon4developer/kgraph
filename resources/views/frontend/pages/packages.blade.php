@@ -30,7 +30,7 @@
                 <div class="lg:max-h-[200px] overflow-hidden">
                     <img class="object-cover w-full" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="{{$data->alt_tag}}">
                 </div>
-                <div class="bg-white px-7 py-4">
+                <div class="bg-white px-7 py-4 lg:h-full">
                     <h5 class="font_inter font-bold text-base text-[#082559]">{{$data->country}}</h5>
                     <p class="font_inter font-semibold text-sm text-[#082559] py-4">{{$data->description}}</p>
                     <a href="{{url('package-details/'.$data->id)}}" class="border border-[#082559] text-[#082559] font_inter font-semibold text-sm px-10 py-2 rounded-full">View -></a>
