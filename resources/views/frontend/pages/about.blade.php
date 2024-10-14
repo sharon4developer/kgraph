@@ -40,10 +40,10 @@
 
 </style>
 
-<div class="aboutusbanner relative lg:h-[100vh] xl:h-full">
+<div class="aboutusbanner relative h-full 2xl::h-[100vh]">
     <div class="absolute w-full h-full aboutbackgroundimage"></div>
     <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 lg:py-[8%]">
-        <div class="flex flex-col justify-center items-start h-full w-full text-left text-white z-10 md:mt-[16%] lg:mt-[95px]">
+        <div class="flex flex-col justify-center items-start h-full w-full text-left text-white z-10 md:mt-[16%] lg:mt-[95px] 2xl:mt-[40px]">
             <h2 class="font_inter font-semibold text-[28px] xl:text-[40px] uppercase leading-normal">About Us</h2>
             <div class="flex items-center gap-4 pb-6 lg:py-2 xl:py-0">
                 <h3 class="font_inter font-normal text-[15px] lg:text-[20px] text-justify">Take a sneak peek in to our journey</h3>

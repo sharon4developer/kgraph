@@ -643,13 +643,14 @@ video {
 .crew-card {
     width: 100%;
     border: 1px solid #E5E7EB; /* Replace with desired border color */
-    border-radius: 1rem; /* Rounded corners */
-    margin-left: 1rem; /* Add space for medium and large screens */
+    border-radius: 6px; /* Rounded corners */
+    margin-left: 1rem;
     margin-right: 1rem;
     overflow: hidden;
 }
 .crew-card-img-parent{
     background-color: white;
+    border-radius: 7px;
 }
 .crew-card img {
     width: 100%;
@@ -742,6 +743,21 @@ video {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 37px;
+    }
+    .crew-card img {
+        width: 100%;
+        max-height: 200px; /* Limit the image height */
+        object-position: top;
+        object-fit: cover; /* Maintain aspect ratio */
+
+    }
+    .crew-card {
+        width: 290px;
+        border: 1px solid #E5E7EB; /* Replace with desired border color */
+        border-radius: 6px; /* Rounded corners */
+        margin-left: 0rem;
+        margin-right: 0rem;
+        overflow: hidden;
     }
 }
 @media (max-width: 1023px){
@@ -872,7 +888,7 @@ video {
 }
 @media (min-width: 1280px){
     .translate-large {
-        transform: translateY(-9%);
+        transform: translateY(-10%);
     }
     .RegulatedSec-right{
         width: 80% !important;
@@ -904,6 +920,9 @@ video {
     }
     .top-height-adjust{
         padding-top: 101px;
+    }
+    .translate-large {
+        transform: translateY(-15%);
     }
 }
 @media (min-width: 1706px){
