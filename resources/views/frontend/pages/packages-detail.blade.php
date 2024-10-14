@@ -59,6 +59,32 @@
         background-image: url(assets/whitefader.png) !important;
         background-size: cover;
      }
+     .services-inner {
+    color: white; /* Example styles */
+    font-family: 'Inter', sans-serif;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.services-inner h3, .services-inner h2, .services-inner p {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.services-inner ul {
+    list-style-type: disc;
+    padding-left: 1.25rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.services-inner ul li {
+    /* Style for the list items */
+    margin-bottom: 0.5rem; /* Example: space between list items */
+    color: inherit; /* Inherits the text color from .services-inner */
+    font-size: 1rem; /* Example font size */
+}
+
 </style>
 
 
@@ -134,7 +160,7 @@
             <div class="services-inner faq text-[#2D3E50] font_inter py-4 flex flex-col justify-start items-start gap-4">
                 @foreach ($package->PackageFaq as $PackageFaq)
                 <div class="accordion-item bg-white p-5 lg:w-1/2 rounded-xl overflow-hidden cursor-pointer transition-all duration-300">
-                    <div class="flex justify-between items-center w-full accordion-header gap-4" onclick="toggleAccordion(this)">
+                    <div class="flex justify-start items-center w-full accordion-header gap-4" onclick="toggleAccordion(this)">
                         <img class="accordion-icon transition-transform duration-300 w-2 lg:w-[14px]" src="{{ asset('assets/faqplus.png') }}" alt="Plus Icon">
                         <h3 class="text-[12px] font-semibold lg:text-[14px] lg:font-medium">{{$PackageFaq->title}}</h3>
                     </div>
