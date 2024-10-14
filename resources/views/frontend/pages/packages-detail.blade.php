@@ -101,7 +101,7 @@
                 <a href="#">Study</a> > <a href="#">Study in Canada</a>
             </div>
             <div class="text-center text-white my-10 flex flex-col justify-center items-center">
-                <h1 class="uppercase font_inter font-semibold text-3xl lg:text-[40px]">{{$package->title}}</h1>
+                <h1 class="capitalize font_inter font-semibold text-3xl lg:text-[40px]">{{$package->title}}</h1>
                 <p class="lg:w-1/2 mt-5 font_inter font-medium text-sm lg:text-[14px]">
                     {{$package->description}}
                 </p>
