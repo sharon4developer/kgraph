@@ -19,7 +19,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
 
     </head>
-    <body style="overflow-x: hidden;">
+    <body style="overflow-x: hidden !important;">
         @include('frontend.Common.navbar')
         <input type="hidden" id="base-route" value="{{ url('/') }}">
         <main class="content-container h-full w-full">

@@ -128,6 +128,16 @@
         height: 100%;
     }
 
+    .explore-section {
+    overflow-x: hidden; /* Prevents horizontal scroll */
+}
+.explore-section .splide__list {
+    display: flex;
+    justify-content: center;
+}
+.explore-section .splide__slide {
+    flex: 1 0 auto; /* Ensures slides don't shrink */
+}
 
 
 
@@ -520,7 +530,7 @@
             </div>
             <p class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%] fourthleft-to-right-animation">Canadian Immigration News, Tips, and Resources</p>
             <p class="text-white font_inter font-normal text-justify text-[14px] md:w-[45%] fourthleft-to-right-animation">Stay in the loop and keep up with all our news and updates!</p>
-            <div class="flex justify-start items-center my-12">
+            <div class="flex justify-center lg:justify-start items-center my-12">
                 <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group">
                     <!-- Initially the background will cover the full button -->
                     <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
@@ -593,7 +603,7 @@
                     @foreach ($explore as $data)
                     <li class="splide__slide">
                         <div class="!w-[90vw] xl:!w-[385px] relative image-card-explore">
-                            <img class="w-[250px] md:w-[350px] h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{$data->alt_tag}}">
+                            <img class="w-full md:w-[350px] h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{$data->alt_tag}}">
                             <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
                                 <button class="text-white">view</button>
                             </div>
@@ -1082,30 +1092,41 @@
     });
 
     document.addEventListener('DOMContentLoaded', function () {
-        var splide = new Splide('#blogSplide', {
-            type: 'slide',
-            perMove: 1,
-            perPage: 3.1,
-            arrows: false,
-            pagination: false,
-            autoplay: true,
-            interval: 3000,
-            gap: '16px',
-            breakpoints: {
-                640: { perPage: 1, gap: '12px' },
-                768: { perPage: 2.1, gap: '16px' },
-                1024: { perPage: 2, gap: '20px' },
-                1280: { perPage: 2.5, gap: '24px' },
-            }
-        }).mount();
+        var slides = document.querySelectorAll('#blogSplide .splide__slide');
 
-        document.querySelector('.blog-slider-prev').addEventListener('click', function () {
-            splide.go('<'); // Go to previous slide
-        });
+        if (slides.length > 1) {
+            var splide = new Splide('#blogSplide', {
+                type: 'loop',
+                perMove: 1,
+                perPage: 3.1,
+                arrows: false,
+                pagination: false,
+                autoplay: true,
+                interval: 3000,
+                pauseOnHover: false, // Prevent autoplay from pausing on hover
+                gap: '16px',
+                breakpoints: {
+                    640: { perPage: 1, gap: '12px' },
+                    768: { perPage: 2.1, gap: '16px' },
+                    1024: { perPage: 2, gap: '20px' },
+                    1280: { perPage: 2.5, gap: '24px' },
+                }
+            }).mount();
 
-        document.querySelector('.blog-slider-next').addEventListener('click', function () {
-            splide.go('>'); // Go to next slide
-        });
+            // Custom Previous Button
+            document.querySelector('.blog-slider-prev').addEventListener('click', function () {
+                splide.go('<'); // Go to the previous slide
+                splide.play();  // Ensure autoplay resumes
+            });
+
+            // Custom Next Button
+            document.querySelector('.blog-slider-next').addEventListener('click', function () {
+                splide.go('>'); // Go to the next slide
+                splide.play();  // Ensure autoplay resumes
+            });
+        } else {
+            console.log("Not enough slides to initialize the slider.");
+        }
     });
 
     document.addEventListener('DOMContentLoaded', function () {
@@ -1137,55 +1158,38 @@
     });
 
     document.addEventListener('DOMContentLoaded', function () {
-        var splide = new Splide('#testimonial-slider', {
-            type: 'slide',   // Switch to 'slide' to prevent cloning (No loop)
-            perMove: 1,      // Moves one slide at a time
-            perPage: 3.5,    // Shows one slide per page
-            arrows: false,   // Disable default arrows
-            pagination: false, // Disable the dots (pagination)
-            autoplay: true,
-            interval: 3000,  // Auto-slide interval
-            gap: '2px',     // Gap between slides
-            breakpoints: {
-                640: {
-                    perPage: 1,
-                    gap: '16px'  // Adjust gap for smaller screens
-                },
-                768: {
-                    perPage: 1.5,
-                    gap: '16px'  // Adjust gap for medium screens
-                },
-                1024: {
-                    perPage: 2,
-                    gap: '16px'  // Adjust gap for larger screens
-                },
-                1280: {
-                    perPage: 2.8,
-                    gap: '70px'  // Adjust gap for large screens
-                },
-                1536: {
-                    perPage: 2.8,
-                    gap: '0px',  // Larger gap for extra-large screens
-                },
-                1920: {
-                    perPage: 2.8,
-                    gap: '0px',  // Larger gap for extra-large screens
-                },
-            }
-        }).mount();
+        var slides = document.querySelectorAll('#testimonial-slider .splide__slide'); // Select all the slides
 
+        if (slides.length > 1) { // Only initialize if there's more than 1 slide
+            var splide = new Splide('#testimonial-slider', {
+                type: 'loop',   // Loop through the slides
+                perMove: 1,     // Moves one slide at a time
+                perPage: 3.5,   // Shows 3.5 slides per page (visible slides)
+                arrows: false,  // Disable default arrows
+                pagination: false, // Disable the dots (pagination)
+                autoplay: true, // Enable autoplay
+                interval: 3000, // Auto-slide interval (3 seconds)
+                breakpoints: {
+                    640: { perPage: 1 },        // 1 slide per page on small screens
+                    768: { perPage: 1.9 },      // 1.9 slides per page on medium screens
+                    1024: { perPage: 2 },       // 2 slides per page on large screens
+                    1280: { perPage: 2.8 },     // 2.8 slides per page on extra-large screens
+                }
+            }).mount();
 
-        // Custom Previous Button
-        document.querySelector('.card-testi-slide-prev-button').addEventListener('click', function () {
-            splide.go('<'); // Go to the previous slide
-        });
+            // Custom Previous Button
+            document.querySelector('.card-testi-slide-prev-button').addEventListener('click', function () {
+                splide.go('<'); // Go to the previous slide
+            });
 
-        // Custom Next Button
-        document.querySelector('.card-testi-slide-next-button').addEventListener('click', function () {
-            splide.go('>'); // Go to the next slide
-        });
+            // Custom Next Button
+            document.querySelector('.card-testi-slide-next-button').addEventListener('click', function () {
+                splide.go('>'); // Go to the next slide
+            });
+        } else {
+            console.log("Not enough slides to initialize the slider.");
+        }
     });
-
 </script>
 
 
