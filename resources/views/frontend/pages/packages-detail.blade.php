@@ -66,7 +66,7 @@
 {{-- services banner --}}
 <div class="packaginner-banner h-full relative">
     @if($package) <!-- Assuming $package is the variable containing the package data -->
-    <img src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$package->image }}" alt="{{ $package->alt_tag }}" class="absolute top-0 left-0 w-full h-full object-cover z-[-1]" alt="Banner City">
+    <img  src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$package->image }}" alt="{{ $package->alt_tag }}" class="absolute top-0 left-0 w-full h-full object-cover z-[-1] object-top" alt="Banner City">
     @endif
 
     <div class="packages-banner-overlay">
