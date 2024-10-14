@@ -6,13 +6,10 @@
     }
     .packaginner-banner{
         background-image: url(assets/home_Banner/bannerCity.jpg) !important;
-        /* background-position-y: center;
-        background-position-x: center; */
         background-size: cover;
         background-repeat: no-repeat;
     }
     .packages-banner-overlay{
-        /* background: linear-gradient(180deg, #000000 0%, #113165e8 100%); */
         background: #00000099;
 
         height: 100%;
@@ -67,7 +64,11 @@
 
 
 {{-- services banner --}}
-<div class="packaginner-banner h-full">
+<div class="packaginner-banner h-full relative">
+    @if($package) <!-- Assuming $package is the variable containing the package data -->
+    <img src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$package->image }}" alt="{{ $package->alt_tag }}" class="absolute top-0 left-0 w-full h-full object-cover z-[-1]" alt="Banner City">
+    @endif
+
     <div class="packages-banner-overlay">
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[8%]">
             <div class="text-white text-[12px] font_inter font-semibold">
@@ -90,6 +91,7 @@
         </div>
     </div>
 </div>
+
 
 {{-- services inner head --}}
 <div class="bg-[#062358]">

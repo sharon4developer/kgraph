@@ -79,7 +79,7 @@
 </style>
 </style>
 
-<div id="modalpopup" class="z-50 fixed top-0 bg-[#0000009c] h-screen overflow-hidden">
+<div id="modalpopup" class="z-50 fixed top-0 bg-[#0000009c] h-screen overflow-hidden hidden">
     <div class="flex justify-center items-center w-screen pt-[10%] 2xl:pt-[6%]">
         <div class="w-[85%] md:w-[75%] lg:w-[50vw] 2xl:w-[40%]">
             <div class="bg-white rounded-xl h-fit w-full mt-[52px] lg:mt-0 relative">
@@ -168,9 +168,19 @@
 <script>
     let closebtn = document.getElementById('close-btn');
     let modal = document.getElementById('modalpopup');
+    let scrollTimeout;
+
+    window.addEventListener('scroll', function () {
+        clearTimeout(scrollTimeout);
+
+        scrollTimeout = setTimeout(function () {
+            modal.classList.remove('hidden');
+        }, 2000);
+    });
+
 
     closebtn.addEventListener('click', function() {
-        modal.style.display = 'none';
+        modal.classList.add('!hidden');
     });
 
 </script>
