@@ -22,9 +22,8 @@
                             <tr>
                                 <th>SL No</th>
                                 <th>Location</th>
-                                <th>Image</th>
-                                <th>Second Image</th>
-                                <th>Third Image</th>
+                                <th>Email</th>
+                                <th>Phone</th>
                                 <th>Status</th>
                                 <th>Created Date</th>
                                 <th>Action</th>

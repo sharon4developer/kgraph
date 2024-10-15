@@ -39,30 +39,32 @@ function loadDataTableForLocation() {
         columns: [
             { data: 'DT_RowIndex', orderable: false, searchable: false },
             { data: 'location' },
-            {
-                data: null,
-                render: function (row) {
-                    return `<img class="table-img" src=` + row.image + `>`;
-                },
-                orderable: false,
-                searchable: false,
-            },
-            {
-                data: null,
-                render: function (row) {
-                    return `<img class="table-img" src=` + row.second_image + `>`;
-                },
-                orderable: false,
-                searchable: false,
-            },
-            {
-                data: null,
-                render: function (row) {
-                    return `<img class="table-img" src=` + row.third_image + `>`;
-                },
-                orderable: false,
-                searchable: false,
-            },
+            { data: 'email' },
+            { data: 'phone' },
+            // {
+            //     data: null,
+            //     render: function (row) {
+            //         return `<img class="table-img" src=` + row.image + `>`;
+            //     },
+            //     orderable: false,
+            //     searchable: false,
+            // },
+            // {
+            //     data: null,
+            //     render: function (row) {
+            //         return `<img class="table-img" src=` + row.second_image + `>`;
+            //     },
+            //     orderable: false,
+            //     searchable: false,
+            // },
+            // {
+            //     data: null,
+            //     render: function (row) {
+            //         return `<img class="table-img" src=` + row.third_image + `>`;
+            //     },
+            //     orderable: false,
+            //     searchable: false,
+            // },
             {
                 data: null,
                 render: function (row) {
@@ -129,21 +131,33 @@ $('#location-add-form').validate({
         location: {
             required: true,
         },
-        third_image: {
+        email: {
             required: true,
         },
-        image: {
+        phone: {
             required: true,
         },
-        second_image: {
+        address: {
             required: true,
-        },
+        }
+        // third_image: {
+        //     required: true,
+        // },
+        // image: {
+        //     required: true,
+        // },
+        // second_image: {
+        //     required: true,
+        // },
     },
     messages: {
         location: "Location field is required",
-        third_image: "Third image field is required",
-        image: "Image field is required",
-        second_image: "Second image field is required",
+        email: "Email field is required",
+        phone: "Phone field is required",
+        address: "Address field is required",
+        // third_image: "Third image field is required",
+        // image: "Image field is required",
+        // second_image: "Second image field is required",
     },
     errorElement: 'span',
     submitHandler: function (form, event) {
@@ -218,15 +232,24 @@ $('#location-edit-form').validate({
         location: {
             required: true,
         },
+        email: {
+            required: true,
+        },
+        phone: {
+            required: true,
+        },
+        address: {
+            required: true,
+        },
         location_id: {
             required: true,
         },
     },
     messages: {
         location: "Location field is required",
-        third_image: "Third image field is required",
-        image: "Image field is required",
-        second_image: "Second image field is required",
+        email: "Email field is required",
+        phone: "Phone field is required",
+        address: "Address field is required",
     },
     errorElement: 'span',
     submitHandler: function (form, event) {

@@ -15,6 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('location')->nullable();
             $table->string('image')->nullable();
+            $table->text('address')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone')->nullable();
             $table->string('second_image')->nullable();
             $table->string('intervention_image')->nullable();
             $table->string('second_intervention_image')->nullable();

@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <form class="needs-validation" novalidate id="location-add-form" method="POST">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
                                         <label class="form-label" for="location">Location</label>
@@ -22,6 +22,39 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label class="form-label" for="location">Email</label>
+                                        <input type="email" class="form-control" id="email" name="email"
+                                            placeholder="Email" required>
+                                        <div class="valid-feedback">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label class="form-label" for="location">Phone</label>
+                                        <input type="text" class="form-control" id="phone" name="phone"
+                                            placeholder="Phone" required>
+                                        <div class="valid-feedback">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label class="form-label" for="ckeditor-classic">Address</label>
+                                        <textarea type="text" class="form-control" id="address" name="address"
+                                        placeholder="Address" required></textarea>
+                                        <div class="valid-feedback">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {{-- <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
                                         <label class="form-label" for="sub_title">Image</label>
@@ -86,7 +119,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="row">
                             <div class="col-md-6">
