@@ -45,7 +45,7 @@ class Service extends Model
         $value->title        = $data->title;
         $value->sub_title  = $data->sub_title;
         $value->alt_tag           =  $data->alt_tag;
-        $slug = Str::slug($data->name);
+        $slug = Str::slug($data->title);
         $value->slug = $slug;
         if ($data->image) {
             $value->image = Cms::storeImage($data->image, $data->title);

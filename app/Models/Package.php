@@ -45,7 +45,7 @@ class Package extends Model
         $value->title        = $data->title;
         $value->country        = $data->country;
         $value->description  = $data->description;
-        $slug = Str::slug($data->name);
+        $slug = Str::slug($data->title);
         $value->slug = $slug;
         $value->alt_tag           =  $data->alt_tag;
         if ($data->image) {

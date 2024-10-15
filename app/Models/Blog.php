@@ -46,7 +46,7 @@ class Blog extends Model
         $value->time  = $data->time;
         $value->name  = $data->name;
         $value->topics  = $data->topics;
-        $slug = Str::slug($data->name);
+        $slug = Str::slug($data->title);
         $value->slug = $slug;
         $value->alt_tag           =  $data->alt_tag;
         $value->user_alt_tag           =  $data->user_alt_tag;
