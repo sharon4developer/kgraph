@@ -66,48 +66,48 @@ function showCrew(data){
     // $slider = $('.about-meet-slider');
 
 
-    if (isSlickInitialized) {
+    // if (isSlickInitialized) {
 
-        $('.about-meet-slider').slick('unslick');
-    }
-    isSlickInitialized = true;
-    $slider = $('.about-meet-slider');
-        $slider.slick({
-            autoplay: true,
-            autoplaySpeed: 3000,
-            dots: false, // Disable default dots
-            arrows: false, // Disable default arrows
-            infinite: true,
-            slidesToShow: 4.5,
-            slidesToScroll: 1,
-            pauseOnHover: false,
-            pauseOnFocus: false,
-            responsive: [
-                {
-                    breakpoint: 1400,
-                    settings: {
-                        slidesToShow: 3.1
-                    }
-                },
-                {
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 2
-                    }
-                },
-                {
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 1
-                    }
-                },
-                {
-                    breakpoint: 1401,
-                    settings: {
-                        slidesToShow: 4.5
-                    }
-                }
-            ]
-        });
+    //     $('.about-meet-slider').slick('unslick');
+    // }
+    // isSlickInitialized = true;
+    // $slider = $('.about-meet-slider');
+    //     $slider.slick({
+    //         autoplay: true,
+    //         autoplaySpeed: 3000,
+    //         dots: false, // Disable default dots
+    //         arrows: false, // Disable default arrows
+    //         infinite: true,
+    //         slidesToShow: 4.5,
+    //         slidesToScroll: 1,
+    //         pauseOnHover: false,
+    //         pauseOnFocus: false,
+    //         responsive: [
+    //             {
+    //                 breakpoint: 1400,
+    //                 settings: {
+    //                     slidesToShow: 3.1
+    //                 }
+    //             },
+    //             {
+    //                 breakpoint: 1024,
+    //                 settings: {
+    //                     slidesToShow: 2
+    //                 }
+    //             },
+    //             {
+    //                 breakpoint: 768,
+    //                 settings: {
+    //                     slidesToShow: 1
+    //                 }
+    //             },
+    //             {
+    //                 breakpoint: 1401,
+    //                 settings: {
+    //                     slidesToShow: 4.5
+    //                 }
+    //             }
+    //         ]
+    //     });
 
 }

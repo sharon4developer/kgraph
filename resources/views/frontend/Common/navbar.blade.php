@@ -93,11 +93,11 @@
             if (window.scrollY > 10) {
                 document.body.classList.add('scrolled');
                 header.classList.add('scrolled-header');
-                mheader.classList.add('hidden');
+                // mheader.classList.add('hidden');
             } else {
                 document.body.classList.remove('scrolled');
                 header.classList.remove('scrolled-header');
-                mheader.classList.remove('hidden');
+                // mheader.classList.remove('hidden');
             }
         }
     }

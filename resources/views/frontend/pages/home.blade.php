@@ -128,69 +128,82 @@
         height: 100%;
     }
 
+    .explore-section {
+        overflow-x: hidden; /* Prevents horizontal scroll */
+    }
+    .explore-section .splide__list {
+        display: flex;
+        justify-content: center;
+    }
+    .explore-section .splide__slide {
+        flex: 1 0 auto; /* Ensures slides don't shrink */
+    }
 
 
 
 </style>
 
-{{-- banner section --}}
-<div class="h-dvh md:h-screen lg:h-full 2xl:h-screen w-full homeBanner relative overflow-hidden">
-    <!-- Gradient overlay -->
-    {{-- <div class="banner-gradient-overlay absolute inset-0"></div> --}}
+<div class="relative overflow-hidden">
+    {{-- banner section --}}
+    <div class="h-dvh md:h-screen lg:h-full 2xl:h-screen w-full homeBanner relative overflow-hidden">
+        <!-- Gradient overlay -->
+        {{-- <div class="banner-gradient-overlay absolute inset-0"></div> --}}
 
-    <!-- Slick Slider for Background Images -->
+        <!-- Slick Slider for Background Images -->
 
-    <div class="slick-slider-background absolute inset-0 z-[-1]">
-        @foreach ($banner as $data)
-        <div><img class="w-full h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{$data->alt_tag}}"></div>
-        @endforeach
-    </div>
+        <div class="slick-slider-background absolute inset-0 z-[-1]">
+            @foreach ($banner as $data)
+            <div><img class="w-full h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{$data->alt_tag}}"></div>
+            @endforeach
+        </div>
 
-    <!-- Banner Content -->
-    <div class="container mx-auto px-5 xl:px-12 h-full w-full relative z-10">
-        <div class="h-full w-full flex flex-col justify-start md:justify-center items-center text-center mb-4 md:pt-8 pb-0 gap-[5%] md:gap-[31px] lg:gap-0">
-            <div class="z-10 flex flex-col lg:flex-row items-center lg:gap-[23px] pt-[10%] lg:pt-[22%] xl:pt-[205px] banner-container-elem">
-                <img class="pt-[22px] md:pt-0 w-[40px] lg:w-[100px]" src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="rocket icon">
-                <h2 class="banner_text-one text-[20px] lg:text-[23px] font_inter font-medium text-white text-center capitalize">
-                    Journey with Confidence <span class="text-[#579aff]">Migrate</span> with Us
-                </h2>
-            </div>
-            <h1 class="md:text-center text-[31px] md:text-[55px] 2xl:text-[85px] lg:text-[70px] lg:w-[80%] font-medium font_inter gradient-text z-10 lg:mt-8 banner_main-text lg:inline-block banner-contain-text leading-[1.2]">
-                Visa Made Easy Dreams Made Possible
-            </h1>
-            <h6 class="font_inter font-medium text-[20px] lg:text-[23px] z-20 text-white lg:mt-14 banner-container-elem">
-                Visa Made Easy Dreams Made Possible
-            </h6>
-            <div class="z-10 flex flex-col md:flex-row justify-center items-start md:items-center gap-4 lg:mb-7 lg:mt-10">
-                <img width="52px" src="{{ asset('assets/home_Banner/CanadaFlag.png') }}" alt="CanadaFlag">
-                <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-[4.5px] pl-6 pr-1 overflow-hidden group">
-                    <!-- Background animation using pseudo-element -->
-                    <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
-                    <h6 class="relative z-10 text-white text-[10px] md:text-[14px] 2xl">Let's turn your vision into reality.</h6>
-                    <div class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:py-[4px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
-                        <a href="" class="h-full text-[12px] lg:text-[16px] font-semibold">Connect Us</a>
+        <!-- Banner Content -->
+        <div class="container mx-auto px-5 xl:px-12 h-full w-full relative z-10">
+            <div class="h-full w-full flex flex-col justify-start md:justify-center items-center text-center mb-4 md:pt-8 pb-0 gap-[5%] md:gap-[31px] lg:gap-0">
+                <div class="z-10 flex flex-col lg:flex-row items-center lg:gap-[23px] pt-[10%] lg:pt-[22%] xl:pt-[205px] banner-container-elem">
+                    <img class="pt-[22px] md:pt-0 w-[40px] lg:w-[100px]" src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="rocket icon">
+                    <h2 class="banner_text-one text-[20px] lg:text-[23px] font_inter font-medium text-white text-center capitalize">
+                        Journey with Confidence <span class="text-[#579aff]">Migrate</span> with Us
+                    </h2>
+                </div>
+                <h1 class="md:text-center text-[31px] md:text-[55px] 2xl:text-[85px] lg:text-[70px] lg:w-[80%] font-medium font_inter gradient-text z-10 lg:mt-8 banner_main-text lg:inline-block banner-contain-text leading-[1.2]">
+                    Visa Made Easy Dreams Made Possible
+                </h1>
+                <h6 class="font_inter font-medium text-[20px] lg:text-[23px] z-20 text-white lg:mt-14 banner-container-elem">
+                    Visa Made Easy Dreams Made Possible
+                </h6>
+                <div class="z-10 flex flex-col md:flex-row justify-center items-start md:items-center gap-4 lg:mb-7 lg:mt-10">
+                    <img width="52px" src="{{ asset('assets/home_Banner/CanadaFlag.png') }}" alt="CanadaFlag">
+                    <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-[4.5px] pl-6 pr-1 overflow-hidden group">
+                        <!-- Background animation using pseudo-element -->
+                        <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
+                        <h6 class="relative z-10 text-white text-[10px] md:text-[14px] 2xl">Let's turn your vision into reality.</h6>
+                        <div class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:py-[4px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                            <a href="" class="h-full text-[12px] lg:text-[16px] font-semibold">Connect Us</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            {{-- <div class="z-10 flex flex-wrap md:flex-nowrap justify-around items-center py-5 w-full lg:mb-0">
-                <img class="w-[50px] lg:w-[100px]"  src="{{ asset('assets/home_Banner/segment.png') }}" alt="">
-                <img class="w-[50px] lg:w-[100px]"  src="{{ asset('assets/home_Banner/splunk.png') }}" alt="">
-                <img class="w-[50px] lg:w-[100px]"  src="{{ asset('assets/home_Banner/Hubspot.png') }}" alt="">
-                <img class="w-[50px] lg:w-[100px]"  src="{{ asset('assets/home_Banner/asna.png') }}" alt="">
-                <img class="w-[50px] lg:w-[100px]"  src="{{ asset('assets/home_Banner/airtasker.png') }}" alt="">
-            </div> --}}
-            <div class="lg:absolute bottom-0 right-0 w-full lg:w-fit flex justify-center lg:right-12 lg:bottom-[35%] z-10">
-                <div class="flex lg:flex-col items-center gap-[30px] border border-white py-2 lg:py-4 px-6 lg:px-2 rounded-full mb-3 lg:mb-0">
-                    <img class="w-[15px]" src="{{ asset('assets/facebookban.png') }}" alt="facebook">
-                    <img class="w-[15px]" src="{{ asset('assets/instagramban.png') }}" alt="instagram">
-                    <img class="w-[15px]" src="{{ asset('assets/linkedinban.png') }}" alt="linkedin">
-                    <img class="w-[15px]" src="{{ asset('assets/youtubeban.png') }}" alt="youtube">
+                {{-- <div class="z-10 flex flex-wrap md:flex-nowrap justify-around items-center py-5 w-full lg:mb-0">
+                    <img class="w-[50px] lg:w-[100px]"  src="{{ asset('assets/home_Banner/segment.png') }}" alt="">
+                    <img class="w-[50px] lg:w-[100px]"  src="{{ asset('assets/home_Banner/splunk.png') }}" alt="">
+                    <img class="w-[50px] lg:w-[100px]"  src="{{ asset('assets/home_Banner/Hubspot.png') }}" alt="">
+                    <img class="w-[50px] lg:w-[100px]"  src="{{ asset('assets/home_Banner/asna.png') }}" alt="">
+                    <img class="w-[50px] lg:w-[100px]"  src="{{ asset('assets/home_Banner/airtasker.png') }}" alt="">
+                </div> --}}
+                <div class="lg:absolute bottom-0 right-0 w-full lg:w-fit flex justify-center lg:right-12 lg:bottom-[35%] z-10">
+                    <div class="flex lg:flex-col items-center gap-[30px] border border-white py-2 lg:py-4 px-6 lg:px-2 rounded-full mb-3 lg:mb-0">
+                        <img class="w-[15px]" src="{{ asset('assets/facebookban.png') }}" alt="facebook">
+                        <img class="w-[15px]" src="{{ asset('assets/instagramban.png') }}" alt="instagram">
+                        <img class="w-[15px]" src="{{ asset('assets/linkedinban.png') }}" alt="linkedin">
+                        <img class="w-[15px]" src="{{ asset('assets/youtubeban.png') }}" alt="youtube">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    @include('frontend.Common.modal-contact')
 </div>
-
+@include('frontend.Common.whatsapplogo')
 <div class="bg-[#051b3b]">
     {{-- our service section --}}
     <div class="serviceSection gradient-evition relative overflow-hidden z-10 bg-[#051b3b]">
@@ -404,7 +417,7 @@
                     <p class="py-5 text-white font-normal font_inter text-[14px] xl:text-lg lg:py-10">Proudly regulated by and in good standing with the College of Immigration and Citizenship Consultants (CICC). Jamie Dowla, registration #: R507233</p>
                     <div class="flex flex-col flex-wrap lg:flex-row gap-5 items-center mb-8">
                         @foreach ($certificate as $data)
-                        <div>
+                        <div class="flex items-center flex-col justify-center">
                             <img class="w-[200px] max-h-[66px]" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{$data->alt_tag}}">
                             <h6 class="font_inter font-semibold text-white text-[14px] w-[80%] text-center py-2">{{ $data->title }} {{ $data->sub_title }}</h6>
                         </div>
@@ -517,7 +530,7 @@
             </div>
             <p class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%] fourthleft-to-right-animation">Canadian Immigration News, Tips, and Resources</p>
             <p class="text-white font_inter font-normal text-justify text-[14px] md:w-[45%] fourthleft-to-right-animation">Stay in the loop and keep up with all our news and updates!</p>
-            <div class="flex justify-start items-center my-12">
+            <div class="flex justify-center lg:justify-start items-center my-12">
                 <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group">
                     <!-- Initially the background will cover the full button -->
                     <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
@@ -544,7 +557,7 @@
                                                 <h6 class="font_inter font-semibold text-16px text-[#072558]  2xl:text-[18px]">{{ $data->name }}</h6>
                                                 <?php $date = $data->date . ' ' . $data->time; ?>
                                                 <p class="text-[#072558] font_inter font-medium text-[10px] 2xl:text-[12px] lg:whitespace-nowrap">by {{ $data->name }}, on  {{ $data->name }}, on {{ date('M j, Y h:i:s A', strtotime($date)) }}</p>
-                                                <p class="text-[#072558] font_inter font-medium text-[10px] 2xl:text-[12px]">Topics: {{ $data->topics }}</p>
+                                                <p class="text-[#072558] font_inter font-medium text-[10px] 2xl:text-[12px] clamp-text-one">Topics: {{ $data->topics }}</p>
                                             </div>
                                         </div>
                                         <h5 class="text-[#072558] font_inter font-bold text-[10px] xl:text-[20px] py-5 xl:pb-[15px] 2xl:pt-[32px] clamp-text-two">{{ $data->title }}</h5>
@@ -590,7 +603,7 @@
                     @foreach ($explore as $data)
                     <li class="splide__slide">
                         <div class="!w-[90vw] xl:!w-[385px] relative image-card-explore">
-                            <img class="w-full md:w-full h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{$data->alt_tag}}">
+                            <img class="w-full md:w-[350px] h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{$data->alt_tag}}">
                             <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
                                 <button class="text-white">view</button>
                             </div>
@@ -672,9 +685,7 @@
     </div>
 </div>
 
-
 @include('frontend.Common.getintouch')
-
 
 <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
 <script>
@@ -790,6 +801,21 @@
 <script>
     // Register GSAP ScrollTrigger plugin
     gsap.registerPlugin(ScrollTrigger);
+
+    document.addEventListener("DOMContentLoaded", function() {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.to(".flag-img-contact", {
+            scrollTrigger: {
+            trigger: ".contact-US-banner", // The section that triggers the animation
+            start: "top center", // When the top of the trigger hits the center of the viewport
+            toggleActions: "play none none none", // Play animation when triggered
+            },
+            duration: 2, // Duration of the animation
+            top: "4px", // Final position of the flag (curtain falling to this point)
+            opacity: 1, // Fade in the flag as it falls
+            ease: "bounce.out", // Bounce effect to mimic a natural falling curtain
+        });
+    });
 
     // Animation for banner-container-elem
     gsap.to(".banner-container-elem", {
@@ -1065,30 +1091,41 @@
     });
 
     document.addEventListener('DOMContentLoaded', function () {
-        var splide = new Splide('#blogSplide', {
-            type: 'slide',
-            perMove: 1,
-            perPage: 3.1,
-            arrows: false,
-            pagination: false,
-            autoplay: true,
-            interval: 3000,
-            gap: '16px',
-            breakpoints: {
-                640: { perPage: 1, gap: '12px' },
-                768: { perPage: 1.5, gap: '16px' },
-                1024: { perPage: 2, gap: '20px' },
-                1280: { perPage: 2.5, gap: '24px' },
-            }
-        }).mount();
+        var slides = document.querySelectorAll('#blogSplide .splide__slide');
 
-        document.querySelector('.blog-slider-prev').addEventListener('click', function () {
-            splide.go('<'); // Go to previous slide
-        });
+        if (slides.length > 1) {
+            var splide = new Splide('#blogSplide', {
+                type: 'loop',
+                perMove: 1,
+                perPage: 3.1,
+                arrows: false,
+                pagination: false,
+                autoplay: true,
+                interval: 3000,
+                pauseOnHover: false, // Prevent autoplay from pausing on hover
+                gap: '16px',
+                breakpoints: {
+                    640: { perPage: 1, gap: '12px' },
+                    768: { perPage: 2.1, gap: '16px' },
+                    1024: { perPage: 2, gap: '20px' },
+                    1280: { perPage: 2.5, gap: '24px' },
+                }
+            }).mount();
 
-        document.querySelector('.blog-slider-next').addEventListener('click', function () {
-            splide.go('>'); // Go to next slide
-        });
+            // Custom Previous Button
+            document.querySelector('.blog-slider-prev').addEventListener('click', function () {
+                splide.go('<'); // Go to the previous slide
+                splide.play();  // Ensure autoplay resumes
+            });
+
+            // Custom Next Button
+            document.querySelector('.blog-slider-next').addEventListener('click', function () {
+                splide.go('>'); // Go to the next slide
+                splide.play();  // Ensure autoplay resumes
+            });
+        } else {
+            console.log("Not enough slides to initialize the slider.");
+        }
     });
 
     document.addEventListener('DOMContentLoaded', function () {
@@ -1102,7 +1139,7 @@
             interval: 3000, // Auto-slide interval
             breakpoints: {
                 640: { perPage: 1 },
-                768: { perPage: 1.5},
+                768: { perPage: 1.9},
                 1024: { perPage: 2},
                 1280: { perPage: 2.8 },
             }
@@ -1120,55 +1157,38 @@
     });
 
     document.addEventListener('DOMContentLoaded', function () {
-        var splide = new Splide('#testimonial-slider', {
-            type: 'slide',   // Switch to 'slide' to prevent cloning (No loop)
-            perMove: 1,      // Moves one slide at a time
-            perPage: 3.5,    // Shows one slide per page
-            arrows: false,   // Disable default arrows
-            pagination: false, // Disable the dots (pagination)
-            autoplay: true,
-            interval: 3000,  // Auto-slide interval
-            gap: '2px',     // Gap between slides
-            breakpoints: {
-                640: {
-                    perPage: 1,
-                    gap: '16px'  // Adjust gap for smaller screens
-                },
-                768: {
-                    perPage: 1.5,
-                    gap: '16px'  // Adjust gap for medium screens
-                },
-                1024: {
-                    perPage: 2,
-                    gap: '16px'  // Adjust gap for larger screens
-                },
-                1280: {
-                    perPage: 2.8,
-                    gap: '70px'  // Adjust gap for large screens
-                },
-                1536: {
-                    perPage: 2.8,
-                    gap: '0px',  // Larger gap for extra-large screens
-                },
-                1920: {
-                    perPage: 2.8,
-                    gap: '0px',  // Larger gap for extra-large screens
-                },
-            }
-        }).mount();
+        var slides = document.querySelectorAll('#testimonial-slider .splide__slide'); // Select all the slides
 
+        if (slides.length > 1) { // Only initialize if there's more than 1 slide
+            var splide = new Splide('#testimonial-slider', {
+                type: 'loop',   // Loop through the slides
+                perMove: 1,     // Moves one slide at a time
+                perPage: 3.5,   // Shows 3.5 slides per page (visible slides)
+                arrows: false,  // Disable default arrows
+                pagination: false, // Disable the dots (pagination)
+                autoplay: true, // Enable autoplay
+                interval: 3000, // Auto-slide interval (3 seconds)
+                breakpoints: {
+                    640: { perPage: 1 },        // 1 slide per page on small screens
+                    768: { perPage: 1.9 },      // 1.9 slides per page on medium screens
+                    1024: { perPage: 2 },       // 2 slides per page on large screens
+                    1280: { perPage: 2.8 },     // 2.8 slides per page on extra-large screens
+                }
+            }).mount();
 
-        // Custom Previous Button
-        document.querySelector('.card-testi-slide-prev-button').addEventListener('click', function () {
-            splide.go('<'); // Go to the previous slide
-        });
+            // Custom Previous Button
+            document.querySelector('.card-testi-slide-prev-button').addEventListener('click', function () {
+                splide.go('<'); // Go to the previous slide
+            });
 
-        // Custom Next Button
-        document.querySelector('.card-testi-slide-next-button').addEventListener('click', function () {
-            splide.go('>'); // Go to the next slide
-        });
+            // Custom Next Button
+            document.querySelector('.card-testi-slide-next-button').addEventListener('click', function () {
+                splide.go('>'); // Go to the next slide
+            });
+        } else {
+            console.log("Not enough slides to initialize the slider.");
+        }
     });
-
 </script>
 
 

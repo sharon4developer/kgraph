@@ -32,7 +32,7 @@
     }
 
 </style>
-
+@include('frontend.Common.whatsapplogo')
 {{-- blogs banner --}}
 <div class="blog-banner bg-[#051b3b] md:h-[50vh]">
     <div class="blog-banner-overlay">
@@ -51,14 +51,18 @@
 {{-- Blog sect --}}
 <div class="BlogCRDS bg-[#051b3b]">
     <div class="gradient-evition relative overflow-hidden z-10">
-        <div class="container mx-auto px-5 lg:px-12 lg:py-16 h-full w-full blog-box">
+        <div class="container mx-auto px-5 lg:px-12 lg:py-16 h-full w-full blog-box my-16">
                 @foreach ($blogs as $data)
-                <div class="bg-white w-full h-[450px] mr-5">
-                    <img class="h-[150px] w-full object-cover object-top" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{$data->alt_tag}}"/>
-                    <p class="text-[#072558] font_inter font-medium text-[14px] text-right mr-2">Topics: {{ $data->topics }}</p>
-                    <div class="py-4 px-6">
+                <div class="bg-white w-full h-full lg:mr-5 my-12 2xl:max-h-[800px] relative">
+                    <img class="aspect-[1/1] object-cover object-top" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="blog_image"/>
+                    <div class="relative">
+                        <img class="w-[50px] h-[50px] absolute left-2 top-[-25px] rounded-full" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->user_image }}" alt="profile_image"/>
+                        <div class="flex justify-end items-end text-left">
+                            <p class="text-[#072558] font_inter font-medium text-[14px] mr-2 w-[70%]">Topics: {{ $data->topics }}</p>
+                        </div>
+                    </div>
+                    <div class="py-4 px-6 pb-[68px] lg:pb-4">
                         <div class="flex items-center gap-4 relative">
-                            <img class="w-[50px] h-[50px] absolute top-[-60px]" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->user_image }}" alt="{{$data->user_alt_tag}}"/>
                             <div class="mt-2">
                                 <h6 class="font_inter font-semibold text-16px text-[#072558]">{{ $data->name }}</h6>
                                 <?php $date = $data->date . ' ' . $data->time; ?>
@@ -67,7 +71,7 @@
                         </div>
                         <h5 class="text-[#072558] font_inter font-bold text-[10px] lg:text-[12px] xl:text-[14px] py-5">{{ $data->title }}</h5>
                         <p class="text-[#072558] font_inter font-normal text-justify text-[10px] lg:text-[12px] xl:text-[14px] truncate-text">{{ $data->description }}</p>
-                        <div class="flex justify-end">
+                        <div class="flex justify-end absolute bottom-0 right-[15px]">
                             <button class="border border-[#072558] rounded-full px-10 py-1 my-4 text-[#072558] hover:bg-[#072558] hover:text-white ease-linear duration-300">View</button>
                         </div>
                     </div>
