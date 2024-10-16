@@ -5,7 +5,7 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Add Service</h4>
+                    <h4 class="card-title">Add Service Category</h4>
                 </div>
                 <div class="card-body">
                     <form class="needs-validation" novalidate id="service-add-form" method="POST">
@@ -13,35 +13,9 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="sub_title">Select Category</label>
-                                        <select class="form-select" name="service_category_id">
-                                            <option value="" selected disabled>---Select---</option>
-                                            @foreach ($serviceCategories as $category)
-                                                <option value="{{$category->id}}">{{$category->title}}</option>
-                                            @endforeach
-                                        </select>
-                                        <div class="valid-feedback">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <div class="form-group">
                                         <label class="form-label" for="title">Title</label>
                                         <input type="text" class="form-control" id="title" name="title"
                                             placeholder="Title" required>
-                                        <div class="valid-feedback">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <div class="form-group">
-                                        <label class="form-label" for="sub_title">Sub Title</label>
-                                        <input type="text" class="form-control" id="sub_title" name="sub_title"
-                                            placeholder="Sub Title" required>
                                         <div class="valid-feedback">
                                         </div>
                                     </div>
@@ -73,7 +47,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <a type="button" href="{{ url('admin/services') }}"
+                                    <a type="button" href="{{ url('admin/service-categories') }}"
                                         class="btn btn-outline-warning btn-rounded mb-2">
                                         <i class="ti-close"></i> Cancel
                                     </a>
@@ -92,5 +66,5 @@
 @push('style')
 @endpush
 @push('script')
-    <script src="{{ asset('admin/backend/js/service.js') }}"></script>
+    <script src="{{ asset('admin/backend/js/service-category.js') }}"></script>
 @endpush

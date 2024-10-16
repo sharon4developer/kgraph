@@ -14,7 +14,7 @@ $(document).ready(function () {
 
                 // Pass the new order to the backend (e.g., using AJAX)
                 $.ajax({
-                    url: $('#route-for-user').val() + '/services/update/order', // Replace with your Laravel route URL
+                    url: $('#route-for-user').val() + '/service-categories/update/order', // Replace with your Laravel route URL
                     method: 'POST',
                     data: {
                         order: newOrder
@@ -35,14 +35,7 @@ function loadDataTableForServices() {
     table = $('#service-details-table').DataTable({
         processing: true,
         serverSide: true,
-        "ajax": {
-            "url": $('#route-for-user').val() + '/services/show',
-            "dataType": "json",
-            "type": "GET",
-            "data": function(d) {
-                d.service_category_id=$('#select-service-category').val();
-            }
-        },
+        ajax: $('#route-for-user').val() + '/service-categories/show',
         columns: [
             { data: 'DT_RowIndex', orderable: false, searchable: false },
             { data: 'title' },
@@ -88,7 +81,7 @@ function loadDataTableForServices() {
                                             <i class="fa fa-check"></i>
                                         </a>`;
                     return (`<div style="white-space:no-wrap">
-                                    <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Edit" data-bs-placement="top"  href="` + $("#route-for-user").val() + `/services/` + row.id + `/edit">
+                                    <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Edit" data-bs-placement="top"  href="` + $("#route-for-user").val() + `/service-categories/` + row.id + `/edit">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     `+ statusCheck + `
@@ -123,9 +116,6 @@ $('#service-add-form').validate({
         sub_title: {
             required: true,
         },
-        service_category_id: {
-            required: true,
-        },
         image: {
             required: true,
         },
@@ -133,7 +123,6 @@ $('#service-add-form').validate({
     messages: {
         title: "Title field is required",
         sub_title: "Sub title field is required",
-        service_category_id: "Service Category field is required",
         image: "Image field is required",
     },
     errorElement: 'span',
@@ -147,7 +136,7 @@ $('#service-add-form').validate({
         // Create
         $.ajax({
             type: "POST",
-            url: $('#route-for-user').val() + '/services',
+            url: $('#route-for-user').val() + '/service-categories',
             contentType: false,
             processData: false,
             data: formData,
@@ -209,21 +198,12 @@ $('#service-edit-form').validate({
         title: {
             required: true,
         },
-        sub_title: {
-            required: true,
-        },
         service_category_id: {
-            required: true,
-        },
-        service_id: {
             required: true,
         },
     },
     messages: {
         title: "Title field is required",
-        sub_title: "Sub title field is required",
-        service_category_id: "Service Category field is required",
-        image: "Image field is required",
     },
     errorElement: 'span',
     submitHandler: function (form, event) {
@@ -233,11 +213,11 @@ $('#service-edit-form').validate({
         var submitButton = $(form).find('[type=submit]');
         var current_btn_text = submitButton.html();
         button_loading_text = 'Saving...';
-        var service_id = $(form).find('input[name=service_id]').val();
+        var service_category_id = $(form).find('input[name=service_category_id]').val();
         // Create
         $.ajax({
             type: "POST",
-            url: $('#route-for-user').val() + '/services/' + service_id,
+            url: $('#route-for-user').val() + '/service-categories/' + service_category_id,
             contentType: false,
             processData: false,
             data: formData,
@@ -297,11 +277,11 @@ $('#service-edit-form').validate({
 
 function changeStatus(id, status) {
     if (status == 1) {
-        text = 'You want to deactivate this service!';
+        text = 'You want to deactivate this service category!';
         message = 'Deactivated successfully';
     }
     else {
-        text = 'You want to activate this service!';
+        text = 'You want to activate this service category!';
         message = 'Activated successfully';
     }
     Swal.fire({
@@ -316,7 +296,7 @@ function changeStatus(id, status) {
         if (result.isConfirmed) {
             $.ajax({
                 type: "POST",
-                url: $("#route-for-user").val() + "/services/change/status",
+                url: $("#route-for-user").val() + "/service-categories/change/status",
                 data: {
                     id: id,
                 },
@@ -339,7 +319,7 @@ function changeStatus(id, status) {
 function deleteData(id) {
     Swal.fire({
         title: 'Are you sure?',
-        text: "Are you sure, do yo want to delete the service ?",
+        text: "Are you sure, do yo want to delete the service category ?",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Yes!',
@@ -349,14 +329,14 @@ function deleteData(id) {
         if (result.isConfirmed) {
             $.ajax({
                 type: "DELETE",
-                url: $("#route-for-user").val() + '/services/' + id,
+                url: $("#route-for-user").val() + '/service-categories/' + id,
                 data: {
                     id: id,
                 },
                 success: function (data) {
                     table.ajax.reload(null, false);
                     if (data == true)
-                        showMessage('success', "Service deleted successfully");
+                        showMessage('success', "Service category deleted successfully");
                 },
                 error: function (data) {
                     showMessage("warning", "Something went wrong...");
@@ -366,7 +346,3 @@ function deleteData(id) {
     })
 }
 
-$('#select-service-category').on('change',function (e) {
-
-    table.ajax.reload();
-})

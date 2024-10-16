@@ -29,7 +29,7 @@ return new class extends Migration
             $table->string('button_url')->nullable();
             $table->integer('status')->default(1)->nullable();
             $table->unsignedBigInteger('page_id')->nullable();
-            $table->foreign('page_id')->references('id')->on('pages');
+            $table->foreign('page_id')->references('id')->on('pages')->onDelete('CASCADE');;
             $table->timestamps();
         });
     }

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('package_faqs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('package_id')->nullable();
-            $table->foreign('package_id')->references('id')->on('packages');
+            $table->foreign('package_id')->references('id')->on('packages')->onDelete('CASCADE');;
             $table->string('title')->nullable();
             $table->longText('description')->nullable();
             $table->integer('status')->default(1)->nullable();

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('service_points', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('service_id')->nullable();
-            $table->foreign('service_id')->references('id')->on('services');
+            $table->foreign('service_id')->references('id')->on('services')->onDelete('CASCADE');;
             $table->string('title')->nullable();
             $table->longText('description')->nullable();
             $table->integer('status')->default(1)->nullable();

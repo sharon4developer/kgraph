@@ -21,6 +21,8 @@ return new class extends Migration
             $table->integer('status')->default(1)->nullable();
             $table->integer('order')->nullable()->default(0);
             $table->string('slug')->nullable();
+            $table->unsignedBigInteger('service_category_id')->nullable();
+            $table->foreign('service_category_id')->references('id')->on('service_categories')->onDelete('CASCADE');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -22,6 +22,7 @@ use App\Http\Controllers\Admin\PackagePointController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\PrivacyPolicyController;
 use App\Http\Controllers\Admin\SeoController;
+use App\Http\Controllers\Admin\ServiceCategoryController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ServiceFaqController;
 use App\Http\Controllers\Admin\ServicePointController;
@@ -102,6 +103,7 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'career-departments' => CareerDepartmentController::class,
         'career-branches' => CareerBranchController::class,
         'about-us' => AboutUsController::class,
+        'service-categories' => ServiceCategoryController::class,
     ]);
 
     Route::prefix('pages')->name('.pages')->group(function () {
@@ -218,5 +220,11 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
 
         Route::post('change/status', [CareerBranchController::class, 'changeStatus'])->name('change-status');
         Route::post('update/order', [CareerBranchController::class, 'changeOrder'])->name('update-order');
+    });
+
+    Route::prefix('service-categories')->name('.service-categories')->group(function () {
+
+        Route::post('change/status', [ServiceCategoryController::class, 'changeStatus'])->name('change-status');
+        Route::post('update/order', [ServiceCategoryController::class, 'changeOrder'])->name('update-order');
     });
 });

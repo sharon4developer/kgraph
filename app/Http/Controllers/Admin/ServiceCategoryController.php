@@ -3,45 +3,39 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Admin\StoreServiceRequest;
-use App\Http\Requests\Admin\UpdateServiceRequest;
-use App\Models\Service;
+use App\Http\Requests\Admin\StoreServiceCategoryRequest;
+use App\Http\Requests\Admin\UpdateServiceCategoryRequest;
 use App\Models\ServiceCategory;
 use Exception;
 use Illuminate\Http\Request;
 
-class ServiceController extends Controller
+class ServiceCategoryController extends Controller
 {
     public function index()
     {
-        $title = 'Services';
-        $sub_title = 'Services';
+        $title = 'Service Category';
+        $sub_title = 'Service Category';
 
-        $serviceCategories = ServiceCategory::getFullDataForHome();
-
-        return view('admin.services.index',compact('title','sub_title','serviceCategories'));
+        return view('admin.service-category.index',compact('title','sub_title'));
     }
 
     public function create()
     {
-        $title = 'Services';
+        $title = 'Service Category';
         $sub_title = 'Add';
-
-        $serviceCategories = ServiceCategory::getFullDataForHome();
-
-        return view('admin.services.create',compact('title','sub_title','serviceCategories'));
+        return view('admin.service-category.create',compact('title','sub_title'));
     }
 
-    public function store(StoreServiceRequest $request)
+    public function store(StoreServiceCategoryRequest $request)
     {
         try{
-            $save= Service::createData($request);
+            $save= ServiceCategory::createData($request);
 
             if($save){
                 $response=[
                     'status'=>true,
                     'message'=>'Saved successfully...',
-                    'return_url'=>'/admin/services',
+                    'return_url'=>'/admin/service-categories',
                 ];
             }else{
                 $response=[
@@ -62,34 +56,31 @@ class ServiceController extends Controller
 
     public function show(Request $request)
     {
-        $data = Service::getFullData($request);
+        $data = ServiceCategory::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
-        $data = Service::getData($id);
+        $data = ServiceCategory::getData($id);
         if(!$data){
             abort(404);
         }
-        $title = 'Services';
+        $title = 'Service Category';
         $sub_title = 'Edit';
-
-        $serviceCategories = ServiceCategory::getFullDataForHome();
-
-        return view('admin.services.edit',compact('data','title','sub_title','serviceCategories'));
+        return view('admin.service-category.edit',compact('data','title','sub_title'));
     }
 
-    public function update(UpdateServiceRequest $request, $id)
+    public function update(UpdateServiceCategoryRequest $request, $id)
     {
         try{
-            $save= Service::updateData($request);
+            $save= ServiceCategory::updateData($request);
 
             if($save){
                 $response=[
                     'status'=>true,
                     'message'=>'Saved successfully...',
-                    'return_url'=>'/admin/services',
+                    'return_url'=>'/admin/service-categories',
                 ];
             }else{
                 $response=[
@@ -110,13 +101,13 @@ class ServiceController extends Controller
 
     public function destroy(Request $request)
     {
-        $delete = Service::deleteData($request);
+        $delete = ServiceCategory::deleteData($request);
         return response()->json($delete);
     }
 
     public function changeStatus(Request $request)
     {
-        $data = Service::changeStatus($request);
+        $data = ServiceCategory::changeStatus($request);
         return response()->json($data);
     }
 
@@ -124,7 +115,7 @@ class ServiceController extends Controller
     {
         $newOrder = $request->input('order');
 
-        Service::updateOrder($request);
+        ServiceCategory::updateOrder($request);
 
         return response()->json(['message' => 'Order updated successfully']);
     }

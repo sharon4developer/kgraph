@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('service_faqs', function (Blueprint $table) {
+        Schema::create('service_categories', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('service_id')->nullable();
-            $table->foreign('service_id')->references('id')->on('services')->onDelete('CASCADE');;
             $table->string('title')->nullable();
-            $table->longText('description')->nullable();
+            $table->string('image')->nullable();
+            $table->string('intervention_image')->nullable();
+            $table->string('alt_tag')->nullable()->default('k-graph');
             $table->integer('status')->default(1)->nullable();
             $table->integer('order')->nullable()->default(0);
+            $table->string('slug')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('service_faqs');
+        Schema::dropIfExists('service_categories');
     }
 };

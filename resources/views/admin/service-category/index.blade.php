@@ -7,26 +7,12 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-md-10">
-                            <h4 class="box-title">Services</h4>
+                            <h4 class="box-title">Service Categories</h4>
                         </div>
-
                         <div class="col-md-2">
                             <a class="btn btn-outline-info btn-rounded m-3 _effect--ripple waves-effect waves-light float-end"
-                                href="{{ url('admin/services/create') }}"><i class="fa fa-plus" aria-hidden="true"></i>
+                                href="{{ url('admin/service-categories/create') }}"><i class="fa fa-plus" aria-hidden="true"></i>
                                 Add</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            {{-- <label class="form-label" for="sub_title">Select Service Category</label> --}}
-                            <select class="form-select" name="service_category_id" id="select-service-category">
-                                <option value="" selected>All</option>
-                                @foreach ($serviceCategories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->title }}</option>
-                                @endforeach
-                            </select>
-                            <div class="valid-feedback">
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -54,5 +40,5 @@
 @push('style')
 @endpush
 @push('script')
-    <script src="{{ asset('admin/backend/js/service.js') }}"></script>
+    <script src="{{ asset('admin/backend/js/service-category.js') }}"></script>
 @endpush

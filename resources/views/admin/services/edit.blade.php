@@ -15,6 +15,21 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
+                                        <label class="form-label" for="sub_title">Select Category</label>
+                                        <select class="form-select" name="service_category_id">
+                                            <option value="" selected disabled>---Select---</option>
+                                            @foreach ($serviceCategories as $category)
+                                                <option value="{{$category->id}}" @if($category->id == $data->service_category_id) selected @endif>{{$category->title}}</option>
+                                            @endforeach
+                                        </select>
+                                        <div class="valid-feedback">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <div class="form-group">
                                         <label class="form-label" for="title">Title</label>
                                         <input type="text" class="form-control" id="title" name="title"
                                             placeholder="Title" required  value="{{$data->title}}">

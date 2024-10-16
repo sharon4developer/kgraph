@@ -8,33 +8,23 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Yajra\DataTables\Facades\DataTables;
 use Str;
 
-class Service extends Model
+class ServiceCategory extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'services';
+    protected $table = 'service_categories';
 
-    protected $fillable = ['title', 'sub_title', 'image', 'intervention_image', 'status','order','alt_tag','slug','service_category_id'];
+    protected $fillable = ['title', 'image', 'intervention_image', 'status','order','alt_tag','slug'];
 
-    public function ServicePoint(){
-        return  $this->hasMany(ServicePoint::class);
-    }
-
-    public function ServiceFaq(){
-        return  $this->hasMany(ServiceFaq::class);
+    public function Service(){
+        return  $this->hasMany(Service::class);
     }
 
     public static function getFullData($data)
     {
         $locationData = getLocationData();
 
-        $value =  SELF::select('title', 'image', 'id', 'status', 'created_at')
-                    ->where(function ($query) use ($data) {
-                        if (isset($data->service_category_id)) {
-                            $query->where('service_category_id', $data->service_category_id);
-                        }
-                    })->orderBy('order', 'asc');
-
+        $value =  SELF::select('title', 'image', 'id', 'status', 'created_at')->orderBy('order', 'asc');
 
         return DataTables::of($value)
             ->editColumn('image', function ($row) use($locationData) {
@@ -47,11 +37,9 @@ class Service extends Model
 
     public static function createData($data)
     {
-        $value = new Service;
+        $value = new ServiceCategory;
         $value->title        = $data->title;
-        $value->sub_title  = $data->sub_title;
         $value->alt_tag           =  $data->alt_tag;
-        $value->service_category_id           =  $data->service_category_id;
         $slug = Str::slug($data->title);
         $value->slug = $slug;
         if ($data->image) {
@@ -66,16 +54,14 @@ class Service extends Model
 
     public static function getData($id)
     {
-        return SELF::with(['ServicePoint','ServiceFaq'])->find($id);
+        return SELF::find($id);
     }
 
     public static function updateData($data)
     {
-        $value = Service::find($data->service_id);
+        $value = ServiceCategory::find($data->service_category_id);
         $value->title        = $data->title;
-        $value->sub_title  = $data->sub_title;
         $value->alt_tag           =  $data->alt_tag;
-        $value->service_category_id           =  $data->service_category_id;
         $slug = Str::slug($data->title);
         $value->slug = $slug;
         if ($data->image) {
@@ -109,7 +95,7 @@ class Service extends Model
     }
 
     public static function getFullDataForHome(){
-        return SELF::with(['ServicePoint','ServiceFaq'])->select('image','id','title','sub_title','alt_tag','slug')->orderBy('order','asc')->where('status',1)->get();
+        return SELF::with(['Service'])->select('image','id','title','alt_tag','slug')->orderBy('order','asc')->where('status',1)->get();
     }
 
     public static function updateOrder($data)
