@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\CrewController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ExploreController;
 use App\Http\Controllers\Admin\FaqController;
+use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\JourneyController;
 use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Admin\OurStoryController;
@@ -104,6 +105,7 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'career-branches' => CareerBranchController::class,
         'about-us' => AboutUsController::class,
         'service-categories' => ServiceCategoryController::class,
+        'home' => AdminHomeController::class,
     ]);
 
     Route::prefix('pages')->name('.pages')->group(function () {

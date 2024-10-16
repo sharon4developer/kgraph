@@ -28,6 +28,7 @@
                         <span data-key="t-multi-level">Home</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
+                        <li><a href="{{ url('admin/home') }}" data-key="t-level-2-2">Home </a></li>
                         <li>
                             <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Banners</a>
                             <ul class="sub-menu" aria-expanded="true">

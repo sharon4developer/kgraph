@@ -40,6 +40,11 @@ class UpdateAboutUsRequest extends FormRequest
             'crew_title' => 'required',
             'location_sub_title' => 'required',
             'about_us_id' => 'required|exists:about_us,id',
+            'about_image' => 'mimes:jpeg,png,jpg,gif,webp',
+            'journey_image' => 'mimes:jpeg,png,jpg,gif,webp',
+            'location_image1' => 'mimes:jpeg,png,jpg,gif,webp',
+            'location_image2' => 'mimes:jpeg,png,jpg,gif,webp',
+            'location_image3' => 'mimes:jpeg,png,jpg,gif,webp',
         ];
     }
 }
