@@ -262,17 +262,17 @@
             <div class="grid grid-cols-2 gap-4 lg:gap-[12px] lg:w-full mb-4 lg:mb-0 py-8">
                 <!-- Top Left -->
                 <div class="flex justify-center items-center rounded-lg overflow-hidden h-[260px]">
-                    <img src="@if(isset($aboutUs)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->location_image1 }} @endif" alt="{{$aboutUs->location_image1_alt_tag}}" class="w-full h-full object-cover" />
+                    <img src="@if(isset($aboutUs)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->location_image1 }} @endif" alt="@if(isset($aboutUs)) {{$aboutUs->location_image1_alt_tag}} @endif" class="w-full h-full object-cover" />
                 </div>
 
                 <!-- Right Side (Spans both rows) -->
                 <div class="row-span-2 rounded-lg overflow-hidden h-[400px]">
-                    <img src="@if(isset($aboutUs)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->location_image2 }} @endif" alt="{{$aboutUs->location_image2_alt_tag}}" class="w-full h-full object-cover" />
+                    <img src="@if(isset($aboutUs)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->location_image2 }} @endif" alt="@if(isset($aboutUs)) {{$aboutUs->location_image2_alt_tag}} @endif" class="w-full h-full object-cover" />
                 </div>
 
                 <!-- Bottom Left -->
                 <div class="flex justify-center items-center rounded-lg overflow-hidden h-[121px]">
-                    <img src="@if(isset($aboutUs)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->location_image3 }} @endif" alt="{{$aboutUs->location_image3_alt_tag}}" class="w-full h-full object-cover" />
+                    <img src="@if(isset($aboutUs)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->location_image3 }} @endif" alt="@if(isset($aboutUs)) {{$aboutUs->location_image3_alt_tag}} @endif" class="w-full h-full object-cover" />
                 </div>
             </div>
         </div>
