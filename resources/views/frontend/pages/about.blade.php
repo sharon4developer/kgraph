@@ -57,7 +57,7 @@
                     </p>
                 </div>
                 <div class="w-full cursor-pointer">
-                    <img class="hover:scale-105 ease-linear duration-300" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->about_image }}" alt="@if(isset($aboutUs)) {{$aboutUs->about_image_alt_tag}} @endif">
+                    <img class="hover:scale-105 ease-linear duration-300" src="@if(isset($aboutUs)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->about_image }} @endif" alt="@if(isset($aboutUs)) {{$aboutUs->about_image_alt_tag}} @endif">
                 </div>
             </div>
         </div>
@@ -117,7 +117,7 @@
                     <p class="text-white font_inter font-thin text-justify text-[14px] py-4  lg:w-[75%]">@if(isset($aboutUs)) {{$aboutUs->journey_description}} @endif </p>
                 </div>
                 <div class="w-full">
-                    <img src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->journey_image }}" alt="@if(isset($aboutUs)) {{$aboutUs->journey_image_alt_tag}} @endif">
+                    <img src="@if(isset($aboutUs)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->journey_image }} @endif" alt="@if(isset($aboutUs)) {{$aboutUs->journey_image_alt_tag}} @endif">
                 </div>
             </div>
 
@@ -262,17 +262,17 @@
             <div class="grid grid-cols-2 gap-4 lg:gap-[12px] lg:w-full mb-4 lg:mb-0 py-8">
                 <!-- Top Left -->
                 <div class="flex justify-center items-center rounded-lg overflow-hidden h-[260px]">
-                    <img src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->location_image1 }}" alt="{{$aboutUs->location_image1_alt_tag}}" class="w-full h-full object-cover" />
+                    <img src="@if(isset($aboutUs)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->location_image1 }} @endif" alt="{{$aboutUs->location_image1_alt_tag}}" class="w-full h-full object-cover" />
                 </div>
 
                 <!-- Right Side (Spans both rows) -->
                 <div class="row-span-2 rounded-lg overflow-hidden h-[400px]">
-                    <img src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->location_image2 }}" alt="{{$aboutUs->location_image2_alt_tag}}" class="w-full h-full object-cover" />
+                    <img src="@if(isset($aboutUs)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->location_image2 }} @endif" alt="{{$aboutUs->location_image2_alt_tag}}" class="w-full h-full object-cover" />
                 </div>
 
                 <!-- Bottom Left -->
                 <div class="flex justify-center items-center rounded-lg overflow-hidden h-[121px]">
-                    <img src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->location_image3 }}" alt="{{$aboutUs->location_image3_alt_tag}}" class="w-full h-full object-cover" />
+                    <img src="@if(isset($aboutUs)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->location_image3 }} @endif" alt="{{$aboutUs->location_image3_alt_tag}}" class="w-full h-full object-cover" />
                 </div>
             </div>
         </div>
