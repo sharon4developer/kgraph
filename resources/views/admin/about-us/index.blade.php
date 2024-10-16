@@ -24,8 +24,10 @@
                         <thead>
                             <tr>
                                 <th>SL No</th>
-                                <th>Mission</th>
-                                <th>Vision</th>
+                                <th>About Title</th>
+                                <th>Journey Title</th>
+                                <th>Our Story Title</th>
+                                <th>Location Title</th>
                                 <th>Action</th>
                             </tr>
                         </thead>

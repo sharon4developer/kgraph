@@ -38,8 +38,10 @@ function loadDataTableForAbout() {
         ajax: $('#route-for-user').val() + '/about-us/show',
         columns: [
             { data: 'DT_RowIndex', orderable: false, searchable: false },
-            { data: 'mission' },
-            { data: 'vision' },
+            { data: 'about_title' },
+            { data: 'journey_title' },
+            { data: 'our_story_title' },
+            { data: 'location_title' },
             {
                 data: null,
                 render: function (row) {

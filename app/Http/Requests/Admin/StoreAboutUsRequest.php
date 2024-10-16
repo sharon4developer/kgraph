@@ -24,6 +24,21 @@ class StoreAboutUsRequest extends FormRequest
         return [
             'mission' => 'required',
             'vision' => 'required',
+            'about_title' => 'required',
+            'about_sub_title' => 'required',
+            'about_description' => 'required',
+            'journey_title' => 'required',
+            // 'journey_sub_title' => 'required',
+            'journey_description' => 'required',
+            'our_story_title' => 'required',
+            'location_title' => 'required',
+            'about_image_alt_tag' => 'required',
+            'journey_image_alt_tag' => 'required',
+            'location_image1_alt_tag' => 'required',
+            'location_image2_alt_tag' => 'required',
+            'location_image3_alt_tag' => 'required',
+            'crew_title' => 'required',
+            'location_sub_title' => 'required',
         ];
     }
 }

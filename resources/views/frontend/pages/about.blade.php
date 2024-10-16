@@ -44,23 +44,20 @@
     <div class="absolute w-full h-full aboutbackgroundimage"></div>
     <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 lg:py-[8%]">
         <div class="flex flex-col justify-center items-start h-full w-full text-left text-white z-10 md:mt-[16%] lg:mt-[95px] 2xl:mt-[40px]">
-            <h2 class="font_inter font-semibold text-[28px] xl:text-[40px] uppercase leading-normal">About Us</h2>
+            <h2 class="font_inter font-semibold text-[28px] xl:text-[40px] uppercase leading-normal"> @if(isset($aboutUs)) {{$aboutUs->about_title}} @endif</h2>
             <div class="flex items-center gap-4 pb-6 lg:py-2 xl:py-0">
-                <h3 class="font_inter font-normal text-[15px] lg:text-[20px] text-justify">Take a sneak peek in to our journey</h3>
+                <h3 class="font_inter font-normal text-[15px] lg:text-[20px] text-justify"> @if(isset($aboutUs)) {{$aboutUs->about_sub_title}} @endif</h3>
                 <img class="w-[50px] lg:w-[73px]" src="{{ asset('assets/about/aboutrocket.png') }}" alt="rocket">
             </div>
             <div class="flex flex-col lg:flex-row items-center justify-between gap-4 mt-5 md:mt-8 lg:mt-[2.30rem] lg:gap-20">
                 <div class="w-full">
                     <img class="w-[40px]" src="{{ asset('assets/about/rolloutimage.webp') }}" alt="roll">
                     <p class="font_inter font-medium text-[14px] xl:text-[20px] text-justify mt-8">
-                        “Just like the philosophy of Google, we incorporated our
-                        company with the belief in 'not being evil'. At Kansas,
-                        we inspire our teams to be straight-forward, transparent,
-                        and customer-centric and the rest is history.”
+                        @if(isset($aboutUs)) {{$aboutUs->about_description}} @endif
                     </p>
                 </div>
                 <div class="w-full cursor-pointer">
-                    <img class="hover:scale-105 ease-linear duration-300" src="{{ asset('assets/about/videodummy.png') }}" alt="">
+                    <img class="hover:scale-105 ease-linear duration-300" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->about_image }}" alt="@if(isset($aboutUs)) {{$aboutUs->about_image_alt_tag}} @endif">
                 </div>
             </div>
         </div>
@@ -70,7 +67,7 @@
 <div class="cta bg-[#062358]">
     <div class="container mx-auto px-5 lg:px-12 py-8 translate-large z-10 relative">
         <div class="md:py-10">
-            <h6 class="capitalize mb-5 text-white font_inter font-semibold text-[19px]">Meet Our crew</h6>
+            <h6 class="capitalize mb-5 text-white font_inter font-semibold text-[19px]"> @if(isset($aboutUs)) {{$aboutUs->crew_title}} @endif</h6>
 
 
             <div class="about-meet-slider">
@@ -116,11 +113,11 @@
         <div class="lg:my-16">
             <div class="flex flex-col lg:flex-row gap-6">
                 <div class="w-full">
-                    <h4 class="text-white font_inter font-semibold text-[22px] lg:text-[30px] lg:w-[75%]">Navigate Your Canadian Immigration Journey with Confidence</h4>
-                    <p class="text-white font_inter font-thin text-justify text-[14px] py-4  lg:w-[75%]">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
+                    <h4 class="text-white font_inter font-semibold text-[22px] lg:text-[30px] lg:w-[75%]">@if(isset($aboutUs)) {{$aboutUs->journey_title}} @endif</h4>
+                    <p class="text-white font_inter font-thin text-justify text-[14px] py-4  lg:w-[75%]">@if(isset($aboutUs)) {{$aboutUs->journey_description}} @endif </p>
                 </div>
                 <div class="w-full">
-                    <img src="{{ asset('assets/about/tronoto.webp') }}" alt="">
+                    <img src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->journey_image }}" alt="@if(isset($aboutUs)) {{$aboutUs->journey_image_alt_tag}} @endif">
                 </div>
             </div>
 
@@ -177,7 +174,7 @@
 
 <div id="aboutOurStory" class="bg-white our-story my-10 h-full">
     <div class="container mx-auto px-5 lg:px-12">
-        <h2>Our Story</h2>
+        <h2>@if(isset($aboutUs)) {{$aboutUs->our_story_title}} @endif</h2>
 
         <div class="mt-6 flex justify-center items-center">
             <div class="h-[2px] w-[95vw] bg-[#0E3065]">
@@ -190,7 +187,6 @@
             </div>
         </div>
     </div>
-
 
     <div class="container mx-auto px-5 lg:px-12">
         <div class="flex flex-col lg:flex-row items-center gap-[50px] mt-6">
@@ -241,13 +237,13 @@
 <div class="loaction bg-[#062358] gradient-evition relative overflow-hidden z-10">
     <div class="container mx-auto px-5 lg:px-12 h-full w-full py-12 lg:py-[120px]">
         <div class="flex items-end w-full gap-2 lg:gap-7">
-            <h2 class="uppercase text-white font_inter font-semibold text-[30px] lg:text-[45px] leading-none thirdleft-to-right-animation">Locations</h2>
+            <h2 class="uppercase text-white font_inter font-semibold text-[30px] lg:text-[45px] leading-none thirdleft-to-right-animation">@if(isset($aboutUs)) {{$aboutUs->location_title}} @endif</h2>
             <div class="w-full thirdleft-to-right-width-animation" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
         </div>
 
         <div class="lg:flex lg:gap-[10%] mt-9 py-4">
             <div class="w-full mb-6 lg:mb-0">
-                <h4 class="font_inter font-semibold text-[20px] text-white lg:pb-8 pb-8 lg:w-[80%]">Find Your Licensed Immigration ConsultantWherever You Are Located</h4>
+                <h4 class="font_inter font-semibold text-[20px] text-white lg:pb-8 pb-8 lg:w-[80%]">@if(isset($aboutUs)) {{$aboutUs->location_sub_title}} @endif</h4>
                 <div class="grid gap-6 aboutnow knowbutton" style="">
 
                     @foreach ($locations as $data)
@@ -266,17 +262,17 @@
             <div class="grid grid-cols-2 gap-4 lg:gap-[12px] lg:w-full mb-4 lg:mb-0 py-8">
                 <!-- Top Left -->
                 <div class="flex justify-center items-center rounded-lg overflow-hidden h-[260px]">
-                    <img src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="Immigration" class="w-full h-full object-cover" />
+                    <img src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->location_image1 }}" alt="{{$aboutUs->location_image1_alt_tag}}" class="w-full h-full object-cover" />
                 </div>
 
                 <!-- Right Side (Spans both rows) -->
                 <div class="row-span-2 rounded-lg overflow-hidden h-[400px]">
-                    <img src="{{ asset('assets/home_Banner/cityrectangle.png') }}" alt="Cityscape" class="w-full h-full object-cover" />
+                    <img src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->location_image2 }}" alt="{{$aboutUs->location_image2_alt_tag}}" class="w-full h-full object-cover" />
                 </div>
 
                 <!-- Bottom Left -->
                 <div class="flex justify-center items-center rounded-lg overflow-hidden h-[121px]">
-                    <img src="{{ asset('assets/home_Banner/suareman.png') }}" alt="Lawyer" class="w-full h-full object-cover" />
+                    <img src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->location_image3 }}" alt="{{$aboutUs->location_image3_alt_tag}}" class="w-full h-full object-cover" />
                 </div>
             </div>
         </div>

@@ -116,6 +116,7 @@
                         <span data-key="t-multi-level">About</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
+                        <li><a href="{{ url('admin/about-us') }}" data-key="t-level-2-2">About </a></li>
                         <li>
                             <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Crew</a>
                             <ul class="sub-menu" aria-expanded="true">
@@ -123,7 +124,6 @@
                                 <li><a href="{{ url('admin/crew/create') }}" data-key="t-level-2-1">Add </a></li>
                             </ul>
                         </li>
-                        <li><a href="{{ url('admin/about-us') }}" data-key="t-level-2-2">About </a></li>
                         <li>
                             <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Our Story</a>
                             <ul class="sub-menu" aria-expanded="true">
