@@ -7,20 +7,21 @@ use App\Models\Certificate;
 use App\Models\Cms;
 use App\Models\Page;
 use App\Models\Service;
+use App\Models\ServiceCategory;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
 {
     public function index()
     {
-        $services = Service::getFullDataForHome();
+        $serviceCategory = ServiceCategory::getFullDataForHome();
         $certificate = Certificate::getFullDataForHome();
         $seo = Page::getSeoDetails(request()->path());
         $cms = $titles = NULL;
         if ($seo && $seo->id) {
             $cms = Cms::getContents($seo->id);
         }
-        return view('frontend.pages.services', compact('certificate','services'));
+        return view('frontend.pages.services', compact('certificate','seo','serviceCategory'));
     }
 
     public function serviceDetails($id)

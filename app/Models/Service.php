@@ -24,11 +24,15 @@ class Service extends Model
         return  $this->hasMany(ServiceFaq::class);
     }
 
+    public function ServiceCategory(){
+        return  $this->belongsTo(ServiceCategory::class);
+    }
+
     public static function getFullData($data)
     {
         $locationData = getLocationData();
 
-        $value =  SELF::select('title', 'image', 'id', 'status', 'created_at')
+        $value =  SELF::select('title', 'image', 'id', 'status', 'created_at','service_category_id')
                     ->where(function ($query) use ($data) {
                         if (isset($data->service_category_id)) {
                             $query->where('service_category_id', $data->service_category_id);
@@ -39,6 +43,9 @@ class Service extends Model
         return DataTables::of($value)
             ->editColumn('image', function ($row) use($locationData) {
                 return $locationData['storage_server_path'].$locationData['storage_image_path'].$row->image;
+            })
+            ->editColumn('service_category_id', function ($row) {
+                return $row->ServiceCategory->title;
             })
             ->addIndexColumn()
             ->rawColumns(['action'])

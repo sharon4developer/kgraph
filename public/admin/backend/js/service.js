@@ -45,6 +45,7 @@ function loadDataTableForServices() {
         },
         columns: [
             { data: 'DT_RowIndex', orderable: false, searchable: false },
+            { data: 'service_category_id' },
             { data: 'title' },
             {
                 data: null,

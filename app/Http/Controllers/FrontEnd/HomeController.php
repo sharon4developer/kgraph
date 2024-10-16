@@ -12,6 +12,7 @@ use App\Models\Faq;
 use App\Models\Journey;
 use App\Models\Page;
 use App\Models\Service;
+use App\Models\ServiceCategory;
 use App\Models\Testimonial;
 use App\Models\WhoWeAre;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class HomeController extends Controller
     public function index()
     {
         $banner = Banner::getFullDataForHome();
-        $services = Service::getFullDataForHome();
+        $serviceCategory = ServiceCategory::getFullDataForHome();
         $whoweare = WhoWeAre::getFullDataForHome();
         $journey = Journey::getFullDataForHome();
         $certificate = Certificate::getFullDataForHome();
@@ -34,6 +35,6 @@ class HomeController extends Controller
         if ($seo && $seo->id) {
             $cms = Cms::getContents($seo->id);
         }
-        return view('frontend.pages.home', compact('certificate', 'testimonials', 'seo', 'cms', 'banner','services','whoweare','journey','blogs','explore','faqs'));
+        return view('frontend.pages.home', compact('certificate', 'testimonials', 'seo', 'cms', 'banner','serviceCategory','whoweare','journey','blogs','explore','faqs'));
     }
 }

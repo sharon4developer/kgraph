@@ -226,7 +226,7 @@
             <h4 class="text-white font_inter font-semibold text-[22px] xl:text-[36px] py-4 lg:pb-0 left-to-right-animation capitalize mt-6">Visa Immigration for a Brighter You Future</h4>
             <p class="text-white font_inter font-extralight text-justify text-[14px] xl:text-[16px] left-to-right-animation">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
             <div class="gap-5 lg:flex w-full justify-start lg:justify-between items-center scrollbar-hidden" style="">
-                @foreach ($services as $data)
+                @foreach ($serviceCategory as $data)
                 <div class="relative w-full lg:w-[350px] h-[500px] mt-[10%] parent-card-our-serv">
                     <img class="absolute w-full h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{$data->alt_tag}}">
                     <div class="grade-box-home-who w-full h-full z-20 relative">
@@ -240,9 +240,9 @@
                                     <div class="text-white font_inter font-bold text-[16px] md:text-sm py-3">Choose Your Services</div>
                                     <div>
                                             <!-- First Button -->
-                                            @foreach ($data->ServicePoint as $points)
+                                            @foreach ($data->Service as $service)
                                         <button class="flex items-center justify-between gap-4 mb-1 bg-[#071b3a] hover:bg-white ease-in-out duration-300 group w-full rounded-md px-6 py-3">
-                                            <div class="text-xs xl:text-sm text-white group-hover:text-[#071b3a] font-semibold">{{ $points->title }}</div>
+                                            <div class="text-xs xl:text-sm text-white group-hover:text-[#071b3a] font-semibold">{{ $service->title }}</div>
                                             <div>
                                                 <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path class="group-hover:fill-[#071b3a]" d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>

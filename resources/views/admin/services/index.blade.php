@@ -35,6 +35,7 @@
                         <thead>
                             <tr>
                                 <th>SL No</th>
+                                <th>Service</th>
                                 <th>Title</th>
                                 <th>Image</th>
                                 <th>Status</th>
