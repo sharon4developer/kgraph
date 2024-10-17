@@ -202,7 +202,7 @@
     </div>
 
     <div class="pl-5 lg:pl-[9rem] xl:pl-16 2xl:pl-12 bigscreen-sizing py-8 xl:pt-16 top-height-adjust flex flex-col-reverse lg:flex-row overflow-x-hidden">
-        <div class="flex justify-end lg:justify-start items-center gap-3 pt-[5%] 2xl:pt-[4.2%] mr-4">
+        <div class="flex justify-end lg:justify-start items-center gap-3 pt-[5%] 2xlh:pt-[4.2%] mr-4">
             <div class="aboutprev bg-[#062358] rounded-full w-8 h-8 flex justify-center items-center text-white font-semibold cursor-pointer pb-[3.5px]"><</div>
             <div class="aboutnext bg-[#062358] rounded-full w-8 h-8 flex justify-center items-center text-white font-semibold cursor-pointer pb-[3.5px]">></div>
         </div>
@@ -241,41 +241,250 @@
             <div class="w-full thirdleft-to-right-width-animation" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
         </div>
 
-        <div class="lg:flex lg:gap-[10%] mt-9 py-4">
-            <div class="w-full mb-6 lg:mb-0">
-                <h4 class="font_inter font-semibold text-[20px] text-white lg:pb-8 pb-8 lg:w-[80%]">@if(isset($aboutUs)) {{$aboutUs->location_sub_title}} @endif</h4>
-                <div class="grid gap-6 aboutnow knowbutton" style="">
+        <div class="flex flex-col lg:flex-row lg:gap-[10%] mt-9 py-4">
+            <!-- Slider Section -->
+            <div class="w-full lg:w-1/2 mb-6 lg:mb-0">
+                <div class="lg:w-[75%]">
+                    <h4 class="font_inter font-semibold text-[20px] text-white pb-8">@if(isset($aboutUs)) {{$aboutUs->location_sub_title}} @endif</h4>
+                    <div id="locationsection" class="splide">
+                        <div class="splide__track">
+                            <ul class="splide__list">
+                                <li class="splide__slide">
+                                    <div class="lg:flex lg:gap-6 py-[56px] justify-between">
+                                        <div class="bg-white my-4 lg:my-0 p-5 w-full rounded-xl hidden xl:block">
+                                            <div class="flex items-center justify-between">
+                                                <h5 class="text-black uppercase">Office Address</h5>
+                                                <img src="{{ asset('assets/indian-flag.png') }}" alt="">
+                                            </div>
+                                            <div class="bg-[#072558] text-white rounded-md w-fit px-5 py-1">
+                                                INDIA
+                                            </div>
 
-                    @foreach ($locations as $data)
-                        <button class="flex items-center justify-between gap-4 border border-white rounded-full px-6 py-2">
-                            <div class="text-white uppercase font-medium">{{$data->location}}</div>
-                            <div>
-                                <svg width="13" height="11" viewBox="0 0 13 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z" fill="white"/>
-                                </svg>
-                            </div>
-                        </button>
-                    @endforeach
+                                            <div class="flex flex-col md:flex-row items-start pl-[10%] gap-[35px]">
+                                                <div class="">
+                                                    <div class="flex items-center gap-[20px] my-4">
+                                                        <div>
+                                                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M21.047 16.0415L20.0847 20.0911C19.9644 20.6925 19.4833 21.0935 18.8819 21.0935C8.77801 21.0534 0.558594 12.8339 0.558594 2.73008C0.558594 2.12866 0.919446 1.64752 1.52087 1.52724L5.57043 0.564964C6.13176 0.44468 6.73318 0.765438 6.97375 1.28667L8.8582 5.65699C9.05867 6.17823 8.93839 6.77965 8.49735 7.1004L6.33223 8.86457C7.69545 11.6311 9.94076 13.8764 12.7474 15.2396L14.5116 13.0745C14.8323 12.6736 15.4337 12.5132 15.955 12.7137L20.3253 14.5981C20.8465 14.8788 21.1673 15.4802 21.047 16.0415Z" fill="#072558"/>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="font_jakarta">
+                                                            <h4 class="phone-text font-semibold">(629) 555-0129</h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex items-center gap-[20px] my-4">
+                                                        <div>
+                                                            <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M19.1625 0.246205C20.205 0.246205 21.0871 1.12829 21.0871 2.17075C21.0871 2.81227 20.7663 3.37359 20.2852 3.73445L11.5846 10.2699C11.1035 10.6307 10.5021 10.6307 10.0209 10.2699L1.32039 3.73445C0.839257 3.37359 0.558594 2.81227 0.558594 2.17075C0.558594 1.12829 1.40058 0.246205 2.48314 0.246205H19.1625ZM9.25915 11.3123C10.1813 11.994 11.4243 11.994 12.3464 11.3123L21.0871 4.73681V13.0765C21.0871 14.5199 19.9243 15.6426 18.521 15.6426H3.12466C1.68125 15.6426 0.558594 14.5199 0.558594 13.0765V4.73681L9.25915 11.3123Z" fill="#072558"/>
+                                                                </svg>
+                                                        </div>
+                                                        <div class="font_jakarta">
+                                                            <h4 class="phone-text font-semibold">(629) 555-0129</h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex items-center gap-[20px] my-4">
+                                                        <div>
+                                                            <svg width="16" height="21" viewBox="0 0 16 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M7.29451 20.3769C5.20958 17.7708 0.558594 11.5561 0.558594 8.02774C0.558594 3.7777 3.96665 0.329557 8.25678 0.329557C12.5068 0.329557 15.955 3.7777 15.955 8.02774C15.955 11.5561 11.2639 17.7708 9.17896 20.3769C8.69782 20.9783 7.77564 20.9783 7.29451 20.3769ZM8.25678 10.5938C9.6601 10.5938 10.8228 9.47115 10.8228 8.02774C10.8228 6.62443 9.6601 5.46168 8.25678 5.46168C6.81337 5.46168 5.69072 6.62443 5.69072 8.02774C5.69072 9.47115 6.81337 10.5938 8.25678 10.5938Z" fill="#072558"/>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="font_jakarta">
+                                                            <h4 class="phone-text font-semibold">(629) 555-0129</h4>
+                                                        </div>
+                                                    </div>
+
+                                                    <button class="rounded-md text-[#061F4C] border border-[#061F4C] w-fit px-3 py-1 mt-4 font_inter font-medium text-[12px] cursor-pointer">
+                                                        View Larger Map
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="splide__slide">
+                                    <div class="lg:flex lg:gap-6 py-[56px] justify-between">
+                                        <div class="bg-white my-4 lg:my-0 p-5 w-full rounded-xl hidden xl:block">
+                                            <div class="flex items-center justify-between">
+                                                <h5 class="text-black uppercase">Office Address</h5>
+                                                <img src="{{ asset('assets/indian-flag.png') }}" alt="">
+                                            </div>
+                                            <div class="bg-[#072558] text-white rounded-md w-fit px-5 py-1">
+                                                INDIA
+                                            </div>
+
+                                            <div class="flex flex-col md:flex-row items-start pl-[10%] gap-[35px]">
+                                                <div class="">
+                                                    <div class="flex items-center gap-[20px] my-4">
+                                                        <div>
+                                                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M21.047 16.0415L20.0847 20.0911C19.9644 20.6925 19.4833 21.0935 18.8819 21.0935C8.77801 21.0534 0.558594 12.8339 0.558594 2.73008C0.558594 2.12866 0.919446 1.64752 1.52087 1.52724L5.57043 0.564964C6.13176 0.44468 6.73318 0.765438 6.97375 1.28667L8.8582 5.65699C9.05867 6.17823 8.93839 6.77965 8.49735 7.1004L6.33223 8.86457C7.69545 11.6311 9.94076 13.8764 12.7474 15.2396L14.5116 13.0745C14.8323 12.6736 15.4337 12.5132 15.955 12.7137L20.3253 14.5981C20.8465 14.8788 21.1673 15.4802 21.047 16.0415Z" fill="#072558"/>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="font_jakarta">
+                                                            <h4 class="phone-text font-semibold">(629) 555-0129</h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex items-center gap-[20px] my-4">
+                                                        <div>
+                                                            <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M19.1625 0.246205C20.205 0.246205 21.0871 1.12829 21.0871 2.17075C21.0871 2.81227 20.7663 3.37359 20.2852 3.73445L11.5846 10.2699C11.1035 10.6307 10.5021 10.6307 10.0209 10.2699L1.32039 3.73445C0.839257 3.37359 0.558594 2.81227 0.558594 2.17075C0.558594 1.12829 1.40058 0.246205 2.48314 0.246205H19.1625ZM9.25915 11.3123C10.1813 11.994 11.4243 11.994 12.3464 11.3123L21.0871 4.73681V13.0765C21.0871 14.5199 19.9243 15.6426 18.521 15.6426H3.12466C1.68125 15.6426 0.558594 14.5199 0.558594 13.0765V4.73681L9.25915 11.3123Z" fill="#072558"/>
+                                                                </svg>
+                                                        </div>
+                                                        <div class="font_jakarta">
+                                                            <h4 class="phone-text font-semibold">(629) 555-0129</h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex items-center gap-[20px] my-4">
+                                                        <div>
+                                                            <svg width="16" height="21" viewBox="0 0 16 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M7.29451 20.3769C5.20958 17.7708 0.558594 11.5561 0.558594 8.02774C0.558594 3.7777 3.96665 0.329557 8.25678 0.329557C12.5068 0.329557 15.955 3.7777 15.955 8.02774C15.955 11.5561 11.2639 17.7708 9.17896 20.3769C8.69782 20.9783 7.77564 20.9783 7.29451 20.3769ZM8.25678 10.5938C9.6601 10.5938 10.8228 9.47115 10.8228 8.02774C10.8228 6.62443 9.6601 5.46168 8.25678 5.46168C6.81337 5.46168 5.69072 6.62443 5.69072 8.02774C5.69072 9.47115 6.81337 10.5938 8.25678 10.5938Z" fill="#072558"/>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="font_jakarta">
+                                                            <h4 class="phone-text font-semibold">(629) 555-0129</h4>
+                                                        </div>
+                                                    </div>
+
+                                                    <button class="rounded-md text-[#061F4C] border border-[#061F4C] w-fit px-3 py-1 mt-4 font_inter font-medium text-[12px] cursor-pointer">
+                                                        View Larger Map
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="splide__slide">
+                                    <div class="lg:flex lg:gap-6 py-[56px] justify-between">
+                                        <div class="bg-white my-4 lg:my-0 p-5 w-full rounded-xl hidden xl:block">
+                                            <div class="flex items-center justify-between">
+                                                <h5 class="text-black uppercase">Office Address</h5>
+                                                <img src="{{ asset('assets/indian-flag.png') }}" alt="">
+                                            </div>
+                                            <div class="bg-[#072558] text-white rounded-md w-fit px-5 py-1">
+                                                INDIA
+                                            </div>
+
+                                            <div class="flex flex-col md:flex-row items-start pl-[10%] gap-[35px]">
+                                                <div class="">
+                                                    <div class="flex items-center gap-[20px] my-4">
+                                                        <div>
+                                                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M21.047 16.0415L20.0847 20.0911C19.9644 20.6925 19.4833 21.0935 18.8819 21.0935C8.77801 21.0534 0.558594 12.8339 0.558594 2.73008C0.558594 2.12866 0.919446 1.64752 1.52087 1.52724L5.57043 0.564964C6.13176 0.44468 6.73318 0.765438 6.97375 1.28667L8.8582 5.65699C9.05867 6.17823 8.93839 6.77965 8.49735 7.1004L6.33223 8.86457C7.69545 11.6311 9.94076 13.8764 12.7474 15.2396L14.5116 13.0745C14.8323 12.6736 15.4337 12.5132 15.955 12.7137L20.3253 14.5981C20.8465 14.8788 21.1673 15.4802 21.047 16.0415Z" fill="#072558"/>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="font_jakarta">
+                                                            <h4 class="phone-text font-semibold">(629) 555-0129</h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex items-center gap-[20px] my-4">
+                                                        <div>
+                                                            <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M19.1625 0.246205C20.205 0.246205 21.0871 1.12829 21.0871 2.17075C21.0871 2.81227 20.7663 3.37359 20.2852 3.73445L11.5846 10.2699C11.1035 10.6307 10.5021 10.6307 10.0209 10.2699L1.32039 3.73445C0.839257 3.37359 0.558594 2.81227 0.558594 2.17075C0.558594 1.12829 1.40058 0.246205 2.48314 0.246205H19.1625ZM9.25915 11.3123C10.1813 11.994 11.4243 11.994 12.3464 11.3123L21.0871 4.73681V13.0765C21.0871 14.5199 19.9243 15.6426 18.521 15.6426H3.12466C1.68125 15.6426 0.558594 14.5199 0.558594 13.0765V4.73681L9.25915 11.3123Z" fill="#072558"/>
+                                                                </svg>
+                                                        </div>
+                                                        <div class="font_jakarta">
+                                                            <h4 class="phone-text font-semibold">(629) 555-0129</h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex items-center gap-[20px] my-4">
+                                                        <div>
+                                                            <svg width="16" height="21" viewBox="0 0 16 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M7.29451 20.3769C5.20958 17.7708 0.558594 11.5561 0.558594 8.02774C0.558594 3.7777 3.96665 0.329557 8.25678 0.329557C12.5068 0.329557 15.955 3.7777 15.955 8.02774C15.955 11.5561 11.2639 17.7708 9.17896 20.3769C8.69782 20.9783 7.77564 20.9783 7.29451 20.3769ZM8.25678 10.5938C9.6601 10.5938 10.8228 9.47115 10.8228 8.02774C10.8228 6.62443 9.6601 5.46168 8.25678 5.46168C6.81337 5.46168 5.69072 6.62443 5.69072 8.02774C5.69072 9.47115 6.81337 10.5938 8.25678 10.5938Z" fill="#072558"/>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="font_jakarta">
+                                                            <h4 class="phone-text font-semibold">(629) 555-0129</h4>
+                                                        </div>
+                                                    </div>
+
+                                                    <button class="rounded-md text-[#061F4C] border border-[#061F4C] w-fit px-3 py-1 mt-4 font_inter font-medium text-[12px] cursor-pointer">
+                                                        View Larger Map
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="splide__slide">
+                                    <div class="lg:flex lg:gap-6 py-[56px] justify-between">
+                                        <div class="bg-white my-4 lg:my-0 p-5 w-full rounded-xl hidden xl:block">
+                                            <div class="flex items-center justify-between">
+                                                <h5 class="text-black uppercase">Office Address</h5>
+                                                <img src="{{ asset('assets/indian-flag.png') }}" alt="">
+                                            </div>
+                                            <div class="bg-[#072558] text-white rounded-md w-fit px-5 py-1">
+                                                INDIA
+                                            </div>
+
+                                            <div class="flex flex-col md:flex-row items-start pl-[10%] gap-[35px]">
+                                                <div class="">
+                                                    <div class="flex items-center gap-[20px] my-4">
+                                                        <div>
+                                                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M21.047 16.0415L20.0847 20.0911C19.9644 20.6925 19.4833 21.0935 18.8819 21.0935C8.77801 21.0534 0.558594 12.8339 0.558594 2.73008C0.558594 2.12866 0.919446 1.64752 1.52087 1.52724L5.57043 0.564964C6.13176 0.44468 6.73318 0.765438 6.97375 1.28667L8.8582 5.65699C9.05867 6.17823 8.93839 6.77965 8.49735 7.1004L6.33223 8.86457C7.69545 11.6311 9.94076 13.8764 12.7474 15.2396L14.5116 13.0745C14.8323 12.6736 15.4337 12.5132 15.955 12.7137L20.3253 14.5981C20.8465 14.8788 21.1673 15.4802 21.047 16.0415Z" fill="#072558"/>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="font_jakarta">
+                                                            <h4 class="phone-text font-semibold">(629) 555-0129</h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex items-center gap-[20px] my-4">
+                                                        <div>
+                                                            <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M19.1625 0.246205C20.205 0.246205 21.0871 1.12829 21.0871 2.17075C21.0871 2.81227 20.7663 3.37359 20.2852 3.73445L11.5846 10.2699C11.1035 10.6307 10.5021 10.6307 10.0209 10.2699L1.32039 3.73445C0.839257 3.37359 0.558594 2.81227 0.558594 2.17075C0.558594 1.12829 1.40058 0.246205 2.48314 0.246205H19.1625ZM9.25915 11.3123C10.1813 11.994 11.4243 11.994 12.3464 11.3123L21.0871 4.73681V13.0765C21.0871 14.5199 19.9243 15.6426 18.521 15.6426H3.12466C1.68125 15.6426 0.558594 14.5199 0.558594 13.0765V4.73681L9.25915 11.3123Z" fill="#072558"/>
+                                                                </svg>
+                                                        </div>
+                                                        <div class="font_jakarta">
+                                                            <h4 class="phone-text font-semibold">(629) 555-0129</h4>
+                                                        </div>
+                                                    </div>
+                                                    <div class="flex items-center gap-[20px] my-4">
+                                                        <div>
+                                                            <svg width="16" height="21" viewBox="0 0 16 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M7.29451 20.3769C5.20958 17.7708 0.558594 11.5561 0.558594 8.02774C0.558594 3.7777 3.96665 0.329557 8.25678 0.329557C12.5068 0.329557 15.955 3.7777 15.955 8.02774C15.955 11.5561 11.2639 17.7708 9.17896 20.3769C8.69782 20.9783 7.77564 20.9783 7.29451 20.3769ZM8.25678 10.5938C9.6601 10.5938 10.8228 9.47115 10.8228 8.02774C10.8228 6.62443 9.6601 5.46168 8.25678 5.46168C6.81337 5.46168 5.69072 6.62443 5.69072 8.02774C5.69072 9.47115 6.81337 10.5938 8.25678 10.5938Z" fill="#072558"/>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="font_jakarta">
+                                                            <h4 class="phone-text font-semibold">(629) 555-0129</h4>
+                                                        </div>
+                                                    </div>
+
+                                                    <button class="rounded-md text-[#061F4C] border border-[#061F4C] w-fit px-3 py-1 mt-4 font_inter font-medium text-[12px] cursor-pointer">
+                                                        View Larger Map
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="grid grid-cols-2 gap-4 lg:gap-[12px] lg:w-full mb-4 lg:mb-0 py-8">
-                <!-- Top Left -->
+            <!-- Image Section -->
+            <div class="w-full lg:w-1/2 grid grid-cols-2 gap-4 lg:gap-[12px] py-8">
+                <!-- Top Left Image -->
                 <div class="flex justify-center items-center rounded-lg overflow-hidden h-[260px]">
-                    <img src="@if(isset($aboutUs)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->location_image1 }} @endif" alt="@if(isset($aboutUs)) {{$aboutUs->location_image1_alt_tag}} @endif" class="w-full h-full object-cover" />
+                    <img src="@if(isset($aboutUs)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->location_image1 }} @endif" alt="@if(isset($aboutUs)) {{$aboutUs->location_image1_alt_tag}} @endif" class="w-full h-full object-cover">
                 </div>
 
-                <!-- Right Side (Spans both rows) -->
+                <!-- Right Large Image -->
                 <div class="row-span-2 rounded-lg overflow-hidden h-[400px]">
-                    <img src="@if(isset($aboutUs)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->location_image2 }} @endif" alt="@if(isset($aboutUs)) {{$aboutUs->location_image2_alt_tag}} @endif" class="w-full h-full object-cover" />
+                    <img src="@if(isset($aboutUs)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->location_image2 }} @endif" alt="@if(isset($aboutUs)) {{$aboutUs->location_image2_alt_tag}} @endif" class="w-full h-full object-cover">
                 </div>
 
-                <!-- Bottom Left -->
+                <!-- Bottom Left Image -->
                 <div class="flex justify-center items-center rounded-lg overflow-hidden h-[121px]">
-                    <img src="@if(isset($aboutUs)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->location_image3 }} @endif" alt="@if(isset($aboutUs)) {{$aboutUs->location_image3_alt_tag}} @endif" class="w-full h-full object-cover" />
+                    <img src="@if(isset($aboutUs)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->location_image3 }} @endif" alt="@if(isset($aboutUs)) {{$aboutUs->location_image3_alt_tag}} @endif" class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
+
 
 
     </div>
@@ -283,6 +492,7 @@
 
 @include('frontend.Common.getintouch')
 <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+
 <script>
     document.addEventListener('DOMContentLoaded', () => {
         gsap.registerPlugin(ScrollTrigger);
@@ -366,7 +576,6 @@
 
 </script>
 
-
 <script>
         document.addEventListener('DOMContentLoaded', function () {
             var slides = document.querySelectorAll('.about-meet-slider .splide__slide'); // Select all slides
@@ -402,7 +611,6 @@
             }
         });
 
-
         document.addEventListener('DOMContentLoaded', function () {
             var splide = new Splide('#aboutSplide', {
                 type: 'loop',
@@ -413,7 +621,6 @@
                 autoplay: true,
                 pauseOnHover: false,
                 interval: 3000,
-                // gap: '20px',
                 breakpoints: {
                     640: { perPage: 1.2},
                     768: { perPage: 1.5 },
@@ -432,6 +639,17 @@
             });
         });
 
+        document.addEventListener('DOMContentLoaded', function () {
+            new Splide('#locationsection', {
+                type   : 'loop',
+                perPage: 1,
+                autoplay: true,
+                interval: 3000,
+                gap: '1rem',
+                arrows: false,
+
+            }).mount();
+        });
 </script>
 
 <script src="{{ asset('frontend/js/about.js') }}"></script>
