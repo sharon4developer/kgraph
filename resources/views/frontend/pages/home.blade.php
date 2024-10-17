@@ -209,7 +209,7 @@
     <div class="serviceSection gradient-evition relative overflow-hidden z-10 bg-[#051b3b]">
         <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full pt-10 lg:pt0">
             <div class="md:flex items-center">
-                <h2 class="left-to-right-animation font_inter font-semibold text-[46px] md:text-[50px] lg:text-[65px] 2xl:text-[100px] text-white leading-none uppercase gradient-text"><span class="inline-block">Our</span><span class="inline-block">Services</span></h2>
+                <h2 class="left-to-right-animation font_inter font-semibold text-[46px] md:text-[50px] lg:text-[65px] 2xl:text-[100px] text-white leading-none uppercase gradient-text"><span class="inline-block">@if(isset($home)) {{$home->service_first_title}} @endif</span><span class="inline-block">@if(isset($home)) {{$home->service_second_title}} @endif</span></h2>
                 <div class="md:pl-2 lg:pl-10 w-full lg:mb-[-8%] 2xl:mb-[-10%]">
                     <div class="my-4 md:my-0 lg:mt-[16px] flex justify-start md:justify-end items-center">
                         <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[4.5px] pl-5 pr-1 lg:mt-[-76px] overflow-hidden group">
@@ -223,8 +223,8 @@
                     <div class="w-full left-to-right-width-animation" style="border: 1px solid #FFFFFF8C;"></div>
                 </div>
             </div>
-            <h4 class="text-white font_inter font-semibold text-[22px] xl:text-[36px] py-4 lg:pb-0 left-to-right-animation capitalize mt-6">Visa Immigration for a Brighter You Future</h4>
-            <p class="text-white font_inter font-extralight text-justify text-[14px] xl:text-[16px] left-to-right-animation">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
+            <h4 class="text-white font_inter font-semibold text-[22px] xl:text-[36px] py-4 lg:pb-0 left-to-right-animation capitalize mt-6">@if(isset($home)) {{$home->service_sub_title}} @endif</h4>
+            <p class="text-white font_inter font-extralight text-justify text-[14px] xl:text-[16px] left-to-right-animation">@if(isset($home)) {{$home->service_description}} @endif </p>
             <div class="gap-5 lg:flex w-full justify-start lg:justify-between items-center scrollbar-hidden" style="">
                 @foreach ($serviceCategory as $data)
                 <div class="relative w-full lg:w-[350px] h-[500px] mt-[10%] parent-card-our-serv">
@@ -268,8 +268,8 @@
             <div class="md:flex md:justify-between items-end ">
                 <div class="lg:w-full flex items-end">
                     <h2 class="font_inter font-semibold text-[46px] md:text-[50px] lg:text-[65px] 2xl:text-[100px] text-white leading-none uppercase secleft-to-right-animation flex flex-col">
-                        <span class="inline-block">Who</span>
-                        <span class="inline-block whitespace-nowrap">We Are</span>
+                        <span class="inline-block">@if(isset($home)) {{$home->who_we_are_first_title}} @endif</span>
+                        <span class="inline-block whitespace-nowrap">@if(isset($home)) {{$home->who_we_are_second_title}} @endif</span>
                     </h2>
                     <div class="w-full mb-4 secleft-to-right-width-animation lg:ml-10" style="border: 1px solid #FFFFFF8C;"></div>
                 </div>
@@ -292,7 +292,7 @@
                 </div>
 
             </div>
-            <p class="py-5 text-white font_inter font-medium text-[18px] xl:text-[36px] lg:w-[50%] xl:w-[60%]  secleft-to-right-animation">Navigate Your Canadian Immigration Journey with Confidence</p>
+            <p class="py-5 text-white font_inter font-medium text-[18px] xl:text-[36px] lg:w-[50%] xl:w-[60%]  secleft-to-right-animation">@if(isset($home)) {{$home->who_we_are_sub_title}} @endif</p>
 
             <div class="video-carousel w-full lg:mt-10">
                 @foreach ($whoweare as $data)
@@ -334,8 +334,8 @@
 
             <div class="md:flex justify-between items-start gap-5">
                 <div class="md:w-1/2">
-                    <h4 class="text-white font_inter font-semibold text-[22px] lg:text-[30px] lg:w-[75%]">Navigate Your Canadian Immigration Journey with Confidence</h4>
-                    <p class="text-white font_inter font-thin text-justify text-[14px] py-4  lg:w-[75%]">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
+                    <h4 class="text-white font_inter font-semibold text-[22px] lg:text-[30px] lg:w-[75%]">@if(isset($home)) {{$home->journey_title}} @endif</h4>
+                    <p class="text-white font_inter font-thin text-justify text-[14px] py-4  lg:w-[75%]">@if(isset($home)) {{$home->journey_description}} @endif </p>
                     <h2 id="count-number" class="text-white font_inter font-bold text-[85px] leading-none">@if (isset($journey))
                         {{ $journey->experience }}
                     @endif</h2>
@@ -390,17 +390,17 @@
                 <div class="Navigatesec-image grid grid-cols-2 gap-4 bg-[#0d2139] lg:w-1/2 mb-4 lg:mb-0">
                     <!-- Top Left -->
                     <div class="flex justify-center items-center rounded-lg overflow-hidden">
-                        <img src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="Immigration" class="w-full h-full object-cover" />
+                        <img src="@if(isset($home)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$home->journey_image1 }} @endif" alt="@if(isset($home)) {{$home->journey_image1_alt_tag}} @endif" class="w-full h-full object-cover" />
                     </div>
 
                     <!-- Right Side (Spans both rows) -->
                     <div class="row-span-2 rounded-lg overflow-hidden">
-                        <img src="{{ asset('assets/home_Banner/cityrectangle.png') }}" alt="Cityscape" class="w-full h-full object-cover" />
+                        <img src="@if(isset($home)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$home->journey_image2 }} @endif" alt="@if(isset($home)) {{$home->journey_image2_alt_tag}} @endif" class="w-full h-full object-cover" />
                     </div>
 
                     <!-- Bottom Left -->
                     <div class="flex justify-center items-center rounded-lg overflow-hidden">
-                        <img src="{{ asset('assets/home_Banner/suareman.png') }}" alt="Lawyer" class="w-full h-full object-cover" />
+                        <img src="@if(isset($home)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$home->journey_image3 }} @endif" alt="@if(isset($home)) {{$home->journey_image3_alt_tag}} @endif" class="w-full h-full object-cover" />
                     </div>
                 </div>
             </div>
@@ -413,8 +413,8 @@
         <div class="container mx-auto px-5 xl:px-12 py-6 lg:py-16 h-full w-full">
             <div class="md:flex justify-center items-start gap-5">
                 <div class="RegulatedSec-left md:w-1/2">
-                    <h2 class="text-white font_inter font-semibold text-2xl lg:text-3xl xl:text-4xl xl:w-[80%]">Regulated Canadian Immigration Consultants (RCIC-IRB)</h2>
-                    <p class="py-5 text-white font-normal font_inter text-[14px] xl:text-lg lg:py-10">Proudly regulated by and in good standing with the College of Immigration and Citizenship Consultants (CICC). Jamie Dowla, registration #: R507233</p>
+                    <h2 class="text-white font_inter font-semibold text-2xl lg:text-3xl xl:text-4xl xl:w-[80%]">@if(isset($home)) {{$home->certificate_title}} @endif</h2>
+                    <p class="py-5 text-white font-normal font_inter text-[14px] xl:text-lg lg:py-10">@if(isset($home)) {{$home->certificate_description}} @endif</p>
                     <div class="flex flex-col flex-wrap lg:flex-row gap-5 items-center mb-8">
                         @foreach ($certificate as $data)
                         <div class="flex items-center flex-col justify-center">
@@ -429,15 +429,15 @@
                 <div class="RegulatedSec-right grid grid-cols-2 gap-4">
                     <!-- Right Side (Spans both rows) -->
                     <div class="row-span-2 rounded-lg overflow-hidden">
-                        <img src="{{ asset('assets/home_Banner/cityrectangle.png') }}" alt="Cityscape" class="w-[200px] xl:w-[300px] h-full object-cover" />
+                        <img src="@if(isset($home)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$home->certificate_image1 }} @endif" alt="@if(isset($home)) {{$home->certificate_image1_alt_tag}} @endif" class="w-[200px] xl:w-[300px] h-full object-cover" />
                     </div>
                     <!-- Top Left -->
                     <div class="flex justify-center items-center rounded-lg overflow-hidden">
-                        <img src="{{ asset('assets/home_Banner/immigraton.png') }}" alt="Immigration" class="w-[200px] xl:w-[300px] h-full object-cover" />
+                        <img src="@if(isset($home)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$home->certificate_image2 }} @endif" alt="@if(isset($home)) {{$home->certificate_image2_alt_tag}} @endif" class="w-[200px] xl:w-[300px] h-full object-cover" />
                     </div>
                     <!-- Bottom Left -->
                     <div class="flex justify-center items-center rounded-lg overflow-hidden">
-                        <img src="{{ asset('assets/home_Banner/suareman.png') }}" alt="Lawyer" class="w-[200px] xl:w-[300px] h-full object-cover" />
+                        <img src="@if(isset($home)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$home->certificate_image3 }} @endif" alt="@if(isset($home)) {{$home->certificate_image3_alt_tag}} @endif" class="w-[200px] xl:w-[300px] h-full object-cover" />
                     </div>
                 </div>
             </div>
@@ -449,11 +449,11 @@
     <div class="testimonial bg-[#051b3b] gradient-evition relative overflow-hidden z-10">
         <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full">
             <div class="flex items-end w-full gap-2 lg:gap-7">
-                <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] 2xl:text-[65px] leading-none thirdleft-to-right-animation">Testimonials</h2>
+                <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] 2xl:text-[65px] leading-none thirdleft-to-right-animation">@if(isset($home)) {{$home->testimonial_title}} @endif</h2>
                 <div class="w-full thirdleft-to-right-width-animation" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
             </div>
-            <p class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%] thirdleft-to-right-animation">Let’s See what our customers want to say</p>
-            <p class="text-white font_inter font-normal text-justify text-[14px] md:w-[45%] thirdleft-to-right-animation">We enable some of the most demanding organizations to enrich customer experiences, optimize efficiencies, launch new platforms, and monetize data opportunities. We offer fully-managed and end-to-end technology, tools, talent, </p>
+            <p class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%] thirdleft-to-right-animation">@if(isset($home)) {{$home->testimonial_sub_title}} @endif</p>
+            <p class="text-white font_inter font-normal text-justify text-[14px] md:w-[45%] thirdleft-to-right-animation">@if(isset($home)) {{$home->testimonial_description}} @endif </p>
         </div>
 
         <div class="testimonial-slider-wrapper pl-5 lg:pl-12 pt-9 pb-0 lg:py-[70px] z-50">
@@ -525,11 +525,11 @@
     <div class="BlogCRDS bg-[#051b3b]">
         <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full">
             <div class="flex items-end w-full gap-2 lg:gap-7">
-                <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] 2xl:text-[65px] leading-none fourthleft-to-right-animation">Blogs</h2>
+                <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] 2xl:text-[65px] leading-none fourthleft-to-right-animation">@if(isset($home)) {{$home->blog_title}} @endif</h2>
                 <div class="w-full fourthleft-to-right-width-animation" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
             </div>
-            <p class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%] fourthleft-to-right-animation">Canadian Immigration News, Tips, and Resources</p>
-            <p class="text-white font_inter font-normal text-justify text-[14px] md:w-[45%] fourthleft-to-right-animation">Stay in the loop and keep up with all our news and updates!</p>
+            <p class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%] fourthleft-to-right-animation">@if(isset($home)) {{$home->blog_sub_title}} @endif</p>
+            <p class="text-white font_inter font-normal text-justify text-[14px] md:w-[45%] fourthleft-to-right-animation">@if(isset($home)) {{$home->blog_description}} @endif</p>
             <div class="flex justify-center lg:justify-start items-center my-12">
                 <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group">
                     <!-- Initially the background will cover the full button -->
@@ -591,10 +591,10 @@
     <div class="explore-section bg-black">
         <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full">
             <div class="flex items-end w-full gap-2 lg:gap-7">
-                <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] 2xl:text-[65px] leading-none fifthleft-to-right-animation">Explore</h2>
+                <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] 2xl:text-[65px] leading-none fifthleft-to-right-animation">@if(isset($home)) {{$home->explore_title}} @endif</h2>
                 <div class="w-full fifthleft-to-right-width-animation" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
             </div>
-            <p class="text-white font_inter font-semibold text-[26px] lg:w-[35%] mt-6 fifthleft-to-right-animation">Learn About All of the Great ThingsCanada Has to Offer!</p>
+            <p class="text-white font_inter font-semibold text-[26px] lg:w-[35%] mt-6 fifthleft-to-right-animation">@if(isset($home)) {{$home->explore_sub_title}} @endif</p>
         </div>
 
         <div id="exploreSplide" class="splide pb-8 md:pb-[100px] xl:pl-[50px] explore-slider-class h-[380px] z-0">
@@ -632,9 +632,9 @@
 <div class="faq-section bg-[#F7FCFF]">
     <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full">
         <div class="flex justify-center items-center flex-col">
-            <h2 class="font_aktiv font-bold text-[18px] faqSectHead text-[#07245A]">Have Any Questions?</h2>
+            <h2 class="font_aktiv font-bold text-[18px] faqSectHead text-[#07245A]">@if(isset($home)) {{$home->faq_title}} @endif</h2>
             <div>
-                <h2 class="font_aktiv font-bold text-[32px] faqSectHeading text-[#07245A]">FAQs ?</h2>
+                <h2 class="font_aktiv font-bold text-[32px] faqSectHeading text-[#07245A]">@if(isset($home)) {{$home->faq_sub_title}} @endif</h2>
                 <img class="mt-[-11px]" src="{{ asset('assets/home_Banner/underlinefaq.png') }}" alt="">
             </div>
         </div>

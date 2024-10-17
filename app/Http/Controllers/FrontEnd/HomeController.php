@@ -9,6 +9,7 @@ use App\Models\Certificate;
 use App\Models\Cms;
 use App\Models\Explore;
 use App\Models\Faq;
+use App\Models\Home;
 use App\Models\Journey;
 use App\Models\Page;
 use App\Models\Service;
@@ -35,6 +36,8 @@ class HomeController extends Controller
         if ($seo && $seo->id) {
             $cms = Cms::getContents($seo->id);
         }
-        return view('frontend.pages.home', compact('certificate', 'testimonials', 'seo', 'cms', 'banner','serviceCategory','whoweare','journey','blogs','explore','faqs'));
+        $home = Home::getFullDataForHome();
+
+        return view('frontend.pages.home', compact('certificate', 'testimonials', 'seo', 'cms', 'banner','serviceCategory','whoweare','journey','blogs','explore','faqs','home'));
     }
 }
