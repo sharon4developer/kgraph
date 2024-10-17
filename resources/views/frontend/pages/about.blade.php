@@ -202,7 +202,7 @@
     </div>
 
     <div class="pl-5 lg:pl-[9rem] xl:pl-16 2xl:pl-12 bigscreen-sizing py-8 xl:pt-16 top-height-adjust flex flex-col-reverse lg:flex-row overflow-x-hidden">
-        <div class="flex justify-end lg:justify-start items-center gap-3 pt-[5%] lg:pt-[3%] mr-4">
+        <div class="flex justify-end lg:justify-start items-center gap-3 pt-[5%] 2xl:pt-[4.2%] mr-4">
             <div class="aboutprev bg-[#062358] rounded-full w-8 h-8 flex justify-center items-center text-white font-semibold cursor-pointer pb-[3.5px]"><</div>
             <div class="aboutnext bg-[#062358] rounded-full w-8 h-8 flex justify-center items-center text-white font-semibold cursor-pointer pb-[3.5px]">></div>
         </div>
@@ -214,8 +214,8 @@
                         <div class="flex items-end md:gap-10">
                             <h5 class="pl-[30px] text-[#072558] font_inter font-semibold text-[10px] xl:text-[16px]">{{$data->year}}</h5>
                             <div class="flex gap-2 md:gap-4 pl-[11%] pb-2 slider-image-parent">
-                                <img class="w-[100px] object-cover" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="{{$data->alt_tag}}">
-                                <img class="w-[100px] object-cover" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->second_image }}" alt="{{$data->second_alt_tag}}">
+                                <img class="h-[100px] w-full object-cover" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="{{$data->alt_tag}}">
+                                <img class="h-[100px] w-full object-cover" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->second_image }}" alt="{{$data->second_alt_tag}}">
                             </div>
                         </div>
                         <div class="bg-[#062358] w-full h-[1px] slider-endballs relative"></div>
