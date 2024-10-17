@@ -1172,7 +1172,13 @@
                     640: { perPage: 1 },        // 1 slide per page on small screens
                     768: { perPage: 1.9 },      // 1.9 slides per page on medium screens
                     1024: { perPage: 2 },       // 2 slides per page on large screens
-                    1280: { perPage: 2.8 },     // 2.8 slides per page on extra-large screens
+                    1280: {
+                        perPage: 2.8 ,
+                        gap: '56px',
+                    },
+                    1536: {
+                        gap: '100px',
+                    },
                 }
             }).mount();
 

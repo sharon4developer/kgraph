@@ -31,55 +31,7 @@
       }
     }
 
-    /* @-webkit-keyframes breathing {
-      0% {
-        -webkit-transform: scale(0.9);
-        transform: scale(0.9);
-      }
-
-      25% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-      }
-
-      60% {
-        -webkit-transform: scale(0.9);
-        transform: scale(0.9);
-      }
-
-      100% {
-        -webkit-transform: scale(0.9);
-        transform: scale(0.9);
-      }
-    }
-
-    @keyframes breathing {
-      0% {
-        -webkit-transform: scale(0.9);
-        -ms-transform: scale(0.9);
-        transform: scale(0.9);
-      }
-
-      25% {
-        -webkit-transform: scale(1);
-        -ms-transform: scale(1);
-        transform: scale(1);
-      }
-
-      60% {
-        -webkit-transform: scale(0.9);
-        -ms-transform: scale(0.9);
-        transform: scale(0.9);
-      }
-
-      100% {
-        -webkit-transform: scale(0.9);
-        -ms-transform: scale(0.9);
-        transform: scale(0.9);
-      }
-    } */
-
-    </style>
+</style>
 
 
 <a href="http://wa.me/+16473956682" class="block fixed bottom-[5%] w-[60px] right-[4%] z-[9999999999999] chatlogo" style="background: #00800063; border-radius: 100%; width: 54px; height: 54px; display: flex; justify-content: center; align-items: center;" target="_blank">
