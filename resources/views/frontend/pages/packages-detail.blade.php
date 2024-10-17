@@ -144,8 +144,8 @@
             </div>
             <div class="services-inner faq text-[#2D3E50] font_inter py-4 flex flex-col justify-start items-start gap-4">
                 @foreach ($package->PackageFaq as $PackageFaq)
-                <div class="accordion-item bg-white p-5 lg:w-1/2 rounded-xl overflow-hidden cursor-pointer transition-all duration-300">
-                    <div class="flex justify-start items-center w-full h-full accordion-header gap-4" onclick="toggleAccordion(this)">
+                <div class="accordion-item bg-white p-5 lg:w-1/2 rounded-xl overflow-hidden cursor-pointer transition-all duration-300" onclick="toggleAccordion(this)">
+                    <div class="flex justify-start items-center w-full h-full accordion-header gap-4">
                         <img class="accordion-icon transition-transform duration-300 w-2 lg:w-[14px]" src="{{ asset('assets/faqplus.png') }}" alt="Plus Icon">
                         <h3 class="text-[12px] text-[#2D3E50] font-semibold lg:text-[14px] lg:font-medium">{{$PackageFaq->title}}</h3>
                     </div>
@@ -154,6 +154,7 @@
                     </div>
                 </div>
                 @endforeach
+
             </div>
         </div>
     </div>
@@ -172,29 +173,33 @@
 @include('frontend.Common.getintouch')
 
 <script>
-    function toggleAccordion(element) {
-        const content = element.nextElementSibling;
-        const icon = element.querySelector('.accordion-icon');
+function toggleAccordion(element) {
+    // Find the parent accordion-item
+    const parent = element.closest('.accordion-item');
+    const content = parent.querySelector('.accordion-content');
+    const icon = parent.querySelector('.accordion-icon');
 
-        // Check if the content is already expanded
-        if (content.style.maxHeight) {
-            // Close the accordion
-            content.style.maxHeight = null;
-            icon.style.transform = "rotate(0deg)"; // Reset the plus icon to original position
-        } else {
-            // Close any other open accordion
-            document.querySelectorAll('.accordion-content').forEach((p) => {
-                p.style.maxHeight = null;
-            });
-            document.querySelectorAll('.accordion-icon').forEach((img) => {
-                img.style.transform = "rotate(0deg)";
-            });
+    // Check if the content is already expanded
+    if (content.style.maxHeight) {
+        // Close the accordion
+        content.style.maxHeight = null;
+        icon.style.transform = "rotate(0deg)"; // Reset the plus icon to original position
+    } else {
+        // Close any other open accordion
+        document.querySelectorAll('.accordion-content').forEach((p) => {
+            p.style.maxHeight = null;
+        });
+        document.querySelectorAll('.accordion-icon').forEach((img) => {
+            img.style.transform = "rotate(0deg)";
+        });
 
-            // Open the current accordion
-            content.style.maxHeight = content.scrollHeight + "px"; // Set the max height dynamically based on content
-            icon.style.transform = "rotate(45deg)"; // Rotate the plus icon to indicate it's open
-        }
+        // Open the current accordion
+        content.style.maxHeight = content.scrollHeight + "px"; // Set the max height dynamically based on content
+        icon.style.transform = "rotate(45deg)"; // Rotate the plus icon to indicate it's open
     }
+}
+
+
 </script>
 
 
