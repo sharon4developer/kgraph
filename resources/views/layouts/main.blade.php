@@ -8,7 +8,7 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="stylesheet" href="">
-        <link rel="shortcut icon" href="{{ asset('admin/theme/assets/images/favicon.ico') }}">
+        <link rel="shortcut icon" href="{{ asset('assets/KgraphLogo.png') }}">
 
         @vite('resources/css/app.css')
         {{-- font installation --}}
