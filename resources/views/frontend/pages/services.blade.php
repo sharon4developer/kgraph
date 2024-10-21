@@ -11,10 +11,9 @@
     <div class="services-banner-overlay">
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[8%]">
             <div class="text-left text-white">
-                <h2 class="uppercase font_inter font-semibold text-[40px] lg:mt-[6rem]">Services</h2>
+                <h2 class="uppercase font_inter font-semibold text-[40px] lg:mt-[6rem]">@if(isset($serviceContents)) {{$serviceContents->service_title}} @endif</h2>
                 <p class="lg:w-[35%] mt-5 font_inter font-semibold text-[12px]">
-                    Studying in America can be an exciting experience, but it also comes with its own set of challenges.
-                    One such challenge is getting your US student visa approved by the US embassy or consulate
+                    @if(isset($serviceContents)) {{$serviceContents->service_description}} @endif
                 </p>
             </div>
         </div>
@@ -62,8 +61,8 @@
     <div class="container mx-auto px-5 lg:px-12 py-6 lg:py-16 h-full w-full">
         <div class="md:flex justify-center items-start gap-5">
             <div class="md:w-3/4 flex flex-col justify-center items-center text-center">
-                <h2 class="text-white font_inter font-semibold text-2xl lg:text-3xl lg:w-[55%]">Regulated Canadian Immigration Consultants (RCIC-IRB)</h2>
-                <p class="py-5 text-white font-normal font_inter text-[14px] lg:w-[50%]">Proudly regulated by and in good standing with the College of Immigration and Citizenship Consultants (CICC). Jamie Dowla, registration #: R507233</p>
+                <h2 class="text-white font_inter font-semibold text-2xl lg:text-3xl lg:w-[55%]">@if(isset($serviceContents)) {{$serviceContents->certificate_title}} @endif</h2>
+                <p class="py-5 text-white font-normal font_inter text-[14px] lg:w-[50%]">@if(isset($serviceContents)) {{$serviceContents->certificate_description}} @endif</p>
                 <div class="flex flex-col md:flex-row gap-5 items-center">
                     @foreach ($certificate as $data)
                     <img class="w-[200px]" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="{{$data->alt_tag}}">

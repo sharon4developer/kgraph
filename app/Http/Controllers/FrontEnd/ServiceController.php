@@ -8,6 +8,7 @@ use App\Models\Cms;
 use App\Models\Page;
 use App\Models\Service;
 use App\Models\ServiceCategory;
+use App\Models\ServiceContent;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -21,7 +22,9 @@ class ServiceController extends Controller
         if ($seo && $seo->id) {
             $cms = Cms::getContents($seo->id);
         }
-        return view('frontend.pages.services', compact('certificate','seo','serviceCategory'));
+        $serviceContents = ServiceContent::getFullDataForHome();
+
+        return view('frontend.pages.services', compact('certificate','seo','serviceCategory','serviceContents'));
     }
 
     public function serviceDetails($id)

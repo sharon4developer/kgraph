@@ -24,6 +24,7 @@ use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\PrivacyPolicyController;
 use App\Http\Controllers\Admin\SeoController;
 use App\Http\Controllers\Admin\ServiceCategoryController;
+use App\Http\Controllers\Admin\ServiceContentController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ServiceFaqController;
 use App\Http\Controllers\Admin\ServicePointController;
@@ -106,6 +107,7 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'about-us' => AboutUsController::class,
         'service-categories' => ServiceCategoryController::class,
         'home' => AdminHomeController::class,
+        'service-contents' => ServiceContentController::class,
     ]);
 
     Route::prefix('pages')->name('.pages')->group(function () {

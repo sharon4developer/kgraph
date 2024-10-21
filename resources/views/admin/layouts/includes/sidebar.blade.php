@@ -43,6 +43,7 @@
                                 <li><a href="{{ url('admin/service-categories/create') }}" data-key="t-level-2-1">Add </a></li>
                             </ul>
                         </li>
+                        <li><a href="{{ url('admin/service-contents') }}" data-key="t-level-2-2">Service Contents </a></li>
                         <li>
                             <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Services</a>
                             <ul class="sub-menu" aria-expanded="true">
