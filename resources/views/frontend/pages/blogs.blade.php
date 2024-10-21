@@ -38,9 +38,9 @@
     <div class="blog-banner-overlay">
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[8%]">
             <div class="text-left text-white mt-10">
-                <h2 class="uppercase font_inter font-semibold text-[40px]">Blogs</h2>
+                <h2 class="uppercase font_inter font-semibold text-[40px]">@if(isset($blogContents)) {{$blogContents->blog_title}} @endif</h2>
                 <p class="lg:w-[35%] mt-5 font_inter font-semibold text-[12px]">
-                    In case you are filling out the form for a friend or sponsored person, please input the information of the person who wants to immigrate.
+                    @if(isset($blogContents)) {{$blogContents->blog_description}} @endif
                 </p>
             </div>
         </div>

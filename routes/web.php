@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AboutUsController;
 use App\Http\Controllers\Admin\BannerController;
+use App\Http\Controllers\Admin\BlogContentController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\CareerBranchController;
 use App\Http\Controllers\Admin\CareerController;
@@ -17,6 +18,7 @@ use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\JourneyController;
 use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Admin\OurStoryController;
+use App\Http\Controllers\Admin\PackageContentController;
 use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\PackageFaqController;
 use App\Http\Controllers\Admin\PackagePointController;
@@ -108,6 +110,8 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'service-categories' => ServiceCategoryController::class,
         'home' => AdminHomeController::class,
         'service-contents' => ServiceContentController::class,
+        'package-contents' => PackageContentController::class,
+        'blog-contents' => BlogContentController::class,
     ]);
 
     Route::prefix('pages')->name('.pages')->group(function () {

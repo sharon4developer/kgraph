@@ -1,24 +1,23 @@
 $(document).ready(function () {
 
-    loadDataTableForService();
+    loadDataTableForBlog();
 });
 
-function loadDataTableForService() {
-    table = $('#service-details-table').DataTable({
+function loadDataTableForBlog() {
+    table = $('#blog-details-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: $('#route-for-user').val() + '/service-contents/show',
+        ajax: $('#route-for-user').val() + '/blog-contents/show',
         columns: [
             { data: 'DT_RowIndex', orderable: false, searchable: false },
-            { data: 'service_title' },
-            { data: 'certificate_title' },
+            { data: 'blog_title' },
             {
                 data: null,
                 render: function (row) {
 
 
                     return (`<div style="white-space:no-wrap">
-                                    <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Edit" data-bs-placement="top"  href="` + $("#route-for-user").val() + `/service-contents/` + row.id + `/edit">
+                                    <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Edit" data-bs-placement="top"  href="` + $("#route-for-user").val() + `/blog-contents/` + row.id + `/edit">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                  </div>`);
@@ -41,7 +40,7 @@ function loadDataTableForService() {
     });
 }
 
-$('#service-add-form').validate({
+$('#blog-add-form').validate({
     rules: {
     },
     messages: {
@@ -57,7 +56,7 @@ $('#service-add-form').validate({
         // Create
         $.ajax({
             type: "POST",
-            url: $('#route-for-user').val() + '/service-contents',
+            url: $('#route-for-user').val() + '/blog-contents',
             contentType: false,
             processData: false,
             data: formData,
@@ -114,9 +113,9 @@ $('#service-add-form').validate({
     }
 });
 
-$('#service-edit-form').validate({
+$('#blog-edit-form').validate({
     rules: {
-        service_id: {
+        blog_id: {
             required: true,
         },
     },
@@ -130,11 +129,11 @@ $('#service-edit-form').validate({
         var submitButton = $(form).find('[type=submit]');
         var current_btn_text = submitButton.html();
         button_loading_text = 'Saving...';
-        var service_id = $(form).find('input[name=service_id]').val();
+        var blog_id = $(form).find('input[name=blog_id]').val();
         // Create
         $.ajax({
             type: "POST",
-            url: $('#route-for-user').val() + '/service-contents/' + service_id,
+            url: $('#route-for-user').val() + '/blog-contents/' + blog_id,
             contentType: false,
             processData: false,
             data: formData,

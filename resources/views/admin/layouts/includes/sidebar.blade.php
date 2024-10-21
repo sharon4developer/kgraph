@@ -86,6 +86,7 @@
                                 <li><a href="{{ url('admin/faq/create') }}" data-key="t-level-2-1">Add </a></li>
                             </ul>
                         </li>
+                        <li><a href="{{ url('admin/blog-contents') }}" data-key="t-level-2-2">Blog Contents </a></li>
                         <li>
                             <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Blogs</a>
                             <ul class="sub-menu" aria-expanded="true">
@@ -181,6 +182,7 @@
                         <span data-key="t-multi-level">Packages</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
+                        <li><a href="{{ url('admin/package-contents') }}" data-key="t-level-2-2">Package Contents </a></li>
                         <li>
                             <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Packages</a>
                             <ul class="sub-menu" aria-expanded="true">
