@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('og_description')->nullable();
             $table->string('og_url')->nullable();
             $table->string('og_image')->nullable();
+            $table->text('schema')->nullable();
             $table->foreign('page_id')->references('id')->on('pages')->onDelete('CASCADE');;
             $table->timestamps();
         });
