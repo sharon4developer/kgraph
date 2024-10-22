@@ -52,7 +52,7 @@
             <div class="flex flex-col lg:flex-row items-center justify-between gap-4 mt-5 md:mt-8 lg:mt-[2.30rem] lg:gap-20">
                 <div class="w-full">
                     <img class="w-[40px]" src="{{ asset('assets/about/rolloutimage.webp') }}" alt="roll">
-                    <p class="font_inter font-medium text-[14px] xl:text-[20px] text-justify mt-8">
+                    <p class="font_inter font-medium text-[15px] 2xl:text-[20px] text-justify mt-8">
                         @if(isset($aboutUs)) {{$aboutUs->about_description}} @endif
                     </p>
                 </div>
@@ -72,11 +72,116 @@
 
             <div class="about-meet-slider">
                 <div class="splide__track">
-                  <ul id="crew-list" class="splide__list">
+                    <ul id="crew-list" class="splide__list">
+                        <li class="splide__slide">
+                            <div class="crew-card" bis_skin_checked="1">
+                                <div class="crew-card-img-parent" bis_skin_checked="1">
+                                    <img class="crew-card-img" src="https://kgraph-iroid.s3.ap-south-1.amazonaws.com/storage/assets/uploads/mathews-benny-director-c0SPVtbopABTLRi.png" alt="Crew Image">
+                                </div>
+                                <div class="crew-card-content" bis_skin_checked="1">
+                                    <h5>Mathews Benny</h5>
+                                    <h6>Director</h6>
 
+                                    <div class="address" bis_skin_checked="1">
+                                        <p>Canada</p>
+                                        <a class="email-link" href="mail.canada@kgraph.ca">canada@kgraph.ca</a>
+                                    </div>
 
+                                    <a class="read-bio-link" href="#">Read full bio &gt;</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="crew-card" bis_skin_checked="1">
+                                <div class="crew-card-img-parent" bis_skin_checked="1">
+                                    <img class="crew-card-img" src="https://kgraph-iroid.s3.ap-south-1.amazonaws.com/storage/assets/uploads/mathews-benny-director-c0SPVtbopABTLRi.png" alt="Crew Image">
+                                </div>
+                                <div class="crew-card-content" bis_skin_checked="1">
+                                    <h5>Mathews Benny</h5>
+                                    <h6>Director</h6>
 
-                  </ul>
+                                    <div class="address" bis_skin_checked="1">
+                                        <p>Canada</p>
+                                        <a class="email-link" href="mail.canada@kgraph.ca">canada@kgraph.ca</a>
+                                    </div>
+
+                                    <a class="read-bio-link" href="#">Read full bio &gt;</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="crew-card" bis_skin_checked="1">
+                                <div class="crew-card-img-parent" bis_skin_checked="1">
+                                    <img class="crew-card-img" src="https://kgraph-iroid.s3.ap-south-1.amazonaws.com/storage/assets/uploads/mathews-benny-director-c0SPVtbopABTLRi.png" alt="Crew Image">
+                                </div>
+                                <div class="crew-card-content" bis_skin_checked="1">
+                                    <h5>Mathews Benny</h5>
+                                    <h6>Director</h6>
+
+                                    <div class="address" bis_skin_checked="1">
+                                        <p>Canada</p>
+                                        <a class="email-link" href="mail.canada@kgraph.ca">canada@kgraph.ca</a>
+                                    </div>
+
+                                    <a class="read-bio-link" href="#">Read full bio &gt;</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="crew-card" bis_skin_checked="1">
+                                <div class="crew-card-img-parent" bis_skin_checked="1">
+                                    <img class="crew-card-img" src="https://kgraph-iroid.s3.ap-south-1.amazonaws.com/storage/assets/uploads/mathews-benny-director-c0SPVtbopABTLRi.png" alt="Crew Image">
+                                </div>
+                                <div class="crew-card-content" bis_skin_checked="1">
+                                    <h5>Mathews Benny</h5>
+                                    <h6>Director</h6>
+
+                                    <div class="address" bis_skin_checked="1">
+                                        <p>Canada</p>
+                                        <a class="email-link" href="mail.canada@kgraph.ca">canada@kgraph.ca</a>
+                                    </div>
+
+                                    <a class="read-bio-link" href="#">Read full bio &gt;</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="crew-card" bis_skin_checked="1">
+                                <div class="crew-card-img-parent" bis_skin_checked="1">
+                                    <img class="crew-card-img" src="https://kgraph-iroid.s3.ap-south-1.amazonaws.com/storage/assets/uploads/mathews-benny-director-c0SPVtbopABTLRi.png" alt="Crew Image">
+                                </div>
+                                <div class="crew-card-content" bis_skin_checked="1">
+                                    <h5>Mathews Benny</h5>
+                                    <h6>Director</h6>
+
+                                    <div class="address" bis_skin_checked="1">
+                                        <p>Canada</p>
+                                        <a class="email-link" href="mail.canada@kgraph.ca">canada@kgraph.ca</a>
+                                    </div>
+
+                                    <a class="read-bio-link" href="#">Read full bio &gt;</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="splide__slide">
+                            <div class="crew-card" bis_skin_checked="1">
+                                <div class="crew-card-img-parent" bis_skin_checked="1">
+                                    <img class="crew-card-img" src="https://kgraph-iroid.s3.ap-south-1.amazonaws.com/storage/assets/uploads/mathews-benny-director-c0SPVtbopABTLRi.png" alt="Crew Image">
+                                </div>
+                                <div class="crew-card-content" bis_skin_checked="1">
+                                    <h5>Mathews Benny</h5>
+                                    <h6>Director</h6>
+
+                                    <div class="address" bis_skin_checked="1">
+                                        <p>Canada</p>
+                                        <a class="email-link" href="mail.canada@kgraph.ca">canada@kgraph.ca</a>
+                                    </div>
+
+                                    <a class="read-bio-link" href="#">Read full bio &gt;</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
               </div>
 
@@ -116,12 +221,12 @@
                     <h4 class="text-white font_inter font-semibold text-[22px] lg:text-[30px] lg:w-[75%]">@if(isset($aboutUs)) {{$aboutUs->journey_title}} @endif</h4>
                     <p class="text-white font_inter font-thin text-justify text-[14px] py-4  lg:w-[75%]">@if(isset($aboutUs)) {{$aboutUs->journey_description}} @endif </p>
                 </div>
-                <div class="w-full">
-                    <img src="@if(isset($aboutUs)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->journey_image }} @endif" alt="@if(isset($aboutUs)) {{$aboutUs->journey_image_alt_tag}} @endif">
+                <div class="w-full rounded-[7px] overflow-hidden">
+                    <img class="h-full rounded-[7px] object-contain object-center" src="@if(isset($aboutUs)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->journey_image }} @endif" alt="@if(isset($aboutUs)) {{$aboutUs->journey_image_alt_tag}} @endif">
                 </div>
             </div>
 
-            <div class="md:flex items-end gap-[45px] mt-5 lg:mt-[-27px]">
+            <div class="md:flex items-end gap-[45px] mt-5">
                 <div>
                     <h2 id="count-number" class="text-white font_inter font-bold text-[95px] leading-none">@if (isset($journey))
                         {{ $journey->experience }}
@@ -589,6 +694,7 @@
                     pagination: false, // Disable the dots (pagination)
                     autoplay: false,
                     interval: 3000, // Auto-slide interval
+                    gap:'16px',
                     breakpoints: {
                         640: { perPage: 1 },
                         768: { perPage: 1.5 },
