@@ -292,7 +292,7 @@
                 </div>
 
             </div>
-            <p class="py-5 text-white font_inter font-medium text-[18px] xl:text-[36px] lg:w-[50%] xl:w-[60%]  secleft-to-right-animation">@if(isset($home)) {{$home->who_we_are_sub_title}} @endif</p>
+            <p class="py-5 text-white font_inter font-medium text-[18px] xl:text-[20px] lg:w-[50%] xl:w-[60%]  secleft-to-right-animation">@if(isset($home)) {{$home->who_we_are_sub_title}} @endif</p>
 
             <div class="video-carousel w-full lg:mt-10">
                 @foreach ($whoweare as $data)
@@ -411,7 +411,7 @@
     {{-- regulated section --}}
     <div class="RegulatedSec bg-black overflow-hidden">
         <div class="container mx-auto px-5 xl:px-12 py-6 lg:py-16 h-full w-full">
-            <div class="md:flex justify-center items-start gap-5">
+            <div class="md:flex justify-center items-start xl:items-center 2xl:items-start  gap-5">
                 <div class="RegulatedSec-left md:w-1/2">
                     <h2 class="text-white font_inter font-semibold text-2xl lg:text-3xl xl:text-4xl xl:w-[80%]">@if(isset($home)) {{$home->certificate_title}} @endif</h2>
                     <p class="py-5 text-white font-normal font_inter text-[14px] xl:text-lg lg:py-10">@if(isset($home)) {{$home->certificate_description}} @endif</p>
@@ -419,7 +419,7 @@
                         @foreach ($certificate as $data)
                         <div class="flex items-center flex-col justify-center">
                             <img class="w-[200px] max-h-[66px]" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{$data->alt_tag}}">
-                            <h6 class="font_inter font-semibold text-white text-[14px] w-[80%] text-center py-2">{{ $data->title }} {{ $data->sub_title }}</h6>
+                            {{-- <h6 class="font_inter font-semibold text-white text-[14px] w-[80%] text-center py-2">{{ $data->title }} {{ $data->sub_title }}</h6> --}}
                         </div>
                         @endforeach
 
@@ -441,7 +441,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 
@@ -453,7 +452,7 @@
                 <div class="w-full thirdleft-to-right-width-animation" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
             </div>
             <p class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%] thirdleft-to-right-animation">@if(isset($home)) {{$home->testimonial_sub_title}} @endif</p>
-            <p class="text-white font_inter font-normal text-justify text-[14px] md:w-[45%] thirdleft-to-right-animation">@if(isset($home)) {{$home->testimonial_description}} @endif </p>
+            <p class="text-white font_inter font-normal text-justify text-[14px] thirdleft-to-right-animation">@if(isset($home)) {{$home->testimonial_description}} @endif </p>
         </div>
 
         <div class="testimonial-slider-wrapper pl-5 lg:pl-12 pt-9 pb-0 lg:py-[70px] z-50">
@@ -529,7 +528,7 @@
                 <div class="w-full fourthleft-to-right-width-animation" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
             </div>
             <p class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%] fourthleft-to-right-animation">@if(isset($home)) {{$home->blog_sub_title}} @endif</p>
-            <p class="text-white font_inter font-normal text-justify text-[14px] md:w-[45%] fourthleft-to-right-animation">@if(isset($home)) {{$home->blog_description}} @endif</p>
+            <p class="text-white font_inter font-normal text-justify text-[14px] fourthleft-to-right-animation">@if(isset($home)) {{$home->blog_description}} @endif</p>
             <div class="flex justify-center lg:justify-start items-center my-12">
                 <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group">
                     <!-- Initially the background will cover the full button -->
@@ -1141,7 +1140,7 @@
                 640: { perPage: 1 },
                 768: { perPage: 1.9},
                 1024: { perPage: 2},
-                1280: { perPage: 2.8 },
+                1280: { perPage: 3.1 },
             }
         }).mount();
 
