@@ -80,7 +80,7 @@
 </style>
 
 <div id="modalpopup" class="z-50 fixed top-0 bg-[#0000009c] h-screen overflow-hidden hidden">
-    <div class="flex justify-center items-center w-screen md:pt-[10%] 2xl:pt-[6%]">
+    <div class="flex justify-center items-center w-screen md:pt-[10%] xl:pt-[5%] 2xl:pt-[6%]">
         <div class="w-[85%] md:w-[75%] lg:w-[50vw] 2xl:w-[40%]">
             <div class="bg-white rounded-xl h-fit w-full mt-[52px] lg:mt-0 relative">
                 <button id="close-btn" class="cursor-pointer absolute top-[-10px] left-[-10px]">
@@ -119,7 +119,7 @@
                             </div>
                         </div>
 
-                        <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
+                        {{-- <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
                             <label class="whitespace-nowrap" for="email">select branch<span>*</span></label>
                             <select name="" id="">
                                 <option value=""></option>
@@ -135,14 +135,14 @@
                                 <option value=""></option>
                                 <option value=""></option>
                             </select>
-                        </div>
+                        </div> --}}
 
                         <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
                             <label for="message">Message<span>*</span></label>
                             <input type="text" name="message">
                         </div>
 
-                        <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
+                        {{-- <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
                             <label for="imageUploader" class="cursor-pointer flex justify-between items-center w-full">
                                 <div class="whitespace-nowrap">Upload Resume<span>*</span></div>
                                 <div class="w-full flex justify-end">
@@ -150,7 +150,7 @@
                                 </div>
                             </label>
                             <input id="imageUploader" type="file" accept="image/*" style="display: none;" onchange="handleFileChange()" />
-                        </div>
+                        </div> --}}
 
                         <div class="flex justify-end items-center overflow-hidden rounded-full">
                             <div class="border rounded-full border-[#072558] cursor-pointer">
