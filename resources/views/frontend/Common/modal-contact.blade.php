@@ -137,10 +137,10 @@
                             </select>
                         </div> --}}
 
-                        <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
+                        {{-- <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
                             <label for="message">Message<span>*</span></label>
                             <input type="text" name="message">
-                        </div>
+                        </div> --}}
 
                         {{-- <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
                             <label for="imageUploader" class="cursor-pointer flex justify-between items-center w-full">
