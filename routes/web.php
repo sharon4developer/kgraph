@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutUsController;
+use App\Http\Controllers\Admin\AppliedCareerController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BlogContentController;
 use App\Http\Controllers\Admin\BlogController;
@@ -9,6 +10,7 @@ use App\Http\Controllers\Admin\CareerController;
 use App\Http\Controllers\Admin\CareerDepartmentController;
 use App\Http\Controllers\Admin\CertificateController;
 use App\Http\Controllers\Admin\CmsController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\CrewController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -17,6 +19,7 @@ use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\JourneyController;
 use App\Http\Controllers\Admin\LocationController;
+use App\Http\Controllers\Admin\NewsLetterController as AdminNewsLetterController;
 use App\Http\Controllers\Admin\OurStoryController;
 use App\Http\Controllers\Admin\PackageContentController;
 use App\Http\Controllers\Admin\PackageController;
@@ -37,6 +40,7 @@ use App\Http\Controllers\FrontEnd\AboutController;
 use App\Http\Controllers\FrontEnd\BlogController as FrontEndBlogController;
 use App\Http\Controllers\FrontEnd\CareerController as FrontEndCareerController;
 use App\Http\Controllers\FrontEnd\HomeController;
+use App\Http\Controllers\FrontEnd\NewsLetterController;
 use App\Http\Controllers\FrontEnd\PackageController as FrontEndPackageController;
 use App\Http\Controllers\FrontEnd\ServiceController as FrontEndServiceController;
 use Illuminate\Support\Facades\Auth;
@@ -51,6 +55,9 @@ Route::post('fetch-crew', [AboutController::class, 'crewShow']);
 Route::get('packages', [FrontEndPackageController::class, 'index']);
 Route::get('package-details/{id}', [FrontEndPackageController::class, 'packageDetails']);
 Route::get('careers', [FrontEndCareerController::class, 'index']);
+Route::post('submit-news-letter', [NewsLetterController::class, 'submitNewsLetter'])->name('submit-news-letter');
+Route::post('submit-contact-form', [NewsLetterController::class, 'submitContact'])->name('submit-contact-form');
+Route::post('submit-career-form', [NewsLetterController::class, 'submitCareer'])->name('submit-career-form');
 
 Route::get('contact-us', function () {
     return view('main');
@@ -112,6 +119,9 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'service-contents' => ServiceContentController::class,
         'package-contents' => PackageContentController::class,
         'blog-contents' => BlogContentController::class,
+        'news-letter' => AdminNewsLetterController::class,
+        'contact' => ContactController::class,
+        'applied-career' => AppliedCareerController::class,
     ]);
 
     Route::prefix('pages')->name('.pages')->group(function () {

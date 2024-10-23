@@ -105,7 +105,7 @@
                         <img src="assets/home_Banner/reduse.png" class="flag-img" alt="Canada Flag" />
                     </div>
                     <div>
-                        <form action="" class="text-black enquiry-form">
+                        <form action="" class="text-black enquiry-form" id="career-add-form">
                             <h4 class="font_inter font-semibold text-black text-[32px] pb-10">Enquiry</h4>
                             <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
                                 <label for="name">NAME<span>*</span></label>
@@ -120,11 +120,11 @@
                             <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent mobile">
                                 <div>
                                     <select name="country" id="" class="bg-transparent">
-                                        <option value="">+91</option>
-                                        <option value="">+93</option>
-                                        <option value="">+94</option>
-                                        <option value="">+96</option>
-                                        <option value="">+97</option>
+                                        <option value="+91">+91</option>
+                                        <option value="+93">+93</option>
+                                        <option value="+94">+94</option>
+                                        <option value="+96">+96</option>
+                                        <option value="+97">+97</option>
                                     </select>
 
                                 </div>
@@ -136,7 +136,7 @@
 
                             <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
                                 <label class="md:whitespace-nowrap" for="email">select branch<span>*</span></label>
-                                <select name="" id="" class="bg-transparent">
+                                <select name="branch" id="" class="bg-transparent">
                                     <option value="" selected disabled>---Select---</option>
                                     @foreach ($branches as $data)
                                     <option value="{{$data->id}}">{{$data->title}}</option>
@@ -146,7 +146,7 @@
 
                             <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
                                 <label class="md:whitespace-nowrap" for="email">department<span>*</span></label>
-                                <select name="" id="" class="bg-transparent">
+                                <select name="department" id="" class="bg-transparent">
                                     <option value="" selected disabled>---Select---</option>
                                     @foreach ($departments as $data)
                                     <option value="{{$data->id}}">{{$data->title}}</option>
@@ -166,7 +166,7 @@
                                     <img id="uploadIcon" src="{{ asset('assets/home_Banner/fileuploadbutton.png') }}" alt="Upload Logo" width="15" height="15" />
                                     </div>
                                 </label>
-                                <input id="imageUploader" type="file" accept="image/*" style="display: none;" onchange="handleFileChange()" />
+                                <input id="imageUploader" type="file" required name="resume" style="display: none;" onchange="handleFileChange()" />
                             </div>
 
                             <div class="flex justify-end items-center overflow-hidden rounded-full">

@@ -12,7 +12,7 @@
             </div>
             <div class="flex items-start md:items-center gap-5 md:border-l border-l-[#FFFFFF] border-opacity-50 justify-center">
                 <img src="{{ asset ('assets/travelstarted.png') }}" alt="started travelling">
-                <h2 class="w-[60%] text-[14px] xl:text-[30px] font-semibold plus_jakarta text-white">are you ready for get started travelling?</h2>
+                <h2 class="w-[60%] text-[14px] xl:text-[30px] font-semibold plus_jakarta text-white">Are you ready for get started travelling?</h2>
             </div>
         </div>
 
@@ -64,10 +64,12 @@
                 <div class="flex flex-col justify-between items-start gap-[30px] md:gap-4 w-full">
                     <h2 class="text-white">Subscribe Our Newsletter</h2>
                     <p class="text-white text-sm">Corporate business typically refers to large-scale mansola it.</p>
-                    <div class="rounded-full bg-black border border-solid border-neutral-700 flex items-center relative w-full">
-                        <input class="border-none outline-none bg-transparent py-3 2xl:py-6 h-full px-4 w-full text-white placeholder:text-white" type="email" name="" id="" placeholder="Enter Email">
-                        <button class=" absolute right-0 p-6 rounded-full bg-blue-900"><img class="md:w-6 lg:w-4" src="{{ asset('assets//sendingg.png') }}" alt=""></button>
-                    </div>
+                    <form class="form validate-form candidate_fields relative" id="news-letter-add-form">
+                        <div class="rounded-full bg-black border border-solid border-neutral-700 flex items-center relative w-full">
+                            <input class="border-none outline-none bg-transparent py-3 2xl:py-6 h-full px-4 w-full text-white placeholder:text-white" type="email" name="news_letter_email" id="news-letter-email" placeholder="Enter Email">
+                            <button class=" absolute right-0 p-6 rounded-full bg-blue-900"><img class="md:w-6 lg:w-4" src="{{ asset('assets//sendingg.png') }}" alt=""></button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -89,5 +91,10 @@
 
     </div>
 </footer>
+<script src="{{ asset('admin/theme/assets/libs/jquery/jquery.min.js') }}"></script>
+<script src="{{ asset('admin/theme/src/assets/js/forms/jquery.validate.min.js')}}"></script>
+<script src="{{ asset('admin/theme/alertifyjs/build/alertify.min.js')}}"></script>
+<script src="{{ asset('admin/theme/src/assets/js/forms/sweetalert.min.js')}}"></script>
+<script src="{{ asset('admin/theme/src/plugins/src/sweetalerts2/sweetalerts2.min.js')}}"></script>
 <script src="{{ asset('common/theme/js/common.js')}}?v={{ config('app.version')}}"></script>
 
