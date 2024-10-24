@@ -51,9 +51,13 @@ Route::post('fetch-crew', [AboutController::class, 'crewShow']);
 Route::get('packages', [FrontEndPackageController::class, 'index']);
 Route::get('package-details/{id}', [FrontEndPackageController::class, 'packageDetails']);
 Route::get('careers', [FrontEndCareerController::class, 'index']);
+Route::get('blogdetail', [FrontEndCareerController::class, 'blogdetail']);
 
 Route::get('contact-us', function () {
     return view('main');
+});
+Route::get('blogdetail', function () {
+    return view('frontend.pages.blog-detail');
 });
 
 Route::get('services-form', function () {

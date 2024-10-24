@@ -547,25 +547,27 @@
                     <ul class="splide__list">
                         @foreach ($blogs as $data)
                             <li class="splide__slide">
-                                <div class="bg-white w-[350px] lg:w-[450px]  mb-8 mr-5">
-                                    <img class="h-full w-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{$data->alt_tag}}"/>
-                                    <div class="py-4 px-6 bg-white z-10 relative">
-                                        <div class="flex items-center gap-4">
-                                            <img class="w-[50px] h-[50px] rounded-full" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->user_image }}" alt="{{$data->user_alt_tag}}"/>
-                                            <div>
-                                                <h6 class="font_inter font-semibold text-16px text-[#072558]  2xl:text-[18px]">{{ $data->name }}</h6>
-                                                <?php $date = $data->date . ' ' . $data->time; ?>
-                                                <p class="text-[#072558] font_inter font-medium text-[10px] 2xl:text-[12px] lg:whitespace-nowrap">by {{ $data->name }}, on  {{ $data->name }}, on {{ date('M j, Y h:i:s A', strtotime($date)) }}</p>
-                                                <p class="text-[#072558] font_inter font-medium text-[10px] 2xl:text-[12px] clamp-text-one">Topics: {{ $data->topics }}</p>
+                                <a href="{{ url('blogdetail') }}">
+                                    <div class="bg-white w-[350px] lg:w-[450px]  mb-8 mr-5">
+                                        <img class="h-full w-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{$data->alt_tag}}"/>
+                                        <div class="py-4 px-6 bg-white z-10 relative">
+                                            <div class="flex items-center gap-4">
+                                                <img class="w-[50px] h-[50px] rounded-full" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->user_image }}" alt="{{$data->user_alt_tag}}"/>
+                                                <div>
+                                                    <h6 class="font_inter font-semibold text-16px text-[#072558]  2xl:text-[18px]">{{ $data->name }}</h6>
+                                                    <?php $date = $data->date . ' ' . $data->time; ?>
+                                                    <p class="text-[#072558] font_inter font-medium text-[10px] 2xl:text-[12px] lg:whitespace-nowrap">by {{ $data->name }}, on  {{ $data->name }}, on {{ date('M j, Y h:i:s A', strtotime($date)) }}</p>
+                                                    <p class="text-[#072558] font_inter font-medium text-[10px] 2xl:text-[12px] clamp-text-one">Topics: {{ $data->topics }}</p>
+                                                </div>
+                                            </div>
+                                            <h5 class="text-[#072558] font_inter font-bold text-[10px] xl:text-[20px] py-5 xl:pb-[15px] 2xl:pt-[32px] clamp-text-two">{{ $data->title }}</h5>
+                                            <p class="clamp-text text-[#072558] font_inter font-normal text-[14px] lg:text-[16px] 2xl:text-[20px] pt-4">{{ $data->description }}</p>
+                                            <div class="flex justify-end items-center pt-8 pb-2">
+                                                <a class="capitalize text-[#062358] underline font-bold font_inter text-lg" href="">Read more</a>
                                             </div>
                                         </div>
-                                        <h5 class="text-[#072558] font_inter font-bold text-[10px] xl:text-[20px] py-5 xl:pb-[15px] 2xl:pt-[32px] clamp-text-two">{{ $data->title }}</h5>
-                                        <p class="clamp-text text-[#072558] font_inter font-normal text-[14px] lg:text-[16px] 2xl:text-[20px] pt-4">{{ $data->description }}</p>
-                                        <div class="flex justify-end items-center pt-8 pb-2">
-                                            <a class="capitalize text-[#062358] underline font-bold font_inter text-lg" href="">Read more</a>
-                                        </div>
                                     </div>
-                                </div>
+                                </a>
                             </li>
                         @endforeach
                     </ul>
