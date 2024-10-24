@@ -219,6 +219,18 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i class="fa fa-address-book" aria-hidden="true"></i>
+                        <span data-key="t-multi-level">Contact</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="true">
+                        <li><a href="{{ url('admin/news-letter') }}" data-key="t-level-2-2">News Letter </a></li>
+                        <li><a href="{{ url('admin/contact') }}" data-key="t-level-2-2">Contact Us </a></li>
+                        <li><a href="{{ url('admin/applied-career') }}" data-key="t-level-2-2">Career </a></li>
+                    </ul>
+                </li>
+
             </ul>
 
             {{-- <div class="card sidebar-alert shadow-none text-center mx-4 mb-0 mt-5">

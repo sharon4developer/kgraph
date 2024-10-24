@@ -18,9 +18,9 @@
                                 <th>SL No</th>
                                 <th>Title</th>
                                 <th>Seo</th>
-                                <th>Titles</th>
+                                {{-- <th>Titles</th>
                                 <th>Section Content</th>
-                                <th>Section Image</th>
+                                <th>Section Image</th> --}}
                             </tr>
                         </thead>
                         <tbody>
@@ -79,6 +79,12 @@
                                     <div class="form-group">
                                         <label>OG Url</label>
                                         <input type="text" class="form-control" name="og_url" id="og_url" placeholder="OG Url">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Schema</label>
+                                        <textarea rows="4" type="text" class="form-control" name="schema" id="schema" placeholder="Schema"></textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-12">

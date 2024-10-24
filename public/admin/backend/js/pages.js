@@ -19,30 +19,30 @@ function loadDataTableForPage() {
 
                 }, orderable: false, searchable: false
             },
-            {
-                data: null,
-                render: function (row) {
-                    return `<a class="btn btn-outline-info btn-rounded mb-2 me-4 _effect--ripple waves-effect waves-light" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Section Titles" data-bs-placement="top" href="` + $("#route-for-user").val() + `/pages/titles/` + row.id + `/edit">
-                                <i class="fa fa-header" aria-hidden="true"></i>
-                            </a>`;
-                }, orderable: false, searchable: false
-            },
-            {
-                data: null,
-                render: function (row) {
-                    return `<a class="btn btn-outline-info btn-rounded mb-2 me-4 _effect--ripple waves-effect waves-light" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Section Content" data-bs-placement="top" href="` + $("#route-for-user").val() + `/pages/cms/` + row.id + `/edit">
-                                <i class="fa fa-file" aria-hidden="true"></i>
-                            </a>`;
-                }, orderable: false, searchable: false
-            },
-            {
-                data: null,
-                render: function (row) {
-                    return `<a class="btn btn-outline-info btn-rounded mb-2 me-4 _effect--ripple waves-effect waves-light" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Section Image" data-bs-placement="top" href="` + $("#route-for-user").val() + `/pages/section-image/` + row.id + `/edit">
-                                <i class="fa fa-image" aria-hidden="true"></i>
-                            </a>`;
-                }, orderable: false, searchable: false
-            },
+            // {
+            //     data: null,
+            //     render: function (row) {
+            //         return `<a class="btn btn-outline-info btn-rounded mb-2 me-4 _effect--ripple waves-effect waves-light" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Section Titles" data-bs-placement="top" href="` + $("#route-for-user").val() + `/pages/titles/` + row.id + `/edit">
+            //                     <i class="fa fa-header" aria-hidden="true"></i>
+            //                 </a>`;
+            //     }, orderable: false, searchable: false
+            // },
+            // {
+            //     data: null,
+            //     render: function (row) {
+            //         return `<a class="btn btn-outline-info btn-rounded mb-2 me-4 _effect--ripple waves-effect waves-light" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Section Content" data-bs-placement="top" href="` + $("#route-for-user").val() + `/pages/cms/` + row.id + `/edit">
+            //                     <i class="fa fa-file" aria-hidden="true"></i>
+            //                 </a>`;
+            //     }, orderable: false, searchable: false
+            // },
+            // {
+            //     data: null,
+            //     render: function (row) {
+            //         return `<a class="btn btn-outline-info btn-rounded mb-2 me-4 _effect--ripple waves-effect waves-light" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Section Image" data-bs-placement="top" href="` + $("#route-for-user").val() + `/pages/section-image/` + row.id + `/edit">
+            //                     <i class="fa fa-image" aria-hidden="true"></i>
+            //                 </a>`;
+            //     }, orderable: false, searchable: false
+            // },
             // {data: null,
             //     render:function(row){
 
@@ -261,6 +261,10 @@ function showSeo(data) {
             $('#og_url').val(data.seo.og_url);
         else
             $('#og_url').val('');
+        if (data.seo.schema)
+            $('#schema').val(data.seo.schema);
+        else
+            $('#schema').val('');
         if (data.seo.og_image) {
             document.getElementById("previous-og-image").src = data.seo.og_image;
             $('#previous-og-image-section').show();
@@ -296,6 +300,9 @@ $('#seo-edit-form').validate({
         og_url: {
             required: true,
         },
+        schema: {
+            required: true,
+        },
         og_image: {
             required: function () {
                 return $("#seo_id").val() == '';
@@ -313,6 +320,7 @@ $('#seo-edit-form').validate({
         og_description: "OG Description field is required",
         og_url: "OG Url field is required",
         og_image: "OG Image field is required",
+        schema: "Schema field is required",
     },
     errorElement: 'span',
     submitHandler: function (form, event) {

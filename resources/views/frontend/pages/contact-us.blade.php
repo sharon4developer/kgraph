@@ -104,7 +104,7 @@
                         <img src="assets/home_Banner/reduse.png" class="flag-img-contact" alt="Canada Flag" />
                     </div>
                     <div>
-                        <form action="" class="text-black enquiry-form">
+                        <form action="" class="text-black enquiry-form" id="contact-add-form">
                             <h4 class="font_inter font-semibold text-black text-[32px] pb-10">Enquiry</h4>
                             <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
                                 <label for="name">NAME<span>*</span></label>
@@ -119,11 +119,11 @@
                             <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent mobile">
                                 <div>
                                     <select name="country" id="">
-                                        <option value="">+91</option>
-                                        <option value="">+93</option>
-                                        <option value="">+94</option>
-                                        <option value="">+96</option>
-                                        <option value="">+97</option>
+                                        <option value="+91">+91</option>
+                                        <option value="+93">+93</option>
+                                        <option value="+94">+94</option>
+                                        <option value="+96">+96</option>
+                                        <option value="+97">+97</option>
                                     </select>
 
                                 </div>
