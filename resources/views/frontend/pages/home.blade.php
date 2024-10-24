@@ -529,6 +529,7 @@
             </div>
             <p class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%] fourthleft-to-right-animation">@if(isset($home)) {{$home->blog_sub_title}} @endif</p>
             <p class="text-white font_inter font-normal text-justify text-[14px] fourthleft-to-right-animation">@if(isset($home)) {{$home->blog_description}} @endif</p>
+
             <div class="flex justify-center lg:justify-start items-center my-12">
                 <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group">
                     <!-- Initially the background will cover the full button -->
@@ -538,42 +539,38 @@
                         <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
                     </div>
                 </div>
-
             </div>
-
 
             <div id="blogSplide" class="splide pt-[20px] md:pb-[40px]">
                 <div class="splide__track">
                     <ul class="splide__list">
                         @foreach ($blogs as $data)
-                            <li class="splide__slide">
-                                <a href="{{ url('blogdetail') }}">
-                                    <div class="bg-white w-[350px] lg:w-[450px]  mb-8 mr-5">
-                                        <img class="h-full w-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{$data->alt_tag}}"/>
-                                        <div class="py-4 px-6 bg-white z-10 relative">
-                                            <div class="flex items-center gap-4">
-                                                <img class="w-[50px] h-[50px] rounded-full" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->user_image }}" alt="{{$data->user_alt_tag}}"/>
-                                                <div>
-                                                    <h6 class="font_inter font-semibold text-16px text-[#072558]  2xl:text-[18px]">{{ $data->name }}</h6>
-                                                    <?php $date = $data->date . ' ' . $data->time; ?>
-                                                    <p class="text-[#072558] font_inter font-medium text-[10px] 2xl:text-[12px] lg:whitespace-nowrap">by {{ $data->name }}, on  {{ $data->name }}, on {{ date('M j, Y h:i:s A', strtotime($date)) }}</p>
-                                                    <p class="text-[#072558] font_inter font-medium text-[10px] 2xl:text-[12px] clamp-text-one">Topics: {{ $data->topics }}</p>
-                                                </div>
-                                            </div>
-                                            <h5 class="text-[#072558] font_inter font-bold text-[10px] xl:text-[20px] py-5 xl:pb-[15px] 2xl:pt-[32px] clamp-text-two">{{ $data->title }}</h5>
-                                            <p class="clamp-text text-[#072558] font_inter font-normal text-[14px] lg:text-[16px] 2xl:text-[20px] pt-4">{{ $data->description }}</p>
-                                            <div class="flex justify-end items-center pt-8 pb-2">
-                                                <a class="capitalize text-[#062358] underline font-bold font_inter text-lg" href="">Read more</a>
+                        <li class="splide__slide">
+                            <a href="{{ url('blogdetail') }}">
+                                <div class="mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-10 lg:h-[530px] w-full sm:max-w-sm h-auto">
+                                    <img class="w-full object-contain" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{$data->alt_tag}}">
+                                    <div class="p-6">
+                                        <?php $date = $data->date . ' ' . $data->time; ?>
+                                        <p class="text-gray-500 text-xs">{{ date('M j, Y h:i:s A', strtotime($date)) }}</p>
+                                        <h2 class="text-xl font-bold text-gray-900 mt-2 clamp-text-two h-[60px]">{{ $data->topics }}</h2>
+                                        <div class="text-gray-600 text-sm mt-3 clamp-text-two">
+                                            {!! $data->description !!}
+                                        </div>
+                                        <div class="flex items-center mt-4">
+                                            <img class="w-10 h-10 object-cover rounded-full" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->user_image }}" alt="{{$data->user_alt_tag}}">
+                                            <div class="ml-3">
+                                                <p class="text-gray-900 font-semibold">By {{ $data->name }}</p>
                                             </div>
                                         </div>
                                     </div>
-                                </a>
-                            </li>
+                                </div>
+                            </a>
+                        </li>
+
                         @endforeach
                     </ul>
                 </div>
             </div>
-
 
             <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-2 h-full w-full flex items-center justify-end">
                 <div class="flex justify-center gap-3 items-center">

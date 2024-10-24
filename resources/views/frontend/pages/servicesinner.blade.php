@@ -12,7 +12,7 @@
         background-repeat: no-repeat;
     }
     .services-banner-overlay{
-        background: linear-gradient(180deg, #000000 0%, #113165e8 100%);
+        background: linear-gradient(180deg, #000000 0%, #113165ab 100%);
         height: 100%;
     }
     .services-inner> h2,h3,h4,h5,h6{
@@ -65,8 +65,11 @@
 
 
 {{-- services banner --}}
-<div class="servicesIIner-banner h-full">
-    <div class="services-banner-overlay">
+<div class="relative servicesIIner-banner h-full">
+    <!-- Background Image -->
+    <img src="{{ asset('assets/servicesinner.jpg') }}"" alt="Background Image" class="absolute inset-0 w-full h-full object-cover z-0">
+
+    <div class="services-banner-overlay relative z-10 bg-black bg-opacity-50 h-full"> <!-- Overlay for better contrast -->
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[8%]">
             <div class="text-white text-[12px] font_inter font-semibold">
                 <a href="#">Study</a> > <a href="#">Study in Canada</a>
@@ -78,16 +81,18 @@
                 </p>
             </div>
             <div class="flex justify-center items-center">
-                <div class="duration-200 cursor-pointer ease-linear md:bg-transparent text-blue-600 bg-blue-600 lg:hover:bg-blue-600 flex justify-center items-center rounded-full gap-5 py-[6.5px] pl-5 lg:pr-2 w-fit">
-                    <h6 class="text-white text-[12px] lg:text-[16px]">Let's turn your vision into reality.</h6>
-                    <div class="bg-white text-blue-600 hover:bg-blue-600 hover:text-white px-[20px] py-1 lg:py-[6px] md:rounded-sm ease-in duration-500 cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
-                        <a href="" class="h-full">Connect Us</a>
+                <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group">
+                    <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
+                    <h6 class="relative z-10 text-white text-[12px] xl:text-[16px]">Let's turn your vision into reality.</h6>
+                    <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                        <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 {{-- Realize can section --}}
 <div class="">

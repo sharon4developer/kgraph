@@ -83,43 +83,37 @@
         <div class="container mx-auto lg:px-32 2xl:px-48 mt-[10%]">
             <div class="pt-10 blog__content">
                 <div class="flex items-center justify-center flex-col">
-                    <h1 class="text-6xl font-bold pb-6 w-[75%] text-center">GUMMY SMILE; MANAGEMENT USING LIP REPOSITIONING PROCEDURE</h1>
+                    <!-- Dynamic Blog Title -->
+                    <h1 class="text-6xl font-bold pb-6 w-[75%] text-center">{{ $blog->title }}</h1>
+
+                    <!-- Dynamic Meta Information (Date) -->
                     <div class="meta-info">
-                        <span class="date">14 March 2024</span>
+                        <span class="date">{{ date('d F Y', strtotime($blog->published_at)) }}</span>
                     </div>
                 </div>
+
+                <!-- Dynamic Main Image -->
                 <div class="py-10">
-                    <img src="https://dentcareglobaltest.s3.ap-south-1.amazonaws.com/storage/assets/uploads/cfeZgummysmile-01.jpg"
-                        class="w-full h-full object-cover rounded-sm" alt="dentcare-global">
+                    <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $blog->image }}"
+                        class="w-full h-full object-cover rounded-sm" alt="{{ $blog->alt_tag }}">
                 </div>
+
+                <!-- Dynamic Blog Content (Heading and Paragraphs) -->
                 <div class="blog-content">
-                    <h2>ABSTRACT</h2>
-                    <p>'Gummy Smile' (GS) has been described as the visibility of excessive gingiva...</p>
-                    <h2>INTRODUCTION</h2>
-                    <p>Excessive gingival display (EGD), commonly termed gummy smile, is characterized by...</p>
-                    <h2>CASE REPORT</h2>
-                    <p>However, in a systematic review by Tawfiq et al., due to the smaller number of patients and the short duration of follow-up (6-18 months), they could not conclude the stability of the outcome of the procedure.<sup>2</sup></p>
-                    <h2>CONCLUSION</h2>
-                    <p>The lip repositioning procedure proves effective in the reduction of excessive gingival display.
-                        However, the stability of outcomes in the long term has to be followed-up. Nonetheless, this
-                        procedure is a promising alternative treatment option for excessive gingival display.
-                    </p>
-                    <div class="py-10">
-                        <img src="https://dentcareglobaltest.s3.ap-south-1.amazonaws.com/storage/assets/uploads/cfeZgummysmile-01.jpg"
-                            class="w-full h-full object-cover rounded-sm" alt="dentcare-global">
-                    </div>
-                    <p>The lip repositioning procedure proves effective in the reduction of excessive gingival display.
-                        However, the stability of outcomes in the long term has to be followed-up. Nonetheless, this
-                        procedure is a promising alternative treatment option for excessive gingival display.
-                    </p>
-                    <p>The lip repositioning procedure proves effective in the reduction of excessive gingival display.
-                        However, the stability of outcomes in the long term has to be followed-up. Nonetheless, this
-                        procedure is a promising alternative treatment option for excessive gingival display.
-                    </p>
-                    <p>The lip repositioning procedure proves effective in the reduction of excessive gingival display.
-                        However, the stability of outcomes in the long term has to be followed-up. Nonetheless, this
-                        procedure is a promising alternative treatment option for excessive gingival display.
-                    </p>
+                    @if($blog->sections)
+                        @foreach($blog->sections as $section)
+                            <!-- Dynamic Section Heading -->
+                            <h2 class="text-2xl font-bold mt-8">{{ $section['heading'] }}</h2>
+
+                            <!-- Dynamic Section Content -->
+                            <p class="text-lg text-gray-700 mt-4">{!! nl2br(e($section['content'])) !!}</p>
+                        @endforeach
+                    @endif
+                </div>
+
+                <!-- Footer Section or Additional Links -->
+                <div class="flex justify-end items-center pt-8 pb-2">
+                    <a class="capitalize text-[#062358] underline font-bold font_inter text-lg" href="">Share</a>
                 </div>
             </div>
         </div>

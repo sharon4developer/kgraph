@@ -37,7 +37,7 @@
                         <div class="w-full h-[220px] bg-cover bg-center rounded-xl" style="background-image: url('{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $service->image }}');">
                         </div>
                         <div class="text-left px-5 pt-2 pb-8">
-                            <h6 class="clamp-text-one py-3 font-bold font_inter text-[20px]">{{$service->title}}</h6>
+                            <h6 class="clamp-text-one py-3 font-bold font_inter text-[15px]">{{$service->title}}</h6>
                             {{-- <p class="mt-[5px]">{{$ServicePoint->title}}</p> --}}
                         </div>
 
