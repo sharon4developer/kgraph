@@ -160,7 +160,7 @@
         <!-- Banner Content -->
         <div class="container mx-auto px-5 xl:px-12 h-full w-full relative z-10">
             <div class="h-full w-full flex flex-col justify-start md:justify-center items-center text-center mb-4 md:pt-8 pb-0 gap-[5%] md:gap-[31px] lg:gap-0">
-                <div class="z-10 flex flex-col lg:flex-row items-center lg:gap-[23px] pt-[10%] lg:pt-[22%] xl:pt-[205px] banner-container-elem">
+                <div class="z-10 flex flex-col lg:flex-row items-center lg:gap-[23px] pt-[10%] lg:pt-[22%] xl:pt-[205px] 2xl:pt-[120px] banner-container-elem">
                     <img class="pt-[22px] md:pt-0 w-[40px] lg:w-[100px]" src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="rocket icon">
                     <h2 class="banner_text-one text-[20px] lg:text-[23px] font_inter font-medium text-white text-center capitalize">
                         Journey with Confidence <span class="text-[#579aff]">Migrate</span> with Us
@@ -259,6 +259,46 @@
                 </div>
                 @endforeach
             </div>
+        </div>
+    </div>
+
+    {{-- eligibility check section --}}
+    <div class="eligibilitySection gradient-evition relative overflow-hidden z-10 bg-[#051b3b]">
+        <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full pt-10 lg:pt0">
+            <div class="lg:flex items-start">
+                <div class="w-[100%]">
+                    <h2 class="left-to-right-animation font_inter font-semibold text-[46px] md:text-[50px] lg:text-[65px] 2xl:text-[100px] text-white leading-none uppercase gradient-text">
+                        <span class="inline-block">Find your</span>
+                        <span class="inline-block">eligibility for PR</span>
+                    </h2>
+                    <p class="text-white font_inter font-extralight text-justify text-[14px] xl:text-[16px] left-to-right-animation mt-4">
+                        Welcome to our CRS Score Calculator tool, designed to help you determine your
+                        Comprehensive Ranking System (CRS) score based on the information you provide.
+                        The CRS is a pivotal points-based system utilized for evaluating and ranking
+                        profiles within the Express Entry pool, a key component of Canadian immigration
+                    </p>
+                </div>
+                <div class="w-full">
+                    {{-- <div class="w-full left-to-right-width-animation" style="border: 1px solid #FFFFFF8C;"></div> --}}
+                    <img src="{{ asset('assets/eligibility.png') }}" alt="">
+                </div>
+            </div>
+
+            <h4 class="text-white font_inter font-semibold text-[22px] xl:text-[36px] py-4 lg:pb-0 left-to-right-animation capitalize mt-0 w-1/2">
+                Read Our Article to Know more about your score calculation
+            </h4>
+            <div class="my-4 md:my-0 lg:mt-8 flex justify-start items-center">
+                <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-2 px-4 lg:py-2 lg:px-6 overflow-hidden group shadow-lg bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 transition-all duration-300 ease-in-out">
+                    <div class="absolute inset-0 bg-gradient-to-r from-green-600 to-teal-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full rounded-full"></div>
+                    <h6 class="relative z-10 text-white text-[12px] md:text-[14px] xl:text-[18px] font-semibold">Eligibility Checker</h6>
+                    <div class="relative z-10 bg-white text-green-600 px-4 lg:px-6 py-1 lg:py-2 rounded-full cursor-pointer w-fit whitespace-nowrap font-medium">
+                        <a href="#" class="h-full text-[12px] xl:text-[16px]">Check Eligibility</a>
+                    </div>
+                </div>
+            </div>
+
+
+
         </div>
     </div>
 
