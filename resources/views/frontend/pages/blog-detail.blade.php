@@ -1,0 +1,121 @@
+@extends('layouts.main')
+
+@section('content')
+    <style>
+        .blog-detail{
+            background-color: #062358;
+        }
+        .blog-detail {
+            /* background-color: #f9f9f9; */
+            padding: 40px 0;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .blog__content h1 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .blog-content h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .blog-content p {
+            font-size: 18px;
+            color: #ffffff;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+
+        .blog__content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .blog__content .date {
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        .blog__content .meta-info {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .blog__content .container {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        .blog-content {
+            margin-top: 20px;
+        }
+
+        .blog-content p {
+            margin-bottom: 20px;
+        }
+
+        .blog-content h2 {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .blog-detail img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    </style>
+
+    @include('frontend.Common.whatsapplogo')
+
+    <div class="blog-detail">
+        <div class="container mx-auto lg:px-32 2xl:px-48 mt-[10%]">
+            <div class="pt-10 blog__content">
+                <div class="flex items-center justify-center flex-col">
+                    <!-- Dynamic Blog Title -->
+                    <h1 class="text-6xl font-bold pb-6 w-[75%] text-center">{{ $blog->title }}</h1>
+
+                    <!-- Dynamic Meta Information (Date) -->
+                    <div class="meta-info">
+                        <span class="date">{{ date('d F Y', strtotime($blog->published_at)) }}</span>
+                    </div>
+                </div>
+
+                <!-- Dynamic Main Image -->
+                <div class="py-10">
+                    <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $blog->image }}"
+                        class="w-full h-full object-cover rounded-sm" alt="{{ $blog->alt_tag }}">
+                </div>
+
+                <!-- Dynamic Blog Content (Heading and Paragraphs) -->
+                <div class="blog-content">
+                    @if($blog->sections)
+                        @foreach($blog->sections as $section)
+                            <!-- Dynamic Section Heading -->
+                            <h2 class="text-2xl font-bold mt-8">{{ $section['heading'] }}</h2>
+
+                            <!-- Dynamic Section Content -->
+                            <p class="text-lg text-gray-700 mt-4">{!! nl2br(e($section['content'])) !!}</p>
+                        @endforeach
+                    @endif
+                </div>
+
+                <!-- Footer Section or Additional Links -->
+                <div class="flex justify-end items-center pt-8 pb-2">
+                    <a class="capitalize text-[#062358] underline font-bold font_inter text-lg" href="">Share</a>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection

@@ -62,7 +62,23 @@ Route::get('contact-us', [FrontEndContactUsController::class, 'index']);
 Route::post('submit-news-letter', [NewsLetterController::class, 'submitNewsLetter'])->name('submit-news-letter');
 Route::post('submit-contact-form', [NewsLetterController::class, 'submitContact'])->name('submit-contact-form');
 Route::post('submit-career-form', [NewsLetterController::class, 'submitCareer'])->name('submit-career-form');
+Route::get('blogdetail', [FrontEndCareerController::class, 'blogdetail']);
 Route::post('submit-eligibility-form', [NewsLetterController::class, 'submitEligibility'])->name('submit-eligibility-form');
+
+Route::get('contact-us', function () {
+    return view('main');
+});
+Route::get('blogdetail', function () {
+    return view('frontend.pages.blog-detail');
+});
+
+Route::get('services-form', function () {
+    return view('frontend.pages.servicesinerform');
+});
+
+Route::get('contact-us', function () {
+    return view('frontend.pages.contact-us');
+});
 
 Auth::routes();
 

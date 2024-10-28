@@ -160,7 +160,7 @@
         <!-- Banner Content -->
         <div class="container mx-auto px-5 xl:px-12 h-full w-full relative z-10">
             <div class="h-full w-full flex flex-col justify-start md:justify-center items-center text-center mb-4 md:pt-8 pb-0 gap-[5%] md:gap-[31px] lg:gap-0">
-                <div class="z-10 flex flex-col lg:flex-row items-center lg:gap-[23px] pt-[10%] lg:pt-[22%] xl:pt-[205px] banner-container-elem">
+                <div class="z-10 flex flex-col lg:flex-row items-center lg:gap-[23px] pt-[10%] lg:pt-[22%] xl:pt-[205px] 2xl:pt-[120px] banner-container-elem">
                     <img class="pt-[22px] md:pt-0 w-[40px] lg:w-[100px]" src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="rocket icon">
                     <h2 class="banner_text-one text-[20px] lg:text-[23px] font_inter font-medium text-white text-center capitalize">
                         Journey with Confidence <span class="text-[#579aff]">Migrate</span> with Us
@@ -259,6 +259,46 @@
                 </div>
                 @endforeach
             </div>
+        </div>
+    </div>
+
+    {{-- eligibility check section --}}
+    <div class="eligibilitySection gradient-evition relative overflow-hidden z-10 bg-[#051b3b]">
+        <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full pt-10 lg:pt0">
+            <div class="lg:flex items-start">
+                <div class="w-[100%]">
+                    <h2 class="left-to-right-animation font_inter font-semibold text-[46px] md:text-[50px] lg:text-[65px] 2xl:text-[100px] text-white leading-none uppercase gradient-text">
+                        <span class="inline-block">Find your</span>
+                        <span class="inline-block">eligibility for PR</span>
+                    </h2>
+                    <p class="text-white font_inter font-extralight text-justify text-[14px] xl:text-[16px] left-to-right-animation mt-4">
+                        Welcome to our CRS Score Calculator tool, designed to help you determine your
+                        Comprehensive Ranking System (CRS) score based on the information you provide.
+                        The CRS is a pivotal points-based system utilized for evaluating and ranking
+                        profiles within the Express Entry pool, a key component of Canadian immigration
+                    </p>
+                </div>
+                <div class="w-full">
+                    {{-- <div class="w-full left-to-right-width-animation" style="border: 1px solid #FFFFFF8C;"></div> --}}
+                    <img src="{{ asset('assets/eligibility.png') }}" alt="">
+                </div>
+            </div>
+
+            <h4 class="text-white font_inter font-semibold text-[22px] xl:text-[36px] py-4 lg:pb-0 left-to-right-animation capitalize mt-0 w-1/2">
+                Read Our Article to Know more about your score calculation
+            </h4>
+            <div class="my-4 md:my-0 lg:mt-8 flex justify-start items-center">
+                <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-2 px-4 lg:py-2 lg:px-6 overflow-hidden group shadow-lg bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 transition-all duration-300 ease-in-out">
+                    <div class="absolute inset-0 bg-gradient-to-r from-green-600 to-teal-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full rounded-full"></div>
+                    <h6 class="relative z-10 text-white text-[12px] md:text-[14px] xl:text-[18px] font-semibold">Eligibility Checker</h6>
+                    <div class="relative z-10 bg-white text-green-600 px-4 lg:px-6 py-1 lg:py-2 rounded-full cursor-pointer w-fit whitespace-nowrap font-medium">
+                        <a href="#" class="h-full text-[12px] xl:text-[16px]">Check Eligibility</a>
+                    </div>
+                </div>
+            </div>
+
+
+
         </div>
     </div>
 
@@ -529,6 +569,7 @@
             </div>
             <p class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%] fourthleft-to-right-animation">@if(isset($home)) {{$home->blog_sub_title}} @endif</p>
             <p class="text-white font_inter font-normal text-justify text-[14px] fourthleft-to-right-animation">@if(isset($home)) {{$home->blog_description}} @endif</p>
+
             <div class="flex justify-center lg:justify-start items-center my-12">
                 <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group">
                     <!-- Initially the background will cover the full button -->
@@ -538,40 +579,38 @@
                         <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
                     </div>
                 </div>
-
             </div>
-
 
             <div id="blogSplide" class="splide pt-[20px] md:pb-[40px]">
                 <div class="splide__track">
                     <ul class="splide__list">
                         @foreach ($blogs as $data)
-                            <li class="splide__slide">
-                                <div class="bg-white w-[350px] lg:w-[450px]  mb-8 mr-5">
-                                    <img class="h-full w-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{$data->alt_tag}}"/>
-                                    <div class="py-4 px-6 bg-white z-10 relative">
-                                        <div class="flex items-center gap-4">
-                                            <img class="w-[50px] h-[50px] rounded-full" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->user_image }}" alt="{{$data->user_alt_tag}}"/>
-                                            <div>
-                                                <h6 class="font_inter font-semibold text-16px text-[#072558]  2xl:text-[18px]">{{ $data->name }}</h6>
-                                                <?php $date = $data->date . ' ' . $data->time; ?>
-                                                <p class="text-[#072558] font_inter font-medium text-[10px] 2xl:text-[12px] lg:whitespace-nowrap">by {{ $data->name }}, on  {{ $data->name }}, on {{ date('M j, Y h:i:s A', strtotime($date)) }}</p>
-                                                <p class="text-[#072558] font_inter font-medium text-[10px] 2xl:text-[12px] clamp-text-one">Topics: {{ $data->topics }}</p>
-                                            </div>
+                        <li class="splide__slide">
+                            <a href="{{ url('blogdetail') }}">
+                                <div class="mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-10 lg:h-[530px] w-full sm:max-w-sm h-auto">
+                                    <img class="w-full object-contain" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{$data->alt_tag}}">
+                                    <div class="p-6">
+                                        <?php $date = $data->date . ' ' . $data->time; ?>
+                                        <p class="text-gray-500 text-xs">{{ date('M j, Y h:i:s A', strtotime($date)) }}</p>
+                                        <h2 class="text-xl font-bold text-gray-900 mt-2 clamp-text-two h-[60px]">{{ $data->topics }}</h2>
+                                        <div class="text-gray-600 text-sm mt-3 clamp-text-two">
+                                            {!! $data->description !!}
                                         </div>
-                                        <h5 class="text-[#072558] font_inter font-bold text-[10px] xl:text-[20px] py-5 xl:pb-[15px] 2xl:pt-[32px] clamp-text-two">{{ $data->title }}</h5>
-                                        <p class="clamp-text text-[#072558] font_inter font-normal text-[14px] lg:text-[16px] 2xl:text-[20px] pt-4">{{ $data->description }}</p>
-                                        <div class="flex justify-end items-center pt-8 pb-2">
-                                            <a class="capitalize text-[#062358] underline font-bold font_inter text-lg" href="">Read more</a>
+                                        <div class="flex items-center mt-4">
+                                            <img class="w-10 h-10 object-cover rounded-full" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->user_image }}" alt="{{$data->user_alt_tag}}">
+                                            <div class="ml-3">
+                                                <p class="text-gray-900 font-semibold">By {{ $data->name }}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </li>
+                            </a>
+                        </li>
+
                         @endforeach
                     </ul>
                 </div>
             </div>
-
 
             <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-2 h-full w-full flex items-center justify-end">
                 <div class="flex justify-center gap-3 items-center">
