@@ -51,6 +51,7 @@
                             <li class="px-[16px] py-2"><a href="{{ url('services') }}">Service</a></li>
                             <li class="px-[16px] py-2"><a href="{{ url('packages') }}">Package</a></li>
                             <li class="px-[16px] py-2"><a href="{{ url('careers') }}">Careers</a></li>
+                            <li class="px-[16px] py-2"><a href="{{ url('blogs') }}">Blogs</a></li>
 
                             <div class="bg-white text-blue-600 hover:bg-blue-600 hover:text-white px-[16px] py-[6px] rounded-sm ease-in duration-500 cursor-pointer w-fit">
                                 <a href="" class="h-full !text-black">Contact Us</a>

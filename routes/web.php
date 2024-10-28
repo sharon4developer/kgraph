@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\ContactUsController;
 use App\Http\Controllers\Admin\CrewController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\EligibilityCheckController;
 use App\Http\Controllers\Admin\ExploreController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
@@ -39,6 +40,7 @@ use App\Http\Controllers\Admin\WhoWeAreController;
 use App\Http\Controllers\FrontEnd\AboutController;
 use App\Http\Controllers\FrontEnd\BlogController as FrontEndBlogController;
 use App\Http\Controllers\FrontEnd\CareerController as FrontEndCareerController;
+use App\Http\Controllers\FrontEnd\ContactUsController as FrontEndContactUsController;
 use App\Http\Controllers\FrontEnd\HomeController;
 use App\Http\Controllers\FrontEnd\NewsLetterController;
 use App\Http\Controllers\FrontEnd\PackageController as FrontEndPackageController;
@@ -49,27 +51,18 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('services', [FrontEndServiceController::class, 'index']);
 Route::get('service-details/{id}', [FrontEndServiceController::class, 'serviceDetails']);
+Route::get('eligibility-check/{id}', [FrontEndServiceController::class, 'eligibilityCheck']);
 Route::get('blogs', [FrontEndBlogController::class, 'index']);
 Route::get('about-us', [AboutController::class, 'index']);
 Route::post('fetch-crew', [AboutController::class, 'crewShow']);
 Route::get('packages', [FrontEndPackageController::class, 'index']);
 Route::get('package-details/{id}', [FrontEndPackageController::class, 'packageDetails']);
 Route::get('careers', [FrontEndCareerController::class, 'index']);
+Route::get('contact-us', [FrontEndContactUsController::class, 'index']);
 Route::post('submit-news-letter', [NewsLetterController::class, 'submitNewsLetter'])->name('submit-news-letter');
 Route::post('submit-contact-form', [NewsLetterController::class, 'submitContact'])->name('submit-contact-form');
 Route::post('submit-career-form', [NewsLetterController::class, 'submitCareer'])->name('submit-career-form');
-
-Route::get('contact-us', function () {
-    return view('main');
-});
-
-Route::get('services-form', function () {
-    return view('frontend.pages.servicesinerform');
-});
-
-Route::get('contact-us', function () {
-    return view('frontend.pages.contact-us');
-});
+Route::post('submit-eligibility-form', [NewsLetterController::class, 'submitEligibility'])->name('submit-eligibility-form');
 
 Auth::routes();
 
@@ -122,6 +115,7 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'news-letter' => AdminNewsLetterController::class,
         'contact' => ContactController::class,
         'applied-career' => AppliedCareerController::class,
+        'eligibility-check' => EligibilityCheckController::class,
     ]);
 
     Route::prefix('pages')->name('.pages')->group(function () {

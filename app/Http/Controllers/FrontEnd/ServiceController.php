@@ -33,4 +33,9 @@ class ServiceController extends Controller
 
         return view('frontend.pages.servicesinner', compact('services'));
     }
+
+    public function eligibilityCheck($id)
+    {
+        return view('frontend.pages.servicesinerform');
+    }
 }

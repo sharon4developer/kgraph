@@ -228,6 +228,7 @@
                         <li><a href="{{ url('admin/news-letter') }}" data-key="t-level-2-2">News Letter </a></li>
                         <li><a href="{{ url('admin/contact') }}" data-key="t-level-2-2">Contact Us </a></li>
                         <li><a href="{{ url('admin/applied-career') }}" data-key="t-level-2-2">Career </a></li>
+                        <li><a href="{{ url('admin/eligibility-check') }}" data-key="t-level-2-2">Eligibility Check </a></li>
                     </ul>
                 </li>
 
