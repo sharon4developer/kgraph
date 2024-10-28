@@ -586,7 +586,7 @@
                     <ul class="splide__list">
                         @foreach ($blogs as $data)
                         <li class="splide__slide">
-                            <a href="{{ url('blogdetail') }}">
+                            <a href="{{url('blog-details/'.$data->slug)}}">
                                 <div class="mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-10 lg:h-[530px] w-full sm:max-w-sm h-auto">
                                     <img class="w-full object-contain" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{$data->alt_tag}}">
                                     <div class="p-6">
