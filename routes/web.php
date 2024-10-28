@@ -50,19 +50,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('services', [FrontEndServiceController::class, 'index']);
-Route::get('service-details/{id}', [FrontEndServiceController::class, 'serviceDetails']);
-Route::get('eligibility-check/{id}', [FrontEndServiceController::class, 'eligibilityCheck']);
+Route::get('service-details/{slug}', [FrontEndServiceController::class, 'serviceDetails']);
+Route::get('eligibility-check/{slug}', [FrontEndServiceController::class, 'eligibilityCheck']);
 Route::get('blogs', [FrontEndBlogController::class, 'index']);
 Route::get('about-us', [AboutController::class, 'index']);
 Route::post('fetch-crew', [AboutController::class, 'crewShow']);
 Route::get('packages', [FrontEndPackageController::class, 'index']);
-Route::get('package-details/{id}', [FrontEndPackageController::class, 'packageDetails']);
+Route::get('package-details/{slug}', [FrontEndPackageController::class, 'packageDetails']);
 Route::get('careers', [FrontEndCareerController::class, 'index']);
 Route::get('contact-us', [FrontEndContactUsController::class, 'index']);
 Route::post('submit-news-letter', [NewsLetterController::class, 'submitNewsLetter'])->name('submit-news-letter');
 Route::post('submit-contact-form', [NewsLetterController::class, 'submitContact'])->name('submit-contact-form');
 Route::post('submit-career-form', [NewsLetterController::class, 'submitCareer'])->name('submit-career-form');
-Route::get('blogdetail', [FrontEndCareerController::class, 'blogdetail']);
+Route::get('blog-details/{slug}', [FrontEndBlogController::class, 'blogDetails']);
 Route::post('submit-eligibility-form', [NewsLetterController::class, 'submitEligibility'])->name('submit-eligibility-form');
 
 Route::get('contact-us', function () {

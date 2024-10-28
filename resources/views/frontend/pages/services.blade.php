@@ -32,7 +32,7 @@
         {{-- scroll need --}}
         <div class="grid justify-start gap-4 items-center choose-you-service">
             @foreach ($data->Service as $service)
-                <a href="{{url('service-details/'.$service->id)}}" class="block w-full">
+                <a href="{{url('service-details/'.$service->slug)}}" class="block w-full">
                     <div class="w-full bg-white rounded-xl overflow-hidden lg:h-[380px]">
                         <div class="w-full h-[220px] bg-cover bg-center rounded-xl" style="background-image: url('{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $service->image }}');">
                         </div>

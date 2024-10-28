@@ -88,7 +88,8 @@
 
                     <!-- Dynamic Meta Information (Date) -->
                     <div class="meta-info">
-                        <span class="date">{{ date('d F Y', strtotime($blog->published_at)) }}</span>
+                        <?php $date = $blog->date . ' ' . $blog->time; ?>
+                        <span class="date">{{ date('M j, Y h:i:s A', strtotime($date)) }}</span>
                     </div>
                 </div>
 
@@ -100,15 +101,11 @@
 
                 <!-- Dynamic Blog Content (Heading and Paragraphs) -->
                 <div class="blog-content">
-                    @if($blog->sections)
-                        @foreach($blog->sections as $section)
-                            <!-- Dynamic Section Heading -->
-                            <h2 class="text-2xl font-bold mt-8">{{ $section['heading'] }}</h2>
+                    <!-- Dynamic Section Heading -->
+                    <h2 class="text-2xl font-bold mt-8">{{ $blog->name }}</h2>
 
-                            <!-- Dynamic Section Content -->
-                            <p class="text-lg text-gray-700 mt-4">{!! nl2br(e($section['content'])) !!}</p>
-                        @endforeach
-                    @endif
+                    <!-- Dynamic Section Content -->
+                    <p class="text-lg text-gray-700 mt-4">{!! $blog->description !!}</p>
                 </div>
 
                 <!-- Footer Section or Additional Links -->

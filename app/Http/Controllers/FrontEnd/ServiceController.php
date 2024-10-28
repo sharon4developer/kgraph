@@ -27,9 +27,9 @@ class ServiceController extends Controller
         return view('frontend.pages.services', compact('certificate','seo','serviceCategory','serviceContents'));
     }
 
-    public function serviceDetails($id)
+    public function serviceDetails($slug)
     {
-        $services = Service::getData($id);
+        $services = Service::where('slug',$slug)->first();
 
         return view('frontend.pages.servicesinner', compact('services'));
     }
