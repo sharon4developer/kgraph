@@ -462,6 +462,12 @@ $('#eligibility-form').validate({
         nomination_certificate: {
             required: true,
         },
+        receive_communications: {
+            required: true,
+        },
+        consent_data: {
+            required: true,
+        },
     },
     errorElement: 'span',
     submitHandler: function (form, event) {

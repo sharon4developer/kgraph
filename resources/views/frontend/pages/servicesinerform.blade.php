@@ -189,11 +189,11 @@
                         <label>Do you have children?<span>*</span></label>
                         <div class="check-box-wrpr !mt-0">
                             <div>
-                                <input type="radio" id="children-yes" name="have_children" value="yes">
+                                <input type="radio" id="children-yes" name="have_children" value="Yes">
                                 <label for="children-yes">Yes</label>
                             </div>
                             <div>
-                                <input type="radio" id="children-no" name="have_children" value="no">
+                                <input type="radio" id="children-no" name="have_children" value="No">
                                 <label for="children-no">No</label>
                             </div>
                         </div>
@@ -212,40 +212,40 @@
                         <label>Type of application you are looking for:<span>*</span></label>
                         <div class="check-box-wrpr">
                             <div>
-                                <input type="radio" id="study" name="type_of_application" value="study">
+                                <input type="radio" id="study" name="type_of_application" value="Study in Canada">
                                 <label for="study">Study in Canada</label>
                             </div>
                             <div>
-                                <input type="radio" id="work" name="type_of_application" value="work">
+                                <input type="radio" id="work" name="type_of_application" value="Work in Canada">
                                 <label for="work">Work in Canada</label>
                             </div>
                             <div>
-                                <input type="radio" id="invest" name="type_of_application" value="invest">
+                                <input type="radio" id="invest" name="type_of_application" value="Invest in Canada">
                                 <label for="invest">Invest in Canada</label>
                             </div>
                             <div>
-                                <input type="radio" id="visit" name="type_of_application" value="visit">
+                                <input type="radio" id="visit" name="type_of_application" value="Visit Canada">
                                 <label for="visit">Visit Canada</label>
                             </div>
                             <div>
                                 <input type="radio" id="express-entry" name="type_of_application"
-                                    value="express-entry">
+                                    value="Apply for Permanent Residency via Express Entry">
                                 <label for="express-entry">Apply for Permanent Residency via Express Entry</label>
                             </div>
                             <div>
-                                <input type="radio" id="sponsorship" name="type_of_application" value="sponsorship">
+                                <input type="radio" id="sponsorship" name="type_of_application" value="Apply for Permanent Residency via Sponsorship">
                                 <label for="sponsorship">Apply for Permanent Residency via Sponsorship</label>
                             </div>
                             <div>
-                                <input type="radio" id="extend-stay" name="type_of_application" value="extend-stay">
+                                <input type="radio" id="extend-stay" name="type_of_application" value="Extend your stay in Canada">
                                 <label for="extend-stay">Extend your stay in Canada</label>
                             </div>
                             <div>
-                                <input type="radio" id="citizenship" name="type_of_application" value="citizenship">
+                                <input type="radio" id="citizenship" name="type_of_application" value="Apply for Citizenship">
                                 <label for="citizenship">Apply for Citizenship</label>
                             </div>
                             <div>
-                                <input type="radio" id="other" name="type_of_application" value="other">
+                                <input type="radio" id="other" name="type_of_application" value="Other">
                                 <label for="other">Other</label>
                             </div>
                         </div>
@@ -310,11 +310,11 @@
                             Duolingo)?<span>*</span></label>
                         <div class="check-box-wrpr !mt-0">
                             <div>
-                                <input type="radio" id="english-test-yes" name="english_language_test">
+                                <input type="radio" id="english-test-yes" name="english_language_test" value="Yes">
                                 <label for="english-test-yes">Yes</label>
                             </div>
                             <div>
-                                <input type="radio" id="english-test-no" name="english_language_test">
+                                <input type="radio" id="english-test-no" name="english_language_test" value="No">
                                 <label for="english-test-no">No</label>
                             </div>
                         </div>
@@ -332,11 +332,11 @@
                         <label>Have you taken a French language test (TEF, TEF Canada, or TCF Canada)?<span>*</span></label>
                         <div class="check-box-wrpr !mt-0">
                             <div>
-                                <input type="radio" id="french-test-yes" name="french_language_test">
+                                <input type="radio" id="french-test-yes" name="french_language_test" value="Yes">
                                 <label for="french-test-yes">Yes</label>
                             </div>
                             <div>
-                                <input type="radio" id="french-test-no" name="french_language_test">
+                                <input type="radio" id="french-test-no" name="french_language_test" value="No">
                                 <label for="french-test-no">No</label>
                             </div>
                         </div>
@@ -383,11 +383,11 @@
                         <label>Are you legally entitled to work in that country?</label>
                         <div class="check-box-wrpr !mt-0">
                             <div>
-                                <input type="radio" id="legally-entitled-yes" name="entitled_to_work">
+                                <input type="radio" id="legally-entitled-yes" name="entitled_to_work" value="Yes">
                                 <label for="legally-entitled-yes">Yes</label>
                             </div>
                             <div>
-                                <input type="radio" id="legally-entitled-no" name="entitled_to_work">
+                                <input type="radio" id="legally-entitled-no" name="entitled_to_work" value="No">
                                 <label for="legally-entitled-no">No</label>
                             </div>
                         </div>
@@ -397,11 +397,11 @@
                         <label>Do you own/manage a business?</label>
                         <div class="check-box-wrpr !mt-0">
                             <div>
-                                <input type="radio" id="manage-business-yes" name="manage_business">
+                                <input type="radio" id="manage-business-yes" name="manage_business" value="Yes">
                                 <label for="manage-business-yes">Yes</label>
                             </div>
                             <div>
-                                <input type="radio" id="manage-business-no" name="manage_business">
+                                <input type="radio" id="manage-business-no" name="manage_business" value="No">
                                 <label for="manage-business-no">No</label>
                             </div>
                         </div>
@@ -411,11 +411,11 @@
                         <label>Have you been in Canada as a temporary foreign worker?</label>
                         <div class="check-box-wrpr !mt-0">
                             <div>
-                                <input type="radio" id="foreign-worker-yes" name="temporary_foreign_worker">
+                                <input type="radio" id="foreign-worker-yes" name="temporary_foreign_worker" value="Yes">
                                 <label for="foreign-worker-yes">Yes</label>
                             </div>
                             <div>
-                                <input type="radio" id="foreign-worker-no" name="temporary_foreign_worker">
+                                <input type="radio" id="foreign-worker-no" name="temporary_foreign_worker" value="No">
                                 <label for="foreign-worker-no">No</label>
                             </div>
                         </div>
@@ -426,11 +426,11 @@
                             Province?</label>
                         <div class="check-box-wrpr !mt-0">
                             <div>
-                                <input type="radio" id="qualification-yes" name="certificate_of_qualification">
+                                <input type="radio" id="qualification-yes" name="certificate_of_qualification" value="Yes">
                                 <label for="qualification-yes">Yes</label>
                             </div>
                             <div>
-                                <input type="radio" id="qualification-no" name="certificate_of_qualification">
+                                <input type="radio" id="qualification-no" name="certificate_of_qualification" value="No">
                                 <label for="qualification-no">No</label>
                             </div>
                         </div>
@@ -440,11 +440,11 @@
                         <label>Do you have a job offer from a Canadian employer?</label>
                         <div class="check-box-wrpr !mt-0">
                             <div>
-                                <input type="radio" id="job-offer-yes" name="job_offer">
+                                <input type="radio" id="job-offer-yes" name="job_offer" value="Yes">
                                 <label for="job-offer-yes">Yes</label>
                             </div>
                             <div>
-                                <input type="radio" id="job-offer-no" name="job_offer">
+                                <input type="radio" id="job-offer-no" name="job_offer" value="No">
                                 <label for="job-offer-no">No</label>
                             </div>
                         </div>
@@ -458,11 +458,11 @@
                             relative living in Canada who is a citizen or a permanent resident of Canada?*</label>
                         <div class="check-box-wrpr !mt-0">
                             <div>
-                                <input type="radio" id="relative-in-canada-yes" name="family_relations_in_canada">
+                                <input type="radio" id="relative-in-canada-yes" name="family_relations_in_canada" value="Yes">
                                 <label for="relative-in-canada-yes">Yes</label>
                             </div>
                             <div>
-                                <input type="radio" id="relative-in-canada-no" name="family_relations_in_canada">
+                                <input type="radio" id="relative-in-canada-no" name="family_relations_in_canada" value="No">
                                 <label for="relative-in-canada-no">No</label>
                             </div>
                         </div>
@@ -476,11 +476,11 @@
                             USA, or any other country?*</label>
                         <div class="check-box-wrpr !mt-0">
                             <div>
-                                <input type="radio" id="visa-refused-yes" name="refused_or_cancelled_visa">
+                                <input type="radio" id="visa-refused-yes" name="refused_or_cancelled_visa" value="Yes">
                                 <label for="visa-refused-yes">Yes</label>
                             </div>
                             <div>
-                                <input type="radio" id="visa-refused-no" name="refused_or_cancelled_visa">
+                                <input type="radio" id="visa-refused-no" name="refused_or_cancelled_visa" value="No">
                                 <label for="visa-refused-no">No</label>
                             </div>
                         </div>
@@ -491,11 +491,11 @@
                             other country? This includes a border officer taking away your visa?*</label>
                         <div class="check-box-wrpr !mt-0">
                             <div>
-                                <input type="radio" id="deported-yes" name="refused_admission">
+                                <input type="radio" id="deported-yes" name="refused_admission" value="Yes">
                                 <label for="deported-yes">Yes</label>
                             </div>
                             <div>
-                                <input type="radio" id="deported-no" name="refused_admission">
+                                <input type="radio" id="deported-no" name="refused_admission" value="No">
                                 <label for="deported-no">No</label>
                             </div>
                         </div>
@@ -505,11 +505,11 @@
                         <label>Have you or your spouse/partner been to Canada?*</label>
                         <div class="check-box-wrpr !mt-0">
                             <div>
-                                <input type="radio" id="been-to-canada-yes" name="partner_been_to_canada">
+                                <input type="radio" id="been-to-canada-yes" name="partner_been_to_canada" value="Yes">
                                 <label for="been-to-canada-yes">Yes</label>
                             </div>
                             <div>
-                                <input type="radio" id="been-to-canada-no" name="partner_been_to_canada">
+                                <input type="radio" id="been-to-canada-no" name="partner_been_to_canada" value="No">
                                 <label for="been-to-canada-no">No</label>
                             </div>
                         </div>
@@ -520,11 +520,11 @@
                             or permit)?*</label>
                         <div class="check-box-wrpr !mt-0">
                             <div>
-                                <input type="radio" id="overstayed-yes" name="overstayed_in_any_country">
+                                <input type="radio" id="overstayed-yes" name="overstayed_in_any_country" value="Yes">
                                 <label for="overstayed-yes">Yes</label>
                             </div>
                             <div>
-                                <input type="radio" id="overstayed-no" name="overstayed_in_any_country">
+                                <input type="radio" id="overstayed-no" name="overstayed_in_any_country" value="No">
                                 <label for="overstayed-no">No</label>
                             </div>
                         </div>
@@ -535,12 +535,12 @@
                         <div class="check-box-wrpr !mt-0">
                             <div>
                                 <input type="radio" id="previously-applied-yes"
-                                    name="partner_previously_applied_for_visa">
+                                    name="partner_previously_applied_for_visa" value="Yes">
                                 <label for="previously-applied-yes">Yes</label>
                             </div>
                             <div>
                                 <input type="radio" id="previously-applied-no"
-                                    name="partner_previously_applied_for_visa">
+                                    name="partner_previously_applied_for_visa" value="No">
                                 <label for="previously-applied-no">No</label>
                             </div>
                         </div>
@@ -552,12 +552,12 @@
                         <div class="check-box-wrpr !mt-0">
                             <div>
                                 <input type="radio" id="permanent-residency-yes"
-                                    name="partner_previously_submitted_an_application">
+                                    name="partner_previously_submitted_an_application" value="Yes">
                                 <label for="permanent-residency-yes">Yes</label>
                             </div>
                             <div>
                                 <input type="radio" id="permanent-residency-no"
-                                    name="partner_previously_submitted_an_application">
+                                    name="partner_previously_submitted_an_application" value="No">
                                 <label for="permanent-residency-no">No</label>
                             </div>
                         </div>
@@ -571,11 +571,11 @@
                             lived in the last 10 years?*</label>
                         <div class="check-box-wrpr !mt-0">
                             <div>
-                                <input type="radio" id="criminal-record-yes" name="criminal_record">
+                                <input type="radio" id="criminal-record-yes" name="criminal_record" value="Yes">
                                 <label for="criminal-record-yes">Yes</label>
                             </div>
                             <div>
-                                <input type="radio" id="criminal-record-no" name="criminal_record">
+                                <input type="radio" id="criminal-record-no" name="criminal_record" value="No">
                                 <label for="criminal-record-no">No</label>
                             </div>
                         </div>
@@ -586,11 +586,11 @@
                             OFFENCE in any country or territory?*</label>
                         <div class="check-box-wrpr !mt-0">
                             <div>
-                                <input type="radio" id="criminal-offence-yes" name="arrested">
+                                <input type="radio" id="criminal-offence-yes" name="arrested" value="Yes">
                                 <label for="criminal-offence-yes">Yes</label>
                             </div>
                             <div>
-                                <input type="radio" id="criminal-offence-no" name="arrested">
+                                <input type="radio" id="criminal-offence-no" name="arrested" value="No">
                                 <label for="criminal-offence-no">No</label>
                             </div>
                         </div>
@@ -600,11 +600,11 @@
                         <label>Have you been detained, incarcerated, or PUT IN JAIL?*</label>
                         <div class="check-box-wrpr !mt-0">
                             <div>
-                                <input type="radio" id="detained-yes" name="detained">
+                                <input type="radio" id="detained-yes" name="detained" value="Yes">
                                 <label for="detained-yes">Yes</label>
                             </div>
                             <div>
-                                <input type="radio" id="detained-no" name="detained">
+                                <input type="radio" id="detained-no" name="detained" value="No">
                                 <label for="detained-no">No</label>
                             </div>
                         </div>
@@ -614,11 +614,11 @@
                         <label>Do you have a nomination certificate from a Canadian Province (except Quebec)?*</label>
                         <div class="check-box-wrpr !mt-0">
                             <div>
-                                <input type="radio" id="nomination-certificate-yes" name="nomination_certificate">
+                                <input type="radio" id="nomination-certificate-yes" name="nomination_certificate" value="Yes">
                                 <label for="nomination-certificate-yes">Yes</label>
                             </div>
                             <div>
-                                <input type="radio" id="nomination-certificate-no" name="nomination_certificate">
+                                <input type="radio" id="nomination-certificate-no" name="nomination_certificate" value="No">
                                 <label for="nomination-certificate-no">No</label>
                             </div>
                         </div>
@@ -643,12 +643,12 @@
 
                     <div class="check-box-wrpr !mt-0">
                         <div>
-                            <input type="radio" id="receive-communications" name="receive_communications">
+                            <input type="checkbox" id="receive-communications" name="receive_communications">
                             <label for="receive-communications">I agree to receive other communications from CanDo
                                 Immigration.</label>
                         </div>
                         <div>
-                            <input type="radio" id="consent-data" name="consent_data">
+                            <input type="checkbox" id="consent-data" name="consent_data">
                             <label for="consent-data">I agree to allow CanDo Immigration to store and process my personal
                                 data.</label>
                         </div>
