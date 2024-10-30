@@ -32,7 +32,7 @@
                 <div class="bg-white px-7 py-4 lg:h-full">
                     <h5 class="font_inter font-bold text-base text-[#082559]">{{$data->title}}</h5>
                     <p class="font_inter font-semibold text-sm text-[#082559] py-4">{{$data->description}}</p>
-                    <a href="{{url('package-details/'.$data->id)}}" class="border border-[#082559] text-[#082559] font_inter font-semibold text-sm px-10 py-2 rounded-full">View -></a>
+                    <a href="{{url('package-details/'.$data->slug)}}" class="border border-[#082559] text-[#082559] font_inter font-semibold text-sm px-10 py-2 rounded-full">View -></a>
                 </div>
             </div>
             @endforeach

@@ -17,9 +17,9 @@ class PackageController extends Controller
         return view('frontend.pages.packages',compact('packages','packageContents'));
     }
 
-    public function packageDetails($id)
+    public function packageDetails($slug)
     {
-        $package = Package::getData($id);
+        $package = Package::where('slug',$slug)->first();
 
         return view('frontend.pages.packages-detail', compact('package'));
     }

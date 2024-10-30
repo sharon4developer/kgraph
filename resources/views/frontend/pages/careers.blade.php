@@ -166,7 +166,7 @@
                                     <img id="uploadIcon" src="{{ asset('assets/home_Banner/fileuploadbutton.png') }}" alt="Upload Logo" width="15" height="15" />
                                     </div>
                                 </label>
-                                <input id="imageUploader" type="file" required name="resume" style="display: none;" onchange="handleFileChange()" />
+                                <input id="imageUploader" type="file" accept=".pdf, image/jpeg, image/png, image/jpg" required name="resume" style="display: none;" onchange="handleFileChange()" />
                             </div>
 
                             <div class="flex justify-end items-center overflow-hidden rounded-full">

@@ -103,90 +103,85 @@
             person who wants to immigrate.</p>
         <div class="lg:w-1/2">
             <h2 class="text-white my-6 font_inter font-medium text-[30px]">Contact Information</h2>
-            <form action="" class="contact-form">
+            <form action="" class="contact-form" id="eligibility-form">
                 <div class="flex flex-col">
                     <label for="first-name">First Name<span>*</span></label>
-                    <input type="text" id="first-name">
+                    <input type="text" id="first-name" name="first_name">
                 </div>
 
                 <div class="flex flex-col">
                     <label for="last-name">Last Name<span>*</span></label>
-                    <input type="text" id="last-name">
+                    <input type="text" id="last-name" name="last_name">
                 </div>
 
                 <div class="flex flex-col">
                     <label for="email">Email<span>*</span></label>
-                    <input type="email" id="email">
+                    <input type="email" id="email" name="email">
                 </div>
 
                 <div class="flex flex-col">
                     <label for="street-address-1">Street Address<span>*</span></label>
-                    <input type="text" id="street-address-1">
-                </div>
-
-                <div class="flex flex-col">
-                    <label for="street-address-2">Street Address</label>
-                    <input type="text" id="street-address-2">
+                    <input type="text" id="street-address-1" name="street_address">
                 </div>
 
                 <div class="flex flex-col">
                     <label for="city">City<span>*</span></label>
-                    <input type="text" id="city">
+                    <input type="text" id="city" name="city">
                 </div>
 
                 <div class="flex flex-col">
                     <label for="state">State/Province<span>*</span></label>
-                    <input type="text" id="state">
+                    <input type="text" id="state" name="state">
                 </div>
 
                 <div class="flex flex-col">
                     <label for="zip">Zip/Postal Code</label>
-                    <input type="text" id="zip">
+                    <input type="text" id="zip" name="zip">
                 </div>
 
                 <div class="flex flex-col">
                     <label for="current-country">Country where you currently live<span>*</span></label>
-                    <input type="text" id="current-country">
+                    <input type="text" id="current-country" name="country_live">
                 </div>
 
                 <div class="flex flex-col">
                     <label for="birth-country">Country where you were born<span>*</span></label>
-                    <input type="text" id="birth-country">
+                    <input type="text" id="birth-country" name="country_born">
                 </div>
 
                 <div class="flex flex-col">
                     <label for="mobile">Mobile Number<span>*</span></label>
-                    <input type="tel" id="mobile">
+                    <input type="tel" id="mobile" name="mobile">
                 </div>
 
                 <div class="flex flex-col">
                     <label for="dob">Date of Birth<span>*</span></label>
-                    <input type="date" id="dob">
+                    <input type="date" id="dob" name="dob">
                 </div>
 
                 <div class="flex flex-col">
                     <label for="marital-status">Marital Status<span>*</span></label>
-                    <input type="text" id="marital-status">
+                    <input type="text" id="marital-status" name="marital_status">
                 </div>
 
                 <div class="flex flex-col">
                     <label>Do you have children?<span>*</span></label>
                     <div class="check-box-wrpr !mt-0">
                         <div>
-                            <input type="checkbox" id="children-yes">
+                            <input type="checkbox" id="children-yes" name="have_children">
                             <label for="children-yes">Yes</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="children-no">
+                            <input type="checkbox" id="children-no" name="have_children">
                             <label for="children-no">No</label>
                         </div>
                     </div>
                 </div>
 
                 <div class="flex flex-col">
-                    <label for="hear-about">How did you hear about CANDO?</label>
-                    <select id="hear-about">
-                        <option value="">Select</option>
+                    <label for="hear-about">How did you hear about CANADA?</label>
+                    <select id="hear-about" name="hear_about_canada">
+                        <option value="Select">Select</option>
                         <!-- Add options as needed -->
                     </select>
                 </div>
@@ -195,47 +190,47 @@
                     <label>Type of application you are looking for:<span>*</span></label>
                     <div class="check-box-wrpr">
                         <div>
-                            <input type="checkbox" id="study">
+                            <input type="checkbox" id="study" name="type_of_application">
                             <label for="study">Study in Canada</label>
                         </div>
 
                         <div>
-                            <input type="checkbox" id="work">
+                            <input type="checkbox" id="work" name="type_of_application">
                             <label for="work">Work in Canada</label>
                         </div>
 
                         <div>
-                            <input type="checkbox" id="invest">
+                            <input type="checkbox" id="invest" name="type_of_application">
                             <label for="invest">Invest in Canada</label>
                         </div>
 
                         <div>
-                            <input type="checkbox" id="visit">
+                            <input type="checkbox" id="visit" name="type_of_application">
                             <label for="visit">Visit Canada</label>
                         </div>
 
                         <div>
-                            <input type="checkbox" id="express-entry">
+                            <input type="checkbox" id="express-entry" name="type_of_application">
                             <label for="express-entry">Apply for Permanent Residency via Express Entry</label>
                         </div>
 
                         <div>
-                            <input type="checkbox" id="sponsorship">
+                            <input type="checkbox" id="sponsorship" name="type_of_application">
                             <label for="sponsorship">Apply for Permanent Residency via Sponsorship</label>
                         </div>
 
                         <div>
-                            <input type="checkbox" id="extend-stay">
+                            <input type="checkbox" id="extend-stay" name="type_of_application">
                             <label for="extend-stay">Extend your stay in Canada</label>
                         </div>
 
                         <div>
-                            <input type="checkbox" id="citizenship">
+                            <input type="checkbox" id="citizenship" name="type_of_application">
                             <label for="citizenship">Apply for Citizenship</label>
                         </div>
 
                         <div>
-                            <input type="checkbox" id="other">
+                            <input type="checkbox" id="other" name="type_of_application">
                             <label for="other">Other</label>
                         </div>
                     </div>
@@ -244,13 +239,13 @@
 
                 <div class="flex flex-col">
                     <label for="further-info">Further Information</label>
-                    <textarea id="further-info"></textarea>
+                    <textarea id="further-info" name="further_info"></textarea>
                 </div>
 
                 <div class="flex flex-col">
                     <label for="funds">Funds available to invest in your plan to immigrate to Canada</label>
-                    <select id="funds">
-                        <option value="">Select</option>
+                    <select id="funds" name="funds_available">
+                        <option value="Select">Select</option>
                         <!-- Add options as needed -->
                     </select>
                 </div>
@@ -260,23 +255,23 @@
 
                 <div class="flex flex-col">
                     <label for="highest-education-outside">Highest Level of Education - Outside Canada<span>*</span></label>
-                    <select id="highest-education-outside">
-                        <option value="">Select</option>
+                    <select id="highest-education-outside" name="highest_education_outside_can">
+                        <option value="Select">Select</option>
                         <!-- Add options as needed -->
                     </select>
                 </div>
 
                 <div class="flex flex-col">
                     <label for="country-studies">Country of Studies<span>*</span></label>
-                    <select id="country-studies">
-                        <option value="">Select</option>
+                    <select id="country-studies" name="country_of_studies">
+                        <option value="Select">Select</option>
                         <!-- Add options as needed -->
                     </select>
                 </div>
 
                 <div class="flex flex-col">
                     <label for="highest-education-inside">Highest Level of Education - Inside Canada</label>
-                    <select id="highest-education-inside">
+                    <select id="highest-education-inside" name="highest_education_inside_can">
                         <option value="does-not-apply">Does not apply</option>
                         <!-- Add options as needed -->
                     </select>
@@ -287,8 +282,8 @@
 
                 <div class="flex flex-col">
                     <label for="english-level">Language Level - English<span>*</span></label>
-                    <select id="english-level">
-                        <option value="">Select</option>
+                    <select id="english-level" name="language_level_english">
+                        <option value="Select">Select</option>
                         <!-- Add options as needed -->
                     </select>
                 </div>
@@ -297,11 +292,11 @@
                     <label>Have you taken an English language test (IELTS, CELPIP, PTE, or Duolingo)?<span>*</span></label>
                     <div class="check-box-wrpr !mt-0">
                         <div>
-                            <input type="checkbox" id="english-test-yes">
+                            <input type="checkbox" id="english-test-yes" name="english_language_test">
                             <label for="english-test-yes">Yes</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="english-test-no">
+                            <input type="checkbox" id="english-test-no" name="english_language_test">
                             <label for="english-test-no">No</label>
                         </div>
                     </div>
@@ -309,8 +304,8 @@
 
                 <div class="flex flex-col">
                     <label for="french-level">Language Level - French</label>
-                    <select id="french-level">
-                        <option value="">Select</option>
+                    <select id="french-level" name="language_level_french">
+                        <option value="Select">Select</option>
                         <!-- Add options as needed -->
                     </select>
                 </div>
@@ -319,11 +314,11 @@
                     <label>Have you taken a French language test (TEF, TEF Canada, or TCF Canada)?<span>*</span></label>
                     <div class="check-box-wrpr !mt-0">
                         <div>
-                            <input type="checkbox" id="french-test-yes">
+                            <input type="checkbox" id="french-test-yes" name="french_language_test">
                             <label for="french-test-yes">Yes</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="french-test-no">
+                            <input type="checkbox" id="french-test-no" name="french_language_test">
                             <label for="french-test-no">No</label>
                         </div>
                     </div>
@@ -339,36 +334,36 @@
 
                 <div class="flex flex-col">
                     <label for="resume">Please attach your updated resume/CV in English*</label>
-                    <input type="file" id="resume">
+                    <input type="file" id="resume" name="resume" accept=".pdf, image/jpeg, image/png, image/jpg">
                 </div>
 
                 <div class="flex flex-col">
                     <label for="occupation-industry">Main Occupation Industry*</label>
-                    <input type="text" id="occupation-industry">
+                    <input type="text" id="occupation-industry" name="main_industry">
                 </div>
 
                 <div class="flex flex-col">
                     <label for="outside-canada-work">Outside Canada - Work Experience*</label>
-                    <select id="outside-canada-work">
-                        <option value="">Please Select</option>
+                    <select id="outside-canada-work" name="work_exp_outside_can">
+                        <option value="Select">Please Select</option>
                         <!-- Add options as needed -->
                     </select>
                 </div>
 
                 <div class="flex flex-col">
                     <label for="inside-canada-work">Inside Canada - Work Experience*</label>
-                    <input type="text" id="inside-canada-work" placeholder="If you don't have any experience working in Canada, please select 'Does Not Apply'.">
+                    <input type="text" id="inside-canada-work" placeholder="If you don't have any experience working in Canada, please select 'Does Not Apply'." name="work_exp_inside_can">
                 </div>
 
                 <div>
                     <label>Are you legally entitled to work in that country?</label>
                     <div class="check-box-wrpr !mt-0">
                         <div>
-                            <input type="checkbox" id="legally-entitled-yes">
+                            <input type="checkbox" id="legally-entitled-yes" name="entitled_to_work">
                             <label for="legally-entitled-yes">Yes</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="legally-entitled-no">
+                            <input type="checkbox" id="legally-entitled-no" name="entitled_to_work">
                             <label for="legally-entitled-no">No</label>
                         </div>
                     </div>
@@ -378,11 +373,11 @@
                     <label>Do you own/manage a business?</label>
                     <div class="check-box-wrpr !mt-0">
                         <div>
-                            <input type="checkbox" id="manage-business-yes">
+                            <input type="checkbox" id="manage-business-yes"  name="manage_business">
                             <label for="manage-business-yes">Yes</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="manage-business-no">
+                            <input type="checkbox" id="manage-business-no" name="manage_business">
                             <label for="manage-business-no">No</label>
                         </div>
                     </div>
@@ -392,11 +387,11 @@
                     <label>Have you been in Canada as a temporary foreign worker?</label>
                     <div class="check-box-wrpr !mt-0">
                         <div>
-                            <input type="checkbox" id="foreign-worker-yes">
+                            <input type="checkbox" id="foreign-worker-yes" name="temporary_foreign_worker">
                             <label for="foreign-worker-yes">Yes</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="foreign-worker-no">
+                            <input type="checkbox" id="foreign-worker-no" name="temporary_foreign_worker">
                             <label for="foreign-worker-no">No</label>
                         </div>
                     </div>
@@ -406,11 +401,11 @@
                     <label>Do you have a certificate of qualification in a trade occupation issued by a Canadian Province?</label>
                     <div class="check-box-wrpr !mt-0">
                         <div>
-                            <input type="checkbox" id="qualification-yes">
+                            <input type="checkbox" id="qualification-yes" name="certificate_of_qualification">
                             <label for="qualification-yes">Yes</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="qualification-no">
+                            <input type="checkbox" id="qualification-no" name="certificate_of_qualification">
                             <label for="qualification-no">No</label>
                         </div>
                     </div>
@@ -420,11 +415,11 @@
                     <label>Do you have a job offer from a Canadian employer?</label>
                     <div class="check-box-wrpr !mt-0">
                         <div>
-                            <input type="checkbox" id="job-offer-yes">
+                            <input type="checkbox" id="job-offer-yes" name="job_offer">
                             <label for="job-offer-yes">Yes</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="job-offer-no">
+                            <input type="checkbox" id="job-offer-no" name="job_offer">
                             <label for="job-offer-no">No</label>
                         </div>
                     </div>
@@ -437,11 +432,11 @@
                     <label>Do you or, if applicable, your accompanying spouse or common-law partner have a blood relative living in Canada who is a citizen or a permanent resident of Canada?*</label>
                     <div class="check-box-wrpr !mt-0">
                         <div>
-                            <input type="checkbox" id="relative-in-canada-yes">
+                            <input type="checkbox" id="relative-in-canada-yes" name="family_relations_in_canada">
                             <label for="relative-in-canada-yes">Yes</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="relative-in-canada-no">
+                            <input type="checkbox" id="relative-in-canada-no" name="family_relations_in_canada">
                             <label for="relative-in-canada-no">No</label>
                         </div>
                     </div>
@@ -454,11 +449,11 @@
                     <label>Have you been REFUSED or CANCELLED a visa or permit or any immigration application to Canada, USA, or any other country?*</label>
                     <div class="check-box-wrpr !mt-0">
                         <div>
-                            <input type="checkbox" id="visa-refused-yes">
+                            <input type="checkbox" id="visa-refused-yes" name="refused_or_cancelled_visa">
                             <label for="visa-refused-yes">Yes</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="visa-refused-no">
+                            <input type="checkbox" id="visa-refused-no" name="refused_or_cancelled_visa">
                             <label for="visa-refused-no">No</label>
                         </div>
                     </div>
@@ -468,11 +463,11 @@
                     <label>Have you been REFUSED admission to, ORDERED to leave, or DEPORTED from Canada, USA, or any other country? This includes a border officer taking away your visa?*</label>
                     <div class="check-box-wrpr !mt-0">
                         <div>
-                            <input type="checkbox" id="deported-yes">
+                            <input type="checkbox" id="deported-yes" name="refused_admission">
                             <label for="deported-yes">Yes</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="deported-no">
+                            <input type="checkbox" id="deported-no" name="refused_admission">
                             <label for="deported-no">No</label>
                         </div>
                     </div>
@@ -482,11 +477,11 @@
                     <label>Have you or your spouse/partner been to Canada?*</label>
                     <div class="check-box-wrpr !mt-0">
                         <div>
-                            <input type="checkbox" id="been-to-canada-yes">
+                            <input type="checkbox" id="been-to-canada-yes" name="partner_been_to_canada">
                             <label for="been-to-canada-yes">Yes</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="been-to-canada-no">
+                            <input type="checkbox" id="been-to-canada-no" name="partner_been_to_canada">
                             <label for="been-to-canada-no">No</label>
                         </div>
                     </div>
@@ -496,11 +491,11 @@
                     <label>Have you overstayed in any country you were living or visiting (stayed with an expired visa or permit)?*</label>
                     <div class="check-box-wrpr !mt-0">
                         <div>
-                            <input type="checkbox" id="overstayed-yes">
+                            <input type="checkbox" id="overstayed-yes" name="overstayed_in_any_country">
                             <label for="overstayed-yes">Yes</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="overstayed-no">
+                            <input type="checkbox" id="overstayed-no" name="overstayed_in_any_country">
                             <label for="overstayed-no">No</label>
                         </div>
                     </div>
@@ -510,11 +505,11 @@
                     <label>Have you or your spouse/partner previously applied for a visa/permit to Canada?*</label>
                     <div class="check-box-wrpr !mt-0">
                         <div>
-                            <input type="checkbox" id="previously-applied-yes">
+                            <input type="checkbox" id="previously-applied-yes" name="partner_previously_applied_for_visa">
                             <label for="previously-applied-yes">Yes</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="previously-applied-no">
+                            <input type="checkbox" id="previously-applied-no" name="partner_previously_applied_for_visa">
                             <label for="previously-applied-no">No</label>
                         </div>
                     </div>
@@ -524,11 +519,11 @@
                     <label>Have you or your spouse/partner previously submitted an application for Canadian permanent residency?*</label>
                     <div class="check-box-wrpr !mt-0">
                         <div>
-                            <input type="checkbox" id="permanent-residency-yes">
+                            <input type="checkbox" id="permanent-residency-yes" name="partner_previously_submitted_an_application">
                             <label for="permanent-residency-yes">Yes</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="permanent-residency-no">
+                            <input type="checkbox" id="permanent-residency-no" name="partner_previously_submitted_an_application">
                             <label for="permanent-residency-no">No</label>
                         </div>
                     </div>
@@ -541,11 +536,11 @@
                     <label>Do you have any criminal record(s) in your home country or any other country you visited or lived in the last 10 years?*</label>
                     <div class="check-box-wrpr !mt-0">
                         <div>
-                            <input type="checkbox" id="criminal-record-yes">
+                            <input type="checkbox" id="criminal-record-yes" name="criminal_record">
                             <label for="criminal-record-yes">Yes</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="criminal-record-no">
+                            <input type="checkbox" id="criminal-record-no" name="criminal_record">
                             <label for="criminal-record-no">No</label>
                         </div>
                     </div>
@@ -555,11 +550,11 @@
                     <label>Have you ever committed, been arrested for or been charged with or convicted of any CRIMINAL OFFENCE in any country or territory?*</label>
                     <div class="check-box-wrpr !mt-0">
                         <div>
-                            <input type="checkbox" id="criminal-offence-yes">
+                            <input type="checkbox" id="criminal-offence-yes" name="arrested">
                             <label for="criminal-offence-yes">Yes</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="criminal-offence-no">
+                            <input type="checkbox" id="criminal-offence-no" name="arrested">
                             <label for="criminal-offence-no">No</label>
                         </div>
                     </div>
@@ -569,11 +564,11 @@
                     <label>Have you been detained, incarcerated, or PUT IN JAIL?*</label>
                     <div class="check-box-wrpr !mt-0">
                         <div>
-                            <input type="checkbox" id="detained-yes">
+                            <input type="checkbox" id="detained-yes" name="detained">
                             <label for="detained-yes">Yes</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="detained-no">
+                            <input type="checkbox" id="detained-no" name="detained">
                             <label for="detained-no">No</label>
                         </div>
                     </div>
@@ -583,11 +578,11 @@
                     <label>Do you have a nomination certificate from a Canadian Province (except Quebec)?*</label>
                     <div class="check-box-wrpr !mt-0">
                         <div>
-                            <input type="checkbox" id="nomination-certificate-yes">
+                            <input type="checkbox" id="nomination-certificate-yes" name="nomination_certificate">
                             <label for="nomination-certificate-yes">Yes</label>
                         </div>
                         <div>
-                            <input type="checkbox" id="nomination-certificate-no">
+                            <input type="checkbox" id="nomination-certificate-no" name="nomination_certificate">
                             <label for="nomination-certificate-no">No</label>
                         </div>
                     </div>
@@ -608,25 +603,25 @@
 
                 <div class="check-box-wrpr !mt-0">
                     <div>
-                        <input type="checkbox" id="receive-communications">
+                        <input type="checkbox" id="receive-communications" name="receive_communications">
                         <label for="receive-communications">I agree to receive other communications from CanDo Immigration.</label>
                     </div>
                     <div>
-                        <input type="checkbox" id="consent-data">
+                        <input type="checkbox" id="consent-data" name="consent_data">
                         <label for="consent-data">I agree to allow CanDo Immigration to store and process my personal data.</label>
                     </div>
                 </div>
 
+                <div class="submit-btn bg-[black]">
+                    <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[2%] mt-[-50px]">
+                        <button class="my-4 text-white border border-white rounded-full w-full lg:w-fit lg:px-16 py-2 text-[14px] hover:bg-white hover:border-black hover:text-black ease-linear duration-300 hover:font-semibold">SUBMIT</button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
 </div>
 
-<div class="submit-btn bg-[black]">
-    <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[2%] mt-[-50px]">
-        <button class="my-4 text-white border border-white rounded-full w-full lg:w-fit lg:px-16 py-2 text-[14px] hover:bg-white hover:border-black hover:text-black ease-linear duration-300 hover:font-semibold">SUBMIT</button>
-    </div>
-</div>
 
 @include('frontend.Common.getintouch')
 

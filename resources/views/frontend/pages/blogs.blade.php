@@ -70,9 +70,24 @@
                             </div>
                         </div>
                         <h5 class="text-[#072558] font_inter font-bold text-[10px] lg:text-[12px] xl:text-[14px] py-5">{{ $data->title }}</h5>
-                        <p class="text-[#072558] font_inter font-normal text-justify text-[10px] lg:text-[12px] xl:text-[14px] truncate-text">{{ $data->description }}</p>
+                        @php
+                        // Strip tags to get plain text
+                        $plainText = strip_tags($data->description);
+
+                        // Split text by spaces to get individual words
+                        $words = explode(' ', $plainText);
+
+                        // Take only the first 50 words and join them back into a string
+                        $shortText = implode(' ', array_slice($words, 0, 50));
+
+                        // Add ellipsis if original text has more than 50 words
+                        $shortText .= (count($words) > 50) ? '...' : '';
+                        @endphp
+
+
+                        <p class="text-[#072558] font_inter font-normal text-justify text-[10px] lg:text-[12px] xl:text-[14px] truncate-text clamp-text-two">{!! nl2br(e($shortText)) !!}</p>
                         <div class="flex justify-end absolute bottom-0 right-[15px]">
-                            <button class="border border-[#072558] rounded-full px-10 py-1 my-4 text-[#072558] hover:bg-[#072558] hover:text-white ease-linear duration-300">View</button>
+                            <a href="{{url('blog-details/'.$data->slug)}}" class="border border-[#072558] rounded-full px-10 py-1 my-4 text-[#072558] hover:bg-[#072558] hover:text-white ease-linear duration-300">View</a>
                         </div>
                     </div>
                 </div>

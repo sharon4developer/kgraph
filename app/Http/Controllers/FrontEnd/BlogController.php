@@ -16,4 +16,15 @@ class BlogController extends Controller
 
         return view('frontend.pages.blogs', compact('blogs','blogContents'));
     }
+
+    public function blogDetails($slug)
+    {
+        $blog = Blog::where('slug',$slug)->first();
+
+        if(!$blog){
+            abort(404);
+        }
+
+        return view('frontend.pages.blog-detail', compact('blog'));
+    }
 }

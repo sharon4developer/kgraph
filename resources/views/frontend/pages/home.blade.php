@@ -141,9 +141,9 @@
         }
 
         /* .your-slider-class {
-                width: 100%;
-                display: flex;
-            } */
+                    width: 100%;
+                    display: flex;
+                } */
         .your-slider-class .slick-track,
         .explore-section .slick-track {
             width: 20000px !important;

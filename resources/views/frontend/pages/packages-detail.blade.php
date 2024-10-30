@@ -165,7 +165,7 @@
     <div class="dontwaitwrpr h-full w-full">
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 flex justify-center items-start flex-col  text-white">
             <h4 class="font_inter text-lg font-medium">Don’t wait. Begin your visa application today!</h4>
-            <button class="my-4 border border-white rounded-full px-5 py-2 text-[14px] hover:bg-white hover:border-black hover:text-black ease-linear duration-300 hover:font-semibold">FREE ELIGIBILITY CHECK</button>
+            <a href="{{ url('eligibility-check/'.$package->slug) }}" class="my-4 border border-white rounded-full px-5 py-2 text-[14px] hover:bg-white hover:border-black hover:text-black ease-linear duration-300 hover:font-semibold">FREE ELIGIBILITY CHECK</a>
         </div>
     </div>
 </div>
