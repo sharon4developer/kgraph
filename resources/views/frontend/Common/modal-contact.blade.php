@@ -1,11 +1,11 @@
-
 <style>
-    .contact-US{
+    .contact-US {
         background: linear-gradient(180deg, #02050B 20.98%, rgba(0, 0, 0, 0) 302.7%);
         z-index: 1;
         position: relative;
     }
-    .contact-US-banner{
+
+    .contact-US-banner {
         background-image: url(assets/home_Banner/contactUsbackground.png) !important;
         background-repeat: no-repeat;
         background-position-y: center;
@@ -13,9 +13,11 @@
         /* z-index: -1; */
         position: relative;
     }
-    .canada-flag{
+
+    .canada-flag {
         position: relative;
     }
+
     /* .canada-flag::after{
     content: "";
     position: absolute;
@@ -26,17 +28,22 @@
     background-image: url(assets/home_Banner/reduse.png) !important;
     background-repeat: no-repeat;
     } */
-    .enquiry-form{
+    .enquiry-form {
         padding: 30px;
         margin-top: 30px;
     }
-    .enquiry-form span{
+
+    .enquiry-form span {
         color: red;
     }
+
     .enquiry-form label {
         text-transform: uppercase;
     }
-    .enquiry-form label , .enquiry-form input , .enquiry-form select{
+
+    .enquiry-form label,
+    .enquiry-form input,
+    .enquiry-form select {
         color: black;
         outline: none;
         border: none;
@@ -44,38 +51,43 @@
         font-size: 14px;
         font-family: "Inter", sans-serif;
     }
-    .enquiry-form input{
+
+    .enquiry-form input {
         padding-left: 10px;
         width: 100%;
     }
-    .enquiry-form-inputparent{
+
+    .enquiry-form-inputparent {
         display: flex;
         align-items: center;
-        padding-bottom: 10px;
-        margin-bottom: 30px;
+        padding-top: 10px;
+        margin-top: 30px;
     }
-    .enquiry-form select{
+
+    .enquiry-form select {
         width: 100%;
         background-color: transparent;
     }
 
-    .requst-text{
+    .requst-text {
         color: #727272;
         font-size: 10px;
         white-space: nowrap;
     }
-    .phone-text{
+
+    .phone-text {
         color: #034833;
         font-size: 12px;
         white-space: nowrap;
     }
+
     .flag-img-contact {
         position: relative;
         top: -150px;
         opacity: 0;
         width: 100px;
         height: 100px;
-   }
+    }
 </style>
 </style>
 
@@ -152,9 +164,10 @@
                             <input id="imageUploader" type="file" accept="image/*" style="display: none;" onchange="handleFileChange()" />
                         </div> --}}
 
-                        <div class="flex justify-end items-center overflow-hidden rounded-full">
+                        <div class="flex justify-end items-center overflow-hidden rounded-full mt-10">
                             <div class="border rounded-full border-[#072558] cursor-pointer">
-                                <button class="!px-[80px] py-3 uppercase text-[#072558] cursor-pointer text-[16px] font-bold bg-transparent hover:bg-[#072558] hover:text-white transition-colors duration-300 rounded-full">Submit</button>
+                                <button
+                                    class="!px-[80px] py-3 uppercase text-[#072558] cursor-pointer text-[16px] font-bold bg-transparent hover:bg-[#072558] hover:text-white transition-colors duration-300 rounded-full">Submit</button>
                             </div>
                         </div>
 
@@ -170,10 +183,10 @@
     let modal = document.getElementById('modalpopup');
     let scrollTimeout;
 
-    window.addEventListener('scroll', function () {
+    window.addEventListener('scroll', function() {
         clearTimeout(scrollTimeout);
 
-        scrollTimeout = setTimeout(function () {
+        scrollTimeout = setTimeout(function() {
             modal.classList.remove('hidden');
         }, 2000);
     });
@@ -182,5 +195,4 @@
     closebtn.addEventListener('click', function() {
         modal.classList.add('!hidden');
     });
-
 </script>

@@ -25,15 +25,15 @@
         }
 
         /* .canada-flag::after{
-            content: "";
-            position: absolute;
-            right: 10%;
-            top: -10px;
-            width: 100px;
-            height: 100px;
-            background-image: url(assets/home_Banner/reduse.png) !important;
-            background-repeat: no-repeat;
-         } */
+                                content: "";
+                                position: absolute;
+                                right: 10%;
+                                top: -10px;
+                                width: 100px;
+                                height: 100px;
+                                background-image: url(assets/home_Banner/reduse.png) !important;
+                                background-repeat: no-repeat;
+                             } */
         .enquiry-form {
             padding: 30px;
             margin-top: 30px;
@@ -66,8 +66,8 @@
         .enquiry-form-inputparent {
             display: flex;
             align-items: center;
-            padding-bottom: 10px;
-            margin-bottom: 30px;
+            padding-top: 10px;
+            margin-top: 30px;
         }
 
         .enquiry-form select {
@@ -185,7 +185,7 @@
                                 <input id="imageUploader" type="file" accept="image/*" style="display: none;" onchange="handleFileChange()" />
                             </div> --}}
 
-                                <div class="flex justify-end items-center overflow-hidden rounded-full">
+                                <div class="flex justify-end items-center overflow-hidden rounded-full mt-10">
                                     <div class="border rounded-full border-[#072558] cursor-pointer">
                                         <button
                                             class="!px-[80px] py-3 uppercase text-[#072558] cursor-pointer text-[16px] font-bold bg-transparent hover:bg-[#072558] hover:text-white transition-colors duration-300 rounded-full">Submit</button>

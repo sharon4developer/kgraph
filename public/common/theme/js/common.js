@@ -101,86 +101,108 @@ $('#contact-add-form').validate({
         },
         email: {
             required: true,
+            email: true
         },
         country: {
             required: true,
         },
         mobile: {
             required: true,
+            digits: true,
+            minlength: 10
         },
     },
+    messages: {
+        name: "Please enter your name",
+        email: {
+            required: "Please enter your email address",
+            email: "Please enter a valid email address"
+        },
+        country: "Please select a country",
+        mobile: {
+            required: "Please enter your mobile number",
+            digits: "Please enter only digits",
+            minlength: "Please enter at least 10 digits"
+        }
+    },
     errorElement: 'span',
-    submitHandler: function (form, event) {
-        //
+    errorClass: 'error invalid-feedback',
+    errorPlacement: function(error, element) {
+        // Place error message outside the .enquiry-form-inputparent div
+        element.closest('.enquiry-form-inputparent').after(error);
+    },
+    submitHandler: function(form, event) {
+        event.preventDefault();
+
         var formData = new FormData($(form)[0]);
         $('.error').html('');
         var submitButton = $(form).find('[type=submit]');
         var current_btn_text = submitButton.html();
-        button_loading_text = 'Submitting...';
-        // Create
+        var button_loading_text = 'Submitting...';
+
+        // AJAX form submission
         $.ajax({
             type: "POST",
             url: $('#base-route').val() + '/submit-contact-form',
+            data: formData,
             contentType: false,
             processData: false,
-            data: formData,
             cache: false,
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-            beforeSend: function () {
+            beforeSend: function() {
                 submitButton.html(`
-                    <span class="spinner-border spinner-border-sm"></span>
-                    `+ button_loading_text + `
-                `).attr('disabled', true);
+                    <span class="spinner-border spinner-border-sm"></span> ` + button_loading_text
+                ).attr('disabled', true);
             },
-            success: function (response) {
+            success: function(response) {
                 if (response.status) {
                     showMessage('success', response.message);
                     $('#contact-add-form').trigger('reset');
-                    modal = document.getElementById('modalpopup');
-                    if(modal)
+
+                    const modal = document.getElementById('modalpopup');
+                    if (modal) {
                         modal.classList.add('!hidden');
+                    }
                 } else {
                     showMessage('warning', response.message);
                 }
             },
-
-            error: function (response) {
+            error: function(response) {
                 submitButton.html(current_btn_text).attr('disabled', false);
                 if (response.responseJSON.errors) {
-                    $.each(response.responseJSON.errors, function (i, v) {
-                        element = $(form).find('[name=' + i + ']');
+                    $.each(response.responseJSON.errors, function(i, v) {
+                        const element = $(form).find('[name=' + i + ']');
                         element.addClass('is-invalid');
                         if ($(form).find('#' + i + '-error').length) {
                             $(form).find('#' + i + '-error').html(v).show();
                         } else {
-                            element.closest('.form-group').
-                                append(`<span id="` + i + `-error" class="error invalid-feedback">` + v + `</span>`);
-                            $('.error').show();
+                            // Place the error outside the input wrapper
+                            element.closest('.enquiry-form-inputparent')
+                                .after(`<span id="` + i + `-error" class="error invalid-feedback">` + v + `</span>`);
                         }
                         element.attr('aria-invalid', true);
-                        element.attr("area-describedby", i + "-error");
+                        element.attr("aria-describedby", i + "-error");
                         element.focus();
                     });
-                }
-                else {
+                } else {
                     showMessage('warning', 'Something went wrong...');
                 }
             },
-            complete: function () {
+            complete: function() {
                 submitButton.html(current_btn_text).attr('disabled', false);
             }
         });
-        event.preventDefault();
     },
-    highlight: function (element, errorClass, validClass) {
+    highlight: function(element) {
         $(element).addClass('is-invalid');
     },
-    unhighlight: function (element, errorClass, validClass) {
+    unhighlight: function(element) {
         $(element).removeClass('is-invalid');
     }
 });
+
 
 $('#career-add-form').validate({
     rules: {
@@ -189,12 +211,15 @@ $('#career-add-form').validate({
         },
         email: {
             required: true,
+            email: true
         },
         country: {
             required: true,
         },
         mobile: {
             required: true,
+            digits: true,
+            minlength: 10
         },
         branch: {
             required: true,
@@ -209,32 +234,55 @@ $('#career-add-form').validate({
             required: true,
         },
     },
+    messages: {
+        name: "Please enter your name",
+        email: {
+            required: "Please enter your email address",
+            email: "Please enter a valid email address"
+        },
+        country: "Please select a country",
+        mobile: {
+            required: "Please enter your mobile number",
+            digits: "Please enter only digits",
+            minlength: "Please enter at least 10 digits"
+        },
+        branch: "Please select a branch",
+        department: "Please select a department",
+        message: "Please enter your message",
+        resume: "Please upload your resume",
+    },
     errorElement: 'span',
-    submitHandler: function (form, event) {
-        //
+    errorClass: 'error invalid-feedback',
+    errorPlacement: function(error, element) {
+        // Place error message outside the .enquiry-form-inputparent div
+        element.closest('.enquiry-form-inputparent').after(error);
+    },
+    submitHandler: function(form, event) {
+        event.preventDefault();
+
         var formData = new FormData($(form)[0]);
         $('.error').html('');
         var submitButton = $(form).find('[type=submit]');
         var current_btn_text = submitButton.html();
-        button_loading_text = 'Submitting...';
-        // Create
+        var button_loading_text = 'Submitting...';
+
+        // AJAX form submission
         $.ajax({
             type: "POST",
             url: $('#base-route').val() + '/submit-career-form',
+            data: formData,
             contentType: false,
             processData: false,
-            data: formData,
             cache: false,
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
-            beforeSend: function () {
+            beforeSend: function() {
                 submitButton.html(`
-                    <span class="spinner-border spinner-border-sm"></span>
-                    `+ button_loading_text + `
-                `).attr('disabled', true);
+                    <span class="spinner-border spinner-border-sm"></span> ` + button_loading_text
+                ).attr('disabled', true);
             },
-            success: function (response) {
+            success: function(response) {
                 if (response.status) {
                     showMessage('success', response.message);
                     $('#career-add-form').trigger('reset');
@@ -242,42 +290,40 @@ $('#career-add-form').validate({
                     showMessage('warning', response.message);
                 }
             },
-
-            error: function (response) {
+            error: function(response) {
                 submitButton.html(current_btn_text).attr('disabled', false);
                 if (response.responseJSON.errors) {
-                    $.each(response.responseJSON.errors, function (i, v) {
-                        element = $(form).find('[name=' + i + ']');
+                    $.each(response.responseJSON.errors, function(i, v) {
+                        const element = $(form).find('[name=' + i + ']');
                         element.addClass('is-invalid');
                         if ($(form).find('#' + i + '-error').length) {
                             $(form).find('#' + i + '-error').html(v).show();
                         } else {
-                            element.closest('.form-group').
-                                append(`<span id="` + i + `-error" class="error invalid-feedback">` + v + `</span>`);
-                            $('.error').show();
+                            // Place the error outside the input wrapper
+                            element.closest('.enquiry-form-inputparent')
+                                .after(`<span id="` + i + `-error" class="error invalid-feedback">` + v + `</span>`);
                         }
                         element.attr('aria-invalid', true);
-                        element.attr("area-describedby", i + "-error");
+                        element.attr("aria-describedby", i + "-error");
                         element.focus();
                     });
-                }
-                else {
+                } else {
                     showMessage('warning', 'Something went wrong...');
                 }
             },
-            complete: function () {
+            complete: function() {
                 submitButton.html(current_btn_text).attr('disabled', false);
             }
         });
-        event.preventDefault();
     },
-    highlight: function (element, errorClass, validClass) {
+    highlight: function(element) {
         $(element).addClass('is-invalid');
     },
-    unhighlight: function (element, errorClass, validClass) {
+    unhighlight: function(element) {
         $(element).removeClass('is-invalid');
     }
 });
+
 
 $('#eligibility-form').validate({
     rules: {

@@ -35,9 +35,9 @@
 </body>
 <style>
     .error {
-        position: absolute;
         color: red !important;
-        right: 32px;
+        padding-top: 15px;
+        padding-bottom: 10px;
     }
 </style>
 
