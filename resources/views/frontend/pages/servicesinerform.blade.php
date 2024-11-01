@@ -202,10 +202,11 @@
 
                     <div class="flex flex-col">
                         <label for="hear-about">How did you hear about CANADA?</label>
-                        <select id="hear-about" name="hear_about_canada">
+                        {{-- <select id="hear-about" name="hear_about_canada">
                             <option value="Select">Select</option>
                             <!-- Add options as needed -->
-                        </select>
+                        </select> --}}
+                        <input type="text" id="hear-about" name="hear_about_canada">
                     </div>
 
                     <div class="flex flex-col">
@@ -260,10 +261,11 @@
 
                     <div class="flex flex-col">
                         <label for="funds">Funds available to invest in your plan to immigrate to Canada</label>
-                        <select id="funds" name="funds_available">
+                        {{-- <select id="funds" name="funds_available">
                             <option value="Select">Select</option>
                             <!-- Add options as needed -->
-                        </select>
+                        </select> --}}
+                        <input type="text" id="funds" name="funds_available">
                     </div>
 
                     <!-- Education Section -->
@@ -272,26 +274,29 @@
                     <div class="flex flex-col">
                         <label for="highest-education-outside">Highest Level of Education - Outside
                             Canada<span>*</span></label>
-                        <select id="highest-education-outside" name="highest_education_outside_can">
+                        {{-- <select id="highest-education-outside" name="highest_education_outside_can">
                             <option value="Select">Select</option>
                             <!-- Add options as needed -->
-                        </select>
+                        </select> --}}
+                        <input type="text" id="highest-education-outside" name="highest_education_outside_can">
                     </div>
 
                     <div class="flex flex-col">
                         <label for="country-studies">Country of Studies<span>*</span></label>
-                        <select id="country-studies" name="country_of_studies">
+                        {{-- <select id="country-studies" name="country_of_studies">
                             <option value="Select">Select</option>
                             <!-- Add options as needed -->
-                        </select>
+                        </select> --}}
+                        <input type="text" id="country-studies" name="country_of_studies">
                     </div>
 
                     <div class="flex flex-col">
                         <label for="highest-education-inside">Highest Level of Education - Inside Canada</label>
-                        <select id="highest-education-inside" name="highest_education_inside_can">
+                        {{-- <select id="highest-education-inside" name="highest_education_inside_can">
                             <option value="does-not-apply">Does not apply</option>
                             <!-- Add options as needed -->
-                        </select>
+                        </select> --}}
+                        <input type="text" id="highest-education-inside" name="highest_education_inside_can">
                     </div>
 
                     <!-- Language Skills Section -->
@@ -300,10 +305,16 @@
                     <div class="flex flex-col">
                         <label for="english-level">Language Level - English<span>*</span></label>
                         <select id="english-level" name="language_level_english">
-                            <option value="Select">Select</option>
-                            <!-- Add options as needed -->
+                            <option value="">Select</option>
+                            <option value="Beginner">Beginner</option>
+                            <option value="Elementary">Elementary</option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Upper Intermediate">Upper Intermediate</option>
+                            <option value="Advanced">Advanced</option>
+                            <option value="Proficient">Proficient</option>
                         </select>
                     </div>
+
 
                     <div class="flex flex-col">
                         <label>Have you taken an English language test (IELTS, CELPIP, PTE, or
@@ -323,8 +334,13 @@
                     <div class="flex flex-col">
                         <label for="french-level">Language Level - French</label>
                         <select id="french-level" name="language_level_french">
-                            <option value="Select">Select</option>
-                            <!-- Add options as needed -->
+                            <option value="">Select</option>
+                            <option value="Beginner">Beginner</option>
+                            <option value="Elementary">Elementary</option>
+                            <option value="Intermediate">Intermediate</option>
+                            <option value="Upper Intermediate">Upper Intermediate</option>
+                            <option value="Advanced">Advanced</option>
+                            <option value="Proficient">Proficient</option>
                         </select>
                     </div>
 
@@ -366,16 +382,19 @@
 
                     <div class="flex flex-col">
                         <label for="outside-canada-work">Outside Canada - Work Experience*</label>
-                        <select id="outside-canada-work" name="work_exp_outside_can">
+                        <input type="text" id="outside-canada-work"
+                            placeholder=""
+                            name="work_exp_outside_can">
+                        {{-- <select id="outside-canada-work" name="work_exp_outside_can">
                             <option value="Select">Please Select</option>
                             <!-- Add options as needed -->
-                        </select>
+                        </select> --}}
                     </div>
 
                     <div class="flex flex-col">
                         <label for="inside-canada-work">Inside Canada - Work Experience*</label>
                         <input type="text" id="inside-canada-work"
-                            placeholder="If you don't have any experience working in Canada, please select 'Does Not Apply'."
+                            placeholder=""
                             name="work_exp_inside_can">
                     </div>
 
@@ -625,13 +644,13 @@
                     </div>
 
                     <!-- Privacy and Consent Section -->
-                    <div class="flex flex-col">
+                    {{-- <div class="flex flex-col"> --}}
                         {{-- <label for="outside-canada-work">Outside Canada - Work Experience*</label> --}}
-                        <select id="outside-canada-work">
-                            <option value="">Please Select</option>
+                        {{-- <select id="outside-canada-work"> --}}
+                            {{-- <option value="">Please Select</option> --}}
                             <!-- Add options as needed -->
-                        </select>
-                    </div>
+                        {{-- </select>
+                    </div> --}}
 
                     <p class="text-white font_arial text-[14px] font-normal pb-6">CanDo Immigration is committed to
                         protecting and respecting your privacy, and we’ll only use your personal information to administer
