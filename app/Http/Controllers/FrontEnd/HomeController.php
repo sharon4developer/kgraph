@@ -32,12 +32,8 @@ class HomeController extends Controller
         $explore = Explore::getFullDataForHome();
         $faqs = Faq::getFullDataForHome();
         $seo = Page::getSeoDetails(request()->path());
-        $cms = $titles = NULL;
-        if ($seo && $seo->id) {
-            $cms = Cms::getContents($seo->id);
-        }
         $home = Home::getFullDataForHome();
 
-        return view('frontend.pages.home', compact('certificate', 'testimonials', 'seo', 'cms', 'banner','serviceCategory','whoweare','journey','blogs','explore','faqs','home'));
+        return view('frontend.pages.home', compact('certificate', 'testimonials', 'seo', 'banner','serviceCategory','whoweare','journey','blogs','explore','faqs','home'));
     }
 }

@@ -9,6 +9,7 @@ use App\Models\Page;
 use App\Models\Service;
 use App\Models\ServiceCategory;
 use App\Models\ServiceContent;
+use App\Models\ServiceSeo;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -18,10 +19,6 @@ class ServiceController extends Controller
         $serviceCategory = ServiceCategory::getFullDataForHome();
         $certificate = Certificate::getFullDataForHome();
         $seo = Page::getSeoDetails(request()->path());
-        $cms = $titles = NULL;
-        if ($seo && $seo->id) {
-            $cms = Cms::getContents($seo->id);
-        }
         $serviceContents = ServiceContent::getFullDataForHome();
 
         return view('frontend.pages.services', compact('certificate','seo','serviceCategory','serviceContents'));
@@ -31,11 +28,15 @@ class ServiceController extends Controller
     {
         $services = Service::where('slug',$slug)->first();
 
-        return view('frontend.pages.servicesinner', compact('services'));
+        $seo = ServiceSeo::getSeoDetails($services->id);
+
+        return view('frontend.pages.servicesinner', compact('services','seo'));
     }
 
-    public function eligibilityCheck($id)
+    public function eligibilityCheck($id=1)
     {
+        $seo = Page::getSeoDetails(request()->path());
+
         return view('frontend.pages.servicesinerform');
     }
 }

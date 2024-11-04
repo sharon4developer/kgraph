@@ -392,7 +392,7 @@
                             Eligibility Checker</h6>
                         <div
                             class="relative z-10 bg-white text-green-600 px-4 lg:px-6 py-1 lg:py-2 rounded-full cursor-pointer w-fit whitespace-nowrap font-medium">
-                            <a href="#" class="h-full text-[12px] xl:text-[16px]">Check Eligibility</a>
+                            <a href="{{ url('eligibility-check') }}" class="h-full text-[12px] xl:text-[16px]">Check Eligibility</a>
                         </div>
                     </div>
                 </div>

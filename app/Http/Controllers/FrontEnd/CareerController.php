@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Career;
 use App\Models\CareerBranch;
 use App\Models\CareerDepartment;
+use App\Models\Page;
 use Illuminate\Http\Request;
 
 class CareerController extends Controller
@@ -18,6 +19,8 @@ class CareerController extends Controller
 
         $departments = CareerDepartment::getFullDataForHome();
 
-        return view('frontend.pages.careers',compact('careers','branches','departments'));
+        $seo = Page::getSeoDetails(request()->path());
+
+        return view('frontend.pages.careers',compact('careers','branches','departments','seo'));
     }
 }

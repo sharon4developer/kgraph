@@ -96,6 +96,9 @@ function loadDataTableForServices() {
                                     <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light" href="#"   data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Delete" data-bs-placement="top"   onclick="deleteData(`+ row.id + `)">
                                          <i class="fa fa-trash"></i>
                                     </a>
+                                    <a class="btn btn-outline-info btn-rounded mb-2 me-4 _effect--ripple waves-effect waves-light" href="#"  onclick="loadSeo(` + row.id + `)" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Seo" data-bs-placement="top">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </a>
                                  </div>`);
 
                 }, orderable: false, searchable: false
@@ -371,3 +374,179 @@ $('#select-service-category').on('change',function (e) {
 
     table.ajax.reload();
 })
+
+function loadSeo(service_id) {
+    $('.popover-header').hide();
+    $('.popover-arrow').hide();
+    $('#service_id').val(service_id);
+    $.ajax({
+        url: $('#route-for-user').val() + '/services/seo/show?service_id=' + service_id,
+        type: 'GET',
+        dataType: 'JSON',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+    }).done(function (data) {
+        showSeo(data);
+    }).fail(function () {
+        console.log('Error');
+    }).always(function () { });
+}
+
+function showSeo(data) {
+    $('#seo-edit-form').trigger('reset');
+    $('#seo_id').val('');
+    $('#previous-og-image-section').hide();
+    if (data.status) {
+        if (data.seo.meta_title)
+            $('#meta_title').val(data.seo.meta_title);
+        else
+            $('#meta_title').val('');
+        if (data.seo.meta_description)
+            $('#meta_description').val(data.seo.meta_description);
+        else
+            $('#meta_description').val('');
+        if (data.seo.meta_keywords)
+            $('#meta_keywords').val(data.seo.meta_keywords);
+        else
+            $('#meta_keywords').val('');
+        if (data.seo.og_title)
+            $('#og_title').val(data.seo.og_title);
+        else
+            $('#og_title').val('');
+        if (data.seo.og_description)
+            $('#og_description').val(data.seo.og_description);
+        else
+            $('#og_description').val('');
+        if (data.seo.og_url)
+            $('#og_url').val(data.seo.og_url);
+        else
+            $('#og_url').val('');
+        if (data.seo.schema)
+            $('#schema').val(data.seo.schema);
+        else
+            $('#schema').val('');
+        if (data.seo.og_image) {
+            document.getElementById("previous-og-image").src = data.seo.og_image;
+            $('#previous-og-image-section').show();
+        }
+        else
+            $('#previous-og-image-section').hide();
+        if (data.seo.id)
+            $('#seo_id').val(data.seo.id);
+        else
+            $('#seo_id').val('');
+    }
+
+    $('#seo-modal').modal('show');
+}
+
+$('#seo-edit-form').validate({
+    rules: {
+        meta_title: {
+            required: true,
+        },
+        meta_description: {
+            required: true,
+        },
+        meta_keywords: {
+            required: true,
+        },
+        og_title: {
+            required: true,
+        },
+        og_description: {
+            required: true,
+        },
+        og_url: {
+            required: true,
+        },
+        schema: {
+            required: true,
+        },
+        og_image: {
+            required: function () {
+                return $("#seo_id").val() == '';
+            },
+        },
+        service_id: {
+            required: true,
+        },
+    },
+    messages: {
+        meta_title: "Meta Title field is required",
+        meta_description: "Meta Description field is required",
+        meta_keywords: "Meta Keywords field is required",
+        og_title: "OG Title field is required",
+        og_description: "OG Description field is required",
+        og_url: "OG Url field is required",
+        og_image: "OG Image field is required",
+        schema: "Schema field is required",
+    },
+    errorElement: 'span',
+    submitHandler: function (form, event) {
+        //
+        var formData = new FormData($(form)[0]);
+        $('.error').html('');
+        var submitButton = $(form).find('[type=submit]');
+        var current_btn_text = submitButton.html();
+        button_loading_text = 'Saving...';
+        // Create
+        $.ajax({
+            type: "POST",
+            url: $('#route-for-user').val() + '/services/seo',
+            contentType: false,
+            processData: false,
+            data: formData,
+            cache: false,
+            beforeSend: function () {
+                submitButton.html(`
+                    <span class="spinner-border spinner-border-sm"></span>
+                    `+ button_loading_text + `
+                `).attr('disabled', true);
+            },
+            success: function (response) {
+                if (response.status) {
+                    showMessage('success', response.message);
+                    $('#seo-modal').modal('hide');
+                    $('#seo-edit-form').trigger("reset");
+                } else {
+                    showMessage('warning', response.message);
+                }
+            },
+
+            error: function (response) {
+                submitButton.html(current_btn_text).attr('disabled', false);
+                if (response.responseJSON.errors) {
+                    $.each(response.responseJSON.errors, function (i, v) {
+                        element = $(form).find('[name=' + i + ']');
+                        element.addClass('is-invalid');
+                        if ($(form).find('#' + i + '-error').length) {
+                            $(form).find('#' + i + '-error').html(v).show();
+                        } else {
+                            element.closest('.form-group').
+                                append(`<span id="` + i + `-error" class="error invalid-feedback">` + v + `</span>`);
+                            $('.error').show();
+                        }
+                        element.attr('aria-invalid', true);
+                        element.attr("area-describedby", i + "-error");
+                        element.focus();
+                    });
+                }
+                else {
+                    showMessage('warning', 'Something went wrong...');
+                }
+            },
+            complete: function () {
+                submitButton.html(current_btn_text).attr('disabled', false);
+            }
+        });
+        event.preventDefault();
+    },
+    highlight: function (element, errorClass, validClass) {
+        $(element).addClass('is-invalid');
+    },
+    unhighlight: function (element, errorClass, validClass) {
+        $(element).removeClass('is-invalid');
+    }
+});

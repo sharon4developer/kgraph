@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\AppliedCareerController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BlogContentController;
 use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\BlogSeoController;
 use App\Http\Controllers\Admin\CareerBranchController;
 use App\Http\Controllers\Admin\CareerController;
 use App\Http\Controllers\Admin\CareerDepartmentController;
@@ -26,6 +27,7 @@ use App\Http\Controllers\Admin\PackageContentController;
 use App\Http\Controllers\Admin\PackageController;
 use App\Http\Controllers\Admin\PackageFaqController;
 use App\Http\Controllers\Admin\PackagePointController;
+use App\Http\Controllers\Admin\PackageSeoController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\PrivacyPolicyController;
 use App\Http\Controllers\Admin\SeoController;
@@ -34,6 +36,7 @@ use App\Http\Controllers\Admin\ServiceContentController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ServiceFaqController;
 use App\Http\Controllers\Admin\ServicePointController;
+use App\Http\Controllers\Admin\ServiceSeoController;
 use App\Http\Controllers\Admin\TermsAndConditionController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\WhoWeAreController;
@@ -64,6 +67,7 @@ Route::post('submit-contact-form', [NewsLetterController::class, 'submitContact'
 Route::post('submit-career-form', [NewsLetterController::class, 'submitCareer'])->name('submit-career-form');
 Route::get('blog-details/{slug}', [FrontEndBlogController::class, 'blogDetails']);
 Route::post('submit-eligibility-form', [NewsLetterController::class, 'submitEligibility'])->name('submit-eligibility-form');
+Route::get('eligibility-check', [FrontEndServiceController::class, 'eligibilityCheck']);
 
 // Route::get('contact-us', function () {
 //     return view('main');
@@ -138,7 +142,7 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
     Route::prefix('pages')->name('.pages')->group(function () {
         Route::resources([
             'seo' => SeoController::class,
-            'cms' => CmsController::class,
+            // 'cms' => CmsController::class,
         ]);
         Route::post('change/status', [PageController::class, 'changeStatus'])->name('change-status');
     });
@@ -151,6 +155,9 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
 
     Route::prefix('services')->name('.services')->group(function () {
 
+        Route::resources([
+            'seo' => ServiceSeoController::class,
+        ]);
         Route::post('change/status', [ServiceController::class, 'changeStatus'])->name('change-status');
         Route::post('update/order', [ServiceController::class, 'changeOrder'])->name('update-order');
     });
@@ -223,6 +230,9 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
 
     Route::prefix('packages')->name('.packages')->group(function () {
 
+        Route::resources([
+            'seo' => PackageSeoController::class,
+        ]);
         Route::post('change/status', [PackageController::class, 'changeStatus'])->name('change-status');
         Route::post('update/order', [PackageController::class, 'changeOrder'])->name('update-order');
     });
@@ -255,5 +265,14 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
 
         Route::post('change/status', [ServiceCategoryController::class, 'changeStatus'])->name('change-status');
         Route::post('update/order', [ServiceCategoryController::class, 'changeOrder'])->name('update-order');
+    });
+
+    Route::prefix('blogs')->name('.blogs')->group(function () {
+
+        Route::resources([
+            'seo' => BlogSeoController::class,
+        ]);
+        Route::post('change/status', [BlogController::class, 'changeStatus'])->name('change-status');
+        Route::post('update/order', [BlogController::class, 'changeOrder'])->name('update-order');
     });
 });

@@ -8,6 +8,7 @@ use App\Models\Crew;
 use App\Models\Journey;
 use App\Models\Location;
 use App\Models\OurStory;
+use App\Models\Page;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -18,8 +19,9 @@ class AboutController extends Controller
         $ourStory = OurStory::getFullDataForHome();
         $locations = Location::getFullDataForHome();
         $aboutUs = AboutUs::getFullDataForHome();
+        $seo = Page::getSeoDetails(request()->path());
 
-        return view('frontend.pages.about',compact('journey','ourStory','locations','aboutUs'));
+        return view('frontend.pages.about',compact('journey','ourStory','locations','aboutUs','seo'));
     }
 
     public function crewShow()

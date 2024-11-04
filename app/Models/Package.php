@@ -24,6 +24,10 @@ class Package extends Model
         return  $this->hasMany(PackageFaq::class);
     }
 
+    public function Seo(){
+        return  $this->hasOne(PackageSeo::class);
+    }
+
     public static function getFullData($data)
     {
         $locationData = getLocationData();

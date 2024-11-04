@@ -28,6 +28,10 @@ class Service extends Model
         return  $this->belongsTo(ServiceCategory::class);
     }
 
+    public function Seo(){
+        return  $this->hasOne(ServiceSeo::class);
+    }
+
     public static function getFullData($data)
     {
         $locationData = getLocationData();

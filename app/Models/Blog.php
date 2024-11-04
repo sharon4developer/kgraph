@@ -16,6 +16,10 @@ class Blog extends Model
 
     protected $fillable = ['title', 'description', 'image', 'intervention_image', 'status','order','date','time','user_image','user_intervention_image','name','topics','slug','alt_tag'];
 
+    public function Seo(){
+        return  $this->hasOne(BlogSeo::class);
+    }
+
     public static function getFullData($data)
     {
         $locationData = getLocationData();

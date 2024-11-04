@@ -9,7 +9,7 @@
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('admin/theme/assets/images/favicon.ico') }}">
+    <link rel="shortcut icon" href="{{ asset('assets/KgraphLogo.png') }}">
 
     <!-- plugin css -->
     <link href="{{ asset('admin/theme/assets/libs/admin-resources/jquery.vectormap/jquery-jvectormap-1.2.2.css') }}" rel="stylesheet"
@@ -52,20 +52,20 @@
                     <div class="navbar-brand-box">
                         <a href="#" class="logo logo-dark">
                             <span class="logo-sm">
-                                <img src="{{ asset('admin/theme/assets/images/logo-sm.svg') }}" alt="" height="30">
+                                <img src="{{ asset('assets/KgraphLogo.png') }}" alt="" height="30">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{ asset('admin/theme/assets/images/logo-sm.svg') }}" alt="" height="24"> <span
+                                <img src="{{ asset('assets/KgraphLogo.png') }}" alt="" height="24"> <span
                                     class="logo-txt">K Graph</span>
                             </span>
                         </a>
 
                         <a href="#" class="logo logo-light">
                             <span class="logo-sm">
-                                <img src="{{ asset('admin/theme/assets/images/logo-sm.svg') }}" alt="" height="30">
+                                <img src="{{ asset('assets/KgraphLogo.png') }}" alt="" height="30">
                             </span>
                             <span class="logo-lg">
-                                <img src="{{ asset('admin/theme/assets/images/logo-sm.svg') }}" alt="" height="24"> <span
+                                <img src="{{ asset('assets/KgraphLogo.png') }}" alt="" height="24"> <span
                                     class="logo-txt">K Graph</span>
                             </span>
                         </a>

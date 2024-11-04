@@ -4,6 +4,7 @@ namespace App\Http\Controllers\FrontEnd;
 
 use App\Http\Controllers\Controller;
 use App\Models\Location;
+use App\Models\Page;
 use Illuminate\Http\Request;
 
 class ContactUsController extends Controller
@@ -12,6 +13,8 @@ class ContactUsController extends Controller
     {
         $locations = Location::getFullDataForHome();
 
-        return view('frontend.pages.contact-us',compact('locations'));
+        $seo = Page::getSeoDetails(request()->path());
+
+        return view('frontend.pages.contact-us',compact('locations','seo'));
     }
 }
