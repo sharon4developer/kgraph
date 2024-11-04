@@ -81,11 +81,24 @@ Route::get('services-form', function () {
     return view('frontend.pages.servicesinerform');
 });
 
+Auth::routes();
+
+Route::get('login', function () {
+
+    if(Auth::user()){
+
+        return redirect('admin/dashboard');
+    }
+
+    return view('auth.login');
+});
+
+
 // Route::get('contact-us', function () {
 //     return view('frontend.pages.contact-us');
 // });
 
-Auth::routes();
+
 
 Route::get('/logout-me', function () {
     Auth::logout();
