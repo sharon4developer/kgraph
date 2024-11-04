@@ -56,7 +56,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- <div class="col-md-4">
+                            <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
                                         <label class="form-label" for="sub_title">Image</label>
@@ -67,7 +67,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            {{-- <div class="col-md-4">
                                 <div class="mb-3">
                                     <div class="form-group">
                                         <label class="form-label" for="second_image">Second Image</label>
@@ -88,7 +88,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>--}}
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
@@ -100,7 +100,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
                                         <label class="form-label" for="title">Second Alt Tag</label>
@@ -121,7 +121,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>--}}
                         </div>
                         <div class="row">
                             <div class="col-md-4">
@@ -132,7 +132,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            {{-- <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Previous Second Image</label>
                                     <div class="avatar-preview">
@@ -148,6 +148,8 @@
                                     </div>
                                 </div>
                             </div> --}}
+                        </div>
+                        <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <a type="button" href="{{ url('admin/locations') }}"

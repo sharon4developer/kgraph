@@ -19,12 +19,12 @@ class Location extends Model
     {
         $locationData = getLocationData();
 
-        $value =  SELF::select('location', 'email', 'phone', 'id', 'status', 'created_at')->orderBy('order', 'asc');
+        $value =  SELF::select('location', 'email', 'phone', 'id', 'status', 'created_at', 'image')->orderBy('order', 'asc');
 
         return DataTables::of($value)
-            // ->editColumn('image', function ($row) use($locationData) {
-            //     return $locationData['storage_server_path'].$locationData['storage_image_path'].$row->image;
-            // })
+            ->editColumn('image', function ($row) use($locationData) {
+                return $locationData['storage_server_path'].$locationData['storage_image_path'].$row->image;
+            })
             // ->editColumn('second_image', function ($row) use($locationData) {
             //     return $locationData['storage_server_path'].$locationData['storage_image_path'].$row->second_image;
             // })
@@ -43,15 +43,15 @@ class Location extends Model
         $value->email        = $data->email;
         $value->phone        = $data->phone;
         $value->address        = $data->address;
-        // $value->alt_tag           =  $data->alt_tag;
+        $value->alt_tag           =  $data->alt_tag;
         // $value->second_alt_tag           =  $data->second_alt_tag;
         // $value->third_alt_tag           =  $data->third_alt_tag;
-        // if ($data->image) {
-        //     $value->image = Cms::storeImage($data->image, $data->title);
-        //     $intervention_image = $value->image;
-        //     // $intervention_image = Cms::makeInterventionImage($data->image);
-        //     $value->intervention_image = $intervention_image;
-        // };
+        if ($data->image) {
+            $value->image = Cms::storeImage($data->image, $data->title);
+            $intervention_image = $value->image;
+            // $intervention_image = Cms::makeInterventionImage($data->image);
+            $value->intervention_image = $intervention_image;
+        };
         // if ($data->second_image) {
         //     $value->second_image = Cms::storeImage($data->second_image, $data->title);
         //     $second_intervention_image = $value->second_image;
@@ -80,15 +80,15 @@ class Location extends Model
         $value->email        = $data->email;
         $value->phone        = $data->phone;
         $value->address        = $data->address;
-        // $value->alt_tag           =  $data->alt_tag;
+        $value->alt_tag           =  $data->alt_tag;
         // $value->second_alt_tag           =  $data->second_alt_tag;
         // $value->third_alt_tag           =  $data->third_alt_tag;
-        // if ($data->image) {
-        //     $value->image = Cms::storeImage($data->image, $data->title);
-        //     $intervention_image = $value->image;
-        //     // $intervention_image = Cms::makeInterventionImage($data->image);
-        //     $value->intervention_image = $intervention_image;
-        // };
+        if ($data->image) {
+            $value->image = Cms::storeImage($data->image, $data->title);
+            $intervention_image = $value->image;
+            // $intervention_image = Cms::makeInterventionImage($data->image);
+            $value->intervention_image = $intervention_image;
+        };
         // if ($data->second_image) {
         //     $value->second_image = Cms::storeImage($data->second_image, $data->title);
         //     $second_intervention_image = $value->second_image;
@@ -126,7 +126,7 @@ class Location extends Model
     }
 
     public static function getFullDataForHome(){
-        return SELF::select('address','id','location','email','phone')->orderBy('order','asc')->where('status',1)->get();
+        return SELF::select('address','id','location','email','phone','image')->orderBy('order','asc')->where('status',1)->get();
     }
 
     public static function updateOrder($data)

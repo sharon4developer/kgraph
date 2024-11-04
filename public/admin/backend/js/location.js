@@ -41,14 +41,14 @@ function loadDataTableForLocation() {
             { data: 'location' },
             { data: 'email' },
             { data: 'phone' },
-            // {
-            //     data: null,
-            //     render: function (row) {
-            //         return `<img class="table-img" src=` + row.image + `>`;
-            //     },
-            //     orderable: false,
-            //     searchable: false,
-            // },
+            {
+                data: null,
+                render: function (row) {
+                    return `<img class="table-img" src=` + row.image + `>`;
+                },
+                orderable: false,
+                searchable: false,
+            },
             // {
             //     data: null,
             //     render: function (row) {

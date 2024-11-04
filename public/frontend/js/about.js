@@ -50,10 +50,10 @@ function showCrew(data){
                                         <a class="email-link" href="mail.`+crew.email+`">`+crew.email+`</a>
                                     </div>
 
-                                    <a class="read-bio-link" href="#">Read full bio ></a>
-                                </div>
-                            </div>
-                        </li>`;
+                                    </div>
+                                    </div>
+                                    </li>`;
+                                    // <a class="read-bio-link" href="#">Read full bio ></a>
         });
         $('#crew-list').show();
     }

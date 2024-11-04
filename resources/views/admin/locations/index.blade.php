@@ -24,6 +24,7 @@
                                 <th>Location</th>
                                 <th>Email</th>
                                 <th>Phone</th>
+                                <th>Image</th>
                                 <th>Status</th>
                                 <th>Created Date</th>
                                 <th>Action</th>

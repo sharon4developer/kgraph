@@ -215,14 +215,15 @@
                 <div id="splide" class="splide w-full">
                     <div class="splide__track">
                         <ul class="splide__list">
+                            @foreach ($locations as $data)
                             <li class="splide__slide">
                                 <div class="bg-white my-4 lg:my-0 p-5 w-full rounded-xl">
                                     <div class="flex items-center justify-between">
                                         <h5 class="text-black uppercase">Office Address</h5>
-                                        <img src="{{ asset('assets/indian-flag.png') }}" alt="">
+                                        <img src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="{{$data->alt_tag}}">
                                     </div>
                                     <div class="bg-[#072558] text-white rounded-md w-fit px-5 py-1">
-                                        INDIA
+                                        {{$data->location}}
                                     </div>
 
                                     <div class="flex flex-col md:flex-row items-start gap-[35px]">
@@ -237,8 +238,8 @@
                                                     </svg>
                                                 </div>
                                                 <div class="font_jakarta">
-                                                    <h5 class="requst-text">Requesting A Call:</h5>
-                                                    <h4 class="phone-text font-semibold">(629) 555-0129</h4>
+                                                    {{-- <h5 class="requst-text">Requesting A Call:</h5> --}}
+                                                    <h4 class="phone-text font-semibold">{{$data->phone}}</h4>
                                                 </div>
                                             </div>
                                             <div class="flex items-center gap-[20px] my-4">
@@ -251,8 +252,8 @@
                                                     </svg>
                                                 </div>
                                                 <div class="font_jakarta">
-                                                    <h5 class="requst-text">Requesting A Call:</h5>
-                                                    <h4 class="phone-text font-semibold">(629) 555-0129</h4>
+                                                    {{-- <h5 class="requst-text">Requesting A Call:</h5> --}}
+                                                    <h4 class="phone-text font-semibold">{{$data->email}}</h4>
                                                 </div>
                                             </div>
                                             <div class="flex items-center gap-[20px] my-4">
@@ -265,12 +266,12 @@
                                                     </svg>
                                                 </div>
                                                 <div class="font_jakarta">
-                                                    <h5 class="requst-text">Requesting A Call:</h5>
-                                                    <h4 class="phone-text font-semibold">(629) 555-0129</h4>
+                                                    {{-- <h5 class="requst-text">Requesting A Call:</h5> --}}
+                                                    <h4 class="phone-text font-semibold">{{$data->address}}</h4>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="mt-4">
+                                        {{-- <div class="mt-4">
                                             <div class="font_jakarta">
                                                 <h5 class="requst-text">Requesting A Call:</h5>
                                                 <h4 class="phone-text font-semibold">(629) 555-0129</h4>
@@ -283,12 +284,12 @@
                                                 <h5 class="requst-text">Requesting A Call:</h5>
                                                 <h4 class="phone-text font-semibold">(629) 555-0129</h4>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                     </div>
                                 </div>
                             </li>
-
-                            <li class="splide__slide">
+                            @endforeach
+                            {{-- <li class="splide__slide">
                                 <div class="bg-white my-4 lg:my-0 p-5 w-full rounded-xl">
                                     <div class="flex items-center justify-between">
                                         <h5 class="text-black uppercase">Office Address</h5>
@@ -651,7 +652,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                 </div>

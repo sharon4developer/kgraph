@@ -65,9 +65,10 @@ Route::post('submit-career-form', [NewsLetterController::class, 'submitCareer'])
 Route::get('blog-details/{slug}', [FrontEndBlogController::class, 'blogDetails']);
 Route::post('submit-eligibility-form', [NewsLetterController::class, 'submitEligibility'])->name('submit-eligibility-form');
 
-Route::get('contact-us', function () {
-    return view('main');
-});
+// Route::get('contact-us', function () {
+//     return view('main');
+// });
+
 Route::get('blogdetail', function () {
     return view('frontend.pages.blog-detail');
 });
@@ -76,9 +77,9 @@ Route::get('services-form', function () {
     return view('frontend.pages.servicesinerform');
 });
 
-Route::get('contact-us', function () {
-    return view('frontend.pages.contact-us');
-});
+// Route::get('contact-us', function () {
+//     return view('frontend.pages.contact-us');
+// });
 
 Auth::routes();
 
