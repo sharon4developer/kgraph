@@ -70,10 +70,10 @@
                 <div class="flex flex-col justify-between items-start gap-[30px] md:gap-4 w-full">
                     <h2 class="text-white">Useful Link</h2>
                     <ul class="custom-bulletssec text-white">
-                        <li class="lg:whitespace-nowrap">Latest News</li>
-                        <li class="lg:whitespace-nowrap">Careers</li>
-                        <li class="lg:whitespace-nowrap">General Inquiries</li>
-                        <li class="lg:whitespace-nowrap">Case Studies</li>
+                        <li class="lg:whitespace-nowrap"><a href="{{ url('terms-and-conditions') }}">Terms & Conditions</a></li>
+                        <li class="lg:whitespace-nowrap"><a href="{{ url('privacy-policy') }}">Privacy Policy</a></li>
+                        <li class="lg:whitespace-nowrap"><a href="{{ url('careers') }}">Careers</a></li>
+                        <li class="lg:whitespace-nowrap"><a href="{{ url('blogs') }}">Blogs</a></li>
                     </ul>
                 </div>
                 {{-- </div> --}}

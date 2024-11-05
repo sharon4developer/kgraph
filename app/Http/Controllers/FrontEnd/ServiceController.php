@@ -28,6 +28,10 @@ class ServiceController extends Controller
     {
         $services = Service::where('slug',$slug)->first();
 
+        if(!$services){
+            abort(404);
+        }
+
         $seo = ServiceSeo::getSeoDetails($services->id);
 
         return view('frontend.pages.servicesinner', compact('services','seo'));

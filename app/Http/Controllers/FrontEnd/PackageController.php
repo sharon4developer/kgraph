@@ -24,6 +24,10 @@ class PackageController extends Controller
     {
         $package = Package::where('slug',$slug)->first();
 
+        if(!$package){
+            abort(404);
+        }
+
         $seo = PackageSeo::getSeoDetails($package->id);
 
         return view('frontend.pages.packages-detail', compact('package','seo'));

@@ -215,7 +215,7 @@
                     <ul class="sub-menu" aria-expanded="true">
                         <li><a href="{{ url('admin/terms-and-condition') }}" data-key="t-level-2-2">Terms And Conditions </a></li>
                         <li><a href="{{ url('admin/privacy-policy') }}" data-key="t-level-2-2">Privacy Policy </a></li>
-                        <li><a href="{{ url('admin/contact-us') }}" data-key="t-level-2-2">Contact Us </a></li>
+                        {{-- <li><a href="{{ url('admin/contact-us') }}" data-key="t-level-2-2">Contact Us </a></li> --}}
                     </ul>
                 </li>
 

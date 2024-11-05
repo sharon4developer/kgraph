@@ -44,6 +44,7 @@ use App\Http\Controllers\FrontEnd\AboutController;
 use App\Http\Controllers\FrontEnd\BlogController as FrontEndBlogController;
 use App\Http\Controllers\FrontEnd\CareerController as FrontEndCareerController;
 use App\Http\Controllers\FrontEnd\ContactUsController as FrontEndContactUsController;
+use App\Http\Controllers\FrontEnd\FrontEndController;
 use App\Http\Controllers\FrontEnd\HomeController;
 use App\Http\Controllers\FrontEnd\NewsLetterController;
 use App\Http\Controllers\FrontEnd\PackageController as FrontEndPackageController;
@@ -68,18 +69,20 @@ Route::post('submit-career-form', [NewsLetterController::class, 'submitCareer'])
 Route::get('blog-details/{slug}', [FrontEndBlogController::class, 'blogDetails']);
 Route::post('submit-eligibility-form', [NewsLetterController::class, 'submitEligibility'])->name('submit-eligibility-form');
 Route::get('eligibility-check', [FrontEndServiceController::class, 'eligibilityCheck']);
+Route::get('terms-and-conditions', [FrontEndController::class, 'termsConditions']);
+Route::get('privacy-policy', [FrontEndController::class, 'privacyPolicy']);
 
 // Route::get('contact-us', function () {
 //     return view('main');
 // });
 
-Route::get('blogdetail', function () {
-    return view('frontend.pages.blog-detail');
-});
+// Route::get('blogdetail', function () {
+//     return view('frontend.pages.blog-detail');
+// });
 
-Route::get('services-form', function () {
-    return view('frontend.pages.servicesinerform');
-});
+// Route::get('services-form', function () {
+//     return view('frontend.pages.servicesinerform');
+// });
 
 Auth::routes();
 
@@ -91,7 +94,7 @@ Route::get('login', function () {
     }
 
     return view('auth.login');
-});
+})->name('login');
 
 
 // Route::get('contact-us', function () {

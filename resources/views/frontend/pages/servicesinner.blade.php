@@ -287,7 +287,7 @@
                         class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-0 group-hover:w-full w-0 left-full">
                     </div>
 
-                    <h6 class="relative z-10 text-white text-[12px] xl:text-[16px]">Have any doubtZ</h6>
+                    <h6 class="relative z-10 text-white text-[12px] xl:text-[16px]">Have any doubts</h6>
                     <div
                         class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-sm cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                         <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
