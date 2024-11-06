@@ -174,6 +174,33 @@
             flex: 1 0 auto;
             /* Ensures slides don't shrink */
         }
+        .circle-round::after{
+            content: "";
+            position: absolute;
+            background: white;
+            width: 50px;
+            height: 14px;
+            top: 0;
+            right: -24px;
+            z-index: -1;
+        }
+        .mapbg{
+            background-image: url(assets/home_Banner/mapforbackground.png) !important;
+            background-position-x: center;
+            background-position-y: 33%;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        @media (min-width:1024px;){
+            .mapbg{
+                background-image: url(assets/home_Banner/mapforbackground.png) !important;
+                background-position-x: center;
+                background-position-y: top;
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+        }
+
     </style>
 
     <div class="relative overflow-hidden">
@@ -254,12 +281,12 @@
                 </div>
             </div>
         </div>
-        @include('frontend.Common.modal-contact')
+        {{-- @include('frontend.Common.modal-contact') --}}
     </div>
     @include('frontend.Common.whatsapplogo')
     <div class="bg-[#051b3b]">
         {{-- our service section --}}
-        <div class="serviceSection gradient-evition relative overflow-hidden z-10 bg-[#051b3b]">
+        <div class="serviceSection relative overflow-hidden z-10 bg-[#051b3b]">
             <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full pt-10 lg:pt0">
                 <div class="md:flex items-center">
                     <h2
@@ -275,7 +302,7 @@
                         </span>
                     </h2>
                     <div class="md:pl-2 lg:pl-10 w-full lg:mb-[-8%] 2xl:mb-[-10%]">
-                        <div class="my-4 md:my-0 lg:mt-[16px] flex justify-start md:justify-end items-center">
+                        <div class="my-4 lg:mt-[16px] flex justify-start md:justify-end items-center">
                             <div
                                 class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[4.5px] pl-5 pr-1 lg:mt-[-76px] overflow-hidden group">
                                 <div
@@ -304,49 +331,49 @@
                         {{ $home->service_description }}
                     @endif
                 </p>
-                <div class="gap-5 lg:flex w-full justify-start lg:justify-between items-center scrollbar-hidden">
+                <div class="grid gap-5 my-16 lg:mt-16 lg:mb-0 w-full lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
                     @foreach ($serviceCategory as $data)
-                        
-                    <div class="w-full relative">
-                        <div class="flex items-center gap-[10px] p-[20px] bg-white rounded-t-xl rounded-br-xl">
-                            <img src="{{ asset('assets/home_Banner/box-one.png') }}" alt="">
-                            <h2 class="text-[22px] text-[#062358] font_inter font-bold w-1/2">{{ $data->title }}</h2>
-                        </div>
-
-                        <div class="flex items-center justify-between">
-                            <div class="bg-white rounded-b-xl w-[50%] text-white h-full">
-                                <button class="rounded-full  my-2 mx-2 border border-white text-white flex items-center gap-[10px] w-fit invisible">
-                                    Apply Now
-                                </button>    
+                        <div class="relative overflow-hidden">
+                            <div class="flex items-center gap-[10px] p-[20px] bg-white rounded-t-xl rounded-br-xl">
+                                <img class="w-[35px] 2xl:w-[55px]" src="{{ asset('assets/home_Banner/box-one.png') }}" alt="">
+                                <h2 class="text-[18px] 2xl:text-[22px] text-[#062358] font_inter font-bold w-1/2 clamp-text-two ">
+                                    {{ $data->title }}
+                                </h2>
                             </div>
-                            <div class="bg-[#051b3b] rounded-tl-xl w-full overflow-hidden">
-                                <button class="rounded-full px-5 py-2 my-2 mx-2 border border-white text-white flex items-center gap-[10px] w-fit">
-                                    Apply Now
-                                    <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M13.7266 5.37891L10.2266 8.87891C9.89844 9.23438 9.32422 9.23438 8.99609 8.87891C8.64062 8.55078 8.64062 7.97656 8.99609 7.64844L10.9922 5.625H0.875C0.382812 5.625 0 5.24219 0 4.75C0 4.23047 0.382812 3.875 0.875 3.875H10.9922L8.99609 1.87891C8.64062 1.55078 8.64062 0.976562 8.99609 0.648438C9.32422 0.292969 9.89844 0.292969 10.2266 0.648438L13.7266 4.14844C14.082 4.47656 14.082 5.05078 13.7266 5.37891Z" fill="white"/>
-                                    </svg>
-                                </button>
+
+                            <div class="flex justify-between">
+                                <div class="bg-white rounded-b-xl w-full lg:w-[30%] xl:w-[42%] 2xl:w-full text-white 2xl:h-full relative circle-round">
+                                    <button class="rounded-full px-5 py-0 my-0 2xl:py-2 2xl:my-2 mx-2 border border-white text-white flex items-center gap-[10px] w-fit invisible">
+                                        Apply Now
+                                        <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M13.7266 5.37891L10.2266 8.87891C9.89844 9.23438 9.32422 9.23438 8.99609 8.87891C8.64062 8.55078 8.64062 7.97656 8.99609 7.64844L10.9922 5.625H0.875C0.382812 5.625 0 5.24219 0 4.75C0 4.23047 0.382812 3.875 0.875 3.875H10.9922L8.99609 1.87891C8.64062 1.55078 8.64062 0.976562 8.99609 0.648438C9.32422 0.292969 9.89844 0.292969 10.2266 0.648438L13.7266 4.14844C14.082 4.47656 14.082 5.05078 13.7266 5.37891Z" fill="white"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                                <div class="bg-[#051b3b] rounded-tl-xl w-full overflow-hidden">
+                                    <button class="rounded-full px-5 py-2 my-2 mx-2 border border-white text-white flex items-center gap-[10px] w-fit">
+                                        Apply Now
+                                        <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M13.7266 5.37891L10.2266 8.87891C9.89844 9.23438 9.32422 9.23438 8.99609 8.87891C8.64062 8.55078 8.64062 7.97656 8.99609 7.64844L10.9922 5.625H0.875C0.382812 5.625 0 5.24219 0 4.75C0 4.23047 0.382812 3.875 0.875 3.875H10.9922L8.99609 1.87891C8.64062 1.55078 8.64062 0.976562 8.99609 0.648438C9.32422 0.292969 9.89844 0.292969 10.2266 0.648438L13.7266 4.14844C14.082 4.47656 14.082 5.05078 13.7266 5.37891Z" fill="white"/>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
-
-                    </div>
-                    
-
-
                     @endforeach
                 </div>
+
             </div>
         </div>
 
         {{-- eligibility check section --}}
-        <div class="eligibilitySection gradient-evition relative overflow-hidden z-10 bg-[#051b3b]">
+        <div class="eligibilitySection relative overflow-hidden z-10 bg-[#051b3b]">
             <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full pt-10 lg:pt0">
-                <div class="lg:flex items-start">
+                <div class="lg:flex items-center mapbg">
                     <div class="w-[100%]">
-                        <h2
-                            class="left-to-right-animation font_inter font-semibold text-[46px] md:text-[50px] lg:text-[65px] 2xl:text-[100px] text-white leading-none uppercase gradient-text">
+                        <h2 class="left-to-right-animation font_inter font-semibold text-[46px] md:text-[50px] lg:text-[55px]  text-white leading-none gradient-text">
                             <span class="inline-block">Find your</span>
-                            <span class="inline-block">eligibility for PR</span>
+                            <span class="flex items-center gap-[25px]"><span class="">Eligibility for PR</span> <span><img class="w-[85px]" src="{{ asset('assets/home_Banner/eligiblity.png') }}" alt=""></span></span>
                         </h2>
                         <p
                             class="text-white font_inter font-extralight text-justify text-[14px] xl:text-[16px] left-to-right-animation mt-4">
@@ -355,34 +382,18 @@
                             The CRS is a pivotal points-based system utilized for evaluating and ranking
                             profiles within the Express Entry pool, a key component of Canadian immigration
                         </p>
-                    </div>
-                    <div class="w-full">
-                        {{-- <div class="w-full left-to-right-width-animation" style="border: 1px solid #FFFFFF8C;"></div> --}}
-                        <img src="{{ asset('assets/eligibility.png') }}" alt="">
-                    </div>
-                </div>
 
-                <h4
-                    class="text-white font_inter font-semibold text-[22px] xl:text-[36px] py-4 lg:pb-0 left-to-right-animation capitalize mt-0 w-1/2">
-                    Read Our Article to Know more about your score calculation
-                </h4>
-                <div class="my-4 md:my-0 lg:mt-8 flex justify-start items-center">
-                    <div
-                        class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-2 px-4 lg:py-2 lg:px-6 overflow-hidden group shadow-lg bg-gradient-to-r from-green-500 to-teal-500 hover:from-green-600 hover:to-teal-600 transition-all duration-300 ease-in-out">
-                        <div
-                            class="absolute inset-0 bg-gradient-to-r from-green-600 to-teal-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full rounded-full">
+                        <h4 class="text-white font_inter font-medium text-[22px] xl:w-[70%] py-4 lg:pb-0 left-to-right-animation capitalize mt-6">Navigate Your Canadian Immigration Journey with Confidence</h4>
+
+                        <div class="left-to-right-animation">
+                            <a href="#" class="px-6 py-2 block w-fit mt-6 border-2 border-white  text-white bg-[#0a2540] rounded-full font-bold text-sm uppercase hover:bg-white hover:text-[#0a2540] transition duration-300">
+                                Free Eligibility Check
+                            </a>
                         </div>
-                        <h6 class="relative z-10 text-white text-[12px] md:text-[14px] xl:text-[18px] font-semibold">
-                            Eligibility Checker</h6>
-                        <div
-                            class="relative z-10 bg-white text-green-600 px-4 lg:px-6 py-1 lg:py-2 rounded-full cursor-pointer w-fit whitespace-nowrap font-medium">
-                            <a href="{{ url('eligibility-check') }}" class="h-full text-[12px] xl:text-[16px]">Check Eligibility</a>
-                        </div>
+
                     </div>
+                    <div class="w-full flex justify-center my-24 lg:my-0"><img class="w-full lg:w-[65%] object-contain" src="{{ asset('assets/home_Banner/backgroun-eligiblity.png') }}" alt=""></div>
                 </div>
-
-
-
             </div>
         </div>
 
@@ -438,219 +449,88 @@
                     @endif
                 </p>
 
-                <div class="video-carousel w-full lg:mt-10">
-                    @foreach ($whoweare as $data)
-                        <div class="video-container relative w-full h-auto aspect-w-16 aspect-h-9">
-                            <!-- Maintain 16:9 Aspect Ratio -->
-                            <div class="video-wrapper relative w-full h-full">
-                                <video id="customVideo{{ $loop->index }}"
-                                    class="absolute top-0 left-0 w-full h-full object-contain">
-                                    <source
-                                        src="{{ $locationData['storage_server_path'] . $locationData['storage_video_path'] . $data->file }}"
-                                        type="video/mp4">
-                                    <source
-                                        src="{{ $locationData['storage_server_path'] . $locationData['storage_video_path'] . $data->file }}"
-                                        type="video/ogg">
-                                    Your browser does not support the video tag.
-                                </video>
+                <div class="flex flex-col lg:flex-row items-center justify-center gap-5">
+
+                    <div class="flex justify-between flex-col gap-5">
+                        <img src="{{ asset('assets/home_Banner/videodummy.png') }}" alt="Video Thumbnail">
+                        <div class="bg-white rounded-3xl p-8 space-y-4">
+                            <div class="flex items-center space-x-3">
+                                <img src="{{ asset('assets/home_Banner/box-one.png') }}" alt="Icon">
+                                <h5 class="text-[#051B3B] font-semibold">
+                                    {{ $home->journey_title ?? '' }}
+                                </h5>
                             </div>
 
-                            <!-- Custom Play/Pause Button -->
-                            <div id="playPauseButton{{ $loop->index }}"
-                                class="custom-controls absolute inset-0 flex justify-center items-center">
-                                <img src="{{ asset('assets/play.png') }}" alt="Play" class="play-icon w-12 h-12">
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
+                            <p class="font_inter text-justify font-medium text-sm text-[#052350]">
+                                {{ $home->journey_description ?? '' }}
+                            </p>
 
 
-
-                <div class="container mx-auto px-5 xl:px-12 py-8 lg:pt-16 lg:pb-16 h-full w-full">
-                    <div class="flex justify-end gap-3 items-center">
-                        <div class="card-whosec-slide-next-button cursor-pointer">
-                            <img class="w-[40px]" src="{{ asset('assets/Button-Previous.png') }}" alt="">
-                        </div>
-                        <div class="cursor-pointer card-whosec-slide-prev-button">
-                            <img class="w-[40px]" src="{{ asset('assets/nextbutton.png') }}" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        {{-- navigate section --}}
-        <div class="Navigatesec gradient-evition relative overflow-hidden z-10 bg-[#051b3b]">
-            <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full">
-
-                <div class="md:flex justify-between items-start gap-5">
-                    <div class="md:w-1/2">
-                        <h4 class="text-white font_inter font-semibold text-[22px] lg:text-[30px] lg:w-[75%]">
-                            @if (isset($home))
-                                {{ $home->journey_title }}
-                            @endif
-                        </h4>
-                        <p class="text-white font_inter font-thin text-justify text-[14px] py-4  lg:w-[75%]">
-                            @if (isset($home))
-                                {{ $home->journey_description }}
-                            @endif
-                        </p>
-                        <h2 id="count-number" class="text-white font_inter font-bold text-[85px] leading-none">
-                            @if (isset($journey))
-                                {{ $journey->experience }}
-                            @endif
-                        </h2>
-                        <input type="hidden" id="exp-count"
-                            value=@if (isset($journey)) {{ $journey->experience }} @endif>
-
-                        <p class="text-white">Years of Experience</p>
-                        <div class="my-6 flex flex-wrap md:flex-nowrap items-start gap-5">
-                            <div>
-                                <h2 class="text-white font_inter font-bold text-[25px] leading-none">
-                                    @if (isset($journey))
-                                        {{ $journey->employees }}
-                                    @endif
-                                </h2>
-                                <span class="text-white">Employes</span>
-                            </div>
-
-                            <div>
-                                <h2 class="text-white font_inter font-bold text-[25px] leading-none">
-                                    @if (isset($journey))
-                                        {{ $journey->ratings }}
-                                    @endif
-                                </h2>
-                                <span class="text-white block leading-none">Google</span>
-                                <span class="text-white">Rating</span>
-                            </div>
-
-                            <div>
-                                <h2 class="text-white font_inter font-bold text-[25px] leading-none">
-                                    @if (isset($journey))
-                                        {{ $journey->offices }}
-                                    @endif
-                                </h2>
-                                <span class="text-white">Offices</span>
-                            </div>
-                            <div>
-                                <h2 class="text-white font_inter font-bold text-[25px] leading-none">
-                                    @if (isset($journey))
-                                        {{ $journey->customers }}
-                                    @endif
-                                </h2>
-                                <span class="text-white w-[30%] block">Customers Served</span>
-                            </div>
-                            <div>
-                                <h2 class="text-white font_inter font-bold text-[25px] leading-none">
-                                    @if (isset($journey))
-                                        {{ $journey->cases }}
-                                    @endif
-                                </h2>
-                                <span class="text-white">Active Cases</span>
-                            </div>
-                        </div>
-
-                        {{-- know more button animtion --}}
-                        <div class="animation-section w-fit" style="">
-                            <div class="flex lg:justify-end flex-col items-start pt-4 lg:pt-0">
-                                <div class="flex items-center gap-7 whitespace-nowrap mb-7">
-                                    <div class="text-white">Meet our Firm Again</div>
-                                    <button
-                                        class="flex items-center gap-4 rounded-full knowmore border border-white px-6 py-2"
-                                        data-line="2">
-                                        <div class="text-white">Know more</div>
-                                        <svg width="15" height="10" viewBox="0 0 15 10" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                d="M13.7266 5.37891L10.2266 8.87891C9.89844 9.23438 9.32422 9.23438 8.99609 8.87891C8.64062 8.55078 8.64062 7.97656 8.99609 7.64844L10.9922 5.625H0.875C0.382812 5.625 0 5.24219 0 4.75C0 4.23047 0.382812 3.875 0.875 3.875H10.9922L8.99609 1.87891C8.64062 1.55078 8.64062 0.976562 8.99609 0.648438C9.32422 0.292969 9.89844 0.292969 10.2266 0.648438L13.7266 4.14844C14.082 4.47656 14.082 5.05078 13.7266 5.37891Z"
-                                                fill="white" />
-                                        </svg>
-                                    </button>
+                            <div class="flex items-center space-x-4">
+                                <div class="text-[#052350]">
+                                    <h2 id="count-number" class="font_inter font-bold text-[85px] leading-none">
+                                        {{ $journey->experience ?? '' }}
+                                    </h2>
+                                    <input type="hidden" id="exp-count" value="{{ $journey->experience ?? '' }}">
+                                    <p>Years of Experience</p>
                                 </div>
-                                <div class="w-full h-[1px] mb-4 bg-[#FFFFFF8C] flex items-center">
-                                    <div class="w-[5%] h-[5px] bg-[#FFFFFF8C] rounded-full expandable-line"
-                                        data-line="2"></div>
+                                <div class="my-6 flex flex-wrap md:flex-nowrap items-start gap-5">
+                                    <div>
+                                        <h2 class="text-[#052350] font_inter font-bold text-[25px] leading-none">
+                                            {{ $journey->employees ?? '' }}
+                                        </h2>
+                                        <span class="text-[#052350]">Employees</span>
+                                    </div>
+                                    <div>
+                                        <h2 class="text-[#052350] font_inter font-bold text-[25px] leading-none">
+                                            {{ $journey->ratings ?? '' }}
+                                        </h2>
+                                        <span class="text-[#052350]">Google Rating</span>
+                                    </div>
+                                    <div>
+                                        <h2 class="text-[#052350] font_inter font-bold text-[25px] leading-none">
+                                            {{ $journey->offices ?? '' }}
+                                        </h2>
+                                        <span class="text-[#052350]">Offices</span>
+                                    </div>
+                                    <div>
+                                        <h2 class="text-[#052350] font_inter font-bold text-[25px] leading-none">
+                                            {{ $journey->customers ?? '' }}
+                                        </h2>
+                                        <span class="text-[#052350]">Customers Served</span>
+                                    </div>
+                                    <div>
+                                        <h2 class="text-[#052350] font_inter font-bold text-[25px] leading-none">
+                                            {{ $journey->cases ?? '' }}
+                                        </h2>
+                                        <span class="text-[#052350]">Active Cases</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="Navigatesec-image grid grid-cols-2 gap-4 bg-[#0d2139] lg:w-1/2 mb-4 lg:mb-0">
-                        <!-- Top Left -->
-                        <div class="flex justify-center items-center rounded-lg overflow-hidden">
-                            <img src="@if (isset($home)) {{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $home->journey_image1 }} @endif"
-                                alt="@if (isset($home)) {{ $home->journey_image1_alt_tag }} @endif"
-                                class="w-full h-full object-cover" />
+                    <div class="flex justify-between flex-col gap-5">
+                        <div class="bg-black rounded-3xl p-8 text-white">
+                            <h2 class="font_inter font-semibold text-2xl  xl:w-[80%]">
+                                {{ $home->certificate_title ?? '' }}
+                            </h2>
+                            <p class="py-5 font-normal font_inter text-[12px] lg:py-10">
+                                {{ $home->certificate_description ?? '' }}
+                            </p>
+                            <div class="flex flex-col lg:flex-row gap-5 items-center mb-8">
+                                @foreach ($certificate as $data)
+                                    <div class="flex items-center flex-col justify-center">
+                                        <img class="w-[200px] max-h-[66px]" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{ $data->alt_tag ?? 'Certificate' }}">
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
-
-                        <!-- Right Side (Spans both rows) -->
-                        <div class="row-span-2 rounded-lg overflow-hidden">
-                            <img src="@if (isset($home)) {{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $home->journey_image2 }} @endif"
-                                alt="@if (isset($home)) {{ $home->journey_image2_alt_tag }} @endif"
-                                class="w-full h-full object-cover" />
-                        </div>
-
-                        <!-- Bottom Left -->
-                        <div class="flex justify-center items-center rounded-lg overflow-hidden">
-                            <img src="@if (isset($home)) {{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $home->journey_image3 }} @endif"
-                                alt="@if (isset($home)) {{ $home->journey_image3_alt_tag }} @endif"
-                                class="w-full h-full object-cover" />
-                        </div>
+                        <img src="{{ asset('assets/home_Banner/immigration.png') }}" alt="Immigration">
                     </div>
                 </div>
 
-            </div>
-        </div>
 
-        {{-- regulated section --}}
-        <div class="RegulatedSec bg-black overflow-hidden">
-            <div class="container mx-auto px-5 xl:px-12 py-6 lg:py-16 h-full w-full">
-                <div class="md:flex justify-center items-start xl:items-center 2xl:items-start  gap-5">
-                    <div class="RegulatedSec-left md:w-1/2">
-                        <h2 class="text-white font_inter font-semibold text-2xl lg:text-3xl xl:text-4xl xl:w-[80%]">
-                            @if (isset($home))
-                                {{ $home->certificate_title }}
-                            @endif
-                        </h2>
-                        <p class="py-5 text-white font-normal font_inter text-[14px] xl:text-lg lg:py-10">
-                            @if (isset($home))
-                                {{ $home->certificate_description }}
-                            @endif
-                        </p>
-                        <div class="flex flex-col flex-wrap lg:flex-row gap-5 items-center mb-8">
-                            @foreach ($certificate as $data)
-                                <div class="flex items-center flex-col justify-center">
-                                    <img class="w-[200px] max-h-[66px]"
-                                        src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"
-                                        alt="{{ $data->alt_tag }}">
-                                    {{-- <h6 class="font_inter font-semibold text-white text-[14px] w-[80%] text-center py-2">{{ $data->title }} {{ $data->sub_title }}</h6> --}}
-                                </div>
-                            @endforeach
-
-                        </div>
-                    </div>
-
-                    <div class="RegulatedSec-right grid grid-cols-2 gap-4">
-                        <!-- Right Side (Spans both rows) -->
-                        <div class="row-span-2 rounded-lg overflow-hidden">
-                            <img src="@if (isset($home)) {{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $home->certificate_image1 }} @endif"
-                                alt="@if (isset($home)) {{ $home->certificate_image1_alt_tag }} @endif"
-                                class="w-[200px] xl:w-[300px] h-full object-cover" />
-                        </div>
-                        <!-- Top Left -->
-                        <div class="flex justify-center items-center rounded-lg overflow-hidden">
-                            <img src="@if (isset($home)) {{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $home->certificate_image2 }} @endif"
-                                alt="@if (isset($home)) {{ $home->certificate_image2_alt_tag }} @endif"
-                                class="w-[200px] xl:w-[300px] h-full object-cover" />
-                        </div>
-                        <!-- Bottom Left -->
-                        <div class="flex justify-center items-center rounded-lg overflow-hidden">
-                            <img src="@if (isset($home)) {{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $home->certificate_image3 }} @endif"
-                                alt="@if (isset($home)) {{ $home->certificate_image3_alt_tag }} @endif"
-                                class="w-[200px] xl:w-[300px] h-full object-cover" />
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
 
@@ -680,49 +560,54 @@
                 </p>
             </div>
 
-            <div class="testimonial-slider-wrapper pl-5 lg:pl-12 pt-9 pb-0 lg:py-[70px] z-50">
+            <div class="testimonial-slider-wrapper pl-5 lg:pl-12 pt-9 pb-0 lg:py-[10px] z-50">
                 <div id="testimonial-slider" class="splide">
                     <div class="splide__track">
                         <ul class="splide__list">
                             @foreach ($testimonials as $data)
                                 <li class="splide__slide">
-                                    <div
-                                        class="!flex !w-[89vw] md:!w-[440px] overflow-hidden !h-[250px] bg-white rounded-xl relative">
-                                        <img class="absolute md:relative object-cover w-full lg:w-[40%] opacity-30 md:opacity-100"
-                                            src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"
-                                            alt="{{ $data->alt_tag }}">
-                                        <div class="w-full py-4 px-4 z-10">
-                                            <div class="flex items-center justify-end">
-                                                <div class="font-semibold text-[#051b3b] text-xl font_inter pr-[8px]">
-                                                    {{ $data->rating }}</div>
-                                                <div class="flex items-center gap-1">
-                                                    @for ($i = 1; $i <= floor($data->rating); $i++)
-                                                        <img class="w-[12px]"
-                                                            src="{{ asset('assets/Navigation/ratingstar.png') }}"
-                                                            alt="Full Star">
-                                                    @endfor
+                                    <div class="max-w-md mx-auto p-6 bg-white rounded-xl shadow-lg border border-gray-200 relative">
+                                        <!-- Top Section: Quote Icon and Rating -->
+                                        <div class="flex justify-between items-start mb-4">
+                                            <!-- Quote Icon -->
+                                            <div class="w-[40px]">
+                                                <svg width="40" height="32" viewBox="0 0 54 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M27.8723 28.0452C27.493 27.7417 27.4172 27.3624 27.5689 26.7176L34.8519 1.49248C34.9657 0.999357 35.383 0.657959 35.914 0.657959H53.0595C53.7423 0.657959 54.0078 0.96142 54.0078 1.60627V4.18567C53.9699 4.67879 53.8181 5.13399 53.5526 5.51331L34.5105 30.6246C34.2071 31.0798 33.5622 31.2315 33.0691 30.9281L27.8723 28.0452ZM1.1679 28.0452C0.788574 27.7417 0.712715 27.3624 0.864445 26.7176L8.14748 1.49248C8.26128 0.961424 8.7544 0.620028 9.28545 0.657959H26.3551C27.0378 0.657959 27.3034 0.96142 27.3034 1.60627V4.18567C27.2654 4.67879 27.1137 5.13399 26.8482 5.51331L7.88195 30.6246C7.57849 31.0798 6.93364 31.2315 6.44052 30.8901L1.1679 28.0452Z" fill="#062358"/>
+                                                </svg>
+                                            </div>
 
-                                                    @if ($data->rating - floor($data->rating) >= 0.5)
-                                                        <img class="w-[12px]"
-                                                            src="{{ asset('assets/Navigation/halfstar.png') }}"
-                                                            alt="Half Star">
-                                                    @endif
-                                                </div>
+                                            <!-- Rating with Stars -->
+                                            <div class="flex items-center text-yellow-400">
+                                                <span class="text-lg font-semibold text-gray-800">{{ $data->rating }}</span>
+                                                @for ($i = 1; $i <= floor($data->rating); $i++)
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                                        <path d="M12 17.27l5.18 3.73-1.64-6.73 5.18-4.27H13.82L12 2 10.18 9H4.28l5.18 4.27-1.64 6.73L12 17.27z" />
+                                                    </svg>
+                                                @endfor
+                                                @if ($data->rating - floor($data->rating) >= 0.5)
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                                        <path d="M12 17.27l5.18 3.73-1.64-6.73 5.18-4.27H13.82L12 2 10.18 9H4.28l5.18 4.27-1.64 6.73L12 17.27z" />
+                                                    </svg>
+                                                @endif
                                             </div>
-                                            <div>
-                                                <img width="30px"
-                                                    src="{{ asset('assets/Navigation/doubleinverted-comma.png') }}"
-                                                    alt="">
-                                            </div>
-                                            <div class="py-2 font_inter text-[#072558]">
-                                                <h4 class="font-extrabold">{{ $data->title }}</h4>
-                                                <p class="text-[8px] py-2 font-semibold truncate-text">
-                                                    {{ $data->description }}</p>
-                                                <div class="py-3">
-                                                    <h5 class="font-bold">{{ $data->name }}</h5>
-                                                    <h6 class="text-[10px] font-semibold">{{ $data->occupation }}
-                                                        {{ $data->place }}</h6>
-                                                </div>
+                                        </div>
+
+                                        <!-- Testimonial Text -->
+                                        <p class="text-[#071C3D] font-medium  text-sm leading-relaxed my-12 truncate-text">
+                                            {{ $data->description }}
+                                        </p>
+
+                                        <!-- Profile Section -->
+                                        <div class="flex items-center mt-6">
+                                            <!-- Profile Image -->
+                                            <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"
+                                                 alt="{{ $data->alt_tag }}"
+                                                 class="w-12 h-12 rounded-full border-2 border-gray-200">
+
+                                            <!-- Name and Occupation -->
+                                            <div class="ml-4">
+                                                <h3 class="text-[#051B3B] font-semibold">{{ $data->name }}</h3>
+                                                <p class="text-white text-[14px]">{{ $data->occupation }} {{ $data->place }}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -733,18 +618,14 @@
                 </div>
             </div>
 
-            <div
-                class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full flex flex-col-reverse md:flex-row gap-4 items-center justify-between relative z-20">
+            <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full flex flex-col-reverse md:flex-row gap-4 items-center justify-between relative z-20">
                 <div class="flex justify-start items-center">
-                    <div
-                        class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group">
-                        <!-- Initially the background will cover the full button -->
-                        <div
-                            class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full">
+                    <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group">
+
+                        <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full">
                         </div>
                         <h6 class="relative z-10 text-white text-[12px] xl:text-[16px]">Be One of Them</h6>
-                        <div
-                            class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                        <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                             <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
                         </div>
                     </div>
@@ -809,27 +690,50 @@
                                 <li class="splide__slide">
                                     <a href="{{ url('blogdetail') }}">
                                         <div
-                                            class="mx-auto bg-white shadow-lg rounded-lg overflow-hidden mt-10 lg:h-[530px] w-full sm:max-w-sm h-auto">
-                                            <img class="w-full object-contain"
+                                            class="mx-auto bg-[#051b3b] shadow-lg rounded-lg overflow-hidden mt-10 lg:h-fit w-full sm:max-w-sm h-auto">
+                                            <img class="w-full object-cover h-[225px] aspect-video"
                                                 src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"
                                                 alt="{{ $data->alt_tag }}">
-                                            <div class="p-6">
+                                            <div class="p-6 border-b border-l border-r border-white rounded-lg mt-[-7px]">
                                                 <?php $date = $data->date . ' ' . $data->time; ?>
-                                                <p class="text-gray-500 text-xs">
-                                                    {{ date('M j, Y h:i:s A', strtotime($date)) }}</p>
-                                                <h2 class="text-xl font-bold text-gray-900 mt-2 clamp-text-two h-[60px]">
+
+                                                <div class="flex items-center justify-between">
+                                                    <p class="text-white text-[10px] flex items-center gap-[8px]">
+                                                        <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M4.2207 2.13379H7.5957V1.19629C7.5957 0.891602 7.83008 0.633789 8.1582 0.633789C8.46289 0.633789 8.7207 0.891602 8.7207 1.19629V2.13379H9.6582C10.4785 2.13379 11.1582 2.81348 11.1582 3.63379V11.1338C11.1582 11.9775 10.4785 12.6338 9.6582 12.6338H2.1582C1.31445 12.6338 0.658203 11.9775 0.658203 11.1338V3.63379C0.658203 2.81348 1.31445 2.13379 2.1582 2.13379H3.0957V1.19629C3.0957 0.891602 3.33008 0.633789 3.6582 0.633789C3.96289 0.633789 4.2207 0.891602 4.2207 1.19629V2.13379ZM1.7832 6.44629H3.6582V5.13379H1.7832V6.44629ZM1.7832 7.57129V9.07129H3.6582V7.57129H1.7832ZM4.7832 7.57129V9.07129H7.0332V7.57129H4.7832ZM8.1582 7.57129V9.07129H10.0332V7.57129H8.1582ZM10.0332 5.13379H8.1582V6.44629H10.0332V5.13379ZM10.0332 10.1963H8.1582V11.5088H9.6582C9.8457 11.5088 10.0332 11.3447 10.0332 11.1338V10.1963ZM7.0332 10.1963H4.7832V11.5088H7.0332V10.1963ZM3.6582 10.1963H1.7832V11.1338C1.7832 11.3447 1.94727 11.5088 2.1582 11.5088H3.6582V10.1963ZM7.0332 5.13379H4.7832V6.44629H7.0332V5.13379Z" fill="white"/>
+                                                        </svg>
+
+                                                        {{ date('M j, Y h:i:s A', strtotime($date)) }}
+                                                    </p>
+                                                    <div class="flex items-center gap-[10px] text-white">
+                                                        <svg width="11" height="13" viewBox="0 0 11 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M6.375 7.75879C8.64844 7.75879 10.5 9.61035 10.5 11.8838C10.5 12.3057 10.1484 12.6338 9.75 12.6338H0.75C0.328125 12.6338 0 12.3057 0 11.8838C0 9.61035 1.82812 7.75879 4.125 7.75879H6.375ZM1.125 11.5088H9.35156C9.16406 10.0322 7.89844 8.88379 6.375 8.88379H4.125C2.57812 8.88379 1.3125 10.0322 1.125 11.5088ZM5.25 6.63379C3.58594 6.63379 2.25 5.29785 2.25 3.63379C2.25 1.99316 3.58594 0.633789 5.25 0.633789C6.89062 0.633789 8.25 1.99316 8.25 3.63379C8.25 5.29785 6.89062 6.63379 5.25 6.63379ZM5.25 1.75879C4.19531 1.75879 3.375 2.60254 3.375 3.63379C3.375 4.68848 4.19531 5.50879 5.25 5.50879C6.28125 5.50879 7.125 4.68848 7.125 3.63379C7.125 2.60254 6.28125 1.75879 5.25 1.75879Z" fill="white"/>
+                                                        </svg>
+                                                        <span class="text-white text-[10px]">By {{ $data->name }}</span>
+                                                    </div>
+                                                </div>
+
+                                                <h2 class="text-[14px] font-bold text-white mt-[12px] lg:w-[60%] clamp-text-two h-[60px]">
                                                     {{ $data->topics }}</h2>
-                                                <div class="text-gray-600 text-sm mt-3 clamp-text-two">
+                                                <div class="text-white text-[10px] my-0 clamp-text">
                                                     {!! $data->description !!}
                                                 </div>
-                                                <div class="flex items-center mt-4">
+                                                <div class="pt-[25px]">
+                                                    <a href="#" class="text-[10px] font_inter flex items-center text-white gap-[10px]">
+                                                        Read more
+                                                        <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M14.0957 6.00098L10.5957 9.50098C10.2676 9.85645 9.69336 9.85645 9.36523 9.50098C9.00977 9.17285 9.00977 8.59863 9.36523 8.27051L11.3613 6.24707H1.24414C0.751953 6.24707 0.369141 5.86426 0.369141 5.37207C0.369141 4.85254 0.751953 4.49707 1.24414 4.49707H11.3613L9.36523 2.50098C9.00977 2.17285 9.00977 1.59863 9.36523 1.27051C9.69336 0.915039 10.2676 0.915039 10.5957 1.27051L14.0957 4.77051C14.4512 5.09863 14.4512 5.67285 14.0957 6.00098Z" fill="white"/>
+                                                        </svg>
+                                                    </a>
+                                                </div>
+                                                {{-- <div class="flex items-center mt-4">
                                                     <img class="w-10 h-10 object-cover rounded-full"
                                                         src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->user_image }}"
                                                         alt="{{ $data->user_alt_tag }}">
                                                     <div class="ml-3">
                                                         <p class="text-gray-900 font-semibold">By {{ $data->name }}</p>
                                                     </div>
-                                                </div>
+                                                </div> --}}
                                             </div>
                                         </div>
                                     </a>
@@ -983,7 +887,7 @@
         </div>
     </div>
 
-    <!-- @include('frontend.Common.getintouch') -->
+    @include('frontend.Common.getintouch')
 
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
     <script>
@@ -1486,7 +1390,7 @@
                 var splide = new Splide('#testimonial-slider', {
                     type: 'loop', // Loop through the slides
                     perMove: 1, // Moves one slide at a time
-                    perPage: 3.5, // Shows 3.5 slides per page (visible slides)
+                    perPage: 2.8, // Shows 3.5 slides per page (visible slides)
                     arrows: false, // Disable default arrows
                     pagination: false, // Disable the dots (pagination)
                     autoplay: true, // Enable autoplay
