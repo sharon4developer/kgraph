@@ -304,51 +304,35 @@
                         {{ $home->service_description }}
                     @endif
                 </p>
-                <div class="gap-5 lg:flex w-full justify-start lg:justify-between items-center scrollbar-hidden"
-                    style="">
+                <div class="gap-5 lg:flex w-full justify-start lg:justify-between items-center scrollbar-hidden">
                     @foreach ($serviceCategory as $data)
-                        <div class="relative w-full lg:w-[350px] h-[500px] mt-[10%] parent-card-our-serv">
-                            <img class="absolute w-full h-full object-cover"
-                                src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"
-                                alt="{{ $data->alt_tag }}">
-                            <div class="grade-box-home-who w-full h-full z-20 relative">
-                                <div class="h-full w-full z-10 relative bg-[#001836ad] flex justify-end items-end">
-                                    <div class="h-[400px] w-full z-30 relative ease-in-out duration-300">
-                                        <!-- This div's height will expand on hover -->
-                                        <div
-                                            class="bg-red-700 h-[2%] w-full absolute bottom-0 ease-in-out duration-300 height-fuller">
-                                        </div>
+                        
+                    <div class="w-full relative">
+                        <div class="flex items-center gap-[10px] p-[20px] bg-white rounded-t-xl rounded-br-xl">
+                            <img src="{{ asset('assets/home_Banner/box-one.png') }}" alt="">
+                            <h2 class="text-[22px] text-[#062358] font_inter font-bold w-1/2">{{ $data->title }}</h2>
+                        </div>
 
-                                        <div class="z-50 relative h-full w-full px-3 py-8">
-                                            <h2 class="text-white font_inter text-[20px] font-bold pb-8 flex flex-col">
-                                                {{ $data->title }}</h2>
-                                            <div class="text-white font_inter font-bold text-[16px] md:text-sm py-3">Choose
-                                                Your Services</div>
-                                            <div>
-                                                <!-- First Button -->
-                                                @foreach ($data->Service as $service)
-                                                    <button
-                                                        class="flex items-center justify-between gap-4 mb-1 bg-[#071b3a] hover:bg-white ease-in-out duration-300 group w-full rounded-md px-6 py-3">
-                                                        <div
-                                                            class="text-xs xl:text-sm text-white group-hover:text-[#071b3a] font-semibold">
-                                                            {{ $service->title }}</div>
-                                                        <div>
-                                                            <svg width="13" height="11" viewBox="0 0 13 11"
-                                                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path class="group-hover:fill-[#071b3a]"
-                                                                    d="M12.2576 6.42676L7.95285 10.7315C7.79142 10.8929 7.57618 10.9736 7.36095 10.9736C7.11881 10.9736 6.90357 10.8929 6.74214 10.7315C6.39238 10.4086 6.39238 9.84364 6.74214 9.52079L9.56712 6.6689H1.33432C0.850037 6.6689 0.473373 6.29224 0.473373 5.80795C0.473373 5.35057 0.850037 4.94701 1.33432 4.94701H9.56712L6.74214 2.12202C6.39238 1.79917 6.39238 1.23417 6.74214 0.911318C7.065 0.561558 7.62999 0.561558 7.95285 0.911318L12.2576 5.21605C12.6073 5.53891 12.6073 6.1039 12.2576 6.42676Z"
-                                                                    fill="white" />
-                                                            </svg>
-                                                        </div>
-                                                    </button>
-                                                @endforeach
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
+                        <div class="flex items-center justify-between">
+                            <div class="bg-white rounded-b-xl w-[50%] text-white h-full">
+                                <button class="rounded-full  my-2 mx-2 border border-white text-white flex items-center gap-[10px] w-fit invisible">
+                                    Apply Now
+                                </button>    
+                            </div>
+                            <div class="bg-[#051b3b] rounded-tl-xl w-full overflow-hidden">
+                                <button class="rounded-full px-5 py-2 my-2 mx-2 border border-white text-white flex items-center gap-[10px] w-fit">
+                                    Apply Now
+                                    <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M13.7266 5.37891L10.2266 8.87891C9.89844 9.23438 9.32422 9.23438 8.99609 8.87891C8.64062 8.55078 8.64062 7.97656 8.99609 7.64844L10.9922 5.625H0.875C0.382812 5.625 0 5.24219 0 4.75C0 4.23047 0.382812 3.875 0.875 3.875H10.9922L8.99609 1.87891C8.64062 1.55078 8.64062 0.976562 8.99609 0.648438C9.32422 0.292969 9.89844 0.292969 10.2266 0.648438L13.7266 4.14844C14.082 4.47656 14.082 5.05078 13.7266 5.37891Z" fill="white"/>
+                                    </svg>
+                                </button>
                             </div>
                         </div>
+
+                    </div>
+                    
+
+
                     @endforeach
                 </div>
             </div>
@@ -999,7 +983,7 @@
         </div>
     </div>
 
-    @include('frontend.Common.getintouch')
+    <!-- @include('frontend.Common.getintouch') -->
 
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
     <script>
