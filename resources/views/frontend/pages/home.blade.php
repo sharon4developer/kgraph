@@ -177,7 +177,7 @@
     </style>
 
     <div class="relative overflow-hidden">
-        {{-- banner section --}}
+        {{--old banner section --}}
         <div class="h-dvh md:h-screen lg:h-full 2xl:h-screen w-full homeBanner relative overflow-hidden">
             <!-- Gradient overlay -->
             {{-- <div class="banner-gradient-overlay absolute inset-0"></div> --}}
