@@ -375,15 +375,14 @@
                             <span class="inline-block">Find your</span>
                             <span class="flex items-center gap-[25px]"><span class="">Eligibility for PR</span> <span><img class="w-[85px]" src="{{ asset('assets/home_Banner/eligiblity.png') }}" alt=""></span></span>
                         </h2>
-                        <p
-                            class="text-white font_inter font-extralight text-justify text-[14px] xl:text-[16px] left-to-right-animation mt-4">
+                        <p class="text-white font_inter font-extralight text-justify text-[14px] xl:text-[16px] left-to-right-animation mt-4">
                             Welcome to our CRS Score Calculator tool, designed to help you determine your
                             Comprehensive Ranking System (CRS) score based on the information you provide.
                             The CRS is a pivotal points-based system utilized for evaluating and ranking
                             profiles within the Express Entry pool, a key component of Canadian immigration
                         </p>
 
-                        <h4 class="text-white font_inter font-medium text-[22px] xl:w-[70%] py-4 lg:pb-0 left-to-right-animation capitalize mt-6">Navigate Your Canadian Immigration Journey with Confidence</h4>
+                        <h4 class="text-white font_inter font-medium text-[22px] xl:w-[70%] py-4 lg:pb-0 left-to-right-animation capitalize 2xl:mt-6">Navigate Your Canadian Immigration Journey with Confidence</h4>
 
                         <div class="left-to-right-animation">
                             <a href="#" class="px-6 py-2 block w-fit mt-6 border-2 border-white  text-white bg-[#0a2540] rounded-full font-bold text-sm uppercase hover:bg-white hover:text-[#0a2540] transition duration-300">
@@ -392,7 +391,7 @@
                         </div>
 
                     </div>
-                    <div class="w-full flex justify-center my-24 lg:my-0"><img class="w-full lg:w-[65%] object-contain" src="{{ asset('assets/home_Banner/backgroun-eligiblity.png') }}" alt=""></div>
+                    <div class="w-full flex justify-center my-24 lg:my-0"><img class="w-full lg:w-[75%] 2xl:w-[65%] object-contain" src="{{ asset('assets/home_Banner/backgroun-eligiblity.png') }}" alt=""></div>
                 </div>
             </div>
         </div>
@@ -442,39 +441,37 @@
                     </div>
 
                 </div>
-                <p
-                    class="py-5 text-white font_inter font-medium text-[18px] xl:text-[20px] lg:w-[50%] xl:w-[60%]  secleft-to-right-animation">
+                <p class="py-5 text-white font_inter font-medium text-[18px] xl:text-[20px] lg:w-[50%] xl:w-[60%]  secleft-to-right-animation">
                     @if (isset($home))
                         {{ $home->who_we_are_sub_title }}
                     @endif
                 </p>
 
-                <div class="flex flex-col lg:flex-row items-center justify-center gap-5">
+                <div class="flex flex-col lg:flex-row items-center justify-start gap-5">
 
-                    <div class="flex justify-between flex-col gap-5">
+                    <div class="flex  flex-col gap-5">
                         <img src="{{ asset('assets/home_Banner/videodummy.png') }}" alt="Video Thumbnail">
                         <div class="bg-white rounded-3xl p-8 space-y-4">
                             <div class="flex items-center space-x-3">
                                 <img src="{{ asset('assets/home_Banner/box-one.png') }}" alt="Icon">
-                                <h5 class="text-[#051B3B] font-semibold">
+                                <h5 class="text-[#051B3B] font-semibold text-[26px]">
                                     {{ $home->journey_title ?? '' }}
                                 </h5>
                             </div>
 
-                            <p class="font_inter text-justify font-medium text-sm text-[#052350]">
+                            <p class="font_inter text-justify font-medium lg:text-[8.5px] 2xl:text-sm text-[#052350]">
                                 {{ $home->journey_description ?? '' }}
                             </p>
 
-
-                            <div class="flex items-center space-x-4">
+                            <div class="flex items-center justify-between  space-x-4">
                                 <div class="text-[#052350]">
                                     <h2 id="count-number" class="font_inter font-bold text-[85px] leading-none">
-                                        {{ $journey->experience ?? '' }}
+                                        {{ $journey->experience ?? '' }} +
                                     </h2>
                                     <input type="hidden" id="exp-count" value="{{ $journey->experience ?? '' }}">
-                                    <p>Years of Experience</p>
+                                    <p class="lg:whitespace-nowrap">Years of Experience</p>
                                 </div>
-                                <div class="my-6 flex flex-wrap md:flex-nowrap items-start gap-5">
+                                <div class="my-6 flex flex-wrap lg:w-[60%] items-start justify-start gap-5">
                                     <div>
                                         <h2 class="text-[#052350] font_inter font-bold text-[25px] leading-none">
                                             {{ $journey->employees ?? '' }}
@@ -510,12 +507,12 @@
                         </div>
                     </div>
 
-                    <div class="flex justify-between flex-col gap-5">
+                    <div class="flex  flex-col gap-5">
                         <div class="bg-black rounded-3xl p-8 text-white">
-                            <h2 class="font_inter font-semibold text-2xl  xl:w-[80%]">
+                            <h2 class="font_inter font-semibold text-[22px] 2xl:text-2xl  xl:w-[80%]">
                                 {{ $home->certificate_title ?? '' }}
                             </h2>
-                            <p class="py-5 font-normal font_inter text-[12px] lg:py-10">
+                            <p class="py-5 font-normal font_inter text-[8px] 2xl:text-[12px] 2xl:py-10">
                                 {{ $home->certificate_description ?? '' }}
                             </p>
                             <div class="flex flex-col lg:flex-row gap-5 items-center mb-8">
@@ -607,7 +604,7 @@
                                             <!-- Name and Occupation -->
                                             <div class="ml-4">
                                                 <h3 class="text-[#051B3B] font-semibold">{{ $data->name }}</h3>
-                                                <p class="text-white text-[14px]">{{ $data->occupation }} {{ $data->place }}</p>
+                                                <p class="text-gray-500 text-[14px]">{{ $data->occupation }} {{ $data->place }}</p>
                                             </div>
                                         </div>
                                     </div>
