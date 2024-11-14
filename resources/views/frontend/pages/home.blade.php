@@ -371,7 +371,7 @@
             <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full pt-10 lg:pt0">
                 <div class="lg:flex items-center mapbg">
                     <div class="w-[100%]">
-                        <h2 class="left-to-right-animation font_inter font-semibold text-[46px] md:text-[50px] lg:text-[55px]  text-white leading-none gradient-text">
+                        <h2 class="left-to-right-animation font_inter font-semibold text-[46px] md:text-[50px] lg:text-[53px]  text-white leading-none gradient-text">
                             <span class="inline-block">Find your</span>
                             <span class="flex items-center gap-[25px]"><span class="">Eligibility for PR</span> <span><img class="w-[85px]" src="{{ asset('assets/home_Banner/eligiblity.png') }}" alt=""></span></span>
                         </h2>
