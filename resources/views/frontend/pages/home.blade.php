@@ -308,6 +308,14 @@
             background-position-x: center;
             background-position-y: ;
         }
+        .clamp-3{
+            max-height: calc(2.6em* 2);
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
 
     </style>
 
@@ -702,200 +710,222 @@
                                 </div>
                             </div>
                         </div>
-
-
-
-
                     </div>
                 </div>
 
-                <div class="w-full h-full lg:pb-16 pt-48">
-                    <img src="{{ asset('assets/canada.png') }}" alt="Background Image" class="">
+                <div class="w-full h-[600px] lg:pb-16 pt-48 relative flex justify-center items-center">
+                    <div class="absolute">
+                        <img src="{{ asset('assets/canada.png') }}" alt="Background Image" class="">
+                    </div>
+                    <div class="z-10 relative text-white p-8 flex justify-center items-center flex-col">
+                        <h2 class="font_inter font-black text-4xl w-[50%] text-center">{{ $home->certificate_title ?? '' }}</h2>
+                        <p class="py-5 font-semibold font_inter text-xl clamp-3 text-center w-[50%]">{{ $home->certificate_description ?? '' }}</p>
+                        <div class="flex flex-col lg:flex-row gap-5 items-center mt-6">
+                            @foreach ($certificate as $data)
+                                <div class="flex items-center flex-col justify-center">
+                                    <img class="w-[200px] max-h-[66px]" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{ $data->alt_tag ?? 'Certificate' }}">
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
 
         {{-- Testimonial --}}
-        <div class="Regulated bg-[#051b3b]">
+        <div class="Testimonial bg-[#051b3b]">
             <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full">
 
-            <!-- Splide Slider Container -->
-            <div id="testimonial-slider" class="splide">
-                <div class="splide__track">
-                    <div class="splide__list flex gap-5">
-                        <div class="splide__slide max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
-                            <div class="flex items-center justify-between space-x-4 mb-4">
-                                <div class="flex items-center gap-2">
-                                    <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
-                                    <div>
-                                        <h2 class="text-lg font-semibold">Albert Flores</h2>
-                                        <p class="text-sm text-gray-400">Medical Assistant</p>
+                <div class="flex items-end w-full gap-2 lg:gap-7 py-10">
+                    <h2 class="uppercase text-white font_inter font-normal text-6xl w-full whitespace-nowrap">What Makes us Different</h2>
+                    <div class="w-full" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
+                </div>
+
+                <h4 class="font_inter font-semibold text-[42px] text-white">Let’s See what our customers want to say</h4>
+                <p class="font_inter font-normal text-[20px] text-white w-[50%]">
+                    We enable some of the most demanding organizations to 
+                    enrich customer experiences, optimize efficiencies, 
+                    launch new platforms, and monetize data opportunities. 
+                    We offer fully-managed and end-to-end technology, tools, 
+                    talent, 
+                </p>
+
+                <!-- Splide Slider Container -->
+                <div id="testimonial-slider" class="splide">
+                    <div class="splide__track">
+                        <div class="splide__list flex gap-5">
+                            <div class="splide__slide max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
+                                <div class="flex items-center justify-between space-x-4 mb-4">
+                                    <div class="flex items-center gap-2">
+                                        <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
+                                        <div>
+                                            <h2 class="text-lg font-semibold">Albert Flores</h2>
+                                            <p class="text-sm text-gray-400">Medical Assistant</p>
+                                        </div>
+                                    </div>
+                                    <div class="ml-auto flex items-center gap-2">
+                                        <span class="text-lg font-bold">5.0</span>
+                                        <div class="text-yellow-500 flex items-center">
+                                            <!-- Stars -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                            <!-- Add more stars as needed -->
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="ml-auto flex items-center gap-2">
-                                    <span class="text-lg font-bold">5.0</span>
-                                    <div class="text-yellow-500 flex items-center">
-                                        <!-- Stars -->
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                                        <!-- Add more stars as needed -->
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="text-sm text-gray-300 leading-relaxed py-7">
-                                We have been operating for over a decade, providing top-notch services to our clients and building a strong track record in the industry.
-                            </p>
-                            <div class="flex justify-end items-center">
-                                <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="splide__slide max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
-                            <div class="flex items-center justify-between space-x-4 mb-4">
-                                <div class="flex items-center gap-2">
-                                    <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
-                                    <div>
-                                        <h2 class="text-lg font-semibold">Albert Flores</h2>
-                                        <p class="text-sm text-gray-400">Medical Assistant</p>
-                                    </div>
-                                </div>
-                                <div class="ml-auto flex items-center gap-2">
-                                    <span class="text-lg font-bold">5.0</span>
-                                    <div class="text-yellow-500 flex items-center">
-                                        <!-- Stars -->
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                                        <!-- Add more stars as needed -->
-                                    </div>
+                                <p class="text-sm text-gray-300 leading-relaxed py-7">
+                                    We have been operating for over a decade, providing top-notch services to our clients and building a strong track record in the industry.
+                                </p>
+                                <div class="flex justify-end items-center">
+                                    <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
                                 </div>
                             </div>
-                            <p class="text-sm text-gray-300 leading-relaxed py-7">
-                                We have been operating for over a decade, providing top-notch services to our clients and building a strong track record in the industry.
-                            </p>
-                            <div class="flex justify-end items-center">
-                                <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="splide__slide max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
-                            <div class="flex items-center justify-between space-x-4 mb-4">
-                                <div class="flex items-center gap-2">
-                                    <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
-                                    <div>
-                                        <h2 class="text-lg font-semibold">Albert Flores</h2>
-                                        <p class="text-sm text-gray-400">Medical Assistant</p>
+                            <div class="splide__slide max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
+                                <div class="flex items-center justify-between space-x-4 mb-4">
+                                    <div class="flex items-center gap-2">
+                                        <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
+                                        <div>
+                                            <h2 class="text-lg font-semibold">Albert Flores</h2>
+                                            <p class="text-sm text-gray-400">Medical Assistant</p>
+                                        </div>
+                                    </div>
+                                    <div class="ml-auto flex items-center gap-2">
+                                        <span class="text-lg font-bold">5.0</span>
+                                        <div class="text-yellow-500 flex items-center">
+                                            <!-- Stars -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                            <!-- Add more stars as needed -->
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="ml-auto flex items-center gap-2">
-                                    <span class="text-lg font-bold">5.0</span>
-                                    <div class="text-yellow-500 flex items-center">
-                                        <!-- Stars -->
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                                        <!-- Add more stars as needed -->
-                                    </div>
+                                <p class="text-sm text-gray-300 leading-relaxed py-7">
+                                    We have been operating for over a decade, providing top-notch services to our clients and building a strong track record in the industry.
+                                </p>
+                                <div class="flex justify-end items-center">
+                                    <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
                                 </div>
                             </div>
-                            <p class="text-sm text-gray-300 leading-relaxed py-7">
-                                We have been operating for over a decade, providing top-notch services to our clients and building a strong track record in the industry.
-                            </p>
-                            <div class="flex justify-end items-center">
-                                <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="splide__slide max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
-                            <div class="flex items-center justify-between space-x-4 mb-4">
-                                <div class="flex items-center gap-2">
-                                    <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
-                                    <div>
-                                        <h2 class="text-lg font-semibold">Albert Flores</h2>
-                                        <p class="text-sm text-gray-400">Medical Assistant</p>
+                            <div class="splide__slide max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
+                                <div class="flex items-center justify-between space-x-4 mb-4">
+                                    <div class="flex items-center gap-2">
+                                        <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
+                                        <div>
+                                            <h2 class="text-lg font-semibold">Albert Flores</h2>
+                                            <p class="text-sm text-gray-400">Medical Assistant</p>
+                                        </div>
+                                    </div>
+                                    <div class="ml-auto flex items-center gap-2">
+                                        <span class="text-lg font-bold">5.0</span>
+                                        <div class="text-yellow-500 flex items-center">
+                                            <!-- Stars -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                            <!-- Add more stars as needed -->
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="ml-auto flex items-center gap-2">
-                                    <span class="text-lg font-bold">5.0</span>
-                                    <div class="text-yellow-500 flex items-center">
-                                        <!-- Stars -->
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                                        <!-- Add more stars as needed -->
-                                    </div>
+                                <p class="text-sm text-gray-300 leading-relaxed py-7">
+                                    We have been operating for over a decade, providing top-notch services to our clients and building a strong track record in the industry.
+                                </p>
+                                <div class="flex justify-end items-center">
+                                    <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
                                 </div>
                             </div>
-                            <p class="text-sm text-gray-300 leading-relaxed py-7">
-                                We have been operating for over a decade, providing top-notch services to our clients and building a strong track record in the industry.
-                            </p>
-                            <div class="flex justify-end items-center">
-                                <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="splide__slide max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
-                            <div class="flex items-center justify-between space-x-4 mb-4">
-                                <div class="flex items-center gap-2">
-                                    <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
-                                    <div>
-                                        <h2 class="text-lg font-semibold">Albert Flores</h2>
-                                        <p class="text-sm text-gray-400">Medical Assistant</p>
+                            <div class="splide__slide max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
+                                <div class="flex items-center justify-between space-x-4 mb-4">
+                                    <div class="flex items-center gap-2">
+                                        <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
+                                        <div>
+                                            <h2 class="text-lg font-semibold">Albert Flores</h2>
+                                            <p class="text-sm text-gray-400">Medical Assistant</p>
+                                        </div>
+                                    </div>
+                                    <div class="ml-auto flex items-center gap-2">
+                                        <span class="text-lg font-bold">5.0</span>
+                                        <div class="text-yellow-500 flex items-center">
+                                            <!-- Stars -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                            <!-- Add more stars as needed -->
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="ml-auto flex items-center gap-2">
-                                    <span class="text-lg font-bold">5.0</span>
-                                    <div class="text-yellow-500 flex items-center">
-                                        <!-- Stars -->
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                                        <!-- Add more stars as needed -->
-                                    </div>
+                                <p class="text-sm text-gray-300 leading-relaxed py-7">
+                                    We have been operating for over a decade, providing top-notch services to our clients and building a strong track record in the industry.
+                                </p>
+                                <div class="flex justify-end items-center">
+                                    <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
                                 </div>
                             </div>
-                            <p class="text-sm text-gray-300 leading-relaxed py-7">
-                                We have been operating for over a decade, providing top-notch services to our clients and building a strong track record in the industry.
-                            </p>
-                            <div class="flex justify-end items-center">
-                                <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
-                            </div>
-                        </div>
-                        <div class="splide__slide max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
-                            <div class="flex items-center justify-between space-x-4 mb-4">
-                                <div class="flex items-center gap-2">
-                                    <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
-                                    <div>
-                                        <h2 class="text-lg font-semibold">Albert Flores</h2>
-                                        <p class="text-sm text-gray-400">Medical Assistant</p>
+                            <div class="splide__slide max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
+                                <div class="flex items-center justify-between space-x-4 mb-4">
+                                    <div class="flex items-center gap-2">
+                                        <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
+                                        <div>
+                                            <h2 class="text-lg font-semibold">Albert Flores</h2>
+                                            <p class="text-sm text-gray-400">Medical Assistant</p>
+                                        </div>
+                                    </div>
+                                    <div class="ml-auto flex items-center gap-2">
+                                        <span class="text-lg font-bold">5.0</span>
+                                        <div class="text-yellow-500 flex items-center">
+                                            <!-- Stars -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                            <!-- Add more stars as needed -->
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="ml-auto flex items-center gap-2">
-                                    <span class="text-lg font-bold">5.0</span>
-                                    <div class="text-yellow-500 flex items-center">
-                                        <!-- Stars -->
-                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                                        <!-- Add more stars as needed -->
-                                    </div>
+                                <p class="text-sm text-gray-300 leading-relaxed py-7">
+                                    We have been operating for over a decade, providing top-notch services to our clients and building a strong track record in the industry.
+                                </p>
+                                <div class="flex justify-end items-center">
+                                    <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
                                 </div>
                             </div>
-                            <p class="text-sm text-gray-300 leading-relaxed py-7">
-                                We have been operating for over a decade, providing top-notch services to our clients and building a strong track record in the industry.
-                            </p>
-                            <div class="flex justify-end items-center">
-                                <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
+                            <div class="splide__slide max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
+                                <div class="flex items-center justify-between space-x-4 mb-4">
+                                    <div class="flex items-center gap-2">
+                                        <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
+                                        <div>
+                                            <h2 class="text-lg font-semibold">Albert Flores</h2>
+                                            <p class="text-sm text-gray-400">Medical Assistant</p>
+                                        </div>
+                                    </div>
+                                    <div class="ml-auto flex items-center gap-2">
+                                        <span class="text-lg font-bold">5.0</span>
+                                        <div class="text-yellow-500 flex items-center">
+                                            <!-- Stars -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                            <!-- Add more stars as needed -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-300 leading-relaxed py-7">
+                                    We have been operating for over a decade, providing top-notch services to our clients and building a strong track record in the industry.
+                                </p>
+                                <div class="flex justify-end items-center">
+                                    <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Custom Navigation Buttons -->
-            <div class="flex justify-center mt-4 space-x-4">
-                <button class="card-testi-slide-prev-button  p-2 rounded-full">
-                    <svg width="50" height="50" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="69.5" y="69.5" width="69" height="69" rx="34.5" transform="rotate(180 69.5 69.5)" stroke="white" stroke-opacity="0.8"/>
-                        <path d="M38.384 43.384C38.1496 43.6184 37.8317 43.75 37.5003 43.75C37.1688 43.75 36.8509 43.6184 36.6165 43.384L29.1165 35.884C28.8822 35.6496 28.7505 35.3317 28.7505 35.0003C28.7505 34.6688 28.8822 34.3509 29.1165 34.1165L36.6165 26.6165C36.8523 26.3888 37.168 26.2628 37.4958 26.2657C37.8235 26.2685 38.137 26.4 38.3688 26.6317C38.6006 26.8635 38.732 27.177 38.7349 27.5048C38.7377 27.8325 38.6117 28.1483 38.384 28.384L31.7678 35.0003L38.384 41.6165C38.6184 41.8509 38.75 42.1688 38.75 42.5003C38.75 42.8317 38.6184 43.1496 38.384 43.384Z" fill="white"/>
-                    </svg>
+                <!-- Custom Navigation Buttons -->
+                <div class="flex justify-center mt-4 space-x-4">
+                    <button class="card-testi-slide-prev-button  p-2 rounded-full">
+                        <svg width="50" height="50" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="69.5" y="69.5" width="69" height="69" rx="34.5" transform="rotate(180 69.5 69.5)" stroke="white" stroke-opacity="0.8"/>
+                            <path d="M38.384 43.384C38.1496 43.6184 37.8317 43.75 37.5003 43.75C37.1688 43.75 36.8509 43.6184 36.6165 43.384L29.1165 35.884C28.8822 35.6496 28.7505 35.3317 28.7505 35.0003C28.7505 34.6688 28.8822 34.3509 29.1165 34.1165L36.6165 26.6165C36.8523 26.3888 37.168 26.2628 37.4958 26.2657C37.8235 26.2685 38.137 26.4 38.3688 26.6317C38.6006 26.8635 38.732 27.177 38.7349 27.5048C38.7377 27.8325 38.6117 28.1483 38.384 28.384L31.7678 35.0003L38.384 41.6165C38.6184 41.8509 38.75 42.1688 38.75 42.5003C38.75 42.8317 38.6184 43.1496 38.384 43.384Z" fill="white"/>
+                        </svg>
 
-                </button>
-                <button class="card-testi-slide-next-button p-2 rounded-full">
-                    <svg width="50" height="50" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="0.5" y="0.5" width="69" height="69" rx="34.5" stroke="white" stroke-opacity="0.8"/>
-                        <path d="M31.616 26.616C31.8504 26.3816 32.1683 26.25 32.4997 26.25C32.8312 26.25 33.1491 26.3816 33.3835 26.616L40.8835 34.116C41.1178 34.3504 41.2495 34.6683 41.2495 34.9997C41.2495 35.3312 41.1178 35.6491 40.8835 35.8835L33.3835 43.3835C33.1477 43.6112 32.832 43.7372 32.5042 43.7343C32.1765 43.7315 31.863 43.6 31.6312 43.3683C31.3994 43.1365 31.268 42.823 31.2651 42.4952C31.2623 42.1675 31.3883 41.8517 31.616 41.616L38.2322 34.9997L31.616 28.3835C31.3816 28.1491 31.25 27.8312 31.25 27.4997C31.25 27.1683 31.3816 26.8504 31.616 26.616Z" fill="white"/>
-                5</svg>
+                    </button>
+                    <button class="card-testi-slide-next-button p-2 rounded-full">
+                        <svg width="50" height="50" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="0.5" y="0.5" width="69" height="69" rx="34.5" stroke="white" stroke-opacity="0.8"/>
+                            <path d="M31.616 26.616C31.8504 26.3816 32.1683 26.25 32.4997 26.25C32.8312 26.25 33.1491 26.3816 33.3835 26.616L40.8835 34.116C41.1178 34.3504 41.2495 34.6683 41.2495 34.9997C41.2495 35.3312 41.1178 35.6491 40.8835 35.8835L33.3835 43.3835C33.1477 43.6112 32.832 43.7372 32.5042 43.7343C32.1765 43.7315 31.863 43.6 31.6312 43.3683C31.3994 43.1365 31.268 42.823 31.2651 42.4952C31.2623 42.1675 31.3883 41.8517 31.616 41.616L38.2322 34.9997L31.616 28.3835C31.3816 28.1491 31.25 27.8312 31.25 27.4997C31.25 27.1683 31.3816 26.8504 31.616 26.616Z" fill="white"/>
+                    5</svg>
 
-                </button>
-            </div>
-
+                    </button>
+                </div>
             </div>
         </div>
 
