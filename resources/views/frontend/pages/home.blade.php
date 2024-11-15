@@ -9,13 +9,17 @@
     <link rel="stylesheet" type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
 
-
+    <script src="https://cdn.tailwindcss.com"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
 
+    <style>@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');</style>
     <style>
+        .font_syne> {
+            font-family: "Syne", sans-serif;
+        }
         .banner-container-elem {
             opacity: 0;
             transform: translateX(100%);
@@ -200,8 +204,88 @@
                 background-repeat: no-repeat;
             }
         }
+        .round-comimg{
+            height: 100px;
+            width: 100px;
+            transform: translate(-25px, -40px);
+            transition: all 0.5s;
+        }
+        .roundring-anim:hover .round-comimg{
+            height: 552px;
+            width: 525px;
+            transform: translate(-353px, -89px);
+        }
+        .roundring-anim:hover h2,
+        .roundring-anim:hover p,
+        .roundring-anim:hover svg path {
+            color: #005EEA !important;
+            fill: #005EEA;
+        }
+        .bgk-grade{
+            background: radial-gradient(83.81% 71.6% at 50% 51.6%, #00B0FF 0%, #00154E 100%);
+        }
+        .btn-hover{
+            transition: all 0.5s;
+        }
+        .btn-hover:hover{
+            background: linear-gradient(89.87deg, #00154E -3.29%, #00B0FF 114.96%);
+        }
+
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .marquee-content {
+            display: inline-flex;
+            animation: marquee 15s linear infinite;
+            min-width: 200%; /* Make the content twice the width of the container */
+        }
+
+        .marquee-content div {
+            display: inline-block;
+            margin-right: 20px; /* Adjust space between images */
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        .animate-marquee {
+            animation: marquee 15s linear infinite;
+        }
+
+        .bg-under-ourse{
+            background: #0066FF66;
+            background-image: url(assets/home_Banner/undergradeourserv.png) !important;
+            width: 100%;
+            height: 50%;
+        }
+        .ourservices{
+            /* background: linear-gradient(360deg, rgba(4, 26, 55, 0) 0%, #041937 100%); */
+            background: linear-gradient(90deg, rgba(4,25,55,1) 0%, rgba(4,25,55,1) 100%);
+        }
+        
+        .image-video{
+            transition: all 2s;
+        }
+        .image-to-video:hover .image-video{
+            transform: scale(1.2);
+        }
+        .bg-grade-testimonial{
+            background: linear-gradient(57.95deg, #060B12 -23.39%, #001533 65.33%);
+        }
+
 
     </style>
+
 
     <div class="relative overflow-hidden">
         {{--old banner section --}}
@@ -285,358 +369,345 @@
     </div>
     @include('frontend.Common.whatsapplogo')
     <div class="bg-[#051b3b]">
-        {{-- our service section --}}
-        <div class="serviceSection relative overflow-hidden z-10 bg-[#051b3b]">
-            <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full pt-10 lg:pt0">
-                <div class="md:flex items-center">
-                    <h2
-                        class="left-to-right-animation font_inter font-semibold text-[46px] md:text-[50px] lg:text-[65px] 2xl:text-[100px] text-white leading-none uppercase gradient-text">
-                        <span class="inline-block">
-                            @if (isset($home))
-                                {{ $home->service_first_title }}
-                            @endif
-                        </span><span class="inline-block">
-                            @if (isset($home))
-                                {{ $home->service_second_title }}
-                            @endif
-                        </span>
-                    </h2>
-                    <div class="md:pl-2 lg:pl-10 w-full lg:mb-[-8%] 2xl:mb-[-10%]">
-                        <div class="my-4 lg:mt-[16px] flex justify-start md:justify-end items-center">
-                            <div
-                                class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[4.5px] pl-5 pr-1 lg:mt-[-76px] overflow-hidden group">
-                                <div
-                                    class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full">
-                                </div>
-                                <h6 class="relative z-10 text-white text-[10px] md:text-[12px] 2xl:text-[16px]">Let's turn
-                                    your vision into reality.</h6>
-                                <div
-                                    class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[4px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
-                                    <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
-                                </div>
+
+        {{--our services --}}
+        <div class="ourservices rounded-b-[153px] relative">
+            <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full relative z-10">
+                <div class="rounded-lg bgk-grade overflow-hidden my-14 relative">
+                    <div class="py-8 px-8 relative z-10">
+                        <div class="flex justify-between items-center relative overflow-hidden">
+                            <div class="border-r-white border-r-[1px]  h-full pr-14">
+                                <h2 class="pb-8 text-white">
+                                    <span class="font_inter text-6xl font-normal uppercase">our services</span>
+                                    <span class="font-semibold text-xl capitalize">Visa Immigration for a Brighter You Future</span>
+                                </h2>
+                                <p class="font_inter text-base font-normal text-white w-3/4">
+                                    We enable some of the most demanding organizations to enrich customer 
+                                    experiences, optimize efficiencies, launch new platforms, and monetize 
+                                    data opportunities. We offer fully-managed and end-to-end technology, 
+                                    tools, talent, 
+                                </p>
+                            </div>
+
+                            <div class="w-[40%] pl-14">
+                                <h3 class="font_inter text-xl font-extrabold text-white w-3/5">Find your Eligibility for PR</h3>
+                                <button class="font_syne uppercase font-bold text-base whitespace-nowrap border border-white py-2 px-5 rounded-full my-4 text-white">Free Eligibility Check</button>
                             </div>
                         </div>
-                        <div class="w-full left-to-right-width-animation" style="border: 1px solid #FFFFFF8C;"></div>
+                        <div class="border-white border-[0.5px] w-full mt-10"></div>
+                    </div>
+                    <div class="absolute inset-0 w-full h-full">
+                        <img src="{{ asset('assets/home_Banner/vector-ourser.png') }}" alt="">
                     </div>
                 </div>
-                <h4
-                    class="text-white font_inter font-semibold text-[22px] xl:text-[36px] py-4 lg:pb-0 left-to-right-animation capitalize mt-6">
-                    @if (isset($home))
-                        {{ $home->service_sub_title }}
-                    @endif
-                </h4>
-                <p
-                    class="text-white font_inter font-extralight text-justify text-[14px] xl:text-[16px] left-to-right-animation">
-                    @if (isset($home))
-                        {{ $home->service_description }}
-                    @endif
-                </p>
-                <div class="grid gap-5 my-16 lg:mt-16 lg:mb-0 w-full lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1">
-                    @foreach ($serviceCategory as $data)
-                        <div class="relative overflow-hidden">
-                            <div class="flex items-center gap-[10px] p-[20px] bg-white rounded-t-xl rounded-br-xl">
-                                <img class="w-[35px] 2xl:w-[55px]" src="{{ asset('assets/home_Banner/box-one.png') }}" alt="">
-                                <h2 class="text-[18px] 2xl:text-[22px] text-[#062358] font_inter font-bold w-1/2 clamp-text-two ">
-                                    {{ $data->title }}
-                                </h2>
+
+                <div class="flex justify-between items-center gap-6">
+                    <div class="max-w-xs p-6 bgk-grade rounded-[26px] text-white shadow-lg relative font-sans overflow-hidden roundring-anim">
+                        <!-- SVG Icon in the top-right corner -->
+                        <div class="flex justify-between items-center">
+                            <div class="relative z-10">
+                                <svg width="40" height="44" viewBox="0 0 36 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 34.7294C0 30.122 4.68675 23.2109 18 23.2109C18.801 23.2109 19.5705 23.2354 20.3085 23.2846L19.6875 27.8597C19.1254 27.8315 18.5627 27.8177 18 27.8183V37.0331H27V41.6405H22.5V37.0331H18V41.6405H0V34.7294ZM18 20.9072C16.5871 20.9064 15.1901 20.6028 13.8986 20.0161C12.6072 19.4293 11.45 18.5723 10.5015 17.5002C9.55297 16.4281 8.83409 15.1646 8.39108 13.791C7.94808 12.4173 7.79077 10.964 7.92926 9.52433C8.06775 8.08471 8.49898 6.6907 9.19522 5.43195C9.89146 4.1732 10.8373 3.07758 11.9719 2.21554C13.1065 1.3535 14.4048 0.744132 15.7832 0.426621C17.1616 0.10911 18.5896 0.0904854 19.9755 0.371945L19.1025 4.89181C18.7394 4.8179 18.3702 4.78086 18 4.78123V16.2998C18.3825 16.2998 18.75 16.2629 19.1025 16.1892L19.9755 20.709C19.3249 20.8412 18.6632 20.9075 18 20.9072ZM24.5992 23.8789C26.1517 24.2222 27.5243 24.6852 28.7257 25.2381L26.361 29.1844C25.4728 28.8269 24.5558 28.5494 23.6205 28.355L24.5992 23.8789ZM31.5 41.6405V37.0331H36V41.6405H31.5ZM35.64 32.4257H30.627C30.3093 31.9556 29.9393 31.525 29.5245 31.1425L32.31 27.5096C34.065 29.03 35.1315 30.7716 35.64 32.4257ZM23.625 1.92003L21.1208 5.74879C21.7372 6.17037 22.2682 6.71404 22.68 7.34526L26.4195 4.78123C25.6806 3.64882 24.731 2.67657 23.625 1.92003ZM27.9315 8.51784L23.517 9.41168C23.6625 10.1569 23.6625 10.9241 23.517 11.6693L27.9315 12.5631C28.191 11.2278 28.191 9.85319 27.9315 8.51784ZM26.4195 16.2998L22.68 13.7357C22.2682 14.3669 21.7372 14.9106 21.1208 15.3322L23.625 19.161C24.7275 18.403 25.6792 17.4309 26.4195 16.2998Z" fill="white"/>
+                                </svg>
                             </div>
 
-                            <div class="flex justify-between">
-                                <div class="bg-white rounded-b-xl w-full lg:w-[30%] xl:w-[42%] 2xl:w-full text-white 2xl:h-full relative circle-round">
-                                    <button class="rounded-full px-5 py-0 my-0 2xl:py-2 2xl:my-2 mx-2 border border-white text-white flex items-center gap-[10px] w-fit invisible">
-                                        Apply Now
-                                        <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M13.7266 5.37891L10.2266 8.87891C9.89844 9.23438 9.32422 9.23438 8.99609 8.87891C8.64062 8.55078 8.64062 7.97656 8.99609 7.64844L10.9922 5.625H0.875C0.382812 5.625 0 5.24219 0 4.75C0 4.23047 0.382812 3.875 0.875 3.875H10.9922L8.99609 1.87891C8.64062 1.55078 8.64062 0.976562 8.99609 0.648438C9.32422 0.292969 9.89844 0.292969 10.2266 0.648438L13.7266 4.14844C14.082 4.47656 14.082 5.05078 13.7266 5.37891Z" fill="white"/>
-                                        </svg>
-                                    </button>
-                                </div>
-                                <div class="bg-[#051b3b] rounded-tl-xl w-full overflow-hidden">
-                                    <button class="rounded-full px-5 py-2 my-2 mx-2 border border-white text-white flex items-center gap-[10px] w-fit">
-                                        Apply Now
-                                        <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M13.7266 5.37891L10.2266 8.87891C9.89844 9.23438 9.32422 9.23438 8.99609 8.87891C8.64062 8.55078 8.64062 7.97656 8.99609 7.64844L10.9922 5.625H0.875C0.382812 5.625 0 5.24219 0 4.75C0 4.23047 0.382812 3.875 0.875 3.875H10.9922L8.99609 1.87891C8.64062 1.55078 8.64062 0.976562 8.99609 0.648438C9.32422 0.292969 9.89844 0.292969 10.2266 0.648438L13.7266 4.14844C14.082 4.47656 14.082 5.05078 13.7266 5.37891Z" fill="white"/>
-                                        </svg>
-                                    </button>
+                            <div class="relative">
+                                <div class="bg-white rounded-full absolute p-6 round-comimg"></div>
+                                <div class="relative z-10">
+                                    <svg width="36" height="40" viewBox="0 0 34 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M33.6332 4.9329L29.7049 0.860485L6.13464 25.295V2.89669L0.556349 2.89669V35.1502H31.669L31.669 29.3674L10.063 29.3674L33.6332 4.9329Z" fill="#005EEA"/>
+                                    </svg>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
-                </div>
+                        <!-- Card Content -->
+                        <h2 class="text-4xl font-bold font_inter mt-8 mb-4 relative z-10 w-[50%]">Temporary Residency</h2>
+                        <p class="text-gray-200 font_inter font-normal text-sm mb-6 relative z-10">Lorem Ipsum is simply dummy text the printing and provide best visa ever</p>
+                        <!-- Action Buttons -->
+                        <div class="space-y-2 relative z-10">
+                            <button class="w-full bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
+                            Study in Canada <span>→</span>
+                            </button>
+                            <button class="w-full bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
+                            Work in Canada <span>→</span>
+                            </button>
+                            <button class="w-full bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
+                            Visit Canada <span>→</span>
+                            </button>
+                        </div>
+                    </div>
 
+                    <div class="max-w-xs p-6 bgk-grade rounded-[26px] text-white shadow-lg relative font-sans overflow-hidden roundring-anim">
+                        <!-- SVG Icon in the top-right corner -->
+                        <div class="flex justify-between items-center">
+                            <div class="relative z-10">
+                                <svg width="40" height="44" viewBox="0 0 36 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 34.7294C0 30.122 4.68675 23.2109 18 23.2109C18.801 23.2109 19.5705 23.2354 20.3085 23.2846L19.6875 27.8597C19.1254 27.8315 18.5627 27.8177 18 27.8183V37.0331H27V41.6405H22.5V37.0331H18V41.6405H0V34.7294ZM18 20.9072C16.5871 20.9064 15.1901 20.6028 13.8986 20.0161C12.6072 19.4293 11.45 18.5723 10.5015 17.5002C9.55297 16.4281 8.83409 15.1646 8.39108 13.791C7.94808 12.4173 7.79077 10.964 7.92926 9.52433C8.06775 8.08471 8.49898 6.6907 9.19522 5.43195C9.89146 4.1732 10.8373 3.07758 11.9719 2.21554C13.1065 1.3535 14.4048 0.744132 15.7832 0.426621C17.1616 0.10911 18.5896 0.0904854 19.9755 0.371945L19.1025 4.89181C18.7394 4.8179 18.3702 4.78086 18 4.78123V16.2998C18.3825 16.2998 18.75 16.2629 19.1025 16.1892L19.9755 20.709C19.3249 20.8412 18.6632 20.9075 18 20.9072ZM24.5992 23.8789C26.1517 24.2222 27.5243 24.6852 28.7257 25.2381L26.361 29.1844C25.4728 28.8269 24.5558 28.5494 23.6205 28.355L24.5992 23.8789ZM31.5 41.6405V37.0331H36V41.6405H31.5ZM35.64 32.4257H30.627C30.3093 31.9556 29.9393 31.525 29.5245 31.1425L32.31 27.5096C34.065 29.03 35.1315 30.7716 35.64 32.4257ZM23.625 1.92003L21.1208 5.74879C21.7372 6.17037 22.2682 6.71404 22.68 7.34526L26.4195 4.78123C25.6806 3.64882 24.731 2.67657 23.625 1.92003ZM27.9315 8.51784L23.517 9.41168C23.6625 10.1569 23.6625 10.9241 23.517 11.6693L27.9315 12.5631C28.191 11.2278 28.191 9.85319 27.9315 8.51784ZM26.4195 16.2998L22.68 13.7357C22.2682 14.3669 21.7372 14.9106 21.1208 15.3322L23.625 19.161C24.7275 18.403 25.6792 17.4309 26.4195 16.2998Z" fill="white"/>
+                                </svg>
+                            </div>
+
+                            <div class="relative">
+                                <div class="bg-white rounded-full absolute p-6 round-comimg"></div>
+                                <div class="relative z-10">
+                                    <svg width="36" height="40" viewBox="0 0 34 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M33.6332 4.9329L29.7049 0.860485L6.13464 25.295V2.89669L0.556349 2.89669V35.1502H31.669L31.669 29.3674L10.063 29.3674L33.6332 4.9329Z" fill="#005EEA"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Content -->
+                        <h2 class="text-4xl font-bold font_inter mt-8 mb-4 relative z-10 w-[50%]">Temporary Residency</h2>
+                        <p class="text-gray-200 font_inter font-normal text-sm mb-6 relative z-10">Lorem Ipsum is simply dummy text the printing and provide best visa ever</p>
+                        <!-- Action Buttons -->
+                        <div class="space-y-2 relative z-10">
+                            <button class="w-full bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
+                            Study in Canada <span>→</span>
+                            </button>
+                            <button class="w-full bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
+                            Work in Canada <span>→</span>
+                            </button>
+                            <button class="w-full bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
+                            Visit Canada <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="max-w-xs p-6 bgk-grade rounded-[26px] text-white shadow-lg relative font-sans overflow-hidden roundring-anim">
+                        <!-- SVG Icon in the top-right corner -->
+                        <div class="flex justify-between items-center">
+                            <div class="relative z-10">
+                                <svg width="40" height="44" viewBox="0 0 36 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 34.7294C0 30.122 4.68675 23.2109 18 23.2109C18.801 23.2109 19.5705 23.2354 20.3085 23.2846L19.6875 27.8597C19.1254 27.8315 18.5627 27.8177 18 27.8183V37.0331H27V41.6405H22.5V37.0331H18V41.6405H0V34.7294ZM18 20.9072C16.5871 20.9064 15.1901 20.6028 13.8986 20.0161C12.6072 19.4293 11.45 18.5723 10.5015 17.5002C9.55297 16.4281 8.83409 15.1646 8.39108 13.791C7.94808 12.4173 7.79077 10.964 7.92926 9.52433C8.06775 8.08471 8.49898 6.6907 9.19522 5.43195C9.89146 4.1732 10.8373 3.07758 11.9719 2.21554C13.1065 1.3535 14.4048 0.744132 15.7832 0.426621C17.1616 0.10911 18.5896 0.0904854 19.9755 0.371945L19.1025 4.89181C18.7394 4.8179 18.3702 4.78086 18 4.78123V16.2998C18.3825 16.2998 18.75 16.2629 19.1025 16.1892L19.9755 20.709C19.3249 20.8412 18.6632 20.9075 18 20.9072ZM24.5992 23.8789C26.1517 24.2222 27.5243 24.6852 28.7257 25.2381L26.361 29.1844C25.4728 28.8269 24.5558 28.5494 23.6205 28.355L24.5992 23.8789ZM31.5 41.6405V37.0331H36V41.6405H31.5ZM35.64 32.4257H30.627C30.3093 31.9556 29.9393 31.525 29.5245 31.1425L32.31 27.5096C34.065 29.03 35.1315 30.7716 35.64 32.4257ZM23.625 1.92003L21.1208 5.74879C21.7372 6.17037 22.2682 6.71404 22.68 7.34526L26.4195 4.78123C25.6806 3.64882 24.731 2.67657 23.625 1.92003ZM27.9315 8.51784L23.517 9.41168C23.6625 10.1569 23.6625 10.9241 23.517 11.6693L27.9315 12.5631C28.191 11.2278 28.191 9.85319 27.9315 8.51784ZM26.4195 16.2998L22.68 13.7357C22.2682 14.3669 21.7372 14.9106 21.1208 15.3322L23.625 19.161C24.7275 18.403 25.6792 17.4309 26.4195 16.2998Z" fill="white"/>
+                                </svg>
+                            </div>
+
+                            <div class="relative">
+                                <div class="bg-white rounded-full absolute p-6 round-comimg"></div>
+                                <div class="relative z-10">
+                                    <svg width="36" height="40" viewBox="0 0 34 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M33.6332 4.9329L29.7049 0.860485L6.13464 25.295V2.89669L0.556349 2.89669V35.1502H31.669L31.669 29.3674L10.063 29.3674L33.6332 4.9329Z" fill="#005EEA"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Content -->
+                        <h2 class="text-4xl font-bold font_inter mt-8 mb-4 relative z-10 w-[50%]">Temporary Residency</h2>
+                        <p class="text-gray-200 font_inter font-normal text-sm mb-6 relative z-10">Lorem Ipsum is simply dummy text the printing and provide best visa ever</p>
+                        <!-- Action Buttons -->
+                        <div class="space-y-2 relative z-10">
+                            <button class="w-full bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
+                            Study in Canada <span>→</span>
+                            </button>
+                            <button class="w-full bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
+                            Work in Canada <span>→</span>
+                            </button>
+                            <button class="w-full bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
+                            Visit Canada <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="max-w-xs p-6 bgk-grade rounded-[26px] text-white shadow-lg relative font-sans overflow-hidden roundring-anim">
+                        <!-- SVG Icon in the top-right corner -->
+                        <div class="flex justify-between items-center">
+                            <div class="relative z-10">
+                                <svg width="40" height="44" viewBox="0 0 36 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 34.7294C0 30.122 4.68675 23.2109 18 23.2109C18.801 23.2109 19.5705 23.2354 20.3085 23.2846L19.6875 27.8597C19.1254 27.8315 18.5627 27.8177 18 27.8183V37.0331H27V41.6405H22.5V37.0331H18V41.6405H0V34.7294ZM18 20.9072C16.5871 20.9064 15.1901 20.6028 13.8986 20.0161C12.6072 19.4293 11.45 18.5723 10.5015 17.5002C9.55297 16.4281 8.83409 15.1646 8.39108 13.791C7.94808 12.4173 7.79077 10.964 7.92926 9.52433C8.06775 8.08471 8.49898 6.6907 9.19522 5.43195C9.89146 4.1732 10.8373 3.07758 11.9719 2.21554C13.1065 1.3535 14.4048 0.744132 15.7832 0.426621C17.1616 0.10911 18.5896 0.0904854 19.9755 0.371945L19.1025 4.89181C18.7394 4.8179 18.3702 4.78086 18 4.78123V16.2998C18.3825 16.2998 18.75 16.2629 19.1025 16.1892L19.9755 20.709C19.3249 20.8412 18.6632 20.9075 18 20.9072ZM24.5992 23.8789C26.1517 24.2222 27.5243 24.6852 28.7257 25.2381L26.361 29.1844C25.4728 28.8269 24.5558 28.5494 23.6205 28.355L24.5992 23.8789ZM31.5 41.6405V37.0331H36V41.6405H31.5ZM35.64 32.4257H30.627C30.3093 31.9556 29.9393 31.525 29.5245 31.1425L32.31 27.5096C34.065 29.03 35.1315 30.7716 35.64 32.4257ZM23.625 1.92003L21.1208 5.74879C21.7372 6.17037 22.2682 6.71404 22.68 7.34526L26.4195 4.78123C25.6806 3.64882 24.731 2.67657 23.625 1.92003ZM27.9315 8.51784L23.517 9.41168C23.6625 10.1569 23.6625 10.9241 23.517 11.6693L27.9315 12.5631C28.191 11.2278 28.191 9.85319 27.9315 8.51784ZM26.4195 16.2998L22.68 13.7357C22.2682 14.3669 21.7372 14.9106 21.1208 15.3322L23.625 19.161C24.7275 18.403 25.6792 17.4309 26.4195 16.2998Z" fill="white"/>
+                                </svg>
+                            </div>
+
+                            <div class="relative">
+                                <div class="bg-white rounded-full absolute p-6 round-comimg"></div>
+                                <div class="relative z-10">
+                                    <svg width="36" height="40" viewBox="0 0 34 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M33.6332 4.9329L29.7049 0.860485L6.13464 25.295V2.89669L0.556349 2.89669V35.1502H31.669L31.669 29.3674L10.063 29.3674L33.6332 4.9329Z" fill="#005EEA"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Content -->
+                        <h2 class="text-4xl font-bold font_inter mt-8 mb-4 relative z-10 w-[50%]">Temporary Residency</h2>
+                        <p class="text-gray-200 font_inter font-normal text-sm mb-6 relative z-10">Lorem Ipsum is simply dummy text the printing and provide best visa ever</p>
+                        <!-- Action Buttons -->
+                        <div class="space-y-2 relative z-10">
+                            <button class="w-full bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
+                            Study in Canada <span>→</span>
+                            </button>
+                            <button class="w-full bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
+                            Work in Canada <span>→</span>
+                            </button>
+                            <button class="w-full bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
+                            Visit Canada <span>→</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="overflow-hidden whitespace-nowrap flex items-center py-6 relative z-10">
+                <div class="marquee-content animate-marquee flex items-center gap-24">
+                    <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/splunk.png') }}" alt="" class="w-full"></div>
+                    <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/segment.png') }}" alt="" class="w-full"></div>
+                    <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/Hubspot.png') }}" alt="" class="w-full"></div>
+                    <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/asna.png') }}" alt="" class="w-full"></div>
+                    <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/airtasker.png') }}" alt="" class="w-full"></div>
+                    <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/splunk.png') }}" alt="" class="w-full"></div>
+                    
+                    <!-- Duplicate images to create a seamless loop -->
+                    <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/segment.png') }}" alt="" class="w-full"></div>
+                    <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/Hubspot.png') }}" alt="" class="w-full"></div>
+                    <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/asna.png') }}" alt="" class="w-full"></div>
+                    <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/airtasker.png') }}" alt="" class="w-full"></div>
+                    <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/splunk.png') }}" alt="" class="w-full"></div>
+                </div>
+            </div>
+
+            <div class="flex justify-center py-6 relative z-10 pb-20">
+                <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[4.5px] pl-5 pr-1 overflow-hidden group">
+                    <!-- Initially the background will cover the full button -->
+                    <div
+                        class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full">
+                    </div>
+                    <h6 class="relative z-10 text-white text-[12px] xl:text-[14px]">Let's turn your vision into reality</h6>
+                    <div
+                        class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:pb-[2px] xl:pt-[1px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                        <a href="" class="h-full text-[12px] xl:text-[14px]">Connect Us</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="absolute bottom-0 bg-under-ourse rounded-b-[153px]">
+                <img src="{{ asset('assets/home_Banner/imgage-vect-line.png') }}" alt="" class="">
             </div>
         </div>
 
-        {{-- eligibility check section --}}
-        <div class="eligibilitySection relative overflow-hidden z-10 bg-[#051b3b]">
-            <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full pt-10 lg:pt0">
-                <div class="lg:flex items-center mapbg">
-                    <div class="w-[100%]">
-                        <h2 class="left-to-right-animation font_inter font-semibold text-[46px] md:text-[50px] lg:text-[53px]  text-white leading-none gradient-text">
-                            <span class="inline-block">Find your</span>
-                            <span class="flex items-center gap-[25px]"><span class="">Eligibility for PR</span> <span><img class="w-[85px]" src="{{ asset('assets/home_Banner/eligiblity.png') }}" alt=""></span></span>
-                        </h2>
-                        <p class="text-white font_inter font-extralight text-justify text-[14px] xl:text-[16px] left-to-right-animation mt-4">
-                            Welcome to our CRS Score Calculator tool, designed to help you determine your
-                            Comprehensive Ranking System (CRS) score based on the information you provide.
-                            The CRS is a pivotal points-based system utilized for evaluating and ranking
-                            profiles within the Express Entry pool, a key component of Canadian immigration
+        {{-- what makes us diff --}}
+        <div class="what makes bg-[#051b3b]">
+            <div class="container mx-auto px-5 xl:px-12 lg:mt-28 h-full w-full">
+                <div>
+                    <div class="flex justify-center items-center">
+                        <div class="flex items-end w-full gap-2 lg:gap-7">
+                            <h2 class="uppercase text-white font_inter font-normal text-6xl w-full whitespace-nowrap">What Makes us Different</h2>
+                            <div class="w-full" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
+                        </div>
+
+                        <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[4.5px] pl-5 pr-1 group">
+                            <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 min-w-fit max-w-full rounded-full"></div>
+                            <h6 class="relative z-10 text-white text-[12px] xl:text-[14px] whitespace-nowrap">Let's turn your vision into reality</h6>
+                            <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:pb-[2px] xl:pt-[1px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                                <a href="" class="h-full text-[12px] xl:text-[14px]">Connect Us</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-start gap-[10%] my-16">
+                        <div class="text-white w-full flex flex-col justify-between h-full">
+                            <div>
+                                <p class="font_inter font-medium text-[20px] mb-6">Service You Can Rely On Experience You Can Trust</p>
+                                <p class="font_inter font-normal text-[15px] my-6 text-justify">
+                                    We will provide you with a comprehensive, no-hassle 
+                                    breakdown of all service fees from beginning to end 
+                                    once you have determined that you are satisfied with 
+                                    our assessment! Additionally, we provide cost-free, 
+                                    adaptable payment plans.
+                                </p>
+                            </div>
+
+                            <div>
+                                <h5>60+</h5>
+                                <h6>Years of Experience</h6>
+                            </div>
+
+                            <div class="flex justify-between items-center">
+                                <div>
+                                    <h5>100+</h5>
+                                    <span>Employes</span>
+                                </div>
+
+                                <div>
+                                    <h5>4.5</h5>
+                                    <span>Ratings</span>
+                                </div>
+
+                                <div>
+                                    <h5>05</h5>
+                                    <span>Offices</span>
+                                </div>
+
+                                <div>
+                                    <h5>30k+</h5>
+                                    <span>Customers Served</span>
+                                </div>
+
+                                <div>
+                                    <h5>3k+</h5>
+                                    <span>Active Cases</span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="w-full flex justify-center items-center rounded-lg overflow-hidden image-to-video">
+                            <img src="{{ asset('assets/home_Banner/suareman.png.jpeg') }}" alt="" style="object-position: 0px -144px;" class="w-full h-[300px] object-cover image-video">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{-- Regulated --}}
+        <div class="Regulated bg-[#051b3b]">
+            <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full">
+                <div class="w-full h-[500px]">
+                    <img src="{{ asset('assets/canada.png') }}" alt="Background Image" class="">
+                </div>
+            </div>
+        </div>
+
+        {{-- Testimonial --}}
+        <div class="Regulated bg-[#051b3b]">
+            <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full">
+                <div class="flex">
+
+                    <div class="max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
+                        <div class="flex items-center justify-between space-x-4 mb-4">
+                            <div class="flex items-center gap-2">
+                                <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
+                                
+                                <div>
+                                    <h2 class="text-lg font-semibold">Albert Flores</h2>
+                                    <p class="text-sm text-gray-400">Medical Assistant</p>
+                                </div>
+                            </div>
+                            <div class="ml-auto flex items-center gap-2">
+                                <span class="text-lg font-bold">5.0</span>
+                                <div class="text-yellow-500 flex items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24">
+                                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24">
+                                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24">
+                                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="text-sm text-gray-300 leading-relaxed">
+                            We have been operating for over a decade, providing top-notch services to our clients and building a strong track record in the industry.
                         </p>
 
-                        <h4 class="text-white font_inter font-medium text-[22px] xl:w-[70%] py-4 lg:pb-0 left-to-right-animation capitalize 2xl:mt-6">Navigate Your Canadian Immigration Journey with Confidence</h4>
-
-                        <div class="left-to-right-animation">
-                            <a href="#" class="px-6 py-2 block w-fit mt-6 border-2 border-white  text-white bg-[#0a2540] rounded-full font-bold text-sm uppercase hover:bg-white hover:text-[#0a2540] transition duration-300">
-                                Free Eligibility Check
-                            </a>
-                        </div>
-
-                    </div>
-                    <div class="w-full flex justify-center my-24 lg:my-0"><img class="w-full lg:w-[75%] 2xl:w-[65%] object-contain" src="{{ asset('assets/home_Banner/backgroun-eligiblity.png') }}" alt=""></div>
-                </div>
-            </div>
-        </div>
-
-        {{-- who are --}}
-        <div class="whoSec bg-[#051b3b] my-8 lg:my-0">
-            <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full">
-                <div class="md:flex md:justify-between items-end ">
-                    <div class="lg:w-full flex items-end">
-                        <h2
-                            class="font_inter font-semibold text-[46px] md:text-[50px] lg:text-[65px] 2xl:text-[100px] text-white leading-none uppercase secleft-to-right-animation flex flex-col">
-                            <span class="inline-block">
-                                @if (isset($home))
-                                    {{ $home->who_we_are_first_title }}
-                                @endif
-                            </span>
-                            <span class="inline-block whitespace-nowrap">
-                                @if (isset($home))
-                                    {{ $home->who_we_are_second_title }}
-                                @endif
-                            </span>
-                        </h2>
-                        <div class="w-full mb-4 secleft-to-right-width-animation lg:ml-10"
-                            style="border: 1px solid #FFFFFF8C;"></div>
-                    </div>
-                    {{-- know more button animtion --}}
-                    <div class="animation-section" style="">
-                        <div class="flex lg:justify-end flex-col items-center pt-4 lg:pt-0">
-                            <div class="flex items-center gap-7 whitespace-nowrap mb-7">
-                                <div class="text-white">Meet our Firm</div>
-                                <button class="flex items-center gap-4 rounded-full knowmore border border-white px-6 py-2"
-                                    data-line="1">
-                                    <div class="text-white">Know more</div>
-                                    <svg width="15" height="10" viewBox="0 0 15 10" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M13.7266 5.37891L10.2266 8.87891C9.89844 9.23438 9.32422 9.23438 8.99609 8.87891C8.64062 8.55078 8.64062 7.97656 8.99609 7.64844L10.9922 5.625H0.875C0.382812 5.625 0 5.24219 0 4.75C0 4.23047 0.382812 3.875 0.875 3.875H10.9922L8.99609 1.87891C8.64062 1.55078 8.64062 0.976562 8.99609 0.648438C9.32422 0.292969 9.89844 0.292969 10.2266 0.648438L13.7266 4.14844C14.082 4.47656 14.082 5.05078 13.7266 5.37891Z"
-                                            fill="white" />
-                                    </svg>
-                                </button>
-                            </div>
-                            <div class="w-full h-[1px] mb-4 bg-[#FFFFFF8C] flex items-center">
-                                <div class="w-[5%] h-[5px] bg-[#FFFFFF8C] rounded-full expandable-line" data-line="1">
-                                </div>
-                            </div>
+                        <div class="flex justify-end items-end my-8">
+                            <svg width="44" height="22" viewBox="0 0 54 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M27.8743 28.0432C27.495 27.7398 27.4191 27.3605 27.5708 26.7156L34.8539 1.49053C34.9677 0.997404 35.3849 0.656008 35.916 0.656008H53.0615C53.7442 0.656008 54.0098 0.959469 54.0098 1.60432V4.18372C53.9718 4.67684 53.8201 5.13203 53.5546 5.51136L34.5125 30.6226C34.209 31.0778 33.5642 31.2296 33.071 30.9261L27.8743 28.0432ZM1.16986 28.0432C0.790531 27.7398 0.714672 27.3605 0.866402 26.7156L8.14944 1.49053C8.26323 0.959473 8.75636 0.618074 9.28741 0.656008H26.357C27.0398 0.656008 27.3053 0.959469 27.3053 1.60432V4.18372C27.2674 4.67684 27.1157 5.13203 26.8501 5.51136L7.8839 30.6226C7.58044 31.0778 6.9356 31.2296 6.44247 30.8882L1.16986 28.0432Z" fill="white"/>
+                            </svg>
                         </div>
                     </div>
 
-                </div>
-                <p class="py-5 text-white font_inter font-medium text-[18px] xl:text-[20px] lg:w-[50%] xl:w-[60%]  secleft-to-right-animation">
-                    @if (isset($home))
-                        {{ $home->who_we_are_sub_title }}
-                    @endif
-                </p>
 
-                <div class="flex flex-col lg:flex-row items-center justify-start gap-5">
-
-                    <div class="flex  flex-col gap-5">
-                        <img src="{{ asset('assets/home_Banner/videodummy.png') }}" alt="Video Thumbnail">
-                        <div class="bg-white rounded-3xl p-8 space-y-4">
-                            <div class="flex items-center space-x-3">
-                                <img src="{{ asset('assets/home_Banner/box-one.png') }}" alt="Icon">
-                                <h5 class="text-[#051B3B] font-semibold text-[26px]">
-                                    {{ $home->journey_title ?? '' }}
-                                </h5>
-                            </div>
-
-                            <p class="font_inter text-justify font-medium lg:text-[8.5px] 2xl:text-sm text-[#052350]">
-                                {{ $home->journey_description ?? '' }}
-                            </p>
-
-                            <div class="flex items-center justify-between  space-x-4">
-                                <div class="text-[#052350]">
-                                    <h2 id="count-number" class="font_inter font-bold text-[85px] leading-none">
-                                        {{ $journey->experience ?? '' }} +
-                                    </h2>
-                                    <input type="hidden" id="exp-count" value="{{ $journey->experience ?? '' }}">
-                                    <p class="lg:whitespace-nowrap">Years of Experience</p>
-                                </div>
-                                <div class="my-6 flex flex-wrap lg:w-[60%] items-start justify-start gap-5">
-                                    <div>
-                                        <h2 class="text-[#052350] font_inter font-bold text-[25px] leading-none">
-                                            {{ $journey->employees ?? '' }}
-                                        </h2>
-                                        <span class="text-[#052350]">Employees</span>
-                                    </div>
-                                    <div>
-                                        <h2 class="text-[#052350] font_inter font-bold text-[25px] leading-none">
-                                            {{ $journey->ratings ?? '' }}
-                                        </h2>
-                                        <span class="text-[#052350]">Google Rating</span>
-                                    </div>
-                                    <div>
-                                        <h2 class="text-[#052350] font_inter font-bold text-[25px] leading-none">
-                                            {{ $journey->offices ?? '' }}
-                                        </h2>
-                                        <span class="text-[#052350]">Offices</span>
-                                    </div>
-                                    <div>
-                                        <h2 class="text-[#052350] font_inter font-bold text-[25px] leading-none">
-                                            {{ $journey->customers ?? '' }}
-                                        </h2>
-                                        <span class="text-[#052350]">Customers Served</span>
-                                    </div>
-                                    <div>
-                                        <h2 class="text-[#052350] font_inter font-bold text-[25px] leading-none">
-                                            {{ $journey->cases ?? '' }}
-                                        </h2>
-                                        <span class="text-[#052350]">Active Cases</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex  flex-col gap-5">
-                        <div class="bg-black rounded-3xl p-8 text-white">
-                            <h2 class="font_inter font-semibold text-[22px] 2xl:text-2xl  xl:w-[80%]">
-                                {{ $home->certificate_title ?? '' }}
-                            </h2>
-                            <p class="py-5 font-normal font_inter text-[8px] 2xl:text-[12px] 2xl:py-10">
-                                {{ $home->certificate_description ?? '' }}
-                            </p>
-                            <div class="flex flex-col lg:flex-row gap-5 items-center mb-8">
-                                @foreach ($certificate as $data)
-                                    <div class="flex items-center flex-col justify-center">
-                                        <img class="w-[200px] max-h-[66px]" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{ $data->alt_tag ?? 'Certificate' }}">
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
-                        <img src="{{ asset('assets/home_Banner/immigration.png') }}" alt="Immigration">
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-
-        {{-- testimonial section --}}
-        <div class="testimonial bg-[#051b3b] gradient-evition relative overflow-hidden z-10">
-            <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full">
-                <div class="flex items-end w-full gap-2 lg:gap-7">
-                    <h2
-                        class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] 2xl:text-[65px] leading-none thirdleft-to-right-animation">
-                        @if (isset($home))
-                            {{ $home->testimonial_title }}
-                        @endif
-                    </h2>
-                    <div class="w-full thirdleft-to-right-width-animation"
-                        style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
-                </div>
-                <p
-                    class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%] thirdleft-to-right-animation">
-                    @if (isset($home))
-                        {{ $home->testimonial_sub_title }}
-                    @endif
-                </p>
-                <p class="text-white font_inter font-normal text-justify text-[14px] thirdleft-to-right-animation">
-                    @if (isset($home))
-                        {{ $home->testimonial_description }}
-                    @endif
-                </p>
-            </div>
-
-            <div class="testimonial-slider-wrapper pl-5 lg:pl-12 pt-9 pb-0 lg:py-[10px] z-50">
-                <div id="testimonial-slider" class="splide">
-                    <div class="splide__track">
-                        <ul class="splide__list">
-                            @foreach ($testimonials as $data)
-                                <li class="splide__slide">
-                                    <div class="max-w-md mx-auto p-6 bg-white rounded-xl shadow-lg border border-gray-200 relative">
-                                        <!-- Top Section: Quote Icon and Rating -->
-                                        <div class="flex justify-between items-start mb-4">
-                                            <!-- Quote Icon -->
-                                            <div class="w-[40px]">
-                                                <svg width="40" height="32" viewBox="0 0 54 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M27.8723 28.0452C27.493 27.7417 27.4172 27.3624 27.5689 26.7176L34.8519 1.49248C34.9657 0.999357 35.383 0.657959 35.914 0.657959H53.0595C53.7423 0.657959 54.0078 0.96142 54.0078 1.60627V4.18567C53.9699 4.67879 53.8181 5.13399 53.5526 5.51331L34.5105 30.6246C34.2071 31.0798 33.5622 31.2315 33.0691 30.9281L27.8723 28.0452ZM1.1679 28.0452C0.788574 27.7417 0.712715 27.3624 0.864445 26.7176L8.14748 1.49248C8.26128 0.961424 8.7544 0.620028 9.28545 0.657959H26.3551C27.0378 0.657959 27.3034 0.96142 27.3034 1.60627V4.18567C27.2654 4.67879 27.1137 5.13399 26.8482 5.51331L7.88195 30.6246C7.57849 31.0798 6.93364 31.2315 6.44052 30.8901L1.1679 28.0452Z" fill="#062358"/>
-                                                </svg>
-                                            </div>
-
-                                            <!-- Rating with Stars -->
-                                            <div class="flex items-center text-yellow-400">
-                                                <span class="text-lg font-semibold text-gray-800">{{ $data->rating }}</span>
-                                                @for ($i = 1; $i <= floor($data->rating); $i++)
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                                                        <path d="M12 17.27l5.18 3.73-1.64-6.73 5.18-4.27H13.82L12 2 10.18 9H4.28l5.18 4.27-1.64 6.73L12 17.27z" />
-                                                    </svg>
-                                                @endfor
-                                                @if ($data->rating - floor($data->rating) >= 0.5)
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                                                        <path d="M12 17.27l5.18 3.73-1.64-6.73 5.18-4.27H13.82L12 2 10.18 9H4.28l5.18 4.27-1.64 6.73L12 17.27z" />
-                                                    </svg>
-                                                @endif
-                                            </div>
-                                        </div>
-
-                                        <!-- Testimonial Text -->
-                                        <p class="text-[#071C3D] font-medium  text-sm leading-relaxed my-12 truncate-text">
-                                            {{ $data->description }}
-                                        </p>
-
-                                        <!-- Profile Section -->
-                                        <div class="flex items-center mt-6">
-                                            <!-- Profile Image -->
-                                            <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"
-                                                 alt="{{ $data->alt_tag }}"
-                                                 class="w-12 h-12 rounded-full border-2 border-gray-200">
-
-                                            <!-- Name and Occupation -->
-                                            <div class="ml-4">
-                                                <h3 class="text-[#051B3B] font-semibold">{{ $data->name }}</h3>
-                                                <p class="text-gray-500 text-[14px]">{{ $data->occupation }} {{ $data->place }}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full flex flex-col-reverse md:flex-row gap-4 items-center justify-between relative z-20">
-                <div class="flex justify-start items-center">
-                    <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group">
-
-                        <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full">
-                        </div>
-                        <h6 class="relative z-10 text-white text-[12px] xl:text-[16px]">Be One of Them</h6>
-                        <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
-                            <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="flex justify-center gap-3 items-center">
-                    <div class="card-testi-slide-prev-button cursor-pointer">
-                        <img class="w-[40px]" src="{{ asset('assets/Button-Previous.png') }}" alt="">
-                    </div>
-                    <div class="cursor-pointer card-testi-slide-next-button">
-                        <img class="w-[40px]" src="{{ asset('assets/nextbutton.png') }}" alt="">
-                    </div>
-                </div>
+                </div>  
             </div>
         </div>
 
@@ -650,8 +721,7 @@
                             {{ $home->blog_title }}
                         @endif
                     </h2>
-                    <div class="w-full fourthleft-to-right-width-animation"
-                        style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
+                    <div class="w-full fourthleft-to-right-width-animation" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
                 </div>
                 <p
                     class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%] fourthleft-to-right-animation">
@@ -666,16 +736,11 @@
                 </p>
 
                 <div class="flex justify-center lg:justify-start items-center my-12">
-                    <div
-                        class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group">
-                        <!-- Initially the background will cover the full button -->
-                        <div
-                            class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full">
-                        </div>
-                        <h6 class="relative z-10 text-white text-[12px] xl:text-[16px]">Be One of Them</h6>
-                        <div
-                            class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
-                            <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
+                    <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[4.5px] pl-5 pr-1 group">
+                        <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 min-w-fit max-w-full rounded-full"></div>
+                        <h6 class="relative z-10 text-white text-[12px] xl:text-[14px] whitespace-nowrap">Be One of Them</h6>
+                        <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:pb-[2px] xl:pt-[1px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                            <a href="" class="h-full text-[12px] xl:text-[14px]">Connect Us</a>
                         </div>
                     </div>
                 </div>
@@ -753,58 +818,6 @@
             </div>
         </div>
 
-        {{-- explore section --}}
-        <div class="explore-section bg-black">
-            <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full">
-                <div class="flex items-end w-full gap-2 lg:gap-7">
-                    <h2
-                        class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] 2xl:text-[65px] leading-none fifthleft-to-right-animation">
-                        @if (isset($home))
-                            {{ $home->explore_title }}
-                        @endif
-                    </h2>
-                    <div class="w-full fifthleft-to-right-width-animation"
-                        style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
-                </div>
-                <p class="text-white font_inter font-semibold text-[26px] lg:w-[35%] mt-6 fifthleft-to-right-animation">
-                    @if (isset($home))
-                        {{ $home->explore_sub_title }}
-                    @endif
-                </p>
-            </div>
-
-            <div id="exploreSplide" class="splide pb-8 md:pb-[100px] xl:pl-[50px] explore-slider-class h-[380px] z-0">
-                <div class="splide__track">
-                    <ul class="splide__list">
-                        @foreach ($explore as $data)
-                            <li class="splide__slide">
-                                <div class="!w-[90vw] xl:!w-[385px] relative image-card-explore">
-                                    <img class="w-full md:w-[350px] h-full object-cover"
-                                        src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"
-                                        alt="{{ $data->alt_tag }}">
-                                    <div
-                                        class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
-                                        <button class="text-white">view</button>
-                                    </div>
-                                </div>
-                            </li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-
-
-            <div class="container mx-auto px-5 xl:px-12 py-8 lg:pt-1 lg:pb-16  z-[99] h-full w-full">
-                <div class="flex justify-end gap-3 items-center">
-                    <div class="card-explore-slide-prev-button cursor-pointer">
-                        <img class="w-[40px]" src="{{ asset('assets/Button-Previous.png') }}" alt="">
-                    </div>
-                    <div class="cursor-pointer card-explore-slide-next-button">
-                        <img class="w-[40px]" src="{{ asset('assets/nextbutton.png') }}" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
     {{-- faq section --}}
@@ -858,8 +871,7 @@
 
             </div>
             <div class="flex justify-center py-6">
-                <div
-                    class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group w-fit">
+                <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group w-fit">
                     <!-- Background that moves on hover -->
                     <div
                         class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full">
