@@ -263,10 +263,11 @@
         }
 
         .bg-under-ourse{
-            background: #0066FF66;
-            background-image: url(assets/home_Banner/undergradeourserv.png) !important;
+            /* background: #0066FF66; */
+            background-image: url(assets/home_Banner/radiuselpse.svg) !important;
             width: 100%;
             height: 50%;
+            background-position-x: center;
         }
         .ourservices{
             /* background: linear-gradient(360deg, rgba(4, 26, 55, 0) 0%, #041937 100%); */
@@ -299,6 +300,13 @@
         .video-grade{
             background: linear-gradient(180deg, rgba(17, 49, 101, 0) 26.01%, #113165 133.05%);
 
+        }
+        .what-makes{
+            background-image: url(assets/home_Banner/radiuselpse.svg) !important;
+            width: 100%;
+            height: 100%;
+            background-position-x: center;
+            background-position-y: ;
         }
 
     </style>
@@ -344,8 +352,7 @@
                     <div
                         class="z-10 flex flex-col md:flex-row justify-center items-start md:items-center gap-4 lg:mb-7 lg:mt-10">
                         <img width="52px" src="{{ asset('assets/home_Banner/CanadaFlag.png') }}" alt="CanadaFlag">
-                        <div
-                            class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-[4.5px] pl-6 pr-1 overflow-hidden group">
+                        <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-[4.5px] pl-6 pr-1 overflow-hidden group">
                             <!-- Background animation using pseudo-element -->
                             <div
                                 class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full">
@@ -385,6 +392,7 @@
         {{-- @include('frontend.Common.modal-contact') --}}
     </div>
     @include('frontend.Common.whatsapplogo')
+
     <div class="bg-[#051b3b]">
 
         {{--our services --}}
@@ -599,8 +607,11 @@
         </div>
 
         {{-- what makes us diff --}}
-        <div class="what makes bg-[#051b3b] gradient-evition relative">
-            <div class="container mx-auto px-5 xl:px-12 lg:mt-28 h-full w-full z-10 relative">
+        <div class="what-makes relative">
+            <div class="gradient-evitionstart absolute top-0">
+                <img src="{{ asset('assets/home_Banner/sec-vectline.png') }}" alt="" class="">
+            </div>
+            <div class="container mx-auto px-5 xl:px-12 lg:my-28 h-full w-full z-10 relative">
                 <div>
                     <div class="flex justify-center items-center">
                         <div class="flex items-end w-full gap-2 lg:gap-7">
@@ -616,6 +627,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="flex justify-between items-start gap-[10%] my-8">
                         <div class="text-white w-full flex flex-col justify-between h-[424px]">
                             <div>
@@ -696,62 +708,194 @@
 
                     </div>
                 </div>
-            </div>
-        </div>
 
-        {{-- Regulated --}}
-        <div class="Regulated bg-[#051b3b]">
-            <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full">
-                <div class="w-full h-[500px]">
+                <div class="w-full h-full lg:pb-16 pt-48">
                     <img src="{{ asset('assets/canada.png') }}" alt="Background Image" class="">
                 </div>
             </div>
         </div>
 
+
         {{-- Testimonial --}}
         <div class="Regulated bg-[#051b3b]">
             <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full">
-                <div class="flex">
 
-                    <div class="max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
-                        <div class="flex items-center justify-between space-x-4 mb-4">
-                            <div class="flex items-center gap-2">
-                                <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
-
-                                <div>
-                                    <h2 class="text-lg font-semibold">Albert Flores</h2>
-                                    <p class="text-sm text-gray-400">Medical Assistant</p>
+            <!-- Splide Slider Container -->
+            <div id="testimonial-slider" class="splide">
+                <div class="splide__track">
+                    <div class="splide__list flex gap-5">
+                        <div class="splide__slide max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
+                            <div class="flex items-center justify-between space-x-4 mb-4">
+                                <div class="flex items-center gap-2">
+                                    <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
+                                    <div>
+                                        <h2 class="text-lg font-semibold">Albert Flores</h2>
+                                        <p class="text-sm text-gray-400">Medical Assistant</p>
+                                    </div>
+                                </div>
+                                <div class="ml-auto flex items-center gap-2">
+                                    <span class="text-lg font-bold">5.0</span>
+                                    <div class="text-yellow-500 flex items-center">
+                                        <!-- Stars -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                        <!-- Add more stars as needed -->
+                                    </div>
                                 </div>
                             </div>
-                            <div class="ml-auto flex items-center gap-2">
-                                <span class="text-lg font-bold">5.0</span>
-                                <div class="text-yellow-500 flex items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24">
-                                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24">
-                                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                                    </svg>
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24">
-                                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                                    </svg>
-                                </div>
+                            <p class="text-sm text-gray-300 leading-relaxed py-7">
+                                We have been operating for over a decade, providing top-notch services to our clients and building a strong track record in the industry.
+                            </p>
+                            <div class="flex justify-end items-center">
+                                <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
                             </div>
                         </div>
-
-                        <p class="text-sm text-gray-300 leading-relaxed">
-                            We have been operating for over a decade, providing top-notch services to our clients and building a strong track record in the industry.
-                        </p>
-
-                        <div class="flex justify-end items-end my-8">
-                            <svg width="44" height="22" viewBox="0 0 54 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M27.8743 28.0432C27.495 27.7398 27.4191 27.3605 27.5708 26.7156L34.8539 1.49053C34.9677 0.997404 35.3849 0.656008 35.916 0.656008H53.0615C53.7442 0.656008 54.0098 0.959469 54.0098 1.60432V4.18372C53.9718 4.67684 53.8201 5.13203 53.5546 5.51136L34.5125 30.6226C34.209 31.0778 33.5642 31.2296 33.071 30.9261L27.8743 28.0432ZM1.16986 28.0432C0.790531 27.7398 0.714672 27.3605 0.866402 26.7156L8.14944 1.49053C8.26323 0.959473 8.75636 0.618074 9.28741 0.656008H26.357C27.0398 0.656008 27.3053 0.959469 27.3053 1.60432V4.18372C27.2674 4.67684 27.1157 5.13203 26.8501 5.51136L7.8839 30.6226C7.58044 31.0778 6.9356 31.2296 6.44247 30.8882L1.16986 28.0432Z" fill="white"/>
-                            </svg>
+                        <div class="splide__slide max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
+                            <div class="flex items-center justify-between space-x-4 mb-4">
+                                <div class="flex items-center gap-2">
+                                    <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
+                                    <div>
+                                        <h2 class="text-lg font-semibold">Albert Flores</h2>
+                                        <p class="text-sm text-gray-400">Medical Assistant</p>
+                                    </div>
+                                </div>
+                                <div class="ml-auto flex items-center gap-2">
+                                    <span class="text-lg font-bold">5.0</span>
+                                    <div class="text-yellow-500 flex items-center">
+                                        <!-- Stars -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                        <!-- Add more stars as needed -->
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-300 leading-relaxed py-7">
+                                We have been operating for over a decade, providing top-notch services to our clients and building a strong track record in the industry.
+                            </p>
+                            <div class="flex justify-end items-center">
+                                <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
+                            </div>
+                        </div>
+                        <div class="splide__slide max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
+                            <div class="flex items-center justify-between space-x-4 mb-4">
+                                <div class="flex items-center gap-2">
+                                    <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
+                                    <div>
+                                        <h2 class="text-lg font-semibold">Albert Flores</h2>
+                                        <p class="text-sm text-gray-400">Medical Assistant</p>
+                                    </div>
+                                </div>
+                                <div class="ml-auto flex items-center gap-2">
+                                    <span class="text-lg font-bold">5.0</span>
+                                    <div class="text-yellow-500 flex items-center">
+                                        <!-- Stars -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                        <!-- Add more stars as needed -->
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-300 leading-relaxed py-7">
+                                We have been operating for over a decade, providing top-notch services to our clients and building a strong track record in the industry.
+                            </p>
+                            <div class="flex justify-end items-center">
+                                <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
+                            </div>
+                        </div>
+                        <div class="splide__slide max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
+                            <div class="flex items-center justify-between space-x-4 mb-4">
+                                <div class="flex items-center gap-2">
+                                    <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
+                                    <div>
+                                        <h2 class="text-lg font-semibold">Albert Flores</h2>
+                                        <p class="text-sm text-gray-400">Medical Assistant</p>
+                                    </div>
+                                </div>
+                                <div class="ml-auto flex items-center gap-2">
+                                    <span class="text-lg font-bold">5.0</span>
+                                    <div class="text-yellow-500 flex items-center">
+                                        <!-- Stars -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                        <!-- Add more stars as needed -->
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-300 leading-relaxed py-7">
+                                We have been operating for over a decade, providing top-notch services to our clients and building a strong track record in the industry.
+                            </p>
+                            <div class="flex justify-end items-center">
+                                <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
+                            </div>
+                        </div>
+                        <div class="splide__slide max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
+                            <div class="flex items-center justify-between space-x-4 mb-4">
+                                <div class="flex items-center gap-2">
+                                    <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
+                                    <div>
+                                        <h2 class="text-lg font-semibold">Albert Flores</h2>
+                                        <p class="text-sm text-gray-400">Medical Assistant</p>
+                                    </div>
+                                </div>
+                                <div class="ml-auto flex items-center gap-2">
+                                    <span class="text-lg font-bold">5.0</span>
+                                    <div class="text-yellow-500 flex items-center">
+                                        <!-- Stars -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                        <!-- Add more stars as needed -->
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-300 leading-relaxed py-7">
+                                We have been operating for over a decade, providing top-notch services to our clients and building a strong track record in the industry.
+                            </p>
+                            <div class="flex justify-end items-center">
+                                <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
+                            </div>
+                        </div>
+                        <div class="splide__slide max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
+                            <div class="flex items-center justify-between space-x-4 mb-4">
+                                <div class="flex items-center gap-2">
+                                    <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
+                                    <div>
+                                        <h2 class="text-lg font-semibold">Albert Flores</h2>
+                                        <p class="text-sm text-gray-400">Medical Assistant</p>
+                                    </div>
+                                </div>
+                                <div class="ml-auto flex items-center gap-2">
+                                    <span class="text-lg font-bold">5.0</span>
+                                    <div class="text-yellow-500 flex items-center">
+                                        <!-- Stars -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                        <!-- Add more stars as needed -->
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="text-sm text-gray-300 leading-relaxed py-7">
+                                We have been operating for over a decade, providing top-notch services to our clients and building a strong track record in the industry.
+                            </p>
+                            <div class="flex justify-end items-center">
+                                <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
+                            </div>
                         </div>
                     </div>
-
-
                 </div>
+            </div>
+
+            <!-- Custom Navigation Buttons -->
+            <div class="flex justify-center mt-4 space-x-4">
+                <button class="card-testi-slide-prev-button  p-2 rounded-full">
+                    <svg width="50" height="50" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="69.5" y="69.5" width="69" height="69" rx="34.5" transform="rotate(180 69.5 69.5)" stroke="white" stroke-opacity="0.8"/>
+                        <path d="M38.384 43.384C38.1496 43.6184 37.8317 43.75 37.5003 43.75C37.1688 43.75 36.8509 43.6184 36.6165 43.384L29.1165 35.884C28.8822 35.6496 28.7505 35.3317 28.7505 35.0003C28.7505 34.6688 28.8822 34.3509 29.1165 34.1165L36.6165 26.6165C36.8523 26.3888 37.168 26.2628 37.4958 26.2657C37.8235 26.2685 38.137 26.4 38.3688 26.6317C38.6006 26.8635 38.732 27.177 38.7349 27.5048C38.7377 27.8325 38.6117 28.1483 38.384 28.384L31.7678 35.0003L38.384 41.6165C38.6184 41.8509 38.75 42.1688 38.75 42.5003C38.75 42.8317 38.6184 43.1496 38.384 43.384Z" fill="white"/>
+                    </svg>
+
+                </button>
+                <button class="card-testi-slide-next-button p-2 rounded-full">
+                    <svg width="50" height="50" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" y="0.5" width="69" height="69" rx="34.5" stroke="white" stroke-opacity="0.8"/>
+                        <path d="M31.616 26.616C31.8504 26.3816 32.1683 26.25 32.4997 26.25C32.8312 26.25 33.1491 26.3816 33.3835 26.616L40.8835 34.116C41.1178 34.3504 41.2495 34.6683 41.2495 34.9997C41.2495 35.3312 41.1178 35.6491 40.8835 35.8835L33.3835 43.3835C33.1477 43.6112 32.832 43.7372 32.5042 43.7343C32.1765 43.7315 31.863 43.6 31.6312 43.3683C31.3994 43.1365 31.268 42.823 31.2651 42.4952C31.2623 42.1675 31.3883 41.8517 31.616 41.616L38.2322 34.9997L31.616 28.3835C31.3816 28.1491 31.25 27.8312 31.25 27.4997C31.25 27.1683 31.3816 26.8504 31.616 26.616Z" fill="white"/>
+                5</svg>
+
+                </button>
+            </div>
+
             </div>
         </div>
 
@@ -1437,34 +1581,23 @@
         });
 
         document.addEventListener('DOMContentLoaded', function() {
-            var slides = document.querySelectorAll('#testimonial-slider .splide__slide'); // Select all the slides
+            var slides = document.querySelectorAll('#testimonial-slider .splide__slide');
 
             if (slides.length > 1) { // Only initialize if there's more than 1 slide
                 var splide = new Splide('#testimonial-slider', {
                     type: 'loop', // Loop through the slides
                     perMove: 1, // Moves one slide at a time
-                    perPage: 2.8, // Shows 3.5 slides per page (visible slides)
+                    perPage: 2.8, // Shows 3 slides per page (visible slides)
                     arrows: false, // Disable default arrows
                     pagination: false, // Disable the dots (pagination)
                     autoplay: true, // Enable autoplay
                     interval: 3000, // Auto-slide interval (3 seconds)
                     breakpoints: {
-                        640: {
-                            perPage: 1
-                        }, // 1 slide per page on small screens
-                        768: {
-                            perPage: 1.9
-                        }, // 1.9 slides per page on medium screens
-                        1024: {
-                            perPage: 2
-                        }, // 2 slides per page on large screens
-                        1280: {
-                            perPage: 2.8,
-                            gap: '56px',
-                        },
-                        1536: {
-                            gap: '100px',
-                        },
+                        640: { perPage: 1 }, // 1 slide per page on small screens
+                        768: { perPage: 1.9 }, // 1.9 slides per page on medium screens
+                        1024: { perPage: 2 }, // 2 slides per page on large screens
+                        1280: { perPage: 2.8, gap: '56px' },
+                        1536: { gap: '100px' }
                     }
                 }).mount();
 
@@ -1481,5 +1614,6 @@
                 console.log("Not enough slides to initialize the slider.");
             }
         });
+
     </script>
 @endsection
