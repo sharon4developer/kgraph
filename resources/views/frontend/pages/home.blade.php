@@ -272,17 +272,34 @@
             /* background: linear-gradient(360deg, rgba(4, 26, 55, 0) 0%, #041937 100%); */
             background: linear-gradient(90deg, rgba(4,25,55,1) 0%, rgba(4,25,55,1) 100%);
         }
-        
-        .image-video{
+
+        .video-imagepos{
             transition: all 2s;
         }
-        .image-to-video:hover .image-video{
+        .video-grade:hover .video-imagepos{
             transform: scale(1.2);
         }
         .bg-grade-testimonial{
             background: linear-gradient(57.95deg, #060B12 -23.39%, #001533 65.33%);
         }
+        .ctc-sect{
+            h5{
+                font-family: "Inter", sans-serif;
+                font-size: 26.88px;
+                font-weight: 700;
+                line-height: 0.5;
+            }
+            span{
+                font-family: "Inter", sans-serif;
+                font-size: 11.34px;
+                font-weight: 600;
+                line-height: 0.5;
+            }
+        }
+        .video-grade{
+            background: linear-gradient(180deg, rgba(17, 49, 101, 0) 26.01%, #113165 133.05%);
 
+        }
 
     </style>
 
@@ -382,10 +399,10 @@
                                     <span class="font-semibold text-xl capitalize">Visa Immigration for a Brighter You Future</span>
                                 </h2>
                                 <p class="font_inter text-base font-normal text-white w-3/4">
-                                    We enable some of the most demanding organizations to enrich customer 
-                                    experiences, optimize efficiencies, launch new platforms, and monetize 
-                                    data opportunities. We offer fully-managed and end-to-end technology, 
-                                    tools, talent, 
+                                    We enable some of the most demanding organizations to enrich customer
+                                    experiences, optimize efficiencies, launch new platforms, and monetize
+                                    data opportunities. We offer fully-managed and end-to-end technology,
+                                    tools, talent,
                                 </p>
                             </div>
 
@@ -552,7 +569,7 @@
                     <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/asna.png') }}" alt="" class="w-full"></div>
                     <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/airtasker.png') }}" alt="" class="w-full"></div>
                     <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/splunk.png') }}" alt="" class="w-full"></div>
-                    
+
                     <!-- Duplicate images to create a seamless loop -->
                     <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/segment.png') }}" alt="" class="w-full"></div>
                     <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/Hubspot.png') }}" alt="" class="w-full"></div>
@@ -582,8 +599,8 @@
         </div>
 
         {{-- what makes us diff --}}
-        <div class="what makes bg-[#051b3b]">
-            <div class="container mx-auto px-5 xl:px-12 lg:mt-28 h-full w-full">
+        <div class="what makes bg-[#051b3b] gradient-evition relative">
+            <div class="container mx-auto px-5 xl:px-12 lg:mt-28 h-full w-full z-10 relative">
                 <div>
                     <div class="flex justify-center items-center">
                         <div class="flex items-end w-full gap-2 lg:gap-7">
@@ -599,46 +616,46 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex justify-between items-start gap-[10%] my-16">
-                        <div class="text-white w-full flex flex-col justify-between h-full">
+                    <div class="flex justify-between items-start gap-[10%] my-8">
+                        <div class="text-white w-full flex flex-col justify-between h-[424px]">
                             <div>
                                 <p class="font_inter font-medium text-[20px] mb-6">Service You Can Rely On Experience You Can Trust</p>
                                 <p class="font_inter font-normal text-[15px] my-6 text-justify">
-                                    We will provide you with a comprehensive, no-hassle 
-                                    breakdown of all service fees from beginning to end 
-                                    once you have determined that you are satisfied with 
-                                    our assessment! Additionally, we provide cost-free, 
+                                    We will provide you with a comprehensive, no-hassle
+                                    breakdown of all service fees from beginning to end
+                                    once you have determined that you are satisfied with
+                                    our assessment! Additionally, we provide cost-free,
                                     adaptable payment plans.
                                 </p>
                             </div>
 
-                            <div>
-                                <h5>60+</h5>
-                                <h6>Years of Experience</h6>
+                            <div class="py-8">
+                                <h5 class="font_inter font-bold text-[83px] capitalize leading-tight">60+</h5>
+                                <h6 class="font_inter font-semibold text-lg capitalize leading-tight">Years of Experience</h6>
                             </div>
 
                             <div class="flex justify-between items-center">
-                                <div>
+                                <div class="ctc-sect">
                                     <h5>100+</h5>
                                     <span>Employes</span>
                                 </div>
 
-                                <div>
+                                <div class="ctc-sect">
                                     <h5>4.5</h5>
                                     <span>Ratings</span>
                                 </div>
 
-                                <div>
+                                <div class="ctc-sect">
                                     <h5>05</h5>
                                     <span>Offices</span>
                                 </div>
 
-                                <div>
+                                <div class="ctc-sect">
                                     <h5>30k+</h5>
                                     <span>Customers Served</span>
                                 </div>
 
-                                <div>
+                                <div class="ctc-sect">
                                     <h5>3k+</h5>
                                     <span>Active Cases</span>
                                 </div>
@@ -647,9 +664,36 @@
 
                         </div>
 
-                        <div class="w-full flex justify-center items-center rounded-lg overflow-hidden image-to-video">
-                            <img src="{{ asset('assets/home_Banner/suareman.png.jpeg') }}" alt="" style="object-position: 0px -144px;" class="w-full h-[300px] object-cover image-video">
+                        <div class="w-full flex justify-center items-center rounded-lg overflow-hidden mt-6 relative group video-grade">
+                            <img src="{{ asset('assets/home_Banner/suareman.png.jpeg') }}" alt="" style="object-position: 0px -144px;" class="w-full h-[400px] object-cover video-imagepos">
+
+                            <!-- Overlay Gradient (only shows on hover) -->
+                            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#113165] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+
+                            <!-- Play Button and Text Content (always visible) -->
+                            <div class="absolute bottom-4 left-4 flex items-center space-x-2 text-white">
+                                <!-- Play Icon -->
+                                <svg width="78" height="78" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="38.6475" cy="38.6475" r="38.6475" fill="white" fill-opacity="0.5"/>
+                                    <mask id="mask0_1460_3580" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="23" y="24" width="30" height="30">
+                                        <path d="M23.5664 24.5088H52.7877V53.7301H23.5664V24.5088Z" fill="white"/>
+                                    </mask>
+                                    <g mask="url(#mask0_1460_3580)">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M50.5163 43.0709C53.5572 41.314 53.5572 36.9235 50.5163 35.1647L34.9834 26.1847C31.9407 24.4259 28.1328 26.623 28.1328 30.1387V48.0988C28.1328 51.6145 31.9407 53.8116 34.9834 52.051L50.5163 43.0709Z" fill="white"/>
+                                    </g>
+                                </svg>
+
+                                <!-- Text Content -->
+                                <div>
+                                    <p class="text-lg font-bold">Meet Michel Shoks</p>
+                                    <p class="text-sm">Co - Founder</p>
+                                </div>
+                            </div>
                         </div>
+
+
+
+
                     </div>
                 </div>
             </div>
@@ -673,7 +717,7 @@
                         <div class="flex items-center justify-between space-x-4 mb-4">
                             <div class="flex items-center gap-2">
                                 <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
-                                
+
                                 <div>
                                     <h2 class="text-lg font-semibold">Albert Flores</h2>
                                     <p class="text-sm text-gray-400">Medical Assistant</p>
@@ -707,7 +751,7 @@
                     </div>
 
 
-                </div>  
+                </div>
             </div>
         </div>
 

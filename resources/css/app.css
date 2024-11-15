@@ -537,7 +537,7 @@ video {
     height: 100%;
     background-image: url(/public/assets/Group.png) !important;
     background-size: 1000px 1000px !important;
-    z-index: -1;
+    z-index: 1;
     bottom: -16%;
     right: -66%;
     background-repeat: no-repeat;
@@ -549,7 +549,7 @@ video {
     height: 100%;
     background-image: url(/public/assets/Group.png) !important;
     background-size: 600px 600px !important;
-    z-index: -1;
+    z-index: 1;
     top: 0;
     left: 0;
     background-repeat: no-repeat;
