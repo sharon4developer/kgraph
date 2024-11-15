@@ -743,7 +743,7 @@
                 </div>
 
                 <h4 class="font_inter font-semibold text-[42px] text-white">Let’s See what our customers want to say</h4>
-                <p class="font_inter font-normal text-[20px] text-white w-[50%]">
+                <p class="font_inter font-normal text-[20px] text-white w-[50%] pb-[85px]">
                     We enable some of the most demanding organizations to 
                     enrich customer experiences, optimize efficiencies, 
                     launch new platforms, and monetize data opportunities. 
