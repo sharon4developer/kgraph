@@ -405,16 +405,16 @@
 
         {{--our services --}}
         <div class="ourservices rounded-b-[153px] relative">
-            <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full relative z-10">
-                <div class="rounded-lg bgk-grade overflow-hidden my-14 relative">
+            <div class="container mx-auto px-5 xl:px-12 py-16 h-full w-full relative z-10">
+                <div class="rounded-lg bgk-grade overflow-hidden lg:my-14 relative">
                     <div class="py-8 px-8 relative z-10">
-                        <div class="flex justify-between items-center relative overflow-hidden">
-                            <div class="border-r-white border-r-[1px]  h-full pr-14">
+                        <div class="flex flex-col lg:flex-row justify-center lg:justify-between items-center relative overflow-hidden">
+                            <div class="lg:border-r-white lg:border-r-[1px]  h-full lg:pr-14">
                                 <h2 class="pb-8 text-white">
-                                    <span class="font_inter text-6xl font-normal uppercase">our services</span>
-                                    <span class="font-semibold text-xl capitalize">Visa Immigration for a Brighter You Future</span>
+                                    <span class="font_inter text-3xl 2xl:text-6xl font-normal uppercase">our services</span>
+                                    <span class="font-semibold text-sm 2xl:text-xl capitalize">Visa Immigration for a Brighter You Future</span>
                                 </h2>
-                                <p class="font_inter text-base font-normal text-white w-3/4">
+                                <p class="font_inter text-center lg:text-left text-xs 2xl:text-base font-normal text-white lg:w-3/4">
                                     We enable some of the most demanding organizations to enrich customer
                                     experiences, optimize efficiencies, launch new platforms, and monetize
                                     data opportunities. We offer fully-managed and end-to-end technology,
@@ -422,9 +422,11 @@
                                 </p>
                             </div>
 
-                            <div class="w-[40%] pl-14">
-                                <h3 class="font_inter text-xl font-extrabold text-white w-3/5">Find your Eligibility for PR</h3>
-                                <button class="font_syne uppercase font-bold text-base whitespace-nowrap border border-white py-2 px-5 rounded-full my-4 text-white">Free Eligibility Check</button>
+                            <div class="lg:w-[40%] py-6 lg:py-0 lg:pl-14">
+                                <h3 class="font_inter text-base 2xl:text-xl font-extrabold text-white lg:w-3/4 2xl:w-3/5">Find your Eligibility for PR</h3>
+                                <!-- <button class="font_syne uppercase font-bold text-xs 2xl:text-base whitespace-nowrap border border-white py-2 px-5 rounded-full my-4 text-white">Free Eligibility Check</button> -->
+                                <button class="font_syne uppercase font-bold text-xs 2xl:text-base whitespace-nowrap border border-white py-2 px-5 rounded-full my-4 text-white hover:bg-white hover:text-black hover:shadow-lg transition duration-300">Free Eligibility Check</button>
+
                             </div>
                         </div>
                         <div class="border-white border-[0.5px] w-full mt-10"></div>
@@ -434,7 +436,7 @@
                     </div>
                 </div>
 
-                <div class="flex justify-between items-center gap-6">
+                <div class="flex flex-col lg:flex-row justify-between items-center gap-6 py-12 lg:py-0">
                     <div class="max-w-xs p-6 bgk-grade rounded-[26px] text-white shadow-lg relative font-sans overflow-hidden roundring-anim">
                         <!-- SVG Icon in the top-right corner -->
                         <div class="flex justify-between items-center">
@@ -454,8 +456,8 @@
                             </div>
                         </div>
                         <!-- Card Content -->
-                        <h2 class="text-4xl font-bold font_inter mt-8 mb-4 relative z-10 w-[50%]">Temporary Residency</h2>
-                        <p class="text-gray-200 font_inter font-normal text-sm mb-6 relative z-10">Lorem Ipsum is simply dummy text the printing and provide best visa ever</p>
+                        <h2 class="text-2xl 2xl:text-4xl font-bold font_inter mt-8 mb-4 relative z-10 w-[50%]">Temporary Residency</h2>
+                        <p class="text-gray-200 font_inter font-normal text-xs 2xl:text-sm mb-6 relative z-10 clamp-text-two">Lorem Ipsum is simply dummy text the printing and provide best visa ever</p>
                         <!-- Action Buttons -->
                         <div class="space-y-2 relative z-10">
                             <button class="w-full bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
@@ -489,8 +491,8 @@
                             </div>
                         </div>
                         <!-- Card Content -->
-                        <h2 class="text-4xl font-bold font_inter mt-8 mb-4 relative z-10 w-[50%]">Temporary Residency</h2>
-                        <p class="text-gray-200 font_inter font-normal text-sm mb-6 relative z-10">Lorem Ipsum is simply dummy text the printing and provide best visa ever</p>
+                        <h2 class="text-2xl 2xl:text-4xl font-bold font_inter mt-8 mb-4 relative z-10 w-[50%]">Temporary Residency</h2>
+                        <p class="text-gray-200 font_inter font-normal text-xs 2xl:text-sm mb-6 relative z-10 clamp-text-two">Lorem Ipsum is simply dummy text the printing and provide best visa ever</p>
                         <!-- Action Buttons -->
                         <div class="space-y-2 relative z-10">
                             <button class="w-full bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
@@ -524,8 +526,8 @@
                             </div>
                         </div>
                         <!-- Card Content -->
-                        <h2 class="text-4xl font-bold font_inter mt-8 mb-4 relative z-10 w-[50%]">Temporary Residency</h2>
-                        <p class="text-gray-200 font_inter font-normal text-sm mb-6 relative z-10">Lorem Ipsum is simply dummy text the printing and provide best visa ever</p>
+                        <h2 class="text-2xl 2xl:text-4xl font-bold font_inter mt-8 mb-4 relative z-10 w-[50%]">Temporary Residency</h2>
+                        <p class="text-gray-200 font_inter font-normal text-xs 2xl:text-sm mb-6 relative z-10 clamp-text-two">Lorem Ipsum is simply dummy text the printing and provide best visa ever</p>
                         <!-- Action Buttons -->
                         <div class="space-y-2 relative z-10">
                             <button class="w-full bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
@@ -559,8 +561,8 @@
                             </div>
                         </div>
                         <!-- Card Content -->
-                        <h2 class="text-4xl font-bold font_inter mt-8 mb-4 relative z-10 w-[50%]">Temporary Residency</h2>
-                        <p class="text-gray-200 font_inter font-normal text-sm mb-6 relative z-10">Lorem Ipsum is simply dummy text the printing and provide best visa ever</p>
+                        <h2 class="text-2xl 2xl:text-4xl font-bold font_inter mt-8 mb-4 relative z-10 w-[50%]">Temporary Residency</h2>
+                        <p class="text-gray-200 font_inter font-normal text-xs 2xl:text-sm mb-6 relative z-10 clamp-text-two">Lorem Ipsum is simply dummy text the printing and provide best visa ever</p>
                         <!-- Action Buttons -->
                         <div class="space-y-2 relative z-10">
                             <button class="w-full bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
@@ -574,6 +576,7 @@
                             </button>
                         </div>
                     </div>
+
                 </div>
             </div>
 
@@ -621,26 +624,26 @@
             </div>
             <div class="container mx-auto px-5 xl:px-12 lg:my-28 h-full w-full z-10 relative">
                 <div>
-                    <div class="flex justify-center items-center">
-                        <div class="flex items-end w-full gap-2 lg:gap-7">
-                            <h2 class="uppercase text-white font_inter font-normal text-6xl w-full whitespace-nowrap">What Makes us Different</h2>
-                            <div class="w-full" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
+                    <div class="flex flex-col lg:flex-row justify-center items-center">
+                        <div class="flex items-center w-full gap-2 2xl:gap-7">
+                            <h2 class="uppercase text-white font_inter font-normal py-6 lg:py-0 text-3xl xl:text-6xl w-full 2xl:whitespace-nowrap">What Makes us Different</h2>
+                            <div class="hidden lg:flex w-full mr-4" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
                         </div>
 
                         <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[4.5px] pl-5 pr-1 group">
                             <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 min-w-fit max-w-full rounded-full"></div>
-                            <h6 class="relative z-10 text-white text-[12px] xl:text-[14px] whitespace-nowrap">Let's turn your vision into reality</h6>
+                            <h6 class="relative z-10 text-white text-[12px] xl:text-[14px] lg:whitespace-nowrap">Let's turn your vision into reality</h6>
                             <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:pb-[2px] xl:pt-[1px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                                 <a href="" class="h-full text-[12px] xl:text-[14px]">Connect Us</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="flex justify-between items-start gap-[10%] my-8">
+                    <div class="flex flex-col lg:flex-row justify-between items-start gap-[10%] my-8">
                         <div class="text-white w-full flex flex-col justify-between h-[424px]">
                             <div>
-                                <p class="font_inter font-medium text-[20px] mb-6">Service You Can Rely On Experience You Can Trust</p>
-                                <p class="font_inter font-normal text-[15px] my-6 text-justify">
+                                <p class="font_inter font-medium text-base 2xl:text-xl mb-6">Service You Can Rely On Experience You Can Trust</p>
+                                <p class="font_inter font-normal text-xs 2xl:text-base my-6 text-justify">
                                     We will provide you with a comprehensive, no-hassle
                                     breakdown of all service fees from beginning to end
                                     once you have determined that you are satisfied with
@@ -654,7 +657,7 @@
                                 <h6 class="font_inter font-semibold text-lg capitalize leading-tight">Years of Experience</h6>
                             </div>
 
-                            <div class="flex justify-between items-center">
+                            <div class="flex flex-wrap lg:flex-nowrap gap-8 justify-start lg:justify-between items-center pb-8">
                                 <div class="ctc-sect">
                                     <h5>100+</h5>
                                     <span>Employes</span>
@@ -684,15 +687,11 @@
 
                         </div>
 
-                        <div class="w-full flex justify-center items-center rounded-lg overflow-hidden mt-6 relative group video-grade">
+                        <div class="w-full flex justify-center items-center rounded-lg overflow-hidden mt-12 lg:mt-6 relative group video-grade">
                             <img src="{{ asset('assets/home_Banner/suareman.png.jpeg') }}" alt="" style="object-position: 0px -144px;" class="w-full h-[400px] object-cover video-imagepos">
 
-                            <!-- Overlay Gradient (only shows on hover) -->
                             <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#113165] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-                            <!-- Play Button and Text Content (always visible) -->
                             <div class="absolute bottom-4 left-4 flex items-center space-x-2 text-white">
-                                <!-- Play Icon -->
                                 <svg width="78" height="78" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="38.6475" cy="38.6475" r="38.6475" fill="white" fill-opacity="0.5"/>
                                     <mask id="mask0_1460_3580" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="23" y="24" width="30" height="30">
@@ -713,17 +712,17 @@
                     </div>
                 </div>
 
-                <div class="w-full h-[600px] lg:pb-16 pt-48 relative flex justify-center items-center">
+                <div class="w-full h-[600px] pb-36 lg:pb-16 pt-48 relative flex justify-center items-center">
                     <div class="absolute">
-                        <img src="{{ asset('assets/canada.png') }}" alt="Background Image" class="">
+                        <img src="{{ asset('assets/canada.png') }}" alt="Background Image" class="h-[600px] lg:h-full object-cover rounded-[27px]">
                     </div>
                     <div class="z-10 relative text-white p-8 flex justify-center items-center flex-col">
-                        <h2 class="font_inter font-black text-4xl w-[50%] text-center">{{ $home->certificate_title ?? '' }}</h2>
-                        <p class="py-5 font-semibold font_inter text-xl clamp-3 text-center w-[50%]">{{ $home->certificate_description ?? '' }}</p>
+                        <h2 class="font_inter font-black text-2xl 2xl:text-4xl lg:w-[50%] text-center">{{ $home->certificate_title ?? '' }}</h2>
+                        <p class="py-5 font-semibold font_inter text-base 2xl:text-xl clamp-3 text-center lg:w-[50%]">{{ $home->certificate_description ?? '' }}</p>
                         <div class="flex flex-col lg:flex-row gap-5 items-center mt-6">
                             @foreach ($certificate as $data)
                                 <div class="flex items-center flex-col justify-center">
-                                    <img class="w-[200px] max-h-[66px]" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{ $data->alt_tag ?? 'Certificate' }}">
+                                    <img class="w-[150px] 2xl:w-[200px] max-h-[50px] 2xl:max-h-[66px]" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{ $data->alt_tag ?? 'Certificate' }}">
                                 </div>
                             @endforeach
                         </div>
@@ -732,18 +731,19 @@
             </div>
         </div>
 
-
         {{-- Testimonial --}}
-        <div class="Testimonial bg-[#051b3b]">
-            <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full">
-
+        <div class="Testimonial bg-[#051b3b] relative">
+            <div class="absolute top-0">
+                <img src="{{ asset('assets/home_Banner/sec-vectline.png') }}" alt="" class="">
+            </div>
+            <div class="container mx-auto px-5 xl:px-12 2xl:py-16 h-full w-full relative z-10">
                 <div class="flex items-end w-full gap-2 lg:gap-7 py-10">
-                    <h2 class="uppercase text-white font_inter font-normal text-6xl w-full whitespace-nowrap">What Makes us Different</h2>
-                    <div class="w-full" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
+                    <h2 class="uppercase text-white font_inter font-normal text-4xl xl:text-6xl w-full lg:whitespace-nowrap">What Makes us Different</h2>
+                    <div class="hidden lg:flex w-full" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
                 </div>
 
-                <h4 class="font_inter font-semibold text-[42px] text-white">Let’s See what our customers want to say</h4>
-                <p class="font_inter font-normal text-[20px] text-white w-[50%] pb-[85px]">
+                <h4 class="font_inter font-semibold text-3xl 2xl:text-[42px] py-2 text-white">Let’s See what our customers want to say</h4>
+                <p class="font_inter font-normal text-base 2xl:text-xl text-white lg:w-[50%] pb-[85px]">
                     We enable some of the most demanding organizations to 
                     enrich customer experiences, optimize efficiencies, 
                     launch new platforms, and monetize data opportunities. 
@@ -755,7 +755,7 @@
                 <div id="testimonial-slider" class="splide">
                     <div class="splide__track">
                         <div class="splide__list flex gap-5">
-                            <div class="splide__slide max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
+                            <div class="splide__slide w-full lg:max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
                                 <div class="flex items-center justify-between space-x-4 mb-4">
                                     <div class="flex items-center gap-2">
                                         <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
@@ -780,7 +780,7 @@
                                     <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
                                 </div>
                             </div>
-                            <div class="splide__slide max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
+                            <div class="splide__slide w-full lg:max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
                                 <div class="flex items-center justify-between space-x-4 mb-4">
                                     <div class="flex items-center gap-2">
                                         <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
@@ -805,7 +805,7 @@
                                     <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
                                 </div>
                             </div>
-                            <div class="splide__slide max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
+                            <div class="splide__slide w-full lg:max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
                                 <div class="flex items-center justify-between space-x-4 mb-4">
                                     <div class="flex items-center gap-2">
                                         <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
@@ -830,7 +830,7 @@
                                     <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
                                 </div>
                             </div>
-                            <div class="splide__slide max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
+                            <div class="splide__slide w-full lg:max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
                                 <div class="flex items-center justify-between space-x-4 mb-4">
                                     <div class="flex items-center gap-2">
                                         <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
@@ -855,7 +855,7 @@
                                     <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
                                 </div>
                             </div>
-                            <div class="splide__slide max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
+                            <div class="splide__slide w-full lg:max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
                                 <div class="flex items-center justify-between space-x-4 mb-4">
                                     <div class="flex items-center gap-2">
                                         <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
@@ -880,7 +880,7 @@
                                     <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
                                 </div>
                             </div>
-                            <div class="splide__slide max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
+                            <div class="splide__slide w-full lg:max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
                                 <div class="flex items-center justify-between space-x-4 mb-4">
                                     <div class="flex items-center gap-2">
                                         <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
@@ -909,23 +909,36 @@
                     </div>
                 </div>
 
-                <!-- Custom Navigation Buttons -->
-                <div class="flex justify-center mt-4 space-x-4">
-                    <button class="card-testi-slide-prev-button  p-2 rounded-full">
-                        <svg width="50" height="50" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="69.5" y="69.5" width="69" height="69" rx="34.5" transform="rotate(180 69.5 69.5)" stroke="white" stroke-opacity="0.8"/>
-                            <path d="M38.384 43.384C38.1496 43.6184 37.8317 43.75 37.5003 43.75C37.1688 43.75 36.8509 43.6184 36.6165 43.384L29.1165 35.884C28.8822 35.6496 28.7505 35.3317 28.7505 35.0003C28.7505 34.6688 28.8822 34.3509 29.1165 34.1165L36.6165 26.6165C36.8523 26.3888 37.168 26.2628 37.4958 26.2657C37.8235 26.2685 38.137 26.4 38.3688 26.6317C38.6006 26.8635 38.732 27.177 38.7349 27.5048C38.7377 27.8325 38.6117 28.1483 38.384 28.384L31.7678 35.0003L38.384 41.6165C38.6184 41.8509 38.75 42.1688 38.75 42.5003C38.75 42.8317 38.6184 43.1496 38.384 43.384Z" fill="white"/>
-                        </svg>
+                <div class="flex flex-col lg:flex-row lg:justify-between items-start lg:items-center py-12">
 
-                    </button>
-                    <button class="card-testi-slide-next-button p-2 rounded-full">
-                        <svg width="50" height="50" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="0.5" y="0.5" width="69" height="69" rx="34.5" stroke="white" stroke-opacity="0.8"/>
-                            <path d="M31.616 26.616C31.8504 26.3816 32.1683 26.25 32.4997 26.25C32.8312 26.25 33.1491 26.3816 33.3835 26.616L40.8835 34.116C41.1178 34.3504 41.2495 34.6683 41.2495 34.9997C41.2495 35.3312 41.1178 35.6491 40.8835 35.8835L33.3835 43.3835C33.1477 43.6112 32.832 43.7372 32.5042 43.7343C32.1765 43.7315 31.863 43.6 31.6312 43.3683C31.3994 43.1365 31.268 42.823 31.2651 42.4952C31.2623 42.1675 31.3883 41.8517 31.616 41.616L38.2322 34.9997L31.616 28.3835C31.3816 28.1491 31.25 27.8312 31.25 27.4997C31.25 27.1683 31.3816 26.8504 31.616 26.616Z" fill="white"/>
-                    5</svg>
+                    <div>
+                        <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group w-fit">
+                            <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
+                            <h6 class="relative z-10 text-white text-[10px] md:text-[12px] 2xl:text-[16px] transition-colors duration-500 group-hover:text-[#072558]">Let's turn your vision into reality.</h6>
+                            <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full transition-all duration-500 group-hover:bg-[#072558] group-hover:text-white">
+                                <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
+                            </div>
+                        </div>
+                    </div>
 
-                    </button>
+                    <div class="flex justify-center mt-4 space-x-4">
+                        <button class="card-testi-slide-prev-button  p-2 rounded-full">
+                            <svg width="50" height="50" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="69.5" y="69.5" width="69" height="69" rx="34.5" transform="rotate(180 69.5 69.5)" stroke="white" stroke-opacity="0.8"/>
+                                <path d="M38.384 43.384C38.1496 43.6184 37.8317 43.75 37.5003 43.75C37.1688 43.75 36.8509 43.6184 36.6165 43.384L29.1165 35.884C28.8822 35.6496 28.7505 35.3317 28.7505 35.0003C28.7505 34.6688 28.8822 34.3509 29.1165 34.1165L36.6165 26.6165C36.8523 26.3888 37.168 26.2628 37.4958 26.2657C37.8235 26.2685 38.137 26.4 38.3688 26.6317C38.6006 26.8635 38.732 27.177 38.7349 27.5048C38.7377 27.8325 38.6117 28.1483 38.384 28.384L31.7678 35.0003L38.384 41.6165C38.6184 41.8509 38.75 42.1688 38.75 42.5003C38.75 42.8317 38.6184 43.1496 38.384 43.384Z" fill="white"/>
+                            </svg>
+
+                        </button>
+                        <button class="card-testi-slide-next-button p-2 rounded-full">
+                            <svg width="50" height="50" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="0.5" y="0.5" width="69" height="69" rx="34.5" stroke="white" stroke-opacity="0.8"/>
+                                <path d="M31.616 26.616C31.8504 26.3816 32.1683 26.25 32.4997 26.25C32.8312 26.25 33.1491 26.3816 33.3835 26.616L40.8835 34.116C41.1178 34.3504 41.2495 34.6683 41.2495 34.9997C41.2495 35.3312 41.1178 35.6491 40.8835 35.8835L33.3835 43.3835C33.1477 43.6112 32.832 43.7372 32.5042 43.7343C32.1765 43.7315 31.863 43.6 31.6312 43.3683C31.3994 43.1365 31.268 42.823 31.2651 42.4952C31.2623 42.1675 31.3883 41.8517 31.616 41.616L38.2322 34.9997L31.616 28.3835C31.3816 28.1491 31.25 27.8312 31.25 27.4997C31.25 27.1683 31.3816 26.8504 31.616 26.616Z" fill="white"/>
+                        5</svg>
+
+                        </button>
+                    </div>
                 </div>
+
             </div>
         </div>
 
@@ -933,21 +946,19 @@
         <div class="BlogCRDS bg-[#051b3b]">
             <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full">
                 <div class="flex items-end w-full gap-2 lg:gap-7">
-                    <h2
-                        class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] 2xl:text-[65px] leading-none fourthleft-to-right-animation">
+                    <h2 class="uppercase text-white font_inter font-normal text-3xl xl:text-6xl w-full leading-none fourthleft-to-right-animation">
                         @if (isset($home))
                             {{ $home->blog_title }}
                         @endif
                     </h2>
                     <div class="w-full fourthleft-to-right-width-animation" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
                 </div>
-                <p
-                    class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%] fourthleft-to-right-animation">
+                <p class="py-5 text-white font_inter font-medium text-base 2xl:text-[32px] lg:whitespace-nowrap lg:w-[30%] fourthleft-to-right-animation">
                     @if (isset($home))
                         {{ $home->blog_sub_title }}
                     @endif
                 </p>
-                <p class="text-white font_inter font-normal text-justify text-[14px] fourthleft-to-right-animation">
+                <p class="text-white font_inter font-normal text-justify text-xs 2xl:text-[14px] fourthleft-to-right-animation">
                     @if (isset($home))
                         {{ $home->blog_description }}
                     @endif
@@ -956,7 +967,7 @@
                 <div class="flex justify-center lg:justify-start items-center my-12">
                     <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[4.5px] pl-5 pr-1 group">
                         <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 min-w-fit max-w-full rounded-full"></div>
-                        <h6 class="relative z-10 text-white text-[12px] xl:text-[14px] whitespace-nowrap">Be One of Them</h6>
+                        <h6 class="relative z-10 text-white text-[12px] xl:text-[14px] lg:whitespace-nowrap">Be One of Them</h6>
                         <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:pb-[2px] xl:pt-[1px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                             <a href="" class="h-full text-[12px] xl:text-[14px]">Connect Us</a>
                         </div>
@@ -1090,19 +1101,9 @@
             </div>
             <div class="flex justify-center py-6">
                 <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group w-fit">
-                    <!-- Background that moves on hover -->
-                    <div
-                        class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full">
-                    </div>
-
-                    <!-- Text color that changes on hover -->
-                    <h6
-                        class="relative z-10 text-white text-[10px] md:text-[12px] 2xl:text-[16px] transition-colors duration-500 group-hover:text-[#072558]">
-                        Let's turn your vision into reality.</h6>
-
-                    <!-- "Connect Us" button, background changes to #072558 on hover -->
-                    <div
-                        class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full transition-all duration-500 group-hover:bg-[#072558] group-hover:text-white">
+                    <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
+                    <h6 class="relative z-10 text-white text-[10px] md:text-[12px] 2xl:text-[16px] transition-colors duration-500 group-hover:text-[#072558]">Let's turn your vision into reality.</h6>
+                    <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full transition-all duration-500 group-hover:bg-[#072558] group-hover:text-white">
                         <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
                     </div>
                 </div>
