@@ -414,10 +414,10 @@
                                     <span class="font_inter text-6xl font-normal uppercase"> @if (isset($home)) {{ $home->service_first_title }} @endif @if (isset($home)) {{ $home->service_second_title }} @endif</span>
                                     <span class="font-semibold text-xl capitalize">@if (isset($home)) {{ $home->service_sub_title }} @endif</span>
                                 </h2>
-                                <p class="font_inter text-base font-normal text-white w-3/4">@if (isset($home)){{ $home->service_description }}@endif</p>
+                                <p class="font_inter text-base  font-normal text-white clamp-3 w-[80%]">@if (isset($home)){{ $home->service_description }}@endif</p>
                             </div>
                             <div class="w-[40%] pl-14">
-                                <h3 class="font_inter text-xl font-extrabold text-white w-3/5">Find your Eligibility for PR</h3>
+                                <h3 class="font_inter text-xl font-extrabold text-white my-5 w-3/4 2xl:w-3/5">Find your Eligibility for PR</h3>
                                 <a class="font_syne uppercase font-bold text-base whitespace-nowrap border border-white py-2 px-5 rounded-full my-4 text-white" href="{{ url('eligibility-check') }}">Free Eligibility Check</a>
                             </div>
                         </div>
@@ -430,7 +430,7 @@
 
                 <div class="flex justify-between items-center gap-6">
                     @foreach ($serviceCategory as $data)
-                    <div class="w-full lg:h-[450px] p-6 bgk-grade rounded-[26px] text-white shadow-lg relative font-sans overflow-hidden roundring-anim">
+                    <div class="w-full h-[380px] 2xl:h-[450px] p-3 2xl:p-6 bgk-grade rounded-[26px] text-white shadow-lg relative font-sans overflow-hidden roundring-anim">
                         <!-- SVG Icon in the top-right corner -->
                         <div class="flex justify-between items-center">
                             <div class="relative z-10">
@@ -449,7 +449,7 @@
                             </div>
                         </div>
                         <!-- Card Content -->
-                        <h2 class="text-4xl clamp-text-two font-bold font_inter mt-8 mb-4 relative z-10">{{ $data->title }}</h2>
+                        <h2 class="text-2xl 2xl:text-4xl clamp-text-two font-bold font_inter mt-8 mb-4 relative z-10">{{ $data->title }}</h2>
                         <p class="text-gray-200 font_inter font-normal text-sm mb-6 relative z-10">{{ $data->title }}</p>
                         <!-- Action Buttons -->
                         <div class="space-y-2 relative z-10">
@@ -467,7 +467,7 @@
 
             <div class="overflow-hidden whitespace-nowrap flex items-center py-6 relative z-10">
                 <div class="marquee-content animate-marquee flex items-center gap-24">
-                    <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/splunk.png') }}" alt="" class="w-full"></div>
+                    <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/splunk.png') }} p-3" alt="" class="w-full"></div>
                     <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/segment.png') }}" alt="" class="w-full"></div>
                     <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/Hubspot.png') }}" alt="" class="w-full"></div>
                     <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/asna.png') }}" alt="" class="w-full"></div>
