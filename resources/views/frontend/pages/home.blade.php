@@ -411,20 +411,28 @@
                         <div class="flex justify-between items-center relative overflow-hidden">
                             <div class="border-r-white border-r-[1px]  h-full pr-14">
                                 <h2 class="pb-8 text-white">
-                                    <span class="font_inter text-6xl font-normal uppercase">our services</span>
-                                    <span class="font-semibold text-xl capitalize">Visa Immigration for a Brighter You Future</span>
+                                    <span class="font_inter text-6xl font-normal uppercase">
+                                        @if (isset($home))
+                                        {{ $home->service_first_title }}
+                                        @endif @if (isset($home))
+                                        {{ $home->service_second_title }}
+                                        @endif
+                                    </span>
+                                    <span class="font-semibold text-xl capitalize">
+                                        @if (isset($home))
+                                        {{ $home->service_sub_title }}
+                                        @endif
+                                    </span>
                                 </h2>
                                 <p class="font_inter text-base font-normal text-white w-3/4">
-                                    We enable some of the most demanding organizations to enrich customer
-                                    experiences, optimize efficiencies, launch new platforms, and monetize
-                                    data opportunities. We offer fully-managed and end-to-end technology,
-                                    tools, talent,
+                                    @if (isset($home))
+                                        {{ $home->service_description }}
+                                    @endif
                                 </p>
                             </div>
-
                             <div class="w-[40%] pl-14">
                                 <h3 class="font_inter text-xl font-extrabold text-white w-3/5">Find your Eligibility for PR</h3>
-                                <button class="font_syne uppercase font-bold text-base whitespace-nowrap border border-white py-2 px-5 rounded-full my-4 text-white">Free Eligibility Check</button>
+                                <a class="font_syne uppercase font-bold text-base whitespace-nowrap border border-white py-2 px-5 rounded-full my-4 text-white" href="{{ url('eligibility-check') }}">Free Eligibility Check</a>
                             </div>
                         </div>
                         <div class="border-white border-[0.5px] w-full mt-10"></div>
@@ -435,6 +443,39 @@
                 </div>
 
                 <div class="flex justify-between items-center gap-6">
+                    @foreach ($serviceCategory as $data)
+                    <div class="max-w-xs p-6 bgk-grade rounded-[26px] text-white shadow-lg relative font-sans overflow-hidden roundring-anim">
+                        <!-- SVG Icon in the top-right corner -->
+                        <div class="flex justify-between items-center">
+                            <div class="relative z-10">
+                                <svg width="40" height="44" viewBox="0 0 36 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 34.7294C0 30.122 4.68675 23.2109 18 23.2109C18.801 23.2109 19.5705 23.2354 20.3085 23.2846L19.6875 27.8597C19.1254 27.8315 18.5627 27.8177 18 27.8183V37.0331H27V41.6405H22.5V37.0331H18V41.6405H0V34.7294ZM18 20.9072C16.5871 20.9064 15.1901 20.6028 13.8986 20.0161C12.6072 19.4293 11.45 18.5723 10.5015 17.5002C9.55297 16.4281 8.83409 15.1646 8.39108 13.791C7.94808 12.4173 7.79077 10.964 7.92926 9.52433C8.06775 8.08471 8.49898 6.6907 9.19522 5.43195C9.89146 4.1732 10.8373 3.07758 11.9719 2.21554C13.1065 1.3535 14.4048 0.744132 15.7832 0.426621C17.1616 0.10911 18.5896 0.0904854 19.9755 0.371945L19.1025 4.89181C18.7394 4.8179 18.3702 4.78086 18 4.78123V16.2998C18.3825 16.2998 18.75 16.2629 19.1025 16.1892L19.9755 20.709C19.3249 20.8412 18.6632 20.9075 18 20.9072ZM24.5992 23.8789C26.1517 24.2222 27.5243 24.6852 28.7257 25.2381L26.361 29.1844C25.4728 28.8269 24.5558 28.5494 23.6205 28.355L24.5992 23.8789ZM31.5 41.6405V37.0331H36V41.6405H31.5ZM35.64 32.4257H30.627C30.3093 31.9556 29.9393 31.525 29.5245 31.1425L32.31 27.5096C34.065 29.03 35.1315 30.7716 35.64 32.4257ZM23.625 1.92003L21.1208 5.74879C21.7372 6.17037 22.2682 6.71404 22.68 7.34526L26.4195 4.78123C25.6806 3.64882 24.731 2.67657 23.625 1.92003ZM27.9315 8.51784L23.517 9.41168C23.6625 10.1569 23.6625 10.9241 23.517 11.6693L27.9315 12.5631C28.191 11.2278 28.191 9.85319 27.9315 8.51784ZM26.4195 16.2998L22.68 13.7357C22.2682 14.3669 21.7372 14.9106 21.1208 15.3322L23.625 19.161C24.7275 18.403 25.6792 17.4309 26.4195 16.2998Z" fill="white"/>
+                                </svg>
+                            </div>
+
+                            <div class="relative">
+                                <div class="bg-white rounded-full absolute p-6 round-comimg"></div>
+                                <div class="relative z-10">
+                                    <svg width="36" height="40" viewBox="0 0 34 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M33.6332 4.9329L29.7049 0.860485L6.13464 25.295V2.89669L0.556349 2.89669V35.1502H31.669L31.669 29.3674L10.063 29.3674L33.6332 4.9329Z" fill="#005EEA"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card Content -->
+                        <h2 class="text-4xl font-bold font_inter mt-8 mb-4 relative z-10 w-[50%]">{{ $data->title }}</h2>
+                        <p class="text-gray-200 font_inter font-normal text-sm mb-6 relative z-10">{{ $data->title }}</p>
+                        <!-- Action Buttons -->
+                        <div class="space-y-2 relative z-10">
+                            @foreach ($data->Service as $service)
+                            <a href="{{url('service-details/'.$service->slug)}}" class="w-full bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
+                                {{ $service->title }} <span>→</span>
+                            </a>
+                            @endforeach
+                        </div>
+                    </div>
+                    @endforeach
+                {{--
                     <div class="max-w-xs p-6 bgk-grade rounded-[26px] text-white shadow-lg relative font-sans overflow-hidden roundring-anim">
                         <!-- SVG Icon in the top-right corner -->
                         <div class="flex justify-between items-center">
@@ -538,42 +579,7 @@
                             Visit Canada <span>→</span>
                             </button>
                         </div>
-                    </div>
-
-                    <div class="max-w-xs p-6 bgk-grade rounded-[26px] text-white shadow-lg relative font-sans overflow-hidden roundring-anim">
-                        <!-- SVG Icon in the top-right corner -->
-                        <div class="flex justify-between items-center">
-                            <div class="relative z-10">
-                                <svg width="40" height="44" viewBox="0 0 36 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 34.7294C0 30.122 4.68675 23.2109 18 23.2109C18.801 23.2109 19.5705 23.2354 20.3085 23.2846L19.6875 27.8597C19.1254 27.8315 18.5627 27.8177 18 27.8183V37.0331H27V41.6405H22.5V37.0331H18V41.6405H0V34.7294ZM18 20.9072C16.5871 20.9064 15.1901 20.6028 13.8986 20.0161C12.6072 19.4293 11.45 18.5723 10.5015 17.5002C9.55297 16.4281 8.83409 15.1646 8.39108 13.791C7.94808 12.4173 7.79077 10.964 7.92926 9.52433C8.06775 8.08471 8.49898 6.6907 9.19522 5.43195C9.89146 4.1732 10.8373 3.07758 11.9719 2.21554C13.1065 1.3535 14.4048 0.744132 15.7832 0.426621C17.1616 0.10911 18.5896 0.0904854 19.9755 0.371945L19.1025 4.89181C18.7394 4.8179 18.3702 4.78086 18 4.78123V16.2998C18.3825 16.2998 18.75 16.2629 19.1025 16.1892L19.9755 20.709C19.3249 20.8412 18.6632 20.9075 18 20.9072ZM24.5992 23.8789C26.1517 24.2222 27.5243 24.6852 28.7257 25.2381L26.361 29.1844C25.4728 28.8269 24.5558 28.5494 23.6205 28.355L24.5992 23.8789ZM31.5 41.6405V37.0331H36V41.6405H31.5ZM35.64 32.4257H30.627C30.3093 31.9556 29.9393 31.525 29.5245 31.1425L32.31 27.5096C34.065 29.03 35.1315 30.7716 35.64 32.4257ZM23.625 1.92003L21.1208 5.74879C21.7372 6.17037 22.2682 6.71404 22.68 7.34526L26.4195 4.78123C25.6806 3.64882 24.731 2.67657 23.625 1.92003ZM27.9315 8.51784L23.517 9.41168C23.6625 10.1569 23.6625 10.9241 23.517 11.6693L27.9315 12.5631C28.191 11.2278 28.191 9.85319 27.9315 8.51784ZM26.4195 16.2998L22.68 13.7357C22.2682 14.3669 21.7372 14.9106 21.1208 15.3322L23.625 19.161C24.7275 18.403 25.6792 17.4309 26.4195 16.2998Z" fill="white"/>
-                                </svg>
-                            </div>
-
-                            <div class="relative">
-                                <div class="bg-white rounded-full absolute p-6 round-comimg"></div>
-                                <div class="relative z-10">
-                                    <svg width="36" height="40" viewBox="0 0 34 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M33.6332 4.9329L29.7049 0.860485L6.13464 25.295V2.89669L0.556349 2.89669V35.1502H31.669L31.669 29.3674L10.063 29.3674L33.6332 4.9329Z" fill="#005EEA"/>
-                                    </svg>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Card Content -->
-                        <h2 class="text-4xl font-bold font_inter mt-8 mb-4 relative z-10 w-[50%]">Temporary Residency</h2>
-                        <p class="text-gray-200 font_inter font-normal text-sm mb-6 relative z-10">Lorem Ipsum is simply dummy text the printing and provide best visa ever</p>
-                        <!-- Action Buttons -->
-                        <div class="space-y-2 relative z-10">
-                            <button class="w-full bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
-                            Study in Canada <span>→</span>
-                            </button>
-                            <button class="w-full bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
-                            Work in Canada <span>→</span>
-                            </button>
-                            <button class="w-full bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
-                            Visit Canada <span>→</span>
-                            </button>
-                        </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
 
@@ -623,7 +629,11 @@
                 <div>
                     <div class="flex justify-center items-center">
                         <div class="flex items-end w-full gap-2 lg:gap-7">
-                            <h2 class="uppercase text-white font_inter font-normal text-6xl w-full whitespace-nowrap">What Makes us Different</h2>
+                            <h2 class="uppercase text-white font_inter font-normal text-6xl w-full whitespace-nowrap">
+                                @if (isset($home))
+                                    {{ $home->journey_title }}
+                                @endif
+                            </h2>
                             <div class="w-full" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
                         </div>
 
@@ -641,42 +651,50 @@
                             <div>
                                 <p class="font_inter font-medium text-[20px] mb-6">Service You Can Rely On Experience You Can Trust</p>
                                 <p class="font_inter font-normal text-[15px] my-6 text-justify">
-                                    We will provide you with a comprehensive, no-hassle
-                                    breakdown of all service fees from beginning to end
-                                    once you have determined that you are satisfied with
-                                    our assessment! Additionally, we provide cost-free,
-                                    adaptable payment plans.
+                                    @if (isset($home))
+                                        {{ $home->journey_description }}
+                                    @endif
                                 </p>
                             </div>
 
                             <div class="py-8">
-                                <h5 class="font_inter font-bold text-[83px] capitalize leading-tight">60+</h5>
+                                <h5 class="font_inter font-bold text-[83px] capitalize leading-tight">@if (isset($journey)) {{ $journey->experience }} @endif</h5>
                                 <h6 class="font_inter font-semibold text-lg capitalize leading-tight">Years of Experience</h6>
                             </div>
 
                             <div class="flex justify-between items-center">
                                 <div class="ctc-sect">
-                                    <h5>100+</h5>
+                                    <h5>@if (isset($journey))
+                                        {{ $journey->employees }}
+                                    @endif</h5>
                                     <span>Employes</span>
                                 </div>
 
                                 <div class="ctc-sect">
-                                    <h5>4.5</h5>
+                                    <h5>@if (isset($journey))
+                                        {{ $journey->ratings }}
+                                    @endif</h5>
                                     <span>Ratings</span>
                                 </div>
 
                                 <div class="ctc-sect">
-                                    <h5>05</h5>
+                                    <h5>@if (isset($journey))
+                                        {{ $journey->offices }}
+                                    @endif</h5>
                                     <span>Offices</span>
                                 </div>
 
                                 <div class="ctc-sect">
-                                    <h5>30k+</h5>
+                                    <h5>@if (isset($journey))
+                                        {{ $journey->customers }}
+                                    @endif</h5>
                                     <span>Customers Served</span>
                                 </div>
 
                                 <div class="ctc-sect">
-                                    <h5>3k+</h5>
+                                    <h5>@if (isset($journey))
+                                        {{ $journey->cases }}
+                                    @endif</h5>
                                     <span>Active Cases</span>
                                 </div>
 
@@ -685,7 +703,8 @@
                         </div>
 
                         <div class="w-full flex justify-center items-center rounded-lg overflow-hidden mt-6 relative group video-grade">
-                            <img src="{{ asset('assets/home_Banner/suareman.png.jpeg') }}" alt="" style="object-position: 0px -144px;" class="w-full h-[400px] object-cover video-imagepos">
+                            <img src="@if (isset($home)) {{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $home->journey_image1 }} @endif"
+                            alt="@if (isset($home)) {{ $home->journey_image1_alt_tag }} @endif" style="object-position: 0px -144px;" class="w-full h-[400px] object-cover video-imagepos">
 
                             <!-- Overlay Gradient (only shows on hover) -->
                             <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#113165] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -715,7 +734,8 @@
 
                 <div class="w-full h-[600px] lg:pb-16 pt-48 relative flex justify-center items-center">
                     <div class="absolute">
-                        <img src="{{ asset('assets/canada.png') }}" alt="Background Image" class="">
+                        <img src="@if (isset($home)) {{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $home->certificate_image1 }} @endif"
+                        alt="@if (isset($home)) {{ $home->certificate_image1_alt_tag }} @endif" class="">
                     </div>
                     <div class="z-10 relative text-white p-8 flex justify-center items-center flex-col">
                         <h2 class="font_inter font-black text-4xl w-[50%] text-center">{{ $home->certificate_title ?? '' }}</h2>
@@ -738,24 +758,58 @@
             <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full">
 
                 <div class="flex items-end w-full gap-2 lg:gap-7 py-10">
-                    <h2 class="uppercase text-white font_inter font-normal text-6xl w-full whitespace-nowrap">What Makes us Different</h2>
+                    <h2 class="uppercase text-white font_inter font-normal text-6xl w-full whitespace-nowrap">
+                        @if (isset($home))
+                            {{ $home->testimonial_title }}
+                        @endif
+                    </h2>
                     <div class="w-full" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
                 </div>
 
-                <h4 class="font_inter font-semibold text-[42px] text-white">Let’s See what our customers want to say</h4>
+                <h4 class="font_inter font-semibold text-[42px] text-white">
+                    @if (isset($home))
+                        {{ $home->testimonial_sub_title }}
+                    @endif
+                </h4>
                 <p class="font_inter font-normal text-[20px] text-white w-[50%] pb-[85px]">
-                    We enable some of the most demanding organizations to 
-                    enrich customer experiences, optimize efficiencies, 
-                    launch new platforms, and monetize data opportunities. 
-                    We offer fully-managed and end-to-end technology, tools, 
-                    talent, 
+                    @if (isset($home))
+                        {{ $home->testimonial_description }}
+                    @endif
                 </p>
 
                 <!-- Splide Slider Container -->
                 <div id="testimonial-slider" class="splide">
                     <div class="splide__track">
                         <div class="splide__list flex gap-5">
+                            @foreach ($testimonials as $data)
                             <div class="splide__slide max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
+                                <div class="flex items-center justify-between space-x-4 mb-4">
+                                    <div class="flex items-center gap-2">
+                                        <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"
+                                        alt="{{ $data->alt_tag }}" class="w-12 h-12 rounded-full">
+                                        <div>
+                                            <h2 class="text-lg font-semibold">{{ $data->name }}</h2>
+                                            <p class="text-sm text-gray-400">{{ $data->occupation }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="ml-auto flex items-center gap-2">
+                                        <span class="text-lg font-bold">5.0</span>
+                                        <div class="text-yellow-500 flex items-center">
+                                            <!-- Stars -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                            <!-- Add more stars as needed -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-300 leading-relaxed py-7">
+                                    {{ $data->description }}
+                                </p>
+                                <div class="flex justify-end items-center">
+                                    <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
+                                </div>
+                            </div>
+                            @endforeach
+                            {{-- <div class="splide__slide max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
                                 <div class="flex items-center justify-between space-x-4 mb-4">
                                     <div class="flex items-center gap-2">
                                         <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
@@ -879,32 +933,7 @@
                                 <div class="flex justify-end items-center">
                                     <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
                                 </div>
-                            </div>
-                            <div class="splide__slide max-w-sm p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
-                                <div class="flex items-center justify-between space-x-4 mb-4">
-                                    <div class="flex items-center gap-2">
-                                        <img src="{{ asset('assets/home_banner/icon.png') }}" alt="Profile Image" class="w-12 h-12 rounded-full">
-                                        <div>
-                                            <h2 class="text-lg font-semibold">Albert Flores</h2>
-                                            <p class="text-sm text-gray-400">Medical Assistant</p>
-                                        </div>
-                                    </div>
-                                    <div class="ml-auto flex items-center gap-2">
-                                        <span class="text-lg font-bold">5.0</span>
-                                        <div class="text-yellow-500 flex items-center">
-                                            <!-- Stars -->
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                                            <!-- Add more stars as needed -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="text-sm text-gray-300 leading-relaxed py-7">
-                                    We have been operating for over a decade, providing top-notch services to our clients and building a strong track record in the industry.
-                                </p>
-                                <div class="flex justify-end items-center">
-                                    <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
-                                </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                 </div>
