@@ -411,14 +411,14 @@
                         <div class="flex justify-between items-center relative overflow-hidden">
                             <div class="border-r-white border-r-[1px]  h-full pr-14">
                                 <h2 class="pb-8 text-white">
-                                    <span class="font_inter text-6xl font-normal uppercase"> @if (isset($home)) {{ $home->service_first_title }} @endif @if (isset($home)) {{ $home->service_second_title }} @endif</span>
-                                    <span class="font-semibold text-xl capitalize">@if (isset($home)) {{ $home->service_sub_title }} @endif</span>
+                                    <span class="font_inter lg:text-4xl xl:text-6xl font-normal uppercase"> @if (isset($home)) {{ $home->service_first_title }} @endif @if (isset($home)) {{ $home->service_second_title }} @endif</span>
+                                    <span class="font-semibold lg:text-lg xl:text-xl capitalize">@if (isset($home)) {{ $home->service_sub_title }} @endif</span>
                                 </h2>
-                                <p class="font_inter text-base  font-normal text-white clamp-3 w-[80%]">@if (isset($home)){{ $home->service_description }}@endif</p>
+                                <p class="font_inter text-sm xl:text-base  font-normal text-white clamp-3 xl:w-[80%]">@if (isset($home)){{ $home->service_description }}@endif</p>
                             </div>
                             <div class="w-[40%] pl-14">
-                                <h3 class="font_inter text-xl font-extrabold text-white my-5 w-3/4 2xl:w-3/5">Find your Eligibility for PR</h3>
-                                <a class="font_syne uppercase font-bold text-base whitespace-nowrap border border-white py-2 px-5 rounded-full my-4 text-white" href="{{ url('eligibility-check') }}">Free Eligibility Check</a>
+                                <h3 class="font_inter text-base xl:text-xl font-extrabold text-white my-5 w-3/4 2xl:w-3/5">Find your Eligibility for PR</h3>
+                                <a class="font_syne uppercase font-bold text-xs xl:text-base whitespace-nowrap border border-white py-2 px-5 rounded-full my-4 text-white" href="{{ url('eligibility-check') }}">Free Eligibility Check</a>
                             </div>
                         </div>
                         <div class="border-white border-[0.5px] w-full mt-10"></div>
@@ -430,7 +430,7 @@
 
                 <div class="flex justify-between items-center gap-6">
                     @foreach ($serviceCategory as $data)
-                    <div class="w-full h-[380px] 2xl:h-[450px] p-3 2xl:p-6 bgk-grade rounded-[26px] text-white shadow-lg relative font-sans overflow-hidden roundring-anim">
+                    <div class="w-full h-[350px] xl:h-[380px] 2xl:h-[450px] p-3 2xl:p-6 bgk-grade rounded-[26px] text-white shadow-lg relative font-sans overflow-hidden roundring-anim">
                         <!-- SVG Icon in the top-right corner -->
                         <div class="flex justify-between items-center">
                             <div class="relative z-10">
@@ -449,12 +449,12 @@
                             </div>
                         </div>
                         <!-- Card Content -->
-                        <h2 class="text-2xl 2xl:text-4xl clamp-text-two font-bold font_inter mt-8 mb-4 relative z-10">{{ $data->title }}</h2>
+                        <h2 class="text-xl xl:text-2xl 2xl:text-4xl clamp-text-two font-bold font_inter mt-8 mb-4 relative z-10">{{ $data->title }}</h2>
                         <p class="text-gray-200 font_inter font-normal text-sm mb-6 relative z-10">{{ $data->title }}</p>
                         <!-- Action Buttons -->
                         <div class="space-y-2 relative z-10">
                             @foreach ($data->Service as $service)
-                            <a href="{{url('service-details/'.$service->slug)}}" class="w-full  bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
+                            <a href="{{url('service-details/'.$service->slug)}}" class="w-full text-xs xl:base bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
                                 <span class="clamp-text-one">{{ $service->title }}</span> 
                                 <span>→</span>
                             </a>
@@ -511,7 +511,7 @@
                 <div>
                     <div class="flex justify-center items-center">
                         <div class="flex items-center w-full gap-2 lg:gap-7">
-                            <h2 class="uppercase text-white font_inter font-normal text-6xl w-full lg:min-w-[600px]">
+                            <h2 class="uppercase text-white font_inter font-normal text-4xl xl:text-6xl w-full lg:min-w-[500px] xl:min-w-[600px]">
                                 @if (isset($home))
                                     {{ $home->journey_title }}
                                 @endif
@@ -624,8 +624,8 @@
                         alt="@if (isset($home)) {{ $home->certificate_image1_alt_tag }} @endif" class="">
                     </div>
                     <div class="z-10 relative text-white p-8 flex justify-center items-center flex-col">
-                        <h2 class="font_inter font-black text-4xl w-[50%] text-center">{{ $home->certificate_title ?? '' }}</h2>
-                        <p class="py-5 font-semibold font_inter text-xl clamp-3 text-center w-[50%]">{{ $home->certificate_description ?? '' }}</p>
+                        <h2 class="font_inter font-black text-3xl xl:text-4xl w-[65%] xl:w-[50%] text-center">{{ $home->certificate_title ?? '' }}</h2>
+                        <p class="py-5 font-semibold font_inter text-lg xl:text-xl clamp-3 text-center w-[65%] xl:w-[50%]">{{ $home->certificate_description ?? '' }}</p>
                         <div class="flex flex-col lg:flex-row gap-5 items-center mt-6">
                             @foreach ($certificate as $data)
                                 <div class="flex items-center flex-col justify-center">
@@ -644,7 +644,7 @@
             <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full">
 
                 <div class="flex items-end w-full gap-2 lg:gap-7 py-10">
-                    <h2 class="uppercase text-white font_inter font-normal text-6xl w-full whitespace-nowrap">
+                    <h2 class="uppercase text-white font_inter font-normal lg:text-4xl xl:text-6xl w-full xl:whitespace-nowrap">
                         @if (isset($home))
                             {{ $home->testimonial_title }}
                         @endif
@@ -652,12 +652,12 @@
                     <div class="w-full" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
                 </div>
 
-                <h4 class="font_inter font-semibold text-[42px] text-white">
+                <h4 class="font_inter font-semibold text-[30px] xl:text-[42px] text-white">
                     @if (isset($home))
                         {{ $home->testimonial_sub_title }}
                     @endif
                 </h4>
-                <p class="font_inter font-normal text-[20px] text-white pb-[85px]">
+                <p class="font_inter font-normal text-base xl:text-[20px] text-white pb-[85px]">
                     @if (isset($home))
                         {{ $home->testimonial_description }}
                     @endif
@@ -724,8 +724,7 @@
         <div class="BlogCRDS bg-[#051b3b]">
             <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full">
                 <div class="flex items-end w-full gap-2 lg:gap-7">
-                    <h2
-                        class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] 2xl:text-[65px] leading-none fourthleft-to-right-animation">
+                    <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] lg:text-[45px] 2xl:text-[65px] leading-none fourthleft-to-right-animation">
                         @if (isset($home))
                             {{ $home->blog_title }}
                         @endif
