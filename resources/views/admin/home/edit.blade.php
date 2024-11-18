@@ -74,6 +74,13 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
+                                    <label class="form-label" for="journey_sub_title">Journey Sub Title</label>
+                                    <input type="text" class="form-control" id="journey_sub_title" name="journey_sub_title"
+                                        placeholder="Journey Sub Title" required value="{{$data->journey_sub_title}}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
                                     <label class="form-label" for="journey_description">Journey Description</label>
                                     <textarea class="form-control" id="journey_description" name="journey_description"
                                         placeholder="Journey Description" required>{{$data->journey_description}}</textarea>
@@ -86,7 +93,7 @@
                                         id="journey_image1" name="journey_image1">
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="journey_image2">Journey Image 2</label>
                                     <input type="file" accept=".png, .jpg, .jpeg,.webp" class="form-control"
@@ -99,7 +106,7 @@
                                     <input type="file" accept=".png, .jpg, .jpeg,.webp" class="form-control"
                                         id="journey_image3" name="journey_image3">
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- Certificate Section -->
                             <div class="col-md-6">
                                 <div class="mb-3">
@@ -122,7 +129,7 @@
                                         id="certificate_image1" name="certificate_image1">
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="certificate_image2">Certificate Image 2</label>
                                     <input type="file" accept=".png, .jpg, .jpeg,.webp" class="form-control"
@@ -135,7 +142,7 @@
                                     <input type="file" accept=".png, .jpg, .jpeg,.webp" class="form-control"
                                         id="certificate_image3" name="certificate_image3">
                                 </div>
-                            </div>
+                            </div> --}}
                             <!-- Testimonial Section -->
                             <div class="col-md-6">
                                 <div class="mb-3">
@@ -220,7 +227,7 @@
                                         id="journey_image1_alt_tag" name="journey_image1_alt_tag" required  value="{{$data->journey_image1_alt_tag}}">
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="journey_image2_alt_tag">Journey Image 2 Alt Tag</label>
                                     <input type="text" placeholder="Journey Image 2 Alt Tag" class="form-control"
@@ -233,7 +240,7 @@
                                     <input type="text" placeholder="Journey Image 3 Alt Tag" class="form-control"
                                         id="journey_image3_alt_tag" name="journey_image3_alt_tag" required value="{{$data->journey_image3_alt_tag}}">
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="certificate_image1_alt_tag">Certificate Image 1 Alt Tag</label>
@@ -241,7 +248,7 @@
                                         id="certificate_image1_alt_tag" name="certificate_image1_alt_tag" required value="{{$data->certificate_image1_alt_tag}}">
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="certificate_image2_alt_tag">Certificate Image 2 Alt Tag</label>
                                     <input type="text" placeholder="Certificate Image 2 Alt Tag" class="form-control"
@@ -254,7 +261,7 @@
                                     <input type="text" placeholder="Certificate Image 3 Alt Tag" class="form-control"
                                         id="certificate_image3_alt_tag" name="certificate_image3_alt_tag" required value="{{$data->certificate_image3_alt_tag}}">
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="row">
                             <div class="col-md-6">
@@ -265,7 +272,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Previous Journey Image 2</label>
                                     <div class="avatar-preview">
@@ -280,7 +287,7 @@
                                         <img class="previous-image" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->journey_image3 }}" alt="profile-image" onerror="this.src='{{ $locationData['storage_server_path'].$locationData['admin_assets_path'].'placeholder.png' }}';">
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Previous Certificate Image 1</label>
@@ -289,7 +296,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Previous Certificate Image 2</label>
                                     <div class="avatar-preview">
@@ -304,7 +311,7 @@
                                         <img class="previous-image" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->certificate_image3 }}" alt="profile-image" onerror="this.src='{{ $locationData['storage_server_path'].$locationData['admin_assets_path'].'placeholder.png' }}';">
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                         <!-- Submit Buttons -->
                         <div class="row">

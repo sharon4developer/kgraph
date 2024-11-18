@@ -20,7 +20,7 @@ class Home extends Model
         'who_we_are_first_title', 'who_we_are_second_title', 'who_we_are_sub_title',
 
         // Journey section
-        'journey_title', 'journey_description', 'journey_image1', 'journey_image2', 'journey_image3',
+        'journey_title' ,'journey_sub_title', 'journey_description', 'journey_image1', 'journey_image2', 'journey_image3',
         'journey_image1_alt_tag', 'journey_image2_alt_tag', 'journey_image3_alt_tag',
 
         // Certificate section
@@ -53,7 +53,7 @@ class Home extends Model
             'testimonial_title', 'testimonial_sub_title', 'testimonial_description',
             'blog_title', 'blog_sub_title', 'blog_description',
             'explore_title', 'explore_sub_title',
-            'faq_title', 'faq_sub_title',
+            'faq_title', 'faq_sub_title', 'journey_sub_title',
             'id'
         ])->get();
 
@@ -81,6 +81,7 @@ class Home extends Model
 
         // Journey
         $value->journey_title           = $data->journey_title;
+        $value->journey_sub_title       = $data->journey_sub_title;
         $value->journey_description     = $data->journey_description;
         $value->journey_image1_alt_tag  = $data->journey_image1_alt_tag;
         $value->journey_image2_alt_tag  = $data->journey_image2_alt_tag;
@@ -159,6 +160,7 @@ class Home extends Model
 
         // Journey
         $value->journey_title           = $data->journey_title;
+        $value->journey_sub_title       = $data->journey_sub_title;
         $value->journey_description     = $data->journey_description;
         $value->journey_image1_alt_tag  = $data->journey_image1_alt_tag;
         $value->journey_image2_alt_tag  = $data->journey_image2_alt_tag;
@@ -226,7 +228,7 @@ class Home extends Model
             'testimonial_title', 'testimonial_sub_title', 'testimonial_description',
             'blog_title', 'blog_sub_title', 'blog_description',
             'explore_title', 'explore_sub_title',
-            'faq_title', 'faq_sub_title',
+            'faq_title', 'faq_sub_title', 'journey_sub_title',
             'id'
         ]);
     }

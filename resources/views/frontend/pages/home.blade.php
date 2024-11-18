@@ -649,7 +649,11 @@
                     <div class="flex justify-between items-start gap-[10%] my-8">
                         <div class="text-white w-full flex flex-col justify-between h-[424px]">
                             <div>
-                                <p class="font_inter font-medium text-[20px] mb-6">Service You Can Rely On Experience You Can Trust</p>
+                                <p class="font_inter font-medium text-[20px] mb-6">
+                                    @if (isset($home))
+                                        {{ $home->journey_sub_title }}
+                                    @endif
+                                </p>
                                 <p class="font_inter font-normal text-[15px] my-6 text-justify">
                                     @if (isset($home))
                                         {{ $home->journey_description }}
