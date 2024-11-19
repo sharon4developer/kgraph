@@ -404,20 +404,20 @@
     <div class="bg-[#051b3b]">
 
         {{--our services --}}
-        <div class="ourservices rounded-b-[153px] relative">
+        <div class="ourservices rounded-b-[153px] relative py-14">
             <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full relative z-10">
-                <div class="rounded-lg bgk-grade overflow-hidden my-14 relative">
+                <div class="rounded-lg bgk-grade overflow-hidden mb-10 lg:my-14 relative">
                     <div class="py-8 px-8 relative z-10">
-                        <div class="flex justify-between items-center relative overflow-hidden">
-                            <div class="border-r-white border-r-[1px]  h-full pr-14">
-                                <h2 class="pb-8 text-white">
+                        <div class="flex flex-col lg:flex-row justify-between items-center relative overflow-hidden">
+                            <div class="border-r-white lg:border-r-[1px]  h-full lg:pr-14">
+                                <h2 class="pb-8 text-white text-center lg:text-left">
                                     <span class="font_inter lg:text-4xl xl:text-6xl font-normal uppercase"> @if (isset($home)) {{ $home->service_first_title }} @endif @if (isset($home)) {{ $home->service_second_title }} @endif</span>
                                     <span class="font-semibold lg:text-lg xl:text-xl capitalize">@if (isset($home)) {{ $home->service_sub_title }} @endif</span>
                                 </h2>
-                                <p class="font_inter text-sm xl:text-base  font-normal text-white clamp-3 xl:w-[80%]">@if (isset($home)){{ $home->service_description }}@endif</p>
+                                <p class="font_inter text-sm xl:text-base text-center lg:text-left  font-normal text-white clamp-3 xl:w-[80%]">@if (isset($home)){{ $home->service_description }}@endif</p>
                             </div>
-                            <div class="w-[40%] pl-14">
-                                <h3 class="font_inter text-base xl:text-xl font-extrabold text-white my-5 w-3/4 2xl:w-3/5">Find your Eligibility for PR</h3>
+                            <div class="lg:w-[40%] my-2 lg:pl-14 text-center lg:text-left">
+                                <h3 class="font_inter text-base xl:text-xl font-extrabold text-white my-5 lg:w-3/4 2xl:w-3/5">Find your Eligibility for PR</h3>
                                 <a class="font_syne uppercase font-bold text-xs xl:text-base whitespace-nowrap border border-white py-2 px-5 rounded-full my-4 text-white" href="{{ url('eligibility-check') }}">Free Eligibility Check</a>
                             </div>
                         </div>
@@ -428,7 +428,7 @@
                     </div>
                 </div>
 
-                <div class="flex justify-between items-center gap-6">
+                <div class="flex flex-col lg:flex-row justify-between items-center gap-6">
                     @foreach ($serviceCategory as $data)
                     <div class="w-full h-[350px] xl:h-[380px] 2xl:h-[450px] p-3 2xl:p-6 bgk-grade rounded-[26px] text-white shadow-lg relative font-sans overflow-hidden roundring-anim">
                         <!-- SVG Icon in the top-right corner -->
@@ -466,7 +466,7 @@
             </div>
 
             <div class="overflow-hidden whitespace-nowrap flex items-center py-6 relative z-10">
-                <div class="marquee-content animate-marquee flex items-center gap-24">
+                <div class="marquee-content animate-marquee flex items-center lg:gap-24">
                     <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/splunk.png') }} p-3" alt="" class="w-full"></div>
                     <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/segment.png') }}" alt="" class="w-full"></div>
                     <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/Hubspot.png') }}" alt="" class="w-full"></div>
@@ -483,7 +483,7 @@
                 </div>
             </div>
 
-            <div class="flex justify-center py-6 relative z-10 pb-20">
+            <div class="flex justify-center mx-5 lg:mx-0 py-6 relative z-10 pb-20">
                 <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[4.5px] pl-5 pr-1 overflow-hidden group">
                     <!-- Initially the background will cover the full button -->
                     <div
@@ -507,29 +507,31 @@
             <div class="gradient-evitionstart absolute top-0">
                 <img src="{{ asset('assets/home_Banner/sec-vectline.png') }}" alt="" class="">
             </div>
-            <div class="container mx-auto px-5 xl:px-12 lg:my-28 h-full w-full z-10 relative">
+            <div class="container mx-auto px-5 xl:px-12 py-12 lg:py-0 lg:my-28 h-full w-full z-10 relative">
                 <div>
-                    <div class="flex justify-center items-center">
+                    <div class="flex flex-col lg:flex-row justify-center items-center">
                         <div class="flex items-center w-full gap-2 lg:gap-7">
                             <h2 class="uppercase text-white font_inter font-normal text-4xl xl:text-6xl w-full lg:min-w-[500px] xl:min-w-[600px]">
                                 @if (isset($home))
                                     {{ $home->journey_title }}
                                 @endif
                             </h2>
-                            <div class="w-full lg:mr-8" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
+                            <div class="hidden lg:block w-full lg:mr-8" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
                         </div>
 
-                        <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[4.5px] pl-5 pr-1 group">
-                            <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 min-w-fit max-w-full rounded-full"></div>
-                            <h6 class="relative z-10 text-white text-[12px] xl:text-[14px] whitespace-nowrap">Let's turn your vision into reality</h6>
-                            <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:pb-[2px] xl:pt-[1px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
-                                <a href="" class="h-full text-[12px] xl:text-[14px]">Connect Us</a>
+                        <!-- <div class="mx-5 lg:mx-0"> -->
+                            <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 my-6 lg:my-0 py-[6.5px]  lg:py-1 xl:py-[4.5px] pl-5 pr-1 group">
+                                <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 min-w-fit max-w-full rounded-full"></div>
+                                <h6 class="relative z-10 text-white text-[12px] xl:text-[14px] lg:whitespace-nowrap">Let's turn your vision into reality</h6>
+                                <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:pb-[2px] xl:pt-[1px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                                    <a href="" class="h-full text-[12px] xl:text-[14px]">Connect Us</a>
+                                </div>
                             </div>
-                        </div>
+                        <!-- </div> -->
                     </div>
 
-                    <div class="flex justify-between items-start gap-[10%] my-8">
-                        <div class="text-white w-full flex flex-col justify-between h-[424px]">
+                    <div class="flex flex-col lg:flex-row justify-between items-start gap-[10%] my-8">
+                        <div class="text-white w-full flex flex-col justify-between lg:h-[424px]">
                             <div>
                                 <p class="font_inter font-medium text-[20px] mb-6">
                                     @if (isset($home))
@@ -548,7 +550,7 @@
                                 <h6 class="font_inter font-semibold text-lg capitalize leading-tight">Years of Experience</h6>
                             </div>
 
-                            <div class="flex justify-between items-center">
+                            <div class="flex justify-between flex-wrap gap-6 items-center">
                                 <div class="ctc-sect">
                                     <h5>@if (isset($journey))
                                         {{ $journey->employees }}
@@ -618,10 +620,9 @@
                     </div>
                 </div>
 
-                <div class="w-full h-[600px] lg:pb-16 pt-48 relative flex justify-center items-center">
+                <div class="w-full h-[600px] lg:pb-16 lg:pt-48 relative flex justify-center items-center">
                     <div class="absolute">
-                        <img src="@if (isset($home)) {{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $home->certificate_image1 }} @endif"
-                        alt="@if (isset($home)) {{ $home->certificate_image1_alt_tag }} @endif" class="">
+                        <img src="@if (isset($home)) {{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $home->certificate_image1 }} @endif" alt="@if (isset($home)) {{ $home->certificate_image1_alt_tag }} @endif" class="h-[600px] lg:h-auto object-cover">
                     </div>
                     <div class="z-10 relative text-white p-8 flex justify-center items-center flex-col">
                         <h2 class="font_inter font-black text-3xl xl:text-4xl w-[65%] xl:w-[50%] text-center">{{ $home->certificate_title ?? '' }}</h2>
@@ -637,7 +638,6 @@
                 </div>
             </div>
         </div>
-
 
         {{-- Testimonial --}}
         <div class="Testimonial bg-[#051b3b]">
@@ -668,34 +668,33 @@
                     <div class="splide__track">
                         <div class="splide__list flex gap-5">
                             @foreach ($testimonials as $data)
-                            <div class="splide__slide max-w-max p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
-                                <div class="flex items-center justify-between space-x-4 mb-4">
-                                    <div class="flex items-center gap-2">
-                                        <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"
-                                        alt="{{ $data->alt_tag }}" class="w-12 h-12 rounded-full">
-                                        <div>
-                                            <h2 class="text-lg font-semibold">{{ $data->name }}</h2>
-                                            <p class="text-sm text-gray-400">{{ $data->occupation }}</p>
+                                <div class="splide__slide max-w-max p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
+                                    <div class="flex items-center justify-between space-x-4 mb-4">
+                                        <div class="flex items-center gap-2">
+                                            <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"
+                                            alt="{{ $data->alt_tag }}" class="w-12 h-12 rounded-full">
+                                            <div>
+                                                <h2 class="text-lg font-semibold">{{ $data->name }}</h2>
+                                                <p class="text-sm text-gray-400">{{ $data->occupation }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="ml-auto flex items-center gap-2">
+                                            <span class="text-lg font-bold">5.0</span>
+                                            <div class="text-yellow-500 flex items-center">
+                                                <!-- Stars -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                                <!-- Add more stars as needed -->
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="ml-auto flex items-center gap-2">
-                                        <span class="text-lg font-bold">5.0</span>
-                                        <div class="text-yellow-500 flex items-center">
-                                            <!-- Stars -->
-                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                                            <!-- Add more stars as needed -->
-                                        </div>
+                                    <p class="text-sm text-gray-300 leading-relaxed py-7 truncate-text">
+                                        {{ $data->description }}
+                                    </p>
+                                    <div class="flex justify-end items-center">
+                                        <img class="w-[25px] h-[25px] mt-6" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
                                     </div>
                                 </div>
-                                <p class="text-sm text-gray-300 leading-relaxed py-7 truncate-text">
-                                    {{ $data->description }}
-                                </p>
-                                <div class="flex justify-end items-center">
-                                    <img class="w-[25px] h-[25px] mt-6" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
-                                </div>
-                            </div>
                             @endforeach
-
                         </div>
                     </div>
                 </div>
@@ -867,8 +866,6 @@
                         </div>
                     </div>
                 @endforeach
-
-
             </div>
             <div class="flex justify-center py-6">
                 <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group w-fit">
@@ -889,10 +886,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
         </div>
     </div>
 
@@ -1250,62 +1243,10 @@
                 arrows: false,
                 dots: false
             });
-
-            $('.video-carousel').slick({
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                prevArrow: $('.card-whosec-slide-prev-button'),
-                nextArrow: $('.card-whosec-slide-next-button'),
-                infinite: true,
-                fade: true,
-                adaptiveHeight: true,
-            });
         });
     </script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var splide = new Splide('#splide', {
-                type: 'loop',
-                autoplay: true,
-                interval: 3000,
-                arrows: false,
-                pagination: false,
-                perPage: 4,
-                gap: '16px',
-                drag: true,
-                snap: true,
-                perMove: 1,
-                breakpoints: {
-                    640: { // Mobile devices
-                        perPage: 1,
-                    },
-                    768: { // Tablets
-                        perPage: 1.5,
-                    },
-                    1024: { // Large devices (lg)
-                        perPage: 2,
-                    },
-                    1280: { // XL devices
-                        perPage: 2.5,
-                    },
-                    1536: { // 2XL devices
-                        perPage: 3,
-                    },
-                }
-            }).mount();
-
-            // Custom Previous Button
-            document.querySelector('.card-home-slide-prev-button').addEventListener('click', function() {
-                splide.go('<'); // Go to the previous slide
-            });
-
-            // Custom Next Button
-            document.querySelector('.card-home-slide-next-button').addEventListener('click', function() {
-                splide.go('>'); // Go to the next slide
-            });
-        });
-
         document.addEventListener('DOMContentLoaded', function() {
             var slides = document.querySelectorAll('#blogSplide .splide__slide');
 
@@ -1357,118 +1298,77 @@
         });
 
         document.addEventListener('DOMContentLoaded', function() {
-            var splide = new Splide('#exploreSplide', {
-                type: 'loop', // Loop through the slides
-                perMove: 1, // Moves one slide at a time
-                perPage: 3.5, // Shows one slide per page
-                arrows: false, // Disable default arrows
-                pagination: false, // Disable the dots (pagination)
-                autoplay: false,
-                interval: 3000, // Auto-slide interval
-                breakpoints: {
-                    640: {
-                        perPage: 1
-                    },
-                    768: {
-                        perPage: 1.9
-                    },
-                    1024: {
-                        perPage: 2
-                    },
-                    1280: {
-                        perPage: 3.1
-                    },
-                }
-            }).mount();
-
-            // Custom Previous Button
-            document.querySelector('.card-explore-slide-prev-button').addEventListener('click', function() {
-                splide.go('<'); // Go to the previous slide
-            });
-
-            // Custom Next Button
-            document.querySelector('.card-explore-slide-next-button').addEventListener('click', function() {
-                splide.go('>'); // Go to the next slide
-            });
-        });
-
-        document.addEventListener('DOMContentLoaded', function() {
             var slides = document.querySelectorAll('#testimonial-slider .splide__slide');
 
-            if (slides.length > 1) { // Only initialize if there's more than 1 slide
+            if (slides.length > 1) { 
                 var splide = new Splide('#testimonial-slider', {
-                    type: 'loop', // Loop through the slides
-                    perMove: 1, // Moves one slide at a time
-                    perPage: 3.1, // Shows 3 slides per page (visible slides)
-                    arrows: false, // Disable default arrows
-                    pagination: false, // Disable the dots (pagination)
-                    autoplay: true, // Enable autoplay
-                    interval: 3000, // Auto-slide interval (3 seconds)
+                    type: 'loop', 
+                    perMove: 1, 
+                    perPage: 3.1, 
+                    arrows: false, 
+                    pagination: false, 
+                    autoplay: true, 
+                    interval: 3000, 
                     breakpoints: {
-                        640: { perPage: 1 }, // 1 slide per page on small screens
-                        768: { perPage: 1.9 }, // 1.9 slides per page on medium screens
-                        1024: { perPage: 2 }, // 2 slides per page on large screens
+                        640: { perPage: 1 }, 
+                        768: { perPage: 1.9 }, 
+                        1024: { perPage: 2 }, 
                         1280: { perPage: 2.8, gap: '16px' },
-                        // 1536: { gap: '100px' }
+                        
                     }
                 }).mount();
-
-                // Custom Previous Button
                 document.querySelector('.card-testi-slide-prev-button').addEventListener('click', function() {
-                    splide.go('<'); // Go to the previous slide
+                    splide.go('<'); 
                 });
 
-                // Custom Next Button
                 document.querySelector('.card-testi-slide-next-button').addEventListener('click', function() {
-                    splide.go('>'); // Go to the next slide
+                    splide.go('>'); 
                 });
             } else {
                 console.log("Not enough slides to initialize the slider.");
             }
         });
-
     </script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const counterElement = document.querySelector("#journeyExperience span[data-count]");
-            
-            if (counterElement) {
-                const targetValue = parseInt(counterElement.getAttribute("data-count"), 10);
+                const counterElement = document.querySelector("#journeyExperience span[data-count]");
+                if (counterElement) {
+                    const targetValue = parseInt(counterElement.getAttribute("data-count"), 10);
 
-                const startCounting = () => {
-                    let currentValue = 0;
-                    const duration = 2000; // Duration of animation in milliseconds
-                    const increment = targetValue / (duration / 16); // Increment value per frame
+                    const startCounting = () => {
+                        let currentValue = 0;
+                        const duration = 2000; // Duration of animation in milliseconds
+                        const increment = targetValue / (duration / 16); // Increment value per frame
 
-                    const countUp = () => {
-                        currentValue += increment;
-                        if (currentValue >= targetValue) {
-                            counterElement.textContent = targetValue; // End at the target value
-                        } else {
-                            counterElement.textContent = Math.floor(currentValue);
-                            requestAnimationFrame(countUp);
-                        }
+                        const countUp = () => {
+                            currentValue += increment;
+                            if (currentValue >= targetValue) {
+                                counterElement.textContent = targetValue; // End at the target value
+                            } else {
+                                counterElement.textContent = Math.floor(currentValue);
+                                requestAnimationFrame(countUp);
+                            }
+                        };
+
+                        countUp();
                     };
 
-                    countUp();
-                };
+                    // Use Intersection Observer to trigger the animation
+                    const observer = new IntersectionObserver(
+                        (entries, observer) => {
+                            entries.forEach((entry) => {
+                                if (entry.isIntersecting) {
+                                    startCounting();
+                                    observer.unobserve(counterElement); // Stop observing after animation starts
+                                }
+                            });
+                        },
+                        { threshold: 0.5 } // Animation starts when 50% of the section is visible
+                    );
 
-                // Use Intersection Observer to trigger the animation
-                const observer = new IntersectionObserver(
-                    (entries, observer) => {
-                        entries.forEach((entry) => {
-                            if (entry.isIntersecting) {
-                                startCounting();
-                                observer.unobserve(counterElement); // Stop observing after animation starts
-                            }
-                        });
-                    },
-                    { threshold: 0.5 } // Animation starts when 50% of the section is visible
-                );
-
-                observer.observe(counterElement);
-            }
+                    observer.observe(counterElement);
+                }
         });
 
     </script>
