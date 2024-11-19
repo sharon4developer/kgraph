@@ -853,7 +853,7 @@ video {
         position: absolute;
         /* scale: 0.5; */
         bottom: -74px;
-        right: -64%;
+        right: -46%;
         background-repeat: no-repeat;
         background-image: url(/public/assets/home_Banner/underscorebn.png) !important;
         /* background-image: url(/public/assets/home_Banner/about-us.png) !important; */
@@ -910,7 +910,7 @@ video {
     .banner_main-text::after {
         scale: unset;
         bottom: -75px;
-        right: -53%;
+        /* right: -53%; */
     }
     .rasing-falg-wrpr {
         right: 2%;
