@@ -1305,6 +1305,7 @@
                 var splide = new Splide('#testimonial-slider', {
                     type: 'loop',
                     perMove: 1,
+                    perPage: 2.8, 
                     arrows: false,
                     pagination: false,
                     autoplay: true,
