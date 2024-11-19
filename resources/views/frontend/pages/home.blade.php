@@ -203,7 +203,28 @@
                 background-size: contain;
                 background-repeat: no-repeat;
             }
+            .roundring-anim:hover .round-comimg{
+                height: 585px;
+                width: 500px;
+                transform: translate(-353px, -89px);
+            }
+            .clamp-3{
+                max-height: calc(2.6em* 2);
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
 
+        }
+        .clamp-3{
+            max-height: calc(2.7em* 2);
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         .round-comimg{
             height: 100px;
@@ -212,9 +233,9 @@
             transition: all 0.5s;
         }
         .roundring-anim:hover .round-comimg{
-            height: 585px;
-            width: 500px;
-            transform: translate(-353px, -89px);
+            height: 954px;
+            width: 960px;
+            transform: translate(-353px, -289px);
         }
         .roundring-anim:hover h2,
         .roundring-anim:hover p,
@@ -309,16 +330,19 @@
             background-position-x: center;
             background-position-y: ;
         }
-        .clamp-3{
-            max-height: calc(2.6em* 2);
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
+
         [data-animate-left] {
             will-change: opacity, transform;
+        }
+
+        @media (max-width: 640px) {
+            #testimonial-slider .splide__list {
+                padding: 0;
+                gap: 0; /* Remove gaps between slides */
+            }
+            #testimonial-slider .splide__slide {
+                width: 100%; /* Make each slide fill the screen width */
+            }
         }
 
     </style>
@@ -408,9 +432,9 @@
     <div class="bg-[#051b3b]">
 
         {{--our services --}}
-        <div class="ourservices rounded-b-[153px] relative py-14">
+        <div class="ourservices rounded-b-[153px] relative py-14 lg:py-0">
             <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full relative z-10">
-                <div class="rounded-lg bgk-grade overflow-hidden mb-10 lg:my-14 relative">
+                <div class="rounded-lg bgk-grade overflow-hidden mb-10  relative">
                     <div class="py-8 px-8 relative z-10">
                         <div class="flex flex-col lg:flex-row justify-between items-center relative overflow-hidden">
                             <div class="border-r-white lg:border-r-[1px]  h-full lg:pr-14 2xl:pr-0" data-animate>
@@ -513,7 +537,7 @@
             <div class="gradient-evitionstart absolute top-0">
                 <img src="{{ asset('assets/home_Banner/sec-vectline.png') }}" alt="" class="">
             </div>
-            <div class="container mx-auto px-5 xl:px-12 py-12 lg:py-0 lg:my-28 h-full w-full z-10 relative">
+            <div class="container mx-auto px-5 xl:px-12 pb-12 lg:py-12 lg:my-16 h-full w-full z-10 relative">
                 <div>
                     <div class="flex flex-col lg:flex-row justify-center items-center">
                         <div class="flex items-center w-full gap-2 lg:gap-7">
@@ -525,15 +549,13 @@
                             <div class="hidden lg:block w-full lg:mr-8" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;" data-animate-left></div>
                         </div>
 
-                        <!-- <div class="mx-5 lg:mx-0"> -->
-                            <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 my-6 lg:my-0 py-[6.5px]  lg:py-1 xl:py-[4.5px] pl-5 pr-1 group">
-                                <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 min-w-fit max-w-full rounded-full"></div>
-                                <h6 class="relative z-10 text-white text-[12px] xl:text-[14px] lg:whitespace-nowrap">Let's turn your vision into reality</h6>
-                                <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:pb-[2px] xl:pt-[1px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
-                                    <a href="" class="h-full text-[12px] xl:text-[14px]">Connect Us</a>
-                                </div>
+                        <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 my-6 lg:py-20  py-[6.5px]  xl:py-[4.5px] pl-5 pr-1 group">
+                            <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 min-w-fit max-w-full rounded-full"></div>
+                            <h6 class="relative z-10 text-white text-[12px] xl:text-[14px] lg:whitespace-nowrap">Let's turn your vision into reality</h6>
+                            <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:pb-[2px] xl:pt-[1px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                                <a href="" class="h-full text-[12px] xl:text-[14px]">Connect Us</a>
                             </div>
-                        <!-- </div> -->
+                        </div>
                     </div>
 
                     <div class="flex flex-col lg:flex-row justify-between items-start gap-[10%] my-8">
@@ -597,24 +619,27 @@
                         </div>
 
                         <div class="w-full flex justify-center items-center rounded-lg overflow-hidden mt-6 relative group video-grade">
-                            <img src="@if (isset($home)) {{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $home->journey_image1 }} @endif"
-                            alt="@if (isset($home)) {{ $home->journey_image1_alt_tag }} @endif" style="object-position: 0px 0px;" class="w-full h-[400px] object-cover video-imagepos">
+                            <!-- <img src="@if (isset($home)) {{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $home->journey_image1 }} @endif" alt="@if (isset($home)) {{ $home->journey_image1_alt_tag }} @endif" style="object-position: 0px 0px;" class="w-full h-[400px] object-cover video-imagepos"> -->
+                            <video  class="w-full h-[400px] object-cover object-center video-imagepos"  style="object-position: 0px 0px;" muted  loop>
+                                @if (isset($home)) 
+                                    <source src="{{asset('assets/kgraphvideo.mp4')}}">
+                                @endif
+                            </video>
 
-                            <!-- Overlay Gradient (only shows on hover) -->
                             <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#113165] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-
-                            <!-- Play Button and Text Content (always visible) -->
                             <div class="absolute bottom-4 left-4 flex items-center space-x-2 text-white">
                                 <!-- Play Icon -->
-                                <svg width="78" height="78" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="38.6475" cy="38.6475" r="38.6475" fill="white" fill-opacity="0.5"/>
-                                    <mask id="mask0_1460_3580" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="23" y="24" width="30" height="30">
-                                        <path d="M23.5664 24.5088H52.7877V53.7301H23.5664V24.5088Z" fill="white"/>
-                                    </mask>
-                                    <g mask="url(#mask0_1460_3580)">
-                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M50.5163 43.0709C53.5572 41.314 53.5572 36.9235 50.5163 35.1647L34.9834 26.1847C31.9407 24.4259 28.1328 26.623 28.1328 30.1387V48.0988C28.1328 51.6145 31.9407 53.8116 34.9834 52.051L50.5163 43.0709Z" fill="white"/>
-                                    </g>
-                                </svg>
+                                <div onclick="togglePlay(this)" class="cursor-pointer">
+                                    <svg width="78" height="78" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="38.6475" cy="38.6475" r="38.6475" fill="white" fill-opacity="0.5"/>
+                                        <mask id="mask0_1460_3580" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="23" y="24" width="30" height="30">
+                                            <path d="M23.5664 24.5088H52.7877V53.7301H23.5664V24.5088Z" fill="white"/>
+                                        </mask>
+                                        <g mask="url(#mask0_1460_3580)">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M50.5163 43.0709C53.5572 41.314 53.5572 36.9235 50.5163 35.1647L34.9834 26.1847C31.9407 24.4259 28.1328 26.623 28.1328 30.1387V48.0988C28.1328 51.6145 31.9407 53.8116 34.9834 52.051L50.5163 43.0709Z" fill="white"/>
+                                        </g>
+                                    </svg>
+                                </div>
 
                                 <!-- Text Content -->
                                 <div>
@@ -628,11 +653,11 @@
 
                 <div class="w-full h-[600px] lg:pb-16 lg:pt-48 relative flex justify-center items-center">
                     <div class="absolute">
-                        <img src="@if (isset($home)) {{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $home->certificate_image1 }} @endif" alt="@if (isset($home)) {{ $home->certificate_image1_alt_tag }} @endif" class="h-[600px] lg:h-auto object-cover">
+                        <img src="@if (isset($home)) {{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $home->certificate_image1 }} @endif" alt="@if (isset($home)) {{ $home->certificate_image1_alt_tag }} @endif" class="h-[600px] lg:h-auto object-cover rounded-lg">
                     </div>
                     <div class="z-10 relative text-white p-8 flex justify-center items-center flex-col" data-animate>
-                        <h2 class="font_inter font-black text-3xl xl:text-4xl w-[65%] xl:w-[50%] text-center">{{ $home->certificate_title ?? '' }}</h2>
-                        <p class="py-5 font-semibold font_inter text-lg xl:text-xl clamp-3 text-center w-[65%] xl:w-[50%]">{{ $home->certificate_description ?? '' }}</p>
+                        <h2 class="font_inter font-black text-3xl xl:text-4xl lg:w-[65%] xl:w-[50%] text-center">{{ $home->certificate_title ?? '' }}</h2>
+                        <p class="py-5 font-semibold font_inter text-lg xl:text-xl clamp-3 text-center lg:w-[65%] xl:w-[50%]">{{ $home->certificate_description ?? '' }}</p>
                         <div class="flex flex-col lg:flex-row gap-5 items-center mt-6">
                             @foreach ($certificate as $data)
                                 <div class="flex items-center flex-col justify-center">
@@ -669,12 +694,11 @@
                     @endif
                 </p>
 
-                <!-- Splide Slider Container -->
-                <div id="testimonial-slider" class="splide">
+                <div id="testimonial-slider" class="splide w-full">
                     <div class="splide__track">
-                        <div class="splide__list flex gap-5">
+                        <div class="splide__list flex gap-5 px-4 md:px-0">
                             @foreach ($testimonials as $data)
-                                <div class="splide__slide max-w-full lg:max-w-max p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
+                                <div class="splide__slide p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
                                     <div class="flex items-center justify-between space-x-4 mb-4">
                                         <div class="flex items-center gap-2">
                                             <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"
@@ -1274,37 +1298,54 @@
             }
         });
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var slides = document.querySelectorAll('#testimonial-slider .splide__slide');
 
-            if (slides.length > 1) { 
+            if (slides.length > 1) {
                 var splide = new Splide('#testimonial-slider', {
-                    type: 'loop', 
-                    perMove: 1, 
-                    perPage: 3.1, 
-                    arrows: false, 
-                    pagination: false, 
-                    autoplay: true, 
-                    interval: 3000, 
+                    type: 'loop',
+                    perMove: 1,
+                    arrows: false,
+                    pagination: false,
+                    autoplay: true,
+                    interval: 3000,
                     breakpoints: {
-                        640: { perPage: 1 }, 
-                        768: { perPage: 1.9 }, 
-                        1024: { perPage: 2 }, 
-                        1280: { perPage: 2.8, gap: '16px' },
-                        
-                    }
+                        640: { 
+                            perPage: 1,  // Display one slide at a time on mobile
+                            gap: '0px', // Remove gap between slides
+                        },
+                        768: { 
+                            perPage: 1.9, 
+                            gap: '8px',
+                        },
+                        1024: { 
+                            perPage: 2, 
+                            gap: '12px',
+                        },
+                        1280: { 
+                            perPage: 2.8, 
+                            gap: '16px',
+                        },
+                    },
                 }).mount();
-                document.querySelector('.card-testi-slide-prev-button').addEventListener('click', function() {
-                    splide.go('<'); 
-                });
 
-                document.querySelector('.card-testi-slide-next-button').addEventListener('click', function() {
-                    splide.go('>'); 
-                });
+                document
+                    .querySelector('.card-testi-slide-prev-button')
+                    .addEventListener('click', function () {
+                        splide.go('<');
+                    });
+
+                document
+                    .querySelector('.card-testi-slide-next-button')
+                    .addEventListener('click', function () {
+                        splide.go('>');
+                    });
             } else {
-                console.log("Not enough slides to initialize the slider.");
+                console.log('Not enough slides to initialize the slider.');
             }
         });
+
+
     </script>
 
     <script>
@@ -1348,5 +1389,20 @@
                 }
         });
 
+    </script>
+
+    <script>
+        function togglePlay(button) {
+            const video = button.closest('.video-grade').querySelector('video'); // Select the video element
+            const playIcon = button.querySelector('.play-icon'); // Select the play icon
+
+            if (video.paused) {
+                video.play(); // Play the video
+                playIcon.style.display = 'none'; // Hide the play icon when playing
+            } else {
+                video.pause(); // Pause the video
+                playIcon.style.display = 'block'; // Show the play icon when paused
+            }
+        }
     </script>
 @endsection
