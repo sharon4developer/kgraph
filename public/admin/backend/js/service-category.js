@@ -198,12 +198,16 @@ $('#service-edit-form').validate({
         title: {
             required: true,
         },
+        sub_title: {
+            required: true,
+        },
         service_category_id: {
             required: true,
         },
     },
     messages: {
         title: "Title field is required",
+        sub_title: "Sub title field is required",
     },
     errorElement: 'span',
     submitHandler: function (form, event) {
