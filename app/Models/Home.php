@@ -21,7 +21,7 @@ class Home extends Model
 
         // Journey section
         'journey_title' ,'journey_sub_title', 'journey_description', 'journey_image1', 'journey_image2', 'journey_image3',
-        'journey_image1_alt_tag', 'journey_image2_alt_tag', 'journey_image3_alt_tag',
+        'journey_image1_alt_tag', 'journey_image2_alt_tag', 'journey_image3_alt_tag', 'journey_video', 'journey_video_position', 'journey_video_name',
 
         // Certificate section
         'certificate_title', 'certificate_description', 'certificate_image1', 'certificate_image2', 'certificate_image3',
@@ -53,7 +53,7 @@ class Home extends Model
             'testimonial_title', 'testimonial_sub_title', 'testimonial_description',
             'blog_title', 'blog_sub_title', 'blog_description',
             'explore_title', 'explore_sub_title',
-            'faq_title', 'faq_sub_title', 'journey_sub_title',
+            'faq_title', 'faq_sub_title', 'journey_sub_title', 'journey_video', 'journey_video_position', 'journey_video_name',
             'id'
         ])->get();
 
@@ -86,6 +86,8 @@ class Home extends Model
         $value->journey_image1_alt_tag  = $data->journey_image1_alt_tag;
         $value->journey_image2_alt_tag  = $data->journey_image2_alt_tag;
         $value->journey_image3_alt_tag  = $data->journey_image3_alt_tag;
+        $value->journey_video_position  = $data->journey_video_position;
+        $value->journey_video_name      = $data->journey_video_name;
 
         // Certificate
         $value->certificate_title       = $data->certificate_title;
@@ -132,6 +134,9 @@ class Home extends Model
         if ($data->certificate_image3) {
             $value->certificate_image3 = Cms::storeImage($data->certificate_image3, $data->certificate_title);
         };
+        if ($data->journey_video) {
+            $value->journey_video = Cms::storeVideo($data->journey_video, $data->journey_title);
+        };
 
         return $value->save();
     }
@@ -165,6 +170,8 @@ class Home extends Model
         $value->journey_image1_alt_tag  = $data->journey_image1_alt_tag;
         $value->journey_image2_alt_tag  = $data->journey_image2_alt_tag;
         $value->journey_image3_alt_tag  = $data->journey_image3_alt_tag;
+        $value->journey_video_position  = $data->journey_video_position;
+        $value->journey_video_name      = $data->journey_video_name;
 
         // Certificate
         $value->certificate_title       = $data->certificate_title;
@@ -210,6 +217,9 @@ class Home extends Model
         if ($data->certificate_image3) {
             $value->certificate_image3 = Cms::storeImage($data->certificate_image3, $data->certificate_title);
         };
+        if ($data->journey_video) {
+            $value->journey_video = Cms::storeVideo($data->journey_video, $data->journey_title);
+        };
 
         // Handle other updates here (testimonials, blog, explore, FAQ, etc.)
 
@@ -228,7 +238,7 @@ class Home extends Model
             'testimonial_title', 'testimonial_sub_title', 'testimonial_description',
             'blog_title', 'blog_sub_title', 'blog_description',
             'explore_title', 'explore_sub_title',
-            'faq_title', 'faq_sub_title', 'journey_sub_title',
+            'faq_title', 'faq_sub_title', 'journey_sub_title', 'journey_video', 'journey_video_position', 'journey_video_name',
             'id'
         ]);
     }
