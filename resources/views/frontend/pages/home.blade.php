@@ -360,16 +360,20 @@
         {{--old banner section --}}
         <div class="h-dvh md:h-screen lg:h-full 2xl:h-screen w-full homeBanner relative overflow-hidden">
             <!-- Gradient overlay -->
-            {{-- <div class="banner-gradient-overlay absolute inset-0"></div> --}}
+            <div class="banner-gradient-overlay absolute inset-0"></div> 
 
             <!-- Slick Slider for Background Images -->
 
-            <div class="slick-slider-background absolute inset-0 z-[-1]">
-                @foreach ($banner as $data)
-                    <div>
-                        <img class="w-full h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{ $data->alt_tag }}">
-                    </div>
-                @endforeach
+            <div id="home-banner-slider" class="splide !absolute inset-0 z-[-1] h-full">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        @foreach ($banner as $data)
+                            <li class="splide__slide">
+                                <img class="w-full h-[155vh] object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{ $data->alt_tag }}">
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
 
             <!-- Banner Content -->
@@ -377,7 +381,7 @@
                 <div
                     class="h-full w-full flex flex-col justify-start md:justify-center items-center text-center mb-4 md:pt-8 pb-0 gap-[5%] md:gap-[31px] lg:gap-0">
                     <div
-                        class="z-10 flex flex-col lg:flex-row items-center lg:gap-[23px] pt-[10%] lg:pt-[22%] xl:pt-[205px] 2xl:pt-[120px] banner-container-elem">
+                        class="z-10 flex flex-col lg:flex-row items-center lg:gap-[23px] pt-[10%] lg:pt-[22%] xl:pt-[143px] 2xl:pt-[120px] banner-container-elem">
                         <img class="pt-[22px] md:pt-0 w-[40px] lg:w-[100px]"
                             src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="rocket icon">
                         <h2
@@ -486,7 +490,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <h2 class="text-xl xl:text-2xl 2xl:text-4xl clamp-text-two font-bold font_inter mt-8 mb-4 relative z-10" data-animate>{{ $data->title }}</h2>
+                            <h2 class="text-xl xl:text-2xl 2xl:text-4xl clamp-text-two font-bold font_inter mt-8 mb-4 relative z-10 lg:h-[80px]" data-animate>{{ $data->title }}</h2>
                             <p class="text-gray-200 font_inter font-normal text-sm relative z-10" data-animate>{{ $data->title }}</p>
                         </div> 
                         <div class="my-4 mx-2" data-animate><div class="bg-liner h-[1px] w-full  rounded-xl"></div></div>
@@ -812,15 +816,13 @@
                             @foreach ($blogs as $data)
                                 <li class="splide__slide">
                                     <a href="{{ url('blogdetail') }}">
-                                        <div class="mx-auto bg-[#051b3b] shadow-lg rounded-lg overflow-hidden mt-10 lg:h-fit w-full sm:max-w-sm h-auto">
-                                            <img class="w-full object-cover lg:h-[200px] 2xl:h-[225px] aspect-video"
-                                                src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"
-                                                alt="{{ $data->alt_tag }}">
+                                        <div class="mx-auto bg-[#051b3b] shadow-lg rounded-lg overflow-hidden mt-[8px] 2xl:mt-10 lg:h-fit w-full sm:max-w-sm h-auto">
+                                            <img class="w-full object-cover lg:h-[170px] 2xl:h-[225px] aspect-video" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"  alt="{{ $data->alt_tag }}">
                                             <div class="p-6 border-b border-l border-r border-white rounded-lg mt-[-7px]">
                                                 <?php $date = $data->date . ' ' . $data->time; ?>
 
                                                 <div class="flex items-center justify-between">
-                                                    <p class="text-white text-[10px] flex items-center gap-[8px]">
+                                                    <p class="text-white text-[8px] 2xl:text-[10px] flex items-center gap-[8px]">
                                                         <svg width="12" height="13" viewBox="0 0 12 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M4.2207 2.13379H7.5957V1.19629C7.5957 0.891602 7.83008 0.633789 8.1582 0.633789C8.46289 0.633789 8.7207 0.891602 8.7207 1.19629V2.13379H9.6582C10.4785 2.13379 11.1582 2.81348 11.1582 3.63379V11.1338C11.1582 11.9775 10.4785 12.6338 9.6582 12.6338H2.1582C1.31445 12.6338 0.658203 11.9775 0.658203 11.1338V3.63379C0.658203 2.81348 1.31445 2.13379 2.1582 2.13379H3.0957V1.19629C3.0957 0.891602 3.33008 0.633789 3.6582 0.633789C3.96289 0.633789 4.2207 0.891602 4.2207 1.19629V2.13379ZM1.7832 6.44629H3.6582V5.13379H1.7832V6.44629ZM1.7832 7.57129V9.07129H3.6582V7.57129H1.7832ZM4.7832 7.57129V9.07129H7.0332V7.57129H4.7832ZM8.1582 7.57129V9.07129H10.0332V7.57129H8.1582ZM10.0332 5.13379H8.1582V6.44629H10.0332V5.13379ZM10.0332 10.1963H8.1582V11.5088H9.6582C9.8457 11.5088 10.0332 11.3447 10.0332 11.1338V10.1963ZM7.0332 10.1963H4.7832V11.5088H7.0332V10.1963ZM3.6582 10.1963H1.7832V11.1338C1.7832 11.3447 1.94727 11.5088 2.1582 11.5088H3.6582V10.1963ZM7.0332 5.13379H4.7832V6.44629H7.0332V5.13379Z" fill="white"/>
                                                         </svg>
@@ -835,13 +837,13 @@
                                                     </div>
                                                 </div>
 
-                                                <h2 class="text-[14px] font-bold text-white mt-[12px] lg:w-[60%] clamp-text-two h-[60px]">
+                                                <h2 class="text-[12px] 2xl:text-[14px] font-bold text-white mt-[10px] 2xl:mt-[12px] lg:w-[60%] clamp-text-two h-[60px]">
                                                     {{ $data->topics }}</h2>
-                                                <div class="text-white text-[10px] my-0 clamp-text">
+                                                <div class="text-white text-[8px] 2xl:text-[10px] my-0 clamp-text">
                                                     {!! $data->description !!}
                                                 </div>
-                                                <div class="pt-[25px]">
-                                                    <a href="#" class="text-[10px] font_inter flex items-center text-white gap-[10px]">
+                                                <div class="pt-[18px] 2xl:pt-[25px]">
+                                                    <a href="#" class="text-[10px] 2xl:text-[10px] font_inter flex items-center text-white gap-[10px]">
                                                         Read more
                                                         <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M14.0957 6.00098L10.5957 9.50098C10.2676 9.85645 9.69336 9.85645 9.36523 9.50098C9.00977 9.17285 9.00977 8.59863 9.36523 8.27051L11.3613 6.24707H1.24414C0.751953 6.24707 0.369141 5.86426 0.369141 5.37207C0.369141 4.85254 0.751953 4.49707 1.24414 4.49707H11.3613L9.36523 2.50098C9.00977 2.17285 9.00977 1.59863 9.36523 1.27051C9.69336 0.915039 10.2676 0.915039 10.5957 1.27051L14.0957 4.77051C14.4512 5.09863 14.4512 5.67285 14.0957 6.00098Z" fill="white"/>
@@ -944,59 +946,54 @@
 
     @include('frontend.Common.getintouch')
 
-    {{-- explore section --}}
-    <div class="explore-section bg-black">
-        <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full">
-            <div class="flex items-end w-full gap-2 lg:gap-7">
-                <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] 2xl:text-[65px] leading-none fifthleft-to-right-animation">Explore</h2>
-                <div class="w-full fifthleft-to-right-width-animation" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
-            </div>
-            <p class="text-white font_inter font-semibold text-[26px] lg:w-[35%] mt-6 fifthleft-to-right-animation">Learn About All of the Great ThingsCanada Has to Offer!</p>
-        </div>
-
-        <div id="exploreSplide" class="splide pb-8 md:pb-[100px] xl:pl-[50px] explore-slider-class h-[380px] z-0">
-            <div class="splide__track">
-                <ul class="splide__list">
-                    <li class="splide__slide">
-                        <div class="my-0 mx-4 !w-[89vw] xl:!w-[380px] md:mx-4 lg:mx-8 relative image-card-explore">
-                            <img class="w-full md:w-[380px]" src="{{ asset('assets/home_Banner/sliderone.png') }}" alt="">
-                            <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
-                                <button class="text-white">view</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="splide__slide">
-                        <div class="my-0 mx-4 !w-[89vw] xl:!w-[380px] md:mx-4 lg:mx-8 relative image-card-explore">
-                            <img class="w-full md:w-[380px]" src="{{ asset('assets/home_Banner/sliderone.png') }}" alt="">
-                            <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
-                                <button class="text-white">view</button>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="splide__slide">
-                        <div class="my-0 mx-4 !w-[89vw] xl:!w-[380px] md:mx-4 lg:mx-8 relative image-card-explore">
-                            <img class="w-full md:w-[380px]" src="{{ asset('assets/home_Banner/sliderone.png') }}" alt="">
-                            <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
-                                <button class="text-white">view</button>
-                            </div>
-                        </div>
-                    </li>
-                    <!-- Repeat for other slides -->
-                </ul>
-            </div>
-        </div>
-
-
-        <div class="container mx-auto px-5 xl:px-12 py-8 lg:pt-1 lg:pb-16  z-[99] h-full w-full">
-            <div class="flex justify-end gap-3 items-center">
-                <div class="card-explore-slide-prev-button cursor-pointer">
-                    <img class="w-[40px]" src="{{ asset('assets/Button-Previous.png') }}" alt="">
+        {{-- explore section --}}
+        <div class="explore-section bg-black">
+            <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full">
+                <div class="flex items-end w-full gap-2 lg:gap-7">
+                    <h2
+                        class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] 2xl:text-[65px] leading-none fifthleft-to-right-animation">
+                        @if (isset($home))
+                            {{ $home->explore_title }}
+                        @endif
+                    </h2>
+                    <div class="w-full fifthleft-to-right-width-animation"
+                        style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
                 </div>
-                <div class="cursor-pointer card-explore-slide-next-button">
-                    <img class="w-[40px]" src="{{ asset('assets/nextbutton.png') }}" alt="">
+                <p class="text-white font_inter font-semibold text-[26px] lg:w-[35%] mt-6 fifthleft-to-right-animation">
+                    @if (isset($home))
+                        {{ $home->explore_sub_title }}
+                    @endif
+                </p>
+            </div>
+
+            <div id="exploreSplide" class="splide pb-8 md:pb-[100px] xl:pl-[50px] explore-slider-class h-[380px] z-0">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        @foreach ($explore as $data)
+                            <li class="splide__slide">
+                                <div class="!w-[90vw] xl:!w-[300px] relative image-card-explore cursor-pointer">
+                                    <img class="w-full md:w-[300px] h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{ $data->alt_tag }}">
+                                    <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
+                                        <!-- <button class="text-white">view</button> -->
+                                    </div>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
-        </div>
+
+
+            <div class="container mx-auto px-5 xl:px-12 py-8 lg:pt-1 lg:pb-16  z-[99] h-full w-full">
+                <div class="flex justify-end gap-3 items-center">
+                    <div class="card-explore-slide-prev-button cursor-pointer">
+                        <img class="w-[40px]" src="{{ asset('assets/Button-Previous.png') }}" alt="">
+                    </div>
+                    <div class="cursor-pointer card-explore-slide-next-button">
+                        <img class="w-[40px]" src="{{ asset('assets/nextbutton.png') }}" alt="">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -1325,6 +1322,11 @@
         });
     </script>
 
+@section('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+@endsection
+
     {{-- slick slider --}}
     <script type="text/javascript">
         $(document).ready(function() {
@@ -1370,7 +1372,11 @@
                             gap: '20px'
                         },
                         1280: {
-                            perPage: 3.5,
+                            perPage: 3.1,
+                            gap: '24px'
+                        },
+                        1380: {
+                            perPage: 3.1    ,
                             gap: '24px'
                         },
                     }
@@ -1406,8 +1412,8 @@
                     interval: 3000,
                     breakpoints: {
                         640: {
-                            perPage: 1,  // Display one slide at a time on mobile
-                            gap: '0px', // Remove gap between slides
+                            perPage: 1,  
+                            gap: '0px', 
                         },
                         768: {
                             perPage: 1.9,
@@ -1441,20 +1447,51 @@
         });
 
         document.addEventListener('DOMContentLoaded', function () {
+            const bannerSlider = document.querySelector('#home-banner-slider .splide__list');
+            const slides = bannerSlider.querySelectorAll('.splide__slide');
+
+            if (slides.length > 1) {
+                const splide = new Splide('#home-banner-slider', {
+                    type: 'fade',         
+                    autoplay: true,       
+                    interval: 3000,       
+                    speed: 1000,          
+                    arrows: false,        
+                    pagination: false,    
+                    pauseOnHover: false,  
+                    rewind: true,        
+                });
+
+                splide.mount();
+
+                splide.on('move', (newIndex) => {
+                    if (newIndex === slides.length - 1) {
+                        setTimeout(() => {
+                            splide.go(0); 
+                        }, 3000); 
+                    }
+                });
+            } else {
+                console.warn('Not enough slides for a slider.');
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
             var splide = new Splide('#exploreSplide', {
-                type: 'loop',   // Loop through the slides
-                perMove: 1,     // Moves one slide at a time
-                perPage: 3.5,     // Shows one slide per page
-                arrows: false,  // Disable default arrows
-                pagination: false, // Disable the dots (pagination)
+                type: 'loop',   
+                perMove: 1,     
+                perPage: 4.9,    
+                arrows: false,  
+                pagination: false, 
                 autoplay: true,
-                interval: 3000, // Auto-slide interval
-                gap: '16px',    // Gap between slides
+                interval: 2000, 
+                gap: '16px',   
                 breakpoints: {
                     640: { perPage: 1 },
                     768: { perPage: 1.5},
                     1024: { perPage: 2},
-                    1280: { perPage: 2.8 },
+                    1280: { perPage: 3.9},
+                    1380: { perPage: 3.9},
                 }
             }).mount();
 
