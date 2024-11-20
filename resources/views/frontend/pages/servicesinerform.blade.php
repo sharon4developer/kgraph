@@ -109,7 +109,7 @@
                     us after that period,
                     please check your junk/spam emails.</p>
                 <p>We look forward to assisting you with your immigration matter.</p>
-                <p>CanDo Canadian Immigration Services</p>
+                <p>K-graph Canadian Immigration Services</p>
             </div>
         </div>
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:pb-[4%] lg:pt-0">
@@ -652,7 +652,7 @@
                         {{-- </select>
                     </div> --}}
 
-                    <p class="text-white font_arial text-[14px] font-normal pb-6">CanDo Immigration is committed to
+                    <p class="text-white font_arial text-[14px] font-normal pb-6">K-graph Immigration is committed to
                         protecting and respecting your privacy, and we’ll only use your personal information to administer
                         your account and to provide the products
                         and services you requested from us. From time to time, we would like to contact you about our
@@ -663,12 +663,12 @@
                     <div class="check-box-wrpr !mt-0">
                         <div>
                             <input type="checkbox" id="receive-communications" name="receive_communications">
-                            <label for="receive-communications">I agree to receive other communications from CanDo
+                            <label for="receive-communications">I agree to receive other communications from K-graph
                                 Immigration.</label>
                         </div>
                         <div>
                             <input type="checkbox" id="consent-data" name="consent_data">
-                            <label for="consent-data">I agree to allow CanDo Immigration to store and process my personal
+                            <label for="consent-data">I agree to allow K-graph Immigration to store and process my personal
                                 data.</label>
                         </div>
                     </div>
