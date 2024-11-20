@@ -498,7 +498,7 @@
                             <div class="space-y-2 relative z-10" data-animate>
                                 @foreach ($data->Service as $service)
                                 <a href="{{url('service-details/'.$service->slug)}}" class="w-full text-xs xl:text-base bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
-                                    <span class="clamp-text-one">{{ $service->title }}</span> 
+                                    <span class="clamp-text-one">{{ $service->title }}</span>
                                     <span>→</span>
                                 </a>
                                 @endforeach
@@ -634,7 +634,7 @@
 
                         <div class="w-full flex justify-center items-center rounded-lg overflow-hidden mt-6 relative group video-grade">
                             <!-- <img src="@if (isset($home)) {{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $home->journey_image1 }} @endif" alt="@if (isset($home)) {{ $home->journey_image1_alt_tag }} @endif" style="object-position: 0px 0px;" class="w-full h-[400px] object-cover video-imagepos"> -->
-                            <video  class="w-full h-[400px] object-cover object-center video-imagepos"  style="object-position: 0px 0px;" muted  loop>
+                            <video  class="w-full h-[400px] object-cover object-center video-imagepos"  style="object-position: 0px 0px;" loop>
                                 @if (isset($home))
                                     <source src="{{ $locationData['storage_server_path'].$locationData['storage_video_path'].$home->journey_video }}">
                                 @endif
@@ -688,7 +688,7 @@
         <div class="Testimonial bg-[#051b3b] relative">
             <div class="absolute -top-1/3">
                 <img src="{{ asset('assets/home_Banner/testiminoalbgvect.png') }}" alt="" class="">
-            </div>    
+            </div>
             <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full relative z-10">
 
                     <div class="flex items-end w-full gap-2 lg:gap-7 py-10">
@@ -726,12 +726,19 @@
                                                 </div>
                                             </div>
                                             <div class="ml-auto flex items-center gap-2">
-                                                <span class="text-lg font-bold">5.0</span>
+                                                <span class="text-lg font-bold">{{ $data->rating }}</span>
+                                                @for ($i = 1; $i <= floor($data->rating); $i++)
                                                 <div class="text-yellow-500 flex items-center">
                                                     <!-- Stars -->
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
                                                     <!-- Add more stars as needed -->
                                                 </div>
+                                                @endfor
+                                                @if ($data->rating - floor($data->rating) >= 0.5)
+                                                    <img class="w-[12px]"
+                                                            src="{{ asset('assets/Navigation/halfstar.png') }}"
+                                                            alt="Half Star">
+                                                @endif
                                             </div>
                                         </div>
                                         <p class="text-sm text-gray-300 leading-relaxed py-7 truncate-text">
@@ -774,7 +781,7 @@
                             </button>
                         </div>
                     </div>
-            </div>            
+            </div>
         </div>
 
         {{-- Blog sect --}}
@@ -1301,21 +1308,21 @@
         });
 
         document.addEventListener("DOMContentLoaded", function () {
-            gsap.fromTo("#certificateSection", 
-            { 
-                y: -200, 
-                opacity: 0 
-            }, 
+            gsap.fromTo("#certificateSection",
             {
-                y: 0, 
-                opacity: 1, 
-                duration: 1.5, 
-                ease: "power2.out", 
+                y: -200,
+                opacity: 0
+            },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 1.5,
+                ease: "power2.out",
                 scrollTrigger: {
-                    trigger: "#certificateSection", 
-                    start: "top 80%", 
-                    end: "bottom top", 
-                    toggleActions: "play none none none" 
+                    trigger: "#certificateSection",
+                    start: "top 80%",
+                    end: "bottom top",
+                    toggleActions: "play none none none"
                 },
             }
         );
@@ -1356,7 +1363,7 @@
                     pagination: false,
                     autoplay: true,
                     interval: 3000,
-                    pauseOnHover: false, 
+                    pauseOnHover: false,
                     gap: '16px',
                     breakpoints: {
                         640: {

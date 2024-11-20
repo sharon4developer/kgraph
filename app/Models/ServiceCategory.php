@@ -14,7 +14,7 @@ class ServiceCategory extends Model
 
     protected $table = 'service_categories';
 
-    protected $fillable = ['title', 'image', 'intervention_image', 'status','order','alt_tag','slug'];
+    protected $fillable = ['title', 'image', 'intervention_image', 'status','order','alt_tag','slug','sub_title'];
 
     public function Service(){
         return  $this->hasMany(Service::class);
@@ -40,6 +40,7 @@ class ServiceCategory extends Model
         $value = new ServiceCategory;
         $value->title        = $data->title;
         $value->alt_tag           =  $data->alt_tag;
+        $value->sub_title           =  $data->sub_title;
         $slug = Str::slug($data->title);
         $value->slug = $slug;
         if ($data->image) {
@@ -62,6 +63,7 @@ class ServiceCategory extends Model
         $value = ServiceCategory::find($data->service_category_id);
         $value->title        = $data->title;
         $value->alt_tag           =  $data->alt_tag;
+        $value->sub_title           =  $data->sub_title;
         $slug = Str::slug($data->title);
         $value->slug = $slug;
         if ($data->image) {
@@ -95,7 +97,7 @@ class ServiceCategory extends Model
     }
 
     public static function getFullDataForHome(){
-        return SELF::with(['Service'])->select('image','id','title','alt_tag','slug')->orderBy('order','asc')->where('status',1)->get();
+        return SELF::with(['Service'])->select('image','id','title','alt_tag','slug','sub_title')->orderBy('order','asc')->where('status',1)->get();
     }
 
     public static function updateOrder($data)
