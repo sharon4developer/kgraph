@@ -366,9 +366,9 @@
 
             <div class="slick-slider-background absolute inset-0 z-[-1]">
                 @foreach ($banner as $data)
-                    <div><img class="w-full h-full object-cover"
-                            src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"
-                            alt="{{ $data->alt_tag }}"></div>
+                    <div>
+                        <img class="w-full h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{ $data->alt_tag }}">
+                    </div>
                 @endforeach
             </div>
 
@@ -1440,7 +1440,34 @@
             }
         });
 
+        document.addEventListener('DOMContentLoaded', function () {
+            var splide = new Splide('#exploreSplide', {
+                type: 'loop',   // Loop through the slides
+                perMove: 1,     // Moves one slide at a time
+                perPage: 3.5,     // Shows one slide per page
+                arrows: false,  // Disable default arrows
+                pagination: false, // Disable the dots (pagination)
+                autoplay: true,
+                interval: 3000, // Auto-slide interval
+                gap: '16px',    // Gap between slides
+                breakpoints: {
+                    640: { perPage: 1 },
+                    768: { perPage: 1.5},
+                    1024: { perPage: 2},
+                    1280: { perPage: 2.8 },
+                }
+            }).mount();
 
+            // Custom Previous Button
+            document.querySelector('.card-explore-slide-prev-button').addEventListener('click', function () {
+                splide.go('<'); // Go to the previous slide
+            });
+
+            // Custom Next Button
+            document.querySelector('.card-explore-slide-next-button').addEventListener('click', function () {
+                splide.go('>'); // Go to the next slide
+            });
+        });
     </script>
 
     <script>
