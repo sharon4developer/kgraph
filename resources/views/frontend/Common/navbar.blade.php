@@ -40,12 +40,12 @@
                 <nav class="menu--right" role="navigation">
                     <div class="menuToggle">
                         <ul id="mobilemenu" class="menuItem">
-                            <div class="flex gap-2 items-center justify-start">
+                            <!-- <div class="flex gap-2 items-center justify-start">
                                 <li class="text-[12px] whitespace-nowrap text-black flex items-center"><a href="{{ url('blogs') }}">blogs</a></li>|
                                 <li class="text-[12px] whitespace-nowrap text-black flex items-center"><a class="" href="#">Legal</a></li>|
                                 <li class="text-[12px] whitespace-nowrap text-black flex items-center"><a class="" href="#">News</a></li>|
                                 <li class="text-[12px] whitespace-nowrap text-black flex items-center"><a class="" href="#">Privacy Policy</a></li>
-                            </div>
+                            </div> -->
 
                             <li class="mt-4 px-[16px] py-2"><a href="{{ url('about-us') }}">About</a></li>
                             <li class="px-[16px] py-2"><a href="{{ url('services') }}">Service</a></li>
