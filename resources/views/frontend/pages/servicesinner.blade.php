@@ -82,6 +82,10 @@
 
         .tab-name.active {
             font-weight: bold;
+            color: #000000;
+            background-color: aliceblue;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
         }
 
         .tab-names {
@@ -108,7 +112,11 @@
             opacity: 1;
             transform: translateY(0);
         }
-
+        /* @media (max-width: 768px) {
+            .tab-name.active {
+                color: #FF6347; /* Change active text color for mobile/tablet (example: tomato) */
+            }
+        } */
 
 
     </style>
@@ -168,10 +176,10 @@
     </div>
 
      {{-- tab section --}}
-     <div class="tabsection bg-[#062358]">
+     <div class="tabsection bg-[#062358] overflow-hidden">
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 flex justify-center items-start flex-col text-white">
             <!-- Tab Names -->
-            <div class="tab-names flex relative">
+            <div class="tab-names flex relative overflow-scroll max-w-[100vw] scrollbar-hidden">
                 @foreach ($services->ServicePoint as $key => $ServicePoint)
                     <div  class="tab-name card whitespace-nowrap cursor-pointer w-full py-2 text-center text-white font_inter text-[20px] px-4 font-extrabold capitalize {{ $key === 0 ? 'active' : '' }}"
                         data-tab="tab-{{ $key }}">
@@ -179,7 +187,7 @@
                     </div>
                 @endforeach
                 <!-- Active Tab Indicator -->
-                <div class="tab-indicator absolute bottom-0 left-0 h-1 bg-white transition-all duration-300"></div>
+                <div class="hidden lg:flex tab-indicator absolute bottom-0 left-0 h-1 bg-white transition-all duration-300"></div>
             </div>
 
             <!-- Tab Contents -->
@@ -189,7 +197,7 @@
                         class="tab-content pl-5 transition-all duration-300 ease-in-out {{ $key === 0 ? 'active' : 'hidden' }}"
                         id="tab-{{ $key }}">
                         <h3 class="text-[12px] font-semibold lg:text-[14px] xl:text-2xl lg:font-medium">{{ $ServiceFaq->title }}</h3>
-                        <p class="pt-3 w-1/2">{{ $ServiceFaq->description }}</p>
+                        <div class="pt-3 lg:w-1/2">{{ $ServiceFaq->description }}</div>
                     </div>
                 @endforeach
             </div>
