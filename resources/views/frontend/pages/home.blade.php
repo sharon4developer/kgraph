@@ -472,7 +472,7 @@
 
                 <div class="flex flex-col lg:flex-row justify-between items-center gap-6">
                     @foreach ($serviceCategory as $data)
-                    <div class="w-full h-[370px] xl:h-[390px] 2xl:h-[460px] bgk-grade rounded-[26px] py-4 2xl:py-6 text-white shadow-lg relative font-sans overflow-hidden roundring-anim">
+                    <div class="w-full h-[390px] xl:h-[390px] 2xl:h-[460px] bgk-grade rounded-[26px] py-4 2xl:py-6 text-white shadow-lg relative font-sans overflow-hidden roundring-anim">
                         <div class="px-3 2xl:px-6">
                             <div class="flex justify-between items-center" data-animate>
                                 <div class="relative z-10">
@@ -497,7 +497,7 @@
                         <div class="px-3 2xl:px-6">
                             <div class="space-y-2 relative z-10" data-animate>
                                 @foreach ($data->Service as $service)
-                                <a href="{{url('service-details/'.$service->slug)}}" class="w-full text-xs xl:text-base bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
+                                <a href="{{url('service-details/'.$service->slug)}}" class="w-full text-base bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
                                     <span class="clamp-text-one">{{ $service->title }}</span>
                                     <span>→</span>
                                 </a>
