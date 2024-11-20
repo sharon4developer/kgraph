@@ -485,7 +485,7 @@
                         <div class="space-y-2 relative z-10" data-animate>
                             @foreach ($data->Service as $service)
                             <a href="{{url('service-details/'.$service->slug)}}" class="w-full text-xs xl:text-base bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
-                                <span class="clamp-text-one">{{ $service->title }}</span> 
+                                <span class="clamp-text-one">{{ $service->title }}</span>
                                 <span>→</span>
                             </a>
                             @endforeach
@@ -621,8 +621,8 @@
                         <div class="w-full flex justify-center items-center rounded-lg overflow-hidden mt-6 relative group video-grade">
                             <!-- <img src="@if (isset($home)) {{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $home->journey_image1 }} @endif" alt="@if (isset($home)) {{ $home->journey_image1_alt_tag }} @endif" style="object-position: 0px 0px;" class="w-full h-[400px] object-cover video-imagepos"> -->
                             <video  class="w-full h-[400px] object-cover object-center video-imagepos"  style="object-position: 0px 0px;" muted  loop>
-                                @if (isset($home)) 
-                                    <source src="{{asset('assets/kgraphvideo.mp4')}}">
+                                @if (isset($home))
+                                    <source src="{{ $locationData['storage_server_path'].$locationData['storage_video_path'].$home->journey_video }}">
                                 @endif
                             </video>
 
@@ -643,8 +643,8 @@
 
                                 <!-- Text Content -->
                                 <div>
-                                    <p class="text-lg font-bold">Meet Michel Shoks</p>
-                                    <p class="text-sm">Co - Founder</p>
+                                    <p class="text-lg font-bold">{{$home->journey_video_name}}</p>
+                                    <p class="text-sm">{{$home->journey_video_position}}</p>
                                 </div>
                             </div>
                         </div>
@@ -1038,21 +1038,21 @@
 
     {{-- gsap animtion --}}
     <script>
-        
+
         gsap.registerPlugin(ScrollTrigger);
 
         document.addEventListener("DOMContentLoaded", function() {
             gsap.registerPlugin(ScrollTrigger);
             gsap.to(".flag-img-contact", {
                 scrollTrigger: {
-                    trigger: ".contact-US-banner", 
-                    start: "top center", 
-                    toggleActions: "play none none none", 
+                    trigger: ".contact-US-banner",
+                    start: "top center",
+                    toggleActions: "play none none none",
                 },
-                duration: 2, 
-                top: "4px", 
-                opacity: 1, 
-                ease: "bounce.out", 
+                duration: 2,
+                top: "4px",
+                opacity: 1,
+                ease: "bounce.out",
             });
         });
 
@@ -1060,19 +1060,19 @@
             gsap.fromTo(
                 element,
                 {
-                    opacity: 0, 
-                    y: 50,      
+                    opacity: 0,
+                    y: 50,
                 },
                 {
-                    opacity: 1,       
-                    y: 0,             
-                    duration: 1,   
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
                     ease: "power3.out",
                     scrollTrigger: {
-                        trigger: element,   
-                        start: "top 80%",   
-                        end: "bottom 60%",  
-                        toggleActions: "play none none none", 
+                        trigger: element,
+                        start: "top 80%",
+                        end: "bottom 60%",
+                        toggleActions: "play none none none",
                     },
                 }
             );
@@ -1305,26 +1305,26 @@
                 var splide = new Splide('#testimonial-slider', {
                     type: 'loop',
                     perMove: 1,
-                    perPage: 2.8, 
+                    perPage: 2.8,
                     arrows: false,
                     pagination: false,
                     autoplay: true,
                     interval: 3000,
                     breakpoints: {
-                        640: { 
+                        640: {
                             perPage: 1,  // Display one slide at a time on mobile
                             gap: '0px', // Remove gap between slides
                         },
-                        768: { 
-                            perPage: 1.9, 
+                        768: {
+                            perPage: 1.9,
                             gap: '8px',
                         },
-                        1024: { 
-                            perPage: 2, 
+                        1024: {
+                            perPage: 2,
                             gap: '12px',
                         },
-                        1280: { 
-                            perPage: 2.8, 
+                        1280: {
+                            perPage: 2.8,
                             gap: '16px',
                         },
                     },

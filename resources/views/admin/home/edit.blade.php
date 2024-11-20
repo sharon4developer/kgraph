@@ -88,9 +88,30 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label" for="journey_image1">Journey Image 1</label>
+                                    <label class="form-label" for="journey_image1">Journey Image </label>
                                     <input type="file" accept=".png, .jpg, .jpeg,.webp" class="form-control"
                                         id="journey_image1" name="journey_image1">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label" for="journey_video">Journey Video</label>
+                                    <input type="file" accept=".mp4, .mkv, .webm,.MOV" class="form-control"
+                                        id="journey_video" name="journey_video">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label" for="journey_video_name">Journey Video Name</label>
+                                    <input type="text" class="form-control" id="journey_video_name" name="journey_video_name"
+                                        placeholder="Journey Video Name" required value="{{$data->journey_video_name}}">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label" for="journey_video_position">Journey Video Position</label>
+                                    <input type="text" class="form-control" id="journey_video_position" name="journey_video_position"
+                                        placeholder="Journey Video Position" required value="{{$data->journey_video_position}}">
                                 </div>
                             </div>
                             {{-- <div class="col-md-6">
@@ -124,7 +145,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label" for="certificate_image1">Certificate Image 1</label>
+                                    <label class="form-label" for="certificate_image1">Certificate Image </label>
                                     <input type="file" accept=".png, .jpg, .jpeg,.webp" class="form-control"
                                         id="certificate_image1" name="certificate_image1">
                                 </div>
@@ -222,7 +243,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label" for="journey_image1_alt_tag">Journey Image 1 Alt Tag</label>
+                                    <label class="form-label" for="journey_image1_alt_tag">Journey Image  Alt Tag</label>
                                     <input type="text" placeholder="Journey Image 1 Alt Tag" class="form-control"
                                         id="journey_image1_alt_tag" name="journey_image1_alt_tag" required  value="{{$data->journey_image1_alt_tag}}">
                                 </div>
@@ -243,7 +264,7 @@
                             </div> --}}
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label" for="certificate_image1_alt_tag">Certificate Image 1 Alt Tag</label>
+                                    <label class="form-label" for="certificate_image1_alt_tag">Certificate Image  Alt Tag</label>
                                     <input type="text" placeholder="Certificate Image 1 Alt Tag" class="form-control"
                                         id="certificate_image1_alt_tag" name="certificate_image1_alt_tag" required value="{{$data->certificate_image1_alt_tag}}">
                                 </div>
@@ -266,7 +287,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Previous Journey Image 1</label>
+                                    <label>Previous Journey Image </label>
                                     <div class="avatar-preview">
                                         <img class="previous-image" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->journey_image1 }}" alt="profile-image" onerror="this.src='{{ $locationData['storage_server_path'].$locationData['admin_assets_path'].'placeholder.png' }}';">
                                     </div>
@@ -290,9 +311,21 @@
                             </div> --}}
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Previous Certificate Image 1</label>
+                                    <label>Previous Certificate Image </label>
                                     <div class="avatar-preview">
                                         <img class="previous-image" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->certificate_image1 }}" alt="profile-image" onerror="this.src='{{ $locationData['storage_server_path'].$locationData['admin_assets_path'].'placeholder.png' }}';">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Previous Journey Video</label>
+                                    <div class="avatar-preview">
+                                        <video width="320" height="240" controls>
+                                            <source src="{{ $locationData['storage_server_path'].$locationData['storage_video_path'].$data->journey_video }}" type="video/mp4">
+                                            <source src="{{ $locationData['storage_server_path'].$locationData['storage_video_path'].$data->journey_video }}" type="video/ogg">
+                                            Your browser does not support the video tag.
+                                          </video>
                                     </div>
                                 </div>
                             </div>

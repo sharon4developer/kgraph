@@ -87,9 +87,30 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label" for="journey_image1">Journey Image 1</label>
+                                    <label class="form-label" for="journey_image1">Journey Image </label>
                                     <input type="file" accept=".png, .jpg, .jpeg,.webp" class="form-control"
                                         id="journey_image1" name="journey_image1" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label" for="journey_video">Journey Video</label>
+                                    <input type="file" accept=".mp4, .mkv, .webm,.MOV" class="form-control"
+                                        id="journey_video" name="journey_video" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label" for="journey_video_name">Journey Video Name</label>
+                                    <input type="text" class="form-control" id="journey_video_name" name="journey_video_name"
+                                        placeholder="Journey Video Name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label" for="journey_video_position">Journey Video Position</label>
+                                    <input type="text" class="form-control" id="journey_video_position" name="journey_video_position"
+                                        placeholder="Journey Video Position" required>
                                 </div>
                             </div>
                             {{-- <div class="col-md-6">
@@ -123,7 +144,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label" for="certificate_image1">Certificate Image 1</label>
+                                    <label class="form-label" for="certificate_image1">Certificate Image </label>
                                     <input type="file" accept=".png, .jpg, .jpeg,.webp" class="form-control"
                                         id="certificate_image1" name="certificate_image1" required>
                                 </div>
@@ -220,7 +241,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label" for="journey_image1_alt_tag">Journey Image 1 Alt Tag</label>
+                                    <label class="form-label" for="journey_image1_alt_tag">Journey Image Alt Tag</label>
                                     <input type="text"  placeholder="Journey Image 1 Alt Tag" class="form-control"
                                         id="journey_image1_alt_tag" name="journey_image1_alt_tag" required>
                                 </div>
@@ -241,7 +262,7 @@
                             </div> --}}
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label" for="certificate_image1_alt_tag">Certificate Image 1 Alt Tag</label>
+                                    <label class="form-label" for="certificate_image1_alt_tag">Certificate Image Alt Tag</label>
                                     <input type="text"  placeholder="Certificate Image 1 Alt Tag" class="form-control"
                                         id="certificate_image1_alt_tag" name="certificate_image1_alt_tag" required>
                                 </div>

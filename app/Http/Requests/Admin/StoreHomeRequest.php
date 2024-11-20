@@ -38,6 +38,7 @@ class StoreHomeRequest extends FormRequest
             'journey_sub_title' => 'required',
             'journey_description' => 'required',
             'journey_image1_alt_tag' => 'required',
+            'journey_video' => 'mimes:mp4,mov,avi,mkv,wmv,webm',
             // 'journey_image2_alt_tag' => 'required',
             // 'journey_image3_alt_tag' => 'required',
             'journey_image1' => 'mimes:jpeg,png,jpg,gif,webp',
