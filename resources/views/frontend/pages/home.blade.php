@@ -409,7 +409,7 @@
                                 reality.</h6>
                             <div
                                 class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:py-[4px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
-                                <a href="" class="h-full text-[12px] lg:text-[16px] font-semibold">Connect Us</a>
+                                <a href="{{ url('contact-us') }}" class="h-full text-[12px] lg:text-[16px] font-semibold">Connect Us</a>
                             </div>
                         </div>
                     </div>
@@ -536,7 +536,7 @@
                     <h6 class="relative z-10 text-white text-[12px] xl:text-[14px]">Let's turn your vision into reality</h6>
                     <div
                         class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:pb-[2px] xl:pt-[1px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
-                        <a href="" class="h-full text-[12px] xl:text-[14px]">Connect Us</a>
+                        <a href="{{ url('contact-us') }}" class="h-full text-[12px] xl:text-[14px]">Connect Us</a>
                     </div>
                 </div>
             </div>
@@ -567,7 +567,7 @@
                             <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 min-w-fit max-w-full rounded-full"></div>
                             <h6 class="relative z-10 text-white text-[12px] xl:text-[14px] lg:whitespace-nowrap">Let's turn your vision into reality</h6>
                             <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:pb-[2px] xl:pt-[1px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
-                                <a href="" class="h-full text-[12px] xl:text-[14px]">Connect Us</a>
+                                <a href="{{ url('contact-us') }}" class="h-full text-[12px] xl:text-[14px]">Connect Us</a>
                             </div>
                         </div>
                     </div>
@@ -758,7 +758,7 @@
                                 <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 min-w-fit max-w-full rounded-full"></div>
                                 <h6 class="relative z-10 text-white text-[12px] xl:text-[14px] whitespace-nowrap">Be One of Them</h6>
                                 <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:pb-[2px] xl:pt-[1px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
-                                    <a href="" class="h-full text-[12px] xl:text-[14px]">Connect Us</a>
+                                    <a href="{{ url('contact-us') }}" class="h-full text-[12px] xl:text-[14px]">Connect Us</a>
                                 </div>
                             </div>
                         </div>
@@ -810,7 +810,7 @@
                         <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 min-w-fit max-w-full rounded-full"></div>
                         <h6 class="relative z-10 text-white text-[12px] xl:text-[14px] whitespace-nowrap">Be One of Them</h6>
                         <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:pb-[2px] xl:pt-[1px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
-                            <a href="" class="h-full text-[12px] xl:text-[14px]">Connect Us</a>
+                            <a href="{{ url('contact-us') }}" class="h-full text-[12px] xl:text-[14px]">Connect Us</a>
                         </div>
                     </div>
                 </div>
@@ -942,7 +942,7 @@
                     <!-- "Connect Us" button, background changes to #072558 on hover -->
                     <div
                         class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full transition-all duration-500 group-hover:bg-[#072558] group-hover:text-white">
-                        <a href="" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
+                        <a href="{{ url('contact-us') }}" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
                     </div>
                 </div>
             </div>
