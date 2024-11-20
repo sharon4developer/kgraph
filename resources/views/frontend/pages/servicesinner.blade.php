@@ -112,11 +112,7 @@
             opacity: 1;
             transform: translateY(0);
         }
-        /* @media (max-width: 768px) {
-            .tab-name.active {
-                color: #FF6347; /* Change active text color for mobile/tablet (example: tomato) */
-            }
-        } */
+
 
 
     </style>
@@ -181,10 +177,7 @@
             <!-- Tab Names -->
             <div class="tab-names flex relative overflow-scroll max-w-[100vw] scrollbar-hidden">
                 @foreach ($services->ServicePoint as $key => $ServicePoint)
-                    <div  class="tab-name card whitespace-nowrap cursor-pointer w-full py-2 text-center text-white font_inter text-[20px] px-4 font-extrabold capitalize {{ $key === 0 ? 'active' : '' }}"
-                        data-tab="tab-{{ $key }}">
-                        {{ $ServicePoint->title }}
-                    </div>
+                    <div  class="tab-name card whitespace-nowrap cursor-pointer w-full py-2 text-center text-white font_inter text-[20px] px-4 font-extrabold capitalize {{ $key === 0 ? 'active' : '' }}" data-tab="tab-{{ $key }}">{{ $ServicePoint->title }}</div>
                 @endforeach
                 <!-- Active Tab Indicator -->
                 <div class="hidden lg:flex tab-indicator absolute bottom-0 left-0 h-1 bg-white transition-all duration-300"></div>
@@ -193,10 +186,8 @@
             <!-- Tab Contents -->
             <div class="tab-contents mt-4">
                 @foreach ($services->ServiceFaq as $key => $ServiceFaq)
-                    <div
-                        class="tab-content pl-5 transition-all duration-300 ease-in-out {{ $key === 0 ? 'active' : 'hidden' }}"
-                        id="tab-{{ $key }}">
-                        <h3 class="text-[12px] font-semibold lg:text-[14px] xl:text-2xl lg:font-medium">{{ $ServiceFaq->title }}</h3>
+                    <div class="tab-content pl-5 transition-all duration-300 ease-in-out {{ $key === 0 ? 'active' : 'hidden' }}" id="tab-{{ $key }}">
+                        <h3 class="font-semibold text-lg xl:text-2xl lg:font-medium">{{ $ServiceFaq->title }}</h3>
                         <div class="pt-3 lg:w-1/2">{{ $ServiceFaq->description }}</div>
                     </div>
                 @endforeach
