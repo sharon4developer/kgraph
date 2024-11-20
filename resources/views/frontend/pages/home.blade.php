@@ -944,6 +944,62 @@
 
     @include('frontend.Common.getintouch')
 
+    {{-- explore section --}}
+    <div class="explore-section bg-black">
+        <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full">
+            <div class="flex items-end w-full gap-2 lg:gap-7">
+                <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] 2xl:text-[65px] leading-none fifthleft-to-right-animation">Explore</h2>
+                <div class="w-full fifthleft-to-right-width-animation" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
+            </div>
+            <p class="text-white font_inter font-semibold text-[26px] lg:w-[35%] mt-6 fifthleft-to-right-animation">Learn About All of the Great ThingsCanada Has to Offer!</p>
+        </div>
+
+        <div id="exploreSplide" class="splide pb-8 md:pb-[100px] xl:pl-[50px] explore-slider-class h-[380px] z-0">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    <li class="splide__slide">
+                        <div class="my-0 mx-4 !w-[89vw] xl:!w-[380px] md:mx-4 lg:mx-8 relative image-card-explore">
+                            <img class="w-full md:w-[380px]" src="{{ asset('assets/home_Banner/sliderone.png') }}" alt="">
+                            <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
+                                <button class="text-white">view</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="splide__slide">
+                        <div class="my-0 mx-4 !w-[89vw] xl:!w-[380px] md:mx-4 lg:mx-8 relative image-card-explore">
+                            <img class="w-full md:w-[380px]" src="{{ asset('assets/home_Banner/sliderone.png') }}" alt="">
+                            <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
+                                <button class="text-white">view</button>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="splide__slide">
+                        <div class="my-0 mx-4 !w-[89vw] xl:!w-[380px] md:mx-4 lg:mx-8 relative image-card-explore">
+                            <img class="w-full md:w-[380px]" src="{{ asset('assets/home_Banner/sliderone.png') }}" alt="">
+                            <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
+                                <button class="text-white">view</button>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Repeat for other slides -->
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="container mx-auto px-5 xl:px-12 py-8 lg:pt-1 lg:pb-16  z-[99] h-full w-full">
+            <div class="flex justify-end gap-3 items-center">
+                <div class="card-explore-slide-prev-button cursor-pointer">
+                    <img class="w-[40px]" src="{{ asset('assets/Button-Previous.png') }}" alt="">
+                </div>
+                <div class="cursor-pointer card-explore-slide-next-button">
+                    <img class="w-[40px]" src="{{ asset('assets/nextbutton.png') }}" alt="">
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
     <script>
         document.querySelectorAll('.accordion-header').forEach(header => {
