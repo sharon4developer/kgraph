@@ -186,10 +186,10 @@
             <div class="tab-contents mt-4">
                 @foreach ($services->ServiceFaq as $key => $ServiceFaq)
                     <div
-                        class="tab-content pl-10 transition-all duration-300 ease-in-out {{ $key === 0 ? 'active' : 'hidden' }}"
+                        class="tab-content pl-5 transition-all duration-300 ease-in-out {{ $key === 0 ? 'active' : 'hidden' }}"
                         id="tab-{{ $key }}">
-                        <h3 class="text-[12px] font-semibold lg:text-[14px] lg:font-medium">{{ $ServiceFaq->title }}</h3>
-                        <p class="pt-3">{{ $ServiceFaq->description }}</p>
+                        <h3 class="text-[12px] font-semibold lg:text-[14px] xl:text-2xl lg:font-medium">{{ $ServiceFaq->title }}</h3>
+                        <p class="pt-3 w-1/2">{{ $ServiceFaq->description }}</p>
                     </div>
                 @endforeach
             </div>
