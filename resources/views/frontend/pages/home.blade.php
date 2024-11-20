@@ -239,9 +239,17 @@
         }
         .roundring-anim:hover h2,
         .roundring-anim:hover p,
+        .roundring-anim:hover .bg-liner,
         .roundring-anim:hover svg path {
             color: #005EEA !important;
             fill: #005EEA;
+
+        }
+        .bg-liner{
+            background-color: white;
+        }
+        .roundring-anim:hover .bg-liner{
+            background-color: #005EEA;
         }
         .bgk-grade{
             background: radial-gradient(83.81% 71.6% at 50% 51.6%, #00B0FF 0%, #00154E 100%);
@@ -460,35 +468,37 @@
 
                 <div class="flex flex-col lg:flex-row justify-between items-center gap-6">
                     @foreach ($serviceCategory as $data)
-                    <div class="w-full h-[350px] xl:h-[380px] 2xl:h-[450px] p-3 2xl:p-6 bgk-grade rounded-[26px] text-white shadow-lg relative font-sans overflow-hidden roundring-anim">
-                        <!-- SVG Icon in the top-right corner -->
-                        <div class="flex justify-between items-center" data-animate>
-                            <div class="relative z-10">
-                                <svg width="40" height="44" viewBox="0 0 36 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 34.7294C0 30.122 4.68675 23.2109 18 23.2109C18.801 23.2109 19.5705 23.2354 20.3085 23.2846L19.6875 27.8597C19.1254 27.8315 18.5627 27.8177 18 27.8183V37.0331H27V41.6405H22.5V37.0331H18V41.6405H0V34.7294ZM18 20.9072C16.5871 20.9064 15.1901 20.6028 13.8986 20.0161C12.6072 19.4293 11.45 18.5723 10.5015 17.5002C9.55297 16.4281 8.83409 15.1646 8.39108 13.791C7.94808 12.4173 7.79077 10.964 7.92926 9.52433C8.06775 8.08471 8.49898 6.6907 9.19522 5.43195C9.89146 4.1732 10.8373 3.07758 11.9719 2.21554C13.1065 1.3535 14.4048 0.744132 15.7832 0.426621C17.1616 0.10911 18.5896 0.0904854 19.9755 0.371945L19.1025 4.89181C18.7394 4.8179 18.3702 4.78086 18 4.78123V16.2998C18.3825 16.2998 18.75 16.2629 19.1025 16.1892L19.9755 20.709C19.3249 20.8412 18.6632 20.9075 18 20.9072ZM24.5992 23.8789C26.1517 24.2222 27.5243 24.6852 28.7257 25.2381L26.361 29.1844C25.4728 28.8269 24.5558 28.5494 23.6205 28.355L24.5992 23.8789ZM31.5 41.6405V37.0331H36V41.6405H31.5ZM35.64 32.4257H30.627C30.3093 31.9556 29.9393 31.525 29.5245 31.1425L32.31 27.5096C34.065 29.03 35.1315 30.7716 35.64 32.4257ZM23.625 1.92003L21.1208 5.74879C21.7372 6.17037 22.2682 6.71404 22.68 7.34526L26.4195 4.78123C25.6806 3.64882 24.731 2.67657 23.625 1.92003ZM27.9315 8.51784L23.517 9.41168C23.6625 10.1569 23.6625 10.9241 23.517 11.6693L27.9315 12.5631C28.191 11.2278 28.191 9.85319 27.9315 8.51784ZM26.4195 16.2998L22.68 13.7357C22.2682 14.3669 21.7372 14.9106 21.1208 15.3322L23.625 19.161C24.7275 18.403 25.6792 17.4309 26.4195 16.2998Z" fill="white"/>
-                                </svg>
-                            </div>
-
-                            <div class="relative">
-                                <div class="bg-white rounded-full absolute p-6 round-comimg"></div>
+                    <div class="w-full h-[350px] xl:h-[390px] 2xl:h-[460px] bgk-grade rounded-[26px] py-3 2xl:py-6 text-white shadow-lg relative font-sans overflow-hidden roundring-anim">
+                        <div class="px-3 2xl:px-6">
+                            <div class="flex justify-between items-center" data-animate>
                                 <div class="relative z-10">
-                                    <svg width="36" height="40" viewBox="0 0 34 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M33.6332 4.9329L29.7049 0.860485L6.13464 25.295V2.89669L0.556349 2.89669V35.1502H31.669L31.669 29.3674L10.063 29.3674L33.6332 4.9329Z" fill="#005EEA"/>
+                                    <svg width="40" height="44" viewBox="0 0 36 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 34.7294C0 30.122 4.68675 23.2109 18 23.2109C18.801 23.2109 19.5705 23.2354 20.3085 23.2846L19.6875 27.8597C19.1254 27.8315 18.5627 27.8177 18 27.8183V37.0331H27V41.6405H22.5V37.0331H18V41.6405H0V34.7294ZM18 20.9072C16.5871 20.9064 15.1901 20.6028 13.8986 20.0161C12.6072 19.4293 11.45 18.5723 10.5015 17.5002C9.55297 16.4281 8.83409 15.1646 8.39108 13.791C7.94808 12.4173 7.79077 10.964 7.92926 9.52433C8.06775 8.08471 8.49898 6.6907 9.19522 5.43195C9.89146 4.1732 10.8373 3.07758 11.9719 2.21554C13.1065 1.3535 14.4048 0.744132 15.7832 0.426621C17.1616 0.10911 18.5896 0.0904854 19.9755 0.371945L19.1025 4.89181C18.7394 4.8179 18.3702 4.78086 18 4.78123V16.2998C18.3825 16.2998 18.75 16.2629 19.1025 16.1892L19.9755 20.709C19.3249 20.8412 18.6632 20.9075 18 20.9072ZM24.5992 23.8789C26.1517 24.2222 27.5243 24.6852 28.7257 25.2381L26.361 29.1844C25.4728 28.8269 24.5558 28.5494 23.6205 28.355L24.5992 23.8789ZM31.5 41.6405V37.0331H36V41.6405H31.5ZM35.64 32.4257H30.627C30.3093 31.9556 29.9393 31.525 29.5245 31.1425L32.31 27.5096C34.065 29.03 35.1315 30.7716 35.64 32.4257ZM23.625 1.92003L21.1208 5.74879C21.7372 6.17037 22.2682 6.71404 22.68 7.34526L26.4195 4.78123C25.6806 3.64882 24.731 2.67657 23.625 1.92003ZM27.9315 8.51784L23.517 9.41168C23.6625 10.1569 23.6625 10.9241 23.517 11.6693L27.9315 12.5631C28.191 11.2278 28.191 9.85319 27.9315 8.51784ZM26.4195 16.2998L22.68 13.7357C22.2682 14.3669 21.7372 14.9106 21.1208 15.3322L23.625 19.161C24.7275 18.403 25.6792 17.4309 26.4195 16.2998Z" fill="white"/>
                                     </svg>
                                 </div>
+
+                                <div class="relative">
+                                    <div class="bg-white rounded-full absolute p-6 round-comimg"></div>
+                                    <div class="relative z-10">
+                                        <svg width="36" height="40" viewBox="0 0 34 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M33.6332 4.9329L29.7049 0.860485L6.13464 25.295V2.89669L0.556349 2.89669V35.1502H31.669L31.669 29.3674L10.063 29.3674L33.6332 4.9329Z" fill="#005EEA"/>
+                                        </svg>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <!-- Card Content -->
-                        <h2 class="text-xl xl:text-2xl 2xl:text-4xl clamp-text-two font-bold font_inter mt-8 mb-4 relative z-10" data-animate>{{ $data->title }}</h2>
-                        <p class="text-gray-200 font_inter font-normal text-sm mb-6 relative z-10" data-animate>{{ $data->title }}</p>
-                        <!-- Action Buttons -->
-                        <div class="space-y-2 relative z-10" data-animate>
-                            @foreach ($data->Service as $service)
-                            <a href="{{url('service-details/'.$service->slug)}}" class="w-full text-xs xl:text-base bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
-                                <span class="clamp-text-one">{{ $service->title }}</span> 
-                                <span>→</span>
-                            </a>
-                            @endforeach
+                            <h2 class="text-xl xl:text-2xl 2xl:text-4xl clamp-text-two font-bold font_inter mt-8 mb-4 relative z-10" data-animate>{{ $data->title }}</h2>
+                            <p class="text-gray-200 font_inter font-normal text-sm relative z-10" data-animate>{{ $data->title }}</p>
+                        </div> 
+                        <div class="my-4 mx-2" data-animate><div class="bg-liner h-[1px] w-full  rounded-xl"></div></div>
+                        <div class="px-3 2xl:px-6">
+                            <div class="space-y-2 relative z-10" data-animate>
+                                @foreach ($data->Service as $service)
+                                <a href="{{url('service-details/'.$service->slug)}}" class="w-full text-xs xl:text-base bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
+                                    <span class="clamp-text-one">{{ $service->title }}</span> 
+                                    <span>→</span>
+                                </a>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
                     @endforeach
@@ -651,11 +661,11 @@
                     </div>
                 </div>
 
-                <div class="w-full h-[600px] lg:pb-16 lg:pt-48 relative flex justify-center items-center">
+                <div  class="w-full h-[600px] lg:pb-16 lg:pt-48 relative flex justify-center items-center">
                     <div class="absolute">
                         <img src="@if (isset($home)) {{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $home->certificate_image1 }} @endif" alt="@if (isset($home)) {{ $home->certificate_image1_alt_tag }} @endif" class="h-[600px] lg:h-auto object-cover rounded-lg">
                     </div>
-                    <div class="z-10 relative text-white p-8 flex justify-center items-center flex-col" data-animate>
+                    <div id="certificateSection" class="z-10 relative text-white p-8 flex justify-center items-center flex-col" >
                         <h2 class="font_inter font-black text-3xl xl:text-4xl lg:w-[65%] xl:w-[50%] text-center">{{ $home->certificate_title ?? '' }}</h2>
                         <p class="py-5 font-semibold font_inter text-lg xl:text-xl clamp-3 text-center lg:w-[65%] xl:w-[50%]">{{ $home->certificate_description ?? '' }}</p>
                         <div class="flex flex-col lg:flex-row gap-5 items-center mt-6">
@@ -671,86 +681,100 @@
         </div>
 
         {{-- Testimonial --}}
-        <div class="Testimonial bg-[#051b3b]">
-            <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full">
+        <div class="Testimonial bg-[#051b3b] relative">
+            <div class="absolute -top-1/3">
+                <img src="{{ asset('assets/home_Banner/testiminoalbgvect.png') }}" alt="" class="">
+            </div>    
+            <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full relative z-10">
 
-                <div class="flex items-end w-full gap-2 lg:gap-7 py-10">
-                    <h2 class="uppercase text-white font_inter font-normal lg:text-4xl xl:text-6xl w-full xl:whitespace-nowrap" data-animate-left>
+                    <div class="flex items-end w-full gap-2 lg:gap-7 py-10">
+                        <h2 class="uppercase text-white font_inter font-normal lg:text-4xl xl:text-6xl w-full xl:whitespace-nowrap" data-animate-left>
+                            @if (isset($home))
+                                {{ $home->testimonial_title }}
+                            @endif
+                        </h2>
+                        <div class="w-full" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
+                    </div>
+
+                    <h4 class="font_inter font-semibold text-[30px] 2xl:text-[42px] text-white" data-animate-left>
                         @if (isset($home))
-                            {{ $home->testimonial_title }}
+                            {{ $home->testimonial_sub_title }}
                         @endif
-                    </h2>
-                    <div class="w-full" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
-                </div>
+                    </h4>
+                    <p class="font_inter font-normal text-base 2xl:text-[20px] text-white pb-[85px]" data-animate-left>
+                        @if (isset($home))
+                            {{ $home->testimonial_description }}
+                        @endif
+                    </p>
 
-                <h4 class="font_inter font-semibold text-[30px] 2xl:text-[42px] text-white" data-animate-left>
-                    @if (isset($home))
-                        {{ $home->testimonial_sub_title }}
-                    @endif
-                </h4>
-                <p class="font_inter font-normal text-base 2xl:text-[20px] text-white pb-[85px]" data-animate-left>
-                    @if (isset($home))
-                        {{ $home->testimonial_description }}
-                    @endif
-                </p>
-
-                <div id="testimonial-slider" class="splide w-full">
-                    <div class="splide__track">
-                        <div class="splide__list flex gap-5 px-4 md:px-0">
-                            @foreach ($testimonials as $data)
-                                <div class="splide__slide p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
-                                    <div class="flex items-center justify-between space-x-4 mb-4">
-                                        <div class="flex items-center gap-2">
-                                            <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"
-                                            alt="{{ $data->alt_tag }}" class="w-12 h-12 rounded-full">
-                                            <div>
-                                                <h2 class="text-lg font-semibold">{{ $data->name }}</h2>
-                                                <p class="text-sm text-gray-400">{{ $data->occupation }}</p>
+                    <div id="testimonial-slider" class="splide w-full">
+                        <div class="splide__track">
+                            <div class="splide__list flex gap-5 px-4 md:px-0">
+                                @foreach ($testimonials as $data)
+                                    <div class="splide__slide p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
+                                        <div class="flex items-center justify-between space-x-4 mb-4">
+                                            <div class="flex items-center gap-2">
+                                                <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"
+                                                alt="{{ $data->alt_tag }}" class="w-12 h-12 rounded-full">
+                                                <div>
+                                                    <h2 class="text-lg font-semibold">{{ $data->name }}</h2>
+                                                    <p class="text-sm text-gray-400">{{ $data->occupation }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="ml-auto flex items-center gap-2">
+                                                <span class="text-lg font-bold">5.0</span>
+                                                <div class="text-yellow-500 flex items-center">
+                                                    <!-- Stars -->
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                                    <!-- Add more stars as needed -->
+                                                </div>
                                             </div>
                                         </div>
-                                        <div class="ml-auto flex items-center gap-2">
-                                            <span class="text-lg font-bold">5.0</span>
-                                            <div class="text-yellow-500 flex items-center">
-                                                <!-- Stars -->
-                                                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                                                <!-- Add more stars as needed -->
-                                            </div>
+                                        <p class="text-sm text-gray-300 leading-relaxed py-7 truncate-text">
+                                            {{ $data->description }}
+                                        </p>
+                                        <div class="flex justify-end items-center">
+                                            <img class="w-[25px] h-[25px] mt-6" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
                                         </div>
                                     </div>
-                                    <p class="text-sm text-gray-300 leading-relaxed py-7 truncate-text">
-                                        {{ $data->description }}
-                                    </p>
-                                    <div class="flex justify-end items-center">
-                                        <img class="w-[25px] h-[25px] mt-6" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
-                                    </div>
-                                </div>
-                            @endforeach
+                                @endforeach
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Custom Navigation Buttons -->
-                <div class="flex justify-center mt-4 space-x-4">
-                    <button class="card-testi-slide-prev-button  p-2 rounded-full">
-                        <svg width="50" height="50" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="69.5" y="69.5" width="69" height="69" rx="34.5" transform="rotate(180 69.5 69.5)" stroke="white" stroke-opacity="0.8"/>
-                            <path d="M38.384 43.384C38.1496 43.6184 37.8317 43.75 37.5003 43.75C37.1688 43.75 36.8509 43.6184 36.6165 43.384L29.1165 35.884C28.8822 35.6496 28.7505 35.3317 28.7505 35.0003C28.7505 34.6688 28.8822 34.3509 29.1165 34.1165L36.6165 26.6165C36.8523 26.3888 37.168 26.2628 37.4958 26.2657C37.8235 26.2685 38.137 26.4 38.3688 26.6317C38.6006 26.8635 38.732 27.177 38.7349 27.5048C38.7377 27.8325 38.6117 28.1483 38.384 28.384L31.7678 35.0003L38.384 41.6165C38.6184 41.8509 38.75 42.1688 38.75 42.5003C38.75 42.8317 38.6184 43.1496 38.384 43.384Z" fill="white"/>
-                        </svg>
+                    <!-- Custom Navigation Buttons -->
+                    <div class="flex flex-col lg:flex-row items-center justify-between mt-4 space-x-4">
+                        <div class="lg:ml-8">
+                            <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[4.5px] pl-5 pr-1 group">
+                                <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 min-w-fit max-w-full rounded-full"></div>
+                                <h6 class="relative z-10 text-white text-[12px] xl:text-[14px] whitespace-nowrap">Be One of Them</h6>
+                                <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:pb-[2px] xl:pt-[1px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                                    <a href="" class="h-full text-[12px] xl:text-[14px]">Connect Us</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="card-testi-slide-prev-button  p-2 rounded-full">
+                                <svg width="50" height="50" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="69.5" y="69.5" width="69" height="69" rx="34.5" transform="rotate(180 69.5 69.5)" stroke="white" stroke-opacity="0.8"/>
+                                    <path d="M38.384 43.384C38.1496 43.6184 37.8317 43.75 37.5003 43.75C37.1688 43.75 36.8509 43.6184 36.6165 43.384L29.1165 35.884C28.8822 35.6496 28.7505 35.3317 28.7505 35.0003C28.7505 34.6688 28.8822 34.3509 29.1165 34.1165L36.6165 26.6165C36.8523 26.3888 37.168 26.2628 37.4958 26.2657C37.8235 26.2685 38.137 26.4 38.3688 26.6317C38.6006 26.8635 38.732 27.177 38.7349 27.5048C38.7377 27.8325 38.6117 28.1483 38.384 28.384L31.7678 35.0003L38.384 41.6165C38.6184 41.8509 38.75 42.1688 38.75 42.5003C38.75 42.8317 38.6184 43.1496 38.384 43.384Z" fill="white"/>
+                                </svg>
 
-                    </button>
-                    <button class="card-testi-slide-next-button p-2 rounded-full">
-                        <svg width="50" height="50" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="0.5" y="0.5" width="69" height="69" rx="34.5" stroke="white" stroke-opacity="0.8"/>
-                            <path d="M31.616 26.616C31.8504 26.3816 32.1683 26.25 32.4997 26.25C32.8312 26.25 33.1491 26.3816 33.3835 26.616L40.8835 34.116C41.1178 34.3504 41.2495 34.6683 41.2495 34.9997C41.2495 35.3312 41.1178 35.6491 40.8835 35.8835L33.3835 43.3835C33.1477 43.6112 32.832 43.7372 32.5042 43.7343C32.1765 43.7315 31.863 43.6 31.6312 43.3683C31.3994 43.1365 31.268 42.823 31.2651 42.4952C31.2623 42.1675 31.3883 41.8517 31.616 41.616L38.2322 34.9997L31.616 28.3835C31.3816 28.1491 31.25 27.8312 31.25 27.4997C31.25 27.1683 31.3816 26.8504 31.616 26.616Z" fill="white"/>
-                    5</svg>
+                            </button>
+                            <button class="card-testi-slide-next-button p-2 rounded-full">
+                                <svg width="50" height="50" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="0.5" y="0.5" width="69" height="69" rx="34.5" stroke="white" stroke-opacity="0.8"/>
+                                    <path d="M31.616 26.616C31.8504 26.3816 32.1683 26.25 32.4997 26.25C32.8312 26.25 33.1491 26.3816 33.3835 26.616L40.8835 34.116C41.1178 34.3504 41.2495 34.6683 41.2495 34.9997C41.2495 35.3312 41.1178 35.6491 40.8835 35.8835L33.3835 43.3835C33.1477 43.6112 32.832 43.7372 32.5042 43.7343C32.1765 43.7315 31.863 43.6 31.6312 43.3683C31.3994 43.1365 31.268 42.823 31.2651 42.4952C31.2623 42.1675 31.3883 41.8517 31.616 41.616L38.2322 34.9997L31.616 28.3835C31.3816 28.1491 31.25 27.8312 31.25 27.4997C31.25 27.1683 31.3816 26.8504 31.616 26.616Z" fill="white"/>
+                            5</svg>
 
-                    </button>
-                </div>
-            </div>
+                            </button>
+                        </div>
+                    </div>
+            </div>            
         </div>
 
         {{-- Blog sect --}}
-        <div class="BlogCRDS bg-[#051b3b]">
+        <div class="BlogCRDS bg-[#051b3b] lg:pt-24">
             <div class="container mx-auto px-5 py-12 xl:px-12 lg:py-16 h-full w-full">
                 <div class="flex items-end w-full gap-2 lg:gap-7">
                     <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] lg:text-[45px] 2xl:text-[65px] leading-none fourthleft-to-right-animation">
@@ -788,9 +812,8 @@
                             @foreach ($blogs as $data)
                                 <li class="splide__slide">
                                     <a href="{{ url('blogdetail') }}">
-                                        <div
-                                            class="mx-auto bg-[#051b3b] shadow-lg rounded-lg overflow-hidden mt-10 lg:h-fit w-full sm:max-w-sm h-auto">
-                                            <img class="w-full object-cover h-[225px] aspect-video"
+                                        <div class="mx-auto bg-[#051b3b] shadow-lg rounded-lg overflow-hidden mt-10 lg:h-fit w-full sm:max-w-sm h-auto">
+                                            <img class="w-full object-cover lg:h-[200px] 2xl:h-[225px] aspect-video"
                                                 src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"
                                                 alt="{{ $data->alt_tag }}">
                                             <div class="p-6 border-b border-l border-r border-white rounded-lg mt-[-7px]">
@@ -1169,7 +1192,6 @@
             duration: 2,
             ease: "power2.out"
         });
-
         gsap.fromTo(".video-container", {
             scale: 0.5
         }, {
@@ -1183,7 +1205,6 @@
                 once: true
             }
         });
-
         gsap.fromTo(".Navigatesec-image", {
             scale: 0.5
         }, {
@@ -1197,8 +1218,6 @@
                 once: true
             }
         });
-
-        // Animate the left element from offscreen to its normal position
         gsap.fromTo(".RegulatedSec-left", {
             x: "-100%", // Start from offscreen (left)
             opacity: 0 // Initially invisible
@@ -1213,8 +1232,6 @@
             duration: 2,
             ease: "power2.out"
         });
-
-        // Animate the right element from offscreen to its normal position
         gsap.fromTo(".RegulatedSec-right", {
             x: "100%", // Start from offscreen (right)
             opacity: 0 // Initially invisible
@@ -1228,6 +1245,27 @@
             opacity: 1, // Fade in
             duration: 2,
             ease: "power2.out"
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            gsap.fromTo("#certificateSection", 
+            { 
+                y: -200, 
+                opacity: 0 
+            }, 
+            {
+                y: 0, 
+                opacity: 1, 
+                duration: 1.5, 
+                ease: "power2.out", 
+                scrollTrigger: {
+                    trigger: "#certificateSection", 
+                    start: "top 80%", 
+                    end: "bottom top", 
+                    toggleActions: "play none none none" 
+                },
+            }
+        );
         });
     </script>
 
@@ -1255,12 +1293,12 @@
                 var splide = new Splide('#blogSplide', {
                     type: 'loop',
                     perMove: 1,
-                    perPage: 3.1,
+                    perPage: 3.5,
                     arrows: false,
                     pagination: false,
                     autoplay: true,
                     interval: 3000,
-                    pauseOnHover: false, // Prevent autoplay from pausing on hover
+                    pauseOnHover: false, 
                     gap: '16px',
                     breakpoints: {
                         640: {
@@ -1276,7 +1314,7 @@
                             gap: '20px'
                         },
                         1280: {
-                            perPage: 2.5,
+                            perPage: 3.5,
                             gap: '24px'
                         },
                     }
