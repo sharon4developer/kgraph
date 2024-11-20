@@ -727,17 +727,15 @@
                                             </div>
                                             <div class="ml-auto flex items-center gap-2">
                                                 <span class="text-lg font-bold">{{ $data->rating }}</span>
-                                                @for ($i = 1; $i <= floor($data->rating); $i++)
-                                                <div class="text-yellow-500 flex items-center">
-                                                    <!-- Stars -->
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3 ml-1" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                                                    <!-- Add more stars as needed -->
+                                                <div class="flex items-center">
+                                                    @for ($i = 1; $i <= floor($data->rating); $i++)
+                                                        <div class="text-yellow-500 flex items-center">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                                        </div>
+                                                    @endfor
                                                 </div>
-                                                @endfor
                                                 @if ($data->rating - floor($data->rating) >= 0.5)
-                                                    <img class="w-[12px]"
-                                                            src="{{ asset('assets/Navigation/halfstar.png') }}"
-                                                            alt="Half Star">
+                                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/halfstar.png') }}" alt="Half Star">
                                                 @endif
                                             </div>
                                         </div>
@@ -1412,7 +1410,7 @@
                 var splide = new Splide('#testimonial-slider', {
                     type: 'loop',
                     perMove: 1,
-                    perPage: 2.8,
+                    perPage: 3.3,
                     arrows: false,
                     pagination: false,
                     autoplay: true,
@@ -1432,6 +1430,10 @@
                         },
                         1280: {
                             perPage: 2.8,
+                            gap: '16px',
+                        },
+                        1580: {
+                            perPage: 3.3,
                             gap: '16px',
                         },
                     },
