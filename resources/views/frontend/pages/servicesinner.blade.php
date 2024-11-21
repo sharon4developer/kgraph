@@ -113,6 +113,33 @@
             transform: translateY(0);
         }
 
+		ul.tabs{
+			margin: 0px;
+			padding: 0px;
+			list-style: none;
+		}
+		ul.tabs li{
+			background: none;
+			color: #222;
+			display: inline-block;
+			padding: 10px 15px;
+			cursor: pointer;
+		}
+
+		ul.tabs li.current{
+			background: #ededed;
+			color: #222;
+		}
+
+		.tab-content{
+			display: none;
+			background: #ededed;
+			padding: 15px;
+		}
+
+		.tab-content.current{
+			display: inherit;
+		}
 
 
     </style>
@@ -175,30 +202,34 @@
      <div class="tabsection bg-[#062358] overflow-hidden">
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 flex justify-center items-start flex-col text-white">
             <!-- Tab Names -->
-            {{-- <div class="tab-names flex relative overflow-scroll max-w-[100vw] scrollbar-hidden">
+            <div class="tab-names flex relative overflow-scroll max-w-[100vw] scrollbar-hidden">
+                <ul class="tabs">
+                    @foreach ($services->ServicePoint as $key => $ServicePoint)
+                    <li class="tab-link current" data-tab="tab-{{$key+1}}">{{ $ServicePoint->title }}</li>
+                    @endforeach
+                </ul>
                 @foreach ($services->ServicePoint as $key => $ServicePoint)
+                <div id="tab-{{$key+1}}" class="tab-content current">
+                    {!! $ServicePoint->description !!}
+                </div>
+                @endforeach
+
+                {{-- @foreach ($services->ServicePoint as $key => $ServicePoint)
                     <div  class="tab-name card whitespace-nowrap cursor-pointer w-full py-2 text-center text-white font_inter text-[20px] px-4 font-extrabold capitalize {{ $key === 0 ? 'active' : '' }}" data-tab="tab-{{ $key }}">{{ $ServicePoint->title }}</div>
                 @endforeach
                 <!-- Active Tab Indicator -->
-                <div class="hidden lg:flex tab-indicator absolute bottom-0 left-0 h-1 bg-white transition-all duration-300"></div>
-            </div> --}}
-            <div class="tab-contents mt-4">
-                @foreach ($services->ServicePoint as $key => $ServicePoint)
-                    <div class="tab-content pl-5 transition-all duration-300 ease-in-out {{ $key === 0 ? 'active' : 'hidden' }}" id="tab-{{ $key }}">
-                        <h3 class="font-semibold text-lg xl:text-2xl lg:font-medium">{{ $ServicePoint->title }}</h3>
-                        <div class="pt-3 lg:w-1/2">{!! $ServicePoint->description !!}</div>
-                    </div>
-                @endforeach
+                <div class="hidden lg:flex tab-indicator absolute bottom-0 left-0 h-1 bg-white transition-all duration-300"></div> --}}
             </div>
+
             <!-- Tab Contents -->
-            <div class="tab-contents mt-4">
+            {{-- <div class="tab-contents mt-4">
                 @foreach ($services->ServiceFaq as $key => $ServiceFaq)
                     <div class="tab-content pl-5 transition-all duration-300 ease-in-out {{ $key === 0 ? 'active' : 'hidden' }}" id="tab-{{ $key }}">
                         <h3 class="font-semibold text-lg xl:text-2xl lg:font-medium">{{ $ServiceFaq->title }}</h3>
                         <div class="pt-3 lg:w-1/2">{{ $ServiceFaq->description }}</div>
                     </div>
                 @endforeach
-            </div>
+            </div> --}}
         </div>
     </div>
 
@@ -246,7 +277,7 @@
             </div>
         </div>
     </div>
-
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const tabNames = document.querySelectorAll('.tab-name');
@@ -289,5 +320,18 @@
                 }
             });
         });
+        $(document).ready(function(){
+
+            $('ul.tabs li').click(function(){
+                var tab_id = $(this).attr('data-tab');
+
+                $('ul.tabs li').removeClass('current');
+                $('.tab-content').removeClass('current');
+
+                $(this).addClass('current');
+                $("#"+tab_id).addClass('current');
+            })
+
+        })
     </script>
 @endsection
