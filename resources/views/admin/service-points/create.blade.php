@@ -40,7 +40,8 @@
                                 <div class="mb-3">
                                     <div class="form-group">
                                         <label class="form-label" for="ckeditor-classic">Description</label>
-                                        <div id="ckeditor-classic"></div>
+                                        <textarea rows="15" class="form-control" name="description" id="summernote" required></textarea>
+                                        {{-- <div id="ckeditor-classic"></div> --}}
                                         <div class="valid-feedback">
                                         </div>
                                     </div>
@@ -67,9 +68,10 @@
     </div>
 @endsection
 @push('style')
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css" rel="stylesheet">
 @endpush
 @push('script')
-    <script src="{{ asset('admin/theme/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js')}}"></script>
-    <script src="{{ asset('admin/theme/assets/js/pages/form-editor.init.js')}}"></script>
-    <script src="{{ asset('admin/backend/js/service-points.js') }}"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script>
+<script src="{{ asset('admin/backend/js/service-points.js') }}"></script>
 @endpush

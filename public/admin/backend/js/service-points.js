@@ -2,6 +2,25 @@ $(document).ready(function () {
 
     loadDataTableForServices();
 
+    if($('#summernote').length){
+
+        $('#summernote').summernote({
+            height: 300, // Set the editor height
+            toolbar: [
+                // Customize your toolbar
+                ['style', ['style']],
+                ['font', ['bold', 'italic', 'underline', 'clear']],
+                ['fontname', ['fontname']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']], // Add color options
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    }
+
     if(document.getElementById('service-details-table')){
 
         Sortable.create(document.getElementById('service-details-table').getElementsByTagName('tbody')[0], {
@@ -132,7 +151,7 @@ $('#service-add-form').validate({
         $('.error').html('');
         var submitButton = $(form).find('[type=submit]');
         var current_btn_text = submitButton.html();
-        formData.append('description', $('.ck-content').html());
+        // formData.append('description', $('.ck-content').html());
         button_loading_text = 'Saving...';
         // Create
         $.ajax({
@@ -223,7 +242,7 @@ $('#service-edit-form').validate({
         var current_btn_text = submitButton.html();
         button_loading_text = 'Saving...';
         var service_point_id = $(form).find('input[name=service_point_id]').val();
-        formData.append('description', $('.ck-content').html());
+        // formData.append('description', $('.ck-content').html());
         // Create
         $.ajax({
             type: "POST",
