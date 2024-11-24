@@ -147,7 +147,7 @@
                 <div class="accordion-item bg-white p-5 lg:w-1/2 rounded-xl overflow-hidden cursor-pointer transition-all duration-300" onclick="toggleAccordion(this)">
                     <div class="flex justify-start items-center w-full h-full accordion-header gap-4">
                         <img class="accordion-icon transition-transform duration-300 w-2 lg:w-[14px]" src="{{ asset('assets/faqplus.png') }}" alt="Plus Icon">
-                        <h3 class="text-[12px] text-[#2D3E50] font-semibold lg:text-[14px] lg:font-medium">{{$PackageFaq->title}}</h3>
+                        <h3 class="text-[12px] text-[#2D3E50] font-semibold font_inter lg:text-[14px] 2xl:text-[16px] lg:font-medium">{{$PackageFaq->title}}</h3>
                     </div>
                     <div class="pl-10 accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
                         <p class="pt-3">{{$PackageFaq->description}}</p>
