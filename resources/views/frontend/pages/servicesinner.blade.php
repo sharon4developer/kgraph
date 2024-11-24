@@ -229,7 +229,7 @@
      <div class="tabsection bg-[#062358] overflow-hidden">
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 flex justify-center items-start flex-col text-white">
             <!-- Tab Names -->
-            <div class="tab-names flex flex-col relative overflow-scroll max-w-[100vw] scrollbar-hidden">
+            <div class="tab-names flex flex-col relative  max-w-[100vw] scrollbar-hidden">
                 <ul class="tabs border-b-2 border-b-white">
                     @foreach ($services->ServicePoint as $key => $ServicePoint)
                     <li class="tab-link {{ $key === 0 ? 'current' : '' }}" data-tab="tab-{{$key+1}}">{{ $ServicePoint->title }}</li>
