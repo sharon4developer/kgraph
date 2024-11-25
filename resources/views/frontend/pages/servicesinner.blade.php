@@ -182,8 +182,8 @@
         <div class="services-banner-overlay relative z-10 bg-black bg-opacity-50 h-full">
             <!-- Overlay for better contrast -->
             <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[8%]">
-                <div class="text-white text-[12px] font_inter font-semibold">
-                    <a href="#">Study</a> > <a href="#">Study in Canada</a>
+                <div class="text-white text-[12px] font_inter font-semibold flex items-center gap-2">
+                    <a href="{{url('services')}}">Services</a> > <a class="cursor-pointer block text-ellipsis whitespace-nowrap overflow-hidden w-[150px]">{{ $services->title }}</a>
                 </div>
                 <div class="text-center text-white my-10 flex flex-col justify-center items-center">
                     <h1 class="uppercase font_inter font-semibold text-3xl lg:text-[40px]">{{ $services->title }}</h1>

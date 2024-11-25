@@ -221,16 +221,18 @@
                     <h4 class="text-white font_inter font-semibold text-[22px] lg:text-[30px] lg:w-[75%]">@if(isset($aboutUs)) {{$aboutUs->journey_title}} @endif</h4>
                     <p class="text-white font_inter font-thin text-justify text-[14px] py-4  lg:w-[75%]">@if(isset($aboutUs)) {{$aboutUs->journey_description}} @endif </p>
                 </div>
-                <div class="w-full rounded-[7px] overflow-hidden">
-                    <img class="h-full rounded-[7px] object-contain object-center" src="@if(isset($aboutUs)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->journey_image }} @endif" alt="@if(isset($aboutUs)) {{$aboutUs->journey_image_alt_tag}} @endif">
+                <div class="w-full rounded-[17px] overflow-hidden">
+                    <img class="h-full rounded-[17px] object-center" src="@if(isset($aboutUs)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->journey_image }} @endif" alt="@if(isset($aboutUs)) {{$aboutUs->journey_image_alt_tag}} @endif">
                 </div>
             </div>
 
             <div class="md:flex items-end gap-[45px] mt-5">
                 <div>
-                    <h2 id="count-number" class="text-white font_inter font-bold text-[95px] leading-none">@if (isset($journey))
-                        {{ $journey->experience }}
-                    @endif</h2>
+                    <h2 id="count-number" class="text-white font_inter font-bold text-[95px] leading-none">
+                        @if (isset($journey))
+                            {{ $journey->experience }}+
+                        @endif
+                    </h2>
                     <p class="text-white">Years of Experience</p>
                 </div>
                 <div class="my-6 md:my-0 lg:mt-[-51px] flex flex-wrap md:flex-nowrap items-start gap-5 lg:gap-[50px]">
@@ -260,14 +262,14 @@
 
                     <div>
                         <h2 class="text-white font_inter font-bold text-[35px] leading-none">@if (isset($journey))
-                            {{ $journey->customers }}
+                            {{ $journey->customers }}+
                         @endif</h2>
                         <span class="text-white whitespace-nowrap">Customers Served</span>
                     </div>
 
                     <div>
                         <h2 class="text-white font_inter font-bold text-[35px] leading-none">@if (isset($journey))
-                            {{ $journey->cases }}
+                            {{ $journey->cases }}+
                         @endif</h2>
                         <span class="text-white whitespace-nowrap">Active Cases</span>
                     </div>
@@ -307,7 +309,7 @@
     </div>
 
     <div class="pl-5 lg:pl-[9rem] xl:pl-16 2xl:pl-12 bigscreen-sizing py-8 xl:pt-16 top-height-adjust flex flex-col-reverse lg:flex-row overflow-x-hidden">
-        <div class="flex justify-end lg:justify-start items-center gap-3 pt-[5%] 2xlh:pt-[4.2%] mr-4">
+        <div class="flex justify-end lg:justify-start items-center gap-3 pt-[5%] 2xl:pt-[3.5%] mr-4">
             <div class="aboutprev bg-[#062358] rounded-full w-8 h-8 flex justify-center items-center text-white font-semibold cursor-pointer pb-[3.5px]"><</div>
             <div class="aboutnext bg-[#062358] rounded-full w-8 h-8 flex justify-center items-center text-white font-semibold cursor-pointer pb-[3.5px]">></div>
         </div>
@@ -317,7 +319,7 @@
                     @foreach ($ourStory as $data)
                     <li class="splide__slide flex flex-col gap-4 w-[100vw]">
                         <div class="flex items-end md:gap-10">
-                            <h5 class="pl-[30px] text-[#072558] font_inter font-semibold text-[10px] xl:text-[16px]">{{$data->year}}</h5>
+                            <h5 class="pl-[45px] text-[#072558] font_inter font-semibold text-[10px] xl:text-[18px]">{{$data->year}}</h5>
                             <div class="flex gap-2 md:gap-4 pl-[11%] pb-2 slider-image-parent">
                                 <img class="h-[100px] w-full object-cover" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="{{$data->alt_tag}}">
                                 <img class="h-[100px] w-full object-cover" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->second_image }}" alt="{{$data->second_alt_tag}}">
@@ -325,7 +327,7 @@
                         </div>
                         <div class="bg-[#062358] w-full h-[1px] slider-endballs relative"></div>
                         <div class="flex gap-8 pl-[6%] pt-2">
-                            <h3 class="w-[25%] text-[#07245A] font_inter font-semibold md:text-[10px] text-[5px] 2xl:text-[12px]">{{$data->title}}</h3>
+                            <h3 class="w-[25%] text-[#07245A] font_inter font-semibold md:text-[10px] text-[5px] xl:text-[18px]">{{$data->title}}</h3>
                             <p class="w-[50%] text-[#07245A] opacity-40 font_inter font-semibold text-[5px] md:text-[10px] 2xl:text-[16px]">
                                 {{$data->description}}
                             </p>
@@ -335,12 +337,11 @@
                 </ul>
             </div>
         </div>
-
     </div>
 </div>
 
-<div class="loaction bg-[#062358] gradient-evition relative overflow-hidden z-10">
-    <div class="container mx-auto px-5 lg:px-12 h-full w-full py-12 lg:py-[120px]">
+<div class="loaction bg-[#062358] gradient-evition relative overflow-hidden ">
+    <div class="container mx-auto px-5 lg:px-12 h-full w-full py-12 lg:py-[120px] relative z-10">
         <div class="flex items-end w-full gap-2 lg:gap-7">
             <h2 class="uppercase text-white font_inter font-semibold text-[30px] lg:text-[45px] leading-none thirdleft-to-right-animation">@if(isset($aboutUs)) {{$aboutUs->location_title}} @endif</h2>
             <div class="w-full thirdleft-to-right-width-animation" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
@@ -363,7 +364,7 @@
                                                 <h5 class="text-black uppercase">Office Address</h5>
                                                 <img src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="{{$data->alt_tag}}">
                                             </div>
-                                            <div class="bg-[#072558] text-white rounded-md w-fit px-5 py-1">
+                                            <div class="bg-[#072558] text-white rounded-md w-fit px-5 py-1 my-2">
                                                 {{$data->location}}
                                             </div>
 
@@ -750,12 +751,12 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             new Splide('#locationsection', {
-                type   : 'loop',
+                type   : 'slide',
                 perPage: 1,
                 autoplay: true,
                 interval: 3000,
                 gap: '1rem',
-                arrows: false,
+                arrows: true,
 
             }).mount();
         });
