@@ -94,7 +94,7 @@
         <div class="container mx-auto px-5 lg:px-12 ">
             <div class="flex flex-col-reverse md:flex-row justify-between items-start md:items-center py-8 gap-5">
                 <div>
-                    <small class="capitalize font-light text-[10px] font_aktiv text-white">© 2024 - CanDo Canadian
+                    <small class="capitalize font-light text-[10px] font_aktiv text-white">© 2024 - K-graph Canadian
                         Immigration Services.</small>
                 </div>
                 <div>
