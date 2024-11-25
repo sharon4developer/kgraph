@@ -124,7 +124,7 @@
                         </div>
                         <div>
                             <form action="" class="text-black enquiry-form" id="contact-add-form">
-                                <h4 class="font_inter font-semibold text-black text-[32px] pb-10">Enquiry</h4>
+                                <h4 class="font_inter font-semibold text-black text-[32px] pb-10 capitalize">Talk to an Expert</h4>
                                 <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
                                     <label for="name">NAME<span>*</span></label>
                                     <input type="text" name="name">
@@ -222,7 +222,7 @@
                                         <h5 class="text-black uppercase">Office Address</h5>
                                         <img src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="{{$data->alt_tag}}">
                                     </div>
-                                    <div class="bg-[#072558] text-white rounded-md w-fit px-5 py-1">
+                                    <div class="bg-[#072558] text-white rounded-md w-fit px-5 py-1 lg:my-3">
                                         {{$data->location}}
                                     </div>
 

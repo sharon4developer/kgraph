@@ -440,6 +440,7 @@
         {{-- @include('frontend.Common.modal-contact') --}}
     </div>
     @include('frontend.Common.whatsapplogo')
+    @include('frontend.Common.modal-contact')
 
     <div class="bg-[#051b3b]">
 
