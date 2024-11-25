@@ -17,6 +17,9 @@ export default {
         translate: {
             '-42p': '-42%',
         },
+        backgroundImage: {
+          'custom-gradient': 'linear-gradient(270deg, #000000 0%, rgba(0, 0, 0, 0) 100%)',
+        },
       },
     },
     plugins: [],
