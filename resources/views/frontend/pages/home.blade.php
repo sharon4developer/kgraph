@@ -1502,6 +1502,7 @@
                     1024: { perPage: 2},
                     1280: { perPage: 3.9},
                     1380: { perPage: 3.9},
+                    1580: { perPage: 4.3},
                 }
             }).mount();
 
