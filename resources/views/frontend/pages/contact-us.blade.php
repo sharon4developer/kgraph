@@ -135,7 +135,7 @@
                                     <input type="Email" name="email">
                                 </div>
 
-                                <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent mobile">
+                                <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent mobile flex flex-col gap-4 md:gap-0 md:flex-row !items-start md:!items-center">
                                     <div>
                                         <select name="country" id="">
                                             <option value="+91">+91</option>
@@ -146,7 +146,7 @@
                                         </select>
 
                                     </div>
-                                    <div class=" flex items-center w-full pl-4">
+                                    <div class=" flex items-center w-full lg:pl-4">
                                         <label class="whitespace-nowrap" for="mobile">Mobile NUMBER<span>*</span></label>
                                         <input type="tel" name="mobile">
                                     </div>
@@ -185,7 +185,7 @@
                                 <input id="imageUploader" type="file" accept="image/*" style="display: none;" onchange="handleFileChange()" />
                             </div> --}}
 
-                                <div class="flex justify-end items-center overflow-hidden rounded-full mt-10">
+                                <div class="flex justify-center lg:justify-end items-center overflow-hidden rounded-full mt-10">
                                     <div class="border rounded-full border-[#072558] cursor-pointer">
                                         <button
                                             class="!px-[80px] py-3 uppercase text-[#072558] cursor-pointer text-[16px] font-bold bg-transparent hover:bg-[#072558] hover:text-white transition-colors duration-300 rounded-full">Submit</button>

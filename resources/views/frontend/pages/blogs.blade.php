@@ -51,12 +51,12 @@
 {{-- Blog sect --}}
 <div class="BlogCRDS bg-[#051b3b]">
     <div class="gradient-evition relative overflow-hidden z-10">
-        <div class="container mx-auto px-5 lg:px-12 lg:py-16 h-full w-full blog-box my-16">
+        <div class="container mx-auto px-5 lg:px-12 lg:py-16 h-full w-full blog-box my-16 relative z-10">
                 @foreach ($blogs as $data)
                 <div class="bg-white w-full h-full lg:mr-5 my-12 2xl:max-h-[800px] relative">
                     <img class="aspect-[1/1] object-cover object-top" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="blog_image"/>
                     <div class="relative">
-                        <img class="w-[50px] h-[50px] absolute left-2 top-[-25px] rounded-full" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->user_image }}" alt="profile_image"/>
+                        <img class="w-[52px] h-[50px] absolute left-2 top-[-25px] rounded-full" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->user_image }}" alt="profile_image"/>
                         <div class="flex justify-end items-end text-left">
                             <p class="text-[#072558] font_inter font-medium text-[14px] mr-2 w-[70%]">Topics: {{ $data->topics }}</p>
                         </div>
