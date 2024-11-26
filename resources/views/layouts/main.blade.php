@@ -37,7 +37,8 @@
 <style>
     .error {
         color: red !important;
-        padding-top: 15px;
+        /* padding-top: 15px; */
+        font-size: 14px;
         padding-bottom: 10px;
     }
 </style>

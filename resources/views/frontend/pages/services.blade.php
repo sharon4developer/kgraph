@@ -27,7 +27,7 @@
         <div class="services-grade w-full py-2 rounded-md">
             <h2 class="text-[#072459] font_inter text-[20px] pl-4 font-extrabold capitalize">{{$data->title}}</h2>
         </div>
-        <h6 class="py-6 text-white">Choose your Services</h6>
+        <h6 class="py-6 lg:pl-2 text-white">Choose your Services</h6>
 
         {{-- scroll need --}}
         <div class="grid justify-start gap-4 items-center choose-you-service">

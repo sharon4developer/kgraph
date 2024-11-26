@@ -18,7 +18,7 @@
                         <li class="font_aktiv">Privacy Policy</li>
                     </ul>
                 </div>
-                <small class="capitalize font-light text-[10px] font_aktiv">© 2024 - CanDo Canadian Immigration Services.</small>
+                <small class="capitalize font-light text-[10px] font_aktiv">© 2024 - K-graph Canadian Immigration Services.</small>
             </div>
         </div>
     </header> --}}

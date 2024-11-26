@@ -1,5 +1,6 @@
 @extends('layouts.main')
 @section('content')
+    <style>@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');</style>
     <style>
         .services-grade {
             background: linear-gradient(22deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
@@ -72,6 +73,22 @@
             font-weight: 600;
             font-size: 18px;
             color: white;
+        }
+        .date-input {
+            position: relative;
+            font-family: inherit;
+            font-size: 1rem;
+            padding: 0.5rem;
+        }
+        .date-input::placeholder {
+            color: #a0a0a0;
+        }
+        .custom-placeholder::placeholder {
+            color: #062358;
+            font-weight: 500;
+        }
+        .font_syne{
+            font-family: "Syne", serif;
         }
     </style>
 
@@ -177,7 +194,7 @@
 
                     <div class="flex flex-col">
                         <label for="dob">Date of Birth<span>*</span></label>
-                        <input type="date" id="dob" name="dob">
+                        <input type="date" id="dob" name="dob" placeholder="MM/DD/YYYY">
                     </div>
 
                     <div class="flex flex-col">
@@ -203,7 +220,7 @@
                     <div class="flex flex-col">
                         <label for="hear-about">How did you hear about CANADA?</label>
                         {{-- <select id="hear-about" name="hear_about_canada">
-                            <option value="Select">Select</option>
+                            <option value="Select">Please Select</option>
                             <!-- Add options as needed -->
                         </select> --}}
                         <input type="text" id="hear-about" name="hear_about_canada">
@@ -262,7 +279,7 @@
                     <div class="flex flex-col">
                         <label for="funds">Funds available to invest in your plan to immigrate to Canada</label>
                         {{-- <select id="funds" name="funds_available">
-                            <option value="Select">Select</option>
+                            <option value="Select">Please Select</option>
                             <!-- Add options as needed -->
                         </select> --}}
                         <input type="text" id="funds" name="funds_available">
@@ -275,7 +292,7 @@
                         <label for="highest-education-outside">Highest Level of Education - Outside
                             Canada<span>*</span></label>
                         {{-- <select id="highest-education-outside" name="highest_education_outside_can">
-                            <option value="Select">Select</option>
+                            <option value="Select">Please Select</option>
                             <!-- Add options as needed -->
                         </select> --}}
                         <input type="text" id="highest-education-outside" name="highest_education_outside_can">
@@ -284,7 +301,7 @@
                     <div class="flex flex-col">
                         <label for="country-studies">Country of Studies<span>*</span></label>
                         {{-- <select id="country-studies" name="country_of_studies">
-                            <option value="Select">Select</option>
+                            <option value="Select">Please Select</option>
                             <!-- Add options as needed -->
                         </select> --}}
                         <input type="text" id="country-studies" name="country_of_studies">
@@ -305,7 +322,7 @@
                     <div class="flex flex-col">
                         <label for="english-level">Language Level - English<span>*</span></label>
                         <select id="english-level" name="language_level_english">
-                            <option value="">Select</option>
+                            <option value="">Please Select</option>
                             <option value="Beginner">Beginner</option>
                             <option value="Elementary">Elementary</option>
                             <option value="Intermediate">Intermediate</option>
@@ -334,7 +351,7 @@
                     <div class="flex flex-col">
                         <label for="french-level">Language Level - French</label>
                         <select id="french-level" name="language_level_french">
-                            <option value="">Select</option>
+                            <option value="">Please Select</option>
                             <option value="Beginner">Beginner</option>
                             <option value="Elementary">Elementary</option>
                             <option value="Intermediate">Intermediate</option>
@@ -358,7 +375,7 @@
                         </div>
                     </div>
                     <!-- Work and Employment -->
-                    <h2 class="heading-in-form pb-6">Work and Employment</h2>
+                    <h2 class="heading-in-form pb-6 lg:text-[20px]">Work and Employment</h2>
 
                     <!-- Work in Canada -->
                     <h4 class="font_arial font-bold text-[12px] text-white">Work in Canada</h4>
@@ -377,7 +394,7 @@
 
                     <div class="flex flex-col">
                         <label for="occupation-industry">Main Occupation Industry*</label>
-                        <input type="text" id="occupation-industry" name="main_industry">
+                        <input type="text" id="occupation-industry" name="main_industry" class="custom-placeholder" placeholder="If you don't find your industry and occupation, select the most similar one.">
                     </div>
 
                     <div class="flex flex-col">
@@ -394,8 +411,10 @@
                     <div class="flex flex-col">
                         <label for="inside-canada-work">Inside Canada - Work Experience*</label>
                         <input type="text" id="inside-canada-work"
-                            placeholder=""
-                            name="work_exp_inside_can">
+                            {{-- placeholder="If you don't have any experience working in Canada, please select "Does Not Apply" " --}}
+                            placeholder="If you don't have any experience working in Canada, please select &quot;Does Not Apply&quot;" 
+                            name="work_exp_inside_can"
+                            class="custom-placeholder">
                     </div>
 
                     <div>
@@ -673,10 +692,9 @@
                         </div>
                     </div>
 
-                    <div class="submit-btn bg-[black]">
+                    <div class="submit-btn bg-gradient-to-r from-black to-transparent">
                         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[2%] mt-[-50px]">
-                            <button
-                                class="my-4 text-white border border-white rounded-full w-full lg:w-fit lg:px-16 py-2 text-[14px] hover:bg-white hover:border-black hover:text-black ease-linear duration-300 hover:font-semibold">SUBMIT</button>
+                            <button class="font_syne my-4 text-white border border-white rounded-full w-full lg:w-fit lg:px-16 py-2 text-[14px] lg:text-base  hover:bg-white hover:border-black hover:text-black ease-linear duration-300 font-bold" style="">SUBMIT</button>
                         </div>
                     </div>
                 </form>
@@ -686,4 +704,15 @@
 
 
     @include('frontend.Common.getintouch')
+
+    <script>
+        document.getElementById('dob').addEventListener('blur', function () {
+            if (!this.value) {
+            this.type = 'text';
+            }
+        });
+        document.getElementById('dob').addEventListener('focus', function () {
+            this.type = 'date';
+        });
+    </script>
 @endsection
