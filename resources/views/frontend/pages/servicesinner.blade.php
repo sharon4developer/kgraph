@@ -179,12 +179,12 @@
             }
         }
         @media (max-width: 350px){
-            .tab-content>ul>li{
+            .tab-content>*{
                 max-width: 280px;
             }
         }
         @media (min-width: 350px) and (max-width: 650px){
-            .tab-content>ul>li{
+            .tab-content>*{
                 max-width: 320px;
             }
         }
