@@ -77,7 +77,6 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            /* This ensures it stays behind the content */
         }
 
 
@@ -86,12 +85,7 @@
             inset: 0;
             width: 100%;
             height: 127%;
-            /* background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%); */
-            /* background-color: #072f77; */
-            /* background-color: #072f7796; */
-            background-color: #000000ba;
             z-index: 1;
-            /* Ensure the gradient is above the slider but below the content */
         }
 
         /* Set initial width and transition */
@@ -357,7 +351,7 @@
 
 
     <div class="relative overflow-hidden">
-        {{--old banner section --}}
+        {{-- banner section --}}
         <div class="h-dvh md:h-screen lg:h-full 2xl:h-screen w-full homeBanner relative overflow-hidden">
             <!-- Gradient overlay -->
             <div class="banner-gradient-overlay absolute inset-0"></div> 
@@ -443,7 +437,6 @@
     @include('frontend.Common.modal-contact')
 
     <div class="bg-[#051b3b]">
-
         {{--our services --}}
         <div class="ourservices rounded-b-[153px] relative py-14 lg:py-0">
             <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full relative z-10">
@@ -471,43 +464,62 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col lg:flex-row justify-between items-center gap-6">
-                    @foreach ($serviceCategory as $data)
-                    <div class="w-full h-[390px] xl:h-[390px] 2xl:h-[460px] bgk-grade rounded-[26px] py-4 2xl:py-6 text-white shadow-lg relative font-sans overflow-hidden roundring-anim">
-                        <div class="px-3 2xl:px-6">
-                            <div class="flex justify-between items-center" data-animate>
-                                <div class="relative z-10">
-                                    <svg width="40" height="44" viewBox="0 0 36 42" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M0 34.7294C0 30.122 4.68675 23.2109 18 23.2109C18.801 23.2109 19.5705 23.2354 20.3085 23.2846L19.6875 27.8597C19.1254 27.8315 18.5627 27.8177 18 27.8183V37.0331H27V41.6405H22.5V37.0331H18V41.6405H0V34.7294ZM18 20.9072C16.5871 20.9064 15.1901 20.6028 13.8986 20.0161C12.6072 19.4293 11.45 18.5723 10.5015 17.5002C9.55297 16.4281 8.83409 15.1646 8.39108 13.791C7.94808 12.4173 7.79077 10.964 7.92926 9.52433C8.06775 8.08471 8.49898 6.6907 9.19522 5.43195C9.89146 4.1732 10.8373 3.07758 11.9719 2.21554C13.1065 1.3535 14.4048 0.744132 15.7832 0.426621C17.1616 0.10911 18.5896 0.0904854 19.9755 0.371945L19.1025 4.89181C18.7394 4.8179 18.3702 4.78086 18 4.78123V16.2998C18.3825 16.2998 18.75 16.2629 19.1025 16.1892L19.9755 20.709C19.3249 20.8412 18.6632 20.9075 18 20.9072ZM24.5992 23.8789C26.1517 24.2222 27.5243 24.6852 28.7257 25.2381L26.361 29.1844C25.4728 28.8269 24.5558 28.5494 23.6205 28.355L24.5992 23.8789ZM31.5 41.6405V37.0331H36V41.6405H31.5ZM35.64 32.4257H30.627C30.3093 31.9556 29.9393 31.525 29.5245 31.1425L32.31 27.5096C34.065 29.03 35.1315 30.7716 35.64 32.4257ZM23.625 1.92003L21.1208 5.74879C21.7372 6.17037 22.2682 6.71404 22.68 7.34526L26.4195 4.78123C25.6806 3.64882 24.731 2.67657 23.625 1.92003ZM27.9315 8.51784L23.517 9.41168C23.6625 10.1569 23.6625 10.9241 23.517 11.6693L27.9315 12.5631C28.191 11.2278 28.191 9.85319 27.9315 8.51784ZM26.4195 16.2998L22.68 13.7357C22.2682 14.3669 21.7372 14.9106 21.1208 15.3322L23.625 19.161C24.7275 18.403 25.6792 17.4309 26.4195 16.2998Z" fill="white"/>
-                                    </svg>
-                                </div>
-
-                                <div class="relative">
-                                    <div class="bg-white rounded-full absolute p-6 round-comimg"></div>
-                                    <div class="relative z-10">
-                                        <svg width="36" height="40" viewBox="0 0 34 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M33.6332 4.9329L29.7049 0.860485L6.13464 25.295V2.89669L0.556349 2.89669V35.1502H31.669L31.669 29.3674L10.063 29.3674L33.6332 4.9329Z" fill="#005EEA"/>
-                                        </svg>
+                <div id="serviceCarousel" class="splide">
+                    <div class="splide__track">
+                        <ul class="splide__list">
+                            @foreach ($serviceCategory as $data)
+                            <li class="splide__slide">
+                                <div class="w-full h-[390px] xl:h-[390px] 2xl:h-[460px] bgk-grade rounded-[26px] py-4 2xl:py-6 text-white shadow-lg relative font-sans overflow-hidden roundring-anim">
+                                    <div class="px-3 2xl:px-6">
+                                        <div class="flex justify-between items-center" data-animate>
+                                            <div class="relative z-10">
+                                                <svg width="40" height="44" viewBox="0 0 36 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 34.7294C0 30.122 4.68675 23.2109 18 23.2109C18.801 23.2109 19.5705 23.2354 20.3085 23.2846L19.6875 27.8597C19.1254 27.8315 18.5627 27.8177 18 27.8183V37.0331H27V41.6405H22.5V37.0331H18V41.6405H0V34.7294ZM18 20.9072C16.5871 20.9064 15.1901 20.6028 13.8986 20.0161C12.6072 19.4293 11.45 18.5723 10.5015 17.5002C9.55297 16.4281 8.83409 15.1646 8.39108 13.791C7.94808 12.4173 7.79077 10.964 7.92926 9.52433C8.06775 8.08471 8.49898 6.6907 9.19522 5.43195C9.89146 4.1732 10.8373 3.07758 11.9719 2.21554C13.1065 1.3535 14.4048 0.744132 15.7832 0.426621C17.1616 0.10911 18.5896 0.0904854 19.9755 0.371945L19.1025 4.89181C18.7394 4.8179 18.3702 4.78086 18 4.78123V16.2998C18.3825 16.2998 18.75 16.2629 19.1025 16.1892L19.9755 20.709C19.3249 20.8412 18.6632 20.9075 18 20.9072ZM24.5992 23.8789C26.1517 24.2222 27.5243 24.6852 28.7257 25.2381L26.361 29.1844C25.4728 28.8269 24.5558 28.5494 23.6205 28.355L24.5992 23.8789ZM31.5 41.6405V37.0331H36V41.6405H31.5ZM35.64 32.4257H30.627C30.3093 31.9556 29.9393 31.525 29.5245 31.1425L32.31 27.5096C34.065 29.03 35.1315 30.7716 35.64 32.4257ZM23.625 1.92003L21.1208 5.74879C21.7372 6.17037 22.2682 6.71404 22.68 7.34526L26.4195 4.78123C25.6806 3.64882 24.731 2.67657 23.625 1.92003ZM27.9315 8.51784L23.517 9.41168C23.6625 10.1569 23.6625 10.9241 23.517 11.6693L27.9315 12.5631C28.191 11.2278 28.191 9.85319 27.9315 8.51784ZM26.4195 16.2998L22.68 13.7357C22.2682 14.3669 21.7372 14.9106 21.1208 15.3322L23.625 19.161C24.7275 18.403 25.6792 17.4309 26.4195 16.2998Z" fill="white"/>
+                                                </svg>
+                                            </div>
+                                            <div class="relative">
+                                                <div class="bg-white rounded-full absolute p-6 round-comimg"></div>
+                                                <div class="relative z-10">
+                                                    <svg width="36" height="40" viewBox="0 0 34 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M33.6332 4.9329L29.7049 0.860485L6.13464 25.295V2.89669L0.556349 2.89669V35.1502H31.669L31.669 29.3674L10.063 29.3674L33.6332 4.9329Z" fill="#005EEA"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <h2 class="text-xl xl:text-2xl 2xl:text-4xl clamp-text-two font-bold font_inter mt-8 mb-4 relative z-10 lg:h-[80px]" data-animate>{{ $data->title }}</h2>
+                                        <p class="text-gray-200 font_inter font-normal text-sm relative z-10" data-animate>{{ $data->title }}</p>
+                                    </div> 
+                                    <div class="my-4 mx-2" data-animate>
+                                        <div class="bg-liner h-[1px] w-full rounded-xl"></div>
+                                    </div>
+                                    <div class="px-3 2xl:px-6">
+                                        <div class="space-y-2 relative z-10" data-animate>
+                                            @foreach ($data->Service as $service)
+                                            <a href="{{url('service-details/'.$service->slug)}}" class="w-full text-base bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
+                                                <span class="clamp-text-one">{{ $service->title }}</span>
+                                                <span>→</span>
+                                            </a>
+                                            @endforeach
+                                        </div>
                                     </div>
                                 </div>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
+
+                    <div class="my-8 lg:mx-4">
+                        <div class="flex justify-end gap-3 items-center">
+                            <div class="card-ourSer-slide-prev-button cursor-pointer">
+                                <img class="w-[40px]" src="{{ asset('assets/Button-Previous.png') }}" alt="">
                             </div>
-                            <h2 class="text-xl xl:text-2xl 2xl:text-4xl clamp-text-two font-bold font_inter mt-8 mb-4 relative z-10 lg:h-[80px]" data-animate>{{ $data->title }}</h2>
-                            <p class="text-gray-200 font_inter font-normal text-sm relative z-10" data-animate>{{ $data->title }}</p>
-                        </div> 
-                        <div class="my-4 mx-2" data-animate><div class="bg-liner h-[1px] w-full  rounded-xl"></div></div>
-                        <div class="px-3 2xl:px-6">
-                            <div class="space-y-2 relative z-10" data-animate>
-                                @foreach ($data->Service as $service)
-                                <a href="{{url('service-details/'.$service->slug)}}" class="w-full text-base bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
-                                    <span class="clamp-text-one">{{ $service->title }}</span>
-                                    <span>→</span>
-                                </a>
-                                @endforeach
+                            <div class="cursor-pointer card-ourSer-slide-next-button">
+                                <img class="w-[40px]" src="{{ asset('assets/nextbutton.png') }}" alt="">
                             </div>
                         </div>
                     </div>
-                    @endforeach
                 </div>
+                
             </div>
 
             <div class="overflow-hidden whitespace-nowrap flex items-center py-6 relative z-10">
@@ -546,7 +558,6 @@
                 <img src="{{ asset('assets/home_Banner/imgage-vect-line.png') }}" alt="" class="">
             </div>
         </div>
-
         {{-- what makes us diff --}}
         <div class="what-makes relative">
             <div class="gradient-evitionstart absolute top-0">
@@ -684,7 +695,6 @@
                 </div>
             </div>
         </div>
-
         {{-- Testimonial --}}
         <div class="Testimonial bg-[#051b3b] relative">
             <div class="absolute -top-1/3">
@@ -782,7 +792,6 @@
                     </div>
             </div>
         </div>
-
         {{-- Blog sect --}}
         <div class="BlogCRDS bg-[#051b3b] lg:pt-24">
             <div class="container mx-auto px-5 py-12 xl:px-12 lg:py-16 h-full w-full">
@@ -877,7 +886,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
     {{-- faq section --}}
@@ -952,52 +960,48 @@
 
     @include('frontend.Common.getintouch')
 
-        {{-- explore section --}}
-        <div class="explore-section bg-black">
-            <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full">
-                <div class="flex items-end w-full gap-2 lg:gap-7">
-                    <h2
-                        class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] 2xl:text-[65px] leading-none fifthleft-to-right-animation">
-                        @if (isset($home))
-                            {{ $home->explore_title }}
-                        @endif
-                    </h2>
-                    <div class="w-full fifthleft-to-right-width-animation"
-                        style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
-                </div>
-                <p class="text-white font_inter font-semibold text-[26px] lg:w-[35%] mt-6 fifthleft-to-right-animation">
+    {{-- explore section --}}
+    <div class="explore-section bg-black">
+        <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full">
+            <div class="flex items-end w-full gap-2 lg:gap-7">
+                <h2
+                    class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] 2xl:text-[65px] leading-none fifthleft-to-right-animation">
                     @if (isset($home))
-                        {{ $home->explore_sub_title }}
+                        {{ $home->explore_title }}
                     @endif
-                </p>
+                </h2>
+                <div class="w-full fifthleft-to-right-width-animation"
+                    style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
             </div>
+            <p class="text-white font_inter font-semibold text-[26px] lg:w-[35%] mt-6 fifthleft-to-right-animation">
+                @if (isset($home))
+                    {{ $home->explore_sub_title }}
+                @endif
+            </p>
+        </div>
 
-            <div id="exploreSplide" class="splide pb-8 md:pb-[100px] xl:pl-[50px] explore-slider-class h-[380px] z-0">
-                <div class="splide__track">
-                    <ul class="splide__list">
-                        @foreach ($explore as $data)
-                            <li class="splide__slide">
-                                <div class="!w-[90vw] xl:!w-[300px] relative image-card-explore cursor-pointer">
-                                    <img class="w-full md:w-[300px] h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{ $data->alt_tag }}">
-                                    <div class="absolute bg-gradient-to-b from-transparent to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">
-                                        <!-- <button class="text-white">view</button> -->
-                                    </div>
-                                </div>
-                            </li>
-                        @endforeach
-                    </ul>
+        <div id="exploreSplide" class="splide pb-8 md:pb-[100px] xl:pl-[50px] explore-slider-class h-[380px] z-0">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    @foreach ($explore as $data)
+                        <li class="splide__slide">
+                            <div class="!w-[90vw] xl:!w-[300px] relative image-card-explore cursor-pointer">
+                                <img class="w-full md:w-[300px] h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{ $data->alt_tag }}">
+                                <div class="absolute bg-gradient-to-b from-transparent text-white to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">View</div>
+                            </div>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-5 xl:px-12 py-8 lg:pt-1 lg:pb-16  z-[99] h-full w-full">
+            <div class="flex justify-end gap-3 items-center">
+                <div class="card-explore-slide-prev-button cursor-pointer">
+                    <img class="w-[40px]" src="{{ asset('assets/Button-Previous.png') }}" alt="">
                 </div>
-            </div>
-
-
-            <div class="container mx-auto px-5 xl:px-12 py-8 lg:pt-1 lg:pb-16  z-[99] h-full w-full">
-                <div class="flex justify-end gap-3 items-center">
-                    <div class="card-explore-slide-prev-button cursor-pointer">
-                        <img class="w-[40px]" src="{{ asset('assets/Button-Previous.png') }}" alt="">
-                    </div>
-                    <div class="cursor-pointer card-explore-slide-next-button">
-                        <img class="w-[40px]" src="{{ asset('assets/nextbutton.png') }}" alt="">
-                    </div>
+                <div class="cursor-pointer card-explore-slide-next-button">
+                    <img class="w-[40px]" src="{{ asset('assets/nextbutton.png') }}" alt="">
                 </div>
             </div>
         </div>
@@ -1102,6 +1106,7 @@
                 });
             });
         });
+
         document.querySelectorAll('.knowmore').forEach(button => {
             const lineId = button.getAttribute('data-line');
             const line = document.querySelector(`.expandable-line[data-line="${lineId}"]`);
@@ -1514,6 +1519,32 @@
             // Custom Next Button
             document.querySelector('.card-explore-slide-next-button').addEventListener('click', function () {
                 splide.go('>'); // Go to the next slide
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            const splide = new Splide('#serviceCarousel', {
+                type   : 'loop',
+                perPage: 4,
+                perMove: 1,    
+                breakpoints: {
+                    1024: {
+                        perPage: 2,
+                    },
+                    768: {
+                        perPage: 1,
+                    },
+                },
+                gap       : '1rem',
+                pagination: false,
+                arrows    : false, 
+            }).mount();
+
+            document.querySelector('.card-ourSer-slide-prev-button').addEventListener('click', function () {
+                splide.go('<');
+            });
+
+            document.querySelector('.card-ourSer-slide-next-button').addEventListener('click', function () {
+                splide.go('>');
             });
         });
     </script>

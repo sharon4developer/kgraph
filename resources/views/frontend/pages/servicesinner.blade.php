@@ -113,12 +113,12 @@
             transform: translateY(0);
         }
 
-		ul.tabs{
+		 ul.tabs{
 			margin: 0px;
 			padding: 0px;
 			list-style: none;
 		}
-		ul.tabs li{
+		 ul.tabs li{
 			background: none;
 			color: #ededed;
 			display: inline-block;
@@ -167,6 +167,26 @@
             display: block;
             opacity: 1;
             transform: translateY(0);
+        }
+        @media (max-width: 1023px){
+            .tab-names ul.tabs li{
+                white-space: nowrap;
+            }
+            .tab-names ul.tabs{
+                display: flex;
+                overflow: scroll;
+                margin-right: 20px;
+            }
+        }
+        @media (max-width: 350px){
+            .tab-content>ul>li{
+                max-width: 280px;
+            }
+        }
+        @media (min-width: 350px) and (max-width: 650px){
+            .tab-content>ul>li{
+                max-width: 320px;
+            }
         }
 
     </style>
@@ -230,7 +250,7 @@
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 flex justify-center items-start flex-col text-white">
             <!-- Tab Names -->
             <div class="tab-names flex flex-col relative  max-w-[100vw] scrollbar-hidden">
-                <ul class="tabs border-b-2 border-b-white">
+                <ul class="tabs border-b-2 border-b-white scrollbar-hidden">
                     @foreach ($services->ServicePoint as $key => $ServicePoint)
                     <li class="tab-link {{ $key === 0 ? 'current' : '' }}" data-tab="tab-{{$key+1}}">{{ $ServicePoint->title }}</li>
                     @endforeach
