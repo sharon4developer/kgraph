@@ -100,6 +100,11 @@ class Package extends Model
     {
         $value = SELF::find($data->id);
         if ($value) {
+
+            $value->PackagePoint()->delete();
+
+            $value->PackageFaq()->delete();
+
             $value->delete();
             return true;
         } else

@@ -77,7 +77,7 @@
         .tab-name {
             position: relative;
             cursor: pointer;
-            padding-bottom: 0.5rem; 
+            padding-bottom: 0.5rem;
         }
 
         .tab-name.active {
@@ -101,14 +101,14 @@
             transition: left 0.3s ease, width 0.3s ease;
         }
         .tab-content {
-            display: none; 
+            display: none;
             /* opacity: 0;  */
             transform: translateY(10px);
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
 
         .tab-content.active {
-            display: block; 
+            display: block;
             opacity: 1;
             transform: translateY(0);
         }
@@ -152,7 +152,7 @@
         .tab-link.current {
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
-            background: #ededed; 
+            background: #ededed;
             color: #062358;
         }
 
@@ -231,7 +231,7 @@
         <div class="Realize">
             <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%]">
                 <div class="lg:w-1/2 font_inter">
-                    <h2 class="font-semibold text-xl lg:text-4xl text-[#062358]">Realize Your Canadian Education Goals</h2>
+                    <h2 class="font-semibold text-xl lg:text-4xl text-[#062358]">{{ $services->inner_title }}</h2>
                     <div class="blufader-grade text-white my-6 px-5 rounded-md py-3">Key Highlight</div>
                     <div>
                         <ul class="list-disc pl-5 text-[#062358] leading-normal">
@@ -259,7 +259,7 @@
                 <div id="tab-{{$key+1}}" class="tab-content {{ $key === 0 ? 'current' : 'hidden' }}">
                     {!! $ServicePoint->description !!}
                 </div>
-                @endforeach 
+                @endforeach
             </div>
 
         </div>
@@ -284,7 +284,7 @@
                         </div>
                     </div>
                     @endforeach
-    
+
                 </div>
             </div>
         </div>
@@ -343,8 +343,8 @@ $(document).ready(function() {
                 document.querySelectorAll('.accordion-icon').forEach((img) => {
                     img.style.transform = "rotate(0deg)";
                 });
-                content.style.maxHeight = content.scrollHeight + "px"; 
-                icon.style.transform = "rotate(45deg)"; 
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = "rotate(45deg)";
             }
         }
     </script>
