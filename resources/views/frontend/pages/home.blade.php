@@ -346,6 +346,44 @@
                 width: 100%; /* Make each slide fill the screen width */
             }
         }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-inner {
+            background: white;
+            padding: 20px;
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            overflow: auto;
+        }
+
+        .popup img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            /* background: red;
+            color: white; */
+            padding: 5px 10px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
 
     </style>
 
@@ -469,7 +507,7 @@
                         <ul class="splide__list">
                             @foreach ($serviceCategory as $data)
                             <li class="splide__slide">
-                                <div class="w-full h-[390px] xl:h-[390px] 2xl:h-[460px] bgk-grade rounded-[26px] py-4 2xl:py-6 text-white shadow-lg relative font-sans overflow-hidden roundring-anim">
+                                <div class="w-full h-[400px] lg:h-[445px]  2xl:h-[460px] bgk-grade rounded-[26px] py-4 2xl:py-6 text-white shadow-lg relative font-sans overflow-hidden roundring-anim">
                                     <div class="px-3 2xl:px-6">
                                         <div class="flex justify-between items-center" data-animate>
                                             <div class="relative z-10">
@@ -987,12 +1025,25 @@
                         <li class="splide__slide">
                             <div class="!w-[90vw] xl:!w-[300px] relative image-card-explore cursor-pointer">
                                 <img class="w-full md:w-[300px] h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{ $data->alt_tag }}">
-                                <div class="absolute bg-gradient-to-b from-transparent text-white to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button">View</div>
+                                <div class="absolute bg-gradient-to-b from-transparent text-white to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button"
+                                    data-popup-open="popup-{{ $loop->index }}">
+                                    View
+                                </div>
                             </div>
                         </li>
-                    @endforeach
+                    @endforeach                
                 </ul>
             </div>
+            @foreach ($explore as $data)
+                <div class="popup" data-popup="popup-{{ $loop->index }}">
+                    <div class="popup-inner">
+                        <img class="w-[300px] lg:w-[400px] xl:w-[500px]" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{ $data->alt_tag }}">
+                        <a class="popup-close" data-popup-close="popup-{{ $loop->index }}" href="#">
+                            <img class="w-[50px]" src="{{asset('assets/home_Banner/cross.png')}}" alt="">
+                        </a>
+                    </div>
+                </div>
+            @endforeach
         </div>
 
         <div class="container mx-auto px-5 xl:px-12 py-8 lg:pt-1 lg:pb-16  z-[99] h-full w-full">
@@ -1164,6 +1215,7 @@
                 }
             );
         });
+
         gsap.utils.toArray("[data-animate-left]").forEach((element) => {
             gsap.fromTo(
                 element,
@@ -1197,6 +1249,7 @@
             duration: 2,
             ease: "power2.out"
         });
+
         gsap.to(".banner-contain-text", {
             scrollTrigger: {
                 trigger: ".homeBanner",
@@ -1221,6 +1274,7 @@
             duration: 2,
             ease: "power2.out"
         });
+
         gsap.to(".fourthleft-to-right-width-animation", {
             scrollTrigger: {
                 trigger: ".BlogCRDS",
@@ -1233,6 +1287,7 @@
             duration: 2,
             ease: "power2.out"
         });
+
         gsap.to(".fifthleft-to-right-animation", {
             scrollTrigger: {
                 trigger: ".explore-section",
@@ -1244,6 +1299,7 @@
             duration: 2,
             ease: "power2.out"
         });
+
         gsap.to(".fifthleft-to-right-width-animation", {
             scrollTrigger: {
                 trigger: ".explore-section",
@@ -1256,6 +1312,7 @@
             duration: 2,
             ease: "power2.out"
         });
+
         gsap.fromTo(".video-container", {
             scale: 0.5
         }, {
@@ -1521,32 +1578,37 @@
                 splide.go('>'); // Go to the next slide
             });
         });
+
         document.addEventListener('DOMContentLoaded', function () {
             const splide = new Splide('#serviceCarousel', {
-                type   : 'loop',
+                type: 'loop', 
                 perPage: 4,
-                perMove: 1,    
+                autoplay: true,
+                interval: 2000,
+                pauseOnHover: false,
+                perMove: 1,
                 breakpoints: {
                     1024: {
-                        perPage: 2,
+                        perPage: 3,
                     },
-                    768: {
+                    767: {
                         perPage: 1,
                     },
                 },
-                gap       : '1rem',
+                gap: '1rem',
                 pagination: false,
-                arrows    : false, 
+                arrows: false,
             }).mount();
 
             document.querySelector('.card-ourSer-slide-prev-button').addEventListener('click', function () {
-                splide.go('<');
+                splide.go('<'); 
             });
 
             document.querySelector('.card-ourSer-slide-next-button').addEventListener('click', function () {
-                splide.go('>');
+                splide.go('>'); // Navigate to the next slide
             });
         });
+
     </script>
 
     <script>
@@ -1589,6 +1651,33 @@
                     observer.observe(counterElement);
                 }
         });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const openButtons = document.querySelectorAll('[data-popup-open]');
+            const closeButtons = document.querySelectorAll('[data-popup-close]');
+
+            openButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    const popupName = this.getAttribute('data-popup-open');
+                    const popup = document.querySelector(`[data-popup="${popupName}"]`);
+                    if (popup) {
+                        popup.style.display = 'flex'; // Show the popup
+                    }
+                });
+            });
+
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const popupName = this.getAttribute('data-popup-close');
+                    const popup = document.querySelector(`[data-popup="${popupName}"]`);
+                    if (popup) {
+                        popup.style.display = 'none'; // Hide the popup
+                    }
+                });
+            });
+        });
+
 
     </script>
 
