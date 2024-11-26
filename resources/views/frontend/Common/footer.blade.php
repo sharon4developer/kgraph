@@ -6,6 +6,10 @@
     }
 </style>
 
+<?php
+use App\Models\ServiceCategory;
+$serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slug','sub_title')->orderBy('order','asc')->where('status',1)->limit(4)->get();
+?>
 
 <footer class="w-full bg-[#062357] footer-secpernt">
     <div class="relative footer-secpernt w-full footer-last">
@@ -60,10 +64,10 @@
                 <div class="flex flex-col justify-between items-start gap-[30px] md:gap-4 w-full">
                     <h2 class="text-white">Services</h2>
                     <ul class="custom-bullets text-white">
-                        <li class="lg:whitespace-nowrap">Mistakes To Avoid</li>
-                        <li class="lg:whitespace-nowrap">Your Startup</li>
-                        <li class="lg:whitespace-nowrap">Knew About Fonts</li>
-                        <li class="lg:whitespace-nowrap">Knew About Fonts</li>
+                        @foreach ($serviceCategories as $serviceCategory)
+
+                        <li class="lg:whitespace-nowrap">{{$serviceCategory->title}}</li>
+                        @endforeach
                     </ul>
                 </div>
 

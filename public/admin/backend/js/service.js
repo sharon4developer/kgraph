@@ -127,6 +127,9 @@ $('#service-add-form').validate({
         sub_title: {
             required: true,
         },
+        inner_title: {
+            required: true,
+        },
         service_category_id: {
             required: true,
         },
@@ -137,6 +140,7 @@ $('#service-add-form').validate({
     messages: {
         title: "Title field is required",
         sub_title: "Sub title field is required",
+        inner_title: "Inner title field is required",
         service_category_id: "Service Category field is required",
         image: "Image field is required",
     },
@@ -216,6 +220,9 @@ $('#service-edit-form').validate({
         sub_title: {
             required: true,
         },
+        inner_title: {
+            required: true,
+        },
         service_category_id: {
             required: true,
         },
@@ -226,6 +233,7 @@ $('#service-edit-form').validate({
     messages: {
         title: "Title field is required",
         sub_title: "Sub title field is required",
+        inner_title: "Inner title field is required",
         service_category_id: "Service Category field is required",
         image: "Image field is required",
     },
