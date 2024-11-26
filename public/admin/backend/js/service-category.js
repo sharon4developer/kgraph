@@ -39,14 +39,14 @@ function loadDataTableForServices() {
         columns: [
             { data: 'DT_RowIndex', orderable: false, searchable: false },
             { data: 'title' },
-            {
-                data: null,
-                render: function (row) {
-                    return `<img class="table-img" src=` + row.image + `>`;
-                },
-                orderable: false,
-                searchable: false,
-            },
+            // {
+            //     data: null,
+            //     render: function (row) {
+            //         return `<img class="table-img" src=` + row.image + `>`;
+            //     },
+            //     orderable: false,
+            //     searchable: false,
+            // },
             {
                 data: null,
                 render: function (row) {
@@ -116,14 +116,14 @@ $('#service-add-form').validate({
         sub_title: {
             required: true,
         },
-        image: {
-            required: true,
-        },
+        // image: {
+        //     required: true,
+        // },
     },
     messages: {
         title: "Title field is required",
         sub_title: "Sub title field is required",
-        image: "Image field is required",
+        // image: "Image field is required",
     },
     errorElement: 'span',
     submitHandler: function (form, event) {
