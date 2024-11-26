@@ -175,7 +175,7 @@
             .tab-names ul.tabs{
                 display: flex;
                 overflow: scroll;
-                margin-right: 20px;
+                padding-right: 100px;
             }
         }
         @media (max-width: 350px){
@@ -309,14 +309,14 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script>
-$(document).ready(function() {
+$(document).ready(function () {
     // Ensure only the first tab is active on load
     $('ul.tabs li:first-child').addClass('current');
     $('.tab-content').hide(); // Hide all tab content
     $('.tab-content:first').show(); // Show only the first tab content
 
     // Handle tab click events
-    $('ul.tabs li').click(function() {
+    $('ul.tabs li').click(function () {
         var tab_id = $(this).attr('data-tab');
 
         $('ul.tabs li').removeClass('current');
@@ -324,8 +324,37 @@ $(document).ready(function() {
 
         $(this).addClass('current');
         $("#" + tab_id).show(); // Show the selected tab content
+
+        // Center align the current tab
+        centerTab($(this));
     });
+
+    // Function to center align the active tab
+    function centerTab($tab) {
+        var $container = $tab.closest('ul.tabs'); // Parent container (scrollable element)
+        var containerWidth = $container.outerWidth(); // Width of the container
+        var tabWidth = $tab.outerWidth(); // Width of the tab
+        var tabOffsetLeft = $tab.position().left; // Position of the tab relative to container
+        var currentScroll = $container.scrollLeft(); // Current scroll position
+
+        // Calculate the ideal scroll position to center the tab
+        var scrollPosition = currentScroll + tabOffsetLeft + tabWidth / 2 - containerWidth / 2;
+
+        // Ensure the calculated scrollPosition does not exceed scrollable boundaries
+        var maxScrollLeft = $container[0].scrollWidth - containerWidth; // Maximum scrollable left position
+        if (scrollPosition < 0) {
+            scrollPosition = 0; // Prevent scrolling before the start
+        } else if (scrollPosition > maxScrollLeft) {
+            scrollPosition = maxScrollLeft; // Prevent scrolling beyond the container
+        }
+
+        // Smoothly scroll the container
+        $container.animate({
+            scrollLeft: scrollPosition
+        }, 300); // 300ms animation
+    }
 });
+
 
 
 
