@@ -1587,6 +1587,7 @@
                 interval: 2000,
                 pauseOnHover: false,
                 perMove: 1,
+                rewind: true,
                 breakpoints: {
                     1024: {
                         perPage: 3,
