@@ -1581,7 +1581,7 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             const splide = new Splide('#serviceCarousel', {
-                type: 'loop', 
+                type: 'slide', 
                 perPage: 4,
                 autoplay: true,
                 interval: 2000,
