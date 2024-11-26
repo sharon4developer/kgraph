@@ -113,6 +113,11 @@ class Service extends Model
     {
         $value = SELF::find($data->id);
         if ($value) {
+
+            $value->ServicePoint()->delete();
+
+            $value->ServiceFaq()->delete();
+
             $value->delete();
             return true;
         } else

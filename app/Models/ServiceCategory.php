@@ -90,6 +90,18 @@ class ServiceCategory extends Model
     {
         $value = SELF::find($data->id);
         if ($value) {
+
+            $services = $value->Service;
+
+            foreach ($services as $service) {
+
+                $service->ServicePoint()->delete();
+
+                $service->ServiceFaq()->delete();
+            }
+
+            $value->Service()->delete();
+
             $value->delete();
             return true;
         } else
