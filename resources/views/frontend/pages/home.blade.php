@@ -466,6 +466,7 @@
                 object-fit: cover;
             }
         }
+        
 
     </style>
 
@@ -503,14 +504,8 @@
                             Journey with Confidence <span class="text-[#579aff]">Migrate</span> with Us
                         </h2>
                     </div>
-                    <h1
-                        class="md:text-center text-[31px] md:text-[55px] 2xl:text-[85px] lg:text-[70px] lg:w-[80%] font-medium font_inter gradient-text z-10 lg:mt-8 banner_main-text lg:inline-block banner-contain-text leading-[1.2]">
-                        Visa Made Easy Dreams Made Possible
-                    </h1>
-                    <h6
-                        class="font_inter font-medium text-[20px] lg:text-[23px] z-20 text-white lg:mt-14 banner-container-elem">
-                        Visa Made Easy Dreams Made Possible
-                    </h6>
+                    <h1  id="animated-heading" class="md:text-center text-[31px] md:text-[55px] 2xl:text-[85px] lg:text-[70px] lg:w-[80%] font-medium font_inter gradient-text z-10 lg:mt-8 banner_main-text lg:inline-block banner-contain-text leading-[1.2]">Visa Made Easy Dreams Made Possible</h1>
+                    <h6 class="font_inter font-medium text-[20px] lg:text-[23px] z-20 text-white lg:mt-14 banner-container-elem"> Visa Made Easy Dreams Made Possible</h6>
                     <div
                         class="z-10 flex flex-col md:flex-row justify-center items-start md:items-center gap-4 lg:mb-7 lg:mt-10">
                         <img width="52px" src="{{ asset('assets/home_Banner/CanadaFlag.png') }}" alt="CanadaFlag">
@@ -1098,7 +1093,7 @@
                 @endif
             </p>
 
-            <div id="exploreSplide" class="award_certificates_s splide splide xl:pl-[50px] explore-slider-class z-0">
+            <div id="exploreSplide" class="award_certificates_s splide splide mt-6 xl:pl-[50px] explore-slider-class z-0">
                 <div class="splide__track">
                     <ul class="splide__list">
                         @foreach ($explore as $data)
@@ -1676,6 +1671,28 @@
                 }
             );
         });
+
+        const heading = document.querySelector("#animated-heading");
+        const letters = heading.querySelectorAll("span");
+
+        gsap.fromTo(
+            letters,
+            {
+                opacity: 0,
+                y: 50,
+            },
+            {
+                opacity: 1,
+                y: 0,
+                stagger: 0.05, 
+                duration: 0.8,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: heading,
+                    start: "top 80%", 
+                },
+            }
+        );
 
         gsap.utils.toArray("[data-animate-left]").forEach((element) => {
             gsap.fromTo(
