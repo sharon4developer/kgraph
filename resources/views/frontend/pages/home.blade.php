@@ -1092,13 +1092,13 @@
                 <div class="w-full fifthleft-to-right-width-animation"
                     style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
             </div>
-            <p class="text-white font_inter font-semibold text-[16px] leading-[1.2] lg:w-[35%] mt-6 fifthleft-to-right-animation">
+            <p class="text-white font_inter font-semibold text-[16px] lg:text-[24px] leading-[1.2] lg:w-[35%] mt-6 fifthleft-to-right-animation">
                 @if (isset($home))
                     {{ $home->explore_sub_title }}
                 @endif
             </p>
 
-            <div id="exploreSplide" class="award_certificates_s splide splide pb-8 md:pb-[100px] my-8 xl:pl-[50px] explore-slider-class z-0">
+            <div id="exploreSplide" class="award_certificates_s splide splide xl:pl-[50px] explore-slider-class z-0">
                 <div class="splide__track">
                     <ul class="splide__list">
                         @foreach ($explore as $data)
