@@ -414,8 +414,8 @@
             perPage    : 1,
             autoplay   : true,
             interval   : 4000,
-            arrows     : true,
-            pagination : true,
+            arrows     : false,
+            pagination : false,
             pauseOnHover: false,
         });
 
