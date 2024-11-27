@@ -6,17 +6,18 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
 
     <style>@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');</style>
     <style>
+        body {
+            counter-reset: certificate-counter;
+        }
         .font_syne> {
             font-family: "Syne", sans-serif;
         }
@@ -159,7 +160,7 @@
         }
 
         .explore-section {
-            overflow-x: hidden;
+            /* overflow-x: hidden; */
             /* Prevents horizontal scroll */
         }
 
@@ -287,14 +288,12 @@
         }
 
         .bg-under-ourse{
-            /* background: #0066FF66; */
             background-image: url(assets/home_Banner/radiuselpse.svg) !important;
             width: 100%;
             height: 50%;
             background-position-x: center;
         }
         .ourservices{
-            /* background: linear-gradient(360deg, rgba(4, 26, 55, 0) 0%, #041937 100%); */
             background: linear-gradient(90deg, rgba(4,25,55,1) 0%, rgba(4,25,55,1) 100%);
         }
 
@@ -307,20 +306,18 @@
         .bg-grade-testimonial{
             background: linear-gradient(57.95deg, #060B12 -23.39%, #001533 65.33%);
         }
-        .ctc-sect{
-            h5{
-                font-family: "Inter", sans-serif;
-                font-size: 26.88px;
-                font-weight: 700;
-                line-height: 0.5;
-            }
-            span{
-                font-family: "Inter", sans-serif;
-                font-size: 11.34px;
-                font-weight: 600;
-                line-height: 0.5;
-            }
+        .ctc-sect h5 {
+            font-size: 26.88px;
+            font-weight: 700;
+            line-height: 0.5;
         }
+
+        .ctc-sect span {
+            font-size: 11.34px;
+            font-weight: 600;
+            line-height: 0.5;
+        }
+
         .video-grade{
             background: linear-gradient(180deg, rgba(17, 49, 101, 0) 26.01%, #113165 133.05%);
 
@@ -340,10 +337,10 @@
         @media (max-width: 640px) {
             #testimonial-slider .splide__list {
                 padding: 0;
-                gap: 0; /* Remove gaps between slides */
+                gap: 0;
             }
             #testimonial-slider .splide__slide {
-                width: 100%; /* Make each slide fill the screen width */
+                width: 100%; 
             }
         }
         .popup {
@@ -377,13 +374,98 @@
             position: absolute;
             top: 10px;
             right: 10px;
-            /* background: red;
-            color: white; */
             padding: 5px 10px;
             cursor: pointer;
             text-decoration: none;
         }
 
+        .award_certificates_s .splide__slide {
+            transform: translateY(100px);
+            opacity: 0;
+        }
+
+        .award_certificates_s .splide__slide.is-visible.is-active {
+            z-index: 1;
+        }
+
+        .award_certificates_s .splide__slide .certs {
+            transition: transform .35s ease;
+        }
+
+        .award_certificates_s .splide__slide.is-visible.is-active .certs {
+            transform: scale(1.2);
+        }
+        .award_certificates_s .splide__track {
+            padding: 10px 0;
+        }
+
+
+        .award_certificates_s .splide__pagination {
+            justify-content: end;
+            /* margin-top: -5px; */
+            /* margin-left: 20px; */
+        }
+
+        /* .award_certificates_s .splide__pagination__page {
+            border: 0;
+            border-radius: 50%;
+            display: inline-block;
+            height: 20px;
+            width: 20px;
+            margin: 0 0.1rem;
+            padding: 0;
+            position: relative;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        } */
+/* 
+        .award_certificates_s .splide__pagination__page::after {
+            counter-increment: certificate-counter;
+            content: counter(certificate-counter);
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+
+        .award_certificates_s .splide__pagination__page {
+            color: var(--darkgray);
+            transition: all 0.3s ease-in-out;
+            transform-origin: bottom;
+        }
+
+        .award_certificates_s .splide__pagination__page.is-active {
+            color: var(--bg);
+            transform: scale(1.25);
+        } */
+        
+        @media(max-width:767px) {
+            .image-card-explore img{
+                width: 75px;
+            }
+        }
+
+
+        @media(min-width:576px) {
+            .award_certificates_s .splide__track {
+                padding: 50px 0;
+            }
+        }
+        @media(min-width:768px) {
+            .award_certificates_s .splide__track {
+                padding: 60px 0;
+            }
+        }
+
+        @media(min-width:992px) {
+            .award_certificates_s .splide__track {
+                padding: 70px 0;
+            }
+            .award_certificates .swiper-slide img {
+                height: 100%;
+                width: 100%;
+                max-width: 100%;
+                object-fit: cover;
+            }
+        }
 
     </style>
 
@@ -472,7 +554,7 @@
         {{-- @include('frontend.Common.modal-contact') --}}
     </div>
     @include('frontend.Common.whatsapplogo')
-    @include('frontend.Common.modal-contact')
+    {{-- @include('frontend.Common.modal-contact') --}}
 
     <div class="bg-[#051b3b]">
         {{--our services --}}
@@ -1002,8 +1084,7 @@
     <div class="explore-section bg-black">
         <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full">
             <div class="flex items-end w-full gap-2 lg:gap-7">
-                <h2
-                    class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] 2xl:text-[65px] leading-none fifthleft-to-right-animation">
+                <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] 2xl:text-[65px] leading-none fifthleft-to-right-animation">
                     @if (isset($home))
                         {{ $home->explore_title }}
                     @endif
@@ -1011,42 +1092,30 @@
                 <div class="w-full fifthleft-to-right-width-animation"
                     style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
             </div>
-            <p class="text-white font_inter font-semibold text-[26px] lg:w-[35%] mt-6 fifthleft-to-right-animation">
+            <p class="text-white font_inter font-semibold text-[16px] leading-[1.2] lg:w-[35%] mt-6 fifthleft-to-right-animation">
                 @if (isset($home))
                     {{ $home->explore_sub_title }}
                 @endif
             </p>
-        </div>
 
-        <div id="exploreSplide" class="splide pb-8 md:pb-[100px] xl:pl-[50px] explore-slider-class h-[380px] z-0">
-            <div class="splide__track">
-                <ul class="splide__list">
-                    @foreach ($explore as $data)
-                        <li class="splide__slide">
-                            <div class="!w-[90vw] xl:!w-[300px] relative image-card-explore cursor-pointer">
-                                <img class="w-full md:w-[300px] h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{ $data->alt_tag }}">
-                                <div class="absolute bg-gradient-to-b from-transparent text-white to-black flex justify-center items-center w-full h-full z-10 inset-0 view-button"
-                                    data-popup-open="popup-{{ $loop->index }}">
-                                    View
+            <div id="exploreSplide" class="award_certificates_s splide splide pb-8 md:pb-[100px] my-8 xl:pl-[50px] explore-slider-class z-0">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        @foreach ($explore as $data)
+                            <li class="splide__slide">
+                                <div class="relative image-card-explore cursor-pointer">
+                                    <img class="w-full 2xl:w-[300px] h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{ $data->alt_tag }}">
                                 </div>
-                            </div>
-                        </li>
-                    @endforeach                
-                </ul>
-            </div>
-            @foreach ($explore as $data)
-                <div class="popup" data-popup="popup-{{ $loop->index }}">
-                    <div class="popup-inner">
-                        <img class="w-[300px] lg:w-[400px] xl:w-[500px]" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{ $data->alt_tag }}">
-                        <a class="popup-close" data-popup-close="popup-{{ $loop->index }}" href="#">
-                            <img class="w-[50px]" src="{{asset('assets/home_Banner/cross.png')}}" alt="">
-                        </a>
-                    </div>
+                            </li>
+                        @endforeach                
+                    </ul>
                 </div>
-            @endforeach
+            </div>
         </div>
 
-        <div class="container mx-auto px-5 xl:px-12 py-8 lg:pt-1 lg:pb-16  z-[99] h-full w-full">
+
+
+        {{-- <div class="container mx-auto px-5 xl:px-12 py-8 lg:pt-1 lg:pb-16 my-6 z-[99] h-full w-full relative z-50">
             <div class="flex justify-end gap-3 items-center">
                 <div class="card-explore-slide-prev-button cursor-pointer">
                     <img class="w-[40px]" src="{{ asset('assets/Button-Previous.png') }}" alt="">
@@ -1055,10 +1124,54 @@
                     <img class="w-[40px]" src="{{ asset('assets/nextbutton.png') }}" alt="">
                 </div>
             </div>
-        </div>
+        </div> --}}
+
+        
+        {{-- <div class="award_certificates">
+            <div class="award_certificates_s splide splide-3 lg:w-full lg:max-w-full">
+                <div class="splide__track">
+                    <div class="splide__list">
+                        @foreach ($explore as $data)
+                        <div class="splide__slide">
+                            <div class="certs mx-auto bg-white h-24 sm:h-40 md:h-full">
+                                <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{ $data->alt_tag }}">
+                            </div>
+                        </div>
+                        @endforeach
+                    </div>
+                </div>
+
+                <!-- Add the progress bar element -->
+                <div class="flex items-center justify-center">
+                    <div class="my-carousel-progress w-40 lg:w-72 lg:ml-auto">
+                        <div class="my-carousel-progress-bar"></div>
+                    </div>
+
+                    <ul class="splide__pagination"></ul>
+                </div>
+
+            </div>
+        </div> --}}
     </div>
 
+    {{-- <div class="explore-section-dup bg-black ">
+        <div class="container mx-auto px-5 xl:px-12 py-8 lg:pt-1 lg:pb-16  z-[99] h-full w-full">
+            <div class="center">
+                @foreach ($explore as $data)
+                    <div class="mx-4">
+                        <img class="w-full h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{ $data->alt_tag }}">
+                    </div>
+                @endforeach 
+            </div>
+        </div>
+    </div> --}}
+
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script> --}}
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script> --}}
+
     <script>
         document.querySelectorAll('.accordion-header').forEach(header => {
             header.addEventListener('click', function() {
@@ -1174,239 +1287,49 @@
         });
     </script>
 
-    {{-- gsap animtion --}}
-    <script>
+{{-- @section('scripts') --}}
 
-        gsap.registerPlugin(ScrollTrigger);
-
-        document.addEventListener("DOMContentLoaded", function() {
-            gsap.registerPlugin(ScrollTrigger);
-            gsap.to(".flag-img-contact", {
-                scrollTrigger: {
-                    trigger: ".contact-US-banner",
-                    start: "top center",
-                    toggleActions: "play none none none",
-                },
-                duration: 2,
-                top: "4px",
-                opacity: 1,
-                ease: "bounce.out",
-            });
-        });
-
-        gsap.utils.toArray("[data-animate]").forEach((element) => {
-            gsap.fromTo(
-                element,
-                {
-                    opacity: 0,
-                    y: 50,
-                },
-                {
-                    opacity: 1,
-                    y: 0,
-                    duration: 1,
-                    ease: "power3.out",
-                    scrollTrigger: {
-                        trigger: element,
-                        start: "top 80%",
-                        end: "bottom 60%",
-                        toggleActions: "play none none none",
-                    },
-                }
-            );
-        });
-
-        gsap.utils.toArray("[data-animate-left]").forEach((element) => {
-            gsap.fromTo(
-                element,
-                {
-                    opacity: 0, // Start invisible
-                    x: -100,    // Start from left
-                },
-                {
-                    opacity: 1,       // Fade in
-                    x: 0,             // Move to the original position
-                    duration: 1.5,    // Animation duration
-                    ease: "power3.out",
-                    scrollTrigger: {
-                        trigger: element,   // Element to watch
-                        start: "top 80%",   // Trigger when the top of the element reaches 80% of the viewport
-                        toggleActions: "play none none none", // Play the animation only once
-                    },
-                }
-            );
-        });
-
-        gsap.to(".banner-container-elem", {
-            scrollTrigger: {
-                trigger: ".homeBanner",
-                start: "top 80%",
-                toggleActions: "play none none none"
-            },
-            x: 0,
-            scale: 1,
-            opacity: 1,
-            duration: 2,
-            ease: "power2.out"
-        });
-
-        gsap.to(".banner-contain-text", {
-            scrollTrigger: {
-                trigger: ".homeBanner",
-                start: "top 80%",
-                toggleActions: "play none none none"
-            },
-            x: 0,
-            scale: 1,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power2.out"
-        });
-
-        gsap.to(".fourthleft-to-right-animation", {
-            scrollTrigger: {
-                trigger: ".BlogCRDS",
-                start: "top 80%",
-                toggleActions: "play none none none"
-            },
-            x: 0,
-            opacity: 1,
-            duration: 2,
-            ease: "power2.out"
-        });
-
-        gsap.to(".fourthleft-to-right-width-animation", {
-            scrollTrigger: {
-                trigger: ".BlogCRDS",
-                start: "top 80%",
-                toggleActions: "play none none none"
-            },
-            x: 0,
-            width: "100%",
-            opacity: 1,
-            duration: 2,
-            ease: "power2.out"
-        });
-
-        gsap.to(".fifthleft-to-right-animation", {
-            scrollTrigger: {
-                trigger: ".explore-section",
-                start: "top 80%",
-                toggleActions: "play none none none"
-            },
-            x: 0,
-            opacity: 1,
-            duration: 2,
-            ease: "power2.out"
-        });
-
-        gsap.to(".fifthleft-to-right-width-animation", {
-            scrollTrigger: {
-                trigger: ".explore-section",
-                start: "top 80%",
-                toggleActions: "play none none none"
-            },
-            x: 0,
-            width: "100%",
-            opacity: 1,
-            duration: 2,
-            ease: "power2.out"
-        });
-
-        gsap.fromTo(".video-container", {
-            scale: 0.5
-        }, {
-            scale: 1,
-            scrollTrigger: {
-                trigger: ".whoSec",
-                start: "top center",
-                end: "bottom center",
-                scrub: false,
-                markers: false,
-                once: true
-            }
-        });
-        gsap.fromTo(".Navigatesec-image", {
-            scale: 0.5
-        }, {
-            scale: 1,
-            scrollTrigger: {
-                trigger: ".Navigatesec",
-                start: "top center",
-                end: "bottom center",
-                scrub: true,
-                markers: false,
-                once: true
-            }
-        });
-        gsap.fromTo(".RegulatedSec-left", {
-            x: "-100%", // Start from offscreen (left)
-            opacity: 0 // Initially invisible
-        }, {
-            scrollTrigger: {
-                trigger: ".RegulatedSec",
-                start: "top 80%", // Start animation when the section enters the viewport
-                toggleActions: "play none none none"
-            },
-            x: 0, // Move back to the original position
-            opacity: 1, // Fade in
-            duration: 2,
-            ease: "power2.out"
-        });
-        gsap.fromTo(".RegulatedSec-right", {
-            x: "100%", // Start from offscreen (right)
-            opacity: 0 // Initially invisible
-        }, {
-            scrollTrigger: {
-                trigger: ".RegulatedSec",
-                start: "top 80%", // Start animation when the section enters the viewport
-                toggleActions: "play none none none"
-            },
-            x: 0, // Move back to the original position
-            opacity: 1, // Fade in
-            duration: 2,
-            ease: "power2.out"
-        });
-
-        document.addEventListener("DOMContentLoaded", function () {
-            gsap.fromTo("#certificateSection",
-            {
-                y: -200,
-                opacity: 0
-            },
-            {
-                y: 0,
-                opacity: 1,
-                duration: 1.5,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: "#certificateSection",
-                    start: "top 80%",
-                    end: "bottom top",
-                    toggleActions: "play none none none"
-                },
-            }
-        );
-        });
-    </script>
-
-@section('scripts')
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-@endsection
+{{-- @endsection --}}
 
     {{-- slick slider --}}
     <script type="text/javascript">
-        $(document).ready(function() {
-            $('.slick-slider-background').slick({
-                autoplay: true,
-                autoplaySpeed: 3000,
-                fade: true,
-                speed: 1000,
-                arrows: false,
-                dots: false
-            });
-        });
+        // $(document).ready(function() {
+        //     $('.slick-slider-background').slick({
+        //         autoplay: true,
+        //         autoplaySpeed: 3000,
+        //         fade: true,
+        //         speed: 1000,
+        //         arrows: false,
+        //         dots: false
+        //     });
+        // });
+        // $(document).ready(function() {
+            // $('.center').slick({
+            //     centerMode: true,
+            //     centerPadding: '60px',
+            //     slidesToShow: 3,
+            //     responsive: [
+            //         {
+            //         breakpoint: 768,
+            //         settings: {
+            //             arrows: false,
+            //             centerMode: true,
+            //             centerPadding: '40px',
+            //             slidesToShow: 3
+            //         }
+            //         },
+            //         {
+            //         breakpoint: 480,
+            //         settings: {
+            //             arrows: false,
+            //             centerMode: true,
+            //             centerPadding: '40px',
+            //             slidesToShow: 1
+            //         }
+            //         }
+            //     ]
+            // });
+        // });
     </script>
 
 
@@ -1550,33 +1473,50 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             var splide = new Splide('#exploreSplide', {
-                type: 'loop',   
-                perMove: 1,     
-                perPage: 4.9,    
-                arrows: false,  
-                pagination: false, 
+                pagination: false,
+                arrows: false,
+                perPage: 4,
+                pauseOnHover: false,
                 autoplay: true,
-                interval: 2000, 
-                gap: '16px',   
+                interval: 2000,
+                type: 'loop',
+                clones: 2,
+                focus: 1,
+                rewind: false,
+                updateOnMove: true,
+                pauseOnHover: false,
+                pauseOnFocus: false,
+                rewindSpeed: 1000,
+                omitEnd: true,
                 breakpoints: {
-                    640: { perPage: 1 },
-                    768: { perPage: 1.5},
-                    1024: { perPage: 2},
-                    1280: { perPage: 3.9},
-                    1380: { perPage: 3.9},
-                    1580: { perPage: 4.3},
+                    640: { perPage: 3 },
+                    768: { perPage: 1.5 },
+                    1024: { perPage: 2 },
+                    1280: { perPage: 3.9 },
+                    1380: { perPage: 3.9 },
+                    1580: { perPage: 4.3 },
                 }
             }).mount();
 
-            // Custom Previous Button
-            document.querySelector('.card-explore-slide-prev-button').addEventListener('click', function () {
-                splide.go('<'); // Go to the previous slide
+            splide.on('mounted moved', function () {
+                scaleCenterSlide(splide);
             });
 
-            // Custom Next Button
-            document.querySelector('.card-explore-slide-next-button').addEventListener('click', function () {
-                splide.go('>'); // Go to the next slide
-            });
+            function scaleCenterSlide(splideInstance) {
+                const slides = splideInstance.Components.Elements.slides;
+
+                slides.forEach((slide, index) => {
+                    slide.style.transform = 'scale(1)'; 
+                    slide.style.transition = 'transform 0.3s'; 
+                });
+
+                // Find the active slide and scale it
+                const activeIndex = splideInstance.index;
+                const centerSlide = slides[activeIndex];
+                if (centerSlide) {
+                    centerSlide.style.transform = 'scale(1.2)'; 
+                }
+            }
         });
 
         document.addEventListener('DOMContentLoaded', function () {
@@ -1609,7 +1549,6 @@
                 splide.go('>'); // Navigate to the next slide
             });
         });
-
     </script>
 
     <script>
@@ -1678,8 +1617,6 @@
                 });
             });
         });
-
-
     </script>
 
     <script>
@@ -1695,5 +1632,232 @@
                 playIcon.style.display = 'block'; // Show the play icon when paused
             }
         }
+    </script>
+
+    {{-- gsap animtion --}}
+    <script>
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        document.addEventListener("DOMContentLoaded", function() {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.to(".flag-img-contact", {
+                scrollTrigger: {
+                    trigger: ".contact-US-banner",
+                    start: "top center",
+                    toggleActions: "play none none none",
+                },
+                duration: 2,
+                top: "4px",
+                opacity: 1,
+                ease: "bounce.out",
+            });
+        });
+
+        gsap.utils.toArray("[data-animate]").forEach((element) => {
+            gsap.fromTo(
+                element,
+                {
+                    opacity: 0,
+                    y: 50,
+                },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: element,
+                        start: "top 80%",
+                        end: "bottom 60%",
+                        toggleActions: "play none none none",
+                    },
+                }
+            );
+        });
+
+        gsap.utils.toArray("[data-animate-left]").forEach((element) => {
+            gsap.fromTo(
+                element,
+                {
+                    opacity: 0, // Start invisible
+                    x: -100,    // Start from left
+                },
+                {
+                    opacity: 1,       // Fade in
+                    x: 0,             // Move to the original position
+                    duration: 1.5,    // Animation duration
+                    ease: "power3.out",
+                    scrollTrigger: {
+                        trigger: element,   // Element to watch
+                        start: "top 80%",   // Trigger when the top of the element reaches 80% of the viewport
+                        toggleActions: "play none none none", // Play the animation only once
+                    },
+                }
+            );
+        });
+
+        gsap.to(".banner-container-elem", {
+            scrollTrigger: {
+                trigger: ".homeBanner",
+                start: "top 80%",
+                toggleActions: "play none none none"
+            },
+            x: 0,
+            scale: 1,
+            opacity: 1,
+            duration: 2,
+            ease: "power2.out"
+        });
+
+        gsap.to('.award_certificates_s .splide__slide', {
+            opacity: 1,
+            y: 0,
+            duration: 0.3,
+            stagger: 0.1,
+            scrollTrigger: {
+                trigger: '.award_certificates',
+                start: 'top +=120%',
+            }
+        })
+
+        gsap.to(".banner-contain-text", {
+            scrollTrigger: {
+                trigger: ".homeBanner",
+                start: "top 80%",
+                toggleActions: "play none none none"
+            },
+            x: 0,
+            scale: 1,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power2.out"
+        });
+
+        gsap.to(".fourthleft-to-right-animation", {
+            scrollTrigger: {
+                trigger: ".BlogCRDS",
+                start: "top 80%",
+                toggleActions: "play none none none"
+            },
+            x: 0,
+            opacity: 1,
+            duration: 2,
+            ease: "power2.out"
+        });
+
+        gsap.to(".fourthleft-to-right-width-animation", {
+            scrollTrigger: {
+                trigger: ".BlogCRDS",
+                start: "top 80%",
+                toggleActions: "play none none none"
+            },
+            x: 0,
+            width: "100%",
+            opacity: 1,
+            duration: 2,
+            ease: "power2.out"
+        });
+
+        gsap.to(".fifthleft-to-right-animation", {
+            scrollTrigger: {
+                trigger: ".explore-section",
+                start: "top 80%",
+                toggleActions: "play none none none"
+            },
+            x: 0,
+            opacity: 1,
+            duration: 2,
+            ease: "power2.out"
+        });
+
+        gsap.to(".fifthleft-to-right-width-animation", {
+            scrollTrigger: {
+                trigger: ".explore-section",
+                start: "top 80%",
+                toggleActions: "play none none none"
+            },
+            x: 0,
+            width: "100%",
+            opacity: 1,
+            duration: 2,
+            ease: "power2.out"
+        });
+
+        gsap.fromTo(".video-container", {
+            scale: 0.5
+        }, {
+            scale: 1,
+            scrollTrigger: {
+                trigger: ".whoSec",
+                start: "top center",
+                end: "bottom center",
+                scrub: false,
+                markers: false,
+                once: true
+            }
+        });
+        gsap.fromTo(".Navigatesec-image", {
+            scale: 0.5
+        }, {
+            scale: 1,
+            scrollTrigger: {
+                trigger: ".Navigatesec",
+                start: "top center",
+                end: "bottom center",
+                scrub: true,
+                markers: false,
+                once: true
+            }
+        });
+        gsap.fromTo(".RegulatedSec-left", {
+            x: "-100%", // Start from offscreen (left)
+            opacity: 0 // Initially invisible
+        }, {
+            scrollTrigger: {
+                trigger: ".RegulatedSec",
+                start: "top 80%", // Start animation when the section enters the viewport
+                toggleActions: "play none none none"
+            },
+            x: 0, // Move back to the original position
+            opacity: 1, // Fade in
+            duration: 2,
+            ease: "power2.out"
+        });
+        gsap.fromTo(".RegulatedSec-right", {
+            x: "100%", // Start from offscreen (right)
+            opacity: 0 // Initially invisible
+        }, {
+            scrollTrigger: {
+                trigger: ".RegulatedSec",
+                start: "top 80%", // Start animation when the section enters the viewport
+                toggleActions: "play none none none"
+            },
+            x: 0, // Move back to the original position
+            opacity: 1, // Fade in
+            duration: 2,
+            ease: "power2.out"
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            gsap.fromTo("#certificateSection",
+            {
+                y: -200,
+                opacity: 0
+            },
+            {
+                y: 0,
+                opacity: 1,
+                duration: 1.5,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: "#certificateSection",
+                    start: "top 80%",
+                    end: "bottom top",
+                    toggleActions: "play none none none"
+                },
+            }
+        );
+        });
     </script>
 @endsection
