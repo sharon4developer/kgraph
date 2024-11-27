@@ -127,7 +127,7 @@ class SubServices extends Model
     }
 
     public static function getFullDataForHome(){
-        return SELF::with(['ServicePoint','ServiceFaq'])->select('image','id','title','sub_title','alt_tag','slug','inner_title')->orderBy('order','asc')->where('status',1)->get();
+        return SELF::select('image','id','title','sub_title','alt_tag','slug','inner_title')->orderBy('order','asc')->where('status',1)->get();
     }
 
     public static function updateOrder($data)

@@ -24,6 +24,10 @@ class Service extends Model
         return  $this->hasMany(ServiceFaq::class);
     }
 
+    public function SubService(){
+        return  $this->hasMany(SubServices::class);
+    }
+
     public function ServiceCategory(){
         return  $this->belongsTo(ServiceCategory::class);
     }
@@ -119,6 +123,8 @@ class Service extends Model
             $value->ServicePoint()->delete();
 
             $value->ServiceFaq()->delete();
+
+            $value->SubService()->delete();
 
             $value->delete();
             return true;

@@ -98,6 +98,8 @@ class ServiceCategory extends Model
                 $service->ServicePoint()->delete();
 
                 $service->ServiceFaq()->delete();
+
+                $service->SubService()->delete();
             }
 
             $value->Service()->delete();
