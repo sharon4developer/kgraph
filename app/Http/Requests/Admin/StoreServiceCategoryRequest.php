@@ -23,7 +23,7 @@ class StoreServiceCategoryRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'image' => 'mimes:jpeg,png,jpg,gif,webp',
+            // 'image' => 'mimes:jpeg,png,jpg,gif,webp',
         ];
     }
 }

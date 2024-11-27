@@ -22,7 +22,7 @@
                             <tr>
                                 <th>SL No</th>
                                 <th>Title</th>
-                                <th>Image</th>
+                                {{-- <th>Image</th> --}}
                                 <th>Status</th>
                                 <th>Created Date</th>
                                 <th>Action</th>

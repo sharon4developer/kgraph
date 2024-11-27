@@ -372,7 +372,7 @@
                         <div class="flex justify-center lg:justify-end items-center overflow-hidden rounded-full mt-10">
                             <div class="border rounded-full border-[#072558] cursor-pointer">
                                 <button
-                                    class="!px-[80px] py-3 uppercase text-[#072558] cursor-pointer text-[16px] font-bold bg-transparent hover:bg-[#072558] hover:text-white transition-colors duration-300 rounded-full">Submit</button>
+                                    class="!px-[60px] md:!px-[80px] py-3 uppercase text-[#072558] cursor-pointer text-[16px] font-bold bg-transparent hover:bg-[#072558] hover:text-white transition-colors duration-300 rounded-full">Submit</button>
                             </div>
                         </div>
 
