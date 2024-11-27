@@ -109,7 +109,7 @@ $('#contact-add-form').validate({
         mobile: {
             required: true,
             digits: true,
-            minlength: 10
+            // minlength: 10
         },
     },
     messages: {
@@ -219,7 +219,7 @@ $('#career-add-form').validate({
         mobile: {
             required: true,
             digits: true,
-            minlength: 10
+            // minlength: 10
         },
         branch: {
             required: true,

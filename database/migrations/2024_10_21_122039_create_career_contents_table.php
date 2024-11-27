@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('career_contents', function (Blueprint $table) {
             $table->id();
+            $table->string('title')->nullable();
+            $table->text('sub_title')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }

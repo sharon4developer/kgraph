@@ -22,7 +22,10 @@ class UpdateCareerContentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required',
+            'sub_title' => 'required',
+            'description' => 'required',
+            'career_id' => 'required|exists:career_contents,id',
         ];
     }
 }
