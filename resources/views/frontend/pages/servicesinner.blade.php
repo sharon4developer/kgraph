@@ -256,7 +256,7 @@
                     @endforeach
                 </ul>
                 @foreach ($services->ServicePoint as $key => $ServicePoint)
-                <div id="tab-{{$key+1}}" class="tab-content {{ $key === 0 ? 'current' : 'hidden w-[69vw]' }}">
+                <div id="tab-{{$key+1}}" class="tab-content {{ $key === 0 ? 'current' : 'hidden lg:w-[89vw]' }}">
                     {!! $ServicePoint->description !!}
                 </div>
                 @endforeach
