@@ -12,17 +12,17 @@
 
                         <div class="col-md-2">
                             <a class="btn btn-outline-info btn-rounded m-3 _effect--ripple waves-effect waves-light float-end"
-                                href="{{ url('admin/services/create') }}"><i class="fa fa-plus" aria-hidden="true"></i>
+                                href="{{ url('admin/sub-services/create') }}"><i class="fa fa-plus" aria-hidden="true"></i>
                                 Add</a>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            {{-- <label class="form-label" for="sub_title">Select Service Category</label> --}}
-                            <select class="form-select" name="service_category_id" id="select-service-category">
+                            {{-- <label class="form-label" for="sub_title">Select Service</label> --}}
+                            <select class="form-select" name="service_id" id="select-service">
                                 <option value="" selected>All</option>
-                                @foreach ($serviceCategories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->title }}</option>
+                                @foreach ($services as $service)
+                                    <option value="{{ $service->id }}">{{ $service->title }}</option>
                                 @endforeach
                             </select>
                             <div class="valid-feedback">
@@ -35,7 +35,7 @@
                         <thead>
                             <tr>
                                 <th>SL No</th>
-                                <th>Service Category</th>
+                                <th>Service</th>
                                 <th>Title</th>
                                 <th>Image</th>
                                 <th>Status</th>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="modal-body">
                     <form class="form validate-form" id="seo-edit-form" method="POST">
-                        <input type="hidden" name="service_id" id="service_id" value="">
+                        <input type="hidden" name="service_id" id="sub_service_id" value="">
                         <input type="hidden" name="seo_id" id="seo_id" value="">
                         <div class="box-body mb-4">
                             <div class="row">
@@ -139,5 +139,5 @@
 @push('style')
 @endpush
 @push('script')
-    <script src="{{ asset('admin/backend/js/service.js') }}"></script>
+    <script src="{{ asset('admin/backend/js/sub_service.js') }}"></script>
 @endpush

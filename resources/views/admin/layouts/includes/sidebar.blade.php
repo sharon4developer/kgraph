@@ -52,6 +52,13 @@
                             </ul>
                         </li>
                         <li>
+                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Sub Services</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li><a href="{{ url('admin/sub-services') }}" data-key="t-level-2-2">View </a></li>
+                                <li><a href="{{ url('admin/sub-services/create') }}" data-key="t-level-2-1">Add </a></li>
+                            </ul>
+                        </li>
+                        <li>
                             <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Service Points</a>
                             <ul class="sub-menu" aria-expanded="true">
                                 <li><a href="{{ url('admin/service-points') }}" data-key="t-level-2-2">View </a></li>
@@ -150,6 +157,7 @@
                         <span data-key="t-multi-level">Careers</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="true">
+                        <li><a href="{{ url('admin/career-contents') }}" data-key="t-level-2-2">Career Contents </a></li>
                         <li>
                             <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Careers</a>
                             <ul class="sub-menu" aria-expanded="true">

@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\BlogContentController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BlogSeoController;
 use App\Http\Controllers\Admin\CareerBranchController;
+use App\Http\Controllers\Admin\CareerContentController;
 use App\Http\Controllers\Admin\CareerController;
 use App\Http\Controllers\Admin\CareerDepartmentController;
 use App\Http\Controllers\Admin\CertificateController;
@@ -37,6 +38,7 @@ use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ServiceFaqController;
 use App\Http\Controllers\Admin\ServicePointController;
 use App\Http\Controllers\Admin\ServiceSeoController;
+use App\Http\Controllers\Admin\SubServicesController;
 use App\Http\Controllers\Admin\TermsAndConditionController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\WhoWeAreController;
@@ -153,6 +155,8 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'contact' => ContactController::class,
         'applied-career' => AppliedCareerController::class,
         'eligibility-check' => EligibilityCheckController::class,
+        'career-contents' => CareerContentController::class,
+        'sub-services' => SubServicesController::class,
     ]);
 
     Route::prefix('pages')->name('.pages')->group(function () {
@@ -281,6 +285,12 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
 
         Route::post('change/status', [ServiceCategoryController::class, 'changeStatus'])->name('change-status');
         Route::post('update/order', [ServiceCategoryController::class, 'changeOrder'])->name('update-order');
+    });
+
+    Route::prefix('sub-services')->name('.sub-services')->group(function () {
+
+        Route::post('change/status', [SubServicesController::class, 'changeStatus'])->name('change-status');
+        Route::post('update/order', [SubServicesController::class, 'changeOrder'])->name('update-order');
     });
 
     Route::prefix('blogs')->name('.blogs')->group(function () {
