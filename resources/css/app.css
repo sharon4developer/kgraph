@@ -988,7 +988,7 @@ video {
         bottom: -75px;
         right: -38%;
     } */
-    .testimonial-slider-wrapper .splide__list, #exploreSplide .splide__track  {
+    .testimonial-slider-wrapper .splide__list  {
         margin-left: 200px !important;
     }
 }

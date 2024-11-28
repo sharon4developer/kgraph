@@ -252,7 +252,7 @@
     </div>
 
      {{-- tab section --}}
-     <div class="tabsection bg-[#062358] overflow-hidden">
+     <div class="hidden lg:block tabsection bg-[#062358] overflow-hidden">
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 flex justify-center items-start flex-col text-white">
             <!-- Tab Names -->
             <div class="tab-names flex flex-col relative  max-w-[100vw] scrollbar-hidden">
@@ -262,12 +262,37 @@
                     @endforeach
                 </ul>
                 @foreach ($services->ServicePoint as $key => $ServicePoint)
-                <div id="tab-{{$key+1}}" class="tab-content {{ $key === 0 ? 'current' : 'hidden' }}">
+                <div id="tab-{{$key+1}}" class="tab-content {{ $key === 0 ? 'current' : 'hidden lg:w-[89vw]' }}">
                     {!! $ServicePoint->description !!}
                 </div>
                 @endforeach
             </div>
 
+        </div>
+    </div>
+
+    {{-- tab section --}}
+    <div class="lg:hidden new bg-[#062358] overflow-hidden">
+        <div class="container mx-auto px-5 lg:px-12 h-full w-[89vw] py-8 flex justify-center items-start flex-col text-white">
+
+            <div id="splide" class="splide">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        @foreach ($services->ServicePoint as $key => $ServicePoint)
+                            <li class="splide__slide">
+                                <div class="slide-content">
+                                    <h3 class="font-bold text-white text-4xl w-[80vw]">{{ $ServicePoint->title }}</h3>
+                                    <div id="tab-{{$key+1}}" class="w-[80vw] my-8">
+                                        {!! $ServicePoint->description !!}
+                                    </div>
+                                </div>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+            </div>
+            
+            
         </div>
     </div>
 
@@ -313,56 +338,54 @@
     @include('frontend.Common.getintouch')
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
     <script>
-$(document).ready(function () {
-    // Ensure only the first tab is active on load
-    $('ul.tabs li:first-child').addClass('current');
-    $('.tab-content').hide(); // Hide all tab content
-    $('.tab-content:first').show(); // Show only the first tab content
+        $(document).ready(function () {
+            // Ensure only the first tab is active on load
+            $('ul.tabs li:first-child').addClass('current');
+            $('.tab-content').hide(); // Hide all tab content
+            $('.tab-content:first').show(); // Show only the first tab content
 
-    // Handle tab click events
-    $('ul.tabs li').click(function () {
-        var tab_id = $(this).attr('data-tab');
+            // Handle tab click events
+            $('ul.tabs li').click(function () {
+                var tab_id = $(this).attr('data-tab');
 
-        $('ul.tabs li').removeClass('current');
-        $('.tab-content').hide(); // Hide all tab content
+                $('ul.tabs li').removeClass('current');
+                $('.tab-content').hide(); // Hide all tab content
 
-        $(this).addClass('current');
-        $("#" + tab_id).show(); // Show the selected tab content
+                $(this).addClass('current');
+                $("#" + tab_id).show(); // Show the selected tab content
 
-        // Center align the current tab
-        centerTab($(this));
-    });
+                // Center align the current tab
+                centerTab($(this));
+            });
 
-    // Function to center align the active tab
-    function centerTab($tab) {
-        var $container = $tab.closest('ul.tabs'); // Parent container (scrollable element)
-        var containerWidth = $container.outerWidth(); // Width of the container
-        var tabWidth = $tab.outerWidth(); // Width of the tab
-        var tabOffsetLeft = $tab.position().left; // Position of the tab relative to container
-        var currentScroll = $container.scrollLeft(); // Current scroll position
+            // Function to center align the active tab
+            function centerTab($tab) {
+                var $container = $tab.closest('ul.tabs'); // Parent container (scrollable element)
+                var containerWidth = $container.outerWidth(); // Width of the container
+                var tabWidth = $tab.outerWidth(); // Width of the tab
+                var tabOffsetLeft = $tab.position().left; // Position of the tab relative to container
+                var currentScroll = $container.scrollLeft(); // Current scroll position
 
-        // Calculate the ideal scroll position to center the tab
-        var scrollPosition = currentScroll + tabOffsetLeft + tabWidth / 2 - containerWidth / 2;
+                // Calculate the ideal scroll position to center the tab
+                var scrollPosition = currentScroll + tabOffsetLeft + tabWidth / 2 - containerWidth / 2;
 
-        // Ensure the calculated scrollPosition does not exceed scrollable boundaries
-        var maxScrollLeft = $container[0].scrollWidth - containerWidth; // Maximum scrollable left position
-        if (scrollPosition < 0) {
-            scrollPosition = 0; // Prevent scrolling before the start
-        } else if (scrollPosition > maxScrollLeft) {
-            scrollPosition = maxScrollLeft; // Prevent scrolling beyond the container
-        }
+                // Ensure the calculated scrollPosition does not exceed scrollable boundaries
+                var maxScrollLeft = $container[0].scrollWidth - containerWidth; // Maximum scrollable left position
+                if (scrollPosition < 0) {
+                    scrollPosition = 0; // Prevent scrolling before the start
+                } else if (scrollPosition > maxScrollLeft) {
+                    scrollPosition = maxScrollLeft; // Prevent scrolling beyond the container
+                }
 
-        // Smoothly scroll the container
-        $container.animate({
-            scrollLeft: scrollPosition
-        }, 300); // 300ms animation
-    }
-});
-
-
-
+                // Smoothly scroll the container
+                $container.animate({
+                    scrollLeft: scrollPosition
+                }, 300); // 300ms animation
+            }
+        });
 
         function toggleAccordion(element) {
             const parent = element.closest('.accordion-item');
@@ -383,4 +406,51 @@ $(document).ready(function () {
             }
         }
     </script>
+
+    <script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/js/splide.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Initialize Splide
+        const splide = new Splide('#splide', {
+            type       : 'fade',
+            rewind     : true,
+            perPage    : 1,
+            autoplay   : true,
+            interval   : 4000,
+            arrows     : false,
+            pagination : false,
+            pauseOnHover: false,
+        });
+
+        // GSAP animation for h3 and div inside slide-content
+        splide.on('mounted active', () => {
+            // Select active slide content
+            const activeSlide = document.querySelector('.splide__slide.is-active .slide-content');
+            
+            if (activeSlide) {
+                // Reset animation for h3 and div inside .slide-content
+                const elementsToAnimate = activeSlide.querySelectorAll('h3, div');
+                gsap.set(elementsToAnimate, { opacity: 0, y: 50 });
+
+                // Animate only h3 and div inside .slide-content
+                gsap.to(elementsToAnimate, { 
+                    opacity: 1, 
+                    y: 0, 
+                    duration: 1, 
+                    ease: 'power3.out', 
+                    stagger: 0.2 // Add a delay between animations
+                });
+            }
+        });
+
+        // Mount Splide
+        splide.mount();
+    });
+</script>
+
+    
+
 @endsection
