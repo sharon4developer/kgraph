@@ -139,558 +139,159 @@
             <p class="text-white lg:w-[55%] my-6">In case you are filling out the form for a friend or sponsored person,
                 please input the information of the
                 person who wants to immigrate.</p>
-            <div class="lg:w-1/2">
+            <div class="">
                 <h2 class="text-white my-6 font_inter font-medium text-[30px]">Contact Information</h2>
                 <form action="" class="contact-form" id="eligibility-form">
-                    <div class="flex flex-col">
-                        <label for="first-name">First Name<span>*</span></label>
-                        <input type="text" id="first-name" name="first_name">
+
+
+                    <div class="lg:grid grid-cols-2 gap-x-14">
+                        <div class="flex flex-col w-full">
+                            <label for="first-name">First Name<span>*</span></label>
+                            <input type="text" id="first-name" name="first_name">
+                        </div>
+                        <div class="flex flex-col w-full">
+                            <label for="last-name">Last Name<span>*</span></label>
+                            <input type="text" id="last-name" name="last_name">
+                        </div>
+
+                        <div class="flex flex-col lg:w-1/2">
+                            <label for="dob">Date of Birth<span>*</span></label>
+                            <input type="date" id="dob" name="dob" placeholder="MM/DD/YYYY">
+                        </div>
                     </div>
 
-                    <div class="flex flex-col">
-                        <label for="last-name">Last Name<span>*</span></label>
-                        <input type="text" id="last-name" name="last_name">
-                    </div>
-
-                    <div class="flex flex-col">
-                        <label for="email">Email<span>*</span></label>
-                        <input type="email" id="email" name="email">
-                    </div>
-
-                    <div class="flex flex-col">
-                        <label for="street-address-1">Street Address<span>*</span></label>
-                        <input type="text" id="street-address-1" name="street_address">
-                    </div>
-
-                    <div class="flex flex-col">
-                        <label for="city">City<span>*</span></label>
-                        <input type="text" id="city" name="city">
-                    </div>
-
-                    <div class="flex flex-col">
-                        <label for="state">State/Province<span>*</span></label>
-                        <input type="text" id="state" name="state">
-                    </div>
-
-                    <div class="flex flex-col">
-                        <label for="zip">Zip/Postal Code</label>
-                        <input type="text" id="zip" name="zip">
-                    </div>
-
-                    <div class="flex flex-col">
-                        <label for="current-country">Country where you currently live<span>*</span></label>
-                        <input type="text" id="current-country" name="country_live">
-                    </div>
-
-                    <div class="flex flex-col">
-                        <label for="birth-country">Country where you were born<span>*</span></label>
-                        <input type="text" id="birth-country" name="country_born">
-                    </div>
-
-                    <div class="flex flex-col">
-                        <label for="mobile">Mobile Number<span>*</span></label>
-                        <input type="tel" id="mobile" name="mobile">
-                    </div>
-
-                    <div class="flex flex-col">
-                        <label for="dob">Date of Birth<span>*</span></label>
-                        <input type="date" id="dob" name="dob" placeholder="MM/DD/YYYY">
-                    </div>
-
-                    <div class="flex flex-col">
+                    <div class="flex flex-col lg:w-1/4">
                         <label for="marital-status">Marital Status<span>*</span></label>
                         <input type="text" id="marital-status" name="marital_status">
                     </div>
 
-                    <div class="flex flex-col">
-                        <label>Do you have children?<span>*</span></label>
-                        <div class="check-box-wrpr !mt-0">
-                            <div>
-                                <input type="radio" id="children-yes" name="have_children" value="Yes">
-                                <label for="children-yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="children-no" name="have_children" value="No">
-                                <label for="children-no">No</label>
-                            </div>
+                    <div class="lg:grid grid-cols-2 gap-x-14 py-10">
+                        <div class="flex flex-col">
+                            <label for="email">email<span>*</span></label>
+                            <input type="email" id="email" name="email">
                         </div>
-                    </div>
-
-
-                    <div class="flex flex-col">
-                        <label for="hear-about">How did you hear about CANADA?</label>
-                        {{-- <select id="hear-about" name="hear_about_canada">
-                            <option value="Select">Please Select</option>
-                            <!-- Add options as needed -->
-                        </select> --}}
-                        <input type="text" id="hear-about" name="hear_about_canada">
-                    </div>
-
-                    <div class="flex flex-col">
-                        <label>Type of application you are looking for:<span>*</span></label>
-                        <div class="check-box-wrpr">
-                            <div>
-                                <input type="radio" id="study" name="type_of_application" value="Study in Canada">
-                                <label for="study">Study in Canada</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="work" name="type_of_application" value="Work in Canada">
-                                <label for="work">Work in Canada</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="invest" name="type_of_application" value="Invest in Canada">
-                                <label for="invest">Invest in Canada</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="visit" name="type_of_application" value="Visit Canada">
-                                <label for="visit">Visit Canada</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="express-entry" name="type_of_application"
-                                    value="Apply for Permanent Residency via Express Entry">
-                                <label for="express-entry">Apply for Permanent Residency via Express Entry</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="sponsorship" name="type_of_application" value="Apply for Permanent Residency via Sponsorship">
-                                <label for="sponsorship">Apply for Permanent Residency via Sponsorship</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="extend-stay" name="type_of_application" value="Extend your stay in Canada">
-                                <label for="extend-stay">Extend your stay in Canada</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="citizenship" name="type_of_application" value="Apply for Citizenship">
-                                <label for="citizenship">Apply for Citizenship</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="other" name="type_of_application" value="Other">
-                                <label for="other">Other</label>
-                            </div>
+                        <div class="flex flex-col">
+                            <label for="mobile">Mobile Number<span>*</span></label>
+                            <input type="tel" id="mobile" name="mobile">
                         </div>
-                    </div>
 
-
-
-                    <div class="flex flex-col">
-                        <label for="further-info">Further Information</label>
-                        <textarea id="further-info" name="further_info"></textarea>
-                    </div>
-
-                    <div class="flex flex-col">
-                        <label for="funds">Funds available to invest in your plan to immigrate to Canada</label>
-                        {{-- <select id="funds" name="funds_available">
-                            <option value="Select">Please Select</option>
-                            <!-- Add options as needed -->
-                        </select> --}}
-                        <input type="text" id="funds" name="funds_available">
-                    </div>
-
-                    <!-- Education Section -->
-                    <h2 class="heading-in-form">Education</h2>
-
-                    <div class="flex flex-col">
-                        <label for="highest-education-outside">Highest Level of Education - Outside
-                            Canada<span>*</span></label>
-                        {{-- <select id="highest-education-outside" name="highest_education_outside_can">
-                            <option value="Select">Please Select</option>
-                            <!-- Add options as needed -->
-                        </select> --}}
-                        <input type="text" id="highest-education-outside" name="highest_education_outside_can">
-                    </div>
-
-                    <div class="flex flex-col">
-                        <label for="country-studies">Country of Studies<span>*</span></label>
-                        {{-- <select id="country-studies" name="country_of_studies">
-                            <option value="Select">Please Select</option>
-                            <!-- Add options as needed -->
-                        </select> --}}
-                        <input type="text" id="country-studies" name="country_of_studies">
-                    </div>
-
-                    <div class="flex flex-col">
-                        <label for="highest-education-inside">Highest Level of Education - Inside Canada</label>
-                        {{-- <select id="highest-education-inside" name="highest_education_inside_can">
-                            <option value="does-not-apply">Does not apply</option>
-                            <!-- Add options as needed -->
-                        </select> --}}
-                        <input type="text" id="highest-education-inside" name="highest_education_inside_can">
-                    </div>
-
-                    <!-- Language Skills Section -->
-                    <h2 class="heading-in-form">Language Skills</h2>
-
-                    <div class="flex flex-col">
-                        <label for="english-level">Language Level - English<span>*</span></label>
-                        <select id="english-level" name="language_level_english">
-                            <option value="">Please Select</option>
-                            <option value="Beginner">Beginner</option>
-                            <option value="Elementary">Elementary</option>
-                            <option value="Intermediate">Intermediate</option>
-                            <option value="Upper Intermediate">Upper Intermediate</option>
-                            <option value="Advanced">Advanced</option>
-                            <option value="Proficient">Proficient</option>
-                        </select>
-                    </div>
-
-
-                    <div class="flex flex-col">
-                        <label>Have you taken an English language test (IELTS, CELPIP, PTE, or
-                            Duolingo)?<span>*</span></label>
-                        <div class="check-box-wrpr !mt-0">
-                            <div>
-                                <input type="radio" id="english-test-yes" name="english_language_test" value="Yes">
-                                <label for="english-test-yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="english-test-no" name="english_language_test" value="No">
-                                <label for="english-test-no">No</label>
-                            </div>
+                        <div class="flex flex-col w-full">
+                            <label for="street-address-1">Street Address<span>*</span></label>
+                            <input type="text" id="street-address-1" name="street_address">
                         </div>
-                    </div>
-
-                    <div class="flex flex-col">
-                        <label for="french-level">Language Level - French</label>
-                        <select id="french-level" name="language_level_french">
-                            <option value="">Please Select</option>
-                            <option value="Beginner">Beginner</option>
-                            <option value="Elementary">Elementary</option>
-                            <option value="Intermediate">Intermediate</option>
-                            <option value="Upper Intermediate">Upper Intermediate</option>
-                            <option value="Advanced">Advanced</option>
-                            <option value="Proficient">Proficient</option>
-                        </select>
-                    </div>
-
-                    <div class="flex flex-col">
-                        <label>Have you taken a French language test (TEF, TEF Canada, or TCF Canada)?<span>*</span></label>
-                        <div class="check-box-wrpr !mt-0">
-                            <div>
-                                <input type="radio" id="french-test-yes" name="french_language_test" value="Yes">
-                                <label for="french-test-yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="french-test-no" name="french_language_test" value="No">
-                                <label for="french-test-no">No</label>
-                            </div>
+    
+                        <div class="flex flex-col">
+                            <label for="city">City<span>*</span></label>
+                            <input type="text" id="city" name="city">
                         </div>
-                    </div>
-                    <!-- Work and Employment -->
-                    <h2 class="heading-in-form pb-6 lg:text-[20px]">Work and Employment</h2>
-
-                    <!-- Work in Canada -->
-                    <h4 class="font_arial font-bold text-[12px] text-white">Work in Canada</h4>
-
-                    <h6 class="text-white text-[12px] font-light py-3">*Important: If you are interested in working in
-                        Canada, please attach below your updated resume in English, showing your complete work experience
-                        and education.</h6>
-                    <h6 class="text-white text-[12px] font-light pb-3">If the resume is missing or does not meet the
-                        requirements above, we will not process your pre-assessment.</h6>
-
-                    <div class="flex flex-col">
-                        <label for="resume">Please attach your updated resume/CV in English*</label>
-                        <input type="file" id="resume" name="resume"
-                            accept=".pdf, image/jpeg, image/png, image/jpg">
-                    </div>
-
-                    <div class="flex flex-col">
-                        <label for="occupation-industry">Main Occupation Industry*</label>
-                        <input type="text" id="occupation-industry" name="main_industry" class="custom-placeholder" placeholder="If you don't find your industry and occupation, select the most similar one.">
-                    </div>
-
-                    <div class="flex flex-col">
-                        <label for="outside-canada-work">Outside Canada - Work Experience*</label>
-                        <input type="text" id="outside-canada-work"
-                            placeholder=""
-                            name="work_exp_outside_can">
-                        {{-- <select id="outside-canada-work" name="work_exp_outside_can">
-                            <option value="Select">Please Select</option>
-                            <!-- Add options as needed -->
-                        </select> --}}
-                    </div>
-
-                    <div class="flex flex-col">
-                        <label for="inside-canada-work">Inside Canada - Work Experience*</label>
-                        <input type="text" id="inside-canada-work"
-                            {{-- placeholder="If you don't have any experience working in Canada, please select "Does Not Apply" " --}}
-                            placeholder="If you don't have any experience working in Canada, please select &quot;Does Not Apply&quot;" 
-                            name="work_exp_inside_can"
-                            class="custom-placeholder">
-                    </div>
-
-                    <div>
-                        <label>Are you legally entitled to work in that country?</label>
-                        <div class="check-box-wrpr !mt-0">
-                            <div>
-                                <input type="radio" id="legally-entitled-yes" name="entitled_to_work" value="Yes">
-                                <label for="legally-entitled-yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="legally-entitled-no" name="entitled_to_work" value="No">
-                                <label for="legally-entitled-no">No</label>
-                            </div>
+                        
+                        <div class="flex flex-col lg:w-1/2">
+                            <label for="highest-education-inside">Highest Level of Education<span>*</span></label>
+                            <input type="text" id="highest-education-inside" name="highest_education_inside_can">
                         </div>
+
                     </div>
 
-                    <div>
-                        <label>Do you own/manage a business?</label>
-                        <div class="check-box-wrpr !mt-0">
-                            <div>
-                                <input type="radio" id="manage-business-yes" name="manage_business" value="Yes">
-                                <label for="manage-business-yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="manage-business-no" name="manage_business" value="No">
-                                <label for="manage-business-no">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label>Have you been in Canada as a temporary foreign worker?</label>
-                        <div class="check-box-wrpr !mt-0">
-                            <div>
-                                <input type="radio" id="foreign-worker-yes" name="temporary_foreign_worker" value="Yes">
-                                <label for="foreign-worker-yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="foreign-worker-no" name="temporary_foreign_worker" value="No">
-                                <label for="foreign-worker-no">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label>Do you have a certificate of qualification in a trade occupation issued by a Canadian
-                            Province?</label>
-                        <div class="check-box-wrpr !mt-0">
-                            <div>
-                                <input type="radio" id="qualification-yes" name="certificate_of_qualification" value="Yes">
-                                <label for="qualification-yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="qualification-no" name="certificate_of_qualification" value="No">
-                                <label for="qualification-no">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label>Do you have a job offer from a Canadian employer?</label>
-                        <div class="check-box-wrpr !mt-0">
-                            <div>
-                                <input type="radio" id="job-offer-yes" name="job_offer" value="Yes">
-                                <label for="job-offer-yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="job-offer-no" name="job_offer" value="No">
-                                <label for="job-offer-no">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Family Relations in Canada -->
-                    <h2 class="heading-in-form">Family Relations in Canada</h2>
-
-                    <div>
-                        <label>Do you or, if applicable, your accompanying spouse or common-law partner have a blood
-                            relative living in Canada who is a citizen or a permanent resident of Canada?*</label>
-                        <div class="check-box-wrpr !mt-0">
-                            <div>
-                                <input type="radio" id="relative-in-canada-yes" name="family_relations_in_canada" value="Yes">
-                                <label for="relative-in-canada-yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="relative-in-canada-no" name="family_relations_in_canada" value="No">
-                                <label for="relative-in-canada-no">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Immigration History -->
-                    <h2 class="heading-in-form">Immigration History</h2>
-
-                    <div>
-                        <label>Have you been REFUSED or CANCELLED a visa or permit or any immigration application to Canada,
-                            USA, or any other country?*</label>
-                        <div class="check-box-wrpr !mt-0">
-                            <div>
-                                <input type="radio" id="visa-refused-yes" name="refused_or_cancelled_visa" value="Yes">
-                                <label for="visa-refused-yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="visa-refused-no" name="refused_or_cancelled_visa" value="No">
-                                <label for="visa-refused-no">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label>Have you been REFUSED admission to, ORDERED to leave, or DEPORTED from Canada, USA, or any
-                            other country? This includes a border officer taking away your visa?*</label>
-                        <div class="check-box-wrpr !mt-0">
-                            <div>
-                                <input type="radio" id="deported-yes" name="refused_admission" value="Yes">
-                                <label for="deported-yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="deported-no" name="refused_admission" value="No">
-                                <label for="deported-no">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label>Have you or your spouse/partner been to Canada?*</label>
-                        <div class="check-box-wrpr !mt-0">
-                            <div>
-                                <input type="radio" id="been-to-canada-yes" name="partner_been_to_canada" value="Yes">
-                                <label for="been-to-canada-yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="been-to-canada-no" name="partner_been_to_canada" value="No">
-                                <label for="been-to-canada-no">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label>Have you overstayed in any country you were living or visiting (stayed with an expired visa
-                            or permit)?*</label>
-                        <div class="check-box-wrpr !mt-0">
-                            <div>
-                                <input type="radio" id="overstayed-yes" name="overstayed_in_any_country" value="Yes">
-                                <label for="overstayed-yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="overstayed-no" name="overstayed_in_any_country" value="No">
-                                <label for="overstayed-no">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label>Have you or your spouse/partner previously applied for a visa/permit to Canada?*</label>
-                        <div class="check-box-wrpr !mt-0">
-                            <div>
-                                <input type="radio" id="previously-applied-yes"
-                                    name="partner_previously_applied_for_visa" value="Yes">
-                                <label for="previously-applied-yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="previously-applied-no"
-                                    name="partner_previously_applied_for_visa" value="No">
-                                <label for="previously-applied-no">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label>Have you or your spouse/partner previously submitted an application for Canadian permanent
-                            residency?*</label>
-                        <div class="check-box-wrpr !mt-0">
-                            <div>
-                                <input type="radio" id="permanent-residency-yes"
-                                    name="partner_previously_submitted_an_application" value="Yes">
-                                <label for="permanent-residency-yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="permanent-residency-no"
-                                    name="partner_previously_submitted_an_application" value="No">
-                                <label for="permanent-residency-no">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Criminal Record and Other Information -->
-                    <h2 class="heading-in-form">Criminal Record</h2>
-
-                    <div>
-                        <label>Do you have any criminal record(s) in your home country or any other country you visited or
-                            lived in the last 10 years?*</label>
-                        <div class="check-box-wrpr !mt-0">
-                            <div>
-                                <input type="radio" id="criminal-record-yes" name="criminal_record" value="Yes">
-                                <label for="criminal-record-yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="criminal-record-no" name="criminal_record" value="No">
-                                <label for="criminal-record-no">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label>Have you ever committed, been arrested for or been charged with or convicted of any CRIMINAL
-                            OFFENCE in any country or territory?*</label>
-                        <div class="check-box-wrpr !mt-0">
-                            <div>
-                                <input type="radio" id="criminal-offence-yes" name="arrested" value="Yes">
-                                <label for="criminal-offence-yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="criminal-offence-no" name="arrested" value="No">
-                                <label for="criminal-offence-no">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label>Have you been detained, incarcerated, or PUT IN JAIL?*</label>
-                        <div class="check-box-wrpr !mt-0">
-                            <div>
-                                <input type="radio" id="detained-yes" name="detained" value="Yes">
-                                <label for="detained-yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="detained-no" name="detained" value="No">
-                                <label for="detained-no">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label>Do you have a nomination certificate from a Canadian Province (except Quebec)?*</label>
-                        <div class="check-box-wrpr !mt-0">
-                            <div>
-                                <input type="radio" id="nomination-certificate-yes" name="nomination_certificate" value="Yes">
-                                <label for="nomination-certificate-yes">Yes</label>
-                            </div>
-                            <div>
-                                <input type="radio" id="nomination-certificate-no" name="nomination_certificate" value="No">
-                                <label for="nomination-certificate-no">No</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Privacy and Consent Section -->
-                    {{-- <div class="flex flex-col"> --}}
-                        {{-- <label for="outside-canada-work">Outside Canada - Work Experience*</label> --}}
-                        {{-- <select id="outside-canada-work"> --}}
-                            {{-- <option value="">Please Select</option> --}}
-                            <!-- Add options as needed -->
-                        {{-- </select>
-                    </div> --}}
-
-                    <p class="text-white font_arial text-[14px] font-normal pb-6">K-graph Immigration is committed to
-                        protecting and respecting your privacy, and we’ll only use your personal information to administer
-                        your account and to provide the products
-                        and services you requested from us. From time to time, we would like to contact you about our
-                        products and services, as well as other content that may be of interest to you. If you
-                        consent to us contacting you for this purpose, please tick below to say how you would like us to
-                        contact you:</p>
-
-                    <div class="check-box-wrpr !mt-0">
+                    <div class="lg:grid grid-cols-3 gap-x-14">
                         <div>
-                            <input type="checkbox" id="receive-communications" name="receive_communications">
-                            <label for="receive-communications">I agree to receive other communications from K-graph
-                                Immigration.</label>
+                            <label>Have you held a Canadian Education<span>*</span></label>
+                            <div class="check-box-wrpr !mt-0">
+                                <div>
+                                    <input type="radio" id="qualification-yes" name="certificate_of_qualification" value="Yes">
+                                    <label for="qualification-yes">Yes</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="qualification-no" name="certificate_of_qualification" value="No">
+                                    <label for="qualification-no">No</label>
+                                </div>
+                            </div>
                         </div>
+
                         <div>
-                            <input type="checkbox" id="consent-data" name="consent_data">
-                            <label for="consent-data">I agree to allow K-graph Immigration to store and process my personal
-                                data.</label>
+                            <label>Do you have a valid Language Skills Test Result</label>
+                            <div class="check-box-wrpr !mt-0">
+                                <div>
+                                    <input type="radio" id="qualification-yes" name="certificate_of_qualification" value="Yes">
+                                    <label for="qualification-yes">Yes</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="qualification-no" name="certificate_of_qualification" value="No">
+                                    <label for="qualification-no">No</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label>Any Previous Visa Refusal<span>*</span></label>
+                            <div class="check-box-wrpr !mt-0">
+                                <div>
+                                    <input type="radio" id="qualification-yes" name="certificate_of_qualification" value="Yes">
+                                    <label for="qualification-yes">Yes</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="qualification-no" name="certificate_of_qualification" value="No">
+                                    <label for="qualification-no">No</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+                    <div class="lg:grid grid-cols-3 gap-[200px]">
+                        <div class="flex flex-col w-full">
+                            <label for="state">State/Province<span>*</span></label>
+                            <input type="text" id="state" name="state">
+                        </div>
+    
+                        <div class="flex flex-col w-full">
+                            <label for="zip">Zip/Postal Code</label>
+                            <input type="text" id="zip" name="zip">
+                        </div>
+                    </div>
+
+                    <div class="lg:grid grid-cols-2 pt-10">
+                        <div>
+                            <label>Do you have any criminal record(s) in your home country or any other country<span>*</span></label>
+                            <div class="check-box-wrpr !mt-0">
+                                <div>
+                                    <input type="radio" id="qualification-yes" name="certificate_of_qualification" value="Yes">
+                                    <label for="qualification-yes">Yes</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="qualification-no" name="certificate_of_qualification" value="No">
+                                    <label for="qualification-no">No</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label>Do you or your spouse or common-law partner have a blood relative living in
+                                Canada who is a citizen or a permanent resident of Canada<span>*</span></label>
+                            <div class="check-box-wrpr !mt-0">
+                                <div>
+                                    <input type="radio" id="qualification-yes" name="certificate_of_qualification" value="Yes">
+                                    <label for="qualification-yes">Yes</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="qualification-no" name="certificate_of_qualification" value="No">
+                                    <label for="qualification-no">No</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="py-10">
+                        <div class="flex flex-col lg:w-1/4">
+                            <label for="birth-country">How Did you Hear about Us<span>*</span></label>
+                            <input type="text" id="birth-country" name="country_born">
+                        </div>
+                    </div>          
+                    
+                    <div class="py-10">
+                        <div class="flex flex-col lg:w-1/2">
+                            <label for="birth-country">Any Additional Information*<span>*</span></label>
+                            <input type="text" id="birth-country" name="country_born">
+                        </div>
+                    </div>   
 
                     <div class="submit-btn bg-gradient-to-r from-black to-transparent">
                         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[2%] mt-[-50px]">
