@@ -24,8 +24,8 @@ class UpdateSubServicesFaqRequest extends FormRequest
         return [
             'title' => 'required',
             'description' => 'required',
-            'sub_service_id' => 'required|exists:sub_services,id',
-            'service_id' => 'required|exists:sub_services_faqs,id',
+            'service_faq_id' => 'required|exists:sub_services_faqs,id',
+            'service_id' => 'required|exists:sub_services,id',
         ];
     }
 }

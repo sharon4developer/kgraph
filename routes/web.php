@@ -40,6 +40,7 @@ use App\Http\Controllers\Admin\ServicePointController;
 use App\Http\Controllers\Admin\ServiceSeoController;
 use App\Http\Controllers\Admin\SubServicesController;
 use App\Http\Controllers\Admin\SubServicesFaqController;
+use App\Http\Controllers\Admin\SubServicesPointController;
 use App\Http\Controllers\Admin\TermsAndConditionController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\WhoWeAreController;
@@ -74,6 +75,7 @@ Route::post('submit-eligibility-form', [NewsLetterController::class, 'submitElig
 Route::get('eligibility-check', [FrontEndServiceController::class, 'eligibilityCheck']);
 Route::get('terms-and-conditions', [FrontEndController::class, 'termsConditions']);
 Route::get('privacy-policy', [FrontEndController::class, 'privacyPolicy']);
+Route::get('sub-service-details/{slug}', [FrontEndServiceController::class, 'subServiceDetails']);
 
 // Route::get('contact-us', function () {
 //     return view('main');
@@ -159,6 +161,7 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'career-contents' => CareerContentController::class,
         'sub-services' => SubServicesController::class,
         'sub-service-faq' => SubServicesFaqController::class,
+        'sub-service-points' => SubServicesPointController::class,
     ]);
 
     Route::prefix('pages')->name('.pages')->group(function () {
@@ -299,6 +302,12 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
 
         Route::post('change/status', [SubServicesFaqController::class, 'changeStatus'])->name('change-status');
         Route::post('update/order', [SubServicesFaqController::class, 'changeOrder'])->name('update-order');
+    });
+
+    Route::prefix('sub-service-points')->name('.sub-service-points')->group(function () {
+
+        Route::post('change/status', [SubServicesPointController::class, 'changeStatus'])->name('change-status');
+        Route::post('update/order', [SubServicesPointController::class, 'changeOrder'])->name('update-order');
     });
 
     Route::prefix('blogs')->name('.blogs')->group(function () {

@@ -66,6 +66,13 @@
                             </ul>
                         </li>
                         <li>
+                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Sub Service Points</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li><a href="{{ url('admin/sub-service-points') }}" data-key="t-level-2-2">View </a></li>
+                                <li><a href="{{ url('admin/sub-service-points/create') }}" data-key="t-level-2-1">Add </a></li>
+                            </ul>
+                        </li>
+                        <li>
                             <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Service Faq</a>
                             <ul class="sub-menu" aria-expanded="true">
                                 <li><a href="{{ url('admin/service-faq') }}" data-key="t-level-2-2">View </a></li>

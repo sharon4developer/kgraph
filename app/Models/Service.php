@@ -82,7 +82,7 @@ class Service extends Model
 
     public static function getData($id)
     {
-        return SELF::with(['ServicePoint','ServiceFaq'])->find($id);
+        return SELF::with(['ServicePoint','ServiceFaq','SubService'])->find($id);
     }
 
     public static function updateData($data)
@@ -118,15 +118,22 @@ class Service extends Model
     public static function deleteData($data)
     {
         $value = SELF::find($data->id);
+
         if ($value) {
+
+            foreach ($value->SubService as $subService) {
+
+                $subService->ServicePoint()->delete();
+                $subService->ServiceFaq()->delete();
+                $subService->delete();
+            }
 
             $value->ServicePoint()->delete();
 
             $value->ServiceFaq()->delete();
 
-            $value->SubService()->delete();
-
             $value->delete();
+
             return true;
         } else
             return false;

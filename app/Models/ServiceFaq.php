@@ -16,7 +16,7 @@ class ServiceFaq extends Model
     protected $fillable = ['title', 'description', 'status','order', 'service_id'];
 
     public function Services(){
-        return  $this->belongsTo(Service::class,'service_id')->withTrashed();
+        return  $this->belongsTo(Service::class,'service_id');
     }
 
     public static function getFullData($data)

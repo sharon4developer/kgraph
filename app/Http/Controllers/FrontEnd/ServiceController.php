@@ -10,6 +10,7 @@ use App\Models\Service;
 use App\Models\ServiceCategory;
 use App\Models\ServiceContent;
 use App\Models\ServiceSeo;
+use App\Models\SubServices;
 use Illuminate\Http\Request;
 
 class ServiceController extends Controller
@@ -42,5 +43,18 @@ class ServiceController extends Controller
         $seo = Page::getSeoDetails(request()->path());
 
         return view('frontend.pages.servicesinerform');
+    }
+
+    public function subServiceDetails($slug)
+    {
+        $services = SubServices::where('slug',$slug)->first();
+
+        if(!$services){
+            abort(404);
+        }
+
+        $seo = ServiceSeo::getSeoDetails($services->id);
+
+        return view('frontend.pages.subservicesinner', compact('services','seo'));
     }
 }

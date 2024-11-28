@@ -235,15 +235,9 @@
                     <div class="blufader-grade text-white my-6 px-5 rounded-md py-3">Key Highlight</div>
                     <div>
                         <ul class="list-disc pl-5 text-[#062358] leading-normal">
-                            @if(count($services->SubService))
-                            @foreach ($services->SubService as $SubService)
-                                <li class="py-1"><a href="{{url('sub-service-details/'.$SubService->slug)}}">{{ $SubService->title }}</a></li>
-                            @endforeach
-                            @else
                             @foreach ($services->ServicePoint as $ServicePoint)
                                 <li class="py-1">{{ $ServicePoint->title }}</li>
                             @endforeach
-                            @endif
                         </ul>
                     </div>
                 </div>
