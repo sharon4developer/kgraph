@@ -407,7 +407,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // Initialize Splide
+
         const splide = new Splide('#splide', {
             type       : 'fade',
             rewind     : true,
@@ -419,28 +419,24 @@
             pauseOnHover: false,
         });
 
-        // GSAP animation for h3 and div inside slide-content
         splide.on('mounted active', () => {
-            // Select active slide content
+
             const activeSlide = document.querySelector('.splide__slide.is-active .slide-content');
             
             if (activeSlide) {
-                // Reset animation for h3 and div inside .slide-content
                 const elementsToAnimate = activeSlide.querySelectorAll('h3, div');
                 gsap.set(elementsToAnimate, { opacity: 0, y: 50 });
 
-                // Animate only h3 and div inside .slide-content
                 gsap.to(elementsToAnimate, { 
                     opacity: 1, 
                     y: 0, 
                     duration: 1, 
                     ease: 'power3.out', 
-                    stagger: 0.2 // Add a delay between animations
+                    stagger: 0.2 
                 });
             }
         });
 
-        // Mount Splide
         splide.mount();
     });
 </script>

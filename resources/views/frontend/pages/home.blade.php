@@ -28,9 +28,9 @@
         }
 
         .banner-contain-text {
-            opacity: 0;
-            transform: translateX(20%);
-            scale: 0.5;
+            /* opacity: 0; */
+            /* transform: translateX(20%); */
+            /* scale: 0.5; */
         }
 
         /* .left-to-right-animation,
@@ -87,6 +87,7 @@
             width: 100%;
             height: 127%;
             z-index: 1;
+            background: linear-gradient(180deg, rgba(4, 25, 55, 0) 0%, #041937 100%);
         }
 
         /* Set initial width and transition */
@@ -493,31 +494,19 @@
 
             <!-- Banner Content -->
             <div class="container mx-auto px-5 xl:px-12 h-full w-full relative z-10">
-                <div
-                    class="h-full w-full flex flex-col justify-start md:justify-center items-center text-center mb-4 md:pt-8 pb-0 gap-[5%] md:gap-[31px] lg:gap-0">
-                    <div
-                        class="z-10 flex flex-col lg:flex-row items-center lg:gap-[23px] pt-[10%] lg:pt-[22%] xl:pt-[143px] 2xl:pt-[120px] banner-container-elem">
-                        <img class="pt-[22px] md:pt-0 w-[40px] lg:w-[100px]"
-                            src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="rocket icon">
-                        <h2
-                            class="banner_text-one text-[20px] lg:text-[23px] font_inter font-medium text-white text-center capitalize">
-                            Journey with Confidence <span class="text-[#579aff]">Migrate</span> with Us
-                        </h2>
+                <div class="h-full w-full flex flex-col justify-start md:justify-center items-center text-center mb-4 md:pt-8 pb-0 gap-[5%] md:gap-[31px] lg:gap-0">
+                    <div class="z-10 flex flex-col lg:flex-row items-center lg:gap-[23px] pt-[10%] lg:pt-[22%] xl:pt-[143px] 2xl:pt-[120px] banner-container-elem">
+                        <img class="pt-[22px] md:pt-0 w-[40px] lg:w-[100px]" src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="rocket icon">
+                        <h2 class="banner-contain-text text-[20px] lg:text-[23px] font_inter font-medium text-white text-center capitalize"> Journey with Confidence <span class="text-[#579aff]">Migrate</span> with Us</h2>
                     </div>
                     <h1  id="animated-heading" class="md:text-center text-[31px] md:text-[55px] 2xl:text-[85px] lg:text-[70px] lg:w-[80%] font-medium font_inter gradient-text z-10 lg:mt-8 banner_main-text lg:inline-block banner-contain-text leading-[1.2]">Visa Made Easy Dreams Made Possible</h1>
-                    <h6 class="font_inter font-medium text-[20px] lg:text-[23px] z-20 text-white lg:mt-14 banner-container-elem"> Visa Made Easy Dreams Made Possible</h6>
-                    <div
-                        class="z-10 flex flex-col md:flex-row justify-center items-start md:items-center gap-4 lg:mb-7 lg:mt-10">
+                    <h6 class="font_inter font-medium text-[20px] lg:text-[23px] z-20 text-white lg:mt-14 banner-contain-text"> Visa Made Easy Dreams Made Possible</h6>
+                    <div class="z-10 flex flex-col md:flex-row justify-center items-start md:items-center gap-4 lg:mb-7 lg:mt-10">
                         <img width="52px" src="{{ asset('assets/home_Banner/CanadaFlag.png') }}" alt="CanadaFlag">
                         <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-[4.5px] pl-6 pr-1 overflow-hidden group">
-                            <!-- Background animation using pseudo-element -->
-                            <div
-                                class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full">
-                            </div>
-                            <h6 class="relative z-10 text-white text-[10px] md:text-[14px] 2xl">Let's turn your vision into
-                                reality.</h6>
-                            <div
-                                class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:py-[4px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                            <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
+                            <h6 class="relative z-10 text-white text-[10px] md:text-[14px] 2xl">Let's turn your vision intoreality.</h6>
+                            <div class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:py-[4px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                                 <a href="{{ url('contact-us') }}" class="h-full text-[12px] lg:text-[16px] font-semibold">Connect Us</a>
                             </div>
                         </div>
@@ -528,11 +517,9 @@
                     <img class="w-[50px] lg:w-[100px]"  src="{{ asset('assets/home_Banner/Hubspot.png') }}" alt="">
                     <img class="w-[50px] lg:w-[100px]"  src="{{ asset('assets/home_Banner/asna.png') }}" alt="">
                     <img class="w-[50px] lg:w-[100px]"  src="{{ asset('assets/home_Banner/airtasker.png') }}" alt="">
-                </div> --}}
-                    <div
-                        class="lg:absolute bottom-0 right-0 w-full lg:w-fit flex justify-center lg:right-12 lg:bottom-[35%] z-10">
-                        <div
-                            class="flex lg:flex-col items-center gap-[30px] border border-white py-2 lg:py-4 px-6 lg:px-2 rounded-full mb-3 lg:mb-0">
+                    </div> --}}
+                    <div class="lg:absolute bottom-0 right-0 w-full lg:w-fit flex justify-center lg:right-12 lg:bottom-[35%] z-10">
+                        <div  class="flex lg:flex-col items-center gap-[30px] border border-white py-2 lg:py-4 px-6 lg:px-2 rounded-full mb-3 lg:mb-0">
                             <img class="w-[15px] transition-transform duration-300 transform hover:scale-125"
                                 src="{{ asset('assets/facebookban.png') }}" alt="facebook">
                             <img class="w-[15px] transition-transform duration-300 transform hover:scale-125"
@@ -1650,6 +1637,65 @@
             });
         });
 
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+  const bannerText = document.querySelector(".banner_main-text");
+
+  // Initialize SplitText
+  const split = new SplitText(bannerText, {
+    type: "chars, words, lines", // Splits the text into characters, words, and lines
+  });
+
+  // Create a GSAP timeline
+  const timeline = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".homeBanner", // Trigger animation when homeBanner is in view
+      start: "top 80%", // Start animation when top of homeBanner is 80% from the top of the viewport
+      end: "top 50%", // End animation when top of homeBanner reaches 50% of viewport
+      toggleActions: "play none none reverse", // Replay animation on scroll up
+    },
+  });
+
+  // Add animations to the timeline
+  timeline
+    .fromTo(
+      split.chars, // Animate characters
+      {
+        opacity: 0,
+        y: 50,
+        scale: 0.8,
+        rotationX: -90,
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        rotationX: 0,
+        duration: 0.6,
+        ease: "expo.out",
+        stagger: 0.05, // Stagger animation for each character
+      }
+    )
+    .to(
+      ".banner_main-text::after", // Target the ::after element
+      {
+        opacity: 1, // Fade in the ::after content
+        duration: 0.5,
+        ease: "power1.out",
+        onStart: () => {
+          // Add the "visible" state when animation starts
+          document.querySelector(".banner_main-text").classList.add("after-visible");
+        },
+      },
+      "+=0.3" // Add a small delay after the text animation
+    );
+
+  // Clean up SplitText when done (optional)
+  ScrollTrigger.addEventListener("refresh", () => split.revert());
+});
+
+
         gsap.utils.toArray("[data-animate]").forEach((element) => {
             gsap.fromTo(
                 element,
@@ -1739,18 +1785,34 @@
             }
         })
 
-        gsap.to(".banner-contain-text", {
-            scrollTrigger: {
-                trigger: ".homeBanner",
-                start: "top 80%",
-                toggleActions: "play none none none"
-            },
-            x: 0,
-            scale: 1,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power2.out"
-        });
+// Split text into spans for individual animation (if text splitting is needed)
+document.querySelectorAll(".banner-contain-text").forEach((elem) => {
+  elem.innerHTML = elem.textContent
+    .split("")
+    .map((char) => `<span class="char">${char}</span>`)
+    .join("");
+});
+
+// GSAP animation
+gsap.fromTo(
+  ".banner-contain-text .char",
+  { opacity: 0, y: 50, skewY: 10, scale: 0.9 },
+  {
+    opacity: 1,
+    y: 0,
+    skewY: 0,
+    scale: 1,
+    duration: 0.6,
+    ease: "expo.out",
+    stagger: 0.05, // Cascading effect on each character
+    scrollTrigger: {
+      trigger: ".homeBanner",
+      start: "top 80%",
+      toggleActions: "play none none none",
+    },
+  }
+);
+
 
         gsap.to(".fourthleft-to-right-animation", {
             scrollTrigger: {
