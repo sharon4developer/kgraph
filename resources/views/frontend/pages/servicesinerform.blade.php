@@ -167,7 +167,7 @@
 
                     <div class="lg:grid grid-cols-2 gap-x-14 py-10">
                         <div class="flex flex-col">
-                            <label for="email">email<span>*</span></label>
+                            <label for="email">Email<span>*</span></label>
                             <input type="email" id="email" name="email">
                         </div>
                         <div class="flex flex-col">
@@ -179,12 +179,12 @@
                             <label for="street-address-1">Street Address<span>*</span></label>
                             <input type="text" id="street-address-1" name="street_address">
                         </div>
-    
+
                         <div class="flex flex-col">
                             <label for="city">City<span>*</span></label>
                             <input type="text" id="city" name="city">
                         </div>
-                        
+
                         <div class="flex flex-col lg:w-1/2">
                             <label for="highest-education-inside">Highest Level of Education<span>*</span></label>
                             <input type="text" id="highest-education-inside" name="highest_education_inside_can">
@@ -211,11 +211,11 @@
                             <label>Do you have a valid Language Skills Test Result</label>
                             <div class="check-box-wrpr !mt-0">
                                 <div>
-                                    <input type="radio" id="qualification-yes" name="certificate_of_qualification" value="Yes">
+                                    <input type="radio" id="qualification-yes" name="country_of_studies" value="Yes">
                                     <label for="qualification-yes">Yes</label>
                                 </div>
                                 <div>
-                                    <input type="radio" id="qualification-no" name="certificate_of_qualification" value="No">
+                                    <input type="radio" id="qualification-no" name="country_of_studies" value="No">
                                     <label for="qualification-no">No</label>
                                 </div>
                             </div>
@@ -225,11 +225,11 @@
                             <label>Any Previous Visa Refusal<span>*</span></label>
                             <div class="check-box-wrpr !mt-0">
                                 <div>
-                                    <input type="radio" id="qualification-yes" name="certificate_of_qualification" value="Yes">
+                                    <input type="radio" id="qualification-yes" name="refused_or_cancelled_visa" value="Yes">
                                     <label for="qualification-yes">Yes</label>
                                 </div>
                                 <div>
-                                    <input type="radio" id="qualification-no" name="certificate_of_qualification" value="No">
+                                    <input type="radio" id="qualification-no" name="refused_or_cancelled_visa" value="No">
                                     <label for="qualification-no">No</label>
                                 </div>
                             </div>
@@ -241,7 +241,7 @@
                             <label for="state">State/Province<span>*</span></label>
                             <input type="text" id="state" name="state">
                         </div>
-    
+
                         <div class="flex flex-col w-full">
                             <label for="zip">Zip/Postal Code</label>
                             <input type="text" id="zip" name="zip">
@@ -253,11 +253,11 @@
                             <label>Do you have any criminal record(s) in your home country or any other country<span>*</span></label>
                             <div class="check-box-wrpr !mt-0">
                                 <div>
-                                    <input type="radio" id="qualification-yes" name="certificate_of_qualification" value="Yes">
+                                    <input type="radio" id="qualification-yes" name="criminal_record" value="Yes">
                                     <label for="qualification-yes">Yes</label>
                                 </div>
                                 <div>
-                                    <input type="radio" id="qualification-no" name="certificate_of_qualification" value="No">
+                                    <input type="radio" id="qualification-no" name="criminal_record" value="No">
                                     <label for="qualification-no">No</label>
                                 </div>
                             </div>
@@ -268,11 +268,11 @@
                                 Canada who is a citizen or a permanent resident of Canada<span>*</span></label>
                             <div class="check-box-wrpr !mt-0">
                                 <div>
-                                    <input type="radio" id="qualification-yes" name="certificate_of_qualification" value="Yes">
+                                    <input type="radio" id="qualification-yes" name="family_relations_in_canada" value="Yes">
                                     <label for="qualification-yes">Yes</label>
                                 </div>
                                 <div>
-                                    <input type="radio" id="qualification-no" name="certificate_of_qualification" value="No">
+                                    <input type="radio" id="qualification-no" name="family_relations_in_canada" value="No">
                                     <label for="qualification-no">No</label>
                                 </div>
                             </div>
@@ -282,16 +282,16 @@
                     <div class="py-10">
                         <div class="flex flex-col lg:w-1/4">
                             <label for="birth-country">How Did you Hear about Us<span>*</span></label>
-                            <input type="text" id="birth-country" name="country_born">
+                            <input type="text" id="birth-country" name="hear_about_canada">
                         </div>
-                    </div>          
-                    
+                    </div>
+
                     <div class="py-10">
                         <div class="flex flex-col lg:w-1/2">
-                            <label for="birth-country">Any Additional Information*<span>*</span></label>
-                            <input type="text" id="birth-country" name="country_born">
+                            <label for="birth-country">Any Additional Information<span>*</span></label>
+                            <input type="text" id="birth-country" name="detained">
                         </div>
-                    </div>   
+                    </div>
 
                     <div class="submit-btn bg-gradient-to-r from-black to-transparent">
                         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[2%] mt-[-50px]">

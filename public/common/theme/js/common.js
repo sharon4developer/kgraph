@@ -349,12 +349,12 @@ $('#eligibility-form').validate({
         zip: {
             required: true,
         },
-        country_live: {
-            required: true,
-        },
-        country_born: {
-            required: true,
-        },
+        // country_live: {
+        //     required: true,
+        // },
+        // country_born: {
+        //     required: true,
+        // },
         mobile: {
             required: true,
             digits: true,
@@ -366,108 +366,108 @@ $('#eligibility-form').validate({
         marital_status: {
             required: true,
         },
-        have_children: {
-            required: true,
-        },
+        // have_children: {
+        //     required: true,
+        // },
         hear_about_canada: {
             required: true,
         },
-        type_of_application: {
-            required: true,
-        },
-        further_info: {
-            required: true,
-        },
-        funds_available: {
-            required: true,
-        },
-        highest_education_outside_can: {
-            required: true,
-        },
+        // type_of_application: {
+        //     required: true,
+        // },
+        // further_info: {
+        //     required: true,
+        // },
+        // funds_available: {
+        //     required: true,
+        // },
+        // highest_education_outside_can: {
+        //     required: true,
+        // },
         country_of_studies: {
             required: true,
         },
         highest_education_inside_can: {
             required: true,
         },
-        language_level_english: {
-            required: true,
-        },
-        english_language_test: {
-            required: true,
-        },
-        language_level_french: {
-            required: true,
-        },
-        french_language_test: {
-            required: true,
-        },
-        resume: {
-            required: true,
-        },
-        main_industry: {
-            required: true,
-        },
-        work_exp_outside_can: {
-            required: true,
-        },
-        work_exp_inside_can: {
-            required: true,
-        },
-        entitled_to_work: {
-            required: true,
-        },
-        manage_business: {
-            required: true,
-        },
-        temporary_foreign_worker: {
-            required: true,
-        },
+        // language_level_english: {
+        //     required: true,
+        // },
+        // english_language_test: {
+        //     required: true,
+        // },
+        // language_level_french: {
+        //     required: true,
+        // },
+        // french_language_test: {
+        //     required: true,
+        // },
+        // resume: {
+        //     required: true,
+        // },
+        // main_industry: {
+        //     required: true,
+        // },
+        // work_exp_outside_can: {
+        //     required: true,
+        // },
+        // work_exp_inside_can: {
+        //     required: true,
+        // },
+        // entitled_to_work: {
+        //     required: true,
+        // },
+        // manage_business: {
+        //     required: true,
+        // },
+        // temporary_foreign_worker: {
+        //     required: true,
+        // },
         certificate_of_qualification: {
             required: true,
         },
-        job_offer: {
-            required: true,
-        },
+        // job_offer: {
+        //     required: true,
+        // },
         family_relations_in_canada: {
             required: true,
         },
         refused_or_cancelled_visa: {
             required: true,
         },
-        refused_admission: {
-            required: true,
-        },
-        partner_been_to_canada: {
-            required: true,
-        },
-        overstayed_in_any_country: {
-            required: true,
-        },
-        partner_previously_applied_for_visa: {
-            required: true,
-        },
-        partner_previously_submitted_an_application: {
-            required: true,
-        },
+        // refused_admission: {
+        //     required: true,
+        // },
+        // partner_been_to_canada: {
+        //     required: true,
+        // },
+        // overstayed_in_any_country: {
+        //     required: true,
+        // },
+        // partner_previously_applied_for_visa: {
+        //     required: true,
+        // },
+        // partner_previously_submitted_an_application: {
+        //     required: true,
+        // },
         criminal_record: {
             required: true,
         },
-        arrested: {
-            required: true,
-        },
+        // arrested: {
+        //     required: true,
+        // },
         detained: {
             required: true,
         },
-        nomination_certificate: {
-            required: true,
-        },
-        receive_communications: {
-            required: true,
-        },
-        consent_data: {
-            required: true,
-        },
+        // nomination_certificate: {
+        //     required: true,
+        // },
+        // receive_communications: {
+        //     required: true,
+        // },
+        // consent_data: {
+        //     required: true,
+        // },
     },
     errorElement: 'span',
     submitHandler: function (form, event) {
