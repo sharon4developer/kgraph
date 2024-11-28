@@ -16,7 +16,7 @@ class SubServicesFaq extends Model
     protected $fillable = ['title', 'description', 'status','order', 'sub_service_id'];
 
     public function Services(){
-        return  $this->belongsTo(SubServices::class,'sub_service_id')->withTrashed();
+        return  $this->belongsTo(SubServices::class,'sub_service_id');
     }
 
     public static function getFullData($data)
@@ -32,7 +32,7 @@ class SubServicesFaq extends Model
 
         return DataTables::of($value)
             ->addIndexColumn()
-            ->editColumn('service_id', function ($row) {
+            ->addColumn('service_id', function ($row) {
                 return $row->Services->title;
             })
             ->rawColumns(['action'])

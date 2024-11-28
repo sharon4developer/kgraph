@@ -89,6 +89,7 @@ class ServiceCategory extends Model
     public static function deleteData($data)
     {
         $value = SELF::find($data->id);
+
         if ($value) {
 
             $services = $value->Service;
@@ -99,12 +100,18 @@ class ServiceCategory extends Model
 
                 $service->ServiceFaq()->delete();
 
-                $service->SubService()->delete();
+                foreach ($service->SubService as $subService) {
+
+                    $subService->ServicePoint()->delete();
+                    $subService->ServiceFaq()->delete();
+                    $subService->delete();
+                }
             }
 
             $value->Service()->delete();
 
             $value->delete();
+
             return true;
         } else
             return false;

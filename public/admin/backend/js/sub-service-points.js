@@ -2,6 +2,25 @@ $(document).ready(function () {
 
     loadDataTableForServices();
 
+    if($('#summernote').length){
+
+        $('#summernote').summernote({
+            height: 300, // Set the editor height
+            toolbar: [
+                // Customize your toolbar
+                ['style', ['style']],
+                ['font', ['bold', 'italic', 'underline', 'clear']],
+                ['fontname', ['fontname']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']], // Add color options
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    }
+
     if(document.getElementById('service-details-table')){
 
         Sortable.create(document.getElementById('service-details-table').getElementsByTagName('tbody')[0], {
@@ -14,7 +33,7 @@ $(document).ready(function () {
 
                 // Pass the new order to the backend (e.g., using AJAX)
                 $.ajax({
-                    url: $('#route-for-user').val() + '/sub-service-faq/update/order', // Replace with your Laravel route URL
+                    url: $('#route-for-user').val() + '/sub-service-points/update/order', // Replace with your Laravel route URL
                     method: 'POST',
                     data: {
                         order: newOrder
@@ -36,7 +55,7 @@ function loadDataTableForServices() {
         processing: true,
         serverSide: true,
         "ajax": {
-            "url": $('#route-for-user').val() + '/sub-service-faq/show',
+            "url": $('#route-for-user').val() + '/sub-service-points/show',
             "dataType": "json",
             "type": "GET",
             "data": function(d) {
@@ -81,7 +100,7 @@ function loadDataTableForServices() {
                                             <i class="fa fa-check"></i>
                                         </a>`;
                     return (`<div style="white-space:no-wrap">
-                                    <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Edit" data-bs-placement="top"  href="` + $("#route-for-user").val() + `/sub-service-faq/` + row.id + `/edit">
+                                    <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Edit" data-bs-placement="top"  href="` + $("#route-for-user").val() + `/sub-service-points/` + row.id + `/edit">
                                         <i class="fa fa-edit"></i>
                                     </a>
                                     `+ statusCheck + `
@@ -132,11 +151,12 @@ $('#service-add-form').validate({
         $('.error').html('');
         var submitButton = $(form).find('[type=submit]');
         var current_btn_text = submitButton.html();
+        // formData.append('description', $('.ck-content').html());
         button_loading_text = 'Saving...';
         // Create
         $.ajax({
             type: "POST",
-            url: $('#route-for-user').val() + '/sub-service-faq',
+            url: $('#route-for-user').val() + '/sub-service-points',
             contentType: false,
             processData: false,
             data: formData,
@@ -204,7 +224,7 @@ $('#service-edit-form').validate({
         service_id: {
             required: true,
         },
-        service_faq_id: {
+        service_point_id: {
             required: true,
         },
     },
@@ -221,11 +241,12 @@ $('#service-edit-form').validate({
         var submitButton = $(form).find('[type=submit]');
         var current_btn_text = submitButton.html();
         button_loading_text = 'Saving...';
-        var service_faq_id = $(form).find('input[name=service_faq_id]').val();
+        var service_point_id = $(form).find('input[name=service_point_id]').val();
+        // formData.append('description', $('.ck-content').html());
         // Create
         $.ajax({
             type: "POST",
-            url: $('#route-for-user').val() + '/sub-service-faq/' + service_faq_id,
+            url: $('#route-for-user').val() + '/sub-service-points/' + service_point_id,
             contentType: false,
             processData: false,
             data: formData,
@@ -285,11 +306,11 @@ $('#service-edit-form').validate({
 
 function changeStatus(id, status) {
     if (status == 1) {
-        text = 'You want to deactivate this service faq!';
+        text = 'You want to deactivate this service point!';
         message = 'Deactivated successfully';
     }
     else {
-        text = 'You want to activate this service faq!';
+        text = 'You want to activate this service point!';
         message = 'Activated successfully';
     }
     Swal.fire({
@@ -304,7 +325,7 @@ function changeStatus(id, status) {
         if (result.isConfirmed) {
             $.ajax({
                 type: "POST",
-                url: $("#route-for-user").val() + "/sub-service-faq/change/status",
+                url: $("#route-for-user").val() + "/sub-service-points/change/status",
                 data: {
                     id: id,
                 },
@@ -327,7 +348,7 @@ function changeStatus(id, status) {
 function deleteData(id) {
     Swal.fire({
         title: 'Are you sure?',
-        text: "Are you sure, do yo want to delete the service faq ?",
+        text: "Are you sure, do yo want to delete the service point ?",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonText: 'Yes!',
@@ -337,14 +358,14 @@ function deleteData(id) {
         if (result.isConfirmed) {
             $.ajax({
                 type: "DELETE",
-                url: $("#route-for-user").val() + '/sub-service-faq/' + id,
+                url: $("#route-for-user").val() + '/sub-service-points/' + id,
                 data: {
                     id: id,
                 },
                 success: function (data) {
                     table.ajax.reload(null, false);
                     if (data == true)
-                        showMessage('success', "Service faq deleted successfully");
+                        showMessage('success', "Service point deleted successfully");
                 },
                 error: function (data) {
                     showMessage("warning", "Something went wrong...");

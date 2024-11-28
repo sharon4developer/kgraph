@@ -17,15 +17,15 @@ class SubServices extends Model
     protected $fillable = ['title', 'sub_title', 'image', 'intervention_image', 'status','order','alt_tag','slug','service_id','inner_title'];
 
     public function ServicePoint(){
-        return  $this->hasMany(ServicePoint::class);
+        return  $this->hasMany(SubServicesPoint::class,'sub_service_id');
     }
 
     public function ServiceFaq(){
-        return  $this->hasMany(ServiceFaq::class);
+        return  $this->hasMany(SubServicesFaq::class,'sub_service_id');
     }
 
     public function Services(){
-        return  $this->belongsTo(Service::class,'service_id')->withTrashed();
+        return  $this->belongsTo(Service::class,'service_id');
     }
 
     public function Seo(){
@@ -78,7 +78,7 @@ class SubServices extends Model
 
     public static function getData($id)
     {
-        return SELF::find($id);
+        return SELF::with(['ServicePoint','ServiceFaq'])->find($id);
     }
 
     public static function updateData($data)
@@ -116,9 +116,9 @@ class SubServices extends Model
         $value = SELF::find($data->id);
         if ($value) {
 
-            // $value->ServicePoint()->delete();
+            $value->ServicePoint()->delete();
 
-            // $value->ServiceFaq()->delete();
+            $value->ServiceFaq()->delete();
 
             $value->delete();
             return true;
@@ -127,7 +127,7 @@ class SubServices extends Model
     }
 
     public static function getFullDataForHome(){
-        return SELF::select('image','id','title','sub_title','alt_tag','slug','inner_title')->orderBy('order','asc')->where('status',1)->get();
+        return SELF::with(['ServicePoint','ServiceFaq'])->select('image','id','title','sub_title','alt_tag','slug','inner_title')->orderBy('order','asc')->where('status',1)->get();
     }
 
     public static function updateOrder($data)
