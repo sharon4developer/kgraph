@@ -4,6 +4,11 @@
 <link rel="stylesheet" href="{{ asset('admin/theme/src/plugins/src/sweetalerts2/sweetalerts2.css')}}">
 <link href="{{ asset('admin/backend/css/custom.css') }}" rel="stylesheet" type="text/css" />
 <div class="b-backgroun-nav z-50 w-full">
+<?php
+use App\Models\ServiceCategory;
+$serviceCategories = ServiceCategory::with(['Service:id,slug,title,service_category_id'])->select('image','id','title','alt_tag','slug','sub_title')->orderBy('order','asc')->where('status',1)->get();
+?>
+
     {{-- <header id="immaintop" class="text-white hidden md:block bg-black md:fixed top-0 z-50 w-full" style="display: none !important;">
         <div class="container mx-auto px-5 xl:px-12 flex justify-between items-start lg:items-center gap-1 lg:gap-0 flex-col md:flex-row font_aktiv py-[12px] lg:py-[10px] opacity-50">
             <div>
@@ -71,11 +76,12 @@
                     <li class="nav-item"><a class="nav-link" href="{{ url('about-us') }}">About</a></li>
                     <li class="nav-item relative flex flex-col items-center">
                         <a class="nav-link" href="{{ url('services') }}">Services</a>
-                        <ul class="bg-white h-0 overflow-hidden w-36 absolute top-[28px] z-50 pl-3 pr-8 py-3 rounded-lg flex-col transition-[height] duration-300 opacity-0">
-                            <li class="nav-item"><a class="nav-link !text-blue-700" href="{{ url('packages') }}">Packages</a></li>
-                            <li class="nav-item"><a class="nav-link !text-blue-700" href="{{ url('careers') }}">Careers</a></li>
-                            <li class="nav-item"><a class="nav-link !text-blue-700" href="{{ url('blogs') }}">Blogs</a></li>
-                        </ul>                        
+                        {{-- <ul class="bg-white h-0 overflow-hidden w-36 absolute top-[28px] z-50 pl-3 pr-8 py-3 rounded-lg flex-col transition-[height] duration-300 opacity-0">
+                            @foreach ($serviceCategories as $serviceCategory)
+
+                                <li class="nav-item"><a class="nav-link !text-blue-700" href="{{ url('packages') }}">{{$serviceCategory->title}}</a></li>
+                            @endforeach
+                        </ul>                         --}}
                     </li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('packages') }}">Packages</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('careers') }}">Careers</a></li>
