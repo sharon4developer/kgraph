@@ -327,241 +327,152 @@ $('#career-add-form').validate({
 
 $('#eligibility-form').validate({
     rules: {
-        first_name: {
-            required: true,
-        },
-        last_name: {
-            required: true,
-        },
-        email: {
-            required: true,
-            email: true,
-        },
-        street_address: {
-            required: true,
-        },
-        city: {
-            required: true,
-        },
-        state: {
-            required: true,
-        },
-        zip: {
-            required: true,
-        },
+        first_name: { required: true },
+        last_name: { required: true },
+        email: { required: true, email: true },
+        street_address: { required: true },
+        city: { required: true },
+        dob: { required: true, date: true },
+        marital_status: { required: true },
+        mobile: { required: true, digits: true },
+        highest_education_inside_can: { required: true },
+        certificate_of_qualification: { required: true },
+        country_of_studies: { required: true },
         language_test: {
             required: function () {
                 return $('input[name="country_of_studies"]:checked').val() === 'Yes';
-            },
+            }
         },
         speaking: {
             required: function () {
                 return $('input[name="country_of_studies"]:checked').val() === 'Yes';
-            },
+            }
         },
         reading: {
             required: function () {
                 return $('input[name="country_of_studies"]:checked').val() === 'Yes';
-            },
+            }
         },
         listening: {
             required: function () {
                 return $('input[name="country_of_studies"]:checked').val() === 'Yes';
-            },
+            }
         },
         writing: {
             required: function () {
                 return $('input[name="country_of_studies"]:checked').val() === 'Yes';
-            },
+            }
         },
-        // country_live: {
-        //     required: true,
-        // },
-        // country_born: {
-        //     required: true,
-        // },
+        refused_or_cancelled_visa: { required: true },
+        criminal_record: { required: true },
+        family_relations_in_canada: { required: true },
+        hear_about_canada: { required: true },
+        detained: { required: true }
+    },
+    groups: {
+        languageSkills: "speaking reading listening writing"
+    },
+    messages: {
+        first_name: "First name is required.",
+        last_name: "Last name is required.",
+        email: {
+            required: "Email is required.",
+            email: "Enter a valid email address."
+        },
+        street_address: "Address is required.",
+        city: "Citizenship is required.",
+        dob: "Date of birth is required.",
+        marital_status: "Select your marital status.",
         mobile: {
-            required: true,
-            digits: true,
+            required: "Mobile number is required.",
+            digits: "Enter a valid mobile number."
         },
-        dob: {
-            required: true,
-            date: true,
-        },
-        marital_status: {
-            required: true,
-        },
-        // have_children: {
-        //     required: true,
-        // },
-        hear_about_canada: {
-            required: true,
-        },
-        // type_of_application: {
-        //     required: true,
-        // },
-        // further_info: {
-        //     required: true,
-        // },
-        // funds_available: {
-        //     required: true,
-        // },
-        // highest_education_outside_can: {
-        //     required: true,
-        // },
-        country_of_studies: {
-            required: true,
-        },
-        highest_education_inside_can: {
-            required: true,
-        },
-        // language_level_english: {
-        //     required: true,
-        // },
-        // english_language_test: {
-        //     required: true,
-        // },
-        // language_level_french: {
-        //     required: true,
-        // },
-        // french_language_test: {
-        //     required: true,
-        // },
-        // resume: {
-        //     required: true,
-        // },
-        // main_industry: {
-        //     required: true,
-        // },
-        // work_exp_outside_can: {
-        //     required: true,
-        // },
-        // work_exp_inside_can: {
-        //     required: true,
-        // },
-        // entitled_to_work: {
-        //     required: true,
-        // },
-        // manage_business: {
-        //     required: true,
-        // },
-        // temporary_foreign_worker: {
-        //     required: true,
-        // },
-        certificate_of_qualification: {
-            required: true,
-        },
-        // job_offer: {
-        //     required: true,
-        // },
-        family_relations_in_canada: {
-            required: true,
-        },
-        refused_or_cancelled_visa: {
-            required: true,
-        },
-        // refused_admission: {
-        //     required: true,
-        // },
-        // partner_been_to_canada: {
-        //     required: true,
-        // },
-        // overstayed_in_any_country: {
-        //     required: true,
-        // },
-        // partner_previously_applied_for_visa: {
-        //     required: true,
-        // },
-        // partner_previously_submitted_an_application: {
-        //     required: true,
-        // },
-        criminal_record: {
-            required: true,
-        },
-        // arrested: {
-        //     required: true,
-        // },
-        detained: {
-            required: true,
-        },
-        // nomination_certificate: {
-        //     required: true,
-        // },
-        // receive_communications: {
-        //     required: true,
-        // },
-        // consent_data: {
-        //     required: true,
-        // },
+        highest_education_inside_can: "Select your highest education level.",
+        certificate_of_qualification: "Please select if you hold a Canadian education.",
+        country_of_studies: "Please select if you have a valid language test result.",
+        language_test: "Please select a language test.",
+        speaking: "This field is required to fill out all language scores.",
+        reading: "This field is required to fill out all language scores.",
+        listening: "This field is required to fill out all language scores.",
+        writing: "This field is required to fill out all language scores.",
+        refused_or_cancelled_visa: "Please indicate if you had a visa refusal.",
+        criminal_record: "Please indicate if you have any criminal records.",
+        family_relations_in_canada: "Please indicate if you have family in Canada.",
+        hear_about_canada: "Please select how you heard about us.",
+        detained: "Additional information is required."
     },
     errorElement: 'span',
+    errorPlacement: function (error, element) {
+        if (element.is(':radio') || element.is(':checkbox')) {
+            error.appendTo(element.closest('.check-box-wrpr'));
+        } else if (element.attr("name") === "speaking" || 
+                   element.attr("name") === "reading" || 
+                   element.attr("name") === "listening" || 
+                   element.attr("name") === "writing") {
+            error.insertAfter("#language-scores");
+        } else {
+            error.insertAfter(element);
+        }
+    },
     submitHandler: function (form, event) {
-        //
+        event.preventDefault();
         var formData = new FormData($(form)[0]);
-        $('.error').html('');
         var submitButton = $(form).find('[type=submit]');
         var current_btn_text = submitButton.html();
-        button_loading_text = 'Submitting...';
+        var button_loading_text = 'Submitting...';
 
-
-        // Create
         $.ajax({
             type: "POST",
             url: $('#base-route').val() + '/submit-eligibility-form',
             contentType: false,
             processData: false,
             data: formData,
-            cache: false,
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             beforeSend: function () {
                 submitButton.html(`
                     <span class="spinner-border spinner-border-sm"></span>
-                    `+ button_loading_text + `
+                    ${button_loading_text}
                 `).attr('disabled', true);
             },
             success: function (response) {
                 if (response.status) {
-                    showMessage('success', response.message);
-                    $('#eligibility-form').trigger('reset');
+                    alert('Success: ' + response.message);
+                    $(form).trigger('reset');
                 } else {
-                    showMessage('warning', response.message);
+                    alert('Warning: ' + response.message);
                 }
             },
-
             error: function (response) {
                 submitButton.html(current_btn_text).attr('disabled', false);
-                if (response.responseJSON.errors) {
-                    $.each(response.responseJSON.errors, function (i, v) {
-                        element = $(form).find('[name=' + i + ']');
-                        element.addClass('is-invalid');
-                        if ($(form).find('#' + i + '-error').length) {
-                            $(form).find('#' + i + '-error').html(v).show();
+                if (response.responseJSON && response.responseJSON.errors) {
+                    $.each(response.responseJSON.errors, function (name, message) {
+                        var field = $(form).find(`[name="${name}"]`);
+                        var errorHtml = `<span class="error invalid-feedback">${message}</span>`;
+                        if (field.is(':radio') || field.is(':checkbox')) {
+                            field.closest('.check-box-wrpr').append(errorHtml);
                         } else {
-                            element.closest('.form-group').
-                                append(`<span id="` + i + `-error" class="error invalid-feedback">` + v + `</span>`);
-                            $('.error').show();
+                            field.after(errorHtml);
                         }
-                        element.attr('aria-invalid', true);
-                        element.attr("area-describedby", i + "-error");
-                        element.focus();
+                        field.addClass('is-invalid');
                     });
-                }
-                else {
-                    showMessage('warning', 'Something went wrong...');
+                } else {
+                    alert('Error: Something went wrong.');
                 }
             },
             complete: function () {
                 submitButton.html(current_btn_text).attr('disabled', false);
             }
         });
-        event.preventDefault();
     },
-    highlight: function (element, errorClass, validClass) {
+    highlight: function (element) {
         $(element).addClass('is-invalid');
     },
-    unhighlight: function (element, errorClass, validClass) {
+    unhighlight: function (element) {
         $(element).removeClass('is-invalid');
     }
 });
+
+
+

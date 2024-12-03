@@ -211,7 +211,7 @@
 
                     </div>
 
-                    <div class="lg:grid grid-cols-3 gap-x-14">
+                    <div class="lg:grid grid-cols-3 items-baseline gap-x-14">
                         <div>
                             <label>Have you held a Canadian Education<span>*</span></label>
                             <div class="check-box-wrpr !mt-0">
