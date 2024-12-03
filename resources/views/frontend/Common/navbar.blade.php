@@ -66,7 +66,7 @@
                 <img id="closeicon" class="hidden w-[50px] z-50 relative" style="scale: 0.6;" src="{{ asset('assets/close.png') }}" alt="">
             </button>
 
-            <div webmenu class="capitalize hidden lg:flex gap-7">
+            <div class="capitalize hidden lg:flex gap-7">
                 <ul class="flex items-center gap-7 text-base font_inter font-light">
                     <li class="nav-item"><a class="nav-link" href="{{ url('about-us') }}">About</a></li>
                     <li class="nav-item relative flex flex-col items-center">
