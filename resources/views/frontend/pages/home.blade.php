@@ -229,7 +229,7 @@
             transition: all 0.5s;
         }
         .roundring-anim:hover .round-comimg{
-            height: 954px;
+            height: 1028px;
             width: 960px;
             transform: translate(-353px, -289px);
         }
@@ -571,7 +571,7 @@
                         <ul class="splide__list">
                             @foreach ($serviceCategory as $data)
                             <li class="splide__slide">
-                                <div class="w-full h-[400px] lg:h-[445px]  2xl:h-[460px] bgk-grade rounded-[26px] py-4 2xl:py-6 text-white shadow-lg relative font-sans overflow-hidden roundring-anim">
+                                <div class="w-full h-[400px] lg:h-[550px]  2xl:h-[550px] bgk-grade rounded-[26px] py-4 2xl:py-6 text-white shadow-lg relative font-sans overflow-hidden roundring-anim">
                                     <div class="px-3 2xl:px-6">
                                         <div class="flex justify-between items-center" data-animate>
                                             <div class="relative z-10">
