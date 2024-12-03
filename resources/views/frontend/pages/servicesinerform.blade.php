@@ -154,7 +154,7 @@
                             <input type="text" id="last-name" name="last_name">
                         </div>
 
-                        <div class="flex flex-col lg:w-1/2">
+                        <div class="flex flex-col w-full lg:w-1/2">
                             <label for="dob">Date of Birth<span>*</span></label>
                             <input type="date" id="dob" name="dob" placeholder="MM/DD/YYYY">
                         </div>

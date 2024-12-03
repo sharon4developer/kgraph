@@ -540,7 +540,7 @@
 
     <div class="bg-[#051b3b]">
         {{--our services --}}
-        <div class="ourservices rounded-b-[153px] relative py-14 lg:py-0">
+        <div class="ourservices rounded-b-[35px] lg:rounded-b-[153px] relative pt-14 pb-6 lg:py-0">
             <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full relative z-10">
                 <div class="rounded-lg bgk-grade overflow-hidden mb-10  relative">
                     <div class="py-8 px-8 relative z-10">
@@ -571,7 +571,7 @@
                         <ul class="splide__list">
                             @foreach ($serviceCategory as $data)
                             <li class="splide__slide">
-                                <div class="w-full h-[400px] lg:h-[550px]  2xl:h-[550px] bgk-grade rounded-[26px] py-4 2xl:py-6 text-white shadow-lg relative font-sans overflow-hidden roundring-anim">
+                                <div class="w-full h-[491px] lg:h-[550px]  2xl:h-[550px] bgk-grade rounded-[26px] py-4 2xl:py-6 text-white shadow-lg relative font-sans overflow-hidden roundring-anim">
                                     <div class="px-3 2xl:px-6">
                                         <div class="flex justify-between items-center" data-animate>
                                             <div class="relative z-10">
@@ -642,7 +642,7 @@
                 </div>
             </div>
 
-            <div class="flex justify-center mx-5 lg:mx-0 py-6 relative z-10 pb-20">
+            <div class="flex justify-center mx-5 lg:mx-0 py-6 relative z-10 lg:pb-20">
                 <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[4.5px] pl-5 pr-1 overflow-hidden group">
                     <!-- Initially the background will cover the full button -->
                     <div
@@ -656,12 +656,12 @@
                 </div>
             </div>
 
-            <div class="absolute bottom-0 bg-under-ourse rounded-b-[153px]">
+            <div class="absolute bottom-0 bg-under-ourse rounded-b-[35px] lg:rounded-b-[153px]">
                 <img src="{{ asset('assets/home_Banner/imgage-vect-line.png') }}" alt="" class="">
             </div>
         </div>
         {{-- what makes us diff --}}
-        <div class="what-makes relative">
+        <div class="what-makes relative mt-20 lg:mt-0">
             <div class="gradient-evitionstart absolute top-0">
                 <img src="{{ asset('assets/home_Banner/sec-vectline.png') }}" alt="" class="">
             </div>
