@@ -160,7 +160,7 @@
                         </div>
                     </div>
 
-                    <div class="flex flex-col lg:w-1/4">
+                    <div class="flex flex-col lg:w-[24%]">
                         <label for="marital-status">Marital Status<span>*</span></label>
                         <select id="marital-status" name="marital_status" class="border rounded px-2 py-1">
                             <option value="" disabled selected>Select your marital status</option>

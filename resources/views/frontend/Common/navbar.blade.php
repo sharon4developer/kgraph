@@ -23,7 +23,7 @@
         </div>
     </header> --}}
 
-    <nav id="imHeader" class="text-white bg-gradient-to-b from-black to-transparent md:fixed top-0 !z-50 w-full overflow-hidden">
+    <nav id="imHeader" class="text-white bg-gradient-to-b from-black to-transparent md:fixed top-0 !z-50 w-full">
         <div class="flex items-center justify-between container mx-auto px-5 xl:px-12 py-4 lg:py-5">
             <a href="{{ url('/') }}"  class="flex items-center gap-[4px] z-10 cursor-pointer">
                 <img class="w-[1.80rem] logo_image lg:w-[2.5rem] xl:w-[3.5rem]" src="{{asset('assets/KgraphLogo.png')}}" alt="K-graph logo">
@@ -66,10 +66,17 @@
                 <img id="closeicon" class="hidden w-[50px] z-50 relative" style="scale: 0.6;" src="{{ asset('assets/close.png') }}" alt="">
             </button>
 
-            <div class="capitalize hidden lg:flex gap-7">
+            <div webmenu class="capitalize hidden lg:flex gap-7">
                 <ul class="flex items-center gap-7 text-base font_inter font-light">
                     <li class="nav-item"><a class="nav-link" href="{{ url('about-us') }}">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('services') }}">Services</a></li>
+                    <li class="nav-item relative flex flex-col items-center">
+                        <a class="nav-link" href="{{ url('services') }}">Services</a>
+                        <ul class="bg-white h-0 overflow-hidden w-36 absolute top-[28px] z-50 pl-3 pr-8 py-3 rounded-lg flex-col transition-[height] duration-300 opacity-0">
+                            <li class="nav-item"><a class="nav-link !text-blue-700" href="{{ url('packages') }}">Packages</a></li>
+                            <li class="nav-item"><a class="nav-link !text-blue-700" href="{{ url('careers') }}">Careers</a></li>
+                            <li class="nav-item"><a class="nav-link !text-blue-700" href="{{ url('blogs') }}">Blogs</a></li>
+                        </ul>                        
+                    </li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('packages') }}">Packages</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('careers') }}">Careers</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('blogs') }}">Blogs</a></li>
@@ -82,9 +89,65 @@
         <div class="hidden lg:flex justify-center opacity-20">
             <div class="bg-white line-animation mx-8 w-[98%] h-[0.5px]"></div>
         </div>
-
     </nav>
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Select the parent <li> element for the dropdown
+    const dropdownParent = document.querySelector('.nav-item.relative');
+    const dropdownMenu = dropdownParent.querySelector('ul');
+
+    // Function to show the dropdown with height animation
+    const showDropdown = () => {
+        dropdownMenu.style.height = `${dropdownMenu.scrollHeight}px`; // Set height to content's full height
+        dropdownMenu.classList.add('opacity-100'); // Ensure the dropdown is visible
+        dropdownMenu.style.overflow = 'visible'; // Allow content to be visible
+    };
+
+    // Function to hide the dropdown with height animation
+    const hideDropdown = () => {
+        dropdownMenu.style.height = '0'; // Collapse height to 0
+        dropdownMenu.classList.remove('opacity-100'); // Hide the dropdown
+        dropdownMenu.style.overflow = 'hidden'; // Prevent overflow content from showing
+    };
+
+    // Reset height after animation ends to allow re-calculation
+    dropdownMenu.addEventListener('transitionend', () => {
+        if (dropdownMenu.style.height === '0px') {
+            dropdownMenu.classList.add('hidden'); // Fully hide the dropdown when collapsed
+        } else {
+            dropdownMenu.classList.remove('hidden'); // Ensure dropdown remains visible
+            dropdownMenu.style.height = 'auto'; // Reset height to auto after expansion
+        }
+    });
+
+    // Show dropdown on mouseenter of parent
+    dropdownParent.addEventListener('mouseenter', () => {
+        dropdownMenu.classList.remove('hidden'); // Ensure it starts visible
+        showDropdown();
+    });
+
+    // Hide dropdown when mouse leaves parent and dropdown
+    dropdownParent.addEventListener('mouseleave', (event) => {
+        if (!dropdownMenu.contains(event.relatedTarget)) {
+            hideDropdown();
+        }
+    });
+
+    // Keep the dropdown visible when mouse enters it
+    dropdownMenu.addEventListener('mouseenter', showDropdown);
+
+    // Hide dropdown when mouse leaves it
+    dropdownMenu.addEventListener('mouseleave', (event) => {
+        if (!dropdownParent.contains(event.relatedTarget)) {
+            hideDropdown();
+        }
+    });
+});
+
+
+</script>
 
 <script>
 
