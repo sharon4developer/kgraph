@@ -162,9 +162,18 @@
 
                     <div class="flex flex-col lg:w-1/4">
                         <label for="marital-status">Marital Status<span>*</span></label>
-                        <input type="text" id="marital-status" name="marital_status">
+                        <select id="marital-status" name="marital_status" class="border rounded px-2 py-1">
+                            <option value="" disabled selected>Select your marital status</option>
+                            <option value="never-married-single">Never Married / Single</option>
+                            <option value="married">Married</option>
+                            <option value="common-law">Common-Law</option>
+                            <option value="divorced-separated">Divorced / Separated</option>
+                            <option value="legally-separated">Legally Separated</option>
+                            <option value="widowed">Widowed</option>
+                        </select>
                     </div>
-
+                    
+                    
                     <div class="lg:grid grid-cols-2 gap-x-14 py-10">
                         <div class="flex flex-col">
                             <label for="email">Email<span>*</span></label>
@@ -187,8 +196,18 @@
 
                         <div class="flex flex-col lg:w-1/2">
                             <label for="highest-education-inside">Highest Level of Education<span>*</span></label>
-                            <input type="text" id="highest-education-inside" name="highest_education_inside_can">
+                            <select id="highest-education-inside" name="highest_education_inside_can" class="border rounded px-2 py-1">
+                                <option value="" disabled selected>Select your highest level of education</option>
+                                <option value="none-high-school">None, or high school</option>
+                                <option value="secondary-diploma">Secondary diploma</option>
+                                <option value="diploma">Diploma</option>
+                                <option value="bachelor-degree">Bachelor's degree</option>
+                                <option value="two-or-more-certificates">Two or more certificates, diplomas or degrees</option>
+                                <option value="masters-professional-degree">Master's degree, or professional degree</option>
+                                <option value="phd">Doctoral level university degree (PhD)</option>
+                            </select>
                         </div>
+                        
 
                     </div>
 
@@ -208,15 +227,42 @@
                         </div>
 
                         <div>
-                            <label>Do you have a valid Language Skills Test Result</label>
-                            <div class="check-box-wrpr !mt-0">
-                                <div>
-                                    <input type="radio" id="qualification-yes" name="country_of_studies" value="Yes">
-                                    <label for="qualification-yes">Yes</label>
+                            <div>
+                                <label>Do you have a valid Language Skills Test Result</label>
+                                <div id="language-skills" class="check-box-wrpr !mt-0">
+                                    <div>
+                                        <input type="radio" id="qualification-yes" name="language_skills" value="Yes">
+                                        <label for="qualification-yes">Yes</label>
+                                    </div>
+                                    <div>
+                                        <input type="radio" id="qualification-no" name="language_skills" value="No">
+                                        <label for="qualification-no">No</label>
+                                    </div>
                                 </div>
-                                <div>
-                                    <input type="radio" id="qualification-no" name="country_of_studies" value="No">
-                                    <label for="qualification-no">No</label>
+                            </div>
+
+                            <div>
+                                <div id="language-test" class="hidden flex-col w-full">
+                                    <label for="which-lang">Which language test did you take?<span>*</span></label>
+                                    <select id="which-lang" name="which_lang" class="border rounded px-2 py-1">
+                                        <option value="" disabled selected>Select</option>
+                                        <option value="celpip-g">CELPIP-G</option>
+                                        <option value="ielts">IELTS</option>
+                                        <option value="pte-core">PTE Core</option>
+                                        <option value="tef-canada">TEF Canada</option>
+                                        <option value="tcf-canada">TCF Canada</option>
+                                    </select>
+                                </div>
+                                
+                        
+                                <div id="language-scores" class="hidden flex-col">
+                                    <label for="scores">If selected any of the above, show the below text boxes<span>*</span></label>
+                                    <div class="grid grid-cols-2 gap-4">
+                                        <input type="number" id="speaking" name="speaking" class="w-full" placeholder="Speaking">
+                                        <input type="number" id="reading" name="reading" class="w-full" placeholder="Reading">
+                                        <input type="number" id="listening" name="listening" class="w-full" placeholder="Listening">
+                                        <input type="number" id="writing" name="writing" class="w-full" placeholder="Writing">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -236,15 +282,27 @@
                         </div>
                     </div>
 
-                    <div class="lg:grid grid-cols-3 gap-[200px]">
+                    <div class="lg:grid grid-cols-3 gap-[53px]">
                         <div class="flex flex-col w-full">
-                            <label for="state">State/Province<span>*</span></label>
-                            <input type="text" id="state" name="state">
+                            <label for="state">Canadian Experience<span>*</span></label>
+                            <select id="state" name="state" class="border rounded px-2 py-1">
+                                <option value="" disabled selected>Select your Canadian Experience</option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
                         </div>
-
+                        
                         <div class="flex flex-col w-full">
-                            <label for="zip">Zip/Postal Code</label>
-                            <input type="text" id="zip" name="zip">
+                            <label for="zip">Foreign Experience<span>*</span></label>
+                            <select id="zip" name="zip" class="border rounded px-2 py-1">
+                                <option value="" disabled selected>Select your Foreign Experience</option>
+                                <option value="0">0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
                         </div>
                     </div>
 
@@ -281,9 +339,17 @@
 
                     <div class="py-10">
                         <div class="flex flex-col lg:w-1/4">
-                            <label for="birth-country">How Did you Hear about Us<span>*</span></label>
-                            <input type="text" id="birth-country" name="hear_about_canada">
+                            <label for="hear-about-us">How Did You Hear About Us<span>*</span></label>
+                            <select id="hear-about-us" name="hear_about_us" class="border rounded px-2 py-1">
+                                <option value="" disabled selected>Select an option</option>
+                                <option value="social-media">Social Media</option>
+                                <option value="google-search">Google Search</option>
+                                <option value="friend-family">Friend/Family</option>
+                                <option value="advertisement">Advertisement</option>
+                                <option value="other">Other</option>
+                            </select>
                         </div>
+                        
                     </div>
 
                     <div class="py-10">
@@ -316,4 +382,39 @@
             this.type = 'date';
         });
     </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const languageSkillsRadios = document.getElementsByName('language_skills');
+        const languageTestDiv = document.getElementById('language-test');
+        const languageScoresDiv = document.getElementById('language-scores');
+        const languageTestSelect = document.getElementById('which-lang');
+
+        // Toggle language-test based on radio selection
+        languageSkillsRadios.forEach(radio => {
+            radio.addEventListener('change', () => {
+                if (radio.value === 'Yes') {
+                    languageTestDiv.classList.remove('hidden');
+                    languageTestDiv.classList.add('flex');
+                } else {
+                    languageTestDiv.classList.add('hidden');
+                    languageTestDiv.classList.remove('flex');
+                    languageScoresDiv.classList.add('hidden');
+                    languageScoresDiv.classList.remove('flex');
+                }
+            });
+        });
+
+        // Show language-scores when an option is selected in the language-test dropdown
+        languageTestSelect.addEventListener('change', () => {
+            if (languageTestSelect.value) {
+                languageScoresDiv.classList.remove('hidden');
+                languageScoresDiv.classList.add('flex');
+            } else {
+                languageScoresDiv.classList.add('hidden');
+                languageScoresDiv.classList.remove('flex');
+            }
+        });
+    });
+</script>
 @endsection
