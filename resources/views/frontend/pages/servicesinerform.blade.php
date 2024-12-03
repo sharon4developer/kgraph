@@ -172,8 +172,8 @@
                             <option value="widowed">Widowed</option>
                         </select>
                     </div>
-                    
-                    
+
+
                     <div class="lg:grid grid-cols-2 gap-x-14 py-10">
                         <div class="flex flex-col">
                             <label for="email">Email<span>*</span></label>
@@ -185,12 +185,12 @@
                         </div>
 
                         <div class="flex flex-col w-full">
-                            <label for="street-address-1">Street Address<span>*</span></label>
+                            <label for="street-address-1">Address<span>*</span></label>
                             <input type="text" id="street-address-1" name="street_address">
                         </div>
 
                         <div class="flex flex-col">
-                            <label for="city">City<span>*</span></label>
+                            <label for="city">Citizenship<span>*</span></label>
                             <input type="text" id="city" name="city">
                         </div>
 
@@ -207,7 +207,7 @@
                                 <option value="phd">Doctoral level university degree (PhD)</option>
                             </select>
                         </div>
-                        
+
 
                     </div>
 
@@ -231,11 +231,11 @@
                                 <label>Do you have a valid Language Skills Test Result</label>
                                 <div id="language-skills" class="check-box-wrpr !mt-0">
                                     <div>
-                                        <input type="radio" id="qualification-yes" name="language_skills" value="Yes">
+                                        <input type="radio" id="qualification-yes" name="country_of_studies" value="Yes">
                                         <label for="qualification-yes">Yes</label>
                                     </div>
                                     <div>
-                                        <input type="radio" id="qualification-no" name="language_skills" value="No">
+                                        <input type="radio" id="qualification-no" name="country_of_studies" value="No">
                                         <label for="qualification-no">No</label>
                                     </div>
                                 </div>
@@ -244,7 +244,7 @@
                             <div>
                                 <div id="language-test" class="hidden flex-col w-full">
                                     <label for="which-lang">Which language test did you take?<span>*</span></label>
-                                    <select id="which-lang" name="which_lang" class="border rounded px-2 py-1">
+                                    <select id="which-lang" name="language_test" class="border rounded px-2 py-1">
                                         <option value="" disabled selected>Select</option>
                                         <option value="celpip-g">CELPIP-G</option>
                                         <option value="ielts">IELTS</option>
@@ -253,8 +253,8 @@
                                         <option value="tcf-canada">TCF Canada</option>
                                     </select>
                                 </div>
-                                
-                        
+
+
                                 <div id="language-scores" class="hidden flex-col">
                                     <label for="scores">If selected any of the above, show the below text boxes<span>*</span></label>
                                     <div class="grid grid-cols-2 gap-4">
@@ -287,21 +287,21 @@
                             <label for="state">Canadian Experience<span>*</span></label>
                             <select id="state" name="state" class="border rounded px-2 py-1">
                                 <option value="" disabled selected>Select your Canadian Experience</option>
-                                <option value="0">0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
+                                <option value="0 year">0 year</option>
+                                <option value="1 year">1 year</option>
+                                <option value="2 years">2 years</option>
+                                <option value="3 years">3 years</option>
                             </select>
                         </div>
-                        
+
                         <div class="flex flex-col w-full">
                             <label for="zip">Foreign Experience<span>*</span></label>
                             <select id="zip" name="zip" class="border rounded px-2 py-1">
                                 <option value="" disabled selected>Select your Foreign Experience</option>
-                                <option value="0">0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
+                                <option value="0 year">0 year</option>
+                                <option value="1 year">1 year</option>
+                                <option value="2 years">2 years</option>
+                                <option value="3 years">3 years</option>
                             </select>
                         </div>
                     </div>
@@ -340,7 +340,7 @@
                     <div class="py-10">
                         <div class="flex flex-col lg:w-1/4">
                             <label for="hear-about-us">How Did You Hear About Us<span>*</span></label>
-                            <select id="hear-about-us" name="hear_about_us" class="border rounded px-2 py-1">
+                            <select id="hear-about-us" name="hear_about_canada" class="border rounded px-2 py-1">
                                 <option value="" disabled selected>Select an option</option>
                                 <option value="social-media">Social Media</option>
                                 <option value="google-search">Google Search</option>
@@ -349,7 +349,7 @@
                                 <option value="other">Other</option>
                             </select>
                         </div>
-                        
+
                     </div>
 
                     <div class="py-10">
@@ -385,7 +385,7 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        const languageSkillsRadios = document.getElementsByName('language_skills');
+        const languageSkillsRadios = document.getElementsByName('country_of_studies');
         const languageTestDiv = document.getElementById('language-test');
         const languageScoresDiv = document.getElementById('language-scores');
         const languageTestSelect = document.getElementById('which-lang');

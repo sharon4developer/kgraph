@@ -349,6 +349,31 @@ $('#eligibility-form').validate({
         zip: {
             required: true,
         },
+        language_test: {
+            required: function () {
+                return $('input[name="country_of_studies"]:checked').val() === 'Yes';
+            },
+        },
+        speaking: {
+            required: function () {
+                return $('input[name="country_of_studies"]:checked').val() === 'Yes';
+            },
+        },
+        reading: {
+            required: function () {
+                return $('input[name="country_of_studies"]:checked').val() === 'Yes';
+            },
+        },
+        listening: {
+            required: function () {
+                return $('input[name="country_of_studies"]:checked').val() === 'Yes';
+            },
+        },
+        writing: {
+            required: function () {
+                return $('input[name="country_of_studies"]:checked').val() === 'Yes';
+            },
+        },
         // country_live: {
         //     required: true,
         // },
