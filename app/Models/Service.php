@@ -14,7 +14,7 @@ class Service extends Model
 
     protected $table = 'services';
 
-    protected $fillable = ['title', 'sub_title', 'image', 'intervention_image', 'status','order','alt_tag','slug','service_category_id','inner_title'];
+    protected $fillable = ['title', 'sub_title', 'image', 'intervention_image', 'status','order','alt_tag','slug','service_category_id','inner_title','banner_image','banner_image_alt_tag'];
 
     public function ServicePoint(){
         return  $this->hasMany(ServicePoint::class);
@@ -70,11 +70,15 @@ class Service extends Model
         $value->service_category_id           =  $data->service_category_id;
         $slug = Str::slug($data->title);
         $value->slug = $slug;
+        $value->banner_image_alt_tag           =  $data->banner_image_alt_tag;
         if ($data->image) {
             $value->image = Cms::storeImage($data->image, $data->title);
             $intervention_image = $value->image;
             // $intervention_image = Cms::makeInterventionImage($data->image);
             $value->intervention_image = $intervention_image;
+        };
+        if ($data->banner_image) {
+            $value->banner_image = Cms::storeImage($data->banner_image, $data->title);
         };
         $value->status       = 1;
         return $value->save();
@@ -95,11 +99,15 @@ class Service extends Model
         $value->service_category_id           =  $data->service_category_id;
         $slug = Str::slug($data->title);
         $value->slug = $slug;
+        $value->banner_image_alt_tag           =  $data->banner_image_alt_tag;
         if ($data->image) {
             $value->image = Cms::storeImage($data->image, $data->title);
             $intervention_image = $value->image;
             // $intervention_image = Cms::makeInterventionImage($data->image);
             $value->intervention_image = $intervention_image;
+        };
+        if ($data->banner_image) {
+            $value->banner_image = Cms::storeImage($data->banner_image, $data->title);
         };
         return $value->save();
     }
@@ -140,7 +148,7 @@ class Service extends Model
     }
 
     public static function getFullDataForHome(){
-        return SELF::with(['ServicePoint','ServiceFaq'])->select('image','id','title','sub_title','alt_tag','slug','inner_title')->orderBy('order','asc')->where('status',1)->get();
+        return SELF::with(['ServicePoint','ServiceFaq'])->select('image','id','title','sub_title','alt_tag','slug','inner_title','banner_image')->orderBy('order','asc')->where('status',1)->get();
     }
 
     public static function updateOrder($data)
