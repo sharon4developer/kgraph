@@ -70,10 +70,10 @@ function showData(data) {
         first_name: "First Name",
         last_name: "Last Name",
         email: "Email",
-        street_address: "Street Address",
-        city: "City",
-        state: "State/Province",
-        zip: "Zip/Postal Code",
+        street_address: "Address",
+        city: "Citizenship",
+        state: "Canadian Experience",
+        zip: "Foreign Experience",
         // country_live: "Country where you currently live",
         // country_born: "Country where you were born",
         mobile: "Mobile Number",
@@ -111,10 +111,17 @@ function showData(data) {
         criminal_record: "Do you have any criminal record(s) in your home country or any other country",
         // arrested: "Have you ever committed, been arrested for or been charged with or convicted of any CRIMINAL OFFENCE in any country or territory?",
         detained: "Any Additional Information?",
+        language_test: "Which language test did you take?",
+        speaking: "Speaking",
+        reading: "Reading",
+        listening: "Listening",
+        writing: "Writing",
         // nomination_certificate: "Do you have a nomination certificate from a Canadian Province (except Quebec)?"
     };
 
     let htmlContent = '<table class="table table-bordered">';
+
+    const isCountryOfStudiesYes = data.data.country_of_studies === 'Yes';
 
     Object.entries(data.data).forEach(([key, value]) => {
         if (headers[key]) { // Only include keys present in headers
@@ -137,12 +144,25 @@ function showData(data) {
                 displayValue = value === 'on' ? 'Yes' : (value ? value : 'N/A');
             }
 
-            htmlContent += `
-                <tr>
-                    <th style="width: 50%;font-size: 14px;font-weight: 900;vertical-align: middle;">${headers[key]}</th>
-                    <td>${displayValue}</td>
-                </tr>
-            `;
+            if (key === 'language_test' || key === 'speaking' || key === 'reading' || key === 'listening' || key === 'writing') {
+                if (isCountryOfStudiesYes) {
+                    // If country_of_studies is "Yes", show language fields
+                    htmlContent += `
+                        <tr>
+                            <th style="width: 50%;font-size: 14px;font-weight: 900;vertical-align: middle;">${headers[key]}</th>
+                            <td>${displayValue}</td>
+                        </tr>
+                    `;
+                }
+            } else {
+
+                htmlContent += `
+                    <tr>
+                        <th style="width: 50%;font-size: 14px;font-weight: 900;vertical-align: middle;">${headers[key]}</th>
+                        <td>${displayValue}</td>
+                    </tr>
+                `;
+            }
         }
     });
 

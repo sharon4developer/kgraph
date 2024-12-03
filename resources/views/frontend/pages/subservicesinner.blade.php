@@ -196,7 +196,7 @@
     {{-- services banner --}}
     <div class="relative servicesIIner-banner h-full">
         <!-- Background Image -->
-        <img src="{{ asset('assets/servicesinner.jpg') }}" alt="Background Image"
+        <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $services->banner_image }}" alt="Background Image"
             class="absolute inset-0 w-full h-full object-cover z-0">
 
         <div class="services-banner-overlay relative z-10 bg-black bg-opacity-50 h-full">

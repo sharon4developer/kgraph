@@ -83,10 +83,40 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label class="form-label" for="title">Banner Alt Tag</label>
+                                        <input type="text" class="form-control" id="banner_image_alt_tag" name="banner_image_alt_tag"
+                                            placeholder="Banner Alt Tag" required value="{{ $data->banner_image_alt_tag }}">
+                                        <div class="valid-feedback">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label class="form-label" for="sub_title">Banner Image</label>
+                                        <input type="file" accept=".png, .jpg, .jpeg,.webp" class="form-control"
+                                            id="banner_image" name="banner_image">
+                                        <div class="valid-feedback">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Previous Image</label>
                                     <div class="avatar-preview">
                                         <img class="previous-image" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="profile-image" onerror="this.src='{{ $locationData['storage_server_path'].$locationData['admin_assets_path'].'placeholder.png' }}';">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Previous Banner Image</label>
+                                    <div class="avatar-preview">
+                                        <img class="previous-image" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->banner_image }}" alt="profile-image" onerror="this.src='{{ $locationData['storage_server_path'].$locationData['admin_assets_path'].'placeholder.png' }}';">
                                     </div>
                                 </div>
                             </div>

@@ -22,7 +22,7 @@ class EligibilityCheck extends Model
         'certificate_of_qualification', 'job_offer', 'family_relations_in_canada', 'refused_or_cancelled_visa',
         'refused_admission', 'refused_admission_border', 'partner_been_to_canada', 'overstayed_in_any_country',
         'partner_previously_applied_for_visa', 'partner_previously_submitted_an_application', 'criminal_record',
-        'arrested', 'detained', 'nomination_certificate'
+        'arrested', 'detained', 'nomination_certificate','language_test','speaking','reading','listening','writing'
     ];
 
     // Method to get all eligibility check data
