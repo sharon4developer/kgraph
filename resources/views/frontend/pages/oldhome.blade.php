@@ -5,13 +5,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
-    <link rel="stylesheet" type="text/css"
-        href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    {{-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" /> --}}
+    {{-- <link rel="stylesheet" type="text/css" --}}
+        {{-- href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" /> --}}
 
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    {{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
+    {{-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script> --}}
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
 
@@ -887,7 +887,7 @@
     @include('frontend.Common.getintouch')
 
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
-    <script>
+    {{-- <script>
         document.querySelectorAll('.accordion-header').forEach(header => {
             header.addEventListener('click', function() {
                 const content = this.nextElementSibling;
@@ -941,7 +941,7 @@
                 threshold: 0.5
             });
 
-            observer.observe(sectionToObserve);
+            // observer.observe(sectionToObserve); 
         });
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -999,10 +999,10 @@
                 line.style.width = '5%';
             });
         });
-    </script>
+    </script> --}}
 
     {{-- gsap animtion --}}
-    <script>
+    {{-- <script>
         // Register GSAP ScrollTrigger plugin
         gsap.registerPlugin(ScrollTrigger);
 
@@ -1225,10 +1225,10 @@
             duration: 2,
             ease: "power2.out"
         });
-    </script>
+    </script> --}}
 
     {{-- slick slider --}}
-    <script type="text/javascript">
+    {{-- <script type="text/javascript">
         $(document).ready(function() {
             $('.slick-slider-background').slick({
                 autoplay: true,
@@ -1249,9 +1249,9 @@
                 adaptiveHeight: true,
             });
         });
-    </script>
+    </script> --}}
 
-    <script>
+    {{-- <script>
         document.addEventListener('DOMContentLoaded', function() {
             var splide = new Splide('#splide', {
                 type: 'loop',
@@ -1425,5 +1425,5 @@
                 console.log("Not enough slides to initialize the slider.");
             }
         });
-    </script>
+    </script> --}}
 @endsection

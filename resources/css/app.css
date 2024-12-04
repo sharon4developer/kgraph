@@ -681,13 +681,13 @@ video {
 
 .crew-card .address {
     padding: 25px 0px 25px 0px;
-    font-weight: 700; /* Bold */
+    font-weight: 700; 
     font-size: 0.625rem; /* Small size (10px) */
 }
 
 .crew-card .email-link {
     text-decoration: underline;
-    font-weight: 700; /* Bold */
+    font-weight: 700; 
     font-size: 0.625rem; /* Small size (10px) */
     text-underline-offset: 2px;
 }
@@ -695,7 +695,7 @@ video {
 .crew-card .read-bio-link {
     text-decoration: underline;
     text-underline-offset: 2px;
-    font-weight: 700; /* Bold */
+    font-weight: 700; 
     font-size: 0.625rem; /* Small size (10px) */
 }
 

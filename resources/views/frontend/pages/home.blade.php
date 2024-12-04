@@ -4,10 +4,12 @@
     {{-- Load GSAP --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/SplitText.min.js"></script>
 
+{{-- 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script> --}}
 
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -1191,13 +1193,19 @@
 
             requestAnimationFrame(count);
         }
+
         document.addEventListener('DOMContentLoaded', function() {
             const numberElement = document.getElementById('count-number');
             const sectionToObserve = document.querySelector('.Navigatesec');
 
+            if (!sectionToObserve) {
+                // console.error("Element with class 'Navigatesec' not found in the DOM.");
+                return;
+            }
+
             let hasCounted = false;
 
-            var counterVal = $('#exp-count').val();
+            const counterVal = $('#exp-count').val(); 
 
             const observer = new IntersectionObserver(function(entries) {
                 if (entries[0].isIntersecting && !hasCounted) {
@@ -1210,6 +1218,7 @@
 
             observer.observe(sectionToObserve);
         });
+
 
         document.addEventListener('DOMContentLoaded', function() {
             const videos = document.querySelectorAll('video');
@@ -1234,17 +1243,17 @@
                 });
 
                 // Manually toggle play/pause on button click
-                playPauseButton.addEventListener('click', function() {
-                    if (video.paused) {
-                        video.play();
-                        playPauseButton.querySelector('img').src =
-                            "{{ asset('assets/pause.png') }}"; // Update to pause icon
-                    } else {
-                        video.pause();
-                        playPauseButton.querySelector('img').src =
-                            "{{ asset('assets/play.png') }}"; // Update to play icon
-                    }
-                });
+                // playPauseButton.addEventListener('click', function() {
+                //     if (video.paused) {
+                //         video.play();
+                //         playPauseButton.querySelector('img').src =
+                //             "{{ asset('assets/pause.png') }}"; // Update to pause icon
+                //     } else {
+                //         video.pause();
+                //         playPauseButton.querySelector('img').src =
+                //             "{{ asset('assets/play.png') }}"; // Update to play icon
+                //     }
+                // });
 
                 // Reset to play button when video ends
                 video.addEventListener('ended', function() {
@@ -1637,63 +1646,61 @@
             });
         });
 
-
-
         document.addEventListener("DOMContentLoaded", () => {
-  const bannerText = document.querySelector(".banner_main-text");
+            const bannerText = document.querySelector(".banner_main-text");
 
-  // Initialize SplitText
-  const split = new SplitText(bannerText, {
-    type: "chars, words, lines", // Splits the text into characters, words, and lines
-  });
+        // Initialize SplitText
+        const split = new SplitText(bannerText, {
+            type: "chars, words, lines", // Splits the text into characters, words, and lines
+        });
 
-  // Create a GSAP timeline
-  const timeline = gsap.timeline({
-    scrollTrigger: {
-      trigger: ".homeBanner", // Trigger animation when homeBanner is in view
-      start: "top 80%", // Start animation when top of homeBanner is 80% from the top of the viewport
-      end: "top 50%", // End animation when top of homeBanner reaches 50% of viewport
-      toggleActions: "play none none reverse", // Replay animation on scroll up
-    },
-  });
+        // Create a GSAP timeline
+        const timeline = gsap.timeline({
+            scrollTrigger: {
+            trigger: ".homeBanner", // Trigger animation when homeBanner is in view
+            start: "top 80%", // Start animation when top of homeBanner is 80% from the top of the viewport
+            end: "top 50%", // End animation when top of homeBanner reaches 50% of viewport
+            toggleActions: "play none none reverse", // Replay animation on scroll up
+            },
+        });
 
-  // Add animations to the timeline
-  timeline
-    .fromTo(
-      split.chars, // Animate characters
-      {
-        opacity: 0,
-        y: 50,
-        scale: 0.8,
-        rotationX: -90,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        rotationX: 0,
-        duration: 0.6,
-        ease: "expo.out",
-        stagger: 0.05, // Stagger animation for each character
-      }
-    )
-    .to(
-      ".banner_main-text::after", // Target the ::after element
-      {
-        opacity: 1, // Fade in the ::after content
-        duration: 0.5,
-        ease: "power1.out",
-        onStart: () => {
-          // Add the "visible" state when animation starts
-          document.querySelector(".banner_main-text").classList.add("after-visible");
-        },
-      },
-      "+=0.3" // Add a small delay after the text animation
-    );
+        // Add animations to the timeline
+        timeline
+            .fromTo(
+            split.chars, // Animate characters
+            {
+                opacity: 0,
+                y: 50,
+                scale: 0.8,
+                rotationX: -90,
+            },
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                rotationX: 0,
+                duration: 0.6,
+                ease: "expo.out",
+                stagger: 0.05, // Stagger animation for each character
+            }
+            )
+            .to(
+            ".banner_main-text::after", // Target the ::after element
+            {
+                opacity: 1, // Fade in the ::after content
+                duration: 0.5,
+                ease: "power1.out",
+                onStart: () => {
+                // Add the "visible" state when animation starts
+                document.querySelector(".banner_main-text").classList.add("after-visible");
+                },
+            },
+            "+=0.3" // Add a small delay after the text animation
+            );
 
-  // Clean up SplitText when done (optional)
-  ScrollTrigger.addEventListener("refresh", () => split.revert());
-});
+        // Clean up SplitText when done (optional)
+        ScrollTrigger.addEventListener("refresh", () => split.revert());
+        });
 
 
         gsap.utils.toArray("[data-animate]").forEach((element) => {

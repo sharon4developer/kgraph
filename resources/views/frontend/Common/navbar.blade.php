@@ -10,7 +10,7 @@
     position: absolute;
     top: 100%;
     left: 0;
-    background: white;
+    background: black;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     display: none; /* Hidden by default */
     z-index: 1000;
@@ -123,23 +123,22 @@
                     <li class="nav-item"><a class="nav-link" href="{{ url('about-us') }}">About</a></li>
                     <li class="nav-item relative flex flex-col items-center">
                         <a class="nav-link Services-nav" href="{{ url('services') }}">Services</a>
-                        <ul class="bg-white hidden absolute top-full left-0 z-50 pl-3 pr-8 py-3 rounded-lg shadow-md flex-col transition-[height] duration-300 opacity-0">
+                        <ul class="bg-black hidden absolute top-full left-0 z-50 pl-3 pr-8 py-3 rounded-lg shadow-md flex-col transition-[height] duration-300 opacity-0">
                             <li class="nav-item relative">
-                                <a class="nav-link !text-blue-700 font-semibold" href="{{ url('temporary-residency') }}">Temporary Residency</a>
-                                <ul class="bg-white hidden absolute left-full top-0 z-50 pl-3 pr-8 py-3 rounded-lg shadow-md transition-[height] duration-300 opacity-0">
-                                    <li class="nav-item"><a class="nav-link !text-blue-700 font-semibold" href="{{ url('subitem1') }}">Express Entry</a></li>
+                                <a class="nav-link-under !text-blue-700 font-semibold" href="{{ url('temporary-residency') }}">Temporary Residency</a>
+                                <ul class="bg-black hidden absolute left-full top-0 z-50 pl-3 pr-8 py-3 rounded-lg shadow-md transition-[height] duration-300 opacity-0">
+                                    <li class="nav-item"><a class="nav-link-under !text-blue-700 font-semibold" href="{{ url('subitem1') }}">Express Entry</a></li>
                                     <li class="nav-item relative">
-                                        <a class="nav-link !text-blue-700 font-semibold" href="{{ url('subitem2') }}">PNP</a>
-                                        <!-- Sub-submenu for PNP -->
-                                        <ul class="bg-white hidden absolute left-full top-0 z-50 pl-3 pr-8 py-3 rounded-lg shadow-md transition-[height] duration-300 opacity-0">
-                                            <li class="nav-item"><a class="nav-link !text-blue-700 font-semibold" href="{{ url('subitem2-1') }}">Sub-Sub-Service 2.1</a></li>
+                                        <a class="nav-link-under !text-blue-700 font-semibold" href="{{ url('subitem2') }}">PNP</a>
+                                        <ul class="bg-black hidden absolute left-full top-0 z-50 pl-3 pr-8 py-3 rounded-lg shadow-md transition-[height] duration-300 opacity-0">
+                                            <li class="nav-item"><a class="nav-link-under !text-blue-700 font-semibold" href="{{ url('subitem2-1') }}">Sub-Sub-Service 2.1</a></li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="nav-item"><a class="nav-link !text-blue-700 font-semibold" href="{{ url('permanent-residency') }}">Permanent Residency</a></li>
-                            <li class="nav-item"><a class="nav-link !text-blue-700 font-semibold" href="{{ url('reconsideration') }}">Reconsideration</a></li>
-                            <li class="nav-item"><a class="nav-link !text-blue-700 font-semibold" href="{{ url('iad-appeals') }}">IAD Appeals</a></li>
+                            <li class="nav-item"><a class="nav-link-under !text-blue-700 font-semibold" href="{{ url('permanent-residency') }}">Permanent Residency</a></li>
+                            <li class="nav-item"><a class="nav-link-under !text-blue-700 font-semibold" href="{{ url('reconsideration') }}">Reconsideration</a></li>
+                            <li class="nav-item"><a class="nav-link-under !text-blue-700 font-semibold" href="{{ url('iad-appeals') }}">IAD Appeals</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('packages') }}">Packages</a></li>
