@@ -53,7 +53,7 @@
 <div class="b-backgroun-nav z-50 w-full">
     <?php
         use App\Models\ServiceCategory;
-        $serviceCategories = ServiceCategory::with(['Service:id,slug,title,service_category_id'])->select('image','id','title','alt_tag','slug','sub_title')->orderBy('order','asc')->where('status',1)->get();
+        $navbarServiceCategories = ServiceCategory::with(['Service:id,slug,title,service_category_id','Service.SubService:id,slug,title,service_id'])->select('image','id','title','alt_tag','slug','sub_title')->orderBy('order','asc')->where('status',1)->get();
     ?>
 
     {{-- <header id="immaintop" class="text-white hidden md:block bg-black md:fixed top-0 z-50 w-full" style="display: none !important;">
@@ -123,18 +123,30 @@
                     <li class="nav-item"><a class="nav-link" href="{{ url('about-us') }}">About</a></li>
                     <li class="nav-item relative flex flex-col items-center">
                         <a class="nav-link Services-nav" href="{{ url('services') }}">Services</a>
-                        <ul class="bg-black hidden absolute top-full left-0 z-50 pl-3 pr-8 py-3 rounded-lg shadow-md flex-col transition-[height] duration-300 opacity-0">
-                            <li class="nav-item relative">
-                                <a class="nav-link-under !text-blue-700 font-semibold" href="{{ url('temporary-residency') }}">Temporary Residency</a>
-                                <ul class="bg-black hidden absolute left-full top-0 z-50 pl-3 pr-8 py-3 rounded-lg shadow-md transition-[height] duration-300 opacity-0">
-                                    <li class="nav-item"><a class="nav-link-under !text-blue-700 font-semibold" href="{{ url('subitem1') }}">Express Entry</a></li>
-                                    <li class="nav-item relative">
-                                        <a class="nav-link-under !text-blue-700 font-semibold" href="{{ url('subitem2') }}">PNP</a>
-                                        <ul class="bg-black hidden absolute left-full top-0 z-50 pl-3 pr-8 py-3 rounded-lg shadow-md transition-[height] duration-300 opacity-0">
-                                            <li class="nav-item"><a class="nav-link-under !text-blue-700 font-semibold" href="{{ url('subitem2-1') }}">Sub-Sub-Service 2.1</a></li>
+                        <ul class="bg-white hidden absolute top-full left-0 z-50 pl-3 pr-8 py-3 rounded-lg shadow-md flex-col transition-[height] duration-300 opacity-0">
+
+                            @foreach ($navbarServiceCategories as $navbarServiceCategory)
+
+                            <li class="nav-item @if(count($navbarServiceCategory->Service)) relative @endif">
+                                <a class="nav-link !text-blue-700 font-semibold">{{$navbarServiceCategory->title}}</a>
+                                @if(count($navbarServiceCategory->Service))
+                                <ul class="bg-white hidden absolute left-full top-0 z-50 pl-3 pr-8 py-3 rounded-lg shadow-md transition-[height] duration-300 opacity-0">
+                                    @foreach ($navbarServiceCategory->Service as $innerServices)
+                                    <li class="nav-item  @if(count($innerServices->SubService)) relative @endif">
+                                        <a class="nav-link !text-blue-700 font-semibold" href="{{url('service-details/'.$innerServices->slug)}}">{{$innerServices->title}}</a>
+                                        <!-- Sub-submenu for PNP -->
+                                        @if(count($innerServices->SubService))
+                                        <ul class="bg-white hidden absolute left-full top-0 z-50 pl-3 pr-8 py-3 rounded-lg shadow-md transition-[height] duration-300 opacity-0">
+                                            @foreach ($innerServices->SubService as $innerSubServices)
+                                            <li class="nav-item"><a class="nav-link !text-blue-700 font-semibold" href="{{url('sub-service-details/'.$innerSubServices->slug)}}">{{$innerSubServices->title}}</a></li>
+                                            @endforeach
                                         </ul>
+                                        @endif
                                     </li>
+                                    @endforeach
+                                    {{-- <li class="nav-item"><a class="nav-link !text-blue-700 font-semibold" href="{{ url('subitem1') }}">Inner Service</a></li> --}}
                                 </ul>
+                                @endif
                             </li>
                             <li class="nav-item"><a class="nav-link-under !text-blue-700 font-semibold" href="{{ url('permanent-residency') }}">Permanent Residency</a></li>
                             <li class="nav-item"><a class="nav-link-under !text-blue-700 font-semibold" href="{{ url('reconsideration') }}">Reconsideration</a></li>
@@ -149,9 +161,9 @@
                     <a href="{{ url('contact-us') }}" class="h-full font-semibold">Contact Us</a>
                 </div>
             </div>
-            
-            
-            
+
+
+
         </div>
         <div class="hidden lg:flex justify-center opacity-20">
             <div class="bg-white line-animation mx-8 w-[98%] h-[0.5px]"></div>
