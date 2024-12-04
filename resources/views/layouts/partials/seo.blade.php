@@ -7,7 +7,7 @@
 <meta property="og:description" content="{{$seo->Seo->og_description ?? ''}}">
 <meta property="og:image" content="{{url($seo->Seo->og_image) ?? ''}}">
 <meta property="og:url" content="{{$seo->Seo->og_url ?? ''}}">
-<script>
+<script type="application/ld+json">
     {!! $seo->Seo->schema !!}
 </script>
 @else
