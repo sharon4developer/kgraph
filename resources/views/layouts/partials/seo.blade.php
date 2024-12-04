@@ -8,7 +8,7 @@
 <meta property="og:image" content="{{url($seo->Seo->og_image) ?? ''}}">
 <meta property="og:url" content="{{$seo->Seo->og_url ?? ''}}">
 <script>
-    {{$seo->Seo->schema}}
+    {!! $seo->Seo->schema !!}
 </script>
 @else
 <title>K-Graph</title>
