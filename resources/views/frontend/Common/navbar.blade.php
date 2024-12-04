@@ -5,65 +5,47 @@
 <link href="{{ asset('admin/backend/css/custom.css') }}" rel="stylesheet" type="text/css" />
 
 <style>
-.nav-item {
-    position: relative;
-}
-
-.nav-link {
-    display: block;
-    padding: 10px 15px;
-    text-decoration: none;
-    /* color: #333; */
-    font-size: 16px;
-    position: relative;
-}
-
-.nav-link:hover {
-    /* color: #ff7f00; */
-}
-
-/* Submenu styles */
-.nav-item ul {
-    display: none;
+/* Basic submenu styling */
+.nav ul {
     position: absolute;
     top: 100%;
     left: 0;
-    background: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-    z-index: 10;
+    background: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: none; /* Hidden by default */
+    z-index: 1000;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
 }
 
-.nav-item:hover > ul {
-    display: block;
+.nav ul li {
+    position: relative;
 }
 
-.nav-item ul ul {
+.nav ul li ul {
     top: 0;
     left: 100%;
+    display: none;
 }
 
-/* Icon styles */
+.nav-item.relative ul.opacity-100 {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Submenu icon styling */
 .submenu-icon {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 14px;
-    font-weight: bold;
-    /* color: #aaa; */
-    transition: color 0.3s ease;
-}
-.Services-nav .submenu-icon {
-    right: 0px;
-    transform: translateY(-50%) rotate(90deg);
-    font-size: 12px;
-    font-weight: normal;
+    margin-left: 5px;
+    font-size: 0.75rem;
+    color: #6b7280; /* Tailwind gray-500 */
 }
 
-.nav-item.relative:hover > a > .submenu-icon {
-    /* color: #ff7f00; */
+/* Show submenus on hover */
+.nav-item.relative:hover > ul {
+    display: flex;
+    flex-direction: column;
 }
+
 
 
 
@@ -146,7 +128,13 @@
                                 <a class="nav-link !text-blue-700 font-semibold" href="{{ url('temporary-residency') }}">Temporary Residency</a>
                                 <ul class="bg-white hidden absolute left-full top-0 z-50 pl-3 pr-8 py-3 rounded-lg shadow-md transition-[height] duration-300 opacity-0">
                                     <li class="nav-item"><a class="nav-link !text-blue-700 font-semibold" href="{{ url('subitem1') }}">Express Entry</a></li>
-                                    <li class="nav-item"><a class="nav-link !text-blue-700 font-semibold" href="{{ url('subitem2') }}">PNP</a></li>
+                                    <li class="nav-item relative">
+                                        <a class="nav-link !text-blue-700 font-semibold" href="{{ url('subitem2') }}">PNP</a>
+                                        <!-- Sub-submenu for PNP -->
+                                        <ul class="bg-white hidden absolute left-full top-0 z-50 pl-3 pr-8 py-3 rounded-lg shadow-md transition-[height] duration-300 opacity-0">
+                                            <li class="nav-item"><a class="nav-link !text-blue-700 font-semibold" href="{{ url('subitem2-1') }}">Sub-Sub-Service 2.1</a></li>
+                                        </ul>
+                                    </li>
                                 </ul>
                             </li>
                             <li class="nav-item"><a class="nav-link !text-blue-700 font-semibold" href="{{ url('permanent-residency') }}">Permanent Residency</a></li>
@@ -191,19 +179,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const dropdownMenu = dropdownParent.querySelector('ul');
 
         dropdownParent.addEventListener('mouseenter', () => {
-            showDropdown(dropdownMenu);
+            if (dropdownMenu) showDropdown(dropdownMenu);
         });
 
         dropdownParent.addEventListener('mouseleave', () => {
-            hideDropdown(dropdownMenu);
+            if (dropdownMenu) hideDropdown(dropdownMenu);
         });
 
         // Recursively handle nested dropdowns
-        const nestedDropdownParents = dropdownMenu.querySelectorAll('.nav-item.relative');
+        const nestedDropdownParents = dropdownMenu?.querySelectorAll('.nav-item.relative') || [];
         nestedDropdownParents.forEach(attachDropdownHandlers);
     };
 
-    // Add ">" icon to menu items with submenus
+    // Add ">" icon dynamically to menu items with submenus
     const addSubmenuIcons = () => {
         const navItems = document.querySelectorAll('.nav-item');
         navItems.forEach((item) => {
@@ -211,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (submenu) {
                 const icon = document.createElement('span');
                 icon.textContent = '>';
-                icon.classList.add('submenu-icon');
+                icon.classList.add('submenu-icon', 'ml-2', 'text-gray-500');
                 item.querySelector('a').appendChild(icon);
             }
         });
@@ -223,6 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     addSubmenuIcons();
 });
+
 
 
 </script>
