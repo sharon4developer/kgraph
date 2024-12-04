@@ -3,11 +3,76 @@
 <link href="{{ asset('admin/theme/alertifyjs/build/css/alertify.min.css')}}" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="{{ asset('admin/theme/src/plugins/src/sweetalerts2/sweetalerts2.css')}}">
 <link href="{{ asset('admin/backend/css/custom.css') }}" rel="stylesheet" type="text/css" />
+
+<style>
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    /* color: #333; */
+    font-size: 16px;
+    position: relative;
+}
+
+.nav-link:hover {
+    /* color: #ff7f00; */
+}
+
+/* Submenu styles */
+.nav-item ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 10;
+}
+
+.nav-item:hover > ul {
+    display: block;
+}
+
+.nav-item ul ul {
+    top: 0;
+    left: 100%;
+}
+
+/* Icon styles */
+.submenu-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    font-weight: bold;
+    /* color: #aaa; */
+    transition: color 0.3s ease;
+}
+.Services-nav .submenu-icon {
+    right: 0px;
+    transform: translateY(-50%) rotate(90deg);
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.nav-item.relative:hover > a > .submenu-icon {
+    /* color: #ff7f00; */
+}
+
+
+
+</style>
 <div class="b-backgroun-nav z-50 w-full">
-<?php
-use App\Models\ServiceCategory;
-$serviceCategories = ServiceCategory::with(['Service:id,slug,title,service_category_id'])->select('image','id','title','alt_tag','slug','sub_title')->orderBy('order','asc')->where('status',1)->get();
-?>
+    <?php
+        use App\Models\ServiceCategory;
+        $serviceCategories = ServiceCategory::with(['Service:id,slug,title,service_category_id'])->select('image','id','title','alt_tag','slug','sub_title')->orderBy('order','asc')->where('status',1)->get();
+    ?>
 
     {{-- <header id="immaintop" class="text-white hidden md:block bg-black md:fixed top-0 z-50 w-full" style="display: none !important;">
         <div class="container mx-auto px-5 xl:px-12 flex justify-between items-start lg:items-center gap-1 lg:gap-0 flex-col md:flex-row font_aktiv py-[12px] lg:py-[10px] opacity-50">
@@ -75,13 +140,19 @@ $serviceCategories = ServiceCategory::with(['Service:id,slug,title,service_categ
                 <ul class="flex items-center gap-7 text-base font_inter font-light">
                     <li class="nav-item"><a class="nav-link" href="{{ url('about-us') }}">About</a></li>
                     <li class="nav-item relative flex flex-col items-center">
-                        <a class="nav-link" href="{{ url('services') }}">Services</a>
-                        {{-- <ul class="bg-white h-0 overflow-hidden w-36 absolute top-[28px] z-50 pl-3 pr-8 py-3 rounded-lg flex-col transition-[height] duration-300 opacity-0">
-                            @foreach ($serviceCategories as $serviceCategory)
-
-                                <li class="nav-item"><a class="nav-link !text-blue-700" href="{{ url('packages') }}">{{$serviceCategory->title}}</a></li>
-                            @endforeach
-                        </ul>                         --}}
+                        <a class="nav-link Services-nav" href="{{ url('services') }}">Services</a>
+                        <ul class="bg-white hidden absolute top-full left-0 z-50 pl-3 pr-8 py-3 rounded-lg shadow-md flex-col transition-[height] duration-300 opacity-0">
+                            <li class="nav-item relative">
+                                <a class="nav-link !text-blue-700 font-semibold" href="{{ url('temporary-residency') }}">Temporary Residency</a>
+                                <ul class="bg-white hidden absolute left-full top-0 z-50 pl-3 pr-8 py-3 rounded-lg shadow-md transition-[height] duration-300 opacity-0">
+                                    <li class="nav-item"><a class="nav-link !text-blue-700 font-semibold" href="{{ url('subitem1') }}">Express Entry</a></li>
+                                    <li class="nav-item"><a class="nav-link !text-blue-700 font-semibold" href="{{ url('subitem2') }}">PNP</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a class="nav-link !text-blue-700 font-semibold" href="{{ url('permanent-residency') }}">Permanent Residency</a></li>
+                            <li class="nav-item"><a class="nav-link !text-blue-700 font-semibold" href="{{ url('reconsideration') }}">Reconsideration</a></li>
+                            <li class="nav-item"><a class="nav-link !text-blue-700 font-semibold" href="{{ url('iad-appeals') }}">IAD Appeals</a></li>
+                        </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('packages') }}">Packages</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('careers') }}">Careers</a></li>
@@ -91,6 +162,9 @@ $serviceCategories = ServiceCategory::with(['Service:id,slug,title,service_categ
                     <a href="{{ url('contact-us') }}" class="h-full font-semibold">Contact Us</a>
                 </div>
             </div>
+            
+            
+            
         </div>
         <div class="hidden lg:flex justify-center opacity-20">
             <div class="bg-white line-animation mx-8 w-[98%] h-[0.5px]"></div>
@@ -100,56 +174,54 @@ $serviceCategories = ServiceCategory::with(['Service:id,slug,title,service_categ
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // Select the parent <li> element for the dropdown
-    const dropdownParent = document.querySelector('.nav-item.relative');
-    const dropdownMenu = dropdownParent.querySelector('ul');
-
-    // Function to show the dropdown with height animation
-    const showDropdown = () => {
-        dropdownMenu.style.height = `${dropdownMenu.scrollHeight}px`; // Set height to content's full height
-        dropdownMenu.classList.add('opacity-100'); // Ensure the dropdown is visible
-        dropdownMenu.style.overflow = 'visible'; // Allow content to be visible
+    // Function to show a dropdown
+    const showDropdown = (dropdownMenu) => {
+        dropdownMenu.classList.remove('hidden');
+        dropdownMenu.classList.add('opacity-100');
     };
 
-    // Function to hide the dropdown with height animation
-    const hideDropdown = () => {
-        dropdownMenu.style.height = '0'; // Collapse height to 0
-        dropdownMenu.classList.remove('opacity-100'); // Hide the dropdown
-        dropdownMenu.style.overflow = 'hidden'; // Prevent overflow content from showing
+    // Function to hide a dropdown
+    const hideDropdown = (dropdownMenu) => {
+        dropdownMenu.classList.add('hidden');
+        dropdownMenu.classList.remove('opacity-100');
     };
 
-    // Reset height after animation ends to allow re-calculation
-    dropdownMenu.addEventListener('transitionend', () => {
-        if (dropdownMenu.style.height === '0px') {
-            dropdownMenu.classList.add('hidden'); // Fully hide the dropdown when collapsed
-        } else {
-            dropdownMenu.classList.remove('hidden'); // Ensure dropdown remains visible
-            dropdownMenu.style.height = 'auto'; // Reset height to auto after expansion
-        }
-    });
+    // Attach event handlers for dropdown behavior
+    const attachDropdownHandlers = (dropdownParent) => {
+        const dropdownMenu = dropdownParent.querySelector('ul');
 
-    // Show dropdown on mouseenter of parent
-    dropdownParent.addEventListener('mouseenter', () => {
-        dropdownMenu.classList.remove('hidden'); // Ensure it starts visible
-        showDropdown();
-    });
+        dropdownParent.addEventListener('mouseenter', () => {
+            showDropdown(dropdownMenu);
+        });
 
-    // Hide dropdown when mouse leaves parent and dropdown
-    dropdownParent.addEventListener('mouseleave', (event) => {
-        if (!dropdownMenu.contains(event.relatedTarget)) {
-            hideDropdown();
-        }
-    });
+        dropdownParent.addEventListener('mouseleave', () => {
+            hideDropdown(dropdownMenu);
+        });
 
-    // Keep the dropdown visible when mouse enters it
-    dropdownMenu.addEventListener('mouseenter', showDropdown);
+        // Recursively handle nested dropdowns
+        const nestedDropdownParents = dropdownMenu.querySelectorAll('.nav-item.relative');
+        nestedDropdownParents.forEach(attachDropdownHandlers);
+    };
 
-    // Hide dropdown when mouse leaves it
-    dropdownMenu.addEventListener('mouseleave', (event) => {
-        if (!dropdownParent.contains(event.relatedTarget)) {
-            hideDropdown();
-        }
-    });
+    // Add ">" icon to menu items with submenus
+    const addSubmenuIcons = () => {
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach((item) => {
+            const submenu = item.querySelector('ul');
+            if (submenu) {
+                const icon = document.createElement('span');
+                icon.textContent = '>';
+                icon.classList.add('submenu-icon');
+                item.querySelector('a').appendChild(icon);
+            }
+        });
+    };
+
+    // Initialize dropdowns and icons
+    const dropdownParents = document.querySelectorAll('.nav-item.relative');
+    dropdownParents.forEach(attachDropdownHandlers);
+
+    addSubmenuIcons();
 });
 
 
