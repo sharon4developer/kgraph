@@ -9,7 +9,7 @@
         }
 
         .servicesIIner-banner {
-            background-image: url(assets/servicesinner.jpg) !important;
+            background-image: url(/assets/servicesinner.jpg) !important;
             /* background-position-y: center;
                                                                                                                                                 background-position-x: center; */
             background-size: cover;
@@ -69,7 +69,7 @@
         }
 
         .Realize {
-            background-image: url(assets/whitefader.png) !important;
+            background-image: url(/assets/whitefader.png) !important;
             background-size: cover;
         }
 
@@ -407,7 +407,7 @@
         }
     </script>
 
-    <script>
+    {{-- <script> --}}
 <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide/dist/js/splide.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 

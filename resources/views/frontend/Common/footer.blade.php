@@ -103,9 +103,9 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                 </div>
                 <div>
                     <ul class="flex flex-col md:flex-row items-start md:items-center gap-5 text-white">
-                        <li>Terms & Condition</li>
-                        <li>Privacy Policy</li>
-                        <li>Contact Us</li>
+                        <li><a href="{{ url('terms-and-conditions') }}">Terms & Conditions</a></li>
+                        <li><a href="{{ url('privacy-policy') }}">Privacy Policy</a></li>
+                        <li><a href="{{ url('contact-us') }}">Contact Us</a></li>
                     </ul>
                 </div>
             </div>

@@ -59,7 +59,7 @@ $serviceCategories = ServiceCategory::with(['Service:id,slug,title,service_categ
                             <li class="px-[16px] py-2"><a href="{{ url('blogs') }}">Blogs</a></li>
 
                             <div class="bg-white text-blue-600 hover:bg-blue-600 hover:text-white px-[16px] py-[6px] rounded-sm ease-in duration-500 cursor-pointer w-fit">
-                                <a href="" class="h-full !text-black">Contact Us</a>
+                                <a href="{{ url('contact-us') }}" class="h-full !text-black">Contact Us</a>
                             </div>
                         </ul>
                     </div>

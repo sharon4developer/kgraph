@@ -56,7 +56,7 @@
         background: linear-gradient(90deg, #072558 0%, rgba(7, 37, 88, 0) 100%);
      }
      .Realize{
-        background-image: url(assets/whitefader.png) !important;
+        background-image: url(/assets/whitefader.png) !important;
         background-size: cover;
      }
      .services-inner {

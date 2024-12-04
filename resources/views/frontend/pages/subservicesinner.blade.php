@@ -9,7 +9,7 @@
         }
 
         .servicesIIner-banner {
-            background-image: url(assets/servicesinner.jpg) !important;
+            background-image: url(/assets/servicesinner.jpg) !important;
             /* background-position-y: center;
                                                                                                                                                 background-position-x: center; */
             background-size: cover;
@@ -69,7 +69,7 @@
         }
 
         .Realize {
-            background-image: url(assets/whitefader.png) !important;
+            background-image: url(/assets/whitefader.png) !important;
             background-size: cover;
         }
 
