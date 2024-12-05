@@ -249,7 +249,7 @@
 
                 </div>
 
-                <div class="lg:grid grid-cols-3 items-baseline gap-x-14 py-10">
+                <div class="lg:grid grid-cols-3 items-start gap-x-14 py-10">
                     <div>
                         <label>Do you have a valid Language Skills Test Result</label>
                         <div id="language-skills" class="check-box-wrpr !mt-0">
@@ -264,7 +264,7 @@
                         </div>
                     </div>
 
-                    <div id="language-test" class="hidden flex-col w-full">
+                    <div id="language-test" class="hidden flex-col w-full bg-[#EDEDED] h-full py-4 px-3">
                         <label for="which-lang">Which language test did you take?<span>*</span></label>
                         <select id="which-lang" name="language_test" class="border rounded px-2 py-1">
                             <option value="" disabled selected>Select</option>
@@ -276,8 +276,8 @@
                         </select>
                     </div>
 
-                    <div id="language-scores" class="hidden flex-col">
-                        <label for="scores">If selected any of the above, show the below text boxes<span>*</span></label>
+                    <div id="language-scores" class="hidden flex-col bg-[#EDEDED] h-full py-4 px-3">
+                        <label for="scores" class="invisible">If selected any of the above, show the below text boxes<span>*</span></label>
                         <div class="grid grid-cols-2 gap-4">
                             <input type="number" id="speaking" name="speaking" class="w-full" placeholder="Speaking">
                             <input type="number" id="reading" name="reading" class="w-full" placeholder="Reading">
