@@ -121,7 +121,7 @@
                 <ul class="flex items-center gap-7 text-base font_inter font-light">
                     <li class="nav-item"><a class="nav-link" href="{{ url('about-us') }}">About</a></li>
                     <li class="nav-item relative flex flex-col items-center">
-                        <a class="nav-link Services-nav" href="{{ url('services') }}">Services</a>
+                        <a class="nav-link Services-nav Services-nav-serv" href="{{ url('services') }}">Services</a>
                         <ul class=" bg-black hidden absolute top-full left-[-230px] w-[300px] rounded-[18px] py-1 z-50 shadow-md flex-col transition-[height] duration-300 opacity-0">
 
                             @foreach ($navbarServiceCategories as $navbarServiceCategory)
@@ -137,7 +137,7 @@
                                         @if(count($innerServices->SubService))
                                         <ul class="sub-mnu-pnrt bg-black hidden absolute rounded-[18px] left-[95%] top-0 z-50 shadow-md transition-[height] duration-300 opacity-0">
                                             @foreach ($innerServices->SubService as $innerSubServices)
-                                            <li class="nav-item nav-link-for my-[2px]"><a class=" text-blue-700 font_inter font-semibold text-[15px]" href="{{url('sub-service-details/'.$innerSubServices->slug)}}">{{$innerSubServices->title}}</a></li>
+                                            <li class="nav-item nav-link-for !my-[1px]"><a class=" text-blue-700 font_inter font-semibold text-[15px]" href="{{url('sub-service-details/'.$innerSubServices->slug)}}">{{$innerSubServices->title}}</a></li>
                                             @endforeach
                                         </ul>
                                         @endif

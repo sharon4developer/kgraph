@@ -61,6 +61,9 @@ h1,h2,h3,h4,h5,h6,a,p,li{
     bottom: 0;
     transition: width 0.3s ease, left 0.3s ease;
 }
+.Services-nav-serv.nav-link::after{
+    background-color: transparent;
+}
 
 .nav-link-for{
     margin-bottom: 10px;
