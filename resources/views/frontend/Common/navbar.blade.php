@@ -10,7 +10,7 @@
     position: absolute;
     top: 100%;
     left: 0;
-    background: black;
+    background: white;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     display: none; /* Hidden by default */
     z-index: 1000;
@@ -33,14 +33,19 @@
     flex-direction: column;
 }
 
-/* Submenu icon styling */
+
 .submenu-icon {
     margin-left: 5px;
     font-size: 0.75rem;
-    color: #6b7280; /* Tailwind gray-500 */
+    color: #ffffff; /* Tailwind gray-500 */
 }
 
-/* Show submenus on hover */
+.Services-nav .submenu-icon {
+    margin-left: 5px;
+    font-size: 0.75rem;
+    color: #ffffff; 
+    transform: rotate(90deg);
+}
 .nav-item.relative:hover > ul {
     display: flex;
     flex-direction: column;
@@ -123,22 +128,22 @@
                     <li class="nav-item"><a class="nav-link" href="{{ url('about-us') }}">About</a></li>
                     <li class="nav-item relative flex flex-col items-center">
                         <a class="nav-link Services-nav" href="{{ url('services') }}">Services</a>
-                        <ul class="bg-white hidden absolute top-full left-0 z-50 pl-3 pr-8 py-3 rounded-lg shadow-md flex-col transition-[height] duration-300 opacity-0">
+                        <ul class="bg-black hidden absolute top-full left-0 z-50 rounded-lg shadow-md flex-col transition-[height] duration-300 opacity-0">
 
                             @foreach ($navbarServiceCategories as $navbarServiceCategory)
 
-                            <li class="nav-item @if(count($navbarServiceCategory->Service)) relative @endif">
-                                <a class="nav-link !text-blue-700 font-semibold">{{$navbarServiceCategory->title}}</a>
+                            <li class="nav-item nav-link-for @if(count($navbarServiceCategory->Service)) relative @endif">
+                                <a class=" text-blue-700 font-semibold">{{$navbarServiceCategory->title}}</a>
                                 @if(count($navbarServiceCategory->Service))
-                                <ul class="bg-white hidden absolute left-full top-0 z-50 pl-3 pr-8 py-3 rounded-lg shadow-md transition-[height] duration-300 opacity-0">
+                                <ul class="bg-black hidden absolute left-full top-0 z-50 rounded-lg shadow-md transition-[height] duration-300 opacity-0">
                                     @foreach ($navbarServiceCategory->Service as $innerServices)
-                                    <li class="nav-item  @if(count($innerServices->SubService)) relative @endif">
-                                        <a class="nav-link !text-blue-700 font-semibold" href="{{url('service-details/'.$innerServices->slug)}}">{{$innerServices->title}}</a>
+                                    <li class="nav-item nav-link-for @if(count($innerServices->SubService)) relative @endif">
+                                        <a class="text-blue-700 font-semibold" href="{{url('service-details/'.$innerServices->slug)}}">{{$innerServices->title}}</a>
                                         <!-- Sub-submenu for PNP -->
                                         @if(count($innerServices->SubService))
-                                        <ul class="bg-white hidden absolute left-full top-0 z-50 pl-3 pr-8 py-3 rounded-lg shadow-md transition-[height] duration-300 opacity-0">
+                                        <ul class="bg-black hidden absolute left-full top-0 z-50 rounded-lg shadow-md transition-[height] duration-300 opacity-0">
                                             @foreach ($innerServices->SubService as $innerSubServices)
-                                            <li class="nav-item"><a class="nav-link !text-blue-700 font-semibold" href="{{url('sub-service-details/'.$innerSubServices->slug)}}">{{$innerSubServices->title}}</a></li>
+                                            <li class="nav-item nav-link-for"><a class=" text-blue-700 font-semibold" href="{{url('sub-service-details/'.$innerSubServices->slug)}}">{{$innerSubServices->title}}</a></li>
                                             @endforeach
                                         </ul>
                                         @endif
@@ -148,9 +153,10 @@
                                 </ul>
                                 @endif
                             </li>
-                            <li class="nav-item"><a class="nav-link-under !text-blue-700 font-semibold" href="{{ url('permanent-residency') }}">Permanent Residency</a></li>
-                            <li class="nav-item"><a class="nav-link-under !text-blue-700 font-semibold" href="{{ url('reconsideration') }}">Reconsideration</a></li>
-                            <li class="nav-item"><a class="nav-link-under !text-blue-700 font-semibold" href="{{ url('iad-appeals') }}">IAD Appeals</a></li>
+                            {{-- <li class="nav-item"><a class="nav-link !text-blue-700 font-semibold" href="{{ url('permanent-residency') }}">Permanent Residency</a></li>
+                            <li class="nav-item"><a class="nav-link !text-blue-700 font-semibold" href="{{ url('reconsideration') }}">Reconsideration</a></li>
+                            <li class="nav-item"><a class="nav-link !text-blue-700 font-semibold" href="{{ url('iad-appeals') }}">IAD Appeals</a></li> --}}
+                            @endforeach
                         </ul>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('packages') }}">Packages</a></li>
@@ -202,15 +208,22 @@ document.addEventListener('DOMContentLoaded', () => {
         nestedDropdownParents.forEach(attachDropdownHandlers);
     };
 
-    // Add ">" icon dynamically to menu items with submenus
-    const addSubmenuIcons = () => {
+    // Add dynamic icons (down arrow for parent menu, right arrow for submenus)
+    const addDynamicIcons = () => {
         const navItems = document.querySelectorAll('.nav-item');
         navItems.forEach((item) => {
             const submenu = item.querySelector('ul');
             if (submenu) {
                 const icon = document.createElement('span');
-                icon.textContent = '>';
-                icon.classList.add('submenu-icon', 'ml-2', 'text-gray-500');
+                if (item.closest('ul').classList.contains('flex')) {
+                    // Add down arrow for top-level menu
+                    icon.textContent = '▼'; // Down arrow symbol
+                    icon.classList.add('submenu-icon', 'ml-2', 'text-gray-500');
+                } else {
+                    // Add right arrow for submenu
+                    icon.textContent = '>'; // Right arrow symbol
+                    icon.classList.add('submenu-icon', 'ml-2', 'text-gray-500');
+                }
                 item.querySelector('a').appendChild(icon);
             }
         });
@@ -220,8 +233,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const dropdownParents = document.querySelectorAll('.nav-item.relative');
     dropdownParents.forEach(attachDropdownHandlers);
 
-    addSubmenuIcons();
+    addDynamicIcons();
 });
+
 
 
 
@@ -284,7 +298,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 </script>
-
-
-
-
