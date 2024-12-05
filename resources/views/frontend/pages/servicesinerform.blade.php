@@ -129,277 +129,264 @@
                 <p>K-graph Canadian Immigration Services</p>
             </div>
         </div>
+        
         <div class="container mx-auto px-5 lg:px-12 xl:px-32 h-full w-full py-8 md:pt-[15%] lg:pb-[4%] lg:pt-0 bg-white">
-
-
-
             <div class="w-full py-2 mt-8 mb-4 flex justify-between items-center border-b border-b-[#062358] pt-14">
                 <h2 class="text-[#014598] font_inter text-[16px] md:text-[23px] font-extrabold font_inter capitalize">Immigration Pre-Assessment Form</h2>
                 <img class="w-[115px]" src="{{ asset('assets/home_Banner/k-graph-logo-blue.png') }}" alt="k-graph">
             </div>
-
-            
-            <p class="text-[#062358] lg:w-[55%] mb-6">In case you are filling out the form for a friend or sponsored person,
-                please input the information of the
-                person who wants to immigrate.</p>
-            <div class="">
-                {{-- <h2 class="text-[#062358] my-6 font_inter font-medium text-[30px]">Contact Information</h2> --}}
-                <form action="" class="contact-form mt-24" id="eligibility-form">
-
-                    <div class="lg:grid grid-cols-[1fr_1fr_auto_1fr] gap-x-14 items-start">
-                        <!-- First Name -->
-                        <div class="flex flex-col">
-                            <label for="first-name">First Name<span>*</span></label>
-                            <input type="text" id="first-name" name="first_name" class="border rounded px-2 py-1 w-full">
-                        </div>
-                        
-                        <!-- Last Name -->
-                        <div class="flex flex-col">
-                            <label for="last-name">Last Name<span>*</span></label>
-                            <input type="text" id="last-name" name="last_name" class="border rounded px-2 py-1 w-full">
-                        </div>
-                    
-                        <!-- Date of Birth -->
-                        <div class="flex flex-col">
-                            <label for="dob">Date of Birth<span>*</span></label>
-                            <input type="date" id="dob" name="dob" value="2000-01-01" class="border rounded px-2 py-1 w-full">
-                        </div>
-                    
-                        <!-- Marital Status -->
-                        <div class="flex flex-col">
-                            <label for="marital-status">Marital Status<span>*</span></label>
-                            <select id="marital-status" name="marital_status" class="border rounded px-2 py-1 w-full">
-                                <option value="" disabled selected>Select your marital status</option>
-                                <option value="Never Married / Single">Never Married / Single</option>
-                                <option value="Married">Married</option>
-                                <option value="Common-Law">Common-Law</option>
-                                <option value="Divorced / Separated">Divorced / Separated</option>
-                                <option value="Legally Separated">Legally Separated</option>
-                                <option value="Widowed">Widowed</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="lg:grid grid-cols-[1fr_1fr_auto_1fr] gap-x-14 py-10">
-                        <div class="flex flex-col">
-                            <label for="email">Email<span>*</span></label>
-                            <input type="email" id="email" name="email">
-                        </div>
-                        <div class="flex flex-col">
-                            <label for="mobile">Mobile Number<span>*</span></label>
-                            <input type="tel" id="mobile" name="mobile">
-                        </div>
-
-                        <div class="flex flex-col invisible">
-                            <label for="dob">Date of Birth<span>*</span></label>
-                            <input type="date" id="dob" name="dob" value="2000-01-01" class="border rounded px-2 py-1 w-full">
-                        </div>
-                
-                        <div class="flex flex-col invisible">
-                            <label for="marital-status">Marital Status<span>*</span></label>
-                            <select id="marital-status" name="marital_status" class="border rounded px-2 py-1 w-full">
-                                <option value="" disabled selected>Select your marital status</option>
-                                <option value="Never Married / Single">Never Married / Single</option>
-                                <option value="Married">Married</option>
-                                <option value="Common-Law">Common-Law</option>
-                                <option value="Divorced / Separated">Divorced / Separated</option>
-                                <option value="Legally Separated">Legally Separated</option>
-                                <option value="Widowed">Widowed</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="lg:grid grid-cols-[1fr_auto] gap-x-14">
-                        <div class="flex flex-col w-full">
-                            <label for="street-address-1">Address<span>*</span></label>
-                            <input type="text" id="street-address-1" name="street_address">
-                        </div>
-
-                        <div class="flex flex-col">
-                            <label for="city">Citizenship<span>*</span></label>
-                            <input type="text" id="city" name="city">
-                        </div>
-                    </div>
-
-                    <div class="h-[2px] bg-[#D3D3D3] w-full !mt-24 !mb-12"></div>
-
-                    <div class="lg:grid grid-cols-2 gap-x-14">
-                        <div class="flex flex-col lg:w-1/2">
-                            <label for="highest-education-inside">Highest Level of Education<span>*</span></label>
-                            <select id="highest-education-inside" name="highest_education_inside_can" class="border rounded px-2 py-1">
-                                <option value="" disabled selected>Select your highest level of education</option>
-                                <option value="None, or high school">None, or high school</option>
-                                <option value="Secondary diploma">Secondary diploma</option>
-                                <option value="Diploma">Diploma</option>
-                                <option value="Bachelor's degree">Bachelor's degree</option>
-                                <option value="Two or more certificates, diplomas or degrees">Two or more certificates, diplomas or degrees</option>
-                                <option value="Master's degree, or professional degree">Master's degree, or professional degree</option>
-                                <option value="Doctoral level university degree (PhD)">Doctoral level university degree (PhD)</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label>Have you held a Canadian Education<span>*</span></label>
-                            <div class="check-box-wrpr !mt-0">
-                                <div>
-                                    <input type="radio" id="qualification-yes" name="certificate_of_qualification" value="Yes">
-                                    <label for="qualification-yes">Yes</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="qualification-no" name="certificate_of_qualification" value="No">
-                                    <label for="qualification-no">No</label>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="lg:grid grid-cols-3 items-baseline gap-x-14 py-10">
-                        <div>
-                            <label>Do you have a valid Language Skills Test Result</label>
-                            <div id="language-skills" class="check-box-wrpr !mt-0">
-                                <div>
-                                    <input type="radio" id="qualification-yes" name="country_of_studies" value="Yes">
-                                    <label for="qualification-yes">Yes</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="qualification-no" name="country_of_studies" value="No">
-                                    <label for="qualification-no">No</label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="language-test" class="hidden flex-col w-full">
-                            <label for="which-lang">Which language test did you take?<span>*</span></label>
-                            <select id="which-lang" name="language_test" class="border rounded px-2 py-1">
-                                <option value="" disabled selected>Select</option>
-                                <option value="CELPIP-G">CELPIP-G</option>
-                                <option value="IELTS">IELTS</option>
-                                <option value="PTE Core">PTE Core</option>
-                                <option value="TEF Canada">TEF Canada</option>
-                                <option value="TCF Canada">TCF Canada</option>
-                            </select>
-                        </div>
-
-                        <div id="language-scores" class="hidden flex-col">
-                            <label for="scores">If selected any of the above, show the below text boxes<span>*</span></label>
-                            <div class="grid grid-cols-2 gap-4">
-                                <input type="number" id="speaking" name="speaking" class="w-full" placeholder="Speaking">
-                                <input type="number" id="reading" name="reading" class="w-full" placeholder="Reading">
-                                <input type="number" id="listening" name="listening" class="w-full" placeholder="Listening">
-                                <input type="number" id="writing" name="writing" class="w-full" placeholder="Writing">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="lg:grid grid-cols-3 gap-[53px] !mb-12">
-                        <div class="flex flex-col w-full">
-                            <label for="state">Canadian Experience<span>*</span></label>
-                            <select id="state" name="state" class="border rounded px-2 py-1">
-                                <option value="" disabled selected>Select your Canadian Experience</option>
-                                <option value="0 year">0 year</option>
-                                <option value="1 year">1 year</option>
-                                <option value="2 years">2 years</option>
-                                <option value="3 years">3 years</option>
-                            </select>
-                        </div>
-
-                        <div class="flex flex-col w-full">
-                            <label for="zip">Foreign Experience<span>*</span></label>
-                            <select id="zip" name="zip" class="border rounded px-2 py-1">
-                                <option value="" disabled selected>Select your Foreign Experience</option>
-                                <option value="0 year">0 year</option>
-                                <option value="1 year">1 year</option>
-                                <option value="2 years">2 years</option>
-                                <option value="3 years">3 years</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="lg:grid grid-cols-[auto_auto_1fr_1fr] gap-[53px]">
-                        <div>
-                            <label>Any Previous Visa Refusal<span>*</span></label>
-                            <div class="check-box-wrpr !mt-0">
-                                <div>
-                                    <input type="radio" id="qualification-yes" name="refused_or_cancelled_visa" value="Yes">
-                                    <label for="qualification-yes">Yes</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="qualification-no" name="refused_or_cancelled_visa" value="No">
-                                    <label for="qualification-no">No</label>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <label>Do you have any criminal record(s) in your home country or any other country<span>*</span></label>
-                            <div class="check-box-wrpr !mt-0">
-                                <div>
-                                    <input type="radio" id="qualification-yes" name="criminal_record" value="Yes">
-                                    <label for="qualification-yes">Yes</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="qualification-no" name="criminal_record" value="No">
-                                    <label for="qualification-no">No</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="lg:grid grid-cols-2 pt-10">
-                  
-
-                        <div>
-                            <label>Do you or your spouse or common-law partner have a blood relative living in
-                                Canada who is a citizen or a permanent resident of Canada<span>*</span></label>
-                            <div class="check-box-wrpr !mt-0">
-                                <div>
-                                    <input type="radio" id="qualification-yes" name="family_relations_in_canada" value="Yes">
-                                    <label for="qualification-yes">Yes</label>
-                                </div>
-                                <div>
-                                    <input type="radio" id="qualification-no" name="family_relations_in_canada" value="No">
-                                    <label for="qualification-no">No</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="py-10">
-                        <div class="flex flex-col lg:w-1/4">
-                            <label for="hear-about-us">How Did You Hear About Us<span>*</span></label>
-                            <select id="hear-about-us" name="hear_about_canada" class="border rounded px-2 py-1">
-                                <option value="" disabled selected>Select an option</option>
-                                <option value="Social Media">Social Media</option>
-                                <option value="Google Search">Google Search</option>
-                                <option value="Friend Family">Friend/Family</option>
-                                <option value="Advertisement">Advertisement</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </div>
-
-                    </div>
-
-                    
-
-
-
-                    <div class="py-10">
-                        <div class="flex flex-col lg:w-1/2">
-                            <label for="birth-country">Any Additional Information<span>*</span></label>
-                            <input type="text" id="birth-country" name="detained">
-                        </div>
-                    </div>
-
-                    <div class="submit-btn bg-gradient-to-r from-black to-transparent">
-                        <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[2%] mt-[-50px]">
-                            <button class="font_syne my-4 text-[#062358] border border-black rounded-full w-full lg:w-fit lg:px-16 py-2 text-[14px] lg:text-base  hover:bg-white hover:border-black hover:text-black ease-linear duration-300 font-bold" style="">SUBMIT</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+            <p class="text-[#062358] lg:w-[55%] mb-6">In case you are filling out the form for a friend or sponsored person, please input the information of the person who wants to immigrate.</p>
         </div>
+
+        <form action="" class="contact-form bg-white" id="eligibility-form">
+
+            <div class="container mx-auto px-5 lg:px-12 xl:px-32 h-full w-full py-8 md:pt-[15%] lg:pb-[4%] lg:pt-0 mt-24">
+                <div class="lg:grid grid-cols-[1fr_1fr_auto_1fr] gap-x-14 items-start">
+                    <!-- First Name -->
+                    <div class="flex flex-col">
+                        <label for="first-name">First Name<span>*</span></label>
+                        <input type="text" id="first-name" name="first_name" class="border rounded px-2 py-1 w-full">
+                    </div>
+                    
+                    <!-- Last Name -->
+                    <div class="flex flex-col">
+                        <label for="last-name">Last Name<span>*</span></label>
+                        <input type="text" id="last-name" name="last_name" class="border rounded px-2 py-1 w-full">
+                    </div>
+                
+                    <!-- Date of Birth -->
+                    <div class="flex flex-col">
+                        <label for="dob">Date of Birth<span>*</span></label>
+                        <input type="date" id="dob" name="dob" value="2000-01-01" class="border rounded px-2 py-1 w-full">
+                    </div>
+                
+                    <!-- Marital Status -->
+                    <div class="flex flex-col">
+                        <label for="marital-status">Marital Status<span>*</span></label>
+                        <select id="marital-status" name="marital_status" class="border rounded px-2 py-1 w-full">
+                            <option value="" disabled selected>Select your marital status</option>
+                            <option value="Never Married / Single">Never Married / Single</option>
+                            <option value="Married">Married</option>
+                            <option value="Common-Law">Common-Law</option>
+                            <option value="Divorced / Separated">Divorced / Separated</option>
+                            <option value="Legally Separated">Legally Separated</option>
+                            <option value="Widowed">Widowed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="lg:grid grid-cols-[1fr_1fr_auto_1fr] gap-x-14 py-10">
+                    <div class="flex flex-col">
+                        <label for="email">Email<span>*</span></label>
+                        <input type="email" id="email" name="email">
+                    </div>
+                    <div class="flex flex-col">
+                        <label for="mobile">Mobile Number<span>*</span></label>
+                        <input type="tel" id="mobile" name="mobile">
+                    </div>
+
+                    <div class="flex flex-col invisible">
+                        <label for="dob">Date of Birth<span>*</span></label>
+                        <input type="date" id="dob" name="dob" value="2000-01-01" class="border rounded px-2 py-1 w-full">
+                    </div>
+            
+                    <div class="flex flex-col invisible">
+                        <label for="marital-status">Marital Status<span>*</span></label>
+                        <select id="marital-status" name="marital_status" class="border rounded px-2 py-1 w-full">
+                            <option value="" disabled selected>Select your marital status</option>
+                            <option value="Never Married / Single">Never Married / Single</option>
+                            <option value="Married">Married</option>
+                            <option value="Common-Law">Common-Law</option>
+                            <option value="Divorced / Separated">Divorced / Separated</option>
+                            <option value="Legally Separated">Legally Separated</option>
+                            <option value="Widowed">Widowed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="lg:grid grid-cols-[1fr_auto] gap-x-14">
+                    <div class="flex flex-col w-full">
+                        <label for="street-address-1">Address<span>*</span></label>
+                        <input type="text" id="street-address-1" name="street_address">
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label for="city">Citizenship<span>*</span></label>
+                        <input type="text" id="city" name="city">
+                    </div>
+                </div>
+
+                <div class="h-[2px] bg-[#D3D3D3] w-full !mt-24 !mb-12"></div>
+
+                <div class="lg:grid grid-cols-2 gap-x-14">
+                    <div class="flex flex-col lg:w-1/2">
+                        <label for="highest-education-inside">Highest Level of Education<span>*</span></label>
+                        <select id="highest-education-inside" name="highest_education_inside_can" class="border rounded px-2 py-1">
+                            <option value="" disabled selected>Select your highest level of education</option>
+                            <option value="None, or high school">None, or high school</option>
+                            <option value="Secondary diploma">Secondary diploma</option>
+                            <option value="Diploma">Diploma</option>
+                            <option value="Bachelor's degree">Bachelor's degree</option>
+                            <option value="Two or more certificates, diplomas or degrees">Two or more certificates, diplomas or degrees</option>
+                            <option value="Master's degree, or professional degree">Master's degree, or professional degree</option>
+                            <option value="Doctoral level university degree (PhD)">Doctoral level university degree (PhD)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label>Have you held a Canadian Education<span>*</span></label>
+                        <div class="check-box-wrpr !mt-0">
+                            <div>
+                                <input type="radio" id="qualification-yes" name="certificate_of_qualification" value="Yes">
+                                <label for="qualification-yes">Yes</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="qualification-no" name="certificate_of_qualification" value="No">
+                                <label for="qualification-no">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="lg:grid grid-cols-3 items-baseline gap-x-14 py-10">
+                    <div>
+                        <label>Do you have a valid Language Skills Test Result</label>
+                        <div id="language-skills" class="check-box-wrpr !mt-0">
+                            <div>
+                                <input type="radio" id="qualification-yes" name="country_of_studies" value="Yes">
+                                <label for="qualification-yes">Yes</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="qualification-no" name="country_of_studies" value="No">
+                                <label for="qualification-no">No</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="language-test" class="hidden flex-col w-full">
+                        <label for="which-lang">Which language test did you take?<span>*</span></label>
+                        <select id="which-lang" name="language_test" class="border rounded px-2 py-1">
+                            <option value="" disabled selected>Select</option>
+                            <option value="CELPIP-G">CELPIP-G</option>
+                            <option value="IELTS">IELTS</option>
+                            <option value="PTE Core">PTE Core</option>
+                            <option value="TEF Canada">TEF Canada</option>
+                            <option value="TCF Canada">TCF Canada</option>
+                        </select>
+                    </div>
+
+                    <div id="language-scores" class="hidden flex-col">
+                        <label for="scores">If selected any of the above, show the below text boxes<span>*</span></label>
+                        <div class="grid grid-cols-2 gap-4">
+                            <input type="number" id="speaking" name="speaking" class="w-full" placeholder="Speaking">
+                            <input type="number" id="reading" name="reading" class="w-full" placeholder="Reading">
+                            <input type="number" id="listening" name="listening" class="w-full" placeholder="Listening">
+                            <input type="number" id="writing" name="writing" class="w-full" placeholder="Writing">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:grid grid-cols-3 gap-[53px] !mb-12">
+                    <div class="flex flex-col w-full">
+                        <label for="state">Canadian Experience<span>*</span></label>
+                        <select id="state" name="state" class="border rounded px-2 py-1">
+                            <option value="" disabled selected>Select your Canadian Experience</option>
+                            <option value="0 year">0 year</option>
+                            <option value="1 year">1 year</option>
+                            <option value="2 years">2 years</option>
+                            <option value="3 years">3 years</option>
+                        </select>
+                    </div>
+
+                    <div class="flex flex-col w-full">
+                        <label for="zip">Foreign Experience<span>*</span></label>
+                        <select id="zip" name="zip" class="border rounded px-2 py-1">
+                            <option value="" disabled selected>Select your Foreign Experience</option>
+                            <option value="0 year">0 year</option>
+                            <option value="1 year">1 year</option>
+                            <option value="2 years">2 years</option>
+                            <option value="3 years">3 years</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="lg:grid grid-cols-[auto_auto_1fr_1fr] gap-[53px]">
+                    <div>
+                        <label>Any Previous Visa Refusal<span>*</span></label>
+                        <div class="check-box-wrpr !mt-0">
+                            <div>
+                                <input type="radio" id="qualification-yes" name="refused_or_cancelled_visa" value="Yes">
+                                <label for="qualification-yes">Yes</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="qualification-no" name="refused_or_cancelled_visa" value="No">
+                                <label for="qualification-no">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label>Do you have any criminal record(s) in your home country or any other country<span>*</span></label>
+                        <div class="check-box-wrpr !mt-0">
+                            <div>
+                                <input type="radio" id="qualification-yes" name="criminal_record" value="Yes">
+                                <label for="qualification-yes">Yes</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="qualification-no" name="criminal_record" value="No">
+                                <label for="qualification-no">No</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:grid grid-cols-2 pt-10">
+                    <div>
+                        <label>Do you or your spouse or common-law partner have a blood relative living in
+                            Canada who is a citizen or a permanent resident of Canada<span>*</span></label>
+                        <div class="check-box-wrpr !mt-0">
+                            <div>
+                                <input type="radio" id="qualification-yes" name="family_relations_in_canada" value="Yes">
+                                <label for="qualification-yes">Yes</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="qualification-no" name="family_relations_in_canada" value="No">
+                                <label for="qualification-no">No</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="py-10">
+                    <div class="flex flex-col lg:w-1/4">
+                        <label for="hear-about-us">How Did You Hear About Us<span>*</span></label>
+                        <select id="hear-about-us" name="hear_about_canada" class="border rounded px-2 py-1">
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="Social Media">Social Media</option>
+                            <option value="Google Search">Google Search</option>
+                            <option value="Friend Family">Friend/Family</option>
+                            <option value="Advertisement">Advertisement</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="py-10">
+                    <div class="flex flex-col lg:w-1/4">
+                        <label for="birth-country">Any Additional Information<span>*</span></label>
+                        <textarea rows="4" cols="50" class="!h-44 scrollbar-hidden"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="submit-btn bg-gradient-to-r from-black to-transparent container mx-auto px-5 lg:px-12 xl:px-32 h-full w-full">
+                <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[2%] mt-[-50px]">
+                    <button class="font_syne my-4 text-white border border-white rounded-full w-full lg:w-fit lg:px-16 py-2 text-[14px] lg:text-base  hover:bg-white hover:border-black hover:text-black ease-linear duration-300 font-bold" style="">SUBMIT</button>
+                </div>
+            </div>
+        </form>
+
     </div>
 
 
