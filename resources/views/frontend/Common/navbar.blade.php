@@ -35,7 +35,7 @@
 
 
 .submenu-icon {
-    margin-left: 5px;
+    margin-left: 40px;
     font-size: 0.75rem;
     color: #ffffff; /* Tailwind gray-500 */
 }
@@ -44,7 +44,7 @@
     margin-left: 5px;
     font-size: 0.75rem;
     color: #ffffff; 
-    transform: rotate(90deg);
+    /* transform: rotate(90deg); */
 }
 .nav-item.relative:hover > ul {
     display: flex;
@@ -56,29 +56,9 @@
 
 </style>
 <div class="b-backgroun-nav z-50 w-full">
-    <?php
-        use App\Models\ServiceCategory;
-        $navbarServiceCategories = ServiceCategory::with(['Service:id,slug,title,service_category_id','Service.SubService:id,slug,title,service_id'])->select('image','id','title','alt_tag','slug','sub_title')->orderBy('order','asc')->where('status',1)->get();
-    ?>
+    <?php use App\Models\ServiceCategory; $navbarServiceCategories = ServiceCategory::with(['Service:id,slug,title,service_category_id','Service.SubService:id,slug,title,service_id'])->select('image','id','title','alt_tag','slug','sub_title')->orderBy('order','asc')->where('status',1)->get();?>
 
-    {{-- <header id="immaintop" class="text-white hidden md:block bg-black md:fixed top-0 z-50 w-full" style="display: none !important;">
-        <div class="container mx-auto px-5 xl:px-12 flex justify-between items-start lg:items-center gap-1 lg:gap-0 flex-col md:flex-row font_aktiv py-[12px] lg:py-[10px] opacity-50">
-            <div>
-                <small class="uppercase font-light text-[10px] font_aktiv">KGRAPH IMMIGRATION CONSULTANCY INC.</small>
-            </div>
-            <div class="flex items-center gap-12">
-                <div class="capitalize hidden lg:flex">
-                    <ul class="flex items-center gap-1 font-light text-[10px]">
-                        <li class="font_aktiv"><a href="{{ url('blogs') }}">blogs</a></li>|
-                        <li class="font_aktiv">Legel</li>|
-                        <li class="font_aktiv">News</li>|
-                        <li class="font_aktiv">Privacy Policy</li>
-                    </ul>
-                </div>
-                <small class="capitalize font-light text-[10px] font_aktiv">© 2024 - K-graph Canadian Immigration Services.</small>
-            </div>
-        </div>
-    </header> --}}
+
 
     <nav id="imHeader" class="text-white bg-gradient-to-b from-black to-transparent md:fixed top-0 !z-50 w-full">
         <div class="flex items-center justify-between container mx-auto px-5 xl:px-12 py-4 lg:py-5">
@@ -91,25 +71,40 @@
 
             </a>
 
-            {{-- mobile device navigation bar --}}
             <div class="relative lg:hidden z-50">
-
                 <nav class="menu--right" role="navigation">
                     <div class="menuToggle">
                         <ul id="mobilemenu" class="menuItem">
-                            <!-- <div class="flex gap-2 items-center justify-start">
-                                <li class="text-[12px] whitespace-nowrap text-black flex items-center"><a href="{{ url('blogs') }}">blogs</a></li>|
-                                <li class="text-[12px] whitespace-nowrap text-black flex items-center"><a class="" href="#">Legal</a></li>|
-                                <li class="text-[12px] whitespace-nowrap text-black flex items-center"><a class="" href="#">News</a></li>|
-                                <li class="text-[12px] whitespace-nowrap text-black flex items-center"><a class="" href="#">Privacy Policy</a></li>
-                            </div> -->
-
                             <li class="mt-4 px-[16px] py-2"><a href="{{ url('about-us') }}">About</a></li>
-                            <li class="px-[16px] py-2"><a href="{{ url('services') }}">Service</a></li>
-                            <li class="px-[16px] py-2"><a href="{{ url('packages') }}">Package</a></li>
+                            <li class="relative px-[16px] py-2">
+                                <div class="flex justify-between items-center cursor-pointer" onclick="toggleMobileSubmenu('services-mobile-submenu')">
+                                    <a href="{{ url('services') }}">Services</a>
+                                    <span class="text-black">▼</span>
+                                </div>
+                                <!-- Services Submenu -->
+                                <ul id="services-mobile-submenu" class="hidden ml-4 bg-black rounded-lg shadow-md">
+                                    @foreach ($navbarServiceCategories as $navbarServiceCategory)
+                                        <li class="nav-item px-[16px] py-2 @if(count($navbarServiceCategory->Service)) relative @endif">
+                                            <div class="flex justify-between items-center cursor-pointer" @if(count($navbarServiceCategory->Service)) onclick="toggleMobileSubmenu('sub-service-{{ $navbarServiceCategory->id }}')" @endif>
+                                                <a class="text-blue-700 font-semibold">{{$navbarServiceCategory->title}}</a>
+                                                @if(count($navbarServiceCategory->Service)) <span class="text-white">></span> @endif
+                                            </div>
+                                            @if(count($navbarServiceCategory->Service))
+                                            <ul id="sub-service-{{ $navbarServiceCategory->id }}" class="hidden ml-4 bg-black rounded-lg shadow-md">
+                                                @foreach ($navbarServiceCategory->Service as $innerServices)
+                                                    <li class="px-[16px] py-2">
+                                                        <a href="{{url('service-details/'.$innerServices->slug)}}" class="text-blue-700 font-semibold">{{$innerServices->title}}</a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                            @endif
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                            <li class="px-[16px] py-2"><a href="{{ url('packages') }}">Packages</a></li>
                             <li class="px-[16px] py-2"><a href="{{ url('careers') }}">Careers</a></li>
                             <li class="px-[16px] py-2"><a href="{{ url('blogs') }}">Blogs</a></li>
-
                             <div class="bg-white text-blue-600 hover:bg-blue-600 hover:text-white px-[16px] py-[6px] rounded-sm ease-in duration-500 cursor-pointer w-fit">
                                 <a href="{{ url('contact-us') }}" class="h-full !text-black">Contact Us</a>
                             </div>
@@ -117,6 +112,13 @@
                     </div>
                 </nav>
             </div>
+            
+            {{-- <script>
+                const toggleMobileSubmenu = (submenuId) => {
+                    const submenu = document.getElementById(submenuId);
+                    submenu.classList.toggle('hidden');
+                };
+            </script> --}}
 
             <button id="menuButton" class="lg:hidden">
                 <img id="openicon" class="w-[50px]" src="{{ asset('assets/menuopen.png') }}" alt="">
@@ -128,22 +130,22 @@
                     <li class="nav-item"><a class="nav-link" href="{{ url('about-us') }}">About</a></li>
                     <li class="nav-item relative flex flex-col items-center">
                         <a class="nav-link Services-nav" href="{{ url('services') }}">Services</a>
-                        <ul class="bg-black hidden absolute top-full left-0 z-50 rounded-lg shadow-md flex-col transition-[height] duration-300 opacity-0">
+                        <ul class=" bg-black hidden absolute top-full left-[-230px] w-[300px] rounded-[18px] py-1 z-50 shadow-md flex-col transition-[height] duration-300 opacity-0">
 
                             @foreach ($navbarServiceCategories as $navbarServiceCategory)
 
-                            <li class="nav-item nav-link-for @if(count($navbarServiceCategory->Service)) relative @endif">
-                                <a class=" text-blue-700 font-semibold">{{$navbarServiceCategory->title}}</a>
+                            <li class="nav-item nav-link-for my-3 @if(count($navbarServiceCategory->Service)) relative @endif">
+                                <a class=" text-blue-700 font_inter font-semibold text-[15px]">{{$navbarServiceCategory->title}}</a>
                                 @if(count($navbarServiceCategory->Service))
-                                <ul class="bg-black hidden absolute left-full top-0 z-50 rounded-lg shadow-md transition-[height] duration-300 opacity-0">
+                                <ul class=" bg-black hidden absolute left-[95%] rounded-[18px] top-0 z-50 shadow-md transition-[height] duration-300 opacity-0">
                                     @foreach ($navbarServiceCategory->Service as $innerServices)
                                     <li class="nav-item nav-link-for @if(count($innerServices->SubService)) relative @endif">
-                                        <a class="text-blue-700 font-semibold" href="{{url('service-details/'.$innerServices->slug)}}">{{$innerServices->title}}</a>
+                                        <a class="text-blue-700 font_inter font-semibold text-[15px]" href="{{url('service-details/'.$innerServices->slug)}}">{{$innerServices->title}}</a>
                                         <!-- Sub-submenu for PNP -->
                                         @if(count($innerServices->SubService))
-                                        <ul class="bg-black hidden absolute left-full top-0 z-50 rounded-lg shadow-md transition-[height] duration-300 opacity-0">
+                                        <ul class="sub-mnu-pnrt bg-black hidden absolute rounded-[18px] left-[95%] top-0 z-50 shadow-md transition-[height] duration-300 opacity-0">
                                             @foreach ($innerServices->SubService as $innerSubServices)
-                                            <li class="nav-item nav-link-for"><a class=" text-blue-700 font-semibold" href="{{url('sub-service-details/'.$innerSubServices->slug)}}">{{$innerSubServices->title}}</a></li>
+                                            <li class="nav-item nav-link-for my-[2px]"><a class=" text-blue-700 font_inter font-semibold text-[15px]" href="{{url('sub-service-details/'.$innerSubServices->slug)}}">{{$innerSubServices->title}}</a></li>
                                             @endforeach
                                         </ul>
                                         @endif
@@ -153,9 +155,6 @@
                                 </ul>
                                 @endif
                             </li>
-                            {{-- <li class="nav-item"><a class="nav-link !text-blue-700 font-semibold" href="{{ url('permanent-residency') }}">Permanent Residency</a></li>
-                            <li class="nav-item"><a class="nav-link !text-blue-700 font-semibold" href="{{ url('reconsideration') }}">Reconsideration</a></li>
-                            <li class="nav-item"><a class="nav-link !text-blue-700 font-semibold" href="{{ url('iad-appeals') }}">IAD Appeals</a></li> --}}
                             @endforeach
                         </ul>
                     </li>
@@ -217,13 +216,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 const icon = document.createElement('span');
                 if (item.closest('ul').classList.contains('flex')) {
                     // Add down arrow for top-level menu
-                    icon.textContent = '▼'; // Down arrow symbol
-                    icon.classList.add('submenu-icon', 'ml-2', 'text-gray-500');
+                    icon.innerHTML = '<svg width="10" height="6" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L7 7L13 1" stroke="#FCFCFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'; 
+                    icon.classList.add('submenu-icon', 'ml-2', 'text-gray-500','inline-block');
                 } else {
                     // Add right arrow for submenu
-                    icon.textContent = '>'; // Right arrow symbol
-                    icon.classList.add('submenu-icon', 'ml-2', 'text-gray-500');
+                    icon.innerHTML = '<svg width="6" height="10" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 13L7 7L1 1" stroke="#FCFCFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'; 
+                    icon.classList.add('submenu-icon', 'ml-6', 'text-gray-500','inline-block');
                 }
+
                 item.querySelector('a').appendChild(icon);
             }
         });

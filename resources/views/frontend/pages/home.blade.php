@@ -4,7 +4,7 @@
     {{-- Load GSAP --}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/SplitText.min.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/SplitText.min.js"></script> --}}
 
 {{-- 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
@@ -1651,7 +1651,7 @@
 
         // Initialize SplitText
         const split = new SplitText(bannerText, {
-            type: "chars, words, lines", // Splits the text into characters, words, and lines
+            type: "chars, words, lines",
         });
 
         // Create a GSAP timeline
