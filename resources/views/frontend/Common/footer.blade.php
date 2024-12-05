@@ -23,13 +23,15 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
             <div class="flex items-start md:items-center gap-5 justify-center">
                 <img src="{{ asset('assets/nooneedvisa.png') }}" alt="visa no need">
                 <h2 class="w-[60%] text-[14px] xl:text-[30px] font-semibold plus_jakarta text-white">Need any support for
-                    tour and visa?</h2>
+                    tour and visa?
+                </h2>
             </div>
             <div
                 class="flex items-start md:items-center gap-5 md:border-l border-l-[#FFFFFF] border-opacity-50 justify-center">
                 <img src="{{ asset('assets/travelstarted.png') }}" alt="started travelling">
                 <h2 class="w-[60%] text-[14px] xl:text-[30px] font-semibold plus_jakarta text-white">Are you ready for
-                    get started travelling?</h2>
+                    get started travelling?
+                </h2>
             </div>
         </div>
 
@@ -53,10 +55,10 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                     </div>
 
                     <div class="flex items-center gap-6">
-                        <img class="max-h-[15px]" src="{{ asset('assets/facebookVector.png') }}" alt="facebook">
-                        <img class="max-w-[15px]" src="{{ asset('assets/InstagramVector.png') }}" alt="Instagaram">
-                        <img class="max-w-[15px]" src="{{ asset('assets/XVector.png') }}" alt="X">
-                        <img class="max-w-[15px]" src="{{ asset('assets/LinkedIn.png') }}" alt="Linked">
+                        <a href="#" target="_blank" rel="noopener noreferrer"><img class="max-h-[15px]" src="{{ asset('assets/facebookVector.png') }}" alt="Facebook"></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><img class="max-w-[15px]" src="{{ asset('assets/InstagramVector.png') }}" alt="Instagram"></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><img class="max-w-[15px]" src="{{ asset('assets/XVector.png') }}" alt="X"></a>
+                        <a href="#" target="_blank" rel="noopener noreferrer"><img class="max-w-[15px]" src="{{ asset('assets/LinkedIn.png') }}" alt="LinkedIn"></a>
                     </div>
                 </div>
 

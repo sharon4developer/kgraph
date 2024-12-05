@@ -522,14 +522,10 @@
                     </div> --}}
                     <div class="lg:absolute bottom-0 right-0 w-full lg:w-fit flex justify-center lg:right-12 lg:bottom-[35%] z-10">
                         <div  class="flex lg:flex-col items-center gap-[30px] border border-white py-2 lg:py-4 px-6 lg:px-2 rounded-full mb-3 lg:mb-0">
-                            <img class="w-[15px] transition-transform duration-300 transform hover:scale-125"
-                                src="{{ asset('assets/facebookban.png') }}" alt="facebook">
-                            <img class="w-[15px] transition-transform duration-300 transform hover:scale-125"
-                                src="{{ asset('assets/instagramban.png') }}" alt="instagram">
-                            <img class="w-[15px] transition-transform duration-300 transform hover:scale-125"
-                                src="{{ asset('assets/linkedinban.png') }}" alt="linkedin">
-                            <img class="w-[15px] transition-transform duration-300 transform hover:scale-125"
-                                src="{{ asset('assets/youtubeban.png') }}" alt="youtube">
+                            <a href="#"><img class="w-[15px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/facebookban.png') }}" alt="facebook"></a>
+                            <a href="#"><img class="w-[15px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/instagramban.png') }}" alt="instagram"></a>
+                            <a href="#"><img class="w-[15px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/linkedinban.png') }}" alt="linkedin"></a>
+                            <a href="#"><img class="w-[15px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/youtubeban.png') }}" alt="youtube"></a>
                         </div>
                     </div>
                 </div>

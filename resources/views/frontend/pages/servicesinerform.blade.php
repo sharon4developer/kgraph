@@ -15,15 +15,15 @@
         }
 
         .contact-form div {
-            margin-top: 16px;
-            margin-bottom: 16px;
+            margin-top: 0px;
+            margin-bottom: 0px;
         }
 
         .contact-form label {
             font-family: "Inter", sans-serif;
             font-weight: 400;
             font-size: 12px;
-            color: white;
+            color: #1E1E1E;
             text-transform: capitalize;
         }
 
@@ -36,7 +36,7 @@
             color: black;
             text-transform: capitalize;
             background: white;
-            border: 2px solid #D1D6DC;
+            border: 1px solid #C6C6C6;
             border-radius: 3px;
             padding-top: 5px;
             padding-bottom: 5px;
@@ -129,52 +129,58 @@
                 <p>K-graph Canadian Immigration Services</p>
             </div>
         </div>
-        <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:pb-[4%] lg:pt-0">
-            <div class="services-grade w-full py-2 rounded-md my-8">
-                <h2 class="text-[#072459] font_inter text-[16px] md:text-[20px] pl-4 font-extrabold capitalize">Immigration
-                    Pre-Assessment Form</h2>
+        <div class="container mx-auto px-5 lg:px-12 xl:px-32 h-full w-full py-8 md:pt-[15%] lg:pb-[4%] lg:pt-0 bg-white">
+
+
+
+            <div class="w-full py-2 mt-8 mb-4 flex justify-between items-center border-b border-b-[#062358] pt-14">
+                <h2 class="text-[#014598] font_inter text-[16px] md:text-[23px] font-extrabold font_inter capitalize">Immigration Pre-Assessment Form</h2>
+                <img class="w-[115px]" src="{{ asset('assets/home_Banner/k-graph-logo-blue.png') }}" alt="k-graph">
             </div>
 
-            <img class="w-[115px]" src="{{ asset('assets/k-graph-logo.png') }}" alt="k-graph">
-            <p class="text-white lg:w-[55%] my-6">In case you are filling out the form for a friend or sponsored person,
+            
+            <p class="text-[#062358] lg:w-[55%] mb-6">In case you are filling out the form for a friend or sponsored person,
                 please input the information of the
                 person who wants to immigrate.</p>
             <div class="">
-                <h2 class="text-white my-6 font_inter font-medium text-[30px]">Contact Information</h2>
-                <form action="" class="contact-form" id="eligibility-form">
+                {{-- <h2 class="text-[#062358] my-6 font_inter font-medium text-[30px]">Contact Information</h2> --}}
+                <form action="" class="contact-form mt-24" id="eligibility-form">
 
-
-                    <div class="lg:grid grid-cols-2 gap-x-14">
-                        <div class="flex flex-col w-full">
+                    <div class="lg:grid grid-cols-[1fr_1fr_auto_1fr] gap-x-14 items-start">
+                        <!-- First Name -->
+                        <div class="flex flex-col">
                             <label for="first-name">First Name<span>*</span></label>
-                            <input type="text" id="first-name" name="first_name">
+                            <input type="text" id="first-name" name="first_name" class="border rounded px-2 py-1 w-full">
                         </div>
-                        <div class="flex flex-col w-full">
+                        
+                        <!-- Last Name -->
+                        <div class="flex flex-col">
                             <label for="last-name">Last Name<span>*</span></label>
-                            <input type="text" id="last-name" name="last_name">
+                            <input type="text" id="last-name" name="last_name" class="border rounded px-2 py-1 w-full">
                         </div>
-
-                        <div class="flex flex-col w-full lg:w-1/2">
+                    
+                        <!-- Date of Birth -->
+                        <div class="flex flex-col">
                             <label for="dob">Date of Birth<span>*</span></label>
-                            <input type="date" id="dob" name="dob" placeholder="MM/DD/YYYY">
+                            <input type="date" id="dob" name="dob" value="2000-01-01" class="border rounded px-2 py-1 w-full">
+                        </div>
+                    
+                        <!-- Marital Status -->
+                        <div class="flex flex-col">
+                            <label for="marital-status">Marital Status<span>*</span></label>
+                            <select id="marital-status" name="marital_status" class="border rounded px-2 py-1 w-full">
+                                <option value="" disabled selected>Select your marital status</option>
+                                <option value="Never Married / Single">Never Married / Single</option>
+                                <option value="Married">Married</option>
+                                <option value="Common-Law">Common-Law</option>
+                                <option value="Divorced / Separated">Divorced / Separated</option>
+                                <option value="Legally Separated">Legally Separated</option>
+                                <option value="Widowed">Widowed</option>
+                            </select>
                         </div>
                     </div>
 
-                    <div class="flex flex-col lg:w-[24%]">
-                        <label for="marital-status">Marital Status<span>*</span></label>
-                        <select id="marital-status" name="marital_status" class="border rounded px-2 py-1">
-                            <option value="" disabled selected>Select your marital status</option>
-                            <option value="Never Married / Single">Never Married / Single</option>
-                            <option value="Married">Married</option>
-                            <option value="Common-Law">Common-Law</option>
-                            <option value="Divorced / Separated">Divorced / Separated</option>
-                            <option value="Legally Separated">Legally Separated</option>
-                            <option value="Widowed">Widowed</option>
-                        </select>
-                    </div>
-
-
-                    <div class="lg:grid grid-cols-2 gap-x-14 py-10">
+                    <div class="lg:grid grid-cols-[1fr_1fr_auto_1fr] gap-x-14 py-10">
                         <div class="flex flex-col">
                             <label for="email">Email<span>*</span></label>
                             <input type="email" id="email" name="email">
@@ -184,6 +190,26 @@
                             <input type="tel" id="mobile" name="mobile">
                         </div>
 
+                        <div class="flex flex-col invisible">
+                            <label for="dob">Date of Birth<span>*</span></label>
+                            <input type="date" id="dob" name="dob" value="2000-01-01" class="border rounded px-2 py-1 w-full">
+                        </div>
+                
+                        <div class="flex flex-col invisible">
+                            <label for="marital-status">Marital Status<span>*</span></label>
+                            <select id="marital-status" name="marital_status" class="border rounded px-2 py-1 w-full">
+                                <option value="" disabled selected>Select your marital status</option>
+                                <option value="Never Married / Single">Never Married / Single</option>
+                                <option value="Married">Married</option>
+                                <option value="Common-Law">Common-Law</option>
+                                <option value="Divorced / Separated">Divorced / Separated</option>
+                                <option value="Legally Separated">Legally Separated</option>
+                                <option value="Widowed">Widowed</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="lg:grid grid-cols-[1fr_auto] gap-x-14">
                         <div class="flex flex-col w-full">
                             <label for="street-address-1">Address<span>*</span></label>
                             <input type="text" id="street-address-1" name="street_address">
@@ -193,7 +219,11 @@
                             <label for="city">Citizenship<span>*</span></label>
                             <input type="text" id="city" name="city">
                         </div>
+                    </div>
 
+                    <div class="h-[2px] bg-[#D3D3D3] w-full !mt-24 !mb-12"></div>
+
+                    <div class="lg:grid grid-cols-2 gap-x-14">
                         <div class="flex flex-col lg:w-1/2">
                             <label for="highest-education-inside">Highest Level of Education<span>*</span></label>
                             <select id="highest-education-inside" name="highest_education_inside_can" class="border rounded px-2 py-1">
@@ -208,10 +238,6 @@
                             </select>
                         </div>
 
-
-                    </div>
-
-                    <div class="lg:grid grid-cols-3 items-baseline gap-x-14">
                         <div>
                             <label>Have you held a Canadian Education<span>*</span></label>
                             <div class="check-box-wrpr !mt-0">
@@ -226,63 +252,47 @@
                             </div>
                         </div>
 
+                    </div>
+
+                    <div class="lg:grid grid-cols-3 items-baseline gap-x-14 py-10">
                         <div>
-                            <div>
-                                <label>Do you have a valid Language Skills Test Result</label>
-                                <div id="language-skills" class="check-box-wrpr !mt-0">
-                                    <div>
-                                        <input type="radio" id="qualification-yes" name="country_of_studies" value="Yes">
-                                        <label for="qualification-yes">Yes</label>
-                                    </div>
-                                    <div>
-                                        <input type="radio" id="qualification-no" name="country_of_studies" value="No">
-                                        <label for="qualification-no">No</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div>
-                                <div id="language-test" class="hidden flex-col w-full">
-                                    <label for="which-lang">Which language test did you take?<span>*</span></label>
-                                    <select id="which-lang" name="language_test" class="border rounded px-2 py-1">
-                                        <option value="" disabled selected>Select</option>
-                                        <option value="CELPIP-G">CELPIP-G</option>
-                                        <option value="IELTS">IELTS</option>
-                                        <option value="PTE Core">PTE Core</option>
-                                        <option value="TEF Canada">TEF Canada</option>
-                                        <option value="TCF Canada">TCF Canada</option>
-                                    </select>
-                                </div>
-
-
-                                <div id="language-scores" class="hidden flex-col">
-                                    <label for="scores">If selected any of the above, show the below text boxes<span>*</span></label>
-                                    <div class="grid grid-cols-2 gap-4">
-                                        <input type="number" id="speaking" name="speaking" class="w-full" placeholder="Speaking">
-                                        <input type="number" id="reading" name="reading" class="w-full" placeholder="Reading">
-                                        <input type="number" id="listening" name="listening" class="w-full" placeholder="Listening">
-                                        <input type="number" id="writing" name="writing" class="w-full" placeholder="Writing">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <label>Any Previous Visa Refusal<span>*</span></label>
-                            <div class="check-box-wrpr !mt-0">
+                            <label>Do you have a valid Language Skills Test Result</label>
+                            <div id="language-skills" class="check-box-wrpr !mt-0">
                                 <div>
-                                    <input type="radio" id="qualification-yes" name="refused_or_cancelled_visa" value="Yes">
+                                    <input type="radio" id="qualification-yes" name="country_of_studies" value="Yes">
                                     <label for="qualification-yes">Yes</label>
                                 </div>
                                 <div>
-                                    <input type="radio" id="qualification-no" name="refused_or_cancelled_visa" value="No">
+                                    <input type="radio" id="qualification-no" name="country_of_studies" value="No">
                                     <label for="qualification-no">No</label>
                                 </div>
                             </div>
                         </div>
+
+                        <div id="language-test" class="hidden flex-col w-full">
+                            <label for="which-lang">Which language test did you take?<span>*</span></label>
+                            <select id="which-lang" name="language_test" class="border rounded px-2 py-1">
+                                <option value="" disabled selected>Select</option>
+                                <option value="CELPIP-G">CELPIP-G</option>
+                                <option value="IELTS">IELTS</option>
+                                <option value="PTE Core">PTE Core</option>
+                                <option value="TEF Canada">TEF Canada</option>
+                                <option value="TCF Canada">TCF Canada</option>
+                            </select>
+                        </div>
+
+                        <div id="language-scores" class="hidden flex-col">
+                            <label for="scores">If selected any of the above, show the below text boxes<span>*</span></label>
+                            <div class="grid grid-cols-2 gap-4">
+                                <input type="number" id="speaking" name="speaking" class="w-full" placeholder="Speaking">
+                                <input type="number" id="reading" name="reading" class="w-full" placeholder="Reading">
+                                <input type="number" id="listening" name="listening" class="w-full" placeholder="Listening">
+                                <input type="number" id="writing" name="writing" class="w-full" placeholder="Writing">
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="lg:grid grid-cols-3 gap-[53px]">
+                    <div class="lg:grid grid-cols-3 gap-[53px] !mb-12">
                         <div class="flex flex-col w-full">
                             <label for="state">Canadian Experience<span>*</span></label>
                             <select id="state" name="state" class="border rounded px-2 py-1">
@@ -306,7 +316,20 @@
                         </div>
                     </div>
 
-                    <div class="lg:grid grid-cols-2 pt-10">
+                    <div class="lg:grid grid-cols-[auto_auto_1fr_1fr] gap-[53px]">
+                        <div>
+                            <label>Any Previous Visa Refusal<span>*</span></label>
+                            <div class="check-box-wrpr !mt-0">
+                                <div>
+                                    <input type="radio" id="qualification-yes" name="refused_or_cancelled_visa" value="Yes">
+                                    <label for="qualification-yes">Yes</label>
+                                </div>
+                                <div>
+                                    <input type="radio" id="qualification-no" name="refused_or_cancelled_visa" value="No">
+                                    <label for="qualification-no">No</label>
+                                </div>
+                            </div>
+                        </div>
                         <div>
                             <label>Do you have any criminal record(s) in your home country or any other country<span>*</span></label>
                             <div class="check-box-wrpr !mt-0">
@@ -320,6 +343,12 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+
+
+                    <div class="lg:grid grid-cols-2 pt-10">
+                  
 
                         <div>
                             <label>Do you or your spouse or common-law partner have a blood relative living in
@@ -352,6 +381,10 @@
 
                     </div>
 
+                    
+
+
+
                     <div class="py-10">
                         <div class="flex flex-col lg:w-1/2">
                             <label for="birth-country">Any Additional Information<span>*</span></label>
@@ -361,7 +394,7 @@
 
                     <div class="submit-btn bg-gradient-to-r from-black to-transparent">
                         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[2%] mt-[-50px]">
-                            <button class="font_syne my-4 text-white border border-white rounded-full w-full lg:w-fit lg:px-16 py-2 text-[14px] lg:text-base  hover:bg-white hover:border-black hover:text-black ease-linear duration-300 font-bold" style="">SUBMIT</button>
+                            <button class="font_syne my-4 text-[#062358] border border-black rounded-full w-full lg:w-fit lg:px-16 py-2 text-[14px] lg:text-base  hover:bg-white hover:border-black hover:text-black ease-linear duration-300 font-bold" style="">SUBMIT</button>
                         </div>
                     </div>
                 </form>
@@ -373,14 +406,14 @@
     @include('frontend.Common.getintouch')
 
     <script>
-        document.getElementById('dob').addEventListener('blur', function () {
-            if (!this.value) {
-            this.type = 'text';
-            }
-        });
-        document.getElementById('dob').addEventListener('focus', function () {
-            this.type = 'date';
-        });
+        // document.getElementById('dob').addEventListener('blur', function () {
+        //     if (!this.value) {
+        //     this.type = 'text';
+        //     }
+        // });
+        // document.getElementById('dob').addEventListener('focus', function () {
+        //     this.type = 'date';
+        // });
     </script>
 
 <script>

@@ -77,11 +77,11 @@
                         <ul id="mobilemenu" class="menuItem">
                             <li class="mt-4 px-[16px] py-2"><a href="{{ url('about-us') }}">About</a></li>
                             <li class="relative px-[16px] py-2">
-                                <div class="flex justify-between items-center cursor-pointer" onclick="toggleMobileSubmenu('services-mobile-submenu')">
-                                    <a href="{{ url('services') }}">Services</a>
-                                    <span class="text-black">▼</span>
-                                </div>
-                                <!-- Services Submenu -->
+                                <a href="{{ url('services') }}">Services</a>
+                                {{-- <div class="flex justify-between items-center cursor-pointer" onclick="toggleMobileSubmenu('services-mobile-submenu')"> --}}
+                                    {{-- <span class="text-black">▼</span> --}}
+                                {{-- </div> --}}
+                                {{-- <!-- Services Submenu -->
                                 <ul id="services-mobile-submenu" class="hidden ml-4 bg-black rounded-lg shadow-md">
                                     @foreach ($navbarServiceCategories as $navbarServiceCategory)
                                         <li class="nav-item px-[16px] py-2 @if(count($navbarServiceCategory->Service)) relative @endif">
@@ -100,14 +100,14 @@
                                             @endif
                                         </li>
                                     @endforeach
-                                </ul>
+                                </ul> --}}
                             </li>
                             <li class="px-[16px] py-2"><a href="{{ url('packages') }}">Packages</a></li>
                             <li class="px-[16px] py-2"><a href="{{ url('careers') }}">Careers</a></li>
                             <li class="px-[16px] py-2"><a href="{{ url('blogs') }}">Blogs</a></li>
-                            <div class="bg-white text-blue-600 hover:bg-blue-600 hover:text-white px-[16px] py-[6px] rounded-sm ease-in duration-500 cursor-pointer w-fit">
-                                <a href="{{ url('contact-us') }}" class="h-full !text-black">Contact Us</a>
-                            </div>
+                            <a href="{{ url('contact-us') }}" class="bg-white text-blue-600 flex hover:bg-blue-600 hover:text-white px-[16px] py-[6px] rounded-sm ease-in duration-500 cursor-pointer w-fit">
+                                <div class="h-full !text-black">Contact Us</div>
+                            </a>
                         </ul>
                     </div>
                 </nav>
