@@ -334,7 +334,13 @@ $('#eligibility-form').validate({
         city: { required: true },
         dob: { required: true, date: true },
         marital_status: { required: true },
-        mobile: { required: true, digits: true },
+        country: { required: true }, // Validation for country code
+        mobile: {
+            required: true,
+            digits: true,
+            minlength: 10,
+            maxlength: 15
+        },
         highest_education_inside_can: { required: true },
         certificate_of_qualification: { required: true },
         country_of_studies: { required: true },
@@ -370,7 +376,8 @@ $('#eligibility-form').validate({
         detained: { required: true }
     },
     groups: {
-        languageSkills: "speaking reading listening writing"
+        languageSkills: "speaking reading listening writing",
+        contactInfo: "country mobile" // Group country and mobile
     },
     messages: {
         first_name: "First name is required.",
@@ -383,9 +390,12 @@ $('#eligibility-form').validate({
         city: "Citizenship is required.",
         dob: "Date of birth is required.",
         marital_status: "Select your marital status.",
+        country: "Country code is required.", // Error message for country code
         mobile: {
             required: "Mobile number is required.",
-            digits: "Enter a valid mobile number."
+            digits: "Enter a valid mobile number.",
+            minlength: "Mobile number must be at least 10 digits.",
+            maxlength: "Mobile number must not exceed 15 digits."
         },
         highest_education_inside_can: "Select your highest education level.",
         certificate_of_qualification: "Please select if you hold a Canadian education.",
@@ -410,6 +420,9 @@ $('#eligibility-form').validate({
                    element.attr("name") === "listening" || 
                    element.attr("name") === "writing") {
             error.insertAfter("#language-scores");
+        } else if (element.attr("name") === "mobile") {
+            // Move error message outside the section
+            error.insertAfter(element.closest("section"));
         } else {
             error.insertAfter(element);
         }
@@ -473,6 +486,7 @@ $('#eligibility-form').validate({
         $(element).removeClass('is-invalid');
     }
 });
+
 
 
 

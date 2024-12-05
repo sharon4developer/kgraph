@@ -1,6 +1,7 @@
 @extends('layouts.main')
 @section('content')
-    <style>@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');</style>
+<style>@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');</style>
+
     <style>
         .services-grade {
             background: linear-gradient(22deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
@@ -14,10 +15,10 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        .contact-form div {
+        /* .contact-form div {
             margin-top: 0px;
             margin-bottom: 0px;
-        }
+        } */
 
         .contact-form label {
             font-family: "Inter", sans-serif;
@@ -90,9 +91,15 @@
         .font_syne{
             font-family: "Syne", serif;
         }
+
+        @media (max-width: 1023px){
+        .contact-form div {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        }
     </style>
 
-    {{-- services banner --}}
     <div class="services-banner md:h-[50vh]">
         <div class="services-banner-overlay">
             <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[8%]">
@@ -139,8 +146,7 @@
         </div>
 
         <form action="" class="contact-form bg-white" id="eligibility-form">
-
-            <div class="container mx-auto px-5 lg:px-12 xl:px-32 h-full w-full py-8 md:pt-[15%] lg:pb-[4%] lg:pt-0 mt-24">
+            <div class="container mx-auto px-5 lg:px-12 xl:px-32 h-full w-full py-8 md:pt-[15%] lg:pb-[4%] lg:pt-0">
                 <div class="lg:grid grid-cols-[1fr_1fr_auto_1fr] gap-x-14 items-start">
                     <!-- First Name -->
                     <div class="flex flex-col">
@@ -175,22 +181,26 @@
                     </div>
                 </div>
 
-                <div class="lg:grid grid-cols-[1fr_1fr_auto_1fr] gap-x-14 py-10">
+                <div class="lg:grid grid-cols-[1fr_1fr_auto_1fr] gap-x-14 lg:py-10">
                     <div class="flex flex-col">
                         <label for="email">Email<span>*</span></label>
                         <input type="email" id="email" name="email">
                     </div>
+
                     <div class="flex flex-col">
                         <label for="mobile">Mobile Number<span>*</span></label>
-                        <input type="tel" id="mobile" name="mobile">
+                        <section class="flex items-center gap-2">
+                            <input class="w-[40px] inline-block text-center" type="text" name="country" id="country" value="+21" >
+                            <input type="tel" class="w-full" id="mobile" name="mobile" placeholder="Enter your phone number" >
+                        </section>
                     </div>
 
-                    <div class="flex flex-col invisible">
+                    <div class="hidden lg:flex flex-col invisible">
                         <label for="dob">Date of Birth<span>*</span></label>
                         <input type="date" id="dob" name="dob" value="2000-01-01" class="border rounded px-2 py-1 w-full">
                     </div>
             
-                    <div class="flex flex-col invisible">
+                    <div class="hidden lg:flex flex-col invisible">
                         <label for="marital-status">Marital Status<span>*</span></label>
                         <select id="marital-status" name="marital_status" class="border rounded px-2 py-1 w-full">
                             <option value="" disabled selected>Select your marital status</option>
@@ -216,7 +226,7 @@
                     </div>
                 </div>
 
-                <div class="h-[2px] bg-[#D3D3D3] w-full !mt-24 !mb-12"></div>
+                <div class="hidden lg:block h-[2px] bg-[#D3D3D3] w-full lg:!mt-24 lg:!mb-12"></div>
 
                 <div class="lg:grid grid-cols-2 gap-x-14">
                     <div class="flex flex-col lg:w-1/2">
@@ -236,11 +246,11 @@
                     <div>
                         <label>Have you held a Canadian Education<span>*</span></label>
                         <div class="check-box-wrpr !mt-0">
-                            <div>
+                            <div class="!my-0">
                                 <input type="radio" id="qualification-yes" name="certificate_of_qualification" value="Yes">
                                 <label for="qualification-yes">Yes</label>
                             </div>
-                            <div>
+                            <div class="!my-0">
                                 <input type="radio" id="qualification-no" name="certificate_of_qualification" value="No">
                                 <label for="qualification-no">No</label>
                             </div>
@@ -249,15 +259,15 @@
 
                 </div>
 
-                <div class="lg:grid grid-cols-3 items-start gap-x-14 py-10">
+                <div class="lg:grid grid-cols-3 items-start gap-x-14 lg:py-10">
                     <div>
                         <label>Do you have a valid Language Skills Test Result</label>
                         <div id="language-skills" class="check-box-wrpr !mt-0">
-                            <div>
+                            <div class="!my-0">
                                 <input type="radio" id="qualification-yes" name="country_of_studies" value="Yes">
                                 <label for="qualification-yes">Yes</label>
                             </div>
-                            <div>
+                            <div class="!my-0">
                                 <input type="radio" id="qualification-no" name="country_of_studies" value="No">
                                 <label for="qualification-no">No</label>
                             </div>
@@ -287,7 +297,7 @@
                     </div>
                 </div>
 
-                <div class="lg:grid grid-cols-3 gap-[53px] !mb-12">
+                <div class="lg:grid grid-cols-3 gap-[53px] lg:!mb-12">
                     <div class="flex flex-col w-full">
                         <label for="state">Canadian Experience<span>*</span></label>
                         <select id="state" name="state" class="border rounded px-2 py-1">
@@ -315,11 +325,11 @@
                     <div>
                         <label>Any Previous Visa Refusal<span>*</span></label>
                         <div class="check-box-wrpr !mt-0">
-                            <div>
+                            <div class="!my-0">
                                 <input type="radio" id="qualification-yes" name="refused_or_cancelled_visa" value="Yes">
                                 <label for="qualification-yes">Yes</label>
                             </div>
-                            <div>
+                            <div class="!my-0">
                                 <input type="radio" id="qualification-no" name="refused_or_cancelled_visa" value="No">
                                 <label for="qualification-no">No</label>
                             </div>
@@ -328,11 +338,11 @@
                     <div>
                         <label>Do you have any criminal record(s) in your home country or any other country<span>*</span></label>
                         <div class="check-box-wrpr !mt-0">
-                            <div>
+                            <div class="!my-0">
                                 <input type="radio" id="qualification-yes" name="criminal_record" value="Yes">
                                 <label for="qualification-yes">Yes</label>
                             </div>
-                            <div>
+                            <div class="!my-0">
                                 <input type="radio" id="qualification-no" name="criminal_record" value="No">
                                 <label for="qualification-no">No</label>
                             </div>
@@ -340,16 +350,16 @@
                     </div>
                 </div>
 
-                <div class="lg:grid grid-cols-2 pt-10">
+                <div class="lg:grid grid-cols-2 lg:pt-10">
                     <div>
                         <label>Do you or your spouse or common-law partner have a blood relative living in
                             Canada who is a citizen or a permanent resident of Canada<span>*</span></label>
                         <div class="check-box-wrpr !mt-0">
-                            <div>
+                            <div class="!my-0">
                                 <input type="radio" id="qualification-yes" name="family_relations_in_canada" value="Yes">
                                 <label for="qualification-yes">Yes</label>
                             </div>
-                            <div>
+                            <div class="!my-0">
                                 <input type="radio" id="qualification-no" name="family_relations_in_canada" value="No">
                                 <label for="qualification-no">No</label>
                             </div>
@@ -357,7 +367,7 @@
                     </div>
                 </div>
 
-                <div class="py-10">
+                <div class="lg:py-10">
                     <div class="flex flex-col lg:w-1/4">
                         <label for="hear-about-us">How Did You Hear About Us<span>*</span></label>
                         <select id="hear-about-us" name="hear_about_canada" class="border rounded px-2 py-1">
@@ -372,7 +382,7 @@
 
                 </div>
 
-                <div class="py-10">
+                <div class="lg:py-10">
                     <div class="flex flex-col lg:w-1/4">
                         <label for="birth-country">Any Additional Information<span>*</span></label>
                         <textarea rows="4" cols="50" class="!h-44 scrollbar-hidden"></textarea>
@@ -389,52 +399,50 @@
 
     </div>
 
-
     @include('frontend.Common.getintouch')
-
     <script>
-        // document.getElementById('dob').addEventListener('blur', function () {
-        //     if (!this.value) {
-        //     this.type = 'text';
-        //     }
-        // });
-        // document.getElementById('dob').addEventListener('focus', function () {
-        //     this.type = 'date';
-        // });
-    </script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const languageSkillsRadios = document.getElementsByName('country_of_studies');
+            const languageTestDiv = document.getElementById('language-test');
+            const languageScoresDiv = document.getElementById('language-scores');
+            const languageTestSelect = document.getElementById('which-lang');
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const languageSkillsRadios = document.getElementsByName('country_of_studies');
-        const languageTestDiv = document.getElementById('language-test');
-        const languageScoresDiv = document.getElementById('language-scores');
-        const languageTestSelect = document.getElementById('which-lang');
+            languageSkillsRadios.forEach(radio => {
+                radio.addEventListener('change', () => {
+                    if (radio.value === 'Yes') {
+                        languageTestDiv.classList.remove('hidden');
+                        languageTestDiv.classList.add('flex');
+                    } else {
+                        languageTestDiv.classList.add('hidden');
+                        languageTestDiv.classList.remove('flex');
+                        languageScoresDiv.classList.add('hidden');
+                        languageScoresDiv.classList.remove('flex');
+                    }
+                });
+            });
 
-        // Toggle language-test based on radio selection
-        languageSkillsRadios.forEach(radio => {
-            radio.addEventListener('change', () => {
-                if (radio.value === 'Yes') {
-                    languageTestDiv.classList.remove('hidden');
-                    languageTestDiv.classList.add('flex');
+            languageTestSelect.addEventListener('change', () => {
+                if (languageTestSelect.value) {
+                    languageScoresDiv.classList.remove('hidden');
+                    languageScoresDiv.classList.add('flex');
                 } else {
-                    languageTestDiv.classList.add('hidden');
-                    languageTestDiv.classList.remove('flex');
                     languageScoresDiv.classList.add('hidden');
                     languageScoresDiv.classList.remove('flex');
                 }
             });
         });
+    </script>
 
-        // Show language-scores when an option is selected in the language-test dropdown
-        languageTestSelect.addEventListener('change', () => {
-            if (languageTestSelect.value) {
-                languageScoresDiv.classList.remove('hidden');
-                languageScoresDiv.classList.add('flex');
-            } else {
-                languageScoresDiv.classList.add('hidden');
-                languageScoresDiv.classList.remove('flex');
+    <script>
+        const countryInput = document.getElementById('country');
+        const defaultCountryCode = '+91'; 
+        countryInput.value = defaultCountryCode;
+        countryInput.addEventListener('input', (e) => {
+            if (!/^\+\d+$/.test(e.target.value)) {
+                alert('Country code must start with a "+" followed by numbers.');
+                e.target.value = defaultCountryCode;
             }
         });
-    });
-</script>
+  </script>
+
 @endsection
