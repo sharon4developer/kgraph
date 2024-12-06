@@ -34,23 +34,13 @@
 }
 
 
-.submenu-icon {
-    margin-left: 40px;
-    font-size: 0.75rem;
-    color: #ffffff; /* Tailwind gray-500 */
-}
+.accordion-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 
-.Services-nav .submenu-icon {
-    margin-left: 5px;
-    font-size: 0.75rem;
-    color: #ffffff; 
-    /* transform: rotate(90deg); */
-}
-.nav-item.relative:hover > ul {
-    display: flex;
-    flex-direction: column;
-}
-.accordion-button {
+    .submenu .accordion-header a {
         background: none;
         border: none;
         text-align: left;
@@ -62,16 +52,18 @@
         justify-content: space-between;
         align-items: center;
     }
-
-    .accordion-button:focus {
-        outline: none;
+    .accordion-toggle {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
     }
 
-    .arrow {
+    .accordion-toggle .arrow {
         transition: transform 0.3s ease;
     }
 
-    .arrow.rotate {
+    .accordion-toggle .arrow.rotate {
         transform: rotate(180deg);
     }
 
@@ -81,6 +73,11 @@
 
     .submenu-item {
         padding-left: 15px;
+    }
+
+    .submenu a {
+        text-decoration: none;
+        color: inherit;
     }
 
 
@@ -109,40 +106,46 @@
                                 <a href="{{ url('about-us') }}">About</a>
                             </li>
                             <li class="relative px-4 py-2">
-                                <button class="accordion-button">
-                                    Services
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="arrow h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </button>
+                                <div class="accordion-header">
+                                    <span>Services</span>
+                                    <button class="accordion-toggle">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="arrow h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </button>
+                                </div>
                                 <ul class="submenu hidden">
                                     @foreach ($navbarServiceCategories as $navbarServiceCategory)
                                     <li class="submenu-item">
-                                        <button class="accordion-button">
-                                            {{$navbarServiceCategory->title}}
+                                        <div class="accordion-header">
+                                            <a href="#">{{$navbarServiceCategory->title}}</a>
                                             @if(count($navbarServiceCategory->Service))
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="arrow h-4 w-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                                            </svg>
+                                            <button class="accordion-toggle">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="arrow h-4 w-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                                </svg>
+                                            </button>
                                             @endif
-                                        </button>
+                                        </div>
                                         @if(count($navbarServiceCategory->Service))
                                         <ul class="submenu hidden">
                                             @foreach ($navbarServiceCategory->Service as $innerServices)
                                             <li class="submenu-item">
-                                                <button class="accordion-button">
-                                                    {{$innerServices->title}}
+                                                <div class="accordion-header">
+                                                    <a href="{{url('service-details/'.$innerServices->slug)}}">{{$innerServices->title}}</a>
                                                     @if(count($innerServices->SubService))
-                                                    <svg xmlns="http://www.w3.org/2000/svg" class="arrow h-4 w-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-                                                    </svg>
+                                                    <button class="accordion-toggle">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="arrow h-4 w-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                                        </svg>
+                                                    </button>
                                                     @endif
-                                                </button>
+                                                </div>
                                                 @if(count($innerServices->SubService))
                                                 <ul class="submenu hidden">
                                                     @foreach ($innerServices->SubService as $innerSubServices)
                                                     <li class="submenu-item">
-                                                        <a href="{{url('sub-service-details/'.$innerSubServices->slug)}}">{{$innerSubServices->title}}</a>
+                                                        <a class="pb-3 block" href="{{url('sub-service-details/'.$innerSubServices->slug)}}">{{$innerSubServices->title}}</a>
                                                     </li>
                                                     @endforeach
                                                 </ul>
@@ -171,6 +174,8 @@
                     </div>
                 </nav>
             </div>
+            
+            
             
             
             
@@ -292,22 +297,20 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    const accordionButtons = document.querySelectorAll('.accordion-button');
+    const toggles = document.querySelectorAll('.accordion-toggle');
 
-    accordionButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const submenu = button.nextElementSibling;
-            const arrow = button.querySelector('.arrow');
+    toggles.forEach(toggle => {
+        toggle.addEventListener('click', (e) => {
+            const submenu = toggle.closest('.accordion-header').nextElementSibling;
+            const arrow = toggle.querySelector('.arrow');
 
             if (submenu && submenu.classList.contains('submenu')) {
-                // Toggle visibility
                 submenu.classList.toggle('hidden');
-
-                // Rotate arrow
-                if (arrow) {
-                    arrow.classList.toggle('rotate');
-                }
+                arrow.classList.toggle('rotate');
             }
+
+            // Prevent default action for buttons
+            e.preventDefault();
         });
     });
 });
