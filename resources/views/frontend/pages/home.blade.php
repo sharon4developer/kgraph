@@ -513,7 +513,7 @@
                         <img width="52px" src="{{ asset('assets/home_Banner/CanadaFlag.png') }}" alt="CanadaFlag">
                         <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-[4.5px] pl-6 pr-1 overflow-hidden group">
                             <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
-                            <h6 class="relative z-10 text-white text-[10px] md:text-[14px] 2xl">Let's turn your vision intoreality.</h6>
+                            <h6 class="relative z-10 text-white text-[10px] md:text-[14px] 2xl">Let's turn your vision into reality.</h6>
                             <div class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:py-[4px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                                 <a href="{{ url('contact-us') }}" class="h-full text-[12px] lg:text-[16px] font-semibold">Connect Us</a>
                             </div>
@@ -527,12 +527,21 @@
                     <img class="w-[50px] lg:w-[100px]"  src="{{ asset('assets/home_Banner/airtasker.png') }}" alt="">
                     </div> --}}
                     <div class="lg:absolute bottom-0 right-0 w-full lg:w-fit flex justify-center lg:right-12 lg:bottom-[35%] z-10">
-                        <div  class="flex lg:flex-col items-center gap-[30px] border border-white py-2 lg:py-4 px-6 lg:px-2 rounded-full mb-3 lg:mb-0">
-                            <a href="#"><img class="w-[15px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/facebookban.png') }}" alt="facebook"></a>
-                            <a href="#"><img class="w-[15px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/instagramban.png') }}" alt="instagram"></a>
-                            <a href="#"><img class="w-[15px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/linkedinban.png') }}" alt="linkedin"></a>
-                            <a href="#"><img class="w-[15px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/youtubeban.png') }}" alt="youtube"></a>
+                        <div class="flex lg:flex-col items-center gap-[30px] border border-white py-2 lg:py-4 px-6 lg:px-2 rounded-full mb-3 lg:mb-0">
+                            <a href="https://www.facebook.com/KGraphimmigration/" target="_blank" rel="noopener noreferrer">
+                                <img class="w-[15px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/facebookban.png') }}" alt="facebook">
+                            </a>
+                            <a href="https://www.instagram.com/kgraph_immigration?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
+                                <img class="w-[15px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/instagramban.png') }}" alt="instagram">
+                            </a>
+                            <a href="https://ca.linkedin.com/company/kgraph-homeabout-usstudy-abroadcanada-immigrationieltsother-servicescontact-1-416-989-7788-91-94476" target="_blank" rel="noopener noreferrer">
+                                <img class="w-[15px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/linkedinban.png') }}" alt="linkedin">
+                            </a>
+                            <a href="https://www.youtube.com/@kgraphimmigration8686/featured" target="_blank" rel="noopener noreferrer">
+                                <img class="w-[15px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/youtubeban.png') }}" alt="youtube">
+                            </a>
                         </div>
+                        
                     </div>
                 </div>
             </div>

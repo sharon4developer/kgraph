@@ -55,11 +55,21 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                     </div>
 
                     <div class="flex items-center gap-6">
-                        <a href="#" target="_blank" rel="noopener noreferrer"><img class="max-h-[15px]" src="{{ asset('assets/facebookVector.png') }}" alt="Facebook"></a>
-                        <a href="#" target="_blank" rel="noopener noreferrer"><img class="max-w-[15px]" src="{{ asset('assets/InstagramVector.png') }}" alt="Instagram"></a>
-                        <a href="#" target="_blank" rel="noopener noreferrer"><img class="max-w-[15px]" src="{{ asset('assets/XVector.png') }}" alt="X"></a>
-                        <a href="#" target="_blank" rel="noopener noreferrer"><img class="max-w-[15px]" src="{{ asset('assets/LinkedIn.png') }}" alt="LinkedIn"></a>
+                        <a href="https://www.facebook.com/KGraphimmigration/" target="_blank" rel="noopener noreferrer">
+                            <img class="w-[15px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/facebookban.png') }}" alt="Facebook">
+                        </a>
+                        <a href="https://www.instagram.com/kgraph_immigration?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
+                            <img class="w-[15px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/instagramban.png') }}" alt="Instagram">
+                        </a>
+                        <a href="https://ca.linkedin.com/company/kgraph-homeabout-usstudy-abroadcanada-immigrationieltsother-servicescontact-1-416-989-7788-91-94476" target="_blank" rel="noopener noreferrer">
+                            <img class="w-[15px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/linkedinban.png') }}" alt="LinkedIn">
+                        </a>
+                        <a href="https://www.youtube.com/@kgraphimmigration8686/featured" target="_blank" rel="noopener noreferrer">
+                            <img class="w-[15px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/youtubeban.png') }}" alt="YouTube">
+                        </a>
                     </div>
+                    
+                    
                 </div>
 
                 {{-- <div class="flex flex-col md:flex-row justify-between items-center"> --}}

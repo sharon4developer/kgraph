@@ -192,7 +192,7 @@
                     <div class="flex flex-col">
                         <label for="mobile">Mobile Number<span>*</span></label>
                         <section class="flex items-center gap-2">
-                            <input class="w-[40px] inline-block text-center" type="text" name="country" id="country" value="+21" >
+                            <input class="w-[40px] inline-block text-center" type="text" name="country" id="country" value="" >
                             <input type="tel" class="w-full" id="mobile" name="mobile" placeholder="Enter your phone number" >
                         </section>
                     </div>
@@ -263,7 +263,7 @@
 
                 <div class="lg:grid grid-cols-3 items-start gap-x-14 lg:py-10">
                     <div>
-                        <label>Do you have a valid Language Skills Test Result</label>
+                        <label>Do you have a valid Language Skills Test Result<span>*</span></label>
                         <div id="language-skills" class="check-box-wrpr !mt-0">
                             <div class="!my-0">
                                 <input type="radio" id="qualification-yes" name="country_of_studies" value="Yes">
@@ -276,7 +276,7 @@
                         </div>
                     </div>
 
-                    <div id="language-test" class="hidden flex-col w-full bg-[#EDEDED] h-full py-4 px-3">
+                    <div id="language-test" class="flex flex-col w-full bg-[#EDEDED] h-full py-4 px-3">
                         <label for="which-lang">Which language test did you take?<span>*</span></label>
                         <select id="which-lang" name="language_test" class="border rounded px-2 py-1">
                             <option value="" disabled selected>Select</option>
@@ -288,7 +288,7 @@
                         </select>
                     </div>
 
-                    <div id="language-scores" class="hidden flex-col bg-[#EDEDED] h-full py-4 px-3">
+                    <div id="language-scores" class="flex flex-col bg-[#EDEDED] h-full py-4 px-3">
                         {{-- <label for="scores" class="invisible">If selected any of the above, show the below text boxes<span>*</span></label> --}}
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                             <div>
@@ -416,7 +416,7 @@
     </div>
 
     @include('frontend.Common.getintouch')
-    <script>
+    {{-- <script>
         document.addEventListener('DOMContentLoaded', () => {
             const languageSkillsRadios = document.getElementsByName('country_of_studies');
             const languageTestDiv = document.getElementById('language-test');
@@ -447,7 +447,7 @@
                 }
             });
         });
-    </script>
+    </script> --}}
 
     <script>
         const countryInput = document.getElementById('country');
@@ -455,7 +455,7 @@
         countryInput.value = defaultCountryCode;
         countryInput.addEventListener('input', (e) => {
             if (!/^\+\d+$/.test(e.target.value)) {
-                alert('Country code must start with a "+" followed by numbers.');
+                // alert('Country code must start with a "+" followed by numbers.');
                 e.target.value = defaultCountryCode;
             }
         });
