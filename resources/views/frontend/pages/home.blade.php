@@ -475,6 +475,9 @@
                 object-fit: cover;
             }
         }
+        .filt-shadow{
+            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1)) drop-shadow(0 4px 6px rgba(0, 0, 0, 0.05));
+        }
         
 
     </style>
@@ -575,7 +578,7 @@
                         <ul class="splide__list">
                             @foreach ($serviceCategory as $data)
                             <li class="splide__slide">
-                                <div class="w-full h-[491px] lg:h-[550px]  2xl:h-[550px] bgk-grade rounded-[26px] py-4 2xl:py-6 text-white shadow-lg relative font-sans overflow-hidden roundring-anim">
+                                <div class="w-full h-[491px] lg:h-[550px] overflow-hidden  2xl:h-[550px] bgk-grade rounded-[26px] filt-shadow py-4 2xl:py-6 text-white  relative font-sans overflow-hidden roundring-anim">
                                     <div class="px-3 2xl:px-6">
                                         <div class="flex justify-between items-center" data-animate>
                                             <div class="relative z-10">

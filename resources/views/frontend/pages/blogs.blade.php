@@ -33,6 +33,7 @@
 
 </style>
 @include('frontend.Common.whatsapplogo')
+
 {{-- blogs banner --}}
 <div class="blog-banner bg-[#051b3b] md:h-[50vh]">
     <div class="blog-banner-overlay">
