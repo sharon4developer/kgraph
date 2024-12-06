@@ -54,7 +54,7 @@
         <div id="" class="pt-[20px] md:pb-[40px] lg:grid grid-cols-3 items-center gap-9">
             @foreach ($blogs as $data)
                 <div class="">
-                    <a href="{{ url('blogdetail') }}">
+                    <a href="{{url('blog-details/'.$data->slug)}}">
                         <div class="mx-auto bg-[#051b3b] shadow-lg rounded-lg overflow-hidden mt-[8px] 2xl:mt-10 lg:h-fit w-full sm:max-w-sm h-auto">
                             <img class="w-full object-cover lg:h-[170px] 2xl:h-[225px] aspect-video" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"  alt="{{ $data->alt_tag }}">
                             <div class="p-6 border-b border-l border-r border-white rounded-lg mt-[-7px]">

@@ -541,7 +541,7 @@
                                 <img class="w-[15px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/youtubeban.png') }}" alt="youtube">
                             </a>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -945,7 +945,7 @@
                         <ul class="splide__list">
                             @foreach ($blogs as $data)
                                 <li class="splide__slide">
-                                    <a href="{{ url('blogdetail') }}">
+                                    <a href="{{url('blog-details/'.$data->slug)}}">
                                         <div class="mx-auto bg-[#051b3b] shadow-lg rounded-lg overflow-hidden mt-[8px] 2xl:mt-10 lg:h-fit w-full sm:max-w-sm h-auto">
                                             <img class="w-full object-cover lg:h-[170px] 2xl:h-[225px] aspect-video" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"  alt="{{ $data->alt_tag }}">
                                             <div class="p-6 border-b border-l border-r border-white rounded-lg mt-[-7px]">
