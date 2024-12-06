@@ -137,12 +137,14 @@
             </div>
         </div>
         
-        <div class="container mx-auto px-5 lg:px-12 xl:px-32 h-full w-full py-8 md:pt-[15%] lg:pb-[4%] lg:pt-0 bg-white">
-            <div class="w-full py-2 mt-8 mb-4 flex justify-between items-center border-b border-b-[#062358] pt-14">
-                <h2 class="text-[#014598] font_inter text-[16px] md:text-[23px] font-extrabold font_inter capitalize">Immigration Pre-Assessment Form</h2>
-                <img class="w-[115px]" src="{{ asset('assets/home_Banner/k-graph-logo-blue.png') }}" alt="k-graph">
+        <div class="bg-white">
+            <div class="container mx-auto px-5 lg:px-12 xl:px-32 h-full w-full py-8 md:pt-[15%] lg:pb-[4%] lg:pt-0">
+                <div class="w-full py-2 mt-8 mb-4 flex justify-between items-center border-b border-b-[#062358] pt-14">
+                    <h2 class="text-[#014598] font_inter text-[16px] md:text-[23px] font-extrabold font_inter capitalize">Immigration Pre-Assessment Form</h2>
+                    <img class="w-[115px]" src="{{ asset('assets/home_Banner/k-graph-logo-blue.png') }}" alt="k-graph">
+                </div>
+                <p class="text-[#062358] lg:w-[55%] mb-6">In case you are filling out the form for a friend or sponsored person, please input the information of the person who wants to immigrate.</p>
             </div>
-            <p class="text-[#062358] lg:w-[55%] mb-6">In case you are filling out the form for a friend or sponsored person, please input the information of the person who wants to immigrate.</p>
         </div>
 
         <form action="" class="contact-form bg-white" id="eligibility-form">
@@ -390,9 +392,11 @@
                 </div>
             </div>
 
-            <div class="submit-btn bg-gradient-to-r from-black to-transparent container mx-auto px-5 lg:px-12 xl:px-32 h-full w-full">
-                <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[2%] mt-[-50px]">
-                    <button class="font_syne my-4 text-white border border-white rounded-full w-full lg:w-fit lg:px-16 py-2 text-[14px] lg:text-base  hover:bg-white hover:border-black hover:text-black ease-linear duration-300 font-bold" style="">SUBMIT</button>
+            <div class=" bg-gradient-to-r from-black to-transparent ">
+                <div class="submit-btn container mx-auto px-5 lg:px-12 xl:px-32 h-full w-full">
+                    <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[2%] mt-[-50px]">
+                        <button class="font_syne my-4 text-white border border-white rounded-full w-full lg:w-fit lg:px-16 py-2 text-[14px] lg:text-base  hover:bg-white hover:border-black hover:text-black ease-linear duration-300 font-bold" style="">SUBMIT</button>
+                    </div>
                 </div>
             </div>
         </form>
