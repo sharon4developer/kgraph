@@ -96,6 +96,13 @@
             width: 100px;
             height: 100px;
         }
+
+        @media (max-width: 1023px){
+            .enquiry-form {
+                padding: 30px;
+                margin-top: 64px;
+            } 
+        }
     </style>
     @include('frontend.Common.whatsapplogo')
     <div class="contact-US-banner h-full w-full">
@@ -136,7 +143,7 @@
                                 </div>
 
                                 <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent mobile flex flex-col gap-4 md:gap-0 md:flex-row !items-start md:!items-center">
-                                    <div>
+                                    <div class="hidden lg:flex ">
                                         <select name="country" id="">
                                             <option value="+1">+1 (Canada)</option>
                                             <option value="+93">+93 (Afghanistan)</option>
@@ -352,7 +359,7 @@
 
                                     </div>
                                     <div class=" flex items-center w-full lg:pl-4">
-                                        <label class="whitespace-nowrap" for="mobile">Mobile NUMBER<span>*</span></label>
+                                        <label class="whitespace-nowrap" for="mobile">Mobile <span class="hidden lg:inline-block !text-black">NUMBER</span><span>*</span></label>
                                         <input type="tel" name="mobile">
                                     </div>
                                 </div>
@@ -887,7 +894,7 @@
 
         document.addEventListener('DOMContentLoaded', function() {
             new Splide('#splide', {
-                type: 'loop',
+                type: 'slide',
                 autoplay: true,
                 interval: 1000,
                 perMove: 1,

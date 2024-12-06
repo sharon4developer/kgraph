@@ -88,6 +88,12 @@
         width: 100px;
         height: 100px;
     }
+    @media (max-width: 1023px){
+        .enquiry-form {
+            padding: 30px;
+            margin-top: 64px;
+        } 
+    }
 </style>
 </style>
 
