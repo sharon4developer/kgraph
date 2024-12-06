@@ -80,11 +80,11 @@
     @include('frontend.Common.whatsapplogo')
 
     <div class="blog-detail">
-        <div class="container mx-auto lg:px-32 2xl:px-48 mt-[10%]">
+        <div class="container mx-auto px-5 lg:px-32 2xl:px-48 mt-[10%]">
             <div class="pt-10 blog__content">
                 <div class="flex items-center justify-center flex-col">
                     <!-- Dynamic Blog Title -->
-                    <h1 class="text-6xl font-bold pb-6 w-[75%] text-center">{{ $blog->title }}</h1>
+                    <h1 class="text-6xl font-bold pb-6 w-[95%] text-center">{{ $blog->title }}</h1>
 
                     <!-- Dynamic Meta Information (Date) -->
                     <div class="meta-info">

@@ -319,8 +319,8 @@
                     @foreach ($ourStory as $data)
                     <li class="splide__slide flex flex-col gap-4 w-[100vw]">
                         <div class="flex items-end md:gap-10">
-                            <h5 class="pl-[45px] text-[#072558] font_inter font-semibold text-[10px] xl:text-[18px]">{{$data->year}}</h5>
-                            <div class="flex gap-2 md:gap-4 pl-[11%] pb-2 slider-image-parent">
+                            <h5 class="pl-[45px] pt text-[#072558] font_inter font-semibold text-[10px] xl:text-[18px]">{{$data->year}}</h5>
+                            <div class="flex gap-2 md:gap-4 pl-[11%] pb-10 lg:pb-2 slider-image-parent">
                                 <img class="h-[100px] w-full object-cover" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="{{$data->alt_tag}}">
                                 <img class="h-[100px] w-full object-cover" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->second_image }}" alt="{{$data->second_alt_tag}}">
                             </div>
@@ -358,8 +358,8 @@
                                 @foreach ($locations as $data)
 
                                 <li class="splide__slide">
-                                    <div class="lg:flex lg:gap-6 py-[56px] justify-between">
-                                        <div class="bg-white my-4 lg:my-0 p-5 w-full rounded-xl hidden xl:block">
+                                    <div class="flex lg:gap-6 lg:py-[56px] justify-between">
+                                        <div class="bg-white my-4 lg:my-0 p-5 w-full rounded-xl block">
                                             <div class="flex items-center justify-between">
                                                 <h5 class="text-black uppercase">Office Address</h5>
                                                 <img src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="{{$data->alt_tag}}">
@@ -633,7 +633,7 @@
                 flagHeight = animatedImage.naturalHeight || animatedImage.offsetHeight; // Fallback to image's natural height
             }
 
-            console.log("Calculated flag height based on media query: ", flagHeight); // Debugging
+            // console.log("Calculated flag height based on media query: ", flagHeight); // Debugging
 
             // GSAP animation for image height
             gsap.to(animatedImage, {
@@ -717,7 +717,7 @@
                     splide.go('>'); // Go to the next slide
                 });
             } else {
-                console.log("Not enough slides to initialize the slider.");
+                console.log("");
             }
         });
 
@@ -750,16 +750,21 @@
         });
 
         document.addEventListener('DOMContentLoaded', function () {
+            const sliderElement = document.getElementById('locationsection');
+            const slides = sliderElement.getElementsByClassName('splide__slide');
+
             new Splide('#locationsection', {
                 type   : 'slide',
                 perPage: 1,
                 autoplay: true,
                 interval: 3000,
                 gap: '1rem',
-                arrows: true,
-
+                arrows: slides.length > 1,  // Show arrows only if there are more than one slide
             }).mount();
         });
+
+
+
 </script>
 
 <script src="{{ asset('frontend/js/about.js') }}"></script>
