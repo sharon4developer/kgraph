@@ -82,7 +82,7 @@
                                     {!! $data->description !!}
                                 </div>
                                 <div class="pt-[18px] 2xl:pt-[25px]">
-                                    <a href="#" class="text-[10px] 2xl:text-[10px] font_inter flex items-center text-white gap-[10px]">
+                                    <a href="{{url('blog-details/'.$data->slug)}}" class="text-[10px] 2xl:text-[10px] font_inter flex items-center text-white gap-[10px]">
                                         Read more
                                         <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M14.0957 6.00098L10.5957 9.50098C10.2676 9.85645 9.69336 9.85645 9.36523 9.50098C9.00977 9.17285 9.00977 8.59863 9.36523 8.27051L11.3613 6.24707H1.24414C0.751953 6.24707 0.369141 5.86426 0.369141 5.37207C0.369141 4.85254 0.751953 4.49707 1.24414 4.49707H11.3613L9.36523 2.50098C9.00977 2.17285 9.00977 1.59863 9.36523 1.27051C9.69336 0.915039 10.2676 0.915039 10.5957 1.27051L14.0957 4.77051C14.4512 5.09863 14.4512 5.67285 14.0957 6.00098Z" fill="white"/>

@@ -6,7 +6,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/SplitText.min.js"></script> --}}
 
-{{-- 
+{{--
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script> --}}
@@ -349,7 +349,7 @@
                 gap: 0;
             }
             #testimonial-slider .splide__slide {
-                width: 100%; 
+                width: 100%;
             }
         }
         .popup {
@@ -426,7 +426,7 @@
             position: relative;
             transition: background-color 0.2s ease, color 0.2s ease;
         } */
-            /* 
+            /*
         .award_certificates_s .splide__pagination__page::after {
             counter-increment: certificate-counter;
             content: counter(certificate-counter);
@@ -445,7 +445,7 @@
             color: var(--bg);
             transform: scale(1.25);
         } */
-        
+
         @media(max-width:767px) {
             .image-card-explore img{
                 width: 75px;
@@ -475,7 +475,7 @@
                 object-fit: cover;
             }
         }
-        
+
 
     </style>
 
@@ -484,7 +484,7 @@
         {{-- banner section --}}
         <div class="h-dvh md:h-screen lg:h-full 2xl:h-screen w-full homeBanner relative overflow-hidden">
             <!-- Gradient overlay -->
-            <div class="banner-gradient-overlay banner-container-elem-bottom-to-top absolute inset-0"></div> 
+            <div class="banner-gradient-overlay banner-container-elem-bottom-to-top absolute inset-0"></div>
 
             <!-- Slick Slider for Background Images -->
 
@@ -594,7 +594,7 @@
                                         </div>
                                         <h2 class="text-xl xl:text-2xl 2xl:text-4xl clamp-text-two font-bold font_inter mt-8 mb-4 relative z-10 lg:h-[80px]" data-animate>{{ $data->title }}</h2>
                                         <p class="text-gray-200 font_inter font-normal text-sm relative z-10" data-animate>{{ $data->title }}</p>
-                                    </div> 
+                                    </div>
                                     <div class="my-4 mx-2" data-animate>
                                         <div class="bg-liner h-[1px] w-full rounded-xl"></div>
                                     </div>
@@ -625,7 +625,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
 
             <div class="overflow-hidden whitespace-nowrap flex items-center py-6 relative z-10">
@@ -964,7 +964,7 @@
                                                     {!! $data->description !!}
                                                 </div>
                                                 <div class="pt-[18px] 2xl:pt-[25px]">
-                                                    <a href="#" class="text-[10px] 2xl:text-[10px] font_inter flex items-center text-white gap-[10px]">
+                                                    <a href="{{url('blog-details/'.$data->slug)}}" class="text-[10px] 2xl:text-[10px] font_inter flex items-center text-white gap-[10px]">
                                                         Read more
                                                         <svg width="15" height="10" viewBox="0 0 15 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M14.0957 6.00098L10.5957 9.50098C10.2676 9.85645 9.69336 9.85645 9.36523 9.50098C9.00977 9.17285 9.00977 8.59863 9.36523 8.27051L11.3613 6.24707H1.24414C0.751953 6.24707 0.369141 5.86426 0.369141 5.37207C0.369141 4.85254 0.751953 4.49707 1.24414 4.49707H11.3613L9.36523 2.50098C9.00977 2.17285 9.00977 1.59863 9.36523 1.27051C9.69336 0.915039 10.2676 0.915039 10.5957 1.27051L14.0957 4.77051C14.4512 5.09863 14.4512 5.67285 14.0957 6.00098Z" fill="white"/>
@@ -1093,7 +1093,7 @@
                                     <img class="w-full 2xl:w-[300px] h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{ $data->alt_tag }}">
                                 </div>
                             </li>
-                        @endforeach                
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -1112,7 +1112,7 @@
             </div>
         </div> --}}
 
-        
+
         {{-- <div class="award_certificates">
             <div class="award_certificates_s splide splide-3 lg:w-full lg:max-w-full">
                 <div class="splide__track">
@@ -1147,7 +1147,7 @@
                     <div class="mx-4">
                         <img class="w-full h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{ $data->alt_tag }}">
                     </div>
-                @endforeach 
+                @endforeach
             </div>
         </div>
     </div> --}}
@@ -1416,8 +1416,8 @@ function animateCountUp(element, start, end, duration) {
                     interval: 3000,
                     breakpoints: {
                         640: {
-                            perPage: 1,  
-                            gap: '0px', 
+                            perPage: 1,
+                            gap: '0px',
                         },
                         768: {
                             perPage: 1.9,
@@ -1460,14 +1460,14 @@ function animateCountUp(element, start, end, duration) {
 
             if (slides.length > 1) {
                 const splide = new Splide('#home-banner-slider', {
-                    type: 'fade',         
-                    autoplay: true,       
-                    interval: 3000,       
-                    speed: 1000,          
-                    arrows: false,        
-                    pagination: false,    
-                    pauseOnHover: false,  
-                    rewind: true,        
+                    type: 'fade',
+                    autoplay: true,
+                    interval: 3000,
+                    speed: 1000,
+                    arrows: false,
+                    pagination: false,
+                    pauseOnHover: false,
+                    rewind: true,
                 });
 
                 splide.mount();
@@ -1475,8 +1475,8 @@ function animateCountUp(element, start, end, duration) {
                 splide.on('move', (newIndex) => {
                     if (newIndex === slides.length - 1) {
                         setTimeout(() => {
-                            splide.go(0); 
-                        }, 3000); 
+                            splide.go(0);
+                        }, 3000);
                     }
                 });
             } else {
@@ -1520,22 +1520,22 @@ function animateCountUp(element, start, end, duration) {
                 const slides = splideInstance.Components.Elements.slides;
 
                 slides.forEach((slide, index) => {
-                    slide.style.transform = 'scale(1)'; 
-                    slide.style.transition = 'transform 0.3s'; 
+                    slide.style.transform = 'scale(1)';
+                    slide.style.transition = 'transform 0.3s';
                 });
 
                 // Find the active slide and scale it
                 const activeIndex = splideInstance.index;
                 const centerSlide = slides[activeIndex];
                 if (centerSlide) {
-                    centerSlide.style.transform = 'scale(1.2)'; 
+                    centerSlide.style.transform = 'scale(1.2)';
                 }
             }
         });
 
         document.addEventListener('DOMContentLoaded', function () {
             const splide = new Splide('#serviceCarousel', {
-                type: 'slide', 
+                type: 'slide',
                 perPage: 4,
                 autoplay: true,
                 interval: 2000,
@@ -1556,7 +1556,7 @@ function animateCountUp(element, start, end, duration) {
             }).mount();
 
             document.querySelector('.card-ourSer-slide-prev-button').addEventListener('click', function () {
-                splide.go('<'); 
+                splide.go('<');
             });
 
             document.querySelector('.card-ourSer-slide-next-button').addEventListener('click', function () {
@@ -1702,12 +1702,12 @@ function animateCountUp(element, start, end, duration) {
             {
                 opacity: 1,
                 y: 0,
-                stagger: 0.05, 
+                stagger: 0.05,
                 duration: 0.8,
                 ease: "power3.out",
                 scrollTrigger: {
                     trigger: heading,
-                    start: "top 80%", 
+                    start: "top 80%",
                 },
             }
         );
@@ -1742,7 +1742,7 @@ function animateCountUp(element, start, end, duration) {
 });
 
 // First animation: `.banner-container-elem-bottom-to-top`
-tl.set(".banner-container-elem-bottom-to-top", { 
+tl.set(".banner-container-elem-bottom-to-top", {
     y: 100, // Starting position (100px below)
     opacity: 0, // Hidden initially
 }).to(".banner-container-elem-bottom-to-top", {
