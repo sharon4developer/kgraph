@@ -289,12 +289,24 @@
                     </div>
 
                     <div id="language-scores" class="hidden flex-col bg-[#EDEDED] h-full py-4 px-3">
-                        <label for="scores" class="invisible">If selected any of the above, show the below text boxes<span>*</span></label>
-                        <div class="grid grid-cols-2 gap-4">
-                            <input type="number" id="speaking" name="speaking" class="w-full" placeholder="Speaking">
-                            <input type="number" id="reading" name="reading" class="w-full" placeholder="Reading">
-                            <input type="number" id="listening" name="listening" class="w-full" placeholder="Listening">
-                            <input type="number" id="writing" name="writing" class="w-full" placeholder="Writing">
+                        {{-- <label for="scores" class="invisible">If selected any of the above, show the below text boxes<span>*</span></label> --}}
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <div>
+                                <label for="speaking" class="">Speaking<span>*</span></label>
+                                <input type="number" id="speaking" name="speaking" class="w-full">
+                            </div>
+                            <div>
+                                <label for="reading" class="">Listening<span>*</span></label>
+                                <input type="number" id="reading" name="reading" class="w-full">
+                            </div>
+                            <div>
+                                <label for="reading" class="">Reading<span>*</span></label>
+                                <input type="number" id="listening" name="listening" class="w-full">
+                            </div>
+                            <div>
+                                <label for="reading" class="">Writing<span>*</span></label>
+                                <input type="number" id="writing" name="writing" class="w-full">
+                            </div>
                         </div>
                     </div>
                 </div>
