@@ -338,7 +338,7 @@ $('#eligibility-form').validate({
         mobile: {
             required: true,
             digits: true,
-            minlength: 10,
+            // minlength: 10,
             maxlength: 15
         },
         highest_education_inside_can: { required: true },
@@ -415,9 +415,9 @@ $('#eligibility-form').validate({
     errorPlacement: function (error, element) {
         if (element.is(':radio') || element.is(':checkbox')) {
             error.appendTo(element.closest('.check-box-wrpr'));
-        } else if (element.attr("name") === "speaking" || 
-                   element.attr("name") === "reading" || 
-                   element.attr("name") === "listening" || 
+        } else if (element.attr("name") === "speaking" ||
+                   element.attr("name") === "reading" ||
+                   element.attr("name") === "listening" ||
                    element.attr("name") === "writing") {
             error.insertAfter("#language-scores");
         } else if (element.attr("name") === "mobile") {
@@ -451,10 +451,10 @@ $('#eligibility-form').validate({
             },
             success: function (response) {
                 if (response.status) {
-                    alert('Success: ' + response.message);
+                    showMessage('success', response.message);
                     $(form).trigger('reset');
                 } else {
-                    alert('Warning: ' + response.message);
+                    showMessage('warning' , response.message);
                 }
             },
             error: function (response) {
@@ -471,7 +471,7 @@ $('#eligibility-form').validate({
                         field.addClass('is-invalid');
                     });
                 } else {
-                    alert('Error: Something went wrong.');
+                    showMessage('error','Something went wrong.');
                 }
             },
             complete: function () {
