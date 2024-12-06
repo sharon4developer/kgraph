@@ -50,11 +50,7 @@
     display: flex;
     flex-direction: column;
 }
-
-/* .hidden {
-        display: none;
-    } */
-    .accordion-button {
+.accordion-button {
         background: none;
         border: none;
         text-align: left;
@@ -72,30 +68,19 @@
     }
 
     .arrow {
-        font-size: 12px;
         transition: transform 0.3s ease;
     }
 
     .arrow.rotate {
-        transform: rotate(90deg);
+        transform: rotate(180deg);
     }
 
-    /* Submenu styling */
     .submenu {
-        padding-left: 20px; /* Indentation for submenu */
+        padding-left: 20px;
     }
 
     .submenu-item {
-        padding-left: 15px; /* Additional left padding for deeper levels */
-    }
-
-    /* Nested submenu levels */
-    .submenu .submenu {
-        padding-left: 30px;
-    }
-
-    .submenu .submenu .submenu {
-        padding-left: 40px;
+        padding-left: 15px;
     }
 
 
@@ -126,7 +111,9 @@
                             <li class="relative px-4 py-2">
                                 <button class="accordion-button">
                                     Services
-                                    <span class="arrow">&#9660;</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="arrow h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                    </svg>
                                 </button>
                                 <ul class="submenu hidden">
                                     @foreach ($navbarServiceCategories as $navbarServiceCategory)
@@ -134,7 +121,9 @@
                                         <button class="accordion-button">
                                             {{$navbarServiceCategory->title}}
                                             @if(count($navbarServiceCategory->Service))
-                                            <span class="arrow">&#9658;</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="arrow h-4 w-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                            </svg>
                                             @endif
                                         </button>
                                         @if(count($navbarServiceCategory->Service))
@@ -144,7 +133,9 @@
                                                 <button class="accordion-button">
                                                     {{$innerServices->title}}
                                                     @if(count($innerServices->SubService))
-                                                    <span class="arrow">&#9658;</span>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="arrow h-4 w-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                                                    </svg>
                                                     @endif
                                                 </button>
                                                 @if(count($innerServices->SubService))
@@ -180,6 +171,7 @@
                     </div>
                 </nav>
             </div>
+            
             
             
             
@@ -311,7 +303,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Toggle visibility
                 submenu.classList.toggle('hidden');
 
-                // Toggle arrow rotation
+                // Rotate arrow
                 if (arrow) {
                     arrow.classList.toggle('rotate');
                 }
@@ -319,6 +311,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
 
 
 
