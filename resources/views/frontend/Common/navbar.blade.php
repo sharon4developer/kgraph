@@ -66,15 +66,36 @@
         justify-content: space-between;
         align-items: center;
     }
+
     .accordion-button:focus {
         outline: none;
     }
+
     .arrow {
         font-size: 12px;
         transition: transform 0.3s ease;
     }
+
     .arrow.rotate {
         transform: rotate(90deg);
+    }
+
+    /* Submenu styling */
+    .submenu {
+        padding-left: 20px; /* Indentation for submenu */
+    }
+
+    .submenu-item {
+        padding-left: 15px; /* Additional left padding for deeper levels */
+    }
+
+    /* Nested submenu levels */
+    .submenu .submenu {
+        padding-left: 30px;
+    }
+
+    .submenu .submenu .submenu {
+        padding-left: 40px;
     }
 
 
@@ -109,7 +130,7 @@
                                 </button>
                                 <ul class="submenu hidden">
                                     @foreach ($navbarServiceCategories as $navbarServiceCategory)
-                                    <li>
+                                    <li class="submenu-item">
                                         <button class="accordion-button">
                                             {{$navbarServiceCategory->title}}
                                             @if(count($navbarServiceCategory->Service))
@@ -119,7 +140,7 @@
                                         @if(count($navbarServiceCategory->Service))
                                         <ul class="submenu hidden">
                                             @foreach ($navbarServiceCategory->Service as $innerServices)
-                                            <li>
+                                            <li class="submenu-item">
                                                 <button class="accordion-button">
                                                     {{$innerServices->title}}
                                                     @if(count($innerServices->SubService))
@@ -129,7 +150,7 @@
                                                 @if(count($innerServices->SubService))
                                                 <ul class="submenu hidden">
                                                     @foreach ($innerServices->SubService as $innerSubServices)
-                                                    <li>
+                                                    <li class="submenu-item">
                                                         <a href="{{url('sub-service-details/'.$innerSubServices->slug)}}">{{$innerSubServices->title}}</a>
                                                     </li>
                                                     @endforeach
@@ -159,6 +180,7 @@
                     </div>
                 </nav>
             </div>
+            
             
             
 
@@ -276,7 +298,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     addDynamicIcons();
 });
-
 
 document.addEventListener('DOMContentLoaded', () => {
     const accordionButtons = document.querySelectorAll('.accordion-button');
