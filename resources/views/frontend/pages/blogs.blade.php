@@ -51,7 +51,7 @@
 {{-- Blog sect --}}
 <div class="BlogCRDS bg-[#051b3b]">
     <div class="container mx-auto px-5 py-12 xl:px-12  h-full w-full">
-        <div id="" class="pt-[20px] md:pb-[40px] flex flex-wrap justify-between items-center gap-9">
+        <div id="" class="pt-[20px] md:pb-[40px] lg:grid grid-cols-3 items-center gap-9">
             @foreach ($blogs as $data)
                 <div class="">
                     <a href="{{ url('blogdetail') }}">
