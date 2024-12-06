@@ -276,7 +276,7 @@
                         </div>
                     </div>
 
-                    <div id="language-test" class="flex flex-col w-full bg-[#EDEDED] h-full py-4 px-3">
+                    <div id="language-test" class="hidden flex-col w-full bg-[#EDEDED] h-full py-4 px-3">
                         <label for="which-lang">Which language test did you take?<span>*</span></label>
                         <select id="which-lang" name="language_test" class="border rounded px-2 py-1">
                             <option value="" disabled selected>Select</option>
@@ -288,7 +288,7 @@
                         </select>
                     </div>
 
-                    <div id="language-scores" class="flex flex-col bg-[#EDEDED] h-full py-4 px-3">
+                    <div id="language-scores" class="hidden flex-col bg-[#EDEDED] h-full py-4 px-3">
                         {{-- <label for="scores" class="invisible">If selected any of the above, show the below text boxes<span>*</span></label> --}}
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                             <div>
@@ -416,7 +416,7 @@
     </div>
 
     @include('frontend.Common.getintouch')
-    {{-- <script>
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
             const languageSkillsRadios = document.getElementsByName('country_of_studies');
             const languageTestDiv = document.getElementById('language-test');
@@ -447,7 +447,7 @@
                 }
             });
         });
-    </script> --}}
+    </script>
 
     <script>
         const countryInput = document.getElementById('country');
