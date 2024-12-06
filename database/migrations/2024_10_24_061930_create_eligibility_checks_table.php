@@ -56,7 +56,7 @@ return new class extends Migration
             $table->string('partner_previously_submitted_an_application')->nullable();
             $table->string('criminal_record')->nullable();
             $table->string('arrested')->nullable();
-            $table->string('detained')->nullable();
+            $table->text('detained')->nullable();
             $table->string('nomination_certificate')->nullable();
             $table->timestamps();
         });
