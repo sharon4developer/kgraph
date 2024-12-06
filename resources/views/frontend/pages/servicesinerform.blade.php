@@ -186,7 +186,7 @@
                 <div class="lg:grid grid-cols-[1fr_1fr_auto_1fr] gap-x-14 lg:py-10">
                     <div class="flex flex-col">
                         <label for="email">Email<span>*</span></label>
-                        <input type="email" id="email" name="email">
+                        <input type="email" class="lowercase" id="email" name="email">
                     </div>
 
                     <div class="flex flex-col">
