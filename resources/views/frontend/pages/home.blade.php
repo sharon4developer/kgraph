@@ -1042,7 +1042,7 @@
                     </div>
                 @endforeach
             </div>
-            <div class="flex justify-center py-6">
+            <div class="flex justify-center py-6 lg:mt-10">
                 <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group w-fit">
                     <!-- Background that moves on hover -->
                     <div
@@ -1050,14 +1050,10 @@
                     </div>
 
                     <!-- Text color that changes on hover -->
-                    <h6
-                        class="relative z-10 text-white text-[10px] md:text-[12px] 2xl:text-[16px] transition-colors duration-500 group-hover:text-[#072558]">
-                        Let's turn your vision into reality.</h6>
-
-                    <!-- "Connect Us" button, background changes to #072558 on hover -->
-                    <div
-                        class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full transition-all duration-500 group-hover:bg-[#072558] group-hover:text-white">
-                        <a href="{{ url('contact-us') }}" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
+                    <h6 class="relative z-10 text-white text-[10px] md:text-[12px] 2xl:text-[16px] transition-colors duration-500 group-hover:text-[#072558]">
+                        Ask your questions through</h6>
+                    <div class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full transition-all duration-500 group-hover:bg-[#072558] group-hover:text-white">
+                        <a href="{{ url('contact-us') }}" class="h-full text-[12px] xl:text-[16px]">Email</a>
                     </div>
                 </div>
             </div>
