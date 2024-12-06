@@ -29,6 +29,12 @@
             scale: 0.5;
         }
 
+        .banner-container-elem-bottom-to-top {
+            opacity: 0; /* Start hidden */
+            transform: translateY(100%) scale(0.5); /* Start 100% below and scaled down */
+            transition: all 0.3s ease-out; /* Smooth fallback transitions */
+        }
+
         .banner-contain-text {
             /* opacity: 0; */
             /* transform: translateX(20%); */
@@ -420,7 +426,7 @@
             position: relative;
             transition: background-color 0.2s ease, color 0.2s ease;
         } */
-/* 
+            /* 
         .award_certificates_s .splide__pagination__page::after {
             counter-increment: certificate-counter;
             content: counter(certificate-counter);
@@ -478,11 +484,11 @@
         {{-- banner section --}}
         <div class="h-dvh md:h-screen lg:h-full 2xl:h-screen w-full homeBanner relative overflow-hidden">
             <!-- Gradient overlay -->
-            <div class="banner-gradient-overlay absolute inset-0"></div> 
+            <div class="banner-gradient-overlay banner-container-elem-bottom-to-top absolute inset-0"></div> 
 
             <!-- Slick Slider for Background Images -->
 
-            <div id="home-banner-slider" class="splide !absolute inset-0 z-[-1] h-full">
+            <div id="home-banner-slider" class="splide !absolute inset-0 z-[-1] h-full banner-container-elem-bottom-to-top">
                 <div class="splide__track">
                     <ul class="splide__list">
                         @foreach ($banner as $data)
@@ -501,8 +507,8 @@
                         <img class="pt-[22px] md:pt-0 w-[40px] lg:w-[100px]" src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="rocket icon">
                         <h2 class="banner-contain-text text-[20px] lg:text-[23px] font_inter font-medium text-white text-center capitalize"> Journey with Confidence <span class="text-[#579aff]">Migrate</span> with Us</h2>
                     </div>
-                    <h1  id="animated-heading" class="md:text-center text-[31px] md:text-[55px] 2xl:text-[85px] lg:text-[70px] lg:w-[80%] font-medium font_inter gradient-text z-10 lg:mt-8 banner_main-text lg:inline-block banner-contain-text leading-[1.2]">Visa Made Easy Dreams Made Possible</h1>
-                    <h6 class="font_inter font-medium text-[20px] lg:text-[23px] z-20 text-white lg:mt-14 banner-contain-text"> Visa Made Easy Dreams Made Possible</h6>
+                    <h1  id="animated-heading" class="md:text-center text-[31px] md:text-[55px] 2xl:text-[85px] lg:text-[70px] lg:w-[80%] font-medium font_inter gradient-text z-10 lg:mt-8 banner_main-text lg:inline-block banner-container-elem leading-[1.2]">Visa Made Easy Dreams Made Possible</h1>
+                    <h6 class="font_inter font-medium text-[20px] lg:text-[23px] z-20 text-white lg:mt-14 banner-container-elem"> Visa Made Easy Dreams Made Possible</h6>
                     <div class="z-10 flex flex-col md:flex-row justify-center items-start md:items-center gap-4 lg:mb-7 lg:mt-10">
                         <img width="52px" src="{{ asset('assets/home_Banner/CanadaFlag.png') }}" alt="CanadaFlag">
                         <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-[4.5px] pl-6 pr-1 overflow-hidden group">
@@ -624,7 +630,7 @@
 
             <div class="overflow-hidden whitespace-nowrap flex items-center py-6 relative z-10">
                 <div class="marquee-content animate-marquee flex items-center lg:gap-24">
-                    <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/splunk.png') }} p-3" alt="" class="w-full"></div>
+                    <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/splunk.png') }}" alt="" class="w-full"></div>
                     <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/segment.png') }}" alt="" class="w-full"></div>
                     <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/Hubspot.png') }}" alt="" class="w-full"></div>
                     <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/asna.png') }}" alt="" class="w-full"></div>
@@ -1189,74 +1195,94 @@
 
             requestAnimationFrame(count);
         }
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     const numberElement = document.getElementById('count-number'); // Target number element
+        //     const sectionToObserve = document.querySelector('.Navigatesec'); // Section to observe
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const numberElement = document.getElementById('count-number');
-            const sectionToObserve = document.querySelector('.Navigatesec');
+        //     let hasCounted = false; // Prevent multiple executions
 
-            if (!sectionToObserve) {
-                // console.error("Element with class 'Navigatesec' not found in the DOM.");
-                return;
-            }
+        //     const counterVal = parseInt($('#exp-count').val(), 10); // Parse the counter value safely
 
-            let hasCounted = false;
+        //     // Define IntersectionObserver to monitor visibility
+        //     const observer = new IntersectionObserver(function (entries) {
+        //         if (entries[0].isIntersecting && !hasCounted) {
+        //             hasCounted = true; // Mark as counted
+        //             animateCountUp(numberElement, 0, counterVal, 2000); // Trigger count-up animation
+        //         }
+        //     }, {
+        //         threshold: 0.5 // Trigger when 50% of the section is visible
+        //     });
 
-            const counterVal = $('#exp-count').val(); 
+        //     // Ensure the element exists before observing
+        //     if (sectionToObserve) {
+        //         observer.observe(sectionToObserve);
+        //     } else {
+        //         console.error('Element with class "Navigatesec" not found.');
+        //     }
+        //     });
 
-            const observer = new IntersectionObserver(function(entries) {
-                if (entries[0].isIntersecting && !hasCounted) {
-                    hasCounted = true;
-                    animateCountUp(numberElement, 0, counterVal, 2000);
-                }
-            }, {
-                threshold: 0.5
-            });
+// Function to animate the count-up
+function animateCountUp(element, start, end, duration) {
+    const range = end - start;
+    const increment = range / (duration / 16.67); // Approximate frames at 60fps
+    let current = start;
 
-            observer.observe(sectionToObserve);
-        });
+    function step() {
+        current += increment;
+        if (current >= end) {
+            current = end; // Ensure it doesn't exceed the target
+            element.textContent = Math.round(current); // Final value
+        } else {
+            element.textContent = Math.round(current); // Update current value
+            requestAnimationFrame(step); // Continue animation
+        }
+    }
+
+    step(); // Start animation
+}
 
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const videos = document.querySelectorAll('video');
-            const playPauseButtons = document.querySelectorAll('.custom-controls');
+            // document.addEventListener('DOMContentLoaded', function() {
+            //     const videos = document.querySelectorAll('video');
+            //     const playPauseButtons = document.querySelectorAll('.custom-controls');
 
-            // Loop through all videos
-            videos.forEach((video, index) => {
-                const playPauseButton = playPauseButtons[index]; // Get corresponding play/pause button
+            //     // Loop through all videos
+            //     videos.forEach((video, index) => {
+            //         const playPauseButton = playPauseButtons[index]; // Get corresponding play/pause button
 
-                // Play video when hovering over the video
-                video.addEventListener('mouseenter', function() {
-                    video.play();
-                    playPauseButton.querySelector('img').src =
-                        "{{ asset('assets/pause.png') }}"; // Update button to pause icon
-                });
+            //         // Play video when hovering over the video
+            //         video.addEventListener('mouseenter', function() {
+            //             video.play();
+            //             playPauseButton.querySelector('img').src =
+            //                 "{{ asset('assets/pause.png') }}"; // Update button to pause icon
+            //         });
 
-                // Pause video when mouse leaves the video
-                video.addEventListener('mouseleave', function() {
-                    video.pause();
-                    playPauseButton.querySelector('img').src =
-                        "{{ asset('assets/play.png') }}"; // Update button to play icon
-                });
+            //         // Pause video when mouse leaves the video
+            //         video.addEventListener('mouseleave', function() {
+            //             video.pause();
+            //             playPauseButton.querySelector('img').src =
+            //                 "{{ asset('assets/play.png') }}"; // Update button to play icon
+            //         });
 
-                // Manually toggle play/pause on button click
-                // playPauseButton.addEventListener('click', function() {
-                //     if (video.paused) {
-                //         video.play();
-                //         playPauseButton.querySelector('img').src =
-                //             "{{ asset('assets/pause.png') }}"; // Update to pause icon
-                //     } else {
-                //         video.pause();
-                //         playPauseButton.querySelector('img').src =
-                //             "{{ asset('assets/play.png') }}"; // Update to play icon
-                //     }
-                // });
+            //         // Manually toggle play/pause on button click
+            //         playPauseButton.addEventListener('click', function() {
+            //             if (video.paused) {
+            //                 video.play();
+            //                 playPauseButton.querySelector('img').src =
+            //                     "{{ asset('assets/pause.png') }}"; // Update to pause icon
+            //             } else {
+            //                 video.pause();
+            //                 playPauseButton.querySelector('img').src =
+            //                     "{{ asset('assets/play.png') }}"; // Update to play icon
+            //             }
+            //         });
 
-                // Reset to play button when video ends
-                video.addEventListener('ended', function() {
-                    playPauseButton.querySelector('img').src = "{{ asset('assets/play.png') }}";
-                });
-            });
-        });
+            //         // Reset to play button when video ends
+            //         video.addEventListener('ended', function() {
+            //             playPauseButton.querySelector('img').src = "{{ asset('assets/play.png') }}";
+            //         });
+            //     });
+            // });
 
         document.querySelectorAll('.knowmore').forEach(button => {
             const lineId = button.getAttribute('data-line');
@@ -1642,63 +1668,6 @@
             });
         });
 
-        document.addEventListener("DOMContentLoaded", () => {
-            const bannerText = document.querySelector(".banner_main-text");
-
-        // Initialize SplitText
-        const split = new SplitText(bannerText, {
-            type: "chars, words, lines",
-        });
-
-        // Create a GSAP timeline
-        const timeline = gsap.timeline({
-            scrollTrigger: {
-            trigger: ".homeBanner", // Trigger animation when homeBanner is in view
-            start: "top 80%", // Start animation when top of homeBanner is 80% from the top of the viewport
-            end: "top 50%", // End animation when top of homeBanner reaches 50% of viewport
-            toggleActions: "play none none reverse", // Replay animation on scroll up
-            },
-        });
-
-        // Add animations to the timeline
-        timeline
-            .fromTo(
-            split.chars, // Animate characters
-            {
-                opacity: 0,
-                y: 50,
-                scale: 0.8,
-                rotationX: -90,
-            },
-            {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                rotationX: 0,
-                duration: 0.6,
-                ease: "expo.out",
-                stagger: 0.05, // Stagger animation for each character
-            }
-            )
-            .to(
-            ".banner_main-text::after", // Target the ::after element
-            {
-                opacity: 1, // Fade in the ::after content
-                duration: 0.5,
-                ease: "power1.out",
-                onStart: () => {
-                // Add the "visible" state when animation starts
-                document.querySelector(".banner_main-text").classList.add("after-visible");
-                },
-            },
-            "+=0.3" // Add a small delay after the text animation
-            );
-
-        // Clean up SplitText when done (optional)
-        ScrollTrigger.addEventListener("refresh", () => split.revert());
-        });
-
-
         gsap.utils.toArray("[data-animate]").forEach((element) => {
             gsap.fromTo(
                 element,
@@ -1764,18 +1733,38 @@
             );
         });
 
-        gsap.to(".banner-container-elem", {
-            scrollTrigger: {
-                trigger: ".homeBanner",
-                start: "top 80%",
-                toggleActions: "play none none none"
-            },
-            x: 0,
-            scale: 1,
-            opacity: 1,
-            duration: 2,
-            ease: "power2.out"
-        });
+        const tl = gsap.timeline({
+    scrollTrigger: {
+        trigger: ".homeBanner",
+        start: "top 80%",
+        toggleActions: "play none none none",
+    }
+});
+
+// First animation: `.banner-container-elem-bottom-to-top`
+tl.set(".banner-container-elem-bottom-to-top", { 
+    y: 100, // Starting position (100px below)
+    opacity: 0, // Hidden initially
+}).to(".banner-container-elem-bottom-to-top", {
+    y: 0, // Move to original position
+    scale: 1,
+    opacity: 1,
+    duration: 2,
+    ease: "power2.out",
+});
+
+// Second animation: `.banner-container-elem`, starts after the first
+tl.set(".banner-container-elem", {
+    x: -100, // Starting position (100px to the left)
+    opacity: 0, // Hidden initially
+}).to(".banner-container-elem", {
+    x: 0, // Move to its original position
+    scale: 1,
+    opacity: 1,
+    duration: 2,
+    ease: "power2.out"
+}, "+=0.5"); // Delay of 0.5 seconds after the first animation
+
 
         gsap.to('.award_certificates_s .splide__slide', {
             opacity: 1,
@@ -1788,34 +1777,18 @@
             }
         })
 
-// Split text into spans for individual animation (if text splitting is needed)
-document.querySelectorAll(".banner-contain-text").forEach((elem) => {
-  elem.innerHTML = elem.textContent
-    .split("")
-    .map((char) => `<span class="char">${char}</span>`)
-    .join("");
-});
-
-// GSAP animation
-gsap.fromTo(
-  ".banner-contain-text .char",
-  { opacity: 0, y: 50, skewY: 10, scale: 0.9 },
-  {
-    opacity: 1,
-    y: 0,
-    skewY: 0,
-    scale: 1,
-    duration: 0.6,
-    ease: "expo.out",
-    stagger: 0.05, // Cascading effect on each character
-    scrollTrigger: {
-      trigger: ".homeBanner",
-      start: "top 80%",
-      toggleActions: "play none none none",
-    },
-  }
-);
-
+        // gsap.to(".banner-contain-text", {
+        //     scrollTrigger: {
+        //         trigger: ".homeBanner",
+        //         start: "top 80%",
+        //         toggleActions: "play none none none"
+        //     },
+        //     x: 0,
+        //     scale: 1,
+        //     opacity: 1,
+        //     duration: 0.5,
+        //     ease: "power2.out"
+        // });
 
         gsap.to(".fourthleft-to-right-animation", {
             scrollTrigger: {
