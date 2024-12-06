@@ -34,10 +34,13 @@
 }
 
 
-.accordion-header {
+    .accordion-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
+    }
+    .submenu{
+        max-height: none !important;
     }
 
     .submenu .accordion-header a {
