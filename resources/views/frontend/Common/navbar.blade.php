@@ -51,7 +51,31 @@
     flex-direction: column;
 }
 
-
+/* .hidden {
+        display: none;
+    } */
+    .accordion-button {
+        background: none;
+        border: none;
+        text-align: left;
+        width: 100%;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 8px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .accordion-button:focus {
+        outline: none;
+    }
+    .arrow {
+        font-size: 12px;
+        transition: transform 0.3s ease;
+    }
+    .arrow.rotate {
+        transform: rotate(90deg);
+    }
 
 
 </style>
@@ -75,43 +99,70 @@
                 <nav class="menu--right" role="navigation">
                     <div class="menuToggle">
                         <ul id="mobilemenu" class="menuItem">
-                            <li class="mt-4 px-[16px] py-2"><a href="{{ url('about-us') }}">About</a></li>
-                            <li class="relative px-[16px] py-2">
-                                <a href="{{ url('services') }}">Services</a>
-                                {{-- <div class="flex justify-between items-center cursor-pointer" onclick="toggleMobileSubmenu('services-mobile-submenu')"> --}}
-                                    {{-- <span class="text-black">▼</span> --}}
-                                {{-- </div> --}}
-                                {{-- <!-- Services Submenu -->
-                                <ul id="services-mobile-submenu" class="hidden ml-4 bg-black rounded-lg shadow-md">
-                                    @foreach ($navbarServiceCategories as $navbarServiceCategory)
-                                        <li class="nav-item px-[16px] py-2 @if(count($navbarServiceCategory->Service)) relative @endif">
-                                            <div class="flex justify-between items-center cursor-pointer" @if(count($navbarServiceCategory->Service)) onclick="toggleMobileSubmenu('sub-service-{{ $navbarServiceCategory->id }}')" @endif>
-                                                <a class="text-blue-700 font-semibold">{{$navbarServiceCategory->title}}</a>
-                                                @if(count($navbarServiceCategory->Service)) <span class="text-white">></span> @endif
-                                            </div>
-                                            @if(count($navbarServiceCategory->Service))
-                                            <ul id="sub-service-{{ $navbarServiceCategory->id }}" class="hidden ml-4 bg-black rounded-lg shadow-md">
-                                                @foreach ($navbarServiceCategory->Service as $innerServices)
-                                                    <li class="px-[16px] py-2">
-                                                        <a href="{{url('service-details/'.$innerServices->slug)}}" class="text-blue-700 font-semibold">{{$innerServices->title}}</a>
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                            @endif
-                                        </li>
-                                    @endforeach
-                                </ul> --}}
+                            <li class="mt-4 px-4 py-2">
+                                <a href="{{ url('about-us') }}">About</a>
                             </li>
-                            <li class="px-[16px] py-2"><a href="{{ url('packages') }}">Packages</a></li>
-                            <li class="px-[16px] py-2"><a href="{{ url('careers') }}">Careers</a></li>
-                            <li class="px-[16px] py-2"><a href="{{ url('blogs') }}">Blogs</a></li>
-                            <a href="{{ url('contact-us') }}" class="bg-white text-blue-600 flex hover:bg-blue-600 hover:text-white px-[16px] py-[6px] rounded-sm ease-in duration-500 cursor-pointer w-fit">
-                                <div class="h-full !text-black">Contact Us</div>
-                            </a>
+                            <li class="relative px-4 py-2">
+                                <button class="accordion-button">
+                                    Services
+                                    <span class="arrow">&#9660;</span>
+                                </button>
+                                <ul class="submenu hidden">
+                                    @foreach ($navbarServiceCategories as $navbarServiceCategory)
+                                    <li>
+                                        <button class="accordion-button">
+                                            {{$navbarServiceCategory->title}}
+                                            @if(count($navbarServiceCategory->Service))
+                                            <span class="arrow">&#9658;</span>
+                                            @endif
+                                        </button>
+                                        @if(count($navbarServiceCategory->Service))
+                                        <ul class="submenu hidden">
+                                            @foreach ($navbarServiceCategory->Service as $innerServices)
+                                            <li>
+                                                <button class="accordion-button">
+                                                    {{$innerServices->title}}
+                                                    @if(count($innerServices->SubService))
+                                                    <span class="arrow">&#9658;</span>
+                                                    @endif
+                                                </button>
+                                                @if(count($innerServices->SubService))
+                                                <ul class="submenu hidden">
+                                                    @foreach ($innerServices->SubService as $innerSubServices)
+                                                    <li>
+                                                        <a href="{{url('sub-service-details/'.$innerSubServices->slug)}}">{{$innerSubServices->title}}</a>
+                                                    </li>
+                                                    @endforeach
+                                                </ul>
+                                                @endif
+                                            </li>
+                                            @endforeach
+                                        </ul>
+                                        @endif
+                                    </li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                            <li class="px-4 py-2">
+                                <a href="{{ url('packages') }}">Packages</a>
+                            </li>
+                            <li class="px-4 py-2">
+                                <a href="{{ url('careers') }}">Careers</a>
+                            </li>
+                            <li class="px-4 py-2">
+                                <a href="{{ url('blogs') }}">Blogs</a>
+                            </li>
+                            <li class="px-4 py-2">
+                                <a href="{{ url('contact-us') }}" class="bg-white text-blue-600 px-4 py-1 rounded-sm">Contact Us</a>
+                            </li>
                         </ul>
                     </div>
                 </nav>
             </div>
+            
+            
+
+
             <button id="menuButton" class="lg:hidden">
                 <img id="openicon" class="w-[50px]" src="{{ asset('assets/menuopen.png') }}" alt="">
                 <img id="closeicon" class="hidden w-[50px] z-50 relative" style="scale: 0.6;" src="{{ asset('assets/close.png') }}" alt="">
@@ -125,7 +176,6 @@
                         <ul class=" bg-black hidden absolute top-full left-[-230px] w-[300px] rounded-[18px] py-1 z-50 shadow-md flex-col transition-[height] duration-300 opacity-0">
 
                             @foreach ($navbarServiceCategories as $navbarServiceCategory)
-
                             <li class="nav-item nav-link-for my-3 @if(count($navbarServiceCategory->Service)) relative @endif">
                                 <a class=" text-blue-700 font_inter font-semibold text-[15px]">{{$navbarServiceCategory->title}}</a>
                                 @if(count($navbarServiceCategory->Service))
@@ -225,6 +275,28 @@ document.addEventListener('DOMContentLoaded', () => {
     dropdownParents.forEach(attachDropdownHandlers);
 
     addDynamicIcons();
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const accordionButtons = document.querySelectorAll('.accordion-button');
+
+    accordionButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const submenu = button.nextElementSibling;
+            const arrow = button.querySelector('.arrow');
+
+            if (submenu && submenu.classList.contains('submenu')) {
+                // Toggle visibility
+                submenu.classList.toggle('hidden');
+
+                // Toggle arrow rotation
+                if (arrow) {
+                    arrow.classList.toggle('rotate');
+                }
+            }
+        });
+    });
 });
 
 
