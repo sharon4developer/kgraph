@@ -399,7 +399,7 @@
                 <div class="lg:py-10">
                     <div class="flex flex-col lg:w-1/4">
                         <label for="birth-country">Any Additional Information<span>*</span></label>
-                        <textarea rows="4" cols="50" class="!h-44 scrollbar-hidden"></textarea>
+                        <textarea rows="4" cols="50" class="!h-44 scrollbar-hidden" name="detained"></textarea>
                     </div>
                 </div>
             </div>

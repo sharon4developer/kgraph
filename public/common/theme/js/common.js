@@ -373,7 +373,7 @@ $('#eligibility-form').validate({
         criminal_record: { required: true },
         family_relations_in_canada: { required: true },
         hear_about_canada: { required: true },
-        // detained: { required: true }
+        detained: { required: true }
     },
     groups: {
         languageSkills: "speaking reading listening writing",
