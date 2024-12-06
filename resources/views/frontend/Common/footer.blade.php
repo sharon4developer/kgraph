@@ -77,8 +77,7 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                     <h2 class="text-white">Services</h2>
                     <ul class="custom-bullets text-white">
                         @foreach ($serviceCategories as $serviceCategory)
-
-                        <li class="lg:whitespace-nowrap">{{$serviceCategory->title}}</li>
+                            <li class="lg:whitespace-nowrap"><a href="{{ url('services') }}">{{$serviceCategory->title}}</a></li>
                         @endforeach
                     </ul>
                 </div>
