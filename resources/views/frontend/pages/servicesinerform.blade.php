@@ -105,7 +105,7 @@
             <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[8%]">
                 <div class="text-left text-white mt-10">
                     <div class="text-white text-[12px] font_inter font-semibold mt-[20px] mb-[6%]">
-                        <a href="#">Study</a> > <a href="#">Study in Canada</a> > <a href="#">Immegration
+                        <a href="#">Study</a> > <a href="#">Study in Canada</a> > <a href="#">Immigration
                             Enquiry</a>
                     </div>
                     <h1 class="uppercase font_inter font-semibold text-[40px]">Immigration Pre-Assessment</h1>
@@ -136,7 +136,7 @@
                 <p>K-graph Canadian Immigration Services</p>
             </div>
         </div>
-        
+
         <div class="bg-white">
             <div class="container mx-auto px-5 lg:px-12 xl:px-32 h-full w-full py-8 md:pt-[15%] lg:pb-[4%] lg:pt-0">
                 <div class="w-full py-2 mt-8 mb-4 flex justify-between items-center border-b border-b-[#062358] pt-14">
@@ -155,19 +155,19 @@
                         <label for="first-name">First Name<span>*</span></label>
                         <input type="text" id="first-name" name="first_name" class="border rounded px-2 py-1 w-full">
                     </div>
-                    
+
                     <!-- Last Name -->
                     <div class="flex flex-col">
                         <label for="last-name">Last Name<span>*</span></label>
                         <input type="text" id="last-name" name="last_name" class="border rounded px-2 py-1 w-full">
                     </div>
-                
+
                     <!-- Date of Birth -->
                     <div class="flex flex-col">
                         <label for="dob">Date of Birth<span>*</span></label>
                         <input type="date" id="dob" name="dob" value="2000-01-01" class="border rounded px-2 py-1 w-full">
                     </div>
-                
+
                     <!-- Marital Status -->
                     <div class="flex flex-col">
                         <label for="marital-status">Marital Status<span>*</span></label>
@@ -199,12 +199,12 @@
 
                     <div class="hidden lg:flex flex-col invisible">
                         <label for="dob">Date of Birth<span>*</span></label>
-                        <input type="date" id="dob" name="dob" value="2000-01-01" class="border rounded px-2 py-1 w-full">
+                        <input type="date" id="d-ob" name="dob" value="2000-01-01" class="border rounded px-2 py-1 w-full">
                     </div>
-            
+
                     <div class="hidden lg:flex flex-col invisible">
                         <label for="marital-status">Marital Status<span>*</span></label>
-                        <select id="marital-status" name="marital_status" class="border rounded px-2 py-1 w-full">
+                        <select id="marital-status" name="maritalstatus" class="border rounded px-2 py-1 w-full">
                             <option value="" disabled selected>Select your marital status</option>
                             <option value="Never Married / Single">Never Married / Single</option>
                             <option value="Married">Married</option>
@@ -439,7 +439,7 @@
 
     <script>
         const countryInput = document.getElementById('country');
-        const defaultCountryCode = '+91'; 
+        const defaultCountryCode = '+91';
         countryInput.value = defaultCountryCode;
         countryInput.addEventListener('input', (e) => {
             if (!/^\+\d+$/.test(e.target.value)) {
