@@ -183,7 +183,7 @@
                     </div>
                 </div>
 
-                <div class="lg:grid grid-cols-[1fr_1fr_auto_1fr] gap-x-14 lg:py-10">
+                <div class="lg:grid grid-cols-[1fr_1fr_auto_1fr] gap-x-14 lg:py-5">
                     <div class="flex flex-col">
                         <label for="email">Email<span>*</span></label>
                         <input type="email" class="!lowercase" id="email" name="email">
@@ -228,7 +228,7 @@
                     </div>
                 </div>
 
-                <div class="hidden lg:block h-[2px] bg-[#D3D3D3] w-full lg:!mt-24 lg:!mb-12"></div>
+                <div class="hidden lg:block h-[2px] bg-[#D3D3D3] w-full lg:!my-12"></div>
 
                 <div class="lg:grid grid-cols-2 gap-x-14">
                     <div class="flex flex-col lg:w-1/2">
@@ -261,7 +261,7 @@
 
                 </div>
 
-                <div class="lg:grid grid-cols-3 items-start gap-x-14 lg:py-10">
+                <div class="lg:grid grid-cols-3 items-start gap-x-14 lg:py-5">
                     <div>
                         <label>Do you have a valid Language Skills Test Result<span>*</span></label>
                         <div id="language-skills" class="check-box-wrpr !mt-0">
@@ -381,7 +381,7 @@
                     </div>
                 </div>
 
-                <div class="lg:py-10">
+                <div class="lg:py-5">
                     <div class="flex flex-col lg:w-1/4">
                         <label for="hear-about-us">How Did You Hear About Us<span>*</span></label>
                         <select id="hear-about-us" name="hear_about_canada" class="border rounded px-2 py-1">
@@ -396,7 +396,7 @@
 
                 </div>
 
-                <div class="lg:py-10">
+                <div class="lg:py-5">
                     <div class="flex flex-col lg:w-1/4">
                         <label for="birth-country">Any Additional Information<span>*</span></label>
                         <textarea rows="4" cols="50" class="!h-44 scrollbar-hidden" name="detained"></textarea>

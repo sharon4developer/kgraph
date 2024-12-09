@@ -78,7 +78,7 @@
 
                                 <h2 class="text-[12px] 2xl:text-[14px] font-bold text-white mt-[10px] 2xl:mt-[12px] lg:w-[60%] clamp-text-two h-[60px]">
                                     {{ $data->topics }}</h2>
-                                <div class="text-white text-[8px] 2xl:text-[10px] my-0 clamp-text">
+                                <div class="text-white text-[8px] lg:text-[14px] my-0 clamp-text">
                                     {!! $data->description !!}
                                 </div>
                                 <div class="pt-[18px] 2xl:pt-[25px]">
