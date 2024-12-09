@@ -279,11 +279,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const icon = document.createElement('span');
                 if (item.closest('ul').classList.contains('flex')) {
                     // Add down arrow for top-level menu
-                    icon.innerHTML = '<svg width="10" height="6" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L7 7L13 1" stroke="#FCFCFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'; 
+                    icon.innerHTML = '<svg width="10" height="6" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L7 7L13 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'; 
                     icon.classList.add('submenu-icon', 'ml-2', 'text-gray-500','inline-block');
                 } else {
                     // Add right arrow for submenu
-                    icon.innerHTML = '<svg width="6" height="10" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 13L7 7L1 1" stroke="#FCFCFC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'; 
+                    icon.innerHTML = '<svg width="6" height="10" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 13L7 7L1 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'; 
                     icon.classList.add('submenu-icon', 'ml-6', 'text-gray-500','inline-block');
                 }
 
