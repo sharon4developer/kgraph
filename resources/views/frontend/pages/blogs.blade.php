@@ -53,7 +53,7 @@
     <div class="container mx-auto px-5 py-12 xl:px-12  h-full w-full">
         <div id="" class="pt-[20px] md:pb-[40px] lg:grid grid-cols-3 items-center gap-9">
             @foreach ($blogs as $data)
-                <div class="">
+                <div class="mb-10 lg:mb-0">
                     <a href="{{url('blog-details/'.$data->slug)}}">
                         <div class="mx-auto bg-[#051b3b] shadow-lg rounded-lg overflow-hidden mt-[8px] 2xl:mt-10 lg:h-fit w-full sm:max-w-sm h-auto">
                             <img class="w-full object-cover lg:h-[170px] 2xl:h-[225px] aspect-video" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"  alt="{{ $data->alt_tag }}">
@@ -78,7 +78,7 @@
 
                                 <h2 class="text-[12px] 2xl:text-[14px] font-bold text-white mt-[10px] 2xl:mt-[12px] lg:w-[60%] clamp-text-two h-[60px]">
                                     {{ $data->topics }}</h2>
-                                <div class="text-white text-[8px] lg:text-[14px] my-0 clamp-text">
+                                <div class="text-white text-[14px] my-0 clamp-text">
                                     {!! $data->description !!}
                                 </div>
                                 <div class="pt-[18px] 2xl:pt-[25px]">
