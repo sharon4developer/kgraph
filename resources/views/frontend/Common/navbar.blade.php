@@ -187,7 +187,7 @@
 
             <button id="menuButton" class="lg:hidden">
                 <img id="openicon" class="w-[50px]" src="{{ asset('assets/menuopen.png') }}" alt="">
-                <img id="closeicon" class="hidden w-[50px] z-50 relative" style="scale: 0.6;" src="{{ asset('assets/close.png') }}" alt="">
+                <img id="closeicon" class="hidden w-[50px] z-50 relative" style="scale: 0.5;" src="{{ asset('assets/close.png') }}" alt="">
             </button>
 
             <div class="capitalize hidden lg:flex gap-7">

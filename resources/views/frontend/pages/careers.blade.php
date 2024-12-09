@@ -139,7 +139,7 @@
                                     <input type="Email" name="email">
                                 </div>
 
-                                <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent mobile">
+                                <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent mobile flex-col !items-start !pointer-events-nonemd:items-center md:flex-row gap-4 md:gap-0">
                                     <div>
                                         <select name="country" id="" class="bg-transparent">
                                             <option value="+1">+1 (Canada)</option>
@@ -354,9 +354,10 @@
                                             <option value="+263">+263 (Zimbabwe)</option>
                                         </select>
                                     </div>
-                                    <div class=" flex items-center w-full pl-4">
-                                        <label class="md:whitespace-nowrap" for="mobile">Mobile
-                                            NUMBER<span>*</span></label>
+                                    <div class=" flex items-center w-full mt-7 md:mt-0  md:pl-4">
+                                        <label class="md:whitespace-nowrap flex" for="mobile">
+                                            Mobile <span class="!text-black hidden md:block pl-1"> NUMBER</span><span>*</span>
+                                        </label>
                                         <input type="tel" name="mobile">
                                     </div>
                                 </div>

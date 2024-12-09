@@ -94,7 +94,7 @@
 
         @media (max-width: 1023px){
         .contact-form div {
-            margin-top: 20px;
+            /* margin-top: 20px; */
             margin-bottom: 20px;
         }
         }
