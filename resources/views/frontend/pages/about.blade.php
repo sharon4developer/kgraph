@@ -321,14 +321,14 @@
                         <div class="flex items-end md:gap-10">
                             <h5 class="pl-[45px] pt text-[#072558] font_inter font-semibold text-[10px] xl:text-[18px]">{{$data->year}}</h5>
                             <div class="flex gap-2 md:gap-4 pl-[11%] pb-10 lg:pb-2 slider-image-parent">
-                                <img class="h-[100px] lg:w-[150px] w-full object-cover" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="{{$data->alt_tag}}">
-                                <img class="h-[100px] lg:w-[150px] w-full object-cover" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->second_image }}" alt="{{$data->second_alt_tag}}">
+                                <img class="h-[90px] w-[100px] lg:h-[100px] lg:w-[150px] object-cover" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="{{$data->alt_tag}}">
+                                <img class="h-[90px] w-[100px] lg:h-[100px] lg:w-[150px] object-cover" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->second_image }}" alt="{{$data->second_alt_tag}}">
                             </div>
                         </div>
                         <div class="bg-[#062358] w-full h-[1px] slider-endballs relative"></div>
                         <div class="flex gap-8 pl-[6%] pt-2">
-                            <h3 class="w-[25%] text-[#07245A] font_inter font-semibold md:text-[10px] text-[5px] xl:text-[18px]">{{$data->title}}</h3>
-                            <p class="w-[50%] text-[#07245A] opacity-40 font_inter font-semibold text-[5px] md:text-[10px] 2xl:text-[16px]">
+                            <h3 class="w-[25%] text-[#07245A] font_inter font-semibold md:text-[10px] text-[14px] xl:text-[18px]">{{$data->title}}</h3>
+                            <p class="w-[50%] text-[#07245A] opacity-40 font_inter font-semibold text-[14px] md:text-[10px] 2xl:text-[16px]">
                                 {{$data->description}}
                             </p>
                         </div>
