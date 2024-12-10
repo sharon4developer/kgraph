@@ -36,6 +36,60 @@
                                 <li><a href="{{ url('admin/banners/create') }}" data-key="t-level-2-1">Add </a></li>
                             </ul>
                         </li>
+
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Who We Are</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li><a href="{{ url('admin/who-we-are') }}" data-key="t-level-2-2">View </a></li>
+                                <li><a href="{{ url('admin/who-we-are/create') }}" data-key="t-level-2-1">Add </a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Testimonials</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li><a href="{{ url('admin/testimonials') }}" data-key="t-level-2-2">View </a></li>
+                                <li><a href="{{ url('admin/testimonials/create') }}" data-key="t-level-2-1">Add </a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Faq</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li><a href="{{ url('admin/faq') }}" data-key="t-level-2-2">View </a></li>
+                                <li><a href="{{ url('admin/faq/create') }}" data-key="t-level-2-1">Add </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ url('admin/blog-contents') }}" data-key="t-level-2-2">Blog Contents </a></li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Blogs</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li><a href="{{ url('admin/blogs') }}" data-key="t-level-2-2">View </a></li>
+                                <li><a href="{{ url('admin/blogs/create') }}" data-key="t-level-2-1">Add </a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Explore</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li><a href="{{ url('admin/explore') }}" data-key="t-level-2-2">View </a></li>
+                                <li><a href="{{ url('admin/explore/create') }}" data-key="t-level-2-1">Add </a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Certificates</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li><a href="{{ url('admin/certificates') }}" data-key="t-level-2-2">View </a></li>
+                                <li><a href="{{ url('admin/certificates/create') }}" data-key="t-level-2-1">Add </a></li>
+                            </ul>
+                        </li>
+                        <li><a href="{{ url('admin/journey') }}" data-key="t-level-2-2">Journey </a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i class="fa fa-wrench" aria-hidden="true"></i>
+                        <span data-key="t-multi-level">Services</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="true">
                         <li><a href="{{ url('admin/service-contents') }}" data-key="t-level-2-2">Service Contents </a></li>
                         <li>
                             <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Service Categories</a>
@@ -87,52 +141,14 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Who We Are</a>
+                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Sub Point Contents</a>
                             <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="{{ url('admin/who-we-are') }}" data-key="t-level-2-2">View </a></li>
-                                <li><a href="{{ url('admin/who-we-are/create') }}" data-key="t-level-2-1">Add </a></li>
+                                <li><a href="{{ url('admin/sub-service-point-contents') }}" data-key="t-level-2-2">View </a></li>
+                                <li><a href="{{ url('admin/sub-service-point-contents/create') }}" data-key="t-level-2-1">Add </a></li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Testimonials</a>
-                            <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="{{ url('admin/testimonials') }}" data-key="t-level-2-2">View </a></li>
-                                <li><a href="{{ url('admin/testimonials/create') }}" data-key="t-level-2-1">Add </a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Faq</a>
-                            <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="{{ url('admin/faq') }}" data-key="t-level-2-2">View </a></li>
-                                <li><a href="{{ url('admin/faq/create') }}" data-key="t-level-2-1">Add </a></li>
-                            </ul>
-                        </li>
-                        <li><a href="{{ url('admin/blog-contents') }}" data-key="t-level-2-2">Blog Contents </a></li>
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Blogs</a>
-                            <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="{{ url('admin/blogs') }}" data-key="t-level-2-2">View </a></li>
-                                <li><a href="{{ url('admin/blogs/create') }}" data-key="t-level-2-1">Add </a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Explore</a>
-                            <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="{{ url('admin/explore') }}" data-key="t-level-2-2">View </a></li>
-                                <li><a href="{{ url('admin/explore/create') }}" data-key="t-level-2-1">Add </a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Certificates</a>
-                            <ul class="sub-menu" aria-expanded="true">
-                                <li><a href="{{ url('admin/certificates') }}" data-key="t-level-2-2">View </a></li>
-                                <li><a href="{{ url('admin/certificates/create') }}" data-key="t-level-2-1">Add </a></li>
-                            </ul>
-                        </li>
-                        <li><a href="{{ url('admin/journey') }}" data-key="t-level-2-2">Journey </a></li>
                     </ul>
                 </li>
-
 
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">

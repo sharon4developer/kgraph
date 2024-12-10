@@ -7,33 +7,39 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Yajra\DataTables\Facades\DataTables;
 
-class SubServicesPoint extends Model
+class SubServicePointContent extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = 'sub_services_points';
+    protected $table = 'sub_service_point_contents';
 
-    protected $fillable = ['title', 'description', 'status','order', 'sub_service_id'];
+    protected $fillable = ['title', 'sub_service_point_id', 'status','order'];
 
-    public function Services(){
-        return  $this->belongsTo(SubServices::class,'sub_service_id');
+    public function SubServicePoint(){
+        return  $this->belongsTo(SubServicesPoint::class,'sub_service_point_id');
+    }
+
+
+    public function Options()
+    {
+        return $this->hasMany(ServicePointContentPoints::class,'service_point_content_id')->orderBy('order', 'asc');
     }
 
     public static function getFullData($data)
     {
         $locationData = getLocationData();
 
-        $value =  SELF::with('Services')->select('title', 'id', 'status', 'created_at', 'sub_service_id')
+        $value =  SELF::with('SubServicePoint')->select('title', 'id', 'status', 'created_at', 'sub_service_point_id')
                 ->where(function ($query) use ($data) {
                     if (isset($data->service_id)) {
-                        $query->where('sub_service_id', $data->service_id);
+                        $query->where('sub_service_point_id', $data->service_id);
                     }
                 })->orderBy('order', 'asc');
 
         return DataTables::of($value)
             ->addIndexColumn()
             ->addColumn('service_id', function ($row) {
-                return $row->Services->title;
+                return $row->SubServicePoint->title;
             })
             ->rawColumns(['action'])
             ->make(true);
@@ -41,25 +47,23 @@ class SubServicesPoint extends Model
 
     public static function createData($data)
     {
-        $value = new SubServicesPoint;
-        $value->sub_service_id   = $data->service_id;
+        $value = new SubServicePointContent;
+        $value->sub_service_point_id   = $data->service_id;
         $value->title        = $data->title;
-        $value->description  = $data->description;
         $value->status       = 1;
         return $value->save();
     }
 
     public static function getData($id)
     {
-        return SELF::find($id);
+        return SELF::with('Options')->find($id);
     }
 
     public static function updateData($data)
     {
-        $value = SubServicesPoint::find($data->service_point_id);
-        $value->sub_service_id        = $data->service_id;
+        $value = SubServicePointContent::find($data->service_point_content_id);
+        $value->sub_service_point_id        = $data->service_id;
         $value->title        = $data->title;
-        $value->description  = $data->description;
         return $value->save();
     }
 
@@ -96,7 +100,7 @@ class SubServicesPoint extends Model
         return true;
     }
 
-    public static function getFullDataForHome(){
+     public static function getFullDataForHome(){
         return SELF::select('id','title')->orderBy('order','asc')->where('status',1)->get();
     }
 }

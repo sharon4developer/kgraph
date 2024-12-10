@@ -36,8 +36,10 @@ use App\Http\Controllers\Admin\ServiceCategoryController;
 use App\Http\Controllers\Admin\ServiceContentController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ServiceFaqController;
+use App\Http\Controllers\Admin\ServicePointContentPointsController;
 use App\Http\Controllers\Admin\ServicePointController;
 use App\Http\Controllers\Admin\ServiceSeoController;
+use App\Http\Controllers\Admin\SubServicePointContentController;
 use App\Http\Controllers\Admin\SubServicesController;
 use App\Http\Controllers\Admin\SubServicesFaqController;
 use App\Http\Controllers\Admin\SubServicesPointController;
@@ -162,6 +164,7 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'sub-services' => SubServicesController::class,
         'sub-service-faq' => SubServicesFaqController::class,
         'sub-service-points' => SubServicesPointController::class,
+        'sub-service-point-contents' => SubServicePointContentController::class,
     ]);
 
     Route::prefix('pages')->name('.pages')->group(function () {
@@ -310,11 +313,26 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         Route::post('update/order', [SubServicesPointController::class, 'changeOrder'])->name('update-order');
     });
 
+    Route::prefix('sub-service-point-contents')->name('.sub-service-point-contents')->group(function () {
+
+        Route::resources([
+            'point-contents/options' => ServicePointContentPointsController::class,
+        ]);
+
+        Route::prefix('point-contents/options')->name('.point-contents/options')->group(function () {
+            Route::post('update/item-order', [ServicePointContentPointsController::class, 'updateItemOrder'])->name('update-item-order');
+        });
+
+        Route::post('change/status', [SubServicePointContentController::class, 'changeStatus'])->name('change-status');
+        Route::post('update/order', [SubServicePointContentController::class, 'changeOrder'])->name('update-order');
+    });
+
     Route::prefix('blogs')->name('.blogs')->group(function () {
 
         Route::resources([
             'seo' => BlogSeoController::class,
         ]);
+
         Route::post('change/status', [BlogController::class, 'changeStatus'])->name('change-status');
         Route::post('update/order', [BlogController::class, 'changeOrder'])->name('update-order');
     });
