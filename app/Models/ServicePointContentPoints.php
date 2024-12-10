@@ -55,8 +55,8 @@ class ServicePointContentPoints extends Model
 
     public static function updateOrder($data)
     {
-        foreach ($data->order as $key => $value) {
-            $step = SELF::find($value['id']);
+        foreach ($data->items as $key => $value) {
+            $step = SELF::find($value);
             if ($step) {
                 $step->order = $key;
                 $step->save();

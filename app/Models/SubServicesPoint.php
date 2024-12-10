@@ -97,6 +97,6 @@ class SubServicesPoint extends Model
     }
 
     public static function getFullDataForHome(){
-        return SELF::select('id','title')->orderBy('order','asc')->where('status',1)->get();
+        return SELF::with('Services')->select('id','title','sub_service_id')->orderBy('order','asc')->where('status',1)->get();
     }
 }

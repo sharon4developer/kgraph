@@ -320,7 +320,7 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         ]);
 
         Route::prefix('point-contents/options')->name('.point-contents/options')->group(function () {
-            Route::post('update/item-order', [ServicePointContentPointsController::class, 'updateItemOrder'])->name('update-item-order');
+            Route::post('update/item-order', [ServicePointContentPointsController::class, 'changeOrder'])->name('update-item-order');
         });
 
         Route::post('change/status', [SubServicePointContentController::class, 'changeStatus'])->name('change-status');

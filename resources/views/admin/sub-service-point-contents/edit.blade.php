@@ -19,7 +19,7 @@
                                         <select class="form-select" name="service_id">
                                             <option value="" selected disabled>---Select---</option>
                                             @foreach ($services as $service)
-                                                <option value="{{$service->id}}" @if($service->id == $data->sub_service_point_id) selected @endif>{{$service->title}}</option>
+                                                <option value="{{$service->id}}" @if($service->id == $data->sub_service_point_id) selected @endif>{{$service->title}} ({{$service->Services->title}})</option>
                                             @endforeach
                                         </select>
                                         <div class="valid-feedback">

@@ -23,7 +23,7 @@
                             <select class="form-select" name="service_id" id="select-service">
                                 <option value="" selected>All</option>
                                 @foreach ($services as $service)
-                                    <option value="{{ $service->id }}">{{ $service->title }}</option>
+                                    <option value="{{ $service->id }}">{{ $service->title }} ({{$service->Services->title}})</option>
                                 @endforeach
                             </select>
                             <div class="valid-feedback">

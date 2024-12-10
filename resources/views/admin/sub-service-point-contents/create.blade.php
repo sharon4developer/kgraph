@@ -17,7 +17,7 @@
                                         <select class="form-select" name="service_id">
                                             <option value="" selected disabled>---Select---</option>
                                             @foreach ($services as $service)
-                                                <option value="{{$service->id}}">{{$service->title}}</option>
+                                                <option value="{{$service->id}}">{{$service->title}} ({{$service->Services->title}})</option>
                                             @endforeach
                                         </select>
                                         <div class="valid-feedback">
