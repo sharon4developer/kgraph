@@ -199,7 +199,7 @@
 
                             @foreach ($navbarServiceCategories as $navbarServiceCategory)
                             <li class="nav-item nav-link-for my-3 @if(count($navbarServiceCategory->Service)) relative @endif">
-                                <a class=" text-blue-700 font_inter font-semibold text-[15px]">{{$navbarServiceCategory->title}}</a>
+                                <a class=" text-blue-700 font_inter font-semibold text-[15px] flex justify-between items-center">{{$navbarServiceCategory->title}}</a>
                                 @if(count($navbarServiceCategory->Service))
                                 <ul class=" bg-white hidden absolute left-[95%] rounded-[18px] top-0 z-50 shadow-md transition-[height] duration-300 opacity-0">
                                     @foreach ($navbarServiceCategory->Service as $innerServices)

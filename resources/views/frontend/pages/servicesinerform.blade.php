@@ -199,12 +199,12 @@
 
                     <div class="hidden lg:flex flex-col invisible">
                         <label for="dob">Date of Birth<span>*</span></label>
-                        <input type="date" id="d-ob" name="dob" value="2000-01-01" class="border rounded px-2 py-1 w-full">
+                        <input type="date" id="d-ob" name="d-ob" value="2000-01-01" class="border rounded px-2 py-1 w-full">
                     </div>
 
                     <div class="hidden lg:flex flex-col invisible">
                         <label for="marital-status">Marital Status<span>*</span></label>
-                        <select id="marital-status" name="maritalstatus" class="border rounded px-2 py-1 w-full">
+                        <select id="marital-status" name="marita-lstatus" class="border rounded px-2 py-1 w-full">
                             <option value="" disabled selected>Select your marital status</option>
                             <option value="Never Married / Single">Never Married / Single</option>
                             <option value="Married">Married</option>
