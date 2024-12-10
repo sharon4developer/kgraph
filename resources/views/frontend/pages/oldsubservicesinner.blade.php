@@ -189,43 +189,9 @@
             }
         }
 
-        .custom-list {
-            list-style: none; 
-            padding: 0; 
-            margin: 0; 
-        }
-
-        .custom-list li {
-            position: relative; 
-            padding-left: 30px; 
-            margin-bottom: 10px; 
-            font-size: 16px;
-            color: #333;
-        }
-
-        .custom-list li::before {
-            content: ''; 
-            position: absolute; 
-            left: 0; 
-            top: 50%; 
-            transform: translateY(-50%); 
-            width: 20px; 
-            height: 20px;
-            background-color: #062358; 
-            border-radius: 50%; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center;
-        }
-
-        .custom-list li::before {
-            content: '\2713'; 
-            color: white; 
-            font-size: 14px; 
-        }
-
-
     </style>
+
+
 
     {{-- services banner --}}
     <div class="relative servicesIIner-banner h-full">
@@ -264,47 +230,56 @@
     <div class="">
         <div class="Realize">
             <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%]">
-                <div class="lg:w-full font_inter flex justify-center">
-                    <h2 class="font-semibold text-xl lg:text-4xl text-[#062358] lg:pl-[27px]">{{ $services->inner_title }}</h2>
-                    {{-- <div class="blufader-grade text-white my-6 px-5 rounded-md py-3">Key Highlight</div>
+                <div class="lg:w-1/2 font_inter">
+                    <h2 class="font-semibold text-xl lg:text-4xl text-[#062358]">{{ $services->inner_title }}</h2>
+                    <div class="blufader-grade text-white my-6 px-5 rounded-md py-3">Key Highlight</div>
                     <div>
                         <ul class="list-disc pl-5 text-[#062358] leading-normal">
                             @foreach ($services->ServicePoint as $ServicePoint)
                                 <li class="py-1">{{ $ServicePoint->title }}</li>
                             @endforeach
                         </ul>
-                    </div> --}}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     {{-- newly launched accordian --}}
-    <div class="content-accordian bg-[#062358] lg:overflow-hidden">
-        <div class="container accordion-container mx-auto px-5 lg:px-12 h-full w-full py-8 mt-8 flex justify-center items-start flex-col text-white">
+    <div class="content-accordian bg-[#062358] overflow-hidden">
+        <div class="container accordion-container mx-auto px-5 lg:px-12 h-full w-full py-8 flex justify-center items-start flex-col text-white">
 
-            <div class="custom-accordion w-full border-b rounded-md overflow-hidden border-gray-300">
+            <div class="custom-accordion border-b border-gray-300 mb-4">
                 <button class="custom-accordion-header flex justify-between items-center w-full py-3 px-4 text-left text-lg font-semibold text-gray-700 bg-white hover:bg-gray-100">
-                  <span class="text-[#072459] font_inter text-[18px] pl-4 font-extrabold capitalize">Other Important FAQs</span>
+                  <span class="text-[#072459] font_inter text-[20px] pl-4 font-extrabold uppercase">Other Important FAQs</span>
                   <span class="custom-accordion-icon transform transition-transform duration-300">
                     <svg width="16" height="10" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M1 1L7 7L13 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
                   </span>
                 </button>
-                <div class="custom-accordion-content overflow-hidden max-h-0 transition-all border-t border-t-[#2563eb] duration-300 ease-in-out bg-gray-100">
+                <div class="custom-accordion-content overflow-hidden max-h-0 transition-all duration-300 ease-in-out bg-gray-100">
+                  <p class="text-gray-600 p-4">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt consequuntur aspernatur numquam! Placeat
+                    voluptatibus aliquid magnam suscipit deserunt? Aliquid ut dolorem officia molestias esse porro, quaerat
+                    recusandae vitae laborum incidunt!
+                  </p>
                   <div class="flex flex-col lg:flex-row bg-gray-50 p-4 rounded-lg shadow-lg mx-auto">
                     <!-- Buttons Section -->
-                    <div class="lg:w-[40%] flex flex-col justify-center items-center space-y-4">
-                      <button class="custom-tab-button bg-[#062358] text-white py-2 px-4 rounded-md font-semibold hover:bg-gray-300 focus:outline-none custom-active-tab w-full lg:w-1/2" data-target="custom-content1">Eligibility</button>
-                      <button class="custom-tab-button bg-gray-200 text-gray-800 py-2 px-4 rounded-md font-semibold hover:bg-gray-300 focus:outline-none w-full lg:w-1/2" data-target="custom-content2">Additional Info</button>
+                    <div class="lg:w-1/4 flex flex-col space-y-4">
+                      <button class="custom-tab-button bg-blue-500 text-white py-2 px-4 rounded-md font-semibold hover:bg-gray-300 focus:outline-none custom-active-tab" data-target="custom-content1">
+                        Eligibility
+                      </button>
+                      <button class="custom-tab-button bg-gray-200 text-gray-800 py-2 px-4 rounded-md font-semibold hover:bg-gray-300 focus:outline-none" data-target="custom-content2">
+                        Additional Info
+                      </button>
                     </div>
               
                     <!-- Content Section -->
-                    <div class="lg:w-[60%] bg-white p-6 rounded-md shadow-none ml-4">
+                    <div class="lg:w-3/4 bg-white p-6 rounded-md shadow-md ml-4">
                       <div id="custom-content1" class="custom-tab-content">
                         <h2 class="text-xl font-bold mb-4 text-black">Eligibility:</h2>
-                        <ul class="list-disc custom-list list-inside text-gray-700 space-y-2">
+                        <ul class="list-disc list-inside text-gray-700 space-y-2">
                           <li>Full time Job Offer in TEER 0,1,2 or 3</li>
                           <li>2 Years job experience in the same NOC as of Job Offer within the past 5 years.</li>
                           <li>Median wage level</li>
@@ -321,14 +296,14 @@
                     </div>
                   </div>
                 </div>
-            </div>
+              </div>
               
               
         </div>
     </div>
 
-    {{-- tab section
-    <div class="tabsection bg-[#062358] overflow-hidden">
+     {{-- tab section --}}
+     <div class="tabsection bg-[#062358] overflow-hidden">
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 flex justify-center items-start flex-col text-white">
             <!-- Tab Names -->
             <div class="tab-names flex flex-col relative  max-w-[100vw] scrollbar-hidden">
@@ -345,13 +320,13 @@
             </div>
 
         </div>
-    </div> --}}
+    </div>
 
     {{-- faq --}}
     <div class="faq bg-[#062358]">
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:pt-[2%] lg:pb-[5%]">
             <div>
-                <div class="services-grade w-full py-2 rounded-md mb-8">
+                <div class="services-grade w-full py-2 rounded-md my-8">
                     <h2 class="text-[#072459] font_inter text-[20px] pl-4 font-extrabold capitalize">other important FAQs</h2>
                 </div>
                 <div class="services-inner faq text-[#2D3E50] font_inter py-4 flex flex-col justify-start items-start gap-4">
@@ -479,10 +454,10 @@ $(document).ready(function () {
   $(".custom-tab-button").on("click", function () {
     // Update tab button styles
     $(".custom-tab-button")
-      .removeClass("bg-[#062358] text-white")
+      .removeClass("bg-blue-500 text-white")
       .addClass("bg-gray-200 text-gray-800");
     $(this)
-      .addClass("bg-[#062358] text-white")
+      .addClass("bg-blue-500 text-white")
       .removeClass("bg-gray-200 text-gray-800");
 
     // Hide all tab content
