@@ -39,7 +39,7 @@ class SubServicePointContent extends Model
         return DataTables::of($value)
             ->addIndexColumn()
             ->addColumn('service_id', function ($row) {
-                return $row->SubServicePoint->title;
+                return $row->SubServicePoint->title . ' (' . $row->SubServicePoint->Services->title.')';
             })
             ->rawColumns(['action'])
             ->make(true);
