@@ -281,11 +281,11 @@
 
     {{-- newly launched accordian --}}
     <div class="content-accordian bg-[#062358] lg:overflow-hidden">
-        <div class="container accordion-container mx-auto px-5 lg:px-12 h-full w-full py-8 mt-8 flex justify-center items-start flex-col text-white">
+        <div class="container accordion-container mx-auto px-5 lg:px-12 h-full w-full py-8 mt-8 flex justify-center gap-4 items-start flex-col text-white">
             @foreach ($services->ServicePoint as $key => $ServicePoint)
             <div class="custom-accordion w-full border-b rounded-md overflow-hidden border-gray-300">
                 <button class="custom-accordion-header flex justify-between items-center w-full py-3 px-4 text-left text-lg font-semibold text-gray-700 bg-white hover:bg-gray-100">
-                  <span class="text-[#072459] font_inter text-[18px] pl-4 font-extrabold capitalize">{{ $ServicePoint->title }}</span>
+                  <span class="text-[#072459] font_inter text-[18px] pl-4 capitalize">{{ $ServicePoint->title }}</span>
                   <span class="custom-accordion-icon transform transition-transform duration-300">
                     <svg width="16" height="10" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M1 1L7 7L13 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -293,30 +293,32 @@
                   </span>
                 </button>
                 <div class="custom-accordion-content overflow-hidden max-h-0 transition-all border-t border-t-[#2563eb] duration-300 ease-in-out bg-gray-100">
-                  <div class="flex flex-col lg:flex-row bg-gray-50 p-4 rounded-lg shadow-lg mx-auto">
+                  <div class="flex flex-col lg:flex-row items-center bg-gray-50 p-4 rounded-lg shadow-lg mx-auto">
                     <!-- Buttons Section -->
-                    <div class="lg:w-[40%] flex flex-col justify-center items-center space-y-4">
+                    <div class="lg:w-[40%] flex flex-col  items-center space-y-4">
                      @foreach ($ServicePoint->ServicePointContents as $key1 => $ServicePointContent)
                       <button class="custom-tab-button bg-[#062358] text-white py-2 px-4 rounded-md font-semibold hover:bg-gray-300 focus:outline-none custom-active-tab w-full lg:w-1/2" data-target="custom-content{{$key}}{{$key1}}">{{ $ServicePointContent->title }}</button>
                       {{-- <button class="custom-tab-button bg-gray-200 text-gray-800 py-2 px-4 rounded-md font-semibold hover:bg-gray-300 focus:outline-none w-full lg:w-1/2" data-target="custom-content2">Additional Info</button> --}}
                       @endforeach
                     </div>
                     <!-- Content Section -->
-                    <div class="lg:w-[60%] bg-white p-6 rounded-md shadow-none ml-4">
-                      @foreach ($ServicePoint->ServicePointContents as $key2 => $ServicePointContent)
-                      <div id="custom-content{{$key}}{{$key2}}" class="custom-tab-content">
-                        <h2 class="text-xl font-bold mb-4 text-black">{{ $ServicePointContent->title }}:</h2>
-                        <ul class="list-disc custom-list list-inside text-gray-700 space-y-2">
-                         @foreach ($ServicePointContent->Options as $key3 => $option)
-                          <li>{{ $option->option }}</li>
-                          {{-- <li>2 Years job experience in the same NOC as of Job Offer within the past 5 years.</li>
-                          <li>Median wage level</li>
-                          <li>Legal Status in Canada</li>
-                          <li>Intention to settle in Ontario</li> --}}
-                          @endforeach
-                        </ul>
-                      </div>
-                      @endforeach
+                    <div class="lg:w-[60%] bg-white rounded-md shadow-none ml-4">
+                        <div class="p-6">
+                            @foreach ($ServicePoint->ServicePointContents as $key2 => $ServicePointContent)
+                            <div id="custom-content{{$key}}{{$key2}}" class="custom-tab-content @if($key2 !=0) hidden @endif">
+                              <h2 class="text-xl font-bold mb-4 text-black">{{ $ServicePointContent->title }}:</h2>
+                              <ul class="list-disc custom-list list-inside text-gray-700 space-y-2">
+                               @foreach ($ServicePointContent->Options as $key3 => $option)
+                                <li>{{ $option->option }}</li>
+                                {{-- <li>2 Years job experience in the same NOC as of Job Offer within the past 5 years.</li>
+                                <li>Median wage level</li>
+                                <li>Legal Status in Canada</li>
+                                <li>Intention to settle in Ontario</li> --}}
+                                @endforeach
+                              </ul>
+                            </div>
+                            @endforeach
+                        </div>
                       {{-- <div id="custom-content2" class="custom-tab-content hidden">
                         <h2 class="text-xl font-bold mb-4 text-black">Additional Info:</h2>
                         <p class="text-gray-700">
@@ -481,22 +483,39 @@ $(document).ready(function () {
 
   // Tab toggle logic
   $(".custom-tab-button").on("click", function () {
-    // Update tab button styles
-    $(".custom-tab-button")
+    // Find the parent accordion to scope the content updates
+    const $accordion = $(this).closest(".custom-accordion-content");
+
+    // Update tab button styles within the current accordion
+    $accordion.find(".custom-tab-button")
       .removeClass("bg-[#062358] text-white")
       .addClass("bg-gray-200 text-gray-800");
     $(this)
       .addClass("bg-[#062358] text-white")
       .removeClass("bg-gray-200 text-gray-800");
 
-    // Hide all tab content
-    $(".custom-tab-content").addClass("hidden");
+    // Hide all tab content within the current accordion
+    $accordion.find(".custom-tab-content").addClass("hidden");
 
     // Show the targeted tab content
     const target = $(this).data("target");
     $(`#${target}`).removeClass("hidden");
   });
+
+  // Initial state: Ensure all accordion contents are collapsed, and only the first tab of each accordion is prepared
+  $(".custom-accordion-content").css("max-height", "0px"); // Collapse all accordion contents
+
+  $(".custom-accordion-content").each(function () {
+    const $accordion = $(this);
+    $accordion.find(".custom-tab-button").removeClass("bg-[#062358] text-white").addClass("bg-gray-200 text-gray-800");
+    $accordion.find(".custom-tab-content").addClass("hidden");
+
+    // Activate the first tab button and content
+    $accordion.find(".custom-tab-button").first().addClass("bg-[#062358] text-white").removeClass("bg-gray-200 text-gray-800");
+    $accordion.find(".custom-tab-content").first().removeClass("hidden");
+  });
 });
+
 
 
 </script>
