@@ -295,12 +295,12 @@
                 <div class="custom-accordion-content overflow-hidden max-h-0 transition-all border-t border-t-[#2563eb] duration-300 ease-in-out bg-gray-100">
                   <div class="flex flex-col lg:flex-row bg-gray-50 p-4 rounded-lg shadow-lg mx-auto">
                     <!-- Buttons Section -->
-                    @foreach ($ServicePoint->ServicePointContents as $key1 => $ServicePointContent)
                     <div class="lg:w-[40%] flex flex-col justify-center items-center space-y-4">
+                     @foreach ($ServicePoint->ServicePointContents as $key1 => $ServicePointContent)
                       <button class="custom-tab-button bg-[#062358] text-white py-2 px-4 rounded-md font-semibold hover:bg-gray-300 focus:outline-none custom-active-tab w-full lg:w-1/2" data-target="custom-content{{$key}}{{$key1}}">{{ $ServicePointContent->title }}</button>
                       {{-- <button class="custom-tab-button bg-gray-200 text-gray-800 py-2 px-4 rounded-md font-semibold hover:bg-gray-300 focus:outline-none w-full lg:w-1/2" data-target="custom-content2">Additional Info</button> --}}
+                      @endforeach
                     </div>
-                    @endforeach
                     <!-- Content Section -->
                     <div class="lg:w-[60%] bg-white p-6 rounded-md shadow-none ml-4">
                       @foreach ($ServicePoint->ServicePointContents as $key2 => $ServicePointContent)
