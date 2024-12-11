@@ -10,7 +10,7 @@
         }
 
         .contact-US-banner {
-            background-image: url(assets/home_Banner/contactUsbackground.png) !important;
+            background-image: url(assets/home_Banner/contactUsbackground.webp) !important;
             background-repeat: no-repeat;
             background-position-y: center;
             background-size: cover;

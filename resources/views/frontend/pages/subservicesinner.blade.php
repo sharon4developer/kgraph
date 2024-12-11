@@ -194,41 +194,64 @@
                 max-width: 320px;
             }
         }
+/* General List Styling */
+.custom-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
-        .custom-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+/* Spacing for Parent <li> Tags */
+.custom-list > li {
+    position: relative;
+    padding-left: 30px; /* Space for custom bullet */
+    margin-top: 15px !important;
+    margin-bottom: 15px !important; /* Add spacing under parent list items */
+    font-size: 16px;
+    color: #333;
+    line-height: 1.6;
+}
 
-        .custom-list li {
-            position: relative;
-            padding-left: 30px;
-            margin-bottom: 10px;
-            font-size: 16px;
-            color: #333;
-        }
+/* Default Bullet for Parent List Items */
+.custom-list > li::before {
+    content: '\2713'; /* Unicode for checkmark */
+    position: absolute;
+    left: 0;
+    top: 50%; /* Default alignment for bullets */
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    background-color: #062358;
+    border-radius: 50%;
+    color: white;
+    font-size: 10px;
+    text-align: center;
+    line-height: 15px;
+    font-weight: 800;
+}
 
-        .custom-list li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 20px;
-            height: 20px;
-            background-color: #062358;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+/* Nested List Styling */
+.custom-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-left: 30px; /* Indent for nested lists */
+}
 
-        .custom-list li::before {
-            content: '\2713';
-            color: white;
-            font-size: 14px;
-        }
+/* Nested <li> Styling */
+.custom-list ul > li {
+    margin-top: 15px !important; 
+    margin-bottom: 15px !important; /* Smaller spacing for nested list items */
+    padding-left: 30px;
+}
+
+/* Special Case: Bullets for Parent <li> with Sub-lists */
+.custom-list > li:has(ul)::before {
+    top: 11%; /* Adjust bullet alignment for parent items with sub-lists */
+}
+
+
+
     </style>
 
     {{-- services banner --}}
@@ -325,7 +348,7 @@
                                         <div id="custom-content{{ $key }}{{ $key2 }}"
                                             class="custom-tab-content @if ($key2 != 0) hidden @endif">
                                             @foreach ($ServicePointContent->Title as  $title)
-                                                <h2 class="text-xl font-bold mb-4 text-black">
+                                                <h2 class="text-xl font-bold my-4 text-black">
                                                     {{ $title->name }}:</h2>
                                                 @if (count($title->paragraphs))
                                                     @foreach ($title->paragraphs as $paragraph)
@@ -505,24 +528,30 @@
 
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             // Accordion toggle logic
-            $(".custom-accordion-header").on("click", function() {
+            $(".custom-accordion-header").on("click", function () {
                 const $content = $(this).next(".custom-accordion-content");
                 const $icon = $(this).find(".custom-accordion-icon svg");
 
-                // Toggle accordion content
-                if ($content.css("max-height") === "0px") {
-                    $content.css("max-height", $content.prop("scrollHeight") + "px");
-                    $icon.css("transform", "rotate(180deg)");
-                } else {
-                    $content.css("max-height", "0px");
+                // Always recalculate the height on every click
+                if ($content.hasClass("expanded")) {
+                    // Collapse the content
+                    $content.removeClass("expanded").css("max-height", "0px");
                     $icon.css("transform", "rotate(0deg)");
+                } else {
+                    // Collapse all other accordions (optional: remove this if you want multiple open accordions)
+                    $(".custom-accordion-content").removeClass("expanded").css("max-height", "0px");
+                    $(".custom-accordion-icon svg").css("transform", "rotate(0deg)");
+
+                    // Expand the current accordion and set the calculated height
+                    $content.addClass("expanded").css("max-height", $content.prop("scrollHeight") + "px");
+                    $icon.css("transform", "rotate(180deg)");
                 }
             });
 
             // Tab toggle logic
-            $(".custom-tab-button").on("click", function() {
+            $(".custom-tab-button").on("click", function () {
                 // Find the parent accordion to scope the content updates
                 const $accordion = $(this).closest(".custom-accordion-content");
 
@@ -540,12 +569,16 @@
                 // Show the targeted tab content
                 const target = $(this).data("target");
                 $(`#${target}`).removeClass("hidden");
+
+                // Recalculate height for accordion if content size changes
+                const $content = $(this).closest(".custom-accordion-content");
+                $content.css("max-height", $content.prop("scrollHeight") + "px");
             });
 
             // Initial state: Ensure all accordion contents are collapsed, and only the first tab of each accordion is prepared
             $(".custom-accordion-content").css("max-height", "0px"); // Collapse all accordion contents
 
-            $(".custom-accordion-content").each(function() {
+            $(".custom-accordion-content").each(function () {
                 const $accordion = $(this);
                 $accordion.find(".custom-tab-button").removeClass("bg-[#062358] text-white").addClass(
                     "bg-gray-200 text-gray-800");
@@ -557,5 +590,6 @@
                 $accordion.find(".custom-tab-content").first().removeClass("hidden");
             });
         });
+
     </script>
 @endsection
