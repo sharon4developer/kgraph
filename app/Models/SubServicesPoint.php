@@ -19,6 +19,10 @@ class SubServicesPoint extends Model
         return  $this->belongsTo(SubServices::class,'sub_service_id');
     }
 
+    public function ServicePointContents(){
+        return  $this->hasMany(SubServicePointContent::class,'sub_service_point_id');
+    }
+
     public static function getFullData($data)
     {
         $locationData = getLocationData();

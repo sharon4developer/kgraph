@@ -190,38 +190,38 @@
         }
 
         .custom-list {
-            list-style: none; 
-            padding: 0; 
-            margin: 0; 
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
         .custom-list li {
-            position: relative; 
-            padding-left: 30px; 
-            margin-bottom: 10px; 
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 10px;
             font-size: 16px;
             color: #333;
         }
 
         .custom-list li::before {
-            content: ''; 
-            position: absolute; 
-            left: 0; 
-            top: 50%; 
-            transform: translateY(-50%); 
-            width: 20px; 
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
             height: 20px;
-            background-color: #062358; 
-            border-radius: 50%; 
-            display: flex; 
-            align-items: center; 
+            background-color: #062358;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
             justify-content: center;
         }
 
         .custom-list li::before {
-            content: '\2713'; 
-            color: white; 
-            font-size: 14px; 
+            content: '\2713';
+            color: white;
+            font-size: 14px;
         }
 
 
@@ -282,10 +282,10 @@
     {{-- newly launched accordian --}}
     <div class="content-accordian bg-[#062358] lg:overflow-hidden">
         <div class="container accordion-container mx-auto px-5 lg:px-12 h-full w-full py-8 mt-8 flex justify-center items-start flex-col text-white">
-
+            @foreach ($services->ServicePoint as $key => $ServicePoint)
             <div class="custom-accordion w-full border-b rounded-md overflow-hidden border-gray-300">
                 <button class="custom-accordion-header flex justify-between items-center w-full py-3 px-4 text-left text-lg font-semibold text-gray-700 bg-white hover:bg-gray-100">
-                  <span class="text-[#072459] font_inter text-[18px] pl-4 font-extrabold capitalize">Other Important FAQs</span>
+                  <span class="text-[#072459] font_inter text-[18px] pl-4 font-extrabold capitalize">{{ $ServicePoint->title }}</span>
                   <span class="custom-accordion-icon transform transition-transform duration-300">
                     <svg width="16" height="10" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M1 1L7 7L13 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -295,35 +295,39 @@
                 <div class="custom-accordion-content overflow-hidden max-h-0 transition-all border-t border-t-[#2563eb] duration-300 ease-in-out bg-gray-100">
                   <div class="flex flex-col lg:flex-row bg-gray-50 p-4 rounded-lg shadow-lg mx-auto">
                     <!-- Buttons Section -->
+                    @foreach ($ServicePoint->ServicePointContents as $key1 => $ServicePointContent)
                     <div class="lg:w-[40%] flex flex-col justify-center items-center space-y-4">
-                      <button class="custom-tab-button bg-[#062358] text-white py-2 px-4 rounded-md font-semibold hover:bg-gray-300 focus:outline-none custom-active-tab w-full lg:w-1/2" data-target="custom-content1">Eligibility</button>
-                      <button class="custom-tab-button bg-gray-200 text-gray-800 py-2 px-4 rounded-md font-semibold hover:bg-gray-300 focus:outline-none w-full lg:w-1/2" data-target="custom-content2">Additional Info</button>
+                      <button class="custom-tab-button bg-[#062358] text-white py-2 px-4 rounded-md font-semibold hover:bg-gray-300 focus:outline-none custom-active-tab w-full lg:w-1/2" data-target="custom-content{{$key}}{{$key1}}">{{ $ServicePointContent->title }}</button>
+                      {{-- <button class="custom-tab-button bg-gray-200 text-gray-800 py-2 px-4 rounded-md font-semibold hover:bg-gray-300 focus:outline-none w-full lg:w-1/2" data-target="custom-content2">Additional Info</button> --}}
                     </div>
-              
+                    @endforeach
                     <!-- Content Section -->
                     <div class="lg:w-[60%] bg-white p-6 rounded-md shadow-none ml-4">
-                      <div id="custom-content1" class="custom-tab-content">
-                        <h2 class="text-xl font-bold mb-4 text-black">Eligibility:</h2>
+                      @foreach ($ServicePoint->ServicePointContents as $key2 => $ServicePointContent)
+                      <div id="custom-content{{$key}}{{$key2}}" class="custom-tab-content">
+                        <h2 class="text-xl font-bold mb-4 text-black">{{ $ServicePointContent->title }}:</h2>
                         <ul class="list-disc custom-list list-inside text-gray-700 space-y-2">
-                          <li>Full time Job Offer in TEER 0,1,2 or 3</li>
-                          <li>2 Years job experience in the same NOC as of Job Offer within the past 5 years.</li>
+                         @foreach ($ServicePointContent->Options as $key3 => $option)
+                          <li>{{ $option->option }}</li>
+                          {{-- <li>2 Years job experience in the same NOC as of Job Offer within the past 5 years.</li>
                           <li>Median wage level</li>
                           <li>Legal Status in Canada</li>
-                          <li>Intention to settle in Ontario</li>
+                          <li>Intention to settle in Ontario</li> --}}
+                          @endforeach
                         </ul>
                       </div>
-                      <div id="custom-content2" class="custom-tab-content hidden">
+                      @endforeach
+                      {{-- <div id="custom-content2" class="custom-tab-content hidden">
                         <h2 class="text-xl font-bold mb-4 text-black">Additional Info:</h2>
                         <p class="text-gray-700">
                           More information about the eligibility criteria and application process can be found here. Be sure to review the documentation carefully before applying.
                         </p>
-                      </div>
+                      </div> --}}
                     </div>
                   </div>
                 </div>
             </div>
-              
-              
+            @endforeach
         </div>
     </div>
 
