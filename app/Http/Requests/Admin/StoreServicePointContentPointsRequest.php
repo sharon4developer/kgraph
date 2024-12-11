@@ -22,9 +22,9 @@ class StoreServicePointContentPointsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "option"    => "required_if:p_options,0",
-            "option.*"  => "required_if:p_options,0",
-            'service_point_content_id' => 'required|exists:sub_service_point_contents,id',
+            // "option"    => "required_if:p_options,0",
+            // "option.*"  => "required_if:p_options,0",
+            // 'service_point_content_id' => 'required|exists:sub_service_point_contents,id',
         ];
     }
 }

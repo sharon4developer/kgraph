@@ -11,7 +11,7 @@
         .servicesIIner-banner {
             background-image: url(/assets/servicesinner.jpg) !important;
             /* background-position-y: center;
-                                                                                                                                                background-position-x: center; */
+                                                                                                                                                        background-position-x: center; */
             background-size: cover;
             background-repeat: no-repeat;
         }
@@ -100,6 +100,7 @@
             /* background-color: white; */
             transition: left 0.3s ease, width 0.3s ease;
         }
+
         .tab-content {
             display: none;
             /* opacity: 0;  */
@@ -113,34 +114,35 @@
             transform: translateY(0);
         }
 
-		 ul.tabs{
-			margin: 0px;
-			padding: 0px;
-			list-style: none;
-		}
-		 ul.tabs li{
-			background: none;
-			color: #ededed;
-			display: inline-block;
-			padding: 10px 15px;
-			cursor: pointer;
+        ul.tabs {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+
+        ul.tabs li {
+            background: none;
+            color: #ededed;
+            display: inline-block;
+            padding: 10px 15px;
+            cursor: pointer;
             font-size: 16px;
-		}
+        }
 
-		ul.tabs li.current{
-			font-weight: 800;
-			color: #062358;
-		}
+        ul.tabs li.current {
+            font-weight: 800;
+            color: #062358;
+        }
 
-		.tab-content{
-			display: none;
-			/* background: #ededed; */
-			padding: 15px;
-		}
+        .tab-content {
+            display: none;
+            /* background: #ededed; */
+            padding: 15px;
+        }
 
-		.tab-content.current{
-			display: inherit;
-		}
+        .tab-content.current {
+            display: inherit;
+        }
 
         .tab-link {
             color: #ffffff;
@@ -168,23 +170,27 @@
             opacity: 1;
             transform: translateY(0);
         }
-        @media (max-width: 1023px){
-            .tab-names ul.tabs li{
+
+        @media (max-width: 1023px) {
+            .tab-names ul.tabs li {
                 white-space: nowrap;
             }
-            .tab-names ul.tabs{
+
+            .tab-names ul.tabs {
                 display: flex;
                 overflow: scroll;
                 padding-right: 100px;
             }
         }
-        @media (max-width: 350px){
-            .tab-content>*{
+
+        @media (max-width: 350px) {
+            .tab-content>* {
                 max-width: 280px;
             }
         }
-        @media (min-width: 350px) and (max-width: 650px){
-            .tab-content>*{
+
+        @media (min-width: 350px) and (max-width: 650px) {
+            .tab-content>* {
                 max-width: 320px;
             }
         }
@@ -223,21 +229,20 @@
             color: white;
             font-size: 14px;
         }
-
-
     </style>
 
     {{-- services banner --}}
     <div class="relative servicesIIner-banner h-full">
         <!-- Background Image -->
-        <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $services->banner_image }}" alt="Background Image"
-            class="absolute inset-0 w-full h-full object-cover z-0">
+        <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $services->banner_image }}"
+            alt="Background Image" class="absolute inset-0 w-full h-full object-cover z-0">
 
         <div class="services-banner-overlay relative z-10 bg-black bg-opacity-50 h-full">
             <!-- Overlay for better contrast -->
             <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[8%]">
                 <div class="text-white text-[12px] font_inter font-semibold flex items-center gap-2">
-                    <a href="{{url('services')}}">Services</a> > <a class="cursor-pointer block text-ellipsis whitespace-nowrap overflow-hidden w-[150px]">{{ $services->title }}</a>
+                    <a href="{{ url('services') }}">Services</a> > <a
+                        class="cursor-pointer block text-ellipsis whitespace-nowrap overflow-hidden w-[150px]">{{ $services->title }}</a>
                 </div>
                 <div class="text-center text-white my-10 flex flex-col justify-center items-center">
                     <h1 class="uppercase font_inter font-semibold text-3xl lg:text-[40px]">{{ $services->title }}</h1>
@@ -246,12 +251,15 @@
                     </p>
                 </div>
                 <div class="flex justify-center items-center">
-                    <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group">
-                        <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full">
+                    <div
+                        class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group">
+                        <div
+                            class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full">
                         </div>
                         <h6 class="relative z-10 text-white text-[12px] xl:text-[16px]">Let's turn your vision into reality.
                         </h6>
-                        <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                        <div
+                            class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:py-[6px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                             <a href="{{ url('contact-us') }}" class="h-full text-[12px] xl:text-[16px]">Connect Us</a>
                         </div>
                     </div>
@@ -265,7 +273,8 @@
         <div class="Realize">
             <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%]">
                 <div class="lg:w-full font_inter flex justify-center">
-                    <h2 class="font-semibold text-xl lg:text-4xl text-[#062358] lg:pl-[27px]">{{ $services->inner_title }}</h2>
+                    <h2 class="font-semibold text-xl lg:text-4xl text-[#062358] lg:pl-[27px]">{{ $services->inner_title }}
+                    </h2>
                     {{-- <div class="blufader-grade text-white my-6 px-5 rounded-md py-3">Key Highlight</div>
                     <div>
                         <ul class="list-disc pl-5 text-[#062358] leading-normal">
@@ -281,54 +290,78 @@
 
     {{-- newly launched accordian --}}
     <div class="content-accordian bg-[#062358] lg:overflow-hidden">
-        <div class="container accordion-container mx-auto px-5 lg:px-12 h-full w-full py-8 mt-8 flex justify-center gap-4 items-start flex-col text-white">
+        <div
+            class="container accordion-container mx-auto px-5 lg:px-12 h-full w-full py-8 mt-8 flex justify-center gap-4 items-start flex-col text-white">
             @foreach ($services->ServicePoint as $key => $ServicePoint)
-            <div class="custom-accordion w-full border-b rounded-md overflow-hidden border-gray-300">
-                <button class="custom-accordion-header flex justify-between items-center w-full py-3 px-4 text-left text-lg font-semibold text-gray-700 bg-white hover:bg-gray-100">
-                  <span class="text-[#072459] font_inter text-[18px] pl-4 capitalize">{{ $ServicePoint->title }}</span>
-                  <span class="custom-accordion-icon transform transition-transform duration-300">
-                    <svg width="16" height="10" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M1 1L7 7L13 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                  </span>
-                </button>
-                <div class="custom-accordion-content overflow-hidden max-h-0 transition-all border-t border-t-[#2563eb] duration-300 ease-in-out bg-gray-100">
-                  <div class="flex flex-col lg:flex-row items-center bg-gray-50 p-4 rounded-lg shadow-lg mx-auto">
-                    <!-- Buttons Section -->
-                    <div class="lg:w-[40%] flex flex-col  items-center space-y-4">
-                     @foreach ($ServicePoint->ServicePointContents as $key1 => $ServicePointContent)
-                      <button class="custom-tab-button bg-[#062358] text-white py-2 px-4 rounded-md font-semibold hover:bg-gray-300 focus:outline-none custom-active-tab w-full lg:w-1/2" data-target="custom-content{{$key}}{{$key1}}">{{ $ServicePointContent->title }}</button>
-                      {{-- <button class="custom-tab-button bg-gray-200 text-gray-800 py-2 px-4 rounded-md font-semibold hover:bg-gray-300 focus:outline-none w-full lg:w-1/2" data-target="custom-content2">Additional Info</button> --}}
-                      @endforeach
-                    </div>
-                    <!-- Content Section -->
-                    <div class="lg:w-[60%] bg-white rounded-md shadow-none ml-4">
-                        <div class="p-6">
-                            @foreach ($ServicePoint->ServicePointContents as $key2 => $ServicePointContent)
-                            <div id="custom-content{{$key}}{{$key2}}" class="custom-tab-content @if($key2 !=0) hidden @endif">
-                              <h2 class="text-xl font-bold mb-4 text-black">{{ $ServicePointContent->title }}:</h2>
-                              <ul class="list-disc custom-list list-inside text-gray-700 space-y-2">
-                               @foreach ($ServicePointContent->Options as $key3 => $option)
-                                <li>{{ $option->option }}</li>
-                                {{-- <li>2 Years job experience in the same NOC as of Job Offer within the past 5 years.</li>
-                                <li>Median wage level</li>
-                                <li>Legal Status in Canada</li>
-                                <li>Intention to settle in Ontario</li> --}}
+                <div class="custom-accordion w-full border-b rounded-md overflow-hidden border-gray-300">
+                    <button
+                        class="custom-accordion-header flex justify-between items-center w-full py-3 px-4 text-left text-lg font-semibold text-gray-700 bg-white hover:bg-gray-100">
+                        <span
+                            class="text-[#072459] font_inter text-[18px] pl-4 capitalize">{{ $ServicePoint->title }}</span>
+                        <span class="custom-accordion-icon transform transition-transform duration-300">
+                            <svg width="16" height="10" viewBox="0 0 14 8" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1 1L7 7L13 1" stroke="black" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                    </button>
+                    <div
+                        class="custom-accordion-content overflow-hidden max-h-0 transition-all border-t border-t-[#2563eb] duration-300 ease-in-out bg-gray-100">
+                        <div class="flex flex-col lg:flex-row items-center bg-gray-50 p-4 rounded-lg shadow-lg mx-auto">
+                            <!-- Buttons Section -->
+                            <div class="lg:w-[40%] flex flex-col  items-center space-y-4">
+                                @foreach ($ServicePoint->ServicePointContents as $key1 => $ServicePointContent)
+                                    <button
+                                        class="custom-tab-button bg-[#062358] text-white py-2 px-4 rounded-md font-semibold hover:bg-gray-300 focus:outline-none custom-active-tab w-full lg:w-1/2"
+                                        data-target="custom-content{{ $key }}{{ $key1 }}">{{ $ServicePointContent->title }}</button>
+                                    {{-- <button class="custom-tab-button bg-gray-200 text-gray-800 py-2 px-4 rounded-md font-semibold hover:bg-gray-300 focus:outline-none w-full lg:w-1/2" data-target="custom-content2">Additional Info</button> --}}
                                 @endforeach
-                              </ul>
                             </div>
-                            @endforeach
-                        </div>
-                      {{-- <div id="custom-content2" class="custom-tab-content hidden">
+                            <!-- Content Section -->
+                            <div class="lg:w-[60%] bg-white rounded-md shadow-none ml-4">
+                                <div class="p-6">
+                                    @foreach ($ServicePoint->ServicePointContents as $key2 => $ServicePointContent)
+                                        <div id="custom-content{{ $key }}{{ $key2 }}"
+                                            class="custom-tab-content @if ($key2 != 0) hidden @endif">
+                                            @foreach ($ServicePointContent->Title as  $title)
+                                                <h2 class="text-xl font-bold mb-4 text-black">
+                                                    {{ $title->name }}:</h2>
+                                                @if (count($title->paragraphs))
+                                                    @foreach ($title->paragraphs as $paragraph)
+                                                        <p class="text-black">{{ $paragraph->content }}</p>
+                                                    @endforeach
+                                                @endif
+                                                @if (count($title->options))
+                                                <ul class="list-disc custom-list list-inside text-gray-700 space-y-2">
+                                                    @foreach ($title->options as $option)
+                                                    <li>{{ $option->value }}
+                                                        @if (count($option->subOptions))
+                                                        <ul class="list-disc custom-list list-inside text-gray-700 space-y-2">
+                                                            @foreach ($option->subOptions as $subOption)
+                                                            <li>{{ $subOption->value }}
+                                                            </li>
+                                                            @endforeach
+                                                        </ul>
+                                                        @endif
+                                                    </li>
+                                                    @endforeach
+                                                </ul>
+                                                @endif
+                                            @endforeach
+                                        </div>
+                                    @endforeach
+                                </div>
+                                {{-- <div id="custom-content2" class="custom-tab-content hidden">
                         <h2 class="text-xl font-bold mb-4 text-black">Additional Info:</h2>
                         <p class="text-gray-700">
                           More information about the eligibility criteria and application process can be found here. Be sure to review the documentation carefully before applying.
                         </p>
                       </div> --}}
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-            </div>
             @endforeach
         </div>
     </div>
@@ -358,19 +391,25 @@
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:pt-[2%] lg:pb-[5%]">
             <div>
                 <div class="services-grade w-full py-2 rounded-md mb-8">
-                    <h2 class="text-[#072459] font_inter text-[20px] pl-4 font-extrabold capitalize">other important FAQs</h2>
+                    <h2 class="text-[#072459] font_inter text-[20px] pl-4 font-extrabold capitalize">other important FAQs
+                    </h2>
                 </div>
-                <div class="services-inner faq text-[#2D3E50] font_inter py-4 flex flex-col justify-start items-start gap-4">
+                <div
+                    class="services-inner faq text-[#2D3E50] font_inter py-4 flex flex-col justify-start items-start gap-4">
                     @foreach ($services->ServiceFaq as $key => $ServiceFaq)
-                    <div class="accordion-item bg-white p-5 lg:w-1/2 rounded-xl overflow-hidden cursor-pointer transition-all duration-300" onclick="toggleAccordion(this)">
-                        <div class="flex justify-start items-center w-full h-full accordion-header gap-4">
-                            <img class="accordion-icon transition-transform duration-300 w-2 lg:w-[14px]" src="{{ asset('assets/faqplus.png') }}" alt="Plus Icon">
-                            <h3 class="text-[12px] text-[#2D3E50] font-semibold lg:text-[14px] lg:font-medium">{{ $ServiceFaq->title }}</h3>
+                        <div class="accordion-item bg-white p-5 lg:w-1/2 rounded-xl overflow-hidden cursor-pointer transition-all duration-300"
+                            onclick="toggleAccordion(this)">
+                            <div class="flex justify-start items-center w-full h-full accordion-header gap-4">
+                                <img class="accordion-icon transition-transform duration-300 w-2 lg:w-[14px]"
+                                    src="{{ asset('assets/faqplus.png') }}" alt="Plus Icon">
+                                <h3 class="text-[12px] text-[#2D3E50] font-semibold lg:text-[14px] lg:font-medium">
+                                    {{ $ServiceFaq->title }}</h3>
+                            </div>
+                            <div
+                                class="pl-10 accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                                <p class="pt-3">{{ $ServiceFaq->description }}</p>
+                            </div>
                         </div>
-                        <div class="pl-10 accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                            <p class="pt-3">{{ $ServiceFaq->description }}</p>
-                        </div>
-                    </div>
                     @endforeach
 
                 </div>
@@ -381,7 +420,8 @@
     {{-- don't wait --}}
     <div class="dontwait bg-[#062358] h-[30vh] w-full">
         <div class="dontwaitwrpr h-full w-full">
-            <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 flex justify-center items-start flex-col  text-white">
+            <div
+                class="container mx-auto px-5 lg:px-12 h-full w-full py-8 flex justify-center items-start flex-col  text-white">
                 <h4 class="font_inter text-lg font-medium">Don’t wait. Begin your visa application today!</h4>
                 <a href="{{ url('eligibility-check') }}"
                     class="my-4 border border-white rounded-full px-5 py-2 text-[14px] hover:bg-white hover:border-black hover:text-black ease-linear duration-300 hover:font-semibold">FREE
@@ -397,14 +437,14 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             // Ensure only the first tab is active on load
             $('ul.tabs li:first-child').addClass('current');
             $('.tab-content').hide(); // Hide all tab content
             $('.tab-content:first').show(); // Show only the first tab content
 
             // Handle tab click events
-            $('ul.tabs li').click(function () {
+            $('ul.tabs li').click(function() {
                 var tab_id = $(this).attr('data-tab');
 
                 $('ul.tabs li').removeClass('current');
@@ -464,59 +504,58 @@
     </script>
 
 
-<script>
-$(document).ready(function () {
-  // Accordion toggle logic
-  $(".custom-accordion-header").on("click", function () {
-    const $content = $(this).next(".custom-accordion-content");
-    const $icon = $(this).find(".custom-accordion-icon svg");
+    <script>
+        $(document).ready(function() {
+            // Accordion toggle logic
+            $(".custom-accordion-header").on("click", function() {
+                const $content = $(this).next(".custom-accordion-content");
+                const $icon = $(this).find(".custom-accordion-icon svg");
 
-    // Toggle accordion content
-    if ($content.css("max-height") === "0px") {
-      $content.css("max-height", $content.prop("scrollHeight") + "px");
-      $icon.css("transform", "rotate(180deg)");
-    } else {
-      $content.css("max-height", "0px");
-      $icon.css("transform", "rotate(0deg)");
-    }
-  });
+                // Toggle accordion content
+                if ($content.css("max-height") === "0px") {
+                    $content.css("max-height", $content.prop("scrollHeight") + "px");
+                    $icon.css("transform", "rotate(180deg)");
+                } else {
+                    $content.css("max-height", "0px");
+                    $icon.css("transform", "rotate(0deg)");
+                }
+            });
 
-  // Tab toggle logic
-  $(".custom-tab-button").on("click", function () {
-    // Find the parent accordion to scope the content updates
-    const $accordion = $(this).closest(".custom-accordion-content");
+            // Tab toggle logic
+            $(".custom-tab-button").on("click", function() {
+                // Find the parent accordion to scope the content updates
+                const $accordion = $(this).closest(".custom-accordion-content");
 
-    // Update tab button styles within the current accordion
-    $accordion.find(".custom-tab-button")
-      .removeClass("bg-[#062358] text-white")
-      .addClass("bg-gray-200 text-gray-800");
-    $(this)
-      .addClass("bg-[#062358] text-white")
-      .removeClass("bg-gray-200 text-gray-800");
+                // Update tab button styles within the current accordion
+                $accordion.find(".custom-tab-button")
+                    .removeClass("bg-[#062358] text-white")
+                    .addClass("bg-gray-200 text-gray-800");
+                $(this)
+                    .addClass("bg-[#062358] text-white")
+                    .removeClass("bg-gray-200 text-gray-800");
 
-    // Hide all tab content within the current accordion
-    $accordion.find(".custom-tab-content").addClass("hidden");
+                // Hide all tab content within the current accordion
+                $accordion.find(".custom-tab-content").addClass("hidden");
 
-    // Show the targeted tab content
-    const target = $(this).data("target");
-    $(`#${target}`).removeClass("hidden");
-  });
+                // Show the targeted tab content
+                const target = $(this).data("target");
+                $(`#${target}`).removeClass("hidden");
+            });
 
-  // Initial state: Ensure all accordion contents are collapsed, and only the first tab of each accordion is prepared
-  $(".custom-accordion-content").css("max-height", "0px"); // Collapse all accordion contents
+            // Initial state: Ensure all accordion contents are collapsed, and only the first tab of each accordion is prepared
+            $(".custom-accordion-content").css("max-height", "0px"); // Collapse all accordion contents
 
-  $(".custom-accordion-content").each(function () {
-    const $accordion = $(this);
-    $accordion.find(".custom-tab-button").removeClass("bg-[#062358] text-white").addClass("bg-gray-200 text-gray-800");
-    $accordion.find(".custom-tab-content").addClass("hidden");
+            $(".custom-accordion-content").each(function() {
+                const $accordion = $(this);
+                $accordion.find(".custom-tab-button").removeClass("bg-[#062358] text-white").addClass(
+                    "bg-gray-200 text-gray-800");
+                $accordion.find(".custom-tab-content").addClass("hidden");
 
-    // Activate the first tab button and content
-    $accordion.find(".custom-tab-button").first().addClass("bg-[#062358] text-white").removeClass("bg-gray-200 text-gray-800");
-    $accordion.find(".custom-tab-content").first().removeClass("hidden");
-  });
-});
-
-
-
-</script>
+                // Activate the first tab button and content
+                $accordion.find(".custom-tab-button").first().addClass("bg-[#062358] text-white")
+                    .removeClass("bg-gray-200 text-gray-800");
+                $accordion.find(".custom-tab-content").first().removeClass("hidden");
+            });
+        });
+    </script>
 @endsection

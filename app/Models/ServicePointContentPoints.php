@@ -21,25 +21,50 @@ class ServicePointContentPoints extends Model
 
     public static function createData($data)
     {
-        if ($data->option) {
-            foreach ($data->option as $key => $option) {
-                if ($option) {
-                    $value = new ServicePointContentPoints;
-                    $value->service_point_content_id = $data->service_point_content_id;
-                    $value->option = $option;
-                    $value->save();
+        $contents = $data->input('titles');
+        $servicePointContentId = $contents['service_point_content_id'];
+        $titles =  $contents['titles'];
+        foreach ($titles as $titleData) {
+
+            $title = Title::create([
+                'name' => $titleData['title'],
+                'service_point_content_id' => $servicePointContentId, // Associate with service point
+            ]);
+
+            foreach ($titleData['options'] as $option) {
+                if ($option['type'] === 'paragraph') {
+                    $title->paragraphs()->create(['content' => $option['content']]);
+                } elseif ($option['type'] === 'option') {
+                    foreach ($option['multiOptions'] as $multiOption) {
+                        $mainOption = $title->options()->create(['value' => $multiOption['value']]);
+
+                        foreach ($multiOption['subOptions'] as $subOption) {
+                            $mainOption->subOptions()->create(['value' => $subOption]);
+                        }
+                    }
                 }
             }
         }
-        if ($data->p_option) {
-            foreach ($data->p_option as $key => $p_option) {
-                $value = ServicePointContentPoints::find($key);
-                if ($value) {
-                    $value->option = $p_option;
-                    $value->save();
-                }
-            }
-        }
+
+        // if ($data->option) {
+        //     foreach ($data->option as $key => $option) {
+        //         if ($option) {
+        //             $value = new ServicePointContentPoints;
+        //             $value->service_point_content_id = $data->service_point_content_id;
+        //             $value->option = $option;
+        //             $value->save();
+        //         }
+        //     }
+        // }
+        // if ($data->p_option) {
+        //     foreach ($data->p_option as $key => $p_option) {
+        //         $value = ServicePointContentPoints::find($key);
+        //         if ($value) {
+        //             $value->option = $p_option;
+        //             $value->save();
+        //         }
+        //     }
+        // }
         return true;
     }
 

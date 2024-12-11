@@ -19,6 +19,11 @@ class SubServicePointContent extends Model
         return  $this->belongsTo(SubServicesPoint::class,'sub_service_point_id');
     }
 
+    public function Title()
+    {
+        return $this->hasMany(Title::class,'service_point_content_id');
+    }
+
 
     public function Options()
     {

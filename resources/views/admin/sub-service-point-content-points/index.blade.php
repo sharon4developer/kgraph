@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
 <!-- end page title -->
-<div class="row">
+{{-- <div class="row">
     <div class="col-xl-12">
         <div class="card">
             <div class="card-header">
@@ -58,7 +58,29 @@
         </div>
         <!-- end card -->
     </div> <!-- end col -->
+</div> --}}
+<div class="row">
+    <div class="col-xl-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">Dynamic Point Options</h4>
+            </div>
+            <div class="card-body">
+                <form id="dynamic-form">
+                    <input type="hidden" name="service_point_content_id" id="service_point_content_id" value="{{$service_point_content_id}}">
+                    <div id="titles-container">
+                        <!-- Titles will be dynamically added here -->
+                    </div>
+                    <button type="button" id="add-title" class="btn btn-outline-primary btn-rounded mb-2">+ Add Title</button>
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-outline-secondary btn-rounded">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
+
 @endsection
 @push('style')
 @endpush
