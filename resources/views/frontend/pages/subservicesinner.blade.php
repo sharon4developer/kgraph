@@ -227,20 +227,28 @@
             list-style: none;
             padding: 0;
             margin: 0;
-            padding-left: 30px; /* Indent for nested lists */
+            padding-left: 30px; 
         }
 
-        /* Nested <li> Styling */
         .custom-list ul > li {
             margin-top: 15px !important;
-            margin-bottom: 15px !important; /* Smaller spacing for nested list items */
+            margin-bottom: 15px !important; 
             padding-left: 30px;
         }
 
-        /* Special Case: Bullets for Parent <li> with Sub-lists */
         .custom-list > li:has(ul)::before {
-            top: 11%; /* Adjust bullet alignment for parent items with sub-lists */
+            top: 11%;
         }
+        
+        /* @media (max-width: 767px){
+            .custom-list > li:has(ul)::before {
+                top: 5%; 
+            }
+
+            .custom-list > li::before {
+                top: 10%;
+            }
+        } */
 
         .active-item {
             font-weight: bold;
@@ -324,7 +332,7 @@
     </div>
 
     {{-- Realize can section --}}
-    <div class="">
+    {{-- <div class="">
         <div class="Realize">
             <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%]">
                 <div class="lg:w-full font_inter flex justify-center">
@@ -333,10 +341,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     {{-- services section section --}}
-    <div class="services section section my-5">
+    <div class="services Realize section section my-5">
         <div class="service-details">
             <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%]">
                 <!-- Services Section -->
