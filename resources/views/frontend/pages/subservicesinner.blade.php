@@ -232,7 +232,7 @@
 
         /* Nested <li> Styling */
         .custom-list ul > li {
-            margin-top: 15px !important; 
+            margin-top: 15px !important;
             margin-bottom: 15px !important; /* Smaller spacing for nested list items */
             padding-left: 30px;
         }
@@ -351,10 +351,10 @@
                     </h2>
 
                     <div class="blufader-grade text-white my-6 px-5 rounded-md py-3">Key Highlight</div>
-                    
+
                     <ul class="list-disc pl-5 text-[#062358] leading-normal list-none">
                         @foreach ($services->ServicePoint as $key => $ServicePoint)
-                            <li class="py-1 cursor-pointer @if ($key == 0) active-item @endif" 
+                            <li class="py-1 cursor-pointer @if ($key == 0) active-item @endif"
                                 data-target="service-point{{ $key }}">
                                 {{ $ServicePoint->title }}
                             </li>
@@ -368,6 +368,7 @@
     <div class="services bg-[#062358]">
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%]">
             @foreach ($services->ServicePoint as $key => $ServicePoint)
+
                 <div id="service-point{{ $key }}" class="buttons-wrapper @if ($key != 0) hidden @endif">
                     <div class="">
                         <div class="mb-8 flex flex-wrap items-center gap-3">
@@ -378,21 +379,38 @@
                                 </button>
                             @endforeach
                         </div>
-        
-                        <div class="">  
-                            @foreach ($ServicePoint->ServicePointContents as $index => $content)
-                                <div id="content{{ $key }}-{{ $index }}" 
-                                        class="custom-tab-content @if ($index != 0) hidden @endif">
-                                    <h2 class="text-xl font-bold mb-4 text-white">{{ $content->title }}</h2>
-                                    <p class="text-black mb-4">{{ $content->description }}</p>
-                                    
-                                    @if (count($content->options))
-                                        <ul class="list-discs custom-list list-inside text-white space-y-2">
-                                            @foreach ($content->options as $option)
-                                                <li>{{ $option->option }}</li>
+
+                        <div class="">
+                            @foreach ($ServicePoint->ServicePointContents as $key2 => $ServicePointContent)
+                                <div id="content{{ $key }}-{{ $key2 }}"
+                                        class="custom-tab-content @if ($key != 0) hidden @endif">
+                                    {{-- <h2 class="text-xl font-bold mb-4 text-white">{{ $ServicePointContent->title }}</h2> --}}
+                                    <p class="text-white mb-4">{{ $content->description }}</p>
+
+                                    @foreach ($ServicePointContent->Title as  $title)
+                                        <h2 class="text-xl font-bold mb-4 text-white">
+                                            {{ $title->name }}:</h2>
+                                        @if (count($title->paragraphs))
+                                            @foreach ($title->paragraphs as $paragraph)
+                                                <p class="text-white">{{ $paragraph->content }}</p>
                                             @endforeach
-                                        </ul>
-                                    @endif
+                                        @endif
+                                        @if (count($title->options))
+                                            <ul class="list-discs custom-list list-inside text-white space-y-2">
+                                                @foreach ($title->options as $option)
+                                                    <li>{{ $option->value }}
+                                                        @if (count($option->subOptions))
+                                                        <ul class="list-discs custom-list list-inside text-white space-y-2">
+                                                        @foreach ($option->subOptions as $subOptions)
+                                                            <li>{{ $subOptions->value }}</li>
+                                                        @endforeach
+                                                        </ul>
+                                                        @endif
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        @endif
+                                    @endforeach
                                 </div>
                             @endforeach
                         </div>
