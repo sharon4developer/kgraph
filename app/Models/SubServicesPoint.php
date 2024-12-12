@@ -20,7 +20,7 @@ class SubServicesPoint extends Model
     }
 
     public function ServicePointContents(){
-        return  $this->hasMany(SubServicePointContent::class,'sub_service_point_id');
+        return  $this->hasMany(SubServicePointContent::class,'sub_service_point_id')->orderBy('order','asc');
     }
 
     public static function getFullData($data)
