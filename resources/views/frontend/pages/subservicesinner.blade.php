@@ -250,8 +250,11 @@
         }
 
         .active-button {
-            background-color: #2563eb;
-            color: white;
+            background-color: white;
+            color: #062358;
+            font-weight: 700;
+            border-top-right-radius: 7px; 
+            border-top-left-radius: 7px; 
             border: none;
         }
 
@@ -276,8 +279,8 @@
             transition: background-color 0.3s ease, color 0.3s ease;
         }
         .content-btn:hover {
-            background-color: #2563eb;
-            color: white;
+            /* background-color: #2563eb; */
+            /* color: white; */
         }
 
 
@@ -327,14 +330,6 @@
                 <div class="lg:w-full font_inter flex justify-center">
                     <h2 class="font-semibold text-xl lg:text-4xl text-[#062358] lg:pl-[27px]">{{ $services->inner_title }}
                     </h2>
-                    {{-- <div class="blufader-grade text-white my-6 px-5 rounded-md py-3">Key Highlight</div>
-                    <div>
-                        <ul class="list-disc pl-5 text-[#062358] leading-normal">
-                            @foreach ($services->ServicePoint as $ServicePoint)
-                                <li class="py-1">{{ $ServicePoint->title }}</li>
-                            @endforeach
-                        </ul>
-                    </div> --}}
                 </div>
             </div>
         </div>
@@ -371,16 +366,16 @@
 
                 <div id="service-point{{ $key }}" class="buttons-wrapper @if ($key != 0) hidden @endif">
                     <div class="">
-                        <div class="mb-8 flex flex-wrap items-center gap-3">
+                        <div class="mb-8 flex flex-wrap items-center gap-3 border-b border-b-white mb-2">
                             @foreach ($ServicePoint->ServicePointContents as $index => $content)
-                                <button class="content-btn border border-white  whitespace-nowrap w-fit bg-[#062358] text-white py-2 px-4 rounded-md font-semibold hover:bg-gray-300 focus:outline-none mb-2 @if ($index == 0) active-button @endif"
+                                <button class="content-btn  whitespace-nowrap w-fit bg-[#062358] text-white py-2 px-4  font-semibold focus:outline-none @if ($index == 0) active-button @endif"
                                     data-target="content{{ $key }}-{{ $index }}">
                                     {{ $content->title }}
                                 </button>
                             @endforeach
                         </div>
 
-                        <div class="">
+                        <div class="pl-4">
                             @foreach ($ServicePoint->ServicePointContents as $key2 => $ServicePointContent)
                                 <div id="content{{ $key }}-{{ $key2 }}"
                                         class="custom-tab-content @if ($key != 0) hidden @endif">
