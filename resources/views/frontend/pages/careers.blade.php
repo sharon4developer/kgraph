@@ -23,17 +23,17 @@
         }
 
         /* .canada-flag::after {
-                        content: "";
-                        position: absolute;
-                        right: 10%;
-                        top: -150px;
-                        width: 100px;
-                        height: 100px;
-                        background-image: url(assets/home_Banner/reduse.png) !important;
-                        background-repeat: no-repeat;
-                        opacity: 0;
-                        z-index: 99;
-                    } */
+            content: "";
+            position: absolute;
+            right: 10%;
+            top: -150px;
+            width: 100px;
+            height: 100px;
+            background-image: url(assets/home_Banner/reduse.png) !important;
+            background-repeat: no-repeat;
+            opacity: 0;
+            z-index: 99;
+        } */
 
         .enquiry-form {
             padding: 30px;
@@ -491,4 +491,5 @@
             });
         });
     </script>
-@endsection
+    
+    @endsection

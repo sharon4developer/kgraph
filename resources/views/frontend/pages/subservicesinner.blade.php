@@ -194,61 +194,61 @@
                 max-width: 320px;
             }
         }
-/* General List Styling */
-.custom-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
 
-/* Spacing for Parent <li> Tags */
-.custom-list > li {
-    position: relative;
-    padding-left: 30px; /* Space for custom bullet */
-    margin-top: 15px !important;
-    margin-bottom: 15px !important; /* Add spacing under parent list items */
-    font-size: 16px;
-    color: #333;
-    line-height: 1.6;
-}
+        .custom-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-/* Default Bullet for Parent List Items */
-.custom-list > li::before {
-    content: '\2713'; /* Unicode for checkmark */
-    position: absolute;
-    left: 0;
-    top: 50%; /* Default alignment for bullets */
-    transform: translateY(-50%);
-    width: 15px;
-    height: 15px;
-    background-color: #062358;
-    border-radius: 50%;
-    color: white;
-    font-size: 10px;
-    text-align: center;
-    line-height: 15px;
-    font-weight: 800;
-}
+        /* Spacing for Parent <li> Tags */
+        .custom-list > li {
+            position: relative;
+            padding-left: 30px; /* Space for custom bullet */
+            margin-top: 15px !important;
+            margin-bottom: 15px !important; /* Add spacing under parent list items */
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+        }
 
-/* Nested List Styling */
-.custom-list ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    padding-left: 30px; /* Indent for nested lists */
-}
+        /* Default Bullet for Parent List Items */
+        .custom-list > li::before {
+            content: '\2713'; /* Unicode for checkmark */
+            position: absolute;
+            left: 0;
+            top: 50%; /* Default alignment for bullets */
+            transform: translateY(-50%);
+            width: 15px;
+            height: 15px;
+            background-color: #062358;
+            border-radius: 50%;
+            color: white;
+            font-size: 10px;
+            text-align: center;
+            line-height: 15px;
+            font-weight: 800;
+        }
 
-/* Nested <li> Styling */
-.custom-list ul > li {
-    margin-top: 15px !important; 
-    margin-bottom: 15px !important; /* Smaller spacing for nested list items */
-    padding-left: 30px;
-}
+        /* Nested List Styling */
+        .custom-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            padding-left: 30px; /* Indent for nested lists */
+        }
 
-/* Special Case: Bullets for Parent <li> with Sub-lists */
-.custom-list > li:has(ul)::before {
-    top: 11%; /* Adjust bullet alignment for parent items with sub-lists */
-}
+        /* Nested <li> Styling */
+        .custom-list ul > li {
+            margin-top: 15px !important; 
+            margin-bottom: 15px !important; /* Smaller spacing for nested list items */
+            padding-left: 30px;
+        }
+
+        /* Special Case: Bullets for Parent <li> with Sub-lists */
+        .custom-list > li:has(ul)::before {
+            top: 11%; /* Adjust bullet alignment for parent items with sub-lists */
+        }
 
 
 
@@ -257,8 +257,7 @@
     {{-- services banner --}}
     <div class="relative servicesIIner-banner h-full">
         <!-- Background Image -->
-        <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $services->banner_image }}"
-            alt="Background Image" class="absolute inset-0 w-full h-full object-cover z-0">
+        <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $services->banner_image }}" alt="Background Image" class="absolute inset-0 w-full h-full object-cover z-0">
 
         <div class="services-banner-overlay relative z-10 bg-black bg-opacity-50 h-full">
             <!-- Overlay for better contrast -->
@@ -311,83 +310,86 @@
         </div>
     </div>
 
-    {{-- newly launched accordian --}}
-    <div class="content-accordian bg-[#062358] lg:overflow-hidden">
-        <div
-            class="container accordion-container mx-auto px-5 lg:px-12 h-full w-full py-8 mt-8 flex justify-center gap-4 items-start flex-col text-white">
-            @foreach ($services->ServicePoint as $key => $ServicePoint)
-                <div class="custom-accordion w-full border-b rounded-md overflow-hidden border-gray-300">
-                    <button
-                        class="custom-accordion-header flex justify-between items-center w-full py-3 px-4 text-left text-lg font-semibold text-gray-700 bg-white hover:bg-gray-100">
-                        <span
-                            class="text-[#072459] font_inter text-[18px] pl-4 capitalize">{{ $ServicePoint->title }}</span>
-                        <span class="custom-accordion-icon transform transition-transform duration-300">
-                            <svg width="16" height="10" viewBox="0 0 14 8" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1 1L7 7L13 1" stroke="black" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </span>
-                    </button>
-                    <div
-                        class="custom-accordion-content overflow-hidden max-h-0 transition-all border-t border-t-[#2563eb] duration-300 ease-in-out bg-gray-100">
-                        <div class="flex flex-col lg:flex-row items-center bg-gray-50 p-4 rounded-lg shadow-lg mx-auto">
-                            <!-- Buttons Section -->
-                            <div class="lg:w-[40%] flex flex-col  items-center space-y-4">
-                                @foreach ($ServicePoint->ServicePointContents as $key1 => $ServicePointContent)
-                                    <button
-                                        class="custom-tab-button bg-[#062358] text-white py-2 px-4 rounded-md font-semibold hover:bg-gray-300 focus:outline-none custom-active-tab w-full lg:w-1/2"
-                                        data-target="custom-content{{ $key }}{{ $key1 }}">{{ $ServicePointContent->title }}</button>
-                                    {{-- <button class="custom-tab-button bg-gray-200 text-gray-800 py-2 px-4 rounded-md font-semibold hover:bg-gray-300 focus:outline-none w-full lg:w-1/2" data-target="custom-content2">Additional Info</button> --}}
-                                @endforeach
-                            </div>
-                            <!-- Content Section -->
-                            <div class="lg:w-[60%] bg-white rounded-md shadow-none ml-4">
-                                <div class="p-6">
-                                    @foreach ($ServicePoint->ServicePointContents as $key2 => $ServicePointContent)
-                                        <div id="custom-content{{ $key }}{{ $key2 }}"
-                                            class="custom-tab-content @if ($key2 != 0) hidden @endif">
-                                            @foreach ($ServicePointContent->Title as  $title)
-                                                <h2 class="text-xl font-bold my-4 text-black">
-                                                    {{ $title->name }}:</h2>
-                                                @if (count($title->paragraphs))
-                                                    @foreach ($title->paragraphs as $paragraph)
-                                                        <p class="text-black">{{ $paragraph->content }}</p>
-                                                    @endforeach
-                                                @endif
-                                                @if (count($title->options))
-                                                <ul class="list-disc custom-list list-inside text-gray-700 space-y-2">
-                                                    @foreach ($title->options as $option)
-                                                    <li>{{ $option->value }}
-                                                        @if (count($option->subOptions))
-                                                        <ul class="list-disc custom-list list-inside text-gray-700 space-y-2">
-                                                            @foreach ($option->subOptions as $subOption)
-                                                            <li>{{ $subOption->value }}
-                                                            </li>
-                                                            @endforeach
-                                                        </ul>
-                                                        @endif
-                                                    </li>
-                                                    @endforeach
-                                                </ul>
-                                                @endif
-                                            @endforeach
-                                        </div>
-                                    @endforeach
-                                </div>
-                                {{-- <div id="custom-content2" class="custom-tab-content hidden">
-                        <h2 class="text-xl font-bold mb-4 text-black">Additional Info:</h2>
-                        <p class="text-gray-700">
-                          More information about the eligibility criteria and application process can be found here. Be sure to review the documentation carefully before applying.
-                        </p>
-                      </div> --}}
-                            </div>
-                        </div>
+    {{-- services section section --}}
+    <div class="services section section">
+        <div class="service-details">
+            <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%]">
+
+                {{-- services section section --}}
+                <div class="lg:w-full font_inter flex flex-col justify-center">
+                    <h2 class="font-semibold text-xl lg:text-4xl text-[#062358] lg:pl-[27px]">{{ $services->inner_title }}
+                    </h2>
+                    <div class="blufader-grade text-white my-6 px-5 rounded-md py-3">Key Highlight</div>
+                    <div>
+                        <ul class="list-disc pl-5 text-[#062358] leading-normal">
+                            @foreach ($services->ServicePoint as $key => $ServicePoint)
+                                <li class="py-1">{{ $ServicePoint->title }}</li>
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
-            @endforeach
+
+                {{-- newly launched accordian --}}
+                <div class="content-accordian bg-[#062358] lg:overflow-hidden my-5 rounded-md">
+                    <div  class="accordion-container h-full w-full px-5  py-5 flex justify-center gap-4 items-start flex-col text-black">
+                        @foreach ($services->ServicePoint as $key => $ServicePoint)
+                            <div class="custom-accordion w-full border-b rounded-md h-full overflow-hidden border-gray-300">
+                                <div class="custom-accordion-content overflow-hidden  transition-all border-t border-t-[#2563eb] duration-300 ease-in-out bg-gray-100">
+                                    <div class="flex flex-col lg:flex-row items-start bg-gray-50 p-4 rounded-lg shadow-lg mx-auto">
+                                        <!-- Buttons Section -->
+                                        <div class="lg:w-[40%] flex flex-col  items-center space-y-4">
+                                            @foreach ($ServicePoint->ServicePointContents as $key1 => $ServicePointContent)
+                                                <button
+                                                    class="custom-tab-button bg-[#062358] text-white py-2 px-4 rounded-md font-semibold hover:bg-gray-300 focus:outline-none custom-active-tab w-full lg:w-1/2"
+                                                    data-target="custom-content{{ $key }}{{ $key1 }}">{{ $ServicePointContent->title }}</button>
+                                                {{-- <button class="custom-tab-button bg-gray-200 text-gray-800 py-2 px-4 rounded-md font-semibold hover:bg-gray-300 focus:outline-none w-full lg:w-1/2" data-target="custom-content2">Additional Info</button> --}}
+                                            @endforeach
+                                        </div>
+                                        <!-- Content Section -->
+                                        <div class="lg:w-[60%] bg-white rounded-md shadow-none ml-4">
+                                            <div class="">
+                                                @foreach ($ServicePoint->ServicePointContents as $key2 => $ServicePointContent)
+                                                    <div id="custom-content{{ $key }}{{ $key2 }}" class="custom-tab-content @if ($key2 != 0) hidden @endif">
+                                                        @foreach ($ServicePointContent->Title as  $title)
+                                                            <h2 class="text-xl font-bold mb-4 text-black">
+                                                                {{ $title->name }}:</h2>
+                                                            @if (count($title->paragraphs))
+                                                                @foreach ($title->paragraphs as $paragraph)
+                                                                    <p class="text-black">{{ $paragraph->content }}</p>
+                                                                @endforeach
+                                                            @endif
+                                                            @if (count($title->options))
+                                                            <ul class="list-disc custom-list list-inside text-gray-700 space-y-2">
+                                                                @foreach ($title->options as $option)
+                                                                <li>{{ $option->value }}
+                                                                    @if (count($option->subOptions))
+                                                                    <ul class="list-disc custom-list list-inside text-gray-700 space-y-2">
+                                                                        @foreach ($option->subOptions as $subOption)
+                                                                        <li>{{ $subOption->value }}
+                                                                        </li>
+                                                                        @endforeach
+                                                                    </ul>
+                                                                    @endif
+                                                                </li>
+                                                                @endforeach
+                                                            </ul>
+                                                            @endif
+                                                        @endforeach
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+
 
     {{-- tab section
     <div class="tabsection bg-[#062358] overflow-hidden">
@@ -529,26 +531,26 @@
 
     <script>
         $(document).ready(function () {
-            // Accordion toggle logic
-            $(".custom-accordion-header").on("click", function () {
-                const $content = $(this).next(".custom-accordion-content");
-                const $icon = $(this).find(".custom-accordion-icon svg");
+            // // Accordion toggle logic
+            // $(".custom-accordion-header").on("click", function () {
+            //     const $content = $(this).next(".custom-accordion-content");
+            //     const $icon = $(this).find(".custom-accordion-icon svg");
 
-                // Always recalculate the height on every click
-                if ($content.hasClass("expanded")) {
-                    // Collapse the content
-                    $content.removeClass("expanded").css("max-height", "0px");
-                    $icon.css("transform", "rotate(0deg)");
-                } else {
-                    // Collapse all other accordions (optional: remove this if you want multiple open accordions)
-                    $(".custom-accordion-content").removeClass("expanded").css("max-height", "0px");
-                    $(".custom-accordion-icon svg").css("transform", "rotate(0deg)");
+            //     // Always recalculate the height on every click
+            //     if ($content.hasClass("expanded")) {
+            //         // Collapse the content
+            //         $content.removeClass("expanded").css("max-height", "0px");
+            //         $icon.css("transform", "rotate(0deg)");
+            //     } else {
+            //         // Collapse all other accordions (optional: remove this if you want multiple open accordions)
+            //         $(".custom-accordion-content").removeClass("expanded").css("max-height", "0px");
+            //         $(".custom-accordion-icon svg").css("transform", "rotate(0deg)");
 
-                    // Expand the current accordion and set the calculated height
-                    $content.addClass("expanded").css("max-height", $content.prop("scrollHeight") + "px");
-                    $icon.css("transform", "rotate(180deg)");
-                }
-            });
+            //         // Expand the current accordion and set the calculated height
+            //         $content.addClass("expanded").css("max-height", $content.prop("scrollHeight") + "px");
+            //         $icon.css("transform", "rotate(180deg)");
+            //     }
+            // });
 
             // Tab toggle logic
             $(".custom-tab-button").on("click", function () {
@@ -576,7 +578,7 @@
             });
 
             // Initial state: Ensure all accordion contents are collapsed, and only the first tab of each accordion is prepared
-            $(".custom-accordion-content").css("max-height", "0px"); // Collapse all accordion contents
+            // $(".custom-accordion-content").css("max-height", "0px"); // Collapse all accordion contents
 
             $(".custom-accordion-content").each(function () {
                 const $accordion = $(this);
