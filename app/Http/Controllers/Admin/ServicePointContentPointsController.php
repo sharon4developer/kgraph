@@ -25,7 +25,9 @@ class ServicePointContentPointsController extends Controller
 
         if ($request->service_point_content_id) {
             $service_point_content_id = $request->service_point_content_id;
-            $data = SubServicePointContent::getData($service_point_content_id);
+            $data = SubServicePointContent::where('id', $service_point_content_id)
+            ->with('Title.options.subOptions', 'Title.paragraphs')
+            ->first();
             if (!$data) {
                 abort(404);
             }

@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
 
 class ServicePointContentPoints extends Model
@@ -19,7 +20,7 @@ class ServicePointContentPoints extends Model
         return  $this->belongsTo(SubServicePointContent::class,'service_point_content_id');
     }
 
-    public static function createData($data)
+    public static function createDataOld($data)
     {
         $contents = $data->input('titles');
         $servicePointContentId = $contents['service_point_content_id'];
@@ -65,6 +66,54 @@ class ServicePointContentPoints extends Model
         //         }
         //     }
         // }
+        return true;
+    }
+
+    public static function createData($data)
+    {
+        $contents = $data->input('titles');
+        $servicePointContentId = $contents['service_point_content_id'];
+        $titles =  $contents['titles'];
+        $existingDatas = Title::where('service_point_content_id', $servicePointContentId)->get();
+
+        if ($existingDatas->isNotEmpty()) {
+            // Use transaction to ensure atomicity
+            DB::transaction(function () use ($existingDatas) {
+                foreach ($existingDatas as $existingData) {
+                    // Delete related options and sub-options for each title
+                    foreach ($existingData->options as $option) {
+                        $option->subOptions()->delete(); // Delete sub-options
+                        $option->delete(); // Delete the option itself
+                    }
+
+                    $existingData->paragraphs()->delete(); // Delete related paragraphs
+                    $existingData->delete(); // Finally, delete the title
+                }
+            });
+        }
+
+        foreach ($titles as $titleData) {
+
+            $title = Title::create([
+                'name' => $titleData['title'],
+                'service_point_content_id' => $servicePointContentId, // Associate with service point
+            ]);
+
+            foreach ($titleData['options'] as $option) {
+                if ($option['type'] === 'paragraph') {
+                    $title->paragraphs()->create(['content' => $option['content']]);
+                } elseif ($option['type'] === 'option') {
+                    foreach ($option['multiOptions'] as $multiOption) {
+                        $mainOption = $title->options()->create(['value' => $multiOption['value']]);
+
+                        foreach ($multiOption['subOptions'] as $subOption) {
+                            $mainOption->subOptions()->create(['value' => $subOption]);
+                        }
+                    }
+                }
+            }
+        }
+
         return true;
     }
 
