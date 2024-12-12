@@ -175,7 +175,7 @@
 //     }
 // });
 
-let titleIndex = 0;
+let titleIndex = $('#last_index').length > 0 ? $('#last_index').val() : 0;
 
 // Add Title
 $("#add-title").click(function () {
@@ -352,7 +352,9 @@ function serializeForm() {
 
             if (optionType === "option") {
                 $(this).find(".multi-option-item").each(function () {
+
                     let optionValue = $(this).find("input[name$='[value]']").val();
+                    console.log(optionValue);
                     let subOptions = [];
                     $(this).find(".sub-option-item input").each(function () {
                         subOptions.push($(this).val());
