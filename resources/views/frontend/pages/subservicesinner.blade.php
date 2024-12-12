@@ -9,9 +9,7 @@
         }
 
         .servicesIIner-banner {
-            background-image: url(/assets/servicesinner.jpg) !important;
-            /* background-position-y: center;
-                                                                                                                                                        background-position-x: center; */
+            background-image: url(/assets/servicesinner.jpg) !important;                                                                                                                 background-position-x: center; */
             background-size: cover;
             background-repeat: no-repeat;
         }
@@ -83,7 +81,6 @@
         .tab-name.active {
             font-weight: bold;
             color: #000000;
-            /* background-color: aliceblue; */
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
         }
@@ -91,19 +88,16 @@
         .tab-names {
             display: flex;
             position: relative;
-            /* border-bottom: 2px solid rgba(255, 255, 255, 0.2); */
         }
 
         .tab-indicator {
             position: absolute;
             height: 2px;
-            /* background-color: white; */
             transition: left 0.3s ease, width 0.3s ease;
         }
 
         .tab-content {
             display: none;
-            /* opacity: 0;  */
             transform: translateY(10px);
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
@@ -136,7 +130,6 @@
 
         .tab-content {
             display: none;
-            /* background: #ededed; */
             padding: 15px;
         }
 
@@ -160,7 +153,6 @@
 
         .tab-content {
             display: none;
-            /* opacity: 0; */
             transform: translateY(10px);
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
@@ -208,7 +200,7 @@
             margin-top: 15px !important;
             margin-bottom: 15px !important; /* Add spacing under parent list items */
             font-size: 16px;
-            color: #333;
+            /* color: #333; */
             line-height: 1.6;
         }
 
@@ -221,9 +213,9 @@
             transform: translateY(-50%);
             width: 15px;
             height: 15px;
-            background-color: #062358;
+            background-color: #ffffff;
             border-radius: 50%;
-            color: white;
+            color: #062358;
             font-size: 10px;
             text-align: center;
             line-height: 15px;
@@ -248,6 +240,44 @@
         /* Special Case: Bullets for Parent <li> with Sub-lists */
         .custom-list > li:has(ul)::before {
             top: 11%; /* Adjust bullet alignment for parent items with sub-lists */
+        }
+
+        .active-item {
+            font-weight: bold;
+            color: #062358;
+            border-left: 4px solid #2563eb;
+            padding-left: 10px;
+        }
+
+        .active-button {
+            background-color: #2563eb;
+            color: white;
+            border: none;
+        }
+
+        /* .custom-tab-content {
+            display: none;
+        } */
+
+        /* .custom-tab-content:not(.hidden) {
+            display: block;
+        } */
+
+
+        /* .custom-tab-content {
+            display: none;
+        } */
+
+        .custom-tab-content.active {
+            display: block;
+        }
+
+        .content-btn {
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .content-btn:hover {
+            background-color: #2563eb;
+            color: white;
         }
 
 
@@ -311,81 +341,64 @@
     </div>
 
     {{-- services section section --}}
-    <div class="services section section">
+    <div class="services section section my-5">
         <div class="service-details">
             <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%]">
-
-                {{-- services section section --}}
+                <!-- Services Section -->
                 <div class="lg:w-full font_inter flex flex-col justify-center">
-                    <h2 class="font-semibold text-xl lg:text-4xl text-[#062358] lg:pl-[27px]">{{ $services->inner_title }}
+                    <h2 class="font-semibold text-xl lg:text-4xl text-[#062358] lg:pl-[27px]">
+                        {{ $services->inner_title }}
                     </h2>
-                    <div class="blufader-grade text-white my-6 px-5 rounded-md py-3">Key Highlight</div>
-                    <div>
-                        <ul class="list-disc pl-5 text-[#062358] leading-normal">
-                            @foreach ($services->ServicePoint as $key => $ServicePoint)
-                                <li class="py-1">{{ $ServicePoint->title }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                </div>
 
-                {{-- newly launched accordian --}}
-                <div class="content-accordian bg-[#062358] lg:overflow-hidden my-5 rounded-md">
-                    <div  class="accordion-container h-full w-full px-5  py-5 flex justify-center gap-4 items-start flex-col text-black">
+                    <div class="blufader-grade text-white my-6 px-5 rounded-md py-3">Key Highlight</div>
+                    
+                    <ul class="list-disc pl-5 text-[#062358] leading-normal list-none">
                         @foreach ($services->ServicePoint as $key => $ServicePoint)
-                            <div class="custom-accordion w-full border-b rounded-md h-full overflow-hidden border-gray-300">
-                                <div class="custom-accordion-content overflow-hidden  transition-all border-t border-t-[#2563eb] duration-300 ease-in-out bg-gray-100">
-                                    <div class="flex flex-col lg:flex-row items-start bg-gray-50 p-4 rounded-lg shadow-lg mx-auto">
-                                        <!-- Buttons Section -->
-                                        <div class="lg:w-[40%] flex flex-col  items-center space-y-4">
-                                            @foreach ($ServicePoint->ServicePointContents as $key1 => $ServicePointContent)
-                                                <button
-                                                    class="custom-tab-button bg-[#062358] text-white py-2 px-4 rounded-md font-semibold hover:bg-gray-300 focus:outline-none custom-active-tab w-full lg:w-1/2"
-                                                    data-target="custom-content{{ $key }}{{ $key1 }}">{{ $ServicePointContent->title }}</button>
-                                                {{-- <button class="custom-tab-button bg-gray-200 text-gray-800 py-2 px-4 rounded-md font-semibold hover:bg-gray-300 focus:outline-none w-full lg:w-1/2" data-target="custom-content2">Additional Info</button> --}}
-                                            @endforeach
-                                        </div>
-                                        <!-- Content Section -->
-                                        <div class="lg:w-[60%] bg-white rounded-md shadow-none ml-4">
-                                            <div class="">
-                                                @foreach ($ServicePoint->ServicePointContents as $key2 => $ServicePointContent)
-                                                    <div id="custom-content{{ $key }}{{ $key2 }}" class="custom-tab-content @if ($key2 != 0) hidden @endif">
-                                                        @foreach ($ServicePointContent->Title as  $title)
-                                                            <h2 class="text-xl font-bold mb-4 text-black">
-                                                                {{ $title->name }}:</h2>
-                                                            @if (count($title->paragraphs))
-                                                                @foreach ($title->paragraphs as $paragraph)
-                                                                    <p class="text-black">{{ $paragraph->content }}</p>
-                                                                @endforeach
-                                                            @endif
-                                                            @if (count($title->options))
-                                                            <ul class="list-disc custom-list list-inside text-gray-700 space-y-2">
-                                                                @foreach ($title->options as $option)
-                                                                <li>{{ $option->value }}
-                                                                    @if (count($option->subOptions))
-                                                                    <ul class="list-disc custom-list list-inside text-gray-700 space-y-2">
-                                                                        @foreach ($option->subOptions as $subOption)
-                                                                        <li>{{ $subOption->value }}
-                                                                        </li>
-                                                                        @endforeach
-                                                                    </ul>
-                                                                    @endif
-                                                                </li>
-                                                                @endforeach
-                                                            </ul>
-                                                            @endif
-                                                        @endforeach
-                                                    </div>
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            <li class="py-1 cursor-pointer @if ($key == 0) active-item @endif" 
+                                data-target="service-point{{ $key }}">
+                                {{ $ServicePoint->title }}
+                            </li>
                         @endforeach
-                    </div>
+                    </ul>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="services bg-[#062358]">
+        <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%]">
+            @foreach ($services->ServicePoint as $key => $ServicePoint)
+                <div id="service-point{{ $key }}" class="buttons-wrapper @if ($key != 0) hidden @endif">
+                    <div class="">
+                        <div class="mb-8 flex flex-wrap items-center gap-3">
+                            @foreach ($ServicePoint->ServicePointContents as $index => $content)
+                                <button class="content-btn border border-white  whitespace-nowrap w-fit bg-[#062358] text-white py-2 px-4 rounded-md font-semibold hover:bg-gray-300 focus:outline-none mb-2 @if ($index == 0) active-button @endif"
+                                    data-target="content{{ $key }}-{{ $index }}">
+                                    {{ $content->title }}
+                                </button>
+                            @endforeach
+                        </div>
+        
+                        <div class="">  
+                            @foreach ($ServicePoint->ServicePointContents as $index => $content)
+                                <div id="content{{ $key }}-{{ $index }}" 
+                                        class="custom-tab-content @if ($index != 0) hidden @endif">
+                                    <h2 class="text-xl font-bold mb-4 text-white">{{ $content->title }}</h2>
+                                    <p class="text-black mb-4">{{ $content->description }}</p>
+                                    
+                                    @if (count($content->options))
+                                        <ul class="list-discs custom-list list-inside text-white space-y-2">
+                                            @foreach ($content->options as $option)
+                                                <li>{{ $option->option }}</li>
+                                            @endforeach
+                                        </ul>
+                                    @endif
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </div>
 
@@ -529,69 +542,49 @@
     </script>
 
 
-    <script>
-        $(document).ready(function () {
-            // // Accordion toggle logic
-            // $(".custom-accordion-header").on("click", function () {
-            //     const $content = $(this).next(".custom-accordion-content");
-            //     const $icon = $(this).find(".custom-accordion-icon svg");
+<script>
+    $(document).ready(function () {
+        // Initially set the first list item and its content as active
+        $(".list-disc > li").first().addClass("active-item");
+        $(".buttons-wrapper").first().removeClass("hidden");
+        $(".custom-tab-content").first().removeClass("hidden");
+        $(".content-btn").first().addClass("active-button");
 
-            //     // Always recalculate the height on every click
-            //     if ($content.hasClass("expanded")) {
-            //         // Collapse the content
-            //         $content.removeClass("expanded").css("max-height", "0px");
-            //         $icon.css("transform", "rotate(0deg)");
-            //     } else {
-            //         // Collapse all other accordions (optional: remove this if you want multiple open accordions)
-            //         $(".custom-accordion-content").removeClass("expanded").css("max-height", "0px");
-            //         $(".custom-accordion-icon svg").css("transform", "rotate(0deg)");
+        // Handle clicks on ServicePoint list items (scoped narrowly to direct children only)
+        $(".list-disc > li").on("click", function () {
+            // Remove active state from all ServicePoint list items and hide all buttons
+            $(".list-disc > li").removeClass("active-item");
+            $(".buttons-wrapper").addClass("hidden");
 
-            //         // Expand the current accordion and set the calculated height
-            //         $content.addClass("expanded").css("max-height", $content.prop("scrollHeight") + "px");
-            //         $icon.css("transform", "rotate(180deg)");
-            //     }
-            // });
+            // Set active state for the clicked list item and show its buttons
+            $(this).addClass("active-item");
+            const target = $(this).data("target");
+            $(`#${target}`).removeClass("hidden");
 
-            // Tab toggle logic
-            $(".custom-tab-button").on("click", function () {
-                // Find the parent accordion to scope the content updates
-                const $accordion = $(this).closest(".custom-accordion-content");
-
-                // Update tab button styles within the current accordion
-                $accordion.find(".custom-tab-button")
-                    .removeClass("bg-[#062358] text-white")
-                    .addClass("bg-gray-200 text-gray-800");
-                $(this)
-                    .addClass("bg-[#062358] text-white")
-                    .removeClass("bg-gray-200 text-gray-800");
-
-                // Hide all tab content within the current accordion
-                $accordion.find(".custom-tab-content").addClass("hidden");
-
-                // Show the targeted tab content
-                const target = $(this).data("target");
-                $(`#${target}`).removeClass("hidden");
-
-                // Recalculate height for accordion if content size changes
-                const $content = $(this).closest(".custom-accordion-content");
-                $content.css("max-height", $content.prop("scrollHeight") + "px");
-            });
-
-            // Initial state: Ensure all accordion contents are collapsed, and only the first tab of each accordion is prepared
-            // $(".custom-accordion-content").css("max-height", "0px"); // Collapse all accordion contents
-
-            $(".custom-accordion-content").each(function () {
-                const $accordion = $(this);
-                $accordion.find(".custom-tab-button").removeClass("bg-[#062358] text-white").addClass(
-                    "bg-gray-200 text-gray-800");
-                $accordion.find(".custom-tab-content").addClass("hidden");
-
-                // Activate the first tab button and content
-                $accordion.find(".custom-tab-button").first().addClass("bg-[#062358] text-white")
-                    .removeClass("bg-gray-200 text-gray-800");
-                $accordion.find(".custom-tab-content").first().removeClass("hidden");
-            });
+            // Set the first button and its content as active
+            $(`#${target} .content-btn`).removeClass("active-button").first().addClass("active-button");
+            $(`#${target} .custom-tab-content`).addClass("hidden").first().removeClass("hidden");
         });
 
-    </script>
+        // Handle clicks on buttons inside buttons-wrapper
+        $(".content-btn").on("click", function () {
+            // Remove active state from all buttons and hide all content
+            $(".content-btn").removeClass("active-button");
+            $(".custom-tab-content").addClass("hidden");
+
+            // Set active state for the clicked button and show its content
+            $(this).addClass("active-button");
+            const target = $(this).data("target");
+            $(`#${target}`).removeClass("hidden");
+        });
+
+        // Prevent clicks on dynamically generated options list items from affecting parent state
+        $(document).on("click", ".custom-list > li", function (e) {
+            e.stopPropagation(); // Prevent the click from propagating to parent elements
+        });
+    });
+</script>
+
+
+
 @endsection
