@@ -424,7 +424,7 @@
             </div>
 
             <div class="lg:flex lg:gap-6 py-[56px] justify-between">
-                <div id="splide" class="splide w-full">
+                <div id="splideclunt" class="splide w-full">
                     <div class="splide__track">
                         <ul class="splide__list">
                             @foreach ($locations as $data)
@@ -541,7 +541,7 @@
         });
 
         document.addEventListener('DOMContentLoaded', function() {
-            new Splide('#splide', {
+            new Splide('#splideclunt', {
                 type: 'slide',
                 autoplay: true,
                 interval: 1000,

@@ -226,7 +226,7 @@
                     <li class="nav-item"><a class="nav-link" href="{{ url('blogs') }}">Blogs</a></li>
                 </ul>
                 <a href="{{ url('contact-us') }}" class="bg-white block text-blue-600 hover:bg-blue-600 hover:text-white px-[26px] py-[7px] rounded-3xl ease-in duration-500 cursor-pointer">
-                    <h6  class="h-full font-semibold">Contact Us</h6>
+                    <span  class="h-full font-semibold">Contact Us</span>
                 </a>
             </div>
 
