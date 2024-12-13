@@ -118,7 +118,7 @@
             display: flex;
         }
         .job-decsript ul li{
-            padding-left: 10px;
+            margin-left: 10px;
             list-style-type: disc;
         }
 
