@@ -19,6 +19,7 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Mobile</th>
+                                <th>Message</th>
                                 <th>Date</th>
                             </tr>
                         </thead>

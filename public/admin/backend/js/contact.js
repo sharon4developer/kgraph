@@ -13,6 +13,7 @@ function loadDataTableForContact() {
             { data: 'name' },
             { data: 'email' },
             { data: 'mobile' },
+            { data: 'message' },
             {
                 data: null,
                 render: function (row) {
