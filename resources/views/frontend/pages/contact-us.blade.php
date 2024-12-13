@@ -544,6 +544,7 @@
             new Splide('#splideclunt', {
                 type: 'slide',
                 autoplay: true,
+                perPage: 3,
                 interval: 1000,
                 perMove: 1,
                 arrows: false,
