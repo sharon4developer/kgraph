@@ -78,6 +78,7 @@ Route::get('eligibility-check', [FrontEndServiceController::class, 'eligibilityC
 Route::get('terms-and-conditions', [FrontEndController::class, 'termsConditions']);
 Route::get('privacy-policy', [FrontEndController::class, 'privacyPolicy']);
 Route::get('sub-service-details/{slug}', [FrontEndServiceController::class, 'subServiceDetails']);
+Route::post('submit-career-form-new', [NewsLetterController::class, 'submitCareerNew'])->name('submit-career-form-new');
 
 // Route::get('contact-us', function () {
 //     return view('main');

@@ -12,10 +12,14 @@ class AppliedCareer extends Model
 
     protected $table = 'applied_careers';
 
-    protected $fillable = ['email','name','country_code','mobile','branch','department','message','resume'];
+    protected $fillable = ['email','name','country_code','mobile','branch','department','message','resume','career_id'];
 
     public function Branch(){
         return  $this->belongsTo(CareerBranch::class,'branch')->withTrashed();
+    }
+
+    public function Career(){
+        return  $this->belongsTo(Career::class,'career_id')->withTrashed();
     }
 
     public function Department(){
@@ -26,7 +30,7 @@ class AppliedCareer extends Model
     {
         $locationData = getLocationData();
 
-        $value =  SELF::with(['Branch:id,title','Department:id,title'])->select('email', 'id', 'created_at','name','country_code','mobile','branch','department','message','resume')->orderBy('created_at', 'desc');
+        $value =  SELF::with(['Branch:id,title','Department:id,title'])->select('email', 'id', 'created_at','name','country_code','mobile','branch','department','message','resume','career_id')->orderBy('created_at', 'desc');
 
         return DataTables::of($value)
             ->addIndexColumn()
@@ -34,10 +38,14 @@ class AppliedCareer extends Model
                 return $row->country_code . $row->mobile;
             })
             ->editColumn('branch', function ($row) {
-                return $row->Branch->title;
+                return $row->branch ? $row->Branch->title : '';
+            })
+            ->editColumn('career_id', function ($row) {
+
+                return $row->career_id ? $row->Career->title : '';
             })
             ->editColumn('department', function ($row) {
-                return $row->Department->title;
+                return $row->department ? $row->Department->title : '';
             })
             ->editColumn('resume', function ($row) use($locationData) {
                 return $locationData['storage_server_path'].$locationData['storage_image_path'].$row->resume;
@@ -58,6 +66,25 @@ class AppliedCareer extends Model
 
         if ($data->resume) {
             $value->resume = Cms::storeImage($data->resume, $data->name);
+        };
+
+        return $value->save();
+    }
+
+    public static function saveCareerNew($data)
+    {
+        $value = new AppliedCareer;
+        $value->name = $data->name_n;
+        $value->email = $data->email_n;
+        $value->country_code = $data->country_n;
+        $value->career_id = $data->job_id;
+        $value->mobile = $data->mobile_n;
+        $value->branch = $data->branch_n;
+        $value->department = $data->department_n;
+        $value->message = $data->message_n;
+
+        if ($data->resume_n) {
+            $value->resume = Cms::storeImage($data->resume_n, $data->name_n);
         };
 
         return $value->save();

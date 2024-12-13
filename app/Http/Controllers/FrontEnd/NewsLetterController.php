@@ -67,7 +67,7 @@ class NewsLetterController extends Controller
     public function submitCareer(Request $request)
     {
         try {
-            $save = EligibilityCheck::saveCareer($request);
+            $save = AppliedCareer::saveCareer($request);
             if ($save) {
                 $response = [
                     'status' => true,
@@ -89,6 +89,33 @@ class NewsLetterController extends Controller
 
         return response()->json($response);
     }
+
+    public function submitCareerNew(Request $request)
+    {
+        try {
+            $save = AppliedCareer::saveCareerNew($request);
+            if ($save) {
+                $response = [
+                    'status' => true,
+                    'message' => 'Submitted successfully',
+                ];
+            } else {
+                $response = [
+                    'status' => false,
+                    'message' => 'Something wrong please try again.',
+                ];
+            }
+        } catch (Exception $e) {
+            $response = [
+                'status' => false,
+                'message' => 'Something went wrong please try again.',
+                'error' => $e->getMessage(),
+            ];
+        }
+
+        return response()->json($response);
+    }
+
 
     public function submitEligibility(Request $request)
     {

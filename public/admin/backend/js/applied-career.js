@@ -10,6 +10,7 @@ function loadDataTableForCareer() {
         ajax: $('#route-for-user').val() + '/applied-career/show',
         columns: [
             { data: 'DT_RowIndex', orderable: false, searchable: false },
+            { data: 'career_id' },
             { data: 'name' },
             { data: 'email' },
             { data: 'mobile' },
