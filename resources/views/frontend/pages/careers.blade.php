@@ -442,13 +442,13 @@
         </div>
     </div>
 
-    <div class="open-positions bg-[#04183c] py-8 lg:py-[8%]">
+    <div class="open-positions bg-[#04183c] py-8 lg:pt-[1%] lg:pb-[1%]">
         <div class="container mx-auto px-5 xl:px-12 h-full w-full  text-white">
             <h2 class="my-10 font_inter font-semibold text-[25px] md:text-[50px] uppercase w-[50%]">Open positions</h2>
         </div>
         @if(count($careers))
         @foreach ($careers as $data)
-        <div class="container mx-auto px-5 xl:px-12 h-full w-full text-white">
+        <div class="container mx-auto px-5 xl:px-12 lg:pb-[3%] h-full w-full text-white">
             <div class="bg-[#072f77] cursor-pointer rounded-[8px] my-4 border-b border-b-[#868686]" data-accordion>
                 <div class="flex justify-between items-center px-5 py-4 accordion-header-careers">
                     <h2 class="font_inter font-bold text-[15px] text-white">{{ $data->title }}, {{ $data->location }}
