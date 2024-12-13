@@ -88,7 +88,7 @@
         }
 
         .accordion-active .accordion-content-careers {
-            max-height: 1000px;
+            max-height: 2000px;
             /* Adjust the max-height to fit your content */
             transition: max-height 0.5s ease-in-out;
         }
