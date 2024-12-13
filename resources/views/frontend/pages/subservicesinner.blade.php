@@ -252,9 +252,10 @@
 
         .active-item {
             font-weight: bold;
-            color: #062358;
-            border-left: 4px solid #2563eb;
-            padding-left: 10px;
+            color: white;
+            /* border-left: 4px solid #2563eb; */
+            background-color: #062358;
+            /* padding-left: 10px; */
         }
 
         .active-button {
@@ -357,7 +358,7 @@
 
                     <ul class="list-disc pl-5 text-[#062358] leading-normal list-none">
                         @foreach ($services->ServicePoint as $key => $ServicePoint)
-                            <li class="py-1 cursor-pointer @if ($key == 0) active-item @endif"
+                            <li class="my-4 py-2 px-4 w-1/2 transition-all duration-200 cursor-pointer rounded-md border border-[#d6d6d6] text-gray-800 @if ($key == 0) active-item @endif"
                                 data-target="service-point{{ $key }}">
                                 {{ $ServicePoint->title }}
                             </li>

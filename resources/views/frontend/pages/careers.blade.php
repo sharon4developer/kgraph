@@ -117,6 +117,10 @@
         .modalPopup.flex {
             display: flex;
         }
+        .job-decsript ul li{
+            padding-left: 10px;
+            list-style-type: disc;
+        }
 
     </style>
     @include('frontend.Common.whatsapplogo')
@@ -452,7 +456,7 @@
                     </div>
                 </div>
                 <div class="accordion-content-careers">
-                    <div class="px-5 py-4 text-white">
+                    <div class="px-5 py-4 text-white job-decsript">
                         {!! $data->description !!}
                     </div>
                     <div class="accordion-content-careers">
