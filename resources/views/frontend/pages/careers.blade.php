@@ -457,7 +457,7 @@
                     </div>
                     <div class="accordion-content-careers">
                         <div class="px-5 py-4 flex justify-end items-center">
-                            <button id="applyNowBtn" class="relative font-semibold font_inter text-white px-7 py-2 rounded-md border border-white overflow-hidden transition-all duration-500 ease-out  group applyNowBtn">
+                            <button id="applyNowBtn" class="relative font-semibold font_inter text-white px-7 py-2 rounded-md border border-white overflow-hidden transition-all duration-500 ease-out hover:text-black group applyNowBtn">
                                 <span class="absolute inset-0 bg-white transform -translate-x-full transition-transform duration-500 ease-out group-hover:translate-x-0"></span>
                                 <span class="relative z-10 font_inter font-bold">Apply now</span>
                             </button>                            
