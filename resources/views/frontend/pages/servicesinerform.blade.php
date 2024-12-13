@@ -320,6 +320,8 @@
                             <option value="1 year">1 year</option>
                             <option value="2 years">2 years</option>
                             <option value="3 years">3 years</option>
+                            <option value="3 years">4 years</option>
+                            <option value="3 years">5 years or more</option>
                         </select>
                     </div>
 
@@ -330,7 +332,7 @@
                             <option value="0 year">0 year</option>
                             <option value="1 year">1 year</option>
                             <option value="2 years">2 years</option>
-                            <option value="3 years">3 years</option>
+                            <option value="3 years">3 years or more</option>
                         </select>
                     </div>
                 </div>

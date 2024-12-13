@@ -84,7 +84,7 @@
         .phone-text {
             color: #034833;
             font-size: 12px;
-            white-space: nowrap;
+            /* white-space: nowrap; */
         }
 
         .flag-img-contact {
@@ -429,7 +429,7 @@
                         <ul class="splide__list">
                             @foreach ($locations as $data)
                             <li class="splide__slide">
-                                <div class="bg-white my-4 lg:my-0 p-5 w-full rounded-xl">
+                                <div class="bg-white my-4 lg:my-0 p-5 w-full lg:max-w-[430px] rounded-xl">
                                     <div class="flex items-center justify-between">
                                         <h5 class="text-black uppercase">Office Address</h5>
                                         <img class="w-[48px]" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="{{$data->alt_tag}}">

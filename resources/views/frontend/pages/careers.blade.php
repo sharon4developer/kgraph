@@ -8,6 +8,11 @@
             z-index: 1;
             position: relative;
         }
+        
+        .dontwaitwrpr {
+            background: linear-gradient(88deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
+        }
+
 
         .contact-US-banner {
             background-image: url(assets/home_Banner/contactUsbackground.webp) !important;
@@ -362,7 +367,7 @@
                                     </div>
                                 </div>
 
-                                <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
+                                <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent lg:gap-[26px]">
                                     <label class="md:whitespace-nowrap" for="email">select branch<span>*</span></label>
                                     <select name="branch" id="" class="bg-transparent">
                                         <option value="" selected disabled>---Select---</option>
@@ -372,7 +377,7 @@
                                     </select>
                                 </div>
 
-                                <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
+                                <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent lg:gap-[26px]">
                                     <label class="md:whitespace-nowrap" for="email">department<span>*</span></label>
                                     <select name="department" id="" class="bg-transparent">
                                         <option value="" selected disabled>---Select---</option>
@@ -417,31 +422,40 @@
         </div>
     </div>
 
-    <div class="open-positions bg-[#04183c]">
-        <div class="container mx-auto px-5 xl:px-12 h-full w-full py-8 lg:py-[8%] text-white">
+    <div class="open-positions bg-[#04183c] py-8 lg:py-[8%]">
+        <div class="container mx-auto px-5 xl:px-12 h-full w-full  text-white">
             <h2 class="my-10 font_inter font-semibold text-[25px] md:text-[50px] uppercase w-[50%]">Open positions</h2>
-            @foreach ($careers as $data)
-                <div class="bg-[#072f77] cursor-pointer rounded-[8px] my-4 border-b border-b-[#868686]" data-accordion>
-                    <div class="flex justify-between items-center px-5 py-4 accordion-header-careers">
-                        <h2 class="font_inter font-bold text-[15px] text-white">{{ $data->title }}, {{ $data->location }}
-                        </h2>
-                        <div>
-                            <svg width="18" height="10" viewBox="0 0 18 10" fill="none"
-                                xmlns="http://www.w3.org/2000/svg" class="accordion-icon">
-                                <path d="M1 1L9 9L17 1" stroke="white" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                    </div>
-                    <div class="accordion-content-careers">
-                        <div class="px-5 py-4 text-white">
-                            {!! $data->description !!}
-                        </div>
+        </div>
+        @if(count($careers))
+        @foreach ($careers as $data)
+        <div class="container mx-auto px-5 xl:px-12 h-full w-full text-white">
+            <div class="bg-[#072f77] cursor-pointer rounded-[8px] my-4 border-b border-b-[#868686]" data-accordion>
+                <div class="flex justify-between items-center px-5 py-4 accordion-header-careers">
+                    <h2 class="font_inter font-bold text-[15px] text-white">{{ $data->title }}, {{ $data->location }}
+                    </h2>
+                    <div>
+                        <svg width="18" height="10" viewBox="0 0 18 10" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" class="accordion-icon">
+                            <path d="M1 1L9 9L17 1" stroke="white" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
                     </div>
                 </div>
-            @endforeach
-
+                <div class="accordion-content-careers">
+                    <div class="px-5 py-4 text-white">
+                        {!! $data->description !!}
+                    </div>
+                </div>
+            </div>
+        </div>  
+        @endforeach
+        @else
+        <div class="flex items-center justify-center dontwaitwrpr my-10">
+            <div class="container mx-auto px-5 xl:px-12 h-full w-full text-white">
+                <h2 class="lg:w-1/2 font-medium font_inter text-left text-white py-8">At present, we do not have any available positions. However, we are continuously seeking skilled and talented individuals to join our workforce. We encourage you to visit our careers page regularly or follow us on social media for updates on future job openings</h2>
+            </div>
         </div>
+        @endif
     </div>
 
     @include('frontend.Common.getintouch')

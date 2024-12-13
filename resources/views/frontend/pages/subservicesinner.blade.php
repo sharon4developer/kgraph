@@ -344,7 +344,7 @@
     </div> --}}
 
     {{-- services section section --}}
-    <div class="services Realize section section my-5">
+    <div class="services Realize section section">
         <div class="service-details">
             <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%]">
                 <!-- Services Section -->
