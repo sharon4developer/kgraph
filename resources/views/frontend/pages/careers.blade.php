@@ -122,6 +122,11 @@
             margin-left: 20px;
             list-style-type: disc;
         }
+        @media (min-width: 768px) and (max-width: 1380px){
+            #jobenquirey .enquiry-form-inputparent{
+                margin-top: 15px;
+            }
+        }
 
     </style>
     @include('frontend.Common.whatsapplogo')
@@ -382,7 +387,7 @@
                                     </div>
                                 </div>
 
-                                <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent lg:gap-[26px]">
+                                <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent gap-[26px] ">
                                     <label class="md:whitespace-nowrap" for="email">select branch<span>*</span></label>
                                     <select name="branch" id="" class="bg-transparent">
                                         <option value="" selected disabled>---Select---</option>
@@ -392,7 +397,7 @@
                                     </select>
                                 </div>
 
-                                <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent lg:gap-[26px]">
+                                <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent gap-[26px]">
                                     <label class="md:whitespace-nowrap" for="email">department<span>*</span></label>
                                     <select name="department" id="" class="bg-transparent">
                                         <option value="" selected disabled>---Select---</option>
@@ -468,10 +473,10 @@
                             </button>
                         </div>
 
-                        <div id="jobenquirey" class="modalPopup hidden fixed inset-0 bg-gray-800 bg-opacity-50 items-center justify-center z-50">
-                            <div class="rounded-xl p-6 w-full lg:max-w-[50%]">
+                        <div id="jobenquirey" class="modalPopup hidden lg:fixed  inset-0 bg-gray-800 bg-opacity-50 items-center justify-center z-50">
+                            <div class="rounded-xl pb-11 px-2  lg:p-6 w-full lg:max-w-[50%]">
                                 <div class="relative">
-                                    <div class="bg-white rounded-xl h-fit w-full canada-flag relative">
+                                    <div class="bg-white rounded-xl h-fit w-full canada-flag relative lg:h-[590px] 2xl:h-auto">
                                         <div class="absolute top-0 left-[30px]">
                                             <button id="closejobModal" class="mt-2 mr-2  text-black closeModal z-50">
                                                 <img width="25px" class="my-4" src="{{asset('assets/home_Banner/cross.png')}}" alt="">
@@ -727,7 +732,7 @@
                                                     </select>
                                                 </div>
 
-                                                <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent lg:gap-[26px]">
+                                                <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent gap-[26px]">
                                                     <label class="md:whitespace-nowrap" for="email">department<span>*</span></label>
                                                     <select name="department_n" id="" class="bg-transparent">
                                                         <option value="" selected disabled>---Select---</option>
