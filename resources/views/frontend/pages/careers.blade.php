@@ -129,7 +129,7 @@
         <div class="contact-US h-full w-full">
             <div class="container mx-auto px-5 xl:px-12 h-full w-full py-8 lg:pt-[8%] text-white">
                 <div class="flex flex-col lg:flex-row justify-between items-start gap-[15%] lg:py-[50px] md:mt-36 lg:mt-0">
-                    <div class="w-full h-full font_inter">
+                    <div class="w-full h-full font_inter mb-8">
                         <h1 class="mainHead font-semibold text-[40px] xl:w-[70%] uppercase">@if(isset($careerContents)) {{$careerContents->title}} @endif
                         </h1>
                         <p class="font-semibold text-[15px] py-[30px]">@if(isset($careerContents)) {{$careerContents->sub_title}} @endif</p>
