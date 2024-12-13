@@ -119,7 +119,7 @@
         }
         .job-decsript ul li{
             margin-top: 5px;
-            margin-left: 10px;
+            margin-left: 20px;
             list-style-type: disc;
         }
 
