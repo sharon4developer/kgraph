@@ -118,6 +118,7 @@
             display: flex;
         }
         .job-decsript ul li{
+            margin-top: 5px;
             margin-left: 10px;
             list-style-type: disc;
         }
