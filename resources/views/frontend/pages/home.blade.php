@@ -546,7 +546,7 @@
                 </div>
             </div>
         </div>
-        {{-- @include('frontend.Common.modal-contact') --}}
+        @include('frontend.Common.modal-contact')
     </div>
     @include('frontend.Common.whatsapplogo')
     {{-- @include('frontend.Common.modal-contact') --}}

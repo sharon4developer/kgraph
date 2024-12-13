@@ -12,11 +12,11 @@ class Contact extends Model
 
     protected $table = 'contacts';
 
-    protected $fillable = ['email','name','country_code','mobile'];
+    protected $fillable = ['email','name','country_code','mobile','message'];
 
     public static function getFullData()
     {
-        $value =  SELF::select('email', 'id', 'created_at','name','country_code','mobile')->orderBy('created_at', 'desc');
+        $value =  SELF::select('email', 'id', 'created_at','name','country_code','mobile','message')->orderBy('created_at', 'desc');
 
         return DataTables::of($value)
             ->addIndexColumn()
@@ -33,6 +33,7 @@ class Contact extends Model
         $value->email = $data->email;
         $value->country_code = $data->country;
         $value->mobile = $data->mobile;
+        $value->message = $data->message;
         return $value->save();
     }
 }
