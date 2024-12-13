@@ -227,20 +227,28 @@
             list-style: none;
             padding: 0;
             margin: 0;
-            padding-left: 30px; /* Indent for nested lists */
+            padding-left: 30px; 
         }
 
-        /* Nested <li> Styling */
         .custom-list ul > li {
             margin-top: 15px !important;
-            margin-bottom: 15px !important; /* Smaller spacing for nested list items */
+            margin-bottom: 15px !important; 
             padding-left: 30px;
         }
 
-        /* Special Case: Bullets for Parent <li> with Sub-lists */
         .custom-list > li:has(ul)::before {
-            top: 11%; /* Adjust bullet alignment for parent items with sub-lists */
+            top: 11%;
         }
+        
+        /* @media (max-width: 767px){
+            .custom-list > li:has(ul)::before {
+                top: 5%; 
+            }
+
+            .custom-list > li::before {
+                top: 10%;
+            }
+        } */
 
         .active-item {
             font-weight: bold;
@@ -250,8 +258,11 @@
         }
 
         .active-button {
-            background-color: #2563eb;
-            color: white;
+            background-color: white;
+            color: #062358;
+            font-weight: 700;
+            border-top-right-radius: 7px; 
+            border-top-left-radius: 7px; 
             border: none;
         }
 
@@ -276,8 +287,8 @@
             transition: background-color 0.3s ease, color 0.3s ease;
         }
         .content-btn:hover {
-            background-color: #2563eb;
-            color: white;
+            /* background-color: #2563eb; */
+            /* color: white; */
         }
 
 
@@ -321,27 +332,19 @@
     </div>
 
     {{-- Realize can section --}}
-    <div class="">
+    {{-- <div class="">
         <div class="Realize">
             <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%]">
                 <div class="lg:w-full font_inter flex justify-center">
                     <h2 class="font-semibold text-xl lg:text-4xl text-[#062358] lg:pl-[27px]">{{ $services->inner_title }}
                     </h2>
-                    {{-- <div class="blufader-grade text-white my-6 px-5 rounded-md py-3">Key Highlight</div>
-                    <div>
-                        <ul class="list-disc pl-5 text-[#062358] leading-normal">
-                            @foreach ($services->ServicePoint as $ServicePoint)
-                                <li class="py-1">{{ $ServicePoint->title }}</li>
-                            @endforeach
-                        </ul>
-                    </div> --}}
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     {{-- services section section --}}
-    <div class="services section section my-5">
+    <div class="services Realize section section my-5">
         <div class="service-details">
             <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%]">
                 <!-- Services Section -->
@@ -371,16 +374,16 @@
 
                 <div id="service-point{{ $key }}" class="buttons-wrapper @if ($key != 0) hidden @endif">
                     <div class="">
-                        <div class="mb-8 flex flex-wrap items-center gap-3">
+                        <div class="mb-8 flex flex-wrap items-center gap-3 border-b border-b-white mb-2">
                             @foreach ($ServicePoint->ServicePointContents as $index => $content)
-                                <button class="content-btn border border-white  whitespace-nowrap w-fit bg-[#062358] text-white py-2 px-4 rounded-md font-semibold hover:bg-gray-300 focus:outline-none mb-2 @if ($index == 0) active-button @endif"
+                                <button class="content-btn  whitespace-nowrap w-fit bg-[#062358] text-white py-2 px-4  font-semibold focus:outline-none @if ($index == 0) active-button @endif"
                                     data-target="content{{ $key }}-{{ $index }}">
                                     {{ $content->title }}
                                 </button>
                             @endforeach
                         </div>
 
-                        <div class="">
+                        <div class="pl-4">
                             @foreach ($ServicePoint->ServicePointContents as $key2 => $ServicePointContent)
                                 <div id="content{{ $key }}-{{ $key2 }}"
                                         class="custom-tab-content @if ($key != 0) hidden @endif">
