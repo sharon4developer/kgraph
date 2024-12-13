@@ -8,7 +8,7 @@
             z-index: 1;
             position: relative;
         }
-        
+
         .dontwaitwrpr {
             background: linear-gradient(88deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
         }
@@ -106,7 +106,7 @@
             .enquiry-form {
                 padding: 30px;
                 margin-top: 64px;
-            } 
+            }
         }
 
         .modalPopup {
@@ -464,9 +464,9 @@
                             <button id="applyNowBtn" class="relative font-semibold font_inter text-white px-7 py-2 rounded-md border border-white overflow-hidden transition-all duration-500 ease-out hover:text-black group applyNowBtn">
                                 <span class="absolute inset-0 bg-white transform -translate-x-full transition-transform duration-500 ease-out group-hover:translate-x-0"></span>
                                 <span class="relative z-10 font_inter font-bold">Apply now</span>
-                            </button>                            
+                            </button>
                         </div>
-                    
+
                         <div id="jobenquirey" class="modalPopup hidden fixed inset-0 bg-gray-800 bg-opacity-50 items-center justify-center z-50">
                             <div class="rounded-xl p-6 w-full lg:max-w-[50%]">
                                 <div class="relative">
@@ -480,21 +480,22 @@
                                             <img src="assets/home_Banner/reduse.png" class="flag-img" alt="Canada Flag" />
                                         </div>
                                         <div>
-                                            <form action="" class="text-black enquiry-form" id="career-add-form">
+                                            <form action="" class="text-black enquiry-form" id="career-add-form-new">
+                                                <input type="hidden" name="job_id" value="{{$data->id}}">
                                                 <h4 class="font_inter font-semibold text-black text-[32px] py-10">Enquiry</h4>
                                                 <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent !mt-[-11px]">
                                                     <label for="name">NAME<span>*</span></label>
-                                                    <input type="text" name="name">
+                                                    <input type="text" name="name_n">
                                                 </div>
-                
+
                                                 <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
                                                     <label for="email">Email<span>*</span></label>
-                                                    <input type="Email" name="email">
+                                                    <input type="Email" name="email_n">
                                                 </div>
-                
+
                                                 <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent mobile flex-col !items-start !pointer-events-nonemd:items-center md:flex-row gap-4 md:gap-0">
                                                     <div>
-                                                        <select name="country" id="" class="bg-transparent">
+                                                        <select name="country_n" id="" class="bg-transparent">
                                                             <option value="+1">+1 (Canada)</option>
                                                             <option value="+93">+93 (Afghanistan)</option>
                                                             <option value="+355">+355 (Albania)</option>
@@ -711,37 +712,37 @@
                                                         <label class="md:whitespace-nowrap flex" for="mobile">
                                                             Mobile <span class="!text-black hidden md:block pl-1"> NUMBER</span><span>*</span>
                                                         </label>
-                                                        <input type="tel" name="mobile">
+                                                        <input type="tel" name="mobile_n">
                                                     </div>
                                                 </div>
-                
+
                                                 <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent lg:gap-[26px]">
                                                     <label class="md:whitespace-nowrap" for="email">select branch<span>*</span></label>
-                                                    <select name="branch" id="" class="bg-transparent">
+                                                    <select name="branch_n" id="" class="bg-transparent">
                                                         <option value="" selected disabled>---Select---</option>
                                                         @foreach ($branches as $data)
                                                             <option value="{{ $data->id }}">{{ $data->title }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
-                
+
                                                 <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent lg:gap-[26px]">
                                                     <label class="md:whitespace-nowrap" for="email">department<span>*</span></label>
-                                                    <select name="department" id="" class="bg-transparent">
+                                                    <select name="department_n" id="" class="bg-transparent">
                                                         <option value="" selected disabled>---Select---</option>
                                                         @foreach ($departments as $data)
                                                             <option value="{{ $data->id }}">{{ $data->title }}</option>
                                                         @endforeach
                                                     </select>
                                                 </div>
-                
+
                                                 <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
                                                     <label for="message">Message<span>*</span></label>
-                                                    <input type="text" name="message">
+                                                    <input type="text" name="message_n">
                                                 </div>
-                
+
                                                 <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
-                                                    <label for="imageUploader"
+                                                    <label for="imageUploaders"
                                                         class="cursor-pointer flex justify-between items-center w-full">
                                                         <div class="md:whitespace-nowrap">Upload Resume<span>*</span></div>
                                                         <div class="w-full flex justify-end">
@@ -750,28 +751,28 @@
                                                                 alt="Upload Logo" width="15" height="15" />
                                                         </div>
                                                     </label>
-                                                    <input id="imageUploader" type="file" accept=".pdf, image/jpeg, image/png, image/jpg"
-                                                        required name="resume" style="display: none;" onchange="handleFileChange()" />
+                                                    <input id="imageUploaders" type="file" accept=".pdf, image/jpeg, image/png, image/jpg"
+                                                        required name="resume_n" style="display: none;" onchange="handleFileChange()" />
                                                 </div>
-                
+
                                                 <div class="flex justify-start md:justify-end items-center overflow-hidden rounded-full mt-10">
                                                     <div class="border rounded-full border-[#072558] cursor-pointer">
                                                         <button
                                                             class="!px-[80px] py-3 uppercase text-[#072558] cursor-pointer text-[16px] font-bold bg-transparent hover:bg-[#072558] hover:text-white transition-colors duration-300 rounded-full">Submit</button>
                                                     </div>
                                                 </div>
-                
-                
+
+
                                             </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>                 
+                    </div>
                 </div>
             </div>
-        </div>  
+        </div>
         @endforeach
         @else
         <div class="flex items-center justify-center dontwaitwrpr my-10">
@@ -850,5 +851,5 @@
 
     </script>
 
-    
+
     @endsection
