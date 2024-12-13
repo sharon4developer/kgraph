@@ -359,10 +359,10 @@
 
                                 <li class="splide__slide">
                                     <div class="flex lg:gap-6 lg:py-[56px] justify-between">
-                                        <div class="bg-white my-4 lg:my-0 p-5 w-full rounded-xl block">
+                                        <div class="bg-white my-4 lg:my-0 p-5 w-full lg:max-w-[430px] h-[288px] rounded-xl block">
                                             <div class="flex items-center justify-between">
                                                 <h5 class="text-black uppercase">Office Address</h5>
-                                                <img class="w-[48px]" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="{{$data->alt_tag}}">
+                                                <img class="w-[48px] h-[48px] rounded-full" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="{{$data->alt_tag}}">
                                             </div>
                                             <div class="bg-[#072558] text-white rounded-md w-fit px-5 py-1 my-2">
                                                 {{$data->location}}

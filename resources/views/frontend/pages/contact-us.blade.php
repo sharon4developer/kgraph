@@ -429,10 +429,10 @@
                         <ul class="splide__list">
                             @foreach ($locations as $data)
                             <li class="splide__slide">
-                                <div class="bg-white my-4 lg:my-0 p-5 w-full lg:max-w-[430px] md:h-[288px] rounded-xl">
+                                <div class="bg-white my-4 lg:my-0 p-5 w-full lg:max-w-[430px] h-[288px] rounded-xl">
                                     <div class="flex items-center justify-between">
                                         <h5 class="text-black uppercase">Office Address</h5>
-                                        <img class="w-[48px]" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="{{$data->alt_tag}}">
+                                        <img class="w-[48px] h-[48px] rounded-full" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="{{$data->alt_tag}}">
                                     </div>
                                     <div class="bg-[#072558] text-white rounded-md w-fit px-5 py-1 lg:my-3">
                                         {{$data->location}}
@@ -540,12 +540,32 @@
             });
         });
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
+            const splideElement = document.querySelector('#splideclunt');
+            const slideItems = splideElement.querySelectorAll('.splide__slide').length;
+
+            // Function to determine slider type based on screen size and number of items
+            function getSliderType() {
+                const screenWidth = window.innerWidth;
+
+                if (screenWidth <= 767) {
+                    // Mobile: loop if items > 1, otherwise slide
+                    return slideItems > 1 ? 'loop' : 'slide';
+                } else if (screenWidth <= 1023) {
+                    // Tablet: loop if items > 2, otherwise slide
+                    return slideItems > 2 ? 'loop' : 'slide';
+                } else {
+                    // Desktop: loop if items > 3, otherwise slide
+                    return slideItems > 3 ? 'loop' : 'slide';
+                }
+            }
+
+            // Initialize Splide
             new Splide('#splideclunt', {
-                type: 'slide',
+                type: getSliderType(),
                 autoplay: true,
+                interval: 3000,
                 perPage: 3,
-                interval: 1000,
                 perMove: 1,
                 arrows: false,
                 pagination: false,
@@ -561,8 +581,11 @@
                         perPage: 1,
                     },
                 },
+                speed: 1000,
+                easing: 'linear',
             }).mount();
         });
+
     </script>
 
 
