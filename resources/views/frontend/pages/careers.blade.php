@@ -450,7 +450,7 @@
         @endif
         @if(count($careers))
         @foreach ($careers as $data)
-        <div class="container mx-auto px-5 xl:px-12 lg:pb-[3%] h-full w-full text-white">
+        <div class="container mx-auto px-5 xl:px-12 lg:pb-[2px] h-full w-full text-white">
             <div class="bg-[#072f77] cursor-pointer rounded-[8px] my-4 border-b border-b-[#868686]" data-accordion>
                 <div class="flex justify-between items-center px-5 py-4 accordion-header-careers">
                     <h2 class="font_inter font-bold text-[15px] text-white">{{ $data->title }}, {{ $data->location }}
