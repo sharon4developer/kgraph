@@ -722,7 +722,7 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent lg:gap-[26px]">
+                                                {{-- <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent lg:gap-[26px]">
                                                     <label class="md:whitespace-nowrap" for="email">select branch<span>*</span></label>
                                                     <select name="branch_n" id="" class="bg-transparent">
                                                         <option value="" selected disabled>---Select---</option>
@@ -740,7 +740,7 @@
                                                             <option value="{{ $data->id }}">{{ $data->title }}</option>
                                                         @endforeach
                                                     </select>
-                                                </div>
+                                                </div> --}}
 
                                                 <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
                                                     <label for="message">Message<span>*</span></label>
