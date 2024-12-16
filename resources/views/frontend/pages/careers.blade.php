@@ -442,12 +442,12 @@
         </div>
     </div>
 
-    <div class="open-positions bg-[#04183c] py-8 lg:pt-[1%] lg:pb-[1%]">
+    <div class="open-positions bg-[#04183c] py-8 lg:pt-[%] lg:pb-[1%]">
+        @if(count($careers))
+        @foreach ($careers as $data)
         <div class="container mx-auto px-5 xl:px-12 h-full w-full  text-white">
             <h2 class="my-10 font_inter font-semibold text-[25px] md:text-[50px] uppercase w-[50%]">Open positions</h2>
         </div>
-        @if(count($careers))
-        @foreach ($careers as $data)
         <div class="container mx-auto px-5 xl:px-12 lg:pb-[3%] h-full w-full text-white">
             <div class="bg-[#072f77] cursor-pointer rounded-[8px] my-4 border-b border-b-[#868686]" data-accordion>
                 <div class="flex justify-between items-center px-5 py-4 accordion-header-careers">
@@ -781,9 +781,17 @@
         </div>
         @endforeach
         @else
-        <div class="flex items-center justify-center dontwaitwrpr my-10">
-            <div class="container mx-auto px-5 xl:px-12 h-full w-full text-white">
-                <h2 class="lg:w-1/2 font-medium font_inter text-left text-white py-8">At present, we do not have any available positions. However, we are continuously seeking skilled and talented individuals to join our workforce. We encourage you to visit our careers page regularly or follow us on social media for updates on future job openings</h2>
+        <div class="container mx-auto px-5 xl:px-12 h-full w-full  text-white">
+            <h2 class="my-10 font_inter font-semibold text-[25px] md:text-[50px] text-center uppercase">Open positions</h2>
+        </div>
+        <div class="flex items-center justify-center mb-10">
+            <div class="container mx-auto px-5 xl:px-12 h-full w-full text-white flex items-center justify-center">
+                <div class="flex items-center justify-center">
+                    <h2 class="lg:w-1/2 font-medium font_inter text-white text-center text-sm px-5 rounded-lg capitalize"><span class="bg-black text-white px-2 block text-2xl mb-3">At present, we do not have any available positions !!</span>However, we are continuously seeking skilled and talented individuals to join our workforce. We encourage you to visit our careers page regularly or follow us on social media for updates on future job openings</h2>
+                </div>
+                <div>
+
+                </div>
             </div>
         </div>
         @endif
