@@ -743,7 +743,7 @@
                                                 </div> --}}
 
                                                 <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
-                                                    <label for="message">Message<span>*</span></label>
+                                                    <label for="message">Cover letter<span>*</span></label>
                                                     <input type="text" name="message_n">
                                                 </div>
 
