@@ -488,7 +488,7 @@
                                         <div>
                                             <form action="" class="text-black enquiry-form" id="career-add-form-new">
                                                 <input type="hidden" name="job_id" value="{{$data->id}}">
-                                                <h4 class="font_inter font-semibold text-black text-[32px] py-10">Enquiry</h4>
+                                                <h4 class="font_inter font-semibold text-black text-[32px] py-10">Career apply form</h4>
                                                 <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent !mt-[-11px]">
                                                     <label for="name">NAME<span>*</span></label>
                                                     <input type="text" name="name_n">
@@ -743,7 +743,7 @@
                                                 </div> --}}
 
                                                 <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
-                                                    <label for="message">Cover letter<span>*</span></label>
+                                                    <label for="message" class="lg:whitespace-nowrap">Cover letter<span>*</span></label>
                                                     <input type="text" name="message_n">
                                                 </div>
 

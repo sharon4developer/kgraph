@@ -398,7 +398,7 @@
 
                                     @foreach ($ServicePointContent->Title as  $title)
                                         <h2 class="text-xl font-bold mb-4 text-white">
-                                            {{ $title->name }}:</h2>
+                                            {{ $title->name }}</h2>
                                         @if (count($title->paragraphs))
                                             @foreach ($title->paragraphs as $paragraph)
                                                 <p class="text-white">{{ $paragraph->content }}</p>
