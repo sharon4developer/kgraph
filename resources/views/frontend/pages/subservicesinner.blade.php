@@ -227,22 +227,22 @@
             list-style: none;
             padding: 0;
             margin: 0;
-            padding-left: 30px; 
+            padding-left: 30px;
         }
 
         .custom-list ul > li {
             margin-top: 15px !important;
-            margin-bottom: 15px !important; 
+            margin-bottom: 15px !important;
             padding-left: 30px;
         }
 
         .custom-list > li:has(ul)::before {
             top: 11%;
         }
-        
+
         /* @media (max-width: 767px){
             .custom-list > li:has(ul)::before {
-                top: 5%; 
+                top: 5%;
             }
 
             .custom-list > li::before {
@@ -262,8 +262,8 @@
             background-color: white;
             color: #062358;
             font-weight: 700;
-            border-top-right-radius: 7px; 
-            border-top-left-radius: 7px; 
+            border-top-right-radius: 7px;
+            border-top-left-radius: 7px;
             border: none;
         }
 
@@ -358,10 +358,12 @@
 
                     <ul class="list-disc pl-5 text-[#062358] leading-normal list-none">
                         @foreach ($services->ServicePoint as $key => $ServicePoint)
+                        @if($ServicePoint->status ==1)
                             <li class="my-1 py-2 px-4 w-full lg:w-1/2 transition-all duration-200 cursor-pointer rounded-md border border-[#d6d6d6] text-gray-800 @if ($key == 0) active-item @endif"
                                 data-target="service-point{{ $key }}">
                                 {{ $ServicePoint->title }}
                             </li>
+                        @endif
                         @endforeach
                     </ul>
                 </div>
@@ -372,20 +374,23 @@
     <div class="services bg-[#062358]">
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%]">
             @foreach ($services->ServicePoint as $key => $ServicePoint)
-
+            @if($ServicePoint->status ==1)
                 <div id="service-point{{ $key }}" class="buttons-wrapper @if ($key != 0) hidden @endif">
                     <div class="">
                         <div class="mb-8 flex flex-wrap items-center gap-3 border-b border-b-white mb-2">
                             @foreach ($ServicePoint->ServicePointContents as $index => $content)
+                            @if( $content->status ==1 )
                                 <button class="content-btn  whitespace-nowrap w-fit bg-[#062358] text-white py-2 px-4  font-semibold focus:outline-none @if ($index == 0) active-button @endif"
                                     data-target="content{{ $key }}-{{ $index }}">
                                     {{ $content->title }}
                                 </button>
+                            @endif
                             @endforeach
                         </div>
 
                         <div class="pl-4">
                             @foreach ($ServicePoint->ServicePointContents as $key2 => $ServicePointContent)
+                            @if($ServicePointContent->status ==1)
                                 <div id="content{{ $key }}-{{ $key2 }}"
                                         class="custom-tab-content @if ($key != 0) hidden @endif">
                                     {{-- <h2 class="text-xl font-bold mb-4 text-white">{{ $ServicePointContent->title }}</h2> --}}
@@ -416,10 +421,12 @@
                                         @endif
                                     @endforeach
                                 </div>
+                            @endif
                             @endforeach
                         </div>
                     </div>
                 </div>
+            @endif
             @endforeach
         </div>
     </div>
