@@ -761,11 +761,12 @@
 
                         <div class="w-full flex justify-center items-center rounded-lg overflow-hidden mt-6 relative group video-grade">
                             <!-- <img src="@if (isset($home)) {{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $home->journey_image1 }} @endif" alt="@if (isset($home)) {{ $home->journey_image1_alt_tag }} @endif" style="object-position: 0px 0px;" class="w-full h-[400px] object-cover video-imagepos"> -->
-                            <video  class="w-full h-[400px] object-cover object-center video-imagepos"  style="object-position: 0px 0px;" loop playsinline>
+                            <video class="w-full h-[400px] object-cover object-center video-imagepos"  style="object-position: 0px 0px;"  loop playsinline poster="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$home->journey_image }}">
                                 @if (isset($home))
-                                    <source src="{{ $locationData['storage_server_path'].$locationData['storage_video_path'].$home->journey_video }}">
+                                    <source src="{{ $locationData['storage_server_path'].$locationData['storage_video_path'].$home->journey_video }}" type="video/mp4">
                                 @endif
                             </video>
+                        
 
                             <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#113165] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             <div class="absolute bottom-4 left-4 flex items-center space-x-2 text-white">
