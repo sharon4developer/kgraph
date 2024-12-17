@@ -372,7 +372,7 @@
     </div>
 
     <div class="services bg-[#062358]">
-        <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%]">
+        <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:pt-[3%]">
             @foreach ($services->ServicePoint as $key => $ServicePoint)
             @if($ServicePoint->status ==1)
                 <div id="service-point{{ $key }}" class="buttons-wrapper @if ($key != 0) hidden @endif">
