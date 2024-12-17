@@ -769,7 +769,7 @@
                                 </div>
                             </label>
                             <input id="imageUploadersec" type="file" accept=".pdf, image/jpeg, image/png, image/jpg"
-                                required name="resume_n" style="display: none;" onchange="handleFileChange({{ $index }})" />
+                                required name="resume_n" style="display: none;" onchange="handleFileChange()" />
                         </div>
 
                         <div class="flex justify-start md:justify-end items-center overflow-hidden rounded-full mt-10">
