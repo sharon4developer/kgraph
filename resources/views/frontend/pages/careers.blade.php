@@ -411,7 +411,7 @@
                                     <label for="coverUploaderone" class="cursor-pointer flex justify-between items-center w-full gap-3 pb-1">
                                         <div class="md:whitespace-nowrap">Cover letter</div>
                                         <div class="w-full flex justify-end">
-                                            <input id="coverUploaderone" class="!p-0" type="file" accept=".pdf, image/jpeg, image/png, image/jpg" required name="message"/>
+                                            <input id="coverUploaderone" class="!p-0" type="file" accept=".pdf, image/jpeg, image/png, image/jpg" name="message"/>
                                             <img id="coveruploadIconone" src="{{ asset('assets/home_Banner/fileuploadbutton.png') }}" alt="Upload Logo" width="19" height="15" />
                                         </div>
                                     </label>
