@@ -212,7 +212,7 @@ $('#career-add-form').validate({
         mobile: { required: true, digits: true },
         branch: { required: true },
         department: { required: true },
-        message: { required: false },
+        // message: { required: false },
         resume: { required: true }
     },
     messages: {
@@ -228,7 +228,7 @@ $('#career-add-form').validate({
         },
         branch: "Please select a branch",
         department: "Please select a department",
-        message: "Please upload your cover letter",
+        // message: "Please upload your cover letter",
         resume: "Please upload your resume"
     },
     errorElement: 'span',
@@ -319,9 +319,9 @@ $('#career-add-form-new').validate({
         department_n: {
             required: true,
         },
-        message_n: {
-            required: false,
-        },
+        // message_n: {
+        //     required: false,
+        // },
         resume_n: {
             required: true,
         },
@@ -340,7 +340,7 @@ $('#career-add-form-new').validate({
         },
         branch_n: "Please select a branch",
         department_n: "Please select a department",
-        message_n: "Please enter your message",
+        // message_n: "Please enter your message",
         resume_n: "Please upload your resume",
     },
     errorElement: 'span',
