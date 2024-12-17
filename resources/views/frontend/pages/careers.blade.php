@@ -409,7 +409,7 @@
 
                                 <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
                                     <label for="coverUploaderone" class="cursor-pointer flex justify-between items-center w-full">
-                                        <div class="md:whitespace-nowrap">Cover letter<span>*</span></div>
+                                        <div class="md:whitespace-nowrap">Cover letter</div>
                                         <div class="w-full flex justify-end">
                                             <img id="coveruploadIconone" src="{{ asset('assets/home_Banner/fileuploadbutton.png') }}" alt="Upload Logo" width="15" height="15" />
                                         </div>
@@ -749,7 +749,7 @@
                         <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
                             <label for="coverUploadersec"
                                 class="cursor-pointer flex justify-between items-center w-full">
-                                <div class="md:whitespace-nowrap">Cover letter<span>*</span></div>
+                                <div class="md:whitespace-nowrap">Cover letter</div>
                                 <div class="w-full flex justify-end">
                                     <img id="coveruploadIconsec"
                                         src="{{ asset('assets/home_Banner/fileuploadbutton.png') }}"

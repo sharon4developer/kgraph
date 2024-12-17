@@ -383,7 +383,7 @@
                             </div> --}}
 
                                 <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
-                                    <label for="message">Message<span>*</span></label>
+                                    <label for="message">Message</label>
                                     <input type="text" name="message">
                                 </div>
 
