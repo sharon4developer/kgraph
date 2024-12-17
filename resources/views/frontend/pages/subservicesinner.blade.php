@@ -347,7 +347,7 @@
     {{-- services section section --}}
     <div class="services Realize section section">
         <div class="service-details">
-            <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%]">
+            <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:pt-[3%] lg:pb-1">
                 <!-- Services Section -->
                 <div class="lg:w-full font_inter flex flex-col justify-center">
                     <h2 class="font-semibold text-xl lg:text-4xl text-[#062358] lg:pl-[27px]">
@@ -356,7 +356,7 @@
 
                     <div class="blufader-grade text-white my-6 px-5 rounded-md py-3">Key Highlight</div>
 
-                    <ul class="list-disc pl-5 text-[#062358] leading-normal list-none">
+                    <ul class="list-disc lg:pl-5 text-[#062358] leading-normal list-none">
                         @foreach ($services->ServicePoint as $key => $ServicePoint)
                         @if($ServicePoint->status ==1)
                             <li class="my-1 py-2 px-4 w-full lg:w-1/2 transition-all duration-200 cursor-pointer rounded-md border border-[#d6d6d6] text-gray-800 @if ($key == 0) active-item @endif"
@@ -372,7 +372,7 @@
     </div>
 
     <div class="services bg-[#062358]">
-        <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:pt-[3%]">
+        <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%]">
             @foreach ($services->ServicePoint as $key => $ServicePoint)
             @if($ServicePoint->status ==1)
                 <div id="service-point{{ $key }}" class="buttons-wrapper @if ($key != 0) hidden @endif">
@@ -380,7 +380,7 @@
                         <div class="mb-8 flex flex-wrap items-center gap-3 border-b border-b-white mb-2">
                             @foreach ($ServicePoint->ServicePointContents as $index => $content)
                             @if( $content->status ==1 )
-                                <button class="content-btn  whitespace-nowrap w-fit bg-[#062358] text-white py-2 px-4  font-semibold focus:outline-none @if ($index == 0) active-button @endif"
+                                <button class="content-btn  md:whitespace-nowrap w-fit bg-[#062358] text-white py-2 px-4  font-semibold focus:outline-none @if ($index == 0) active-button @endif"
                                     data-target="content{{ $key }}-{{ $index }}">
                                     {{ $content->title }}
                                 </button>
