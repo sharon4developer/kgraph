@@ -758,6 +758,7 @@
                 perPage: 1,
                 autoplay: true,
                 interval: 3000,
+                pagination: false,
                 gap: '1rem',
                 arrows: slides.length > 1,  // Show arrows only if there are more than one slide
             }).mount();

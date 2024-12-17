@@ -1548,8 +1548,11 @@ function animateCountUp(element, start, end, duration) {
                 perMove: 1,
                 rewind: true,
                 breakpoints: {
-                    1024: {
+                    1280: {
                         perPage: 3,
+                    },
+                    1023: {
+                        perPage: 2,
                     },
                     767: {
                         perPage: 1,
