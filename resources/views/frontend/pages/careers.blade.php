@@ -756,7 +756,7 @@
                                         alt="Upload Logo" width="15" height="15" />
                                 </div>
                             </label>
-                            <input id="coverUploadersec" type="file" accept=".pdf, image/jpeg, image/png, image/jpg" name="message_n" style="display: none;" onchange="handleFileChange({{ $index }})" />
+                            <input id="coverUploadersec" type="file" accept=".pdf, image/jpeg, image/png, image/jpg" name="message_n" style="display: none;" onchange="handleFileChange(1)" />
 
                         </div>
 
