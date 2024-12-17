@@ -408,8 +408,20 @@
                                 </div>
 
                                 <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
-                                    <label for="message">Message<span>*</span></label>
-                                    <input type="text" name="message">
+                                    <label for="coverUploadersec"
+                                    class="cursor-pointer flex justify-between items-center w-full">
+                                        <div class="md:whitespace-nowrap">Cover letter<span>*</span></div>
+                                        <div class="w-full flex justify-end">
+                                            <img id="uploadIconsec"
+                                                src="{{ asset('assets/home_Banner/fileuploadbutton.png') }}"
+                                                alt="Upload Logo" width="15" height="15" />
+                                        </div>
+                                    </label>
+                                    <input id="coverUploadersec" type="file" accept=".pdf, image/jpeg, image/png, image/jpg"
+                                        required name="message" style="display: none;"/>
+
+                                    {{-- <label for="message">Message<span>*</span></label>
+                                    <input type="text" name="message"> --}}
                                 </div>
 
                                 <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
@@ -423,7 +435,7 @@
                                         </div>
                                     </label>
                                     <input id="imageUploader" type="file" accept=".pdf, image/jpeg, image/png, image/jpg"
-                                        required name="resume" style="display: none;" onchange="handleFileChange()" />
+                                         name="resume" style="display: none;" onchange="handleFileChange()" />
                                 </div>
 
                                 <div class="flex justify-start md:justify-end items-center overflow-hidden rounded-full mt-10">
@@ -467,21 +479,21 @@
                     <div class="accordion-content-careers">
                         <div class="px-5 py-4 flex justify-end items-center">
                             <!-- Unique Button ID -->
-                            <button id="applyNowBtn-{{ $index }}" 
+                            <button id="applyNowBtn-{{ $index }}"
                                     class="relative font-semibold font_inter text-white px-7 py-2 rounded-md border border-white overflow-hidden transition-all duration-500 ease-out hover:text-black group applyNowBtn">
                                 <span class="absolute inset-0 bg-white transform -translate-x-full transition-transform duration-500 ease-out group-hover:translate-x-0"></span>
                                 <span class="relative z-10 font_inter font-bold">Apply now</span>
                             </button>
                         </div>
-    
+
                         <!-- Unique Modal ID -->
-                        <div id="jobenquirey-{{ $index }}" 
+                        <div id="jobenquirey-{{ $index }}"
                              class="modalPopup hidden lg:fixed inset-0 bg-gray-800 bg-opacity-50 items-center justify-center z-50">
                             <div class="rounded-xl pb-11 px-2 lg:p-6 w-full lg:max-w-[50%]">
                                 <div class="relative">
                                     <div class="bg-white rounded-xl h-fit w-full canada-flag relative lg:h-[590px] 2xl:h-auto">
                                         <div class="absolute top-0 left-[30px]">
-                                            <button id="closejobModal-{{ $index }}" 
+                                            <button id="closejobModal-{{ $index }}"
                                                     class="mt-2 mr-2 text-black closeModal z-50">
                                                 <img width="25px" class="my-4" src="{{ asset('assets/home_Banner/cross.png') }}" alt="">
                                             </button>
@@ -493,12 +505,12 @@
                                                 <label for="name">NAME<span>*</span></label>
                                                 <input type="text" name="name_n">
                                             </div>
-                                        
+
                                             <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
                                                 <label for="email">Email<span>*</span></label>
                                                 <input type="Email" name="email_n">
                                             </div>
-                                        
+
                                             <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent mobile flex-col !items-start !pointer-events-nonemd:items-center md:flex-row gap-4 md:gap-0">
                                                 <div>
                                                     <select name="country_n" id="" class="bg-transparent">
@@ -721,7 +733,7 @@
                                                     <input type="tel" name="mobile_n">
                                                 </div>
                                             </div>
-                                        
+
                                             {{-- <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent lg:gap-[26px]">
                                                 <label class="md:whitespace-nowrap" for="email">select branch<span>*</span></label>
                                                 <select name="branch_n" id="" class="bg-transparent">
@@ -731,7 +743,7 @@
                                                     @endforeach
                                                 </select>
                                             </div>
-                                        
+
                                             <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent gap-[26px]">
                                                 <label class="md:whitespace-nowrap" for="email">department<span>*</span></label>
                                                 <select name="department_n" id="" class="bg-transparent">
@@ -741,12 +753,25 @@
                                                     @endforeach
                                                 </select>
                                             </div> --}}
-                                        
+
                                             <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
-                                                <label for="message" class="lg:whitespace-nowrap">Cover letter<span>*</span></label>
-                                                <input type="text" name="message_n">
+                                                <label for="coverUploadersec-{{ $index }}"
+                                                    class="cursor-pointer flex justify-between items-center w-full">
+                                                    <div class="md:whitespace-nowrap">Cover letter<span>*</span></div>
+                                                    <div class="w-full flex justify-end">
+                                                        <img id="uploadIconsec-{{ $index }}"
+                                                            src="{{ asset('assets/home_Banner/fileuploadbutton.png') }}"
+                                                            alt="Upload Logo" width="15" height="15" />
+                                                    </div>
+                                                </label>
+                                                <input id="coverUploadersec-{{ $index }}" type="file" accept=".pdf, image/jpeg, image/png, image/jpg"
+                                                     name="message_n" style="display: none;" onchange="handleFileChange({{ $index }})" />
+
+
+                                                {{-- <label for="message" class="lg:whitespace-nowrap">Cover letter<span>*</span></label>
+                                                <input type="file" class="form-control" name="message_n"> --}}
                                             </div>
-                                        
+
                                             <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
                                                 <label for="imageUploadersec-{{ $index }}"
                                                     class="cursor-pointer flex justify-between items-center w-full">
@@ -760,15 +785,15 @@
                                                 <input id="imageUploadersec-{{ $index }}" type="file" accept=".pdf, image/jpeg, image/png, image/jpg"
                                                     required name="resume_n" style="display: none;" onchange="handleFileChange({{ $index }})" />
                                             </div>
-                                        
+
                                             <div class="flex justify-start md:justify-end items-center overflow-hidden rounded-full mt-10">
                                                 <div class="border rounded-full border-[#072558] cursor-pointer">
                                                     <button
                                                         class="!px-[80px] py-3 uppercase text-[#072558] cursor-pointer text-[16px] font-bold bg-transparent hover:bg-[#072558] hover:text-white transition-colors duration-300 rounded-full">Submit</button>
                                                 </div>
                                             </div>
-                                        
-                                        
+
+
                                         </form>
                                     </div>
                                 </div>
@@ -779,8 +804,8 @@
             </div>
         </div>
     @endforeach
-    
-    
+
+
         @else
         <div class="container mx-auto px-5 xl:px-12 h-full w-full  text-white flex justify-center">
             <h2 class="mb-8 font_inter font-semibold text-center text-[25px] md:text-[50px] uppercase w-[50%]">Open positions</h2>
@@ -805,7 +830,7 @@
             let iconsec = document.getElementById(`uploadIconsec-${index}`);
 
             console.log(iconsec);
-            
+
 
             if (input.files && input.files.length > 0) {
                 icon.style.filter = 'hue-rotate(270deg) brightness(2.5)';
@@ -819,7 +844,7 @@
             }
         }
 
-        
+
 
         document.querySelectorAll('[data-accordion]').forEach(accordion => {
             accordion.querySelector('.accordion-header-careers').addEventListener('click', () => {
@@ -863,7 +888,7 @@
                 const index = button.id.split('-')[1];
                 const modal = document.getElementById(`jobenquirey-${index}`);
                 const closeModal = document.getElementById(`closejobModal-${index}`);
-                
+
                 // Open modal
                 button.addEventListener("click", function () {
                     modal.style.display = "flex";

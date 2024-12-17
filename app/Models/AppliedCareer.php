@@ -48,7 +48,10 @@ class AppliedCareer extends Model
                 return $row->department ? $row->Department->title : '';
             })
             ->editColumn('resume', function ($row) use($locationData) {
-                return $locationData['storage_server_path'].$locationData['storage_image_path'].$row->resume;
+                return isset($row->resume) ? $locationData['storage_server_path'].$locationData['storage_image_path'].$row->resume : NULL;
+            })
+            ->editColumn('message', function ($row) use($locationData) {
+                return isset($row->message) ?  $locationData['storage_server_path'].$locationData['storage_image_path'].$row->message : NULL;
             })
             ->make(true);
     }
@@ -62,10 +65,14 @@ class AppliedCareer extends Model
         $value->mobile = $data->mobile;
         $value->branch = $data->branch;
         $value->department = $data->department;
-        $value->message = $data->message;
+        // $value->message = $data->message;
 
         if ($data->resume) {
             $value->resume = Cms::storeImage($data->resume, $data->name);
+        };
+
+        if ($data->message) {
+            $value->message = Cms::storeImage($data->message, $data->name);
         };
 
         return $value->save();
@@ -81,10 +88,14 @@ class AppliedCareer extends Model
         $value->mobile = $data->mobile_n;
         $value->branch = $data->branch_n;
         $value->department = $data->department_n;
-        $value->message = $data->message_n;
+        // $value->message = $data->message_n;
 
         if ($data->resume_n) {
             $value->resume = Cms::storeImage($data->resume_n, $data->name_n);
+        };
+
+        if ($data->message_n) {
+            $value->message = Cms::storeImage($data->message_n, $data->name_n);
         };
 
         return $value->save();
