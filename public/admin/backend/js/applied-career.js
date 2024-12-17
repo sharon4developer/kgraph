@@ -16,15 +16,33 @@ function loadDataTableForCareer() {
             { data: 'mobile' },
             { data: 'branch' },
             { data: 'department' },
-            { data: 'message' },
             {
                 data: null,
                 render: function (row) {
-                    return (`<div style="white-space:no-wrap">
+                    if(row.message)
+                        return (`<div style="white-space:no-wrap">
+                                    <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Cover Letter" data-bs-placement="top"  href="` + row.message + `" download="` + row.message + `">
+                                        <i class="fa fa-download"></i>
+                                    </a>
+                                </div>`);
+                    else
+                        return '';
+                },
+                orderable:
+                    false,
+                searchable: false
+            },
+            {
+                data: null,
+                render: function (row) {
+                    if(row.resume)
+                        return (`<div style="white-space:no-wrap">
                                 <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Resume" data-bs-placement="top"  href="` + row.resume + `" download="` + row.resume + `">
                                     <i class="fa fa-download"></i>
                                 </a>
                             </div>`);
+                    else
+                        return '';
                 },
                 orderable:
                     false,

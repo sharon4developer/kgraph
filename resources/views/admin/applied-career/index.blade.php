@@ -22,7 +22,7 @@
                                 <th>Mobile</th>
                                 <th>Branch</th>
                                 <th>Department</th>
-                                <th>Message</th>
+                                <th>Cover Letter</th>
                                 <th>Resume</th>
                                 <th>Date</th>
                             </tr>
