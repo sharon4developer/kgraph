@@ -380,7 +380,7 @@
                         <div class="mb-8 flex flex-wrap items-center gap-3 border-b border-b-white mb-2">
                             @foreach ($ServicePoint->ServicePointContents as $index => $content)
                             @if( $content->status ==1 )
-                                <button class="content-btn  md:whitespace-nowrap w-fit bg-[#062358] text-white py-2 px-4  font-semibold focus:outline-none @if ($index == 0) active-button @endif"
+                                <button class="content-btn text-left md:whitespace-nowrap w-fit bg-[#062358] text-white py-2 px-4  font-semibold focus:outline-none @if ($index == 0) active-button @endif"
                                     data-target="content{{ $key }}-{{ $index }}">
                                     {{ $content->title }}
                                 </button>
