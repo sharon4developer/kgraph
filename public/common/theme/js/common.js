@@ -206,33 +206,14 @@ $('#contact-add-form').validate({
 
 $('#career-add-form').validate({
     rules: {
-        name: {
-            required: true,
-        },
-        email: {
-            required: true,
-            email: true
-        },
-        country: {
-            required: true,
-        },
-        mobile: {
-            required: true,
-            digits: true,
-            // minlength: 10
-        },
-        branch: {
-            required: true,
-        },
-        department: {
-            required: true,
-        },
-        message: {
-            required: true,
-        },
-        resume: {
-            required: true,
-        },
+        name: { required: true },
+        email: { required: true, email: true },
+        country: { required: true },
+        mobile: { required: true, digits: true },
+        branch: { required: true },
+        department: { required: true },
+        message: { required: false },
+        resume: { required: true }
     },
     messages: {
         name: "Please enter your name",
@@ -243,30 +224,25 @@ $('#career-add-form').validate({
         country: "Please select a country",
         mobile: {
             required: "Please enter your mobile number",
-            digits: "Please enter only digits",
-            minlength: "Please enter at least 10 digits"
+            digits: "Please enter only digits"
         },
         branch: "Please select a branch",
         department: "Please select a department",
-        message: "Please enter your message",
-        resume: "Please upload your resume",
+        message: "Please upload your cover letter",
+        resume: "Please upload your resume"
     },
     errorElement: 'span',
     errorClass: 'error invalid-feedback',
     errorPlacement: function(error, element) {
-        // Place error message outside the .enquiry-form-inputparent div
         element.closest('.enquiry-form-inputparent').after(error);
     },
     submitHandler: function(form, event) {
         event.preventDefault();
 
         var formData = new FormData($(form)[0]);
-        $('.error').html('');
         var submitButton = $(form).find('[type=submit]');
         var current_btn_text = submitButton.html();
-        var button_loading_text = 'Submitting...';
 
-        // AJAX form submission
         $.ajax({
             type: "POST",
             url: $('#base-route').val() + '/submit-career-form',
@@ -278,16 +254,14 @@ $('#career-add-form').validate({
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             },
             beforeSend: function() {
-                submitButton.html(`
-                    <span class="spinner-border spinner-border-sm"></span> ` + button_loading_text
-                ).attr('disabled', true);
+                submitButton.html(`<span class="spinner-border spinner-border-sm"></span> Submitting...`).attr('disabled', true);
             },
             success: function(response) {
                 if (response.status) {
-                    showMessage('success', response.message);
+                    alert('Form submitted successfully!');
                     $('#career-add-form').trigger('reset');
                 } else {
-                    showMessage('warning', response.message);
+                    alert(response.message || 'Something went wrong');
                 }
             },
             error: function(response) {
@@ -296,33 +270,31 @@ $('#career-add-form').validate({
                     $.each(response.responseJSON.errors, function(i, v) {
                         const element = $(form).find('[name=' + i + ']');
                         element.addClass('is-invalid');
-                        if ($(form).find('#' + i + '-error').length) {
-                            $(form).find('#' + i + '-error').html(v).show();
-                        } else {
-                            // Place the error outside the input wrapper
-                            element.closest('.enquiry-form-inputparent')
-                                .after(`<span id="` + i + `-error" class="error invalid-feedback">` + v + `</span>`);
-                        }
-                        element.attr('aria-invalid', true);
-                        element.attr("aria-describedby", i + "-error");
-                        element.focus();
+                        element.closest('.enquiry-form-inputparent').after(`<span class="error invalid-feedback">${v}</span>`);
                     });
                 } else {
-                    showMessage('warning', 'Something went wrong...');
+                    alert('Something went wrong...');
                 }
             },
             complete: function() {
                 submitButton.html(current_btn_text).attr('disabled', false);
             }
         });
-    },
-    highlight: function(element) {
-        $(element).addClass('is-invalid');
-    },
-    unhighlight: function(element) {
-        $(element).removeClass('is-invalid');
     }
 });
+
+// Resume Validation: Dynamic Feedback
+function handleFileChange() {
+    const fileInput = document.getElementById('imageUploader');
+    const errorSpan = document.getElementById('resume-error');
+    if (fileInput.files.length > 0) {
+        errorSpan.style.display = 'none';
+    } else {
+        errorSpan.style.display = 'block';
+        errorSpan.textContent = 'Please upload your resume.';
+    }
+}
+
 
 $('#career-add-form-new').validate({
     rules: {
@@ -348,7 +320,7 @@ $('#career-add-form-new').validate({
             required: true,
         },
         message_n: {
-            required: true,
+            required: false,
         },
         resume_n: {
             required: true,

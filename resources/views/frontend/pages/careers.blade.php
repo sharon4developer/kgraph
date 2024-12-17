@@ -408,26 +408,28 @@
                                 </div>
 
                                 <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
-                                    <label for="coverUploaderone" class="cursor-pointer flex justify-between items-center w-full">
+                                    <label for="coverUploaderone" class="cursor-pointer flex justify-between items-center w-full gap-3 pb-1">
                                         <div class="md:whitespace-nowrap">Cover letter</div>
                                         <div class="w-full flex justify-end">
-                                            <img id="coveruploadIconone" src="{{ asset('assets/home_Banner/fileuploadbutton.png') }}" alt="Upload Logo" width="15" height="15" />
+                                            <input id="coverUploaderone" class="!p-0" type="file" accept=".pdf, image/jpeg, image/png, image/jpg" required name="message"/>
+                                            <img id="coveruploadIconone" src="{{ asset('assets/home_Banner/fileuploadbutton.png') }}" alt="Upload Logo" width="19" height="15" />
                                         </div>
                                     </label>
-                                    <input id="coverUploaderone" type="file" accept=".pdf, image/jpeg, image/png, image/jpg" required name="message" style="display: none;"/>
 
                                     {{-- <label for="message">Message<span>*</span></label>
                                     <input type="text" name="message"> --}}
                                 </div>
 
-                                <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
-                                    <label for="imageUploader" class="cursor-pointer flex justify-between items-center w-full">
+                                <!-- Resume Upload Section -->
+                                <div class="enquiry-form-inputparent flex-col">
+                                    <label for="resume" class="cursor-pointer flex justify-between items-center w-full !border-1 !border-b !border-b-[#D9D9D9] gap-3 pb-1" style="border:1px solid #D9D9D9 !important; border-top: transparent !important; border-left:transparent !important; border-right: transparent !important; ">
                                         <div class="md:whitespace-nowrap">Upload Resume<span>*</span></div>
                                         <div class="w-full flex justify-end">
-                                            <img id="uploadIcon" src="{{ asset('assets/home_Banner/fileuploadbutton.png') }}" alt="Upload Logo" width="15" height="15" />
+                                            <input id="imageUploader"  type="file" accept=".pdf, image/jpeg, image/png, image/jpg" class="relative z-50 !p-0"  name="resume" onchange="handleFileChange()" />
+                                            <img id="uploadIcon" src="{{ asset('assets/home_Banner/fileuploadbutton.png') }}" alt="Upload Logo" width="19" height="15" />
                                         </div>
                                     </label>
-                                    <input id="imageUploader" type="file" accept=".pdf, image/jpeg, image/png, image/jpg" name="resume" style="display: none;" onchange="handleFileChange()" />
+                                    {{-- <span id="resume-error" class="error invalid-feedback"></span> --}}
                                 </div>
 
                                 <div class="flex justify-start md:justify-end items-center overflow-hidden rounded-full mt-10">
@@ -751,12 +753,10 @@
                                 class="cursor-pointer flex justify-between items-center w-full">
                                 <div class="md:whitespace-nowrap">Cover letter</div>
                                 <div class="w-full flex justify-end">
-                                    <img id="coveruploadIconsec"
-                                        src="{{ asset('assets/home_Banner/fileuploadbutton.png') }}"
-                                        alt="Upload Logo" width="15" height="15" />
+                                    <input id="coverUploadersec" class="pb-2" type="file" accept=".pdf, image/jpeg, image/png, image/jpg" name="message_n" onchange="handleFileChange(1)" />
+                                    <img id="coveruploadIconsec" src="{{ asset('assets/home_Banner/fileuploadbutton.png') }}" alt="Upload Logo" class="w-[19px] h-[22px]" width="19" height="15" />
                                 </div>
                             </label>
-                            <input id="coverUploadersec" type="file" accept=".pdf, image/jpeg, image/png, image/jpg" name="message_n" style="display: none;" onchange="handleFileChange(1)" />
 
                         </div>
 
@@ -765,11 +765,10 @@
                                 class="cursor-pointer flex justify-between items-center w-full">
                                 <div class="md:whitespace-nowrap">Upload Resume<span>*</span></div>
                                 <div class="w-full flex justify-end">
-                                    <img id="uploadIconsec" src="{{ asset('assets/home_Banner/fileuploadbutton.png') }}" alt="Upload Logo" width="15" height="15" />
+                                    <input id="imageUploadersec" class="pb-2" type="file" accept=".pdf, image/jpeg, image/png, image/jpg" required name="resume_n" onchange="handleFileChange()" />
+                                    <img id="uploadIconsec" src="{{ asset('assets/home_Banner/fileuploadbutton.png') }}" alt="Upload Logo" class="w-[19px] h-[22px]" width="19" height="15" />
                                 </div>
                             </label>
-                            <input id="imageUploadersec" type="file" accept=".pdf, image/jpeg, image/png, image/jpg"
-                                required name="resume_n" style="display: none;" onchange="handleFileChange()" />
                         </div>
 
                         <div class="flex justify-start md:justify-end items-center overflow-hidden rounded-full mt-10">
