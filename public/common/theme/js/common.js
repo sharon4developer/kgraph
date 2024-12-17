@@ -140,10 +140,9 @@ $('#contact-add-form').validate({
         var current_btn_text = submitButton.html();
         var button_loading_text = 'Submitting...';
 
-        // AJAX form submission
         $.ajax({
             type: "POST",
-            url: $('#base-route').val() + '/submit-contact-form',
+            url: $('#base-route').val() + '/submit-career-form',
             data: formData,
             contentType: false,
             processData: false,
@@ -158,36 +157,29 @@ $('#contact-add-form').validate({
             },
             success: function(response) {
                 if (response.status) {
-                    showMessage('success', response.message);
-                    $('#contact-add-form').trigger('reset');
-
-                    const modal = document.getElementById('modalpopup');
-                    if (modal) {
-                        modal.classList.add('!hidden');
-                    }
+                    showMessage('success', response.message); // Custom success message
+                    $('#career-add-form').trigger('reset');
                 } else {
-                    showMessage('warning', response.message);
+                    showMessage('warning', response.message); // Custom warning message
                 }
             },
             error: function(response) {
                 submitButton.html(current_btn_text).attr('disabled', false);
-                if (response.responseJSON.errors) {
+                if (response.responseJSON && response.responseJSON.errors) {
                     $.each(response.responseJSON.errors, function(i, v) {
-                        const element = $(form).find('[name=' + i + ']');
+                        const element = $(form).find('[name="' + i + '"]');
                         element.addClass('is-invalid');
-                        if ($(form).find('#' + i + '-error').length) {
-                            $(form).find('#' + i + '-error').html(v).show();
-                        } else {
-                            // Place the error outside the input wrapper
-                            element.closest('.enquiry-form-inputparent')
-                                .after(`<span id="` + i + `-error" class="error invalid-feedback">` + v + `</span>`);
+
+                        // Place the error outside the input wrapper
+                        const errorHtml = `<span id="${i}-error" class="error invalid-feedback">${v}</span>`;
+                        if (!$(form).find(`#${i}-error`).length) {
+                            element.closest('.enquiry-form-inputparent').after(errorHtml);
                         }
                         element.attr('aria-invalid', true);
                         element.attr("aria-describedby", i + "-error");
-                        element.focus();
                     });
                 } else {
-                    showMessage('warning', 'Something went wrong...');
+                    showMessage('error', 'Something went wrong...'); // Custom error message
                 }
             },
             complete: function() {
