@@ -129,12 +129,14 @@
     <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[8%]">
         <div>
             @foreach ($package->PackagePoint as $PackagePoint)
+            @if($PackagePoint->status ==1)
             <div class="services-grade w-full py-2 rounded-md my-8">
                 <h2 class="text-[#072459] font_inter text-[20px] pl-4 font-extrabold capitalize">{{$PackagePoint->title}}</h2>
             </div>
             <div class="services-inner text-white font_inter py-4">
                 {!!$PackagePoint->description!!}
             </div>
+            @endif
             @endforeach
         </div>
 
@@ -144,6 +146,7 @@
             </div>
             <div class="services-inner faq text-[#2D3E50] font_inter py-4 flex flex-col justify-start items-start gap-4">
                 @foreach ($package->PackageFaq as $PackageFaq)
+                @if($PackageFaq->status ==1)
                 <div class="accordion-item bg-white p-5 lg:w-1/2 rounded-xl overflow-hidden cursor-pointer transition-all duration-300" onclick="toggleAccordion(this)">
                     <div class="flex justify-start items-center w-full h-full accordion-header gap-4">
                         <img class="accordion-icon transition-transform duration-300 w-2 lg:w-[14px]" src="{{ asset('assets/faqplus.png') }}" alt="Plus Icon">
@@ -153,6 +156,7 @@
                         <p class="pt-3">{{$PackageFaq->description}}</p>
                     </div>
                 </div>
+                @endif
                 @endforeach
 
             </div>

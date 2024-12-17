@@ -471,7 +471,7 @@
                     <div class="accordion-content-careers">
                         <div class="px-5 py-4 flex justify-end items-center">
                             <!-- Unique Button ID -->
-                            <button id="applyNowBtn"
+                            <button id="applyNowBtn" data-job-id="{{$data->id}}"
                                     class="relative font-semibold font_inter text-white px-7 py-2 rounded-md border border-white overflow-hidden transition-all duration-500 ease-out hover:text-black group applyNowBtn">
                                 <span class="absolute inset-0 bg-white transform -translate-x-full transition-transform duration-500 ease-out group-hover:translate-x-0"></span>
                                 <span class="relative z-10 font_inter font-bold">Apply now</span>
@@ -499,7 +499,7 @@
     </div>
 
     <div>
-        
+
     <!-- Unique Modal ID -->
     <div id="jobenquirey" class="modalPopup hidden lg:fixed inset-0 bg-gray-800 bg-opacity-50 items-center justify-center z-50">
         <div class="rounded-xl pb-11 px-2 lg:p-6 w-full lg:max-w-[50%]">
@@ -511,7 +511,7 @@
                         </button>
                     </div>
                     <form action="" class="text-black enquiry-form" id="career-add-form-new">
-                        <input type="hidden" name="job_id" value="{{$data->id}}">
+                        <input type="hidden" name="job_id" id="job_id" value="">
                         <h4 class="font_inter font-semibold text-black text-[32px] py-10">Start Your Journey with Us</h4>
                         <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent !mt-[-11px]">
                             <label for="name">NAME<span>*</span></label>
@@ -794,7 +794,7 @@
             const elements = [
                 { inputId: 'imageUploader', iconId: 'uploadIcon' },
                 { inputId: 'imageUploadersec', iconId: 'uploadIconsec' },
-                { inputId: 'coverUploadersec', iconId: 'coveruploadIconsec' }, 
+                { inputId: 'coverUploadersec', iconId: 'coveruploadIconsec' },
                 { inputId: 'coverUploaderone', iconId: 'coveruploadIconone' }
             ];
 
@@ -853,6 +853,9 @@
                 const closeModal = document.getElementById(`closejobModal`);
 
                 button.addEventListener("click", function () {
+
+                    $('#job_id').val(this.dataset.jobId);
+
                     modal.style.display = "flex";
                 });
 

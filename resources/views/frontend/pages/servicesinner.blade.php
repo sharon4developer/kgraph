@@ -237,11 +237,15 @@
                         <ul class="list-disc pl-5 text-[#062358] leading-normal">
                             @if(count($services->SubService))
                             @foreach ($services->SubService as $SubService)
+                            @if($SubService->status ==1)
                                 <li class="py-1"><a href="{{url('sub-service-details/'.$SubService->slug)}}">{{ $SubService->title }}</a></li>
+                            @endif
                             @endforeach
                             @else
                             @foreach ($services->ServicePoint as $ServicePoint)
+                            @if($ServicePoint->status ==1)
                                 <li class="py-1">{{ $ServicePoint->title }}</li>
+                            @endif
                             @endforeach
                             @endif
                         </ul>
@@ -258,13 +262,17 @@
             <div class="tab-names flex flex-col relative  max-w-[100vw] scrollbar-hidden">
                 <ul class="tabs border-b-2 border-b-white scrollbar-hidden">
                     @foreach ($services->ServicePoint as $key => $ServicePoint)
+                    @if($ServicePoint->status ==1)
                     <li class="tab-link {{ $key === 0 ? 'current' : '' }}" data-tab="tab-{{$key+1}}">{{ $ServicePoint->title }}</li>
+                    @endif
                     @endforeach
                 </ul>
                 @foreach ($services->ServicePoint as $key => $ServicePoint)
+                @if($ServicePoint->status ==1)
                 <div id="tab-{{$key+1}}" class="tab-content {{ $key === 0 ? 'current' : 'hidden lg:w-[89vw]' }}">
                     {!! $ServicePoint->description !!}
                 </div>
+                @endif
                 @endforeach
             </div>
 
@@ -279,6 +287,7 @@
                 <div class="splide__track">
                     <ul class="splide__list">
                         @foreach ($services->ServicePoint as $key => $ServicePoint)
+                        @if($ServicePoint->status ==1)
                             <li class="splide__slide">
                                 <div class="slide-content">
                                     <h3 class="font-bold text-white text-4xl w-[80vw]">{{ $ServicePoint->title }}</h3>
@@ -287,6 +296,7 @@
                                     </div>
                                 </div>
                             </li>
+                        @endif
                         @endforeach
                     </ul>
                 </div>
@@ -305,6 +315,7 @@
                 </div>
                 <div class="services-inner faq text-[#2D3E50] font_inter py-4 flex flex-col justify-start items-start gap-4">
                     @foreach ($services->ServiceFaq as $key => $ServiceFaq)
+                    @if($ServiceFaq->status ==1)
                     <div class="accordion-item bg-white p-5 lg:w-1/2 rounded-xl overflow-hidden cursor-pointer transition-all duration-300" onclick="toggleAccordion(this)">
                         <div class="flex justify-start items-center w-full h-full accordion-header gap-4">
                             <img class="accordion-icon transition-transform duration-300 w-2 lg:w-[14px]" src="{{ asset('assets/faqplus.png') }}" alt="Plus Icon">
@@ -314,6 +325,7 @@
                             <p class="pt-3">{{ $ServiceFaq->description }}</p>
                         </div>
                     </div>
+                    @endif
                     @endforeach
 
                 </div>

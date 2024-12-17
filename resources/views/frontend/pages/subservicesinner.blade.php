@@ -464,6 +464,7 @@
                 <div
                     class="services-inner faq text-[#2D3E50] font_inter py-4 flex flex-col justify-start items-start gap-4">
                     @foreach ($services->ServiceFaq as $key => $ServiceFaq)
+                    @if($ServiceFaq->status ==1)
                         <div class="accordion-item bg-white p-5 lg:w-1/2 rounded-xl overflow-hidden cursor-pointer transition-all duration-300"
                             onclick="toggleAccordion(this)">
                             <div class="flex justify-start items-center w-full h-full accordion-header gap-4">
@@ -477,6 +478,7 @@
                                 <p class="pt-3">{{ $ServiceFaq->description }}</p>
                             </div>
                         </div>
+                    @endif
                     @endforeach
 
                 </div>
