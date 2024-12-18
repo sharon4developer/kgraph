@@ -142,7 +142,7 @@ $('#contact-add-form').validate({
 
         $.ajax({
             type: "POST",
-            url: $('#base-route').val() + '/submit-career-form',
+            url: $('#base-route').val() + '/submit-contact-form',
             data: formData,
             contentType: false,
             processData: false,
@@ -278,8 +278,8 @@ $('#contact-add-form').validate({
     // Separate error removal on change or keyup
     $('#career-add-form input, #career-add-form select').on('keyup change', function () {
         const element = $(this);
-        element.removeClass('is-invalid'); 
-        element.siblings('.error').remove(); 
+        element.removeClass('is-invalid');
+        element.siblings('.error').remove();
     });
 // });
 
