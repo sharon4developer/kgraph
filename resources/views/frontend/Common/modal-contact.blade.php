@@ -54,9 +54,13 @@
 
     .enquiry-form input {
         padding-left: 10px;
+        padding-bottom: 0px !important;
         width: 100%;
     }
-
+    #coverUploadersec,
+        #imageUploadersec{
+            padding-bottom: 8px !important;
+        }
     .enquiry-form-inputparent {
         display: flex;
         align-items: center;

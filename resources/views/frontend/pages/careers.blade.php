@@ -65,8 +65,18 @@
         }
 
         .enquiry-form input {
+            padding-bottom: 0px !important;
             padding-left: 10px;
             width: 100%;
+        }
+
+        #coverUploadersec,
+        #imageUploadersec{
+            padding-bottom: 8px !important;
+        }
+        #coverUploadersec,
+        #imageUploadersec{
+            padding-bottom: 8px !important;
         }
 
         .enquiry-form-inputparent {

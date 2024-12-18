@@ -59,6 +59,7 @@
         }
 
         .enquiry-form input {
+            padding-bottom: 0px !important;
             padding-left: 10px;
             width: 100%;
         }
