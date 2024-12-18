@@ -26,7 +26,7 @@ class UpdatePackageRequest extends FormRequest
             'title' => 'required',
             'description' => 'required',
             'image' => 'mimes:jpeg,png,jpg,gif,webp',
-            'package_id' => 'required|exists:services,id',
+            'package_id' => 'required|exists:packages,id',
         ];
     }
 }
