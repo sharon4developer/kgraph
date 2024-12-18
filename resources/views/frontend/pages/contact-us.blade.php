@@ -50,7 +50,7 @@
         .enquiry-form label,
         .enquiry-form input,
         .enquiry-form select {
-            color: black;
+            color: black !important;
             outline: none;
             border: none;
             font-weight: 500;

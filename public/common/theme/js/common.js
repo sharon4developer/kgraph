@@ -196,84 +196,94 @@ $('#contact-add-form').validate({
 });
 
 
-$('#career-add-form').validate({
-    rules: {
-        name: { required: true },
-        email: { required: true, email: true },
-        country: { required: true },
-        mobile: { required: true, digits: true },
-        branch: { required: true },
-        department: { required: true },
-        // message: { required: false },
-        resume: { required: true }
-    },
-    messages: {
-        name: "Please enter your name",
-        email: {
-            required: "Please enter your email address",
-            email: "Please enter a valid email address"
+// $(document).ready(function () {
+    // Initialize form validation
+    $('#career-add-form').validate({
+        rules: {
+            name: { required: true },
+            email: { required: true, email: true },
+            country: { required: true },
+            mobile: { required: true, digits: true },
+            branch: { required: true },
+            department: { required: true },
+            resume: { required: true }
         },
-        country: "Please select a country",
-        mobile: {
-            required: "Please enter your mobile number",
-            digits: "Please enter only digits"
+        messages: {
+            name: "Please enter your name",
+            email: {
+                required: "Please enter your email address",
+                email: "Please enter a valid email address"
+            },
+            country: "Please select a country",
+            mobile: {
+                required: "Please enter your mobile number",
+                digits: "Please enter only digits"
+            },
+            branch: "Please select a branch",
+            department: "Please select a department",
+            resume: "Please upload your resume"
         },
-        branch: "Please select a branch",
-        department: "Please select a department",
-        // message: "Please upload your cover letter",
-        resume: "Please upload your resume"
-    },
-    errorElement: 'span',
-    errorClass: 'error invalid-feedback',
-    errorPlacement: function(error, element) {
-        element.closest('.enquiry-form-inputparent').after(error);
-    },
-    submitHandler: function(form, event) {
-        event.preventDefault();
+        errorElement: 'span',
+        errorClass: 'error invalid-feedback',
+        errorPlacement: function (error, element) {
+            element.closest('.enquiry-form-inputparent').after(error);
+        },
+        submitHandler: function (form, event) {
+            event.preventDefault();
 
-        var formData = new FormData($(form)[0]);
-        var submitButton = $(form).find('[type=submit]');
-        var current_btn_text = submitButton.html();
+            var formData = new FormData($(form)[0]);
+            var submitButton = $(form).find('[type=submit]');
+            var current_btn_text = submitButton.html();
 
-        $.ajax({
-            type: "POST",
-            url: $('#base-route').val() + '/submit-career-form',
-            data: formData,
-            contentType: false,
-            processData: false,
-            cache: false,
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            beforeSend: function() {
-                submitButton.html(`<span class="spinner-border spinner-border-sm"></span> Submitting...`).attr('disabled', true);
-            },
-            success: function(response) {
-                if (response.status) {
-                    alert('Form submitted successfully!');
-                    $('#career-add-form').trigger('reset');
-                } else {
-                    alert(response.message || 'Something went wrong');
+            $.ajax({
+                type: "POST",
+                url: $('#base-route').val() + '/submit-career-form',
+                data: formData,
+                contentType: false,
+                processData: false,
+                cache: false,
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                beforeSend: function () {
+                    submitButton.html(`<span class="spinner-border spinner-border-sm"></span> Submitting...`).attr('disabled', true);
+                },
+                success: function (response) {
+                    if (response.status) {
+                        showMessage('success', response.message);
+                        $('#career-add-form').trigger('reset');
+                    } else {
+                        showMessage('warning', response.message);
+                    }
+                },
+                error: function (response) {
+                    submitButton.html(current_btn_text).attr('disabled', false);
+                    if (response.responseJSON.errors) {
+                        $.each(response.responseJSON.errors, function (i, v) {
+                            const element = $(form).find('[name=' + i + ']');
+                            element.addClass('is-invalid');
+                            element.closest('.enquiry-form-inputparent').after(`<span class="error invalid-feedback">${v}</span>`);
+                        });
+                    } else {
+                        showMessage('warning', 'Something went wrong...');
+                    }
+                },
+                complete: function () {
+                    submitButton.html(current_btn_text).attr('disabled', false);
                 }
-            },
-            error: function(response) {
-                submitButton.html(current_btn_text).attr('disabled', false);
-                if (response.responseJSON.errors) {
-                    $.each(response.responseJSON.errors, function(i, v) {
-                        const element = $(form).find('[name=' + i + ']');
-                        element.addClass('is-invalid');
-                        element.closest('.enquiry-form-inputparent').after(`<span class="error invalid-feedback">${v}</span>`);
-                    });
-                } else {
-                    alert('Something went wrong...');
-                }
-            },
-            complete: function() {
-                submitButton.html(current_btn_text).attr('disabled', false);
-            }
-        });
-    }
-});
+            });
+        }
+    });
+
+    // Separate error removal on change or keyup
+    $('#career-add-form input, #career-add-form select').on('keyup change', function () {
+        const element = $(this);
+        element.removeClass('is-invalid'); 
+        element.siblings('.error').remove(); 
+    });
+// });
+
+
 
 // Resume Validation: Dynamic Feedback
 function handleFileChange() {
