@@ -392,7 +392,7 @@
             opacity: 0;
         } */
 
-        .award_certificates_s .splide__slide.is-visible.is-active {
+        /* .award_certificates_s .splide__slide.is-visible.is-active {
             z-index: 1;
         }
 
@@ -402,6 +402,7 @@
 
         .award_certificates_s .splide__slide.is-visible.is-active .certs {
             transform: scale(1.2);
+            z-index: 99;
         }
         .award_certificates_s .splide__track {
             padding: 10px 0;
@@ -410,9 +411,9 @@
 
         .award_certificates_s .splide__pagination {
             justify-content: end;
-            /* margin-top: -5px; */
-            /* margin-left: 20px; */
-        }
+            margin-top: -5px; 
+            margin-left: 20px;
+        } */
 
         /* .award_certificates_s .splide__pagination__page {
             border: 0;
@@ -447,14 +448,18 @@
 
         @media(max-width:767px) {
             .image-card-explore img{
-                width: 75px;
+                /* max-width: 252px; */
+                min-width: 180px;
+                width: 79vw;
             }
-        }
+        } 
 
 
         @media(min-width:576px) {
             .award_certificates_s .splide__track {
                 padding: 50px 0;
+                z-index: 50;
+                position: relative;
             }
         }
         @media(min-width:768px) {
@@ -473,7 +478,7 @@
                 max-width: 100%;
                 object-fit: cover;
             }
-        }
+        } 
 
         #exploreSplide.splide__track {
             overflow: visible !important;
@@ -484,8 +489,6 @@
         #exploreSplide.splide__slide {
             transition: transform 0.5s ease-in-out; /* Smooth transition for scaling */
         }
-
-
     </style>
 
 
@@ -1346,7 +1349,7 @@
                 breakpoints: {
                     1536: { perPage: 4.1 },
                     1280: { perPage: 4 },
-                    1024: { perPage: 3 },
+                    1024: { perPage: 2.8 },
                     768: { perPage: 2 },
                     640: { perPage: 1 },
                 },
@@ -1360,6 +1363,7 @@
                 slides.forEach((slide) => {
                     slide.style.transform = 'scale(1)';
                     slide.style.transition = 'transform 0.5s ease-in-out';
+                    slide.style.zIndex = '99';
                 });
 
                 // Find the second visible slide
