@@ -8,8 +8,32 @@
         -webkit-box-shadow: 0px 25px 25px -15px rgba(255, 255, 255, 0.73);
         -moz-box-shadow: 0px 25px 25px -15px rgba(255, 255, 255, 0.73);
         box-shadow: 0px 25px 25px -15px rgba(255, 255, 255, 0.73);
-
     }
+    .arrow-comig {
+    position: relative; /* Needed for pseudo-elements */
+    display: inline-block;
+    transition: all 0.3s ease; /* Smooth animation for hover */
+    }.arrow-comig::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px; /* Thickness of the underline */
+    bottom: 0;
+    left: 0;
+    background-color: #7B7E86; /* Underline color */
+    transition: width 0.3s ease; /* Smooth animation */
+    }.arrow-comig:hover{
+        /* font-weight: 500; */
+        transform: scale(1.05);
+        /* text-transform: uppercase; */
+    }
+    .arrow-comig:hover::after {
+    opacity: 1; /* Show the arrow */
+    right: -10px; /* Move it closer to the text */
+    }.arrow-comig:hover::before {
+    width: 100%; /* Expand the underline */
+    }
+
 </style>
 
 <?php
@@ -42,35 +66,35 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
 
                 <div class="flex flex-col md:flex-row lg:items-center md:justify-center  lg:justify-start gap-10 lg:gap-36 py-16">
                     <div class="">
-                        <h4 class="lg:pt-8 capitalize font_roboto font-semibold font_inter text-[18px] pb-5 text-white">Company</h4>
+                        <h4 class="lg:pt-8 capitalize font_roboto font-semibold font_inter text-[18px] 2xl:text-xl pb-5 text-white">Company</h4>
                         <ul class="font_inter flex flex-col gap-1">
-                            <li class=""><a class="font-light font_roboto text-white text-lg lg:text-xs" href="{{ url('about-us') }}">About</a></li>
-                            <li class=""><a class="font-light font_roboto text-white text-lg lg:text-xs" href="{{ url('careers') }}">Careers</a></li>
-                            <li class=""><a class="font-light font_roboto text-white text-lg lg:text-xs" href="{{ url('faq') }}">Faq</a></li>
-                            <li class=""><a class="font-light font_roboto text-white text-lg lg:text-xs" href="{{ url('teams') }}">Teams</a></li>
-                            <li class=""><a class="font-light font_roboto text-white text-lg lg:text-xs" href="{{ url('contact-Us') }}">Contact Us</a></li>
+                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('about-us') }}">About</a></li>
+                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('careers') }}">Careers</a></li>
+                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('faq') }}">Faq</a></li>
+                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('teams') }}">Teams</a></li>
+                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('contact-Us') }}">Contact Us</a></li>
                         </ul>
                     </div>
 
                     <div class="">
-                        <h4 class="lg:pt-8 capitalize font-semibold font_inter text-[18px] pb-5 text-white">Services</h4>
+                        <h4 class="lg:pt-8 capitalize font-semibold font_inter text-[18px] 2xl:text-xl pb-5 text-white">Services</h4>
                         <ul class="font_inter flex flex-col gap-1">
-                            <li class=""><a class="font-light font_roboto text-white text-lg lg:text-xs" href="{{ url('about-us') }}">About</a></li>
-                            <li class=""><a class="font-light font_roboto text-white text-lg lg:text-xs" href="{{ url('careers') }}">Careers</a></li>
-                            <li class=""><a class="font-light font_roboto text-white text-lg lg:text-xs" href="{{ url('faq') }}">Faq</a></li>
-                            <li class=""><a class="font-light font_roboto text-white text-lg lg:text-xs" href="{{ url('teams') }}">Teams</a></li>
-                            <li class=""><a class="font-light font_roboto text-white text-lg lg:text-xs" href="{{ url('contact-Us') }}">Contact Us</a></li>
+                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('about-us') }}">About</a></li>
+                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('careers') }}">Careers</a></li>
+                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('faq') }}">Faq</a></li>
+                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('teams') }}">Teams</a></li>
+                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('contact-Us') }}">Contact Us</a></li>
                         </ul>
                     </div>
 
                     <div class="">
-                        <h4 class="lg:pt-8 capitalize font-semibold font_inter text-[18px] pb-5 text-white">Useful links</h4>
+                        <h4 class="lg:pt-8 capitalize font-semibold font_inter text-[18px] 2xl:text-xl pb-5 text-white">Useful links</h4>
                         <ul class="font_inter flex flex-col gap-1">
-                            <li class=""><a class="font-light font_roboto text-white text-lg lg:text-xs" href="{{ url('about-us') }}">About</a></li>
-                            <li class=""><a class="font-light font_roboto text-white text-lg lg:text-xs" href="{{ url('careers') }}">Careers</a></li>
-                            <li class=""><a class="font-light font_roboto text-white text-lg lg:text-xs" href="{{ url('faq') }}">Faq</a></li>
-                            <li class=""><a class="font-light font_roboto text-white text-lg lg:text-xs" href="{{ url('teams') }}">Teams</a></li>
-                            <li class=""><a class="font-light font_roboto text-white text-lg lg:text-xs" href="{{ url('contact-Us') }}">Contact Us</a></li>
+                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('about-us') }}">About</a></li>
+                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('careers') }}">Careers</a></li>
+                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('faq') }}">Faq</a></li>
+                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('teams') }}">Teams</a></li>
+                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('contact-Us') }}">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>
@@ -84,10 +108,12 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
             <div class="flex flex-col lg:flex-row gap-8 lg:justify-between w-full">
                 <div class="flex items-center gap-3 pt-10"> 
                     <span class="capitalize font-bold text-sm text-white font_roboto hidden lg:block">Subscribe</span>
-                    <div class="bg-white rounded-[50px] flex items-center overflow-hidden glow-effect">
-                        <input type="email" class="min-w-[189px] w-[100vw] max-w-[280px] md:w-[280px] py-2 px-3 outline-none font_roboto" style="background: none;" name="email" id="footer-email" placeholder="Enter your email Address">
-                        <button class="bg-black text-white rounded-[50px] font_roboto font-normal text-sm py-2 px-3 mx-[2px] block">Subscribe</button>
-                    </div>
+                    <form id="news-letter-add-form">
+                        <div class="bg-white rounded-[50px] flex items-center overflow-hidden glow-effect">
+                            <input type="email" class="min-w-[189px] w-[100vw] max-w-[280px] md:w-[280px] py-2 px-3 outline-none font_roboto" style="background: none;" name="news_letter_email" id="news-letter-email" placeholder="Enter your email Address">
+                            <button class="bg-black text-white rounded-[50px] font_roboto font-normal text-sm py-2 px-3 mx-[2px] block">Subscribe</button>
+                        </div>
+                    </form>
                 </div>
 
                 <div class="flex gap-5 items-center">

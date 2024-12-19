@@ -174,8 +174,7 @@
         }
 
         .explore-section .splide__list {
-            display: flex;
-            justify-content: center;
+            padding-left: 16px;
         }
 
         .explore-section .splide__slide {
@@ -388,10 +387,10 @@
             text-decoration: none;
         }
 
-        .award_certificates_s .splide__slide {
+        /* .award_certificates_s .splide__slide {
             transform: translateY(100px);
             opacity: 0;
-        }
+        } */
 
         .award_certificates_s .splide__slide.is-visible.is-active {
             z-index: 1;
@@ -474,6 +473,16 @@
                 max-width: 100%;
                 object-fit: cover;
             }
+        }
+
+        #exploreSplide.splide__track {
+            overflow: visible !important;
+        }
+        #exploreSplide.splide__list {
+            display: flex !important;
+        }
+        #exploreSplide.splide__slide {
+            transition: transform 0.5s ease-in-out; /* Smooth transition for scaling */
         }
 
 
@@ -1095,7 +1104,7 @@
                         @foreach ($explore as $data)
                             <li class="splide__slide">
                                 <div class="relative image-card-explore cursor-pointer">
-                                    <img class="w-full 2xl:w-[300px] h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{ $data->alt_tag }}">
+                                    <img class="w-full 2xl:w-[300px] h-full aspect-square object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{ $data->alt_tag }}">
                                 </div>
                             </li>
                         @endforeach
@@ -1103,65 +1112,11 @@
                 </div>
             </div>
         </div>
-
-
-
-        {{-- <div class="container mx-auto px-5 xl:px-12 py-8 lg:pt-1 lg:pb-16 my-6 z-[99] h-full w-full relative z-50">
-            <div class="flex justify-end gap-3 items-center">
-                <div class="card-explore-slide-prev-button cursor-pointer">
-                    <img class="w-[40px]" src="{{ asset('assets/Button-Previous.png') }}" alt="">
-                </div>
-                <div class="cursor-pointer card-explore-slide-next-button">
-                    <img class="w-[40px]" src="{{ asset('assets/nextbutton.png') }}" alt="">
-                </div>
-            </div>
-        </div> --}}
-
-
-        {{-- <div class="award_certificates">
-            <div class="award_certificates_s splide splide-3 lg:w-full lg:max-w-full">
-                <div class="splide__track">
-                    <div class="splide__list">
-                        @foreach ($explore as $data)
-                        <div class="splide__slide">
-                            <div class="certs mx-auto bg-white h-24 sm:h-40 md:h-full">
-                                <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{ $data->alt_tag }}">
-                            </div>
-                        </div>
-                        @endforeach
-                    </div>
-                </div>
-
-                <!-- Add the progress bar element -->
-                <div class="flex items-center justify-center">
-                    <div class="my-carousel-progress w-40 lg:w-72 lg:ml-auto">
-                        <div class="my-carousel-progress-bar"></div>
-                    </div>
-
-                    <ul class="splide__pagination"></ul>
-                </div>
-
-            </div>
-        </div> --}}
     </div>
 
-    {{-- <div class="explore-section-dup bg-black ">
-        <div class="container mx-auto px-5 xl:px-12 py-8 lg:pt-1 lg:pb-16  z-[99] h-full w-full">
-            <div class="center">
-                @foreach ($explore as $data)
-                    <div class="mx-4">
-                        <img class="w-full h-full object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{ $data->alt_tag }}">
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </div> --}}
 
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> --}}
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script> --}}
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script> --}}
 
     <script>
         document.querySelectorAll('.accordion-header').forEach(header => {
@@ -1200,94 +1155,25 @@
 
             requestAnimationFrame(count);
         }
-        // document.addEventListener('DOMContentLoaded', function () {
-        //     const numberElement = document.getElementById('count-number'); // Target number element
-        //     const sectionToObserve = document.querySelector('.Navigatesec'); // Section to observe
+        
+        function animateCountUp(element, start, end, duration) {
+            const range = end - start;
+            const increment = range / (duration / 16.67); // Approximate frames at 60fps
+            let current = start;
 
-        //     let hasCounted = false; // Prevent multiple executions
+            function step() {
+                current += increment;
+                if (current >= end) {
+                    current = end; // Ensure it doesn't exceed the target
+                    element.textContent = Math.round(current); // Final value
+                } else {
+                    element.textContent = Math.round(current); // Update current value
+                    requestAnimationFrame(step); // Continue animation
+                }
+            }
 
-        //     const counterVal = parseInt($('#exp-count').val(), 10); // Parse the counter value safely
-
-        //     // Define IntersectionObserver to monitor visibility
-        //     const observer = new IntersectionObserver(function (entries) {
-        //         if (entries[0].isIntersecting && !hasCounted) {
-        //             hasCounted = true; // Mark as counted
-        //             animateCountUp(numberElement, 0, counterVal, 2000); // Trigger count-up animation
-        //         }
-        //     }, {
-        //         threshold: 0.5 // Trigger when 50% of the section is visible
-        //     });
-
-        //     // Ensure the element exists before observing
-        //     if (sectionToObserve) {
-        //         observer.observe(sectionToObserve);
-        //     } else {
-        //         console.error('Element with class "Navigatesec" not found.');
-        //     }
-        //     });
-
-// Function to animate the count-up
-function animateCountUp(element, start, end, duration) {
-    const range = end - start;
-    const increment = range / (duration / 16.67); // Approximate frames at 60fps
-    let current = start;
-
-    function step() {
-        current += increment;
-        if (current >= end) {
-            current = end; // Ensure it doesn't exceed the target
-            element.textContent = Math.round(current); // Final value
-        } else {
-            element.textContent = Math.round(current); // Update current value
-            requestAnimationFrame(step); // Continue animation
+            step(); // Start animation
         }
-    }
-
-    step(); // Start animation
-}
-
-
-            // document.addEventListener('DOMContentLoaded', function() {
-            //     const videos = document.querySelectorAll('video');
-            //     const playPauseButtons = document.querySelectorAll('.custom-controls');
-
-            //     // Loop through all videos
-            //     videos.forEach((video, index) => {
-            //         const playPauseButton = playPauseButtons[index]; // Get corresponding play/pause button
-
-            //         // Play video when hovering over the video
-            //         video.addEventListener('mouseenter', function() {
-            //             video.play();
-            //             playPauseButton.querySelector('img').src =
-            //                 "{{ asset('assets/pause.png') }}"; // Update button to pause icon
-            //         });
-
-            //         // Pause video when mouse leaves the video
-            //         video.addEventListener('mouseleave', function() {
-            //             video.pause();
-            //             playPauseButton.querySelector('img').src =
-            //                 "{{ asset('assets/play.png') }}"; // Update button to play icon
-            //         });
-
-            //         // Manually toggle play/pause on button click
-            //         playPauseButton.addEventListener('click', function() {
-            //             if (video.paused) {
-            //                 video.play();
-            //                 playPauseButton.querySelector('img').src =
-            //                     "{{ asset('assets/pause.png') }}"; // Update to pause icon
-            //             } else {
-            //                 video.pause();
-            //                 playPauseButton.querySelector('img').src =
-            //                     "{{ asset('assets/play.png') }}"; // Update to play icon
-            //             }
-            //         });
-
-            //         // Reset to play button when video ends
-            //         video.addEventListener('ended', function() {
-            //             playPauseButton.querySelector('img').src = "{{ asset('assets/play.png') }}";
-            //         });
-            //     });
-            // });
 
         document.querySelectorAll('.knowmore').forEach(button => {
             const lineId = button.getAttribute('data-line');
@@ -1304,52 +1190,6 @@ function animateCountUp(element, start, end, duration) {
             });
         });
     </script>
-
-{{-- @section('scripts') --}}
-
-{{-- @endsection --}}
-
-    {{-- slick slider --}}
-    <script type="text/javascript">
-        // $(document).ready(function() {
-        //     $('.slick-slider-background').slick({
-        //         autoplay: true,
-        //         autoplaySpeed: 3000,
-        //         fade: true,
-        //         speed: 1000,
-        //         arrows: false,
-        //         dots: false
-        //     });
-        // });
-        // $(document).ready(function() {
-            // $('.center').slick({
-            //     centerMode: true,
-            //     centerPadding: '60px',
-            //     slidesToShow: 3,
-            //     responsive: [
-            //         {
-            //         breakpoint: 768,
-            //         settings: {
-            //             arrows: false,
-            //             centerMode: true,
-            //             centerPadding: '40px',
-            //             slidesToShow: 3
-            //         }
-            //         },
-            //         {
-            //         breakpoint: 480,
-            //         settings: {
-            //             arrows: false,
-            //             centerMode: true,
-            //             centerPadding: '40px',
-            //             slidesToShow: 1
-            //         }
-            //         }
-            //     ]
-            // });
-        // });
-    </script>
-
 
     <!-- splide code -->
     <script>
@@ -1490,53 +1330,62 @@ function animateCountUp(element, start, end, duration) {
         });
 
         document.addEventListener('DOMContentLoaded', function () {
-            var splide = new Splide('#exploreSplide', {
-                pagination: false,
-                arrows: false,
-                perPage: 4,
-                gap: '1rem',
-                pauseOnHover: false,
+            // Initialize Splide
+            const exploreSplide = new Splide('#exploreSplide', {
+                type: 'slide', // Continuous loop
+                perPage: 5, // Default for larger screens
+                perMove: 1, // Move one slide at a time
+                gap: '1rem', // Space between slides
                 autoplay: true,
-                interval: 2000,
-                type: 'slide',
-                clones: 2,
-                focus: 1,
+                arrows: false,
                 rewind: true,
-                updateOnMove: true,
+                pagination: false,
+                interval: 3000, // Delay between slides
+                speed: 1000, // Animation speed
                 pauseOnHover: false,
-                pauseOnFocus: false,
-                rewindSpeed: 1000,
-                omitEnd: true,
                 breakpoints: {
-                    640: { perPage: 3 },
-                    768: { perPage: 1.5 },
-                    1024: { perPage: 2},
-                    1280: { perPage: 3.9 },
-                    1380: { perPage: 3.9 },
-                    1580: { perPage: 4.3 },
-                }
+                    1536: { perPage: 4.1 },
+                    1280: { perPage: 4 },
+                    1024: { perPage: 3 },
+                    768: { perPage: 2 },
+                    640: { perPage: 1 },
+                },
             }).mount();
 
-            splide.on('mounted moved', function () {
-                scaleCenterSlide(splide);
-            });
-
-            function scaleCenterSlide(splideInstance) {
+            // Function to scale the second slide on the left
+            function scaleSecondSlide(splideInstance) {
                 const slides = splideInstance.Components.Elements.slides;
 
-                slides.forEach((slide, index) => {
+                // Reset all slides to default scale
+                slides.forEach((slide) => {
                     slide.style.transform = 'scale(1)';
-                    slide.style.transition = 'transform 0.3s';
+                    slide.style.transition = 'transform 0.5s ease-in-out';
                 });
 
-                // Find the active slide and scale it
-                const activeIndex = splideInstance.index;
-                const centerSlide = slides[activeIndex];
-                if (centerSlide) {
-                    centerSlide.style.transform = 'scale(1.2)';
+                // Find the second visible slide
+                const perPage = splideInstance.options.perPage;
+                const visibleSlides = [...slides].slice(splideInstance.index, splideInstance.index + perPage);
+
+                if (visibleSlides.length >= 2) {
+                    const secondSlide = visibleSlides[1]; // Second visible slide
+                    if (secondSlide) {
+                        secondSlide.style.transform = 'scale(1.2)'; // Scale up
+                    }
                 }
             }
+
+            // Trigger scaling on mounted and moved events
+            exploreSplide.on('mounted moved', function () {
+                scaleSecondSlide(exploreSplide);
+            });
+
+            // Ensure the second slide is scaled on page load
+            scaleSecondSlide(exploreSplide);
         });
+
+
+
+
 
         document.addEventListener('DOMContentLoaded', function () {
             const splide = new Splide('#serviceCarousel', {
@@ -1742,36 +1591,36 @@ function animateCountUp(element, start, end, duration) {
         });
 
         const tl = gsap.timeline({
-    scrollTrigger: {
-        trigger: ".homeBanner",
-        start: "top 80%",
-        toggleActions: "play none none none",
-    }
-});
+        scrollTrigger: {
+            trigger: ".homeBanner",
+            start: "top 80%",
+            toggleActions: "play none none none",
+        }
+        });
 
-// First animation: `.banner-container-elem-bottom-to-top`
-tl.set(".banner-container-elem-bottom-to-top", {
-    y: 100, // Starting position (100px below)
-    opacity: 0, // Hidden initially
-}).to(".banner-container-elem-bottom-to-top", {
-    y: 0, // Move to original position
-    scale: 1,
-    opacity: 1,
-    duration: 2,
-    ease: "power2.out",
-});
+        // First animation: `.banner-container-elem-bottom-to-top`
+        tl.set(".banner-container-elem-bottom-to-top", {
+            y: 100, // Starting position (100px below)
+            opacity: 0, // Hidden initially
+        }).to(".banner-container-elem-bottom-to-top", {
+            y: 0, // Move to original position
+            scale: 1,
+            opacity: 1,
+            duration: 2,
+            ease: "power2.out",
+        });
 
-// Second animation: `.banner-container-elem`, starts after the first
-tl.set(".banner-container-elem", {
-    x: -100, // Starting position (100px to the left)
-    opacity: 0, // Hidden initially
-}).to(".banner-container-elem", {
-    x: 0, // Move to its original position
-    scale: 1,
-    opacity: 1,
-    duration: 2,
-    ease: "power2.out"
-}, "+=0.5"); // Delay of 0.5 seconds after the first animation
+        // Second animation: `.banner-container-elem`, starts after the first
+        tl.set(".banner-container-elem", {
+            x: -100, // Starting position (100px to the left)
+            opacity: 0, // Hidden initially
+        }).to(".banner-container-elem", {
+            x: 0, // Move to its original position
+            scale: 1,
+            opacity: 1,
+            duration: 2,
+            ease: "power2.out"
+        }, "+=0.5"); // Delay of 0.5 seconds after the first animation
 
 
         gsap.to('.award_certificates_s .splide__slide', {
@@ -1784,19 +1633,6 @@ tl.set(".banner-container-elem", {
                 start: 'top +=120%',
             }
         })
-
-        // gsap.to(".banner-contain-text", {
-        //     scrollTrigger: {
-        //         trigger: ".homeBanner",
-        //         start: "top 80%",
-        //         toggleActions: "play none none none"
-        //     },
-        //     x: 0,
-        //     scale: 1,
-        //     opacity: 1,
-        //     duration: 0.5,
-        //     ease: "power2.out"
-        // });
 
         gsap.to(".fourthleft-to-right-animation", {
             scrollTrigger: {
