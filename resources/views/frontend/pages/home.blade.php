@@ -546,10 +546,10 @@
                 </div>
             </div>
         </div>
-        @include('frontend.Common.modal-contact')
+        {{-- @include('frontend.Common.modal-contact') --}}
     </div>
-    @include('frontend.Common.whatsapplogo')
-    {{-- @include('frontend.Common.modal-contact') --}}
+    {{-- @include('frontend.Common.whatsapplogo') --}}
+
 
     <div class="bg-[#051b3b]">
         {{--our services --}}
@@ -947,7 +947,7 @@
                                 <li class="splide__slide">
                                     <a href="{{url('blog-details/'.$data->slug)}}">
                                         <div class="mx-auto bg-[#051b3b] shadow-lg rounded-lg overflow-hidden mt-[8px] 2xl:mt-10 lg:h-fit w-full sm:max-w-sm h-auto">
-                                            <img class="w-full object-cover lg:h-[170px] 2xl:h-[225px] aspect-video" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"  alt="{{ $data->alt_tag }}">
+                                            <img class="w-full object-cover aspect-video" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"  alt="{{ $data->alt_tag }}">
                                             <div class="p-6 border-b border-l border-r border-white rounded-lg mt-[-7px]">
                                                 <?php $date = $data->date . ' ' . $data->time; ?>
 

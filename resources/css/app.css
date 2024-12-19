@@ -13,14 +13,18 @@
 .font_inter{
     font-family: "Inter", sans-serif;
 }
-/* .font_jakarta {
+.font_jakartafoot {
     font-family: "Plus Jakarta Sans", sans-serif;
-} */
+}
 .font_jakarta {
     font-family: "Inter", sans-serif;
 }
 .font_arial {
     font-family: "Inter", sans-serif;
+}
+
+.font_roboto {
+    font-family: "Roboto", serif;
 }
 /* .font_arial {
     font-family: Arial, Helvetica, sans-serif;
