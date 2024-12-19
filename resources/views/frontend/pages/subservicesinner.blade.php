@@ -281,7 +281,7 @@
         } */
 
         .custom-tab-content.active {
-            display: block;
+            display: block !important;
         }
 
         .content-btn {
@@ -332,22 +332,10 @@
         </div>
     </div>
 
-    {{-- Realize can section --}}
-    {{-- <div class="">
-        <div class="Realize">
-            <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%]">
-                <div class="lg:w-full font_inter flex justify-center">
-                    <h2 class="font-semibold text-xl lg:text-4xl text-[#062358] lg:pl-[27px]">{{ $services->inner_title }}
-                    </h2>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-
     {{-- services section section --}}
     <div class="services Realize section section">
         <div class="service-details">
-            <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:pt-[3%] lg:pb-1">
+            <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%] lg:pb-1">
                 <!-- Services Section -->
                 <div class="lg:w-full font_inter flex flex-col justify-center">
                     <h2 class="font-semibold text-xl lg:text-4xl text-[#062358] lg:pl-[27px]">
@@ -358,12 +346,11 @@
 
                     <ul class="list-disc lg:pl-5 text-[#062358] leading-normal list-none">
                         @foreach ($services->ServicePoint as $key => $ServicePoint)
-                        @if($ServicePoint->status ==1)
-                            <li class="my-1 py-2 px-4 w-full lg:w-1/2 transition-all duration-200 cursor-pointer rounded-md border border-[#d6d6d6] text-gray-800 @if ($key == 0) active-item @endif"
-                                data-target="service-point{{ $key }}">
-                                {{ $ServicePoint->title }}
-                            </li>
-                        @endif
+                            @if($ServicePoint->status ==1)
+                                <li class="my-1 py-2 px-4 w-full lg:w-1/2 transition-all duration-200 cursor-pointer rounded-md border border-[#d6d6d6] text-gray-800 @if ($key == 0) active-item @endif" data-target="service-point{{ $key }}">
+                                    <a href="#sub-services">{{ $ServicePoint->title }}</a>
+                                </li>
+                            @endif
                         @endforeach
                     </ul>
                 </div>
@@ -376,15 +363,15 @@
             @foreach ($services->ServicePoint as $key => $ServicePoint)
             @if($ServicePoint->status ==1)
                 <div id="service-point{{ $key }}" class="buttons-wrapper @if ($key != 0) hidden @endif">
-                    <div class="">
+                    <div id="sub-services" class="">
                         <div class="mb-8 flex flex-wrap items-center gap-3 border-b border-b-white mb-2">
                             @foreach ($ServicePoint->ServicePointContents as $index => $content)
-                            @if( $content->status ==1 )
-                                <button class="content-btn text-left md:whitespace-nowrap w-fit bg-[#062358] text-white py-2 px-4  font-semibold focus:outline-none @if ($index == 0) active-button @endif"
-                                    data-target="content{{ $key }}-{{ $index }}">
-                                    {{ $content->title }}
-                                </button>
-                            @endif
+                                @if( $content->status ==1 )
+                                    <button class="content-btn text-left md:whitespace-nowrap w-fit bg-[#062358] text-white py-2 px-4  font-semibold focus:outline-none @if ($index == 0) active-button @endif"
+                                        data-target="content{{ $key }}-{{ $index }}">
+                                        {{ $content->title }}
+                                    </button>
+                                @endif
                             @endforeach
                         </div>
 
@@ -430,28 +417,6 @@
             @endforeach
         </div>
     </div>
-
-
-
-    {{-- tab section
-    <div class="tabsection bg-[#062358] overflow-hidden">
-        <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 flex justify-center items-start flex-col text-white">
-            <!-- Tab Names -->
-            <div class="tab-names flex flex-col relative  max-w-[100vw] scrollbar-hidden">
-                <ul class="tabs border-b-2 border-b-white scrollbar-hidden">
-                    @foreach ($services->ServicePoint as $key => $ServicePoint)
-                    <li class="tab-link {{ $key === 0 ? 'current' : '' }}" data-tab="tab-{{$key+1}}">{{ $ServicePoint->title }}</li>
-                    @endforeach
-                </ul>
-                @foreach ($services->ServicePoint as $key => $ServicePoint)
-                <div id="tab-{{$key+1}}" class="tab-content {{ $key === 0 ? 'current' : 'hidden' }}">
-                    {!! $ServicePoint->description !!}
-                </div>
-                @endforeach
-            </div>
-
-        </div>
-    </div> --}}
 
     {{-- faq --}}
     <div class="faq bg-[#062358]">
@@ -572,49 +537,75 @@
         }
     </script>
 
+    <script>
+        $(document).ready(function () {
+            // Hide all `.buttons-wrapper` and `.custom-tab-content` except the first one
+            $(".buttons-wrapper").addClass("hidden").first().removeClass("hidden");
+            $(".custom-tab-content").addClass("hidden").first().removeClass("hidden");
+            $(".list-disc > li").first().addClass("active-item");
+            $(".content-btn").first().addClass("active-button");
 
-<script>
-    $(document).ready(function () {
-        // Initially set the first list item and its content as active
-        $(".list-disc > li").first().addClass("active-item");
-        $(".buttons-wrapper").first().removeClass("hidden");
-        $(".custom-tab-content").first().removeClass("hidden");
-        $(".content-btn").first().addClass("active-button");
+            // Handle clicks on ServicePoint list items (scoped narrowly to direct children only)
+            $(".list-disc > li").on("click", function () {
+                // Remove active state from all ServicePoint list items and hide all buttons
+                $(".list-disc > li").removeClass("active-item");
+                $(".buttons-wrapper").addClass("hidden");
 
-        // Handle clicks on ServicePoint list items (scoped narrowly to direct children only)
-        $(".list-disc > li").on("click", function () {
-            // Remove active state from all ServicePoint list items and hide all buttons
-            $(".list-disc > li").removeClass("active-item");
-            $(".buttons-wrapper").addClass("hidden");
+                // Set active state for the clicked list item and show its buttons
+                $(this).addClass("active-item");
+                const target = $(this).data("target");
+                $(`#${target}`).removeClass("hidden");
 
-            // Set active state for the clicked list item and show its buttons
-            $(this).addClass("active-item");
-            const target = $(this).data("target");
-            $(`#${target}`).removeClass("hidden");
+                // Set the first button and its content as active
+                $(`#${target} .content-btn`).removeClass("active-button").first().addClass("active-button");
+                $(`#${target} .custom-tab-content`).addClass("hidden").first().removeClass("hidden");
+            });
 
-            // Set the first button and its content as active
-            $(`#${target} .content-btn`).removeClass("active-button").first().addClass("active-button");
-            $(`#${target} .custom-tab-content`).addClass("hidden").first().removeClass("hidden");
+            // Handle clicks on buttons inside buttons-wrapper
+            $(".content-btn").on("click", function () {
+                // Remove active state from all buttons and hide all content
+                $(".content-btn").removeClass("active-button");
+                $(".custom-tab-content").addClass("hidden");
+
+                // Set active state for the clicked button and show its content
+                $(this).addClass("active-button");
+                const target = $(this).data("target");
+                $(`#${target}`).removeClass("hidden");
+            });
+
+            // Prevent clicks on dynamically generated options list items from affecting parent state
+            $(document).on("click", ".custom-list > li", function (e) {
+                e.stopPropagation(); // Prevent the click from propagating to parent elements
+            });
         });
 
-        // Handle clicks on buttons inside buttons-wrapper
-        $(".content-btn").on("click", function () {
-            // Remove active state from all buttons and hide all content
-            $(".content-btn").removeClass("active-button");
-            $(".custom-tab-content").addClass("hidden");
 
-            // Set active state for the clicked button and show its content
-            $(this).addClass("active-button");
-            const target = $(this).data("target");
-            $(`#${target}`).removeClass("hidden");
-        });
+        $(document).ready(function () {
+    const offsetAdjustment = $(window).height() / 2; // Center adjustment
 
-        // Prevent clicks on dynamically generated options list items from affecting parent state
-        $(document).on("click", ".custom-list > li", function (e) {
-            e.stopPropagation(); // Prevent the click from propagating to parent elements
-        });
+    // Handle clicks on <li> elements in the specific section
+    $(".list-disc > li").on("click", function (e) {
+        e.preventDefault(); // Prevent default behavior
+
+        const targetId = $(this).data("target"); // Get the target section's ID
+        const target = $(`#${targetId}`); // Find the corresponding section
+
+        if (target.length) {
+            const targetPosition = target.offset().top - offsetAdjustment; // Calculate the center position
+
+            // Smooth scroll to bring the section into view
+            $("html, body").animate(
+                {
+                    scrollTop: targetPosition,
+                },
+                500, // Animation duration in milliseconds
+                "swing" // Easing function
+            );
+        }
     });
-</script>
+});
+
+    </script>
 
 
 

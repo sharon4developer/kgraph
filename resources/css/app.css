@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-
+*{
+    scroll-behavior: smooth;
+}
 /* .font_aktiv{
     font-family: aktiv-grotesk, sans-serif;
 } */
