@@ -548,6 +548,19 @@ $('#eligibility-form').validate({
                 if (response.status) {
                     showMessage('success', response.message);
                     $(form).trigger('reset');
+                    const countryOfStudiesValue = $('input[name="country_of_studies"]:checked').val();
+                    // if (countryOfStudiesValue === 'Yes') {
+                    //     // Show the language test dropdown
+                    //     $('#language-test').removeClass('hidden').addClass('flex');
+
+                    //     // Optionally set the value of #which-lang if data is available in response
+                    //     if (response.data && response.data.language_test) {
+                    //         $('#which-lang').val(response.data.language_test).trigger('change');
+                    //     }
+                    // } else {
+                        $('#language-test').addClass('hidden').removeClass('flex');
+                        $('#language-scores').addClass('hidden').removeClass('flex');
+                    // }
                 } else {
                     showMessage('warning' , response.message);
                 }
