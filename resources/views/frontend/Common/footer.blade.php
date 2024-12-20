@@ -70,31 +70,29 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                         <ul class="font_inter flex flex-col gap-1">
                             <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('about-us') }}">About</a></li>
                             <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('careers') }}">Careers</a></li>
-                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('faq') }}">Faq</a></li>
-                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('teams') }}">Teams</a></li>
-                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('contact-Us') }}">Contact Us</a></li>
+                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('packages') }}">Packages</a></li>
+                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('contact-us') }}">Contact us</a></li>
+                            {{-- <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('contact-Us') }}">Contact Us</a></li> --}}
                         </ul>
                     </div>
 
                     <div class="">
                         <h4 class="lg:pt-8 capitalize font-semibold font_inter text-[18px] 2xl:text-xl pb-5 text-white">Services</h4>
                         <ul class="font_inter flex flex-col gap-1">
-                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('about-us') }}">About</a></li>
-                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('careers') }}">Careers</a></li>
-                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('faq') }}">Faq</a></li>
-                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('teams') }}">Teams</a></li>
-                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('contact-Us') }}">Contact Us</a></li>
+                            @foreach ($serviceCategories as $serviceCategory)
+                                <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg capitalize lg:whitespace-nowrap" href="{{ url('services') }}">{!!$serviceCategory->title!!}</a></li>
+                            @endforeach
                         </ul>
                     </div>
 
                     <div class="">
                         <h4 class="lg:pt-8 capitalize font-semibold font_inter text-[18px] 2xl:text-xl pb-5 text-white">Useful links</h4>
                         <ul class="font_inter flex flex-col gap-1">
-                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('about-us') }}">About</a></li>
+                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('terms-and-conditions') }}">Terms & Conditions</a></li>
+                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('privacy-policy') }}">Privacy Policy</a></li>
                             <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('careers') }}">Careers</a></li>
-                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('faq') }}">Faq</a></li>
-                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('teams') }}">Teams</a></li>
-                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('contact-Us') }}">Contact Us</a></li>
+                            {{-- <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('teams') }}">Blogs</a></li> --}}
+                            <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('blogs') }}">Blogs Us</a></li>
                         </ul>
                     </div>
                 </div>
@@ -136,13 +134,13 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
             </div>
             <div class="flex items-center flex-col md:flex-row lg:justify-around pt-6">
                 <div>
-                    <span class="text-white font_jakartafoot font-normal text-xs opacity-80">© K-graph  2025 | All Rights Reserved</span>
+                    <span class="text-white font_jakartafoot font-normal text-xs opacity-80">© 2024 - K-graph Canadian Immigration Services.</span>
                 </div>
 
                 <div class="flex items-center gap-6  opacity-80">
-                    <div><a class="text-white font_jakartafoot font-normal text-xs" href="#">Trams & Condition</a></div>
-                    <div><a class="text-white font_jakartafoot font-normal text-xs" href="#">Privacy Policy</a></div>
-                    <div><a class="text-white font_jakartafoot font-normal text-xs" href="#">Contact Us</a></div>
+                    <div><a class="text-white font_jakartafoot font-normal text-xs" href="{{ url('terms-and-conditions') }}">Trams & Condition</a></div>
+                    <div><a class="text-white font_jakartafoot font-normal text-xs" href="{{ url('privacy-policy') }}">Privacy Policy</a></div>
+                    <div><a class="text-white font_jakartafoot font-normal text-xs" href="{{ url('contact-us') }}">Contact Us</a></div>
                 </div>
             </div>
         </div>
@@ -150,12 +148,12 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
 </footer>
 
 <script>
-    // gsap.to("#earth", {
-    //     rotation: 360, // Rotate 360 degrees
-    //     duration: 60,  // Animation duration (20 seconds for a smooth spin)
-    //     repeat: -1,    // Infinite rotation
-    //     ease: "linear" // Linear easing for constant speed
-    // });
+    const links = document.querySelectorAll('.arrow-comig');
+
+    // Loop through each element and modify the text
+    links.forEach(link => {
+    link.textContent = link.textContent.charAt(0).toUpperCase() + link.textContent.slice(1).toLowerCase();
+    });
 </script>
 
 <script src="{{ asset('admin/theme/assets/libs/jquery/jquery.min.js') }}"></script>
