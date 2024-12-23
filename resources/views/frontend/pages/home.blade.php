@@ -804,7 +804,7 @@
                                 </div>
 
                                 <!-- Text Content -->
-                                <div class="bg-[#11316595] px-5 rounded-md pb-1 lg:bg-none lg:px-0 lg:rounded-none lg:pb-0">
+                                <div class="bg-[#11316595] px-5 rounded-md pb-1 lg:bg-transparent lg:px-0 lg:rounded-none lg:pb-0">
                                     <p class="text-[12px] lg:text-lg font-bold">{{$home->journey_video_name}}</p>
                                     <p class="text-[12px] lg:text-sm">{{$home->journey_video_position}}</p>
                                 </div>
@@ -1513,6 +1513,27 @@
                 playIcon.style.display = 'block'; // Show the play icon when paused
             }
         }
+        document.addEventListener('DOMContentLoaded', () => {
+            const videos = document.querySelectorAll('.autoplay-video');
+
+            const toggleControls = () => {
+                const isLargeScreen = window.innerWidth >= 1024; // Adjust to match your `lg` breakpoint (e.g., 1024px)
+                videos.forEach((video) => {
+                    if (isLargeScreen) {
+                        video.removeAttribute('controls'); // Hide controls
+                    } else {
+                        video.setAttribute('controls', true); // Show controls
+                    }
+                });
+            };
+
+            // Toggle controls on page load
+            toggleControls();
+
+            // Add a resize event listener to toggle controls dynamically
+            window.addEventListener('resize', toggleControls);
+        });
+
 
         document.addEventListener('DOMContentLoaded', () => {
             // Check if the device is mobile
