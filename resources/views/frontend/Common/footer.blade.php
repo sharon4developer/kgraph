@@ -1,8 +1,8 @@
 <style>
     #news-letter-email-error {
         position: absolute;
-        bottom: -36px;
-        left: 14px;
+        bottom: 43px;
+        left: 127px;
     }
     .glow-effect{
         -webkit-box-shadow: 0px 25px 25px -15px rgba(255, 255, 255, 0.73);
@@ -122,7 +122,7 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                     </form>
                 </div>
 
-                <div class="lg:flex items-center gap-5">
+                <div class="lg:flex flex-col gap-2">
                     <div class="flex gap-5 items-center">
                         <div class="capitalize font-bold text-sm text-white font_inter">Subscribe</div>
                         <div class="flex items-center gap-4">
