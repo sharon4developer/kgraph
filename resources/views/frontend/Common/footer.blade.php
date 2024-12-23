@@ -20,6 +20,7 @@
     height: 2px; /* Thickness of the underline */
     bottom: 0;
     left: 0;
+    border-radius: 100%;
     background-color: #7B7E86; /* Underline color */
     transition: width 0.3s ease; /* Smooth animation */
     }.arrow-comig:hover{
@@ -43,12 +44,12 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
 
 <footer class="w-full bg-[#062357] footer-secpernt h-full relative overflow-hidden">
     <div class="absolute z-10 top-[-18%] lg:left-[45%] left-[15%] lg:top-[-20%] h-full w-full">
-        <img id="earth" src="{{asset('assets/home_Banner/earth.svg')}}" alt="" class="w-[850px] h-full object-contain opacity-50">
+        <img id="earth" src="{{asset('assets/home_Banner/earth.svg')}}" alt="" class="w-[1050px] h-full object-contain opacity-50">
     </div>
     <div class="relative w-full footer z-30 py-10">
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-4  lg:py-0 flex items-center">
             <div class="lg:w-1/2">
-                <div class="flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-10 pt-16">
+                <div class="flex flex-col lg:flex-row lg:items-center gap-5 lg:gap-10 pt-4">
                     <div class="flex items-center gap-5">
                         <img class="" src="{{ asset('assets/home_Banner/grouplogo.png') }}" alt="K-graph logo">
                     </div>
@@ -64,9 +65,9 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                     </div>
                 </div>
 
-                <div class="flex flex-col md:flex-row lg:items-center md:justify-center  lg:justify-start gap-10 lg:gap-36 py-16">
+                <div class="flex flex-col md:flex-row lg:items-center md:justify-center  lg:justify-start gap-10 lg:gap-36 py-8">
                     <div class="">
-                        <h4 class="lg:pt-8 capitalize font_roboto font-semibold font_inter text-[18px] 2xl:text-xl pb-5 text-white">Company</h4>
+                        <h4 class="lg:pt-4 capitalize font_roboto font-semibold font_inter text-[18px] 2xl:text-xl pb-5 text-white">Company</h4>
                         <ul class="font_inter flex flex-col gap-1">
                             <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('about-us') }}">About</a></li>
                             <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('careers') }}">Careers</a></li>
@@ -77,7 +78,7 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                     </div>
 
                     <div class="">
-                        <h4 class="lg:pt-8 capitalize font-semibold font_inter text-[18px] 2xl:text-xl pb-5 text-white">Services</h4>
+                        <h4 class="lg:pt-4 capitalize font-semibold font_inter text-[18px] 2xl:text-xl pb-5 text-white">Services</h4>
                         <ul class="font_inter flex flex-col gap-1">
                             @foreach ($serviceCategories as $serviceCategory)
                                 <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg capitalize lg:whitespace-nowrap" href="{{ url('services') }}">{!!$serviceCategory->title!!}</a></li>
@@ -86,7 +87,7 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                     </div>
 
                     <div class="">
-                        <h4 class="lg:pt-8 capitalize font-semibold font_inter text-[18px] 2xl:text-xl pb-5 text-white">Useful links</h4>
+                        <h4 class="lg:pt-4 capitalize font-semibold font_inter text-[18px] 2xl:text-xl pb-5 text-white">Useful links</h4>
                         <ul class="font_inter flex flex-col gap-1">
                             <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('terms-and-conditions') }}">Terms & Conditions</a></li>
                             <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('privacy-policy') }}">Privacy Policy</a></li>
@@ -149,8 +150,6 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
 
 <script>
     const links = document.querySelectorAll('.arrow-comig');
-
-    // Loop through each element and modify the text
     links.forEach(link => {
     link.textContent = link.textContent.charAt(0).toUpperCase() + link.textContent.slice(1).toLowerCase();
     });
