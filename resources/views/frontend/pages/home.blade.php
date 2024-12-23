@@ -308,8 +308,10 @@
         .video-imagepos{
             transition: all 2s;
         }
-        .video-grade:hover .video-imagepos{
-            transform: scale(1.2);
+        @media (min-width: 768px){
+            .video-grade:hover .video-imagepos{
+                transform: scale(1.2);
+            }
         }
         .bg-grade-testimonial{
             background: linear-gradient(57.95deg, #060B12 -23.39%, #001533 65.33%);
@@ -773,16 +775,23 @@
 
                         <div class="w-full flex justify-center items-center rounded-lg overflow-hidden mt-6 relative group video-grade">
                             <!-- <img src="@if (isset($home)) {{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $home->journey_image1 }} @endif" alt="@if (isset($home)) {{ $home->journey_image1_alt_tag }} @endif" style="object-position: 0px 0px;" class="w-full h-[400px] object-cover video-imagepos"> -->
-                            <video  class="w-full h-[400px] object-cover object-center video-imagepos"  style="object-position: 0px 0px;" loop playsinline>
+                            <video
+                                class="w-full h-full lg:h-[400px] object-cover object-center video-imagepos autoplay-video"
+                                style="object-position: 0px 0px;"
+                                playsinline
+                                muted
+                                controls
+                            >
                                 @if (isset($home))
                                     <source src="{{ $locationData['storage_server_path'].$locationData['storage_video_path'].$home->journey_video }}">
                                 @endif
                             </video>
+                        
 
-                            <div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#113165] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            <div class="absolute bottom-4 left-4 flex items-center space-x-2 text-white">
+                            <div class="hidden lg:block absolute inset-0 bg-gradient-to-b from-transparent to-[#113165] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div class="absolute bottom-8 lg:bottom-4 left-4 flex items-center space-x-2 text-white">
                                 <!-- Play Icon -->
-                                <div onclick="togglePlay(this)" class="cursor-pointer">
+                                <div onclick="togglePlay(this)" class="cursor-pointer hidden lg:block">
                                     <svg width="78" height="78" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="38.6475" cy="38.6475" r="38.6475" fill="white" fill-opacity="0.5"/>
                                         <mask id="mask0_1460_3580" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="23" y="24" width="30" height="30">
@@ -795,9 +804,9 @@
                                 </div>
 
                                 <!-- Text Content -->
-                                <div>
-                                    <p class="text-lg font-bold">{{$home->journey_video_name}}</p>
-                                    <p class="text-sm">{{$home->journey_video_position}}</p>
+                                <div class="bg-[#11316595] px-5 rounded-md pb-1 lg:bg-transparent lg:px-0 lg:rounded-none lg:pb-0">
+                                    <p class="text-[12px] lg:text-lg font-bold">{{$home->journey_video_name}}</p>
+                                    <p class="text-[12px] lg:text-sm">{{$home->journey_video_position}}</p>
                                 </div>
                             </div>
                         </div>
@@ -1387,10 +1396,6 @@
             scaleSecondSlide(exploreSplide);
         });
 
-
-
-
-
         document.addEventListener('DOMContentLoaded', function () {
             const splide = new Splide('#serviceCarousel', {
                 type: 'slide',
@@ -1495,6 +1500,7 @@
     </script>
 
     <script>
+
         function togglePlay(button) {
             const video = button.closest('.video-grade').querySelector('video'); // Select the video element
             const playIcon = button.querySelector('.play-icon'); // Select the play icon
@@ -1507,6 +1513,65 @@
                 playIcon.style.display = 'block'; // Show the play icon when paused
             }
         }
+        document.addEventListener('DOMContentLoaded', () => {
+            const videos = document.querySelectorAll('.autoplay-video');
+
+            const toggleControls = () => {
+                const isLargeScreen = window.innerWidth >= 1024; // Adjust to match your `lg` breakpoint (e.g., 1024px)
+                videos.forEach((video) => {
+                    if (isLargeScreen) {
+                        video.removeAttribute('controls'); // Hide controls
+                    } else {
+                        video.setAttribute('controls', true); // Show controls
+                    }
+                });
+            };
+
+            // Toggle controls on page load
+            toggleControls();
+
+            // Add a resize event listener to toggle controls dynamically
+            window.addEventListener('resize', toggleControls);
+        });
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Check if the device is mobile
+            const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+
+            if (isMobile) {
+                // Select all videos with the autoplay-video class
+                const videos = document.querySelectorAll('.autoplay-video');
+
+                const observer = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            const video = entry.target;
+
+                            if (entry.isIntersecting) {
+                                // Video is in view, play it
+                                if (video.paused) {
+                                    video.play();
+                                }
+                            } else {
+                                // Video is out of view, pause it
+                                if (!video.paused) {
+                                    video.pause();
+                                }
+                            }
+                        });
+                    },
+                    {
+                        root: null, // Use the viewport as the root
+                        threshold: 0.5, // Trigger when at least 50% of the video is visible
+                    }
+                );
+
+                // Observe each video element
+                videos.forEach((video) => observer.observe(video));
+            }
+        });
+
     </script>
 
     {{-- gsap animtion --}}
