@@ -142,7 +142,7 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                     </div>
     
                     <div class="flex items-center gap-6  opacity-80">
-                        <div><a class="text-white font_jakartafoot font-normal text-xs" href="{{ url('terms-and-conditions') }}">Trams & Condition</a></div>
+                        <div><a class="text-white font_jakartafoot font-normal text-xs" href="{{ url('terms-and-conditions') }}">Terms and conditions</a></div>
                         <div><a class="text-white font_jakartafoot font-normal text-xs" href="{{ url('privacy-policy') }}">Privacy Policy</a></div>
                         <div><a class="text-white font_jakartafoot font-normal text-xs" href="{{ url('contact-us') }}">Contact Us</a></div>
                     </div>
