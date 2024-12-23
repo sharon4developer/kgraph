@@ -30,7 +30,7 @@ class EligibilityCheck extends Model
     {
 
         $value = self::select(
-            'first_name', 'last_name', 'email', 'mobile','id'
+            'first_name', 'last_name', 'email', 'mobile','id','created_at'
         )->orderBy('created_at', 'desc');
 
         return DataTables::of($value)
