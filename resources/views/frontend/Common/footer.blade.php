@@ -42,6 +42,16 @@
             background-size: 800px;
         }
     }
+    @media (min-width: 1800px){
+    	.globebg{
+            background-size: 1000px;
+        }
+    }
+    @media (min-width: 1989px){
+    	.globebg{
+            background-size: 1345px;
+        }
+    }
 </style>
 
 <?php

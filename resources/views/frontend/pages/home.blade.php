@@ -568,7 +568,7 @@
     <div class="bg-[#051b3b]">
         {{--our services --}}
         <div class="ourservices rounded-b-[35px] lg:rounded-b-[153px] relative pt-14 pb-6 lg:py-0">
-            <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full relative z-10">
+            <div class="container mx-auto px-5 xl:px-12 lg:pt-16 lg:pb-0 h-full w-full relative z-10">
                 <div class="rounded-lg bgk-grade overflow-hidden mb-10  relative">
                     <div class="py-8 px-8 relative z-10">
                         <div class="flex flex-col lg:flex-row justify-between items-center relative overflow-hidden">
@@ -1345,7 +1345,7 @@
             // Initialize Splide
             const exploreSplide = new Splide('#exploreSplide', {
                 type: 'slide', // Continuous loop
-                perPage: 5, // Default for larger screens
+                perPage: 4.1, // Default for larger screens
                 perMove: 1, // Move one slide at a time
                 gap: '1rem', // Space between slides
                 autoplay: true,
