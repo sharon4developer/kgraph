@@ -17,11 +17,11 @@ class Package extends Model
     protected $fillable = ['country', 'description', 'image', 'intervention_image', 'status','order','title','alt_tag','slug'];
 
     public function PackagePoint(){
-        return  $this->hasMany(PackagePoint::class);
+        return  $this->hasMany(PackagePoint::class)->orderBy('order', 'asc');
     }
 
     public function PackageFaq(){
-        return  $this->hasMany(PackageFaq::class);
+        return  $this->hasMany(PackageFaq::class)->orderBy('order', 'asc');
     }
 
     public function Seo(){
