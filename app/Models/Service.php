@@ -17,15 +17,15 @@ class Service extends Model
     protected $fillable = ['title', 'sub_title', 'image', 'intervention_image', 'status','order','alt_tag','slug','service_category_id','inner_title','banner_image','banner_image_alt_tag'];
 
     public function ServicePoint(){
-        return  $this->hasMany(ServicePoint::class);
+        return  $this->hasMany(ServicePoint::class)->orderBy('order', 'asc');
     }
 
     public function ServiceFaq(){
-        return  $this->hasMany(ServiceFaq::class);
+        return  $this->hasMany(ServiceFaq::class)->orderBy('order', 'asc');
     }
 
     public function SubService(){
-        return  $this->hasMany(SubServices::class);
+        return  $this->hasMany(SubServices::class)->orderBy('order', 'asc');
     }
 
     public function ServiceCategory(){

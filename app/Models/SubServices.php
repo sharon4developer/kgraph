@@ -17,11 +17,11 @@ class SubServices extends Model
     protected $fillable = ['title', 'sub_title', 'image', 'intervention_image', 'status','order','alt_tag','slug','service_id','inner_title','banner_image','banner_image_alt_tag'];
 
     public function ServicePoint(){
-        return  $this->hasMany(SubServicesPoint::class,'sub_service_id');
+        return  $this->hasMany(SubServicesPoint::class,'sub_service_id')->orderBy('order', 'asc');
     }
 
     public function ServiceFaq(){
-        return  $this->hasMany(SubServicesFaq::class,'sub_service_id');
+        return  $this->hasMany(SubServicesFaq::class,'sub_service_id')->orderBy('order', 'asc');
     }
 
     public function Services(){
