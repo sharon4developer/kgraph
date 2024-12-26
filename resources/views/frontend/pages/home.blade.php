@@ -1501,76 +1501,78 @@
 
     <script>
 
-        function togglePlay(button) {
-            const video = button.closest('.video-grade').querySelector('video'); // Select the video element
-            const playIcon = button.querySelector('.play-icon'); // Select the play icon
+            function togglePlay(button) {
+                const video = button.closest('.video-grade').querySelector('video'); // Select the video element
+                const playIcon = button.querySelector('.play-icon'); // Select the play icon
 
-            if (video.paused) {
-                video.play(); // Play the video
-                playIcon.style.display = 'none'; // Hide the play icon when playing
-            } else {
-                video.pause(); // Pause the video
-                playIcon.style.display = 'block'; // Show the play icon when paused
-            }
-        }
-        document.addEventListener('DOMContentLoaded', () => {
-            const videos = document.querySelectorAll('.autoplay-video');
+                // Check if the screen width is larger than 1024px
+                const isLargeScreen = window.innerWidth >= 1024;
 
-            const toggleControls = () => {
-                const isLargeScreen = window.innerWidth >= 1024; // Adjust to match your `lg` breakpoint (e.g., 1024px)
-                videos.forEach((video) => {
+                if (video.paused) {
                     if (isLargeScreen) {
-                        video.removeAttribute('controls'); // Hide controls
-                    } else {
-                        video.setAttribute('controls', true); // Show controls
+                        video.muted = false; // Unmute the video for large screens
                     }
-                });
-            };
+                    video.play(); // Play the video
+                    if (playIcon) playIcon.style.display = 'none'; // Hide the play icon when playing
+                } else {
+                    video.pause(); // Pause the video
+                    if (playIcon) playIcon.style.display = 'block'; // Show the play icon when paused
+                }
+            }
 
-            // Toggle controls on page load
-            toggleControls();
-
-            // Add a resize event listener to toggle controls dynamically
-            window.addEventListener('resize', toggleControls);
-        });
-
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // Check if the device is mobile
-            const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-
-            if (isMobile) {
-                // Select all videos with the autoplay-video class
+            document.addEventListener('DOMContentLoaded', () => {
                 const videos = document.querySelectorAll('.autoplay-video');
 
-                const observer = new IntersectionObserver(
-                    (entries) => {
-                        entries.forEach((entry) => {
-                            const video = entry.target;
+                const toggleControls = () => {
+                    const isLargeScreen = window.innerWidth >= 1024; // Adjust to match your `lg` breakpoint (e.g., 1024px)
+                    videos.forEach((video) => {
+                        if (isLargeScreen) {
+                            video.removeAttribute('controls'); // Hide controls
+                        } else {
+                            video.setAttribute('controls', true); // Show controls
+                        }
+                    });
+                };
 
-                            if (entry.isIntersecting) {
-                                // Video is in view, play it
-                                if (video.paused) {
-                                    video.play();
-                                }
-                            } else {
-                                // Video is out of view, pause it
-                                if (!video.paused) {
-                                    video.pause();
-                                }
-                            }
-                        });
-                    },
-                    {
-                        root: null, // Use the viewport as the root
-                        threshold: 0.5, // Trigger when at least 50% of the video is visible
-                    }
-                );
+                // Toggle controls on page load
+                toggleControls();
 
-                // Observe each video element
-                videos.forEach((video) => observer.observe(video));
-            }
-        });
+                // Add a resize event listener to toggle controls dynamically
+                window.addEventListener('resize', toggleControls);
+            });
+
+            document.addEventListener('DOMContentLoaded', () => {
+                // Check if the device is mobile
+                const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+
+                if (isMobile) {
+                    const videos = document.querySelectorAll('.autoplay-video');
+
+                    const observer = new IntersectionObserver(
+                        (entries) => {
+                            entries.forEach((entry) => {
+                                const video = entry.target;
+
+                                if (entry.isIntersecting) {
+                                    if (video.paused) {
+                                        video.play();
+                                    }
+                                } else {
+                                    if (!video.paused) {
+                                        video.pause();
+                                    }
+                                }
+                            });
+                        },
+                        {
+                            root: null,
+                            threshold: 0.5, // Trigger when at least 50% of the video is visible
+                        }
+                    );
+
+                    videos.forEach((video) => observer.observe(video));
+                }
+            });
 
     </script>
 

@@ -25,7 +25,7 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                         </ul>
                     </div>
 
-                    <div class="flex flex-col 2xl:flex-row lg:items-center gap-5">
+                    <div class="flex flex-col 2xl:flex-row 2xl:items-center gap-5">
                         <div class="flex items-center gap-3 mr-[5px]">
                             <img class="w-[60px]" src="{{ asset('assets/bluenooneedvisa.png') }}" alt="visa no need">
                             <div class="text-lg font_jakartafoot font-semibold font_roboto text-white">Need any support fortour and visa?</div>
