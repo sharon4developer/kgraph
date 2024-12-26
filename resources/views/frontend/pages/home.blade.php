@@ -1044,8 +1044,8 @@
             </div>
             <div class="mt-8 faq-parent lg:px-[10%]">
                 @foreach ($faqs as $data)
-                    <div class="accordion bg-white rounded-2xl h-fit p-6">
-                        <div class="accordion-header flex justify-between items-center cursor-pointer">
+                    <div class="accordion bg-white rounded-2xl my-3 lg:my-0 h-fit p-6">
+                        <div class="accordion-header flex justify-between items-center  cursor-pointer">
                             <h6>{{ $data->title }}</h6>
                             <div class="icon">
                                 <!-- Collapsed Icon -->

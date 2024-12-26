@@ -79,40 +79,44 @@
 
     @include('frontend.Common.whatsapplogo')
 
-    <div class="blog-detail">
-        <div class="container mx-auto px-5 lg:px-32 2xl:px-48 mt-[10%]">
-            <div class="pt-10 blog__content">
-                <div class="flex items-center justify-center flex-col">
+    <div class="blog-detail overflow-hidden relative">
+        <div class="container mx-auto px-5 lg:px-32 2xl:px-48 mt-[5%] relative z-10">
+            <div class="pt-5 blog__content">
+                
+                <!-- Dynamic Main Image -->
+                <div class="pb-10 z-20 relative">
+                    <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $blog->image }}"
+                    class="w-full h-full object-cover rounded-sm" alt="{{ $blog->alt_tag }}">
+                </div>
+                
+                <img class="absolute left-[-30%] top-[30%]" src="{{asset('assets/Group.png')}}" alt="">
+                
+                <div class="flex flex-col z-20 relative">
                     <!-- Dynamic Blog Title -->
-                    <h1 class="text-6xl font-bold pb-6 w-[95%] text-center">{{ $blog->title }}</h1>
+                    <h1 class="text-6xl font-bold pb-3">{{ $blog->title }}</h1>
 
                     <!-- Dynamic Meta Information (Date) -->
-                    <div class="meta-info">
+                    <div class="">
                         <?php $date = $blog->date . ' ' . $blog->time; ?>
                         <span class="date">{{ date('M j, Y h:i:s A', strtotime($date)) }}</span>
                     </div>
                 </div>
 
-                <!-- Dynamic Main Image -->
-                <div class="py-10">
-                    <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $blog->image }}"
-                        class="w-full h-full object-cover rounded-sm" alt="{{ $blog->alt_tag }}">
-                </div>
-
                 <!-- Dynamic Blog Content (Heading and Paragraphs) -->
-                <div class="blog-content">
+                <div class="blog-content z-20 relative">
                     <!-- Dynamic Section Heading -->
-                    <h2 class="text-2xl font-bold mt-8">{{ $blog->name }}</h2>
+                    {{-- <h2 class="text-2xl font-bold mt-8">{{ $blog->name }}</h2> --}}
 
                     <!-- Dynamic Section Content -->
-                    <p class="text-lg text-gray-700 mt-4">{!! $blog->description !!}</p>
+                    <p class="text-lg text-gray-700 mt-4 leading-[29.6px]">{!! $blog->description !!}</p>
                 </div>
 
                 <!-- Footer Section or Additional Links -->
-                <div class="flex justify-end items-center pt-8 pb-2">
+                {{-- <div class="flex justify-end items-center pt-8 pb-2">
                     <a class="capitalize text-[#062358] underline font-bold font_inter text-lg" href="">Share</a>
-                </div>
+                </div> --}}
             </div>
         </div>
+        <img class="absolute right-[-35%] bottom-[-25%]" src="{{asset('assets/Group.png')}}" alt="">
     </div>
 @endsection
