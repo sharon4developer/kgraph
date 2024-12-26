@@ -63,7 +63,7 @@
         <div class="email-content">
             <!-- Header Image -->
             <div class="header-image">
-                <img src="{{ asset('assets/KgraphLogo.png') }}" alt="New Contact Message">
+                <img src="{{asset('assets/KgraphLogo.png')}}" alt="New Contact Message">
             </div>
             <!-- Content -->
             <div class="content">
