@@ -86,7 +86,7 @@
 
 </style>
 <div class="b-backgroun-nav z-50 w-full">
-    <?php use App\Models\ServiceCategory; $navbarServiceCategories = ServiceCategory::with(['Service:id,slug,title,service_category_id','Service.SubService:id,slug,title,service_id'])->select('image','id','title','alt_tag','slug','sub_title')->orderBy('order','asc')->where('status',1)->get();?>
+    <?php use App\Models\ServiceCategory; $navbarServiceCategories = ServiceCategory::with(['Service:id,slug,title,service_category_id,status','Service.SubService:id,slug,title,service_id,status'])->select('image','id','title','alt_tag','slug','sub_title')->orderBy('order','asc')->where('status',1)->get();?>
 
 
 
@@ -133,6 +133,7 @@
                                         @if(count($navbarServiceCategory->Service))
                                         <ul class="submenu hidden">
                                             @foreach ($navbarServiceCategory->Service as $innerServices)
+                                            @if($innerServices->status ==1)
                                             <li class="submenu-item">
                                                 <div class="accordion-header">
                                                     <a href="{{url('service-details/'.$innerServices->slug)}}">{{$innerServices->title}}</a>
@@ -147,13 +148,16 @@
                                                 @if(count($innerServices->SubService))
                                                 <ul class="submenu hidden">
                                                     @foreach ($innerServices->SubService as $innerSubServices)
+                                                    @if($innerSubServices->status ==1)
                                                     <li class="submenu-item">
                                                         <a class="pb-3 block" href="{{url('sub-service-details/'.$innerSubServices->slug)}}">{{$innerSubServices->title}}</a>
                                                     </li>
+                                                    @endif
                                                     @endforeach
                                                 </ul>
                                                 @endif
                                             </li>
+                                            @endif
                                             @endforeach
                                         </ul>
                                         @endif
@@ -177,12 +181,12 @@
                     </div>
                 </nav>
             </div>
-            
-            
-            
-            
-            
-            
+
+
+
+
+
+
 
 
             <button id="menuButton" class="lg:hidden">
@@ -203,17 +207,21 @@
                                 @if(count($navbarServiceCategory->Service))
                                 <ul class=" bg-white hidden absolute left-[95%] rounded-[18px] top-0 z-50 shadow-md transition-[height] duration-300 opacity-0">
                                     @foreach ($navbarServiceCategory->Service as $innerServices)
+                                    @if($innerServices->status ==1)
                                     <li class="nav-item nav-link-for @if(count($innerServices->SubService)) relative @endif">
                                         <a class="text-blue-700 font_inter font-semibold text-[15px]" href="{{url('service-details/'.$innerServices->slug)}}">{{$innerServices->title}}</a>
                                         <!-- Sub-submenu for PNP -->
                                         @if(count($innerServices->SubService))
                                         <ul class="sub-mnu-pnrt bg-white hidden absolute rounded-[18px] left-[95%] top-0 z-50 shadow-md transition-[height] duration-300 opacity-0">
                                             @foreach ($innerServices->SubService as $innerSubServices)
+                                            @if($innerSubServices->status ==1)
                                             <li class="nav-item nav-link-for !my-[1px]"><a class=" text-blue-700 font_inter font-semibold text-[15px]" href="{{url('sub-service-details/'.$innerSubServices->slug)}}">{{$innerSubServices->title}}</a></li>
+                                            @endif
                                             @endforeach
                                         </ul>
                                         @endif
                                     </li>
+                                    @endif
                                     @endforeach
                                 </ul>
                                 @endif
@@ -279,11 +287,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 const icon = document.createElement('span');
                 if (item.closest('ul').classList.contains('flex')) {
                     // Add down arrow for top-level menu
-                    icon.innerHTML = '<svg width="10" height="6" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L7 7L13 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'; 
+                    icon.innerHTML = '<svg width="10" height="6" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 1L7 7L13 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
                     icon.classList.add('submenu-icon', 'ml-2', 'text-gray-500','inline-block');
                 } else {
                     // Add right arrow for submenu
-                    icon.innerHTML = '<svg width="6" height="10" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 13L7 7L1 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>'; 
+                    icon.innerHTML = '<svg width="6" height="10" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1 13L7 7L1 1" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
                     icon.classList.add('submenu-icon', 'ml-6', 'text-gray-500','inline-block');
                 }
 
