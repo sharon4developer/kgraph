@@ -12,7 +12,7 @@
     <!-- Icons Css -->
     <link href="{{ asset('admin/theme/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="{{ asset('admin/theme/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
+    {{-- <link href="{{ asset('admin/theme/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" /> --}}
     <link href="{{ asset('common/theme/css/alertify.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('common/theme/css/common.css') }}" rel="stylesheet" type="text/css" />
     @include('frontend.Common.whatsapplogo')

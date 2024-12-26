@@ -1,6 +1,34 @@
 $(document).ready(function () {
 
     loadDataTableForContact();
+
+    if(document.getElementById('contact-details-table')){
+
+        Sortable.create(document.getElementById('contact-details-table').getElementsByTagName('tbody')[0], {
+            onEnd: function (event) {
+                // Get the new order of the rows
+                var newOrder = [];
+                $('#contact-details-table tbody tr').each(function () {
+                    newOrder.push(table.row(this).data());
+                });
+
+                // Pass the new order to the backend (e.g., using AJAX)
+                $.ajax({
+                    url: $('#route-for-user').val() + '/contact/update/order', // Replace with your Laravel route URL
+                    method: 'POST',
+                    data: {
+                        order: newOrder
+                    },
+                    success: function (response) {
+                        table.ajax.reload(null, false);
+                    },
+                    error: function (xhr) {
+                        // Handle error response
+                    }
+                });
+            }
+        });
+    }
 });
 
 function loadDataTableForContact() {
@@ -23,6 +51,17 @@ function loadDataTableForContact() {
                     false,
                 searchable: false
             },
+            {
+                data: null,
+                render: function (row) {
+                    return (`<div style="white-space:no-wrap">
+                                    <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light" href="#"   data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Delete" data-bs-placement="top"   onclick="deleteData(`+ row.id + `)">
+                                         <i class="fa fa-trash"></i>
+                                    </a>
+                                 </div>`);
+
+                }, orderable: false, searchable: false
+            },
         ],
         pagingType: "full_numbers",
         "dom": "<'dt--top-section'<'row'<'col-12 col-sm-6 d-flex justify-content-sm-start justify-content-center'l><'col-12 col-sm-6 d-flex justify-content-sm-end justify-content-center mt-sm-0 mt-3'f>>>" +
@@ -36,5 +75,36 @@ function loadDataTableForContact() {
             "sLengthMenu": "Results :  _MENU_",
         },
         "stripeClasses": [],
+        lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
     });
+}
+
+function deleteData(id) {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "Are you sure, do yo want to delete the contact ?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type: "DELETE",
+                url: $("#route-for-user").val() + '/contact/' + id,
+                data: {
+                    id: id,
+                },
+                success: function (data) {
+                    table.ajax.reload(null, false);
+                    if (data == true)
+                        showMessage('success', "Contact deleted successfully");
+                },
+                error: function (data) {
+                    showMessage("warning", "Something went wrong...");
+                },
+            });
+        }
+    })
 }

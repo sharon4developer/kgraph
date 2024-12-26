@@ -413,7 +413,7 @@
 
         .award_certificates_s .splide__pagination {
             justify-content: end;
-            margin-top: -5px; 
+            margin-top: -5px;
             margin-left: 20px;
         } */
 
@@ -454,7 +454,7 @@
                 min-width: 180px;
                 width: 79vw;
             }
-        } 
+        }
 
 
         @media(min-width:576px) {
@@ -480,7 +480,7 @@
                 max-width: 100%;
                 object-fit: cover;
             }
-        } 
+        }
 
         #exploreSplide.splide__track {
             overflow: visible !important;
@@ -560,7 +560,7 @@
                 </div>
             </div>
         </div>
-        {{-- @include('frontend.Common.modal-contact') --}}
+        @include('frontend.Common.modal-contact')
     </div>
     {{-- @include('frontend.Common.whatsapplogo') --}}
 
@@ -786,7 +786,7 @@
                                     <source src="{{ $locationData['storage_server_path'].$locationData['storage_video_path'].$home->journey_video }}">
                                 @endif
                             </video>
-                        
+
 
                             <div class="hidden lg:block absolute inset-0 bg-gradient-to-b from-transparent to-[#113165] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                             <div class="absolute bottom-8 lg:bottom-4 left-4 flex items-center space-x-2 text-white">
@@ -1167,7 +1167,7 @@
 
             requestAnimationFrame(count);
         }
-        
+
         function animateCountUp(element, start, end, duration) {
             const range = end - start;
             const increment = range / (duration / 16.67); // Approximate frames at 60fps

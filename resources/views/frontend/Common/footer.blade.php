@@ -15,7 +15,7 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                     <div class="flex items-center gap-5">
                         <img class="" src="{{ asset('assets/home_Banner/grouplogo.png') }}" alt="K-graph logo">
                     </div>
-    
+
                     <div class="">
                         <ul class="font_inter flex flex-col lg:flex-row lg:items-center gap-6">
                             <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('about-us') }}">About</a></li>
@@ -24,34 +24,34 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                             <li class=""><a class="arrow-comig font-light font_roboto text-white text-lg lg:text-xs 2xl:text-lg" href="{{ url('contact-us') }}">Contact us</a></li>
                         </ul>
                     </div>
-    
+
                     <div class="flex flex-col 2xl:flex-row lg:items-center gap-5">
                         <div class="flex items-center gap-3 mr-[5px]">
                             <img class="w-[60px]" src="{{ asset('assets/bluenooneedvisa.png') }}" alt="visa no need">
                             <div class="text-lg font_jakartafoot font-semibold font_roboto text-white">Need any support fortour and visa?</div>
                         </div>
-        
+
                         <div class="flex items-center gap-3">
                             <img class="w-[60px]" src="{{ asset('assets/bluetravelstarted.png') }}" alt="started travelling">
                             <div class="text-lg font_jakartafoot font-semibold font_roboto text-white">Are you ready forget started travelling?</div>
                         </div>
                     </div>
                 </div>
-    
+
                 <div class="w-full lg:w-1/2 2xl:w-[35%]">
                     <h6 class="font_inter text-[30px] lg:text-4xl font-semibold text-white">GET THE LATEST NEWS AND INSIGHTS</h6>
                     <p class="font_inter text-[14px] lg:text-base font-semibold lg:text-justify pt-8 capitalize pb-12 text-white">simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
-                    
-                    <div class="flex items-center gap-3 pt-10 md:pt-0"> 
+
+                    <div class="flex items-center gap-3 pt-10 md:pt-0">
                         <span class="capitalize font-bold text-sm text-white font_roboto hidden lg:block">Subscribe</span>
                         <form id="news-letter-add-form" class="relative">
                             <div class="bg-white rounded-[50px] flex items-center overflow-hidden glow-effect">
                                 <input type="email" class="min-w-[189px] w-[100vw] max-w-[245px] md:w-[280px] py-2 px-3 outline-none font_roboto" style="background: none;" name="news_letter_email" id="news-letter-email" placeholder="Enter your email Address">
-                                <button class="bg-black text-white rounded-[50px] font_roboto font-normal text-sm py-2 px-3 mx-[2px] block">Subscribe</button>
+                                <button type="submit" class="bg-black text-white rounded-[50px] font_roboto font-normal text-sm py-2 px-3 mx-[2px] block">Subscribe</button>
                             </div>
                         </form>
                     </div>
-    
+
                     <div class="flex gap-5 flex-col lg:items-center pt-10">
                         <div class="capitalize font-bold text-sm text-white font_inter">Subscribe</div>
                         <div class=" flex items-center gap-5">
@@ -65,13 +65,13 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                                 <img  class="w-auto h-[28px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/linkedinvector.png') }}" alt="linkedin">
                             </a>
                             <a href="https://www.youtube.com/@kgraphimmigration8686/featured" target="_blank" rel="noopener noreferrer">
-                                <img  class="w-auto h-[28px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/home_banner/youtubenew.png') }}" alt="youtube">
+                                <img  class="w-auto h-[28px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/home_Banner/youtubenew.png') }}" alt="youtube">
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-    
+
         </div>
     </div>
     <div class="bg-black">

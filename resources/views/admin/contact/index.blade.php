@@ -21,6 +21,7 @@
                                 <th>Mobile</th>
                                 <th>Message</th>
                                 <th>Date</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Mail\CareerApplication;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Mail;
 use Yajra\DataTables\Facades\DataTables;
 
 class AppliedCareer extends Model
@@ -12,7 +14,7 @@ class AppliedCareer extends Model
 
     protected $table = 'applied_careers';
 
-    protected $fillable = ['email','name','country_code','mobile','branch','department','message','resume','career_id'];
+    protected $fillable = ['email','name','country_code','mobile','branch','department','message','resume','career_id','order'];
 
     public function Branch(){
         return  $this->belongsTo(CareerBranch::class,'branch')->withTrashed();
@@ -30,7 +32,7 @@ class AppliedCareer extends Model
     {
         $locationData = getLocationData();
 
-        $value =  SELF::with(['Branch:id,title','Department:id,title'])->select('email', 'id', 'created_at','name','country_code','mobile','branch','department','message','resume','career_id')->orderBy('created_at', 'desc');
+        $value =  SELF::with(['Branch:id,title','Department:id,title'])->select('email', 'id', 'created_at','name','country_code','mobile','branch','department','message','resume','career_id')->orderBy('order', 'asc');
 
         return DataTables::of($value)
             ->addIndexColumn()
@@ -58,6 +60,8 @@ class AppliedCareer extends Model
 
     public static function saveCareer($data)
     {
+        $locationData = getLocationData();
+
         $value = new AppliedCareer;
         $value->name = $data->name;
         $value->email = $data->email;
@@ -75,11 +79,37 @@ class AppliedCareer extends Model
             $value->message = Cms::storeImage($data->message, $data->name);
         };
 
-        return $value->save();
+        $value->save();
+
+        $career = Career::find($data->job_id);
+        $jobName = $career ? $career->title : NULL;
+        $branch = CareerBranch::find($data->branch);
+        $branchName = $branch ? $branch->title : NULL;
+        $department = CareerDepartment::find($data->department);
+        $departmentName = $department ? $department->title : NULL;
+        $emailData = [
+            'name' => $data->name,
+            'email' => $data->email,
+            'mobile' => $data->country.' '.$data->mobile,
+            'branchName' => $branchName,
+            'departmentName' => $departmentName,
+            'jobName' => $jobName,
+            'resume' =>  isset($data->resume) ? $data->resume : NULL,
+            'message' =>  isset($data->message) ? $data->message : NULL,
+        ];
+
+        // Send email with resume as attachment
+        Mail::to($data->email)->send(new CareerApplication($emailData, $emailData['resume'],$emailData['message']));
+
+
+
+        return true;
     }
 
     public static function saveCareerNew($data)
     {
+        $locationData = getLocationData();
+
         $value = new AppliedCareer;
         $value->name = $data->name_n;
         $value->email = $data->email_n;
@@ -98,6 +128,50 @@ class AppliedCareer extends Model
             $value->message = Cms::storeImage($data->message_n, $data->name_n);
         };
 
-        return $value->save();
+        $value->save();
+
+        $career = Career::find($data->job_id);
+        $jobName = $career ? $career->title : NULL;
+        $branch = CareerBranch::find($data->branch_n);
+        $branchName = $branch ? $branch->title : NULL;
+        $department = CareerDepartment::find($data->department_n);
+        $departmentName = $department ? $department->title : NULL;
+        $emailData = [
+            'name' => $data->name_n,
+            'email' => $data->email_n,
+            'mobile' => $data->country_n.' '.$data->mobile_n,
+            'branchName' => $branchName,
+            'departmentName' => $departmentName,
+            'jobName' => $jobName,
+            'resume' =>  isset($data->resume_n) ? $data->resume_n : NULL,
+            'message' =>  isset($data->message_n) ? $data->message_n : NULL,
+        ];
+
+        // Send email with resume as attachment
+        Mail::to($data->email_n)->send(new CareerApplication($emailData, $emailData['resume'],$emailData['message']));
+
+        return true;
+    }
+
+    public static function deleteData($data)
+    {
+        $value = SELF::find($data->id);
+        if ($value) {
+            $value->delete();
+            return true;
+        } else
+            return false;
+    }
+
+    public static function updateOrder($data)
+    {
+        foreach ($data->order as $key => $value) {
+            $step = SELF::find($value['id']);
+            if ($step) {
+                $step->order = $key;
+                $step->save();
+            }
+        }
+        return true;
     }
 }

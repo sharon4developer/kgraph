@@ -192,7 +192,7 @@
                     <div class="flex flex-col">
                         <label for="mobile">Mobile Number<span>*</span></label>
                         <section class="flex items-center gap-2">
-                            <input class="w-[40px] inline-block text-center" type="text" name="country" id="country" value="" >
+                            <input class="w-[40px] inline-block text-center" type="text" name="country_live" id="country" value="" >
                             <input type="tel" class="w-full" id="mobile" name="mobile" placeholder="Enter your phone number" >
                         </section>
                     </div>
@@ -293,22 +293,22 @@
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                             <div>
                                 <label for="speaking" class="">Speaking<span>*</span></label>
-                                <input type="number" id="speaking" name="speaking" class="w-full" min="0" 
+                                <input type="number" id="speaking" name="speaking" class="w-full" min="0"
                                     oninput="this.value = this.value < 0 ? 0 : this.value">
                             </div>
                             <div>
                                 <label for="listening" class="">Listening<span>*</span></label>
-                                <input type="number" id="listening" name="listening" class="w-full" min="0" 
+                                <input type="number" id="listening" name="listening" class="w-full" min="0"
                                     oninput="this.value = this.value < 0 ? 0 : this.value">
                             </div>
                             <div>
                                 <label for="reading" class="">Reading<span>*</span></label>
-                                <input type="number" id="reading" name="reading" class="w-full" min="0" 
+                                <input type="number" id="reading" name="reading" class="w-full" min="0"
                                     oninput="this.value = this.value < 0 ? 0 : this.value">
                             </div>
                             <div>
                                 <label for="writing" class="">Writing<span>*</span></label>
-                                <input type="number" id="writing" name="writing" class="w-full" min="0" 
+                                <input type="number" id="writing" name="writing" class="w-full" min="0"
                                     oninput="this.value = this.value < 0 ? 0 : this.value">
                             </div>
                         </div>
@@ -413,7 +413,7 @@
             <div class=" bg-gradient-to-r from-black to-transparent ">
                 <div class="submit-btn container mx-auto px-5 lg:px-12 xl:px-32 h-full w-full">
                     <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[2%] mt-[-50px]">
-                        <button class="font_syne my-4 text-white border border-white rounded-full w-full lg:w-fit lg:px-16 py-2 text-[14px] lg:text-base  hover:bg-white hover:border-black hover:text-black ease-linear duration-300 font-bold" style="">SUBMIT</button>
+                        <button  type="submit"  class="font_syne my-4 text-white border border-white rounded-full w-full lg:w-fit lg:px-16 py-2 text-[14px] lg:text-base  hover:bg-white hover:border-black hover:text-black ease-linear duration-300 font-bold" style="">SUBMIT</button>
                     </div>
                 </div>
             </div>

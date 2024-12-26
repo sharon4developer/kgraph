@@ -18,6 +18,7 @@
                                 <th>SL No</th>
                                 <th>Email</th>
                                 <th>Date</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
