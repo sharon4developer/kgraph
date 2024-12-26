@@ -18,8 +18,8 @@
             <p style="color: #555555;"><strong>Name:</strong> {{ $contactData['name'] }}</p>
             <p style="color: #555555;"><strong>Email:</strong> {{ $contactData['email'] }}</p>
             <p style="color: #555555;"><strong>Mobile:</strong> {{ $contactData['mobile'] }}</p>
-            <p style="color: #555555;"><strong>Message:</strong></p>
-            <p style="color: #555555;">{{ $contactData['message'] }}</p>
+            @isset($contactData['message'])<p style="color: #555555;"><strong>Message:</strong></p>
+            <p style="color: #555555;">{{ $contactData['message'] }}</p>@endisset
             <div style="text-align: center; margin-top: 20px;">
                 <a href="{{ url('/') }}" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Visit Our Website</a>
             </div>
