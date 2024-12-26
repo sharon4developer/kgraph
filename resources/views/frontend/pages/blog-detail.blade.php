@@ -79,7 +79,7 @@
 
     @include('frontend.Common.whatsapplogo')
 
-    <div class="blog-detail">
+    <div class="blog-detail gradient-evition">
         <div class="container mx-auto px-5 lg:px-32 2xl:px-48 mt-[10%]">
             <div class="pt-10 blog__content">
                 <div class="flex items-center justify-center flex-col">
