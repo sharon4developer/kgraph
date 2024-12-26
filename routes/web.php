@@ -337,4 +337,24 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         Route::post('change/status', [BlogController::class, 'changeStatus'])->name('change-status');
         Route::post('update/order', [BlogController::class, 'changeOrder'])->name('update-order');
     });
+
+    Route::prefix('news-letter')->name('.news-letter')->group(function () {
+
+        Route::post('update/order', [AdminNewsLetterController::class, 'changeOrder'])->name('update-order');
+    });
+
+    Route::prefix('contact')->name('.contact')->group(function () {
+
+        Route::post('update/order', [ContactController::class, 'changeOrder'])->name('update-order');
+    });
+
+    Route::prefix('applied-career')->name('.applied-career')->group(function () {
+
+        Route::post('update/order', [AppliedCareerController::class, 'changeOrder'])->name('update-order');
+    });
+
+    Route::prefix('eligibility-check')->name('.eligibility-check')->group(function () {
+
+        Route::post('update/order', [EligibilityCheckController::class, 'changeOrder'])->name('update-order');
+    });
 });

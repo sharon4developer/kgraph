@@ -192,7 +192,7 @@
                     <div class="flex flex-col">
                         <label for="mobile">Mobile Number<span>*</span></label>
                         <section class="flex items-center gap-2">
-                            <input class="w-[40px] inline-block text-center" type="text" name="country" id="country" value="" >
+                            <input class="w-[40px] inline-block text-center" type="text" name="country_live" id="country" value="" >
                             <input type="tel" class="w-full" id="mobile" name="mobile" placeholder="Enter your phone number" >
                         </section>
                     </div>
@@ -293,22 +293,22 @@
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                             <div>
                                 <label for="speaking" class="">Speaking<span>*</span></label>
-                                <input type="number" id="speaking" name="speaking" class="w-full" min="0" 
+                                <input type="number" id="speaking" name="speaking" class="w-full" min="0"
                                     oninput="this.value = this.value < 0 ? 0 : this.value">
                             </div>
                             <div>
                                 <label for="listening" class="">Listening<span>*</span></label>
-                                <input type="number" id="listening" name="listening" class="w-full" min="0" 
+                                <input type="number" id="listening" name="listening" class="w-full" min="0"
                                     oninput="this.value = this.value < 0 ? 0 : this.value">
                             </div>
                             <div>
                                 <label for="reading" class="">Reading<span>*</span></label>
-                                <input type="number" id="reading" name="reading" class="w-full" min="0" 
+                                <input type="number" id="reading" name="reading" class="w-full" min="0"
                                     oninput="this.value = this.value < 0 ? 0 : this.value">
                             </div>
                             <div>
                                 <label for="writing" class="">Writing<span>*</span></label>
-                                <input type="number" id="writing" name="writing" class="w-full" min="0" 
+                                <input type="number" id="writing" name="writing" class="w-full" min="0"
                                     oninput="this.value = this.value < 0 ? 0 : this.value">
                             </div>
                         </div>

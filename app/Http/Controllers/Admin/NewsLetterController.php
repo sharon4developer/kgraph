@@ -24,4 +24,19 @@ class NewsLetterController extends Controller
         $data = NewsLetter::getFullData($request);
         return $data;
     }
+
+    public function destroy(Request $request)
+    {
+        $delete = NewsLetter::deleteData($request);
+        return response()->json($delete);
+    }
+
+    public function changeOrder(Request $request)
+    {
+        $newOrder = $request->input('order');
+
+        NewsLetter::updateOrder($request);
+
+        return response()->json(['message' => 'Order updated successfully']);
+    }
 }

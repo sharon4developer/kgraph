@@ -28,4 +28,19 @@ class EligibilityCheckController extends Controller
 
         return response()->json(['data'=>$data,'status'=>true]);
     }
+
+    public function destroy(Request $request)
+    {
+        $delete = EligibilityCheck::deleteData($request);
+        return response()->json($delete);
+    }
+
+    public function changeOrder(Request $request)
+    {
+        $newOrder = $request->input('order');
+
+        EligibilityCheck::updateOrder($request);
+
+        return response()->json(['message' => 'Order updated successfully']);
+    }
 }

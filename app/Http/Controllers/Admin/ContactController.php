@@ -24,4 +24,19 @@ class ContactController extends Controller
         $data = Contact::getFullData($request);
         return $data;
     }
+
+    public function destroy(Request $request)
+    {
+        $delete = Contact::deleteData($request);
+        return response()->json($delete);
+    }
+
+    public function changeOrder(Request $request)
+    {
+        $newOrder = $request->input('order');
+
+        Contact::updateOrder($request);
+
+        return response()->json(['message' => 'Order updated successfully']);
+    }
 }

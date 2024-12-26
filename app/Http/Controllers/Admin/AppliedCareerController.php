@@ -24,4 +24,19 @@ class AppliedCareerController extends Controller
         $data = AppliedCareer::getFullData($request);
         return $data;
     }
+
+    public function destroy(Request $request)
+    {
+        $delete = AppliedCareer::deleteData($request);
+        return response()->json($delete);
+    }
+
+    public function changeOrder(Request $request)
+    {
+        $newOrder = $request->input('order');
+
+        AppliedCareer::updateOrder($request);
+
+        return response()->json(['message' => 'Order updated successfully']);
+    }
 }
