@@ -10,8 +10,8 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
 <footer class="w-full footer-secpernt h-full relative overflow-hidden">
     <div class="globebg">
         <div class="relative w-full footer z-30 py-6 md:pt-10 md:pb-6 bg-[#062357B2]">
-            <div class="container mx-auto px-5 lg:px-12 h-full w-full py-4  lg:py-0 flex flex-col lg:flex-row justify-between gap-10 lg:gap-72 items-start">
-                <div class="w-full xl:w-[65%] flex flex-col gap-8 lg:gap-16">
+            <div class="container mx-auto px-5 lg:px-12 h-full w-full py-4  lg:py-0 flex flex-col lg:flex-row justify-between gap-10 lg:gap-52 2xl:gap-72 items-start">
+                <div class="w-full lg:w-1/2 2xl:w-[65%] flex flex-col gap-8 lg:gap-16">
                     <div class="flex items-center gap-5">
                         <img class="" src="{{ asset('assets/home_Banner/grouplogo.png') }}" alt="K-graph logo">
                     </div>
@@ -25,7 +25,7 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                         </ul>
                     </div>
     
-                    <div class="flex flex-col md:flex-row lg:items-center gap-5">
+                    <div class="flex flex-col 2xl:flex-row lg:items-center gap-5">
                         <div class="flex items-center gap-3 mr-[5px]">
                             <img class="w-[60px]" src="{{ asset('assets/bluenooneedvisa.png') }}" alt="visa no need">
                             <div class="text-lg font_jakartafoot font-semibold font_roboto text-white">Need any support fortour and visa?</div>
@@ -38,7 +38,7 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                     </div>
                 </div>
     
-                <div class="w-full xl:w-[35%]">
+                <div class="w-full lg:w-1/2 2xl:w-[35%]">
                     <h6 class="font_inter text-[30px] lg:text-4xl font-semibold text-white">GET THE LATEST NEWS AND INSIGHTS</h6>
                     <p class="font_inter text-[14px] lg:text-base font-semibold lg:text-justify pt-8 capitalize pb-12 text-white">simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
                     

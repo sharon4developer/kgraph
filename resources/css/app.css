@@ -75,7 +75,7 @@ right: -10px; /* Move it closer to the text */
 width: 100%; /* Expand the underline */
 }
 .globebg{
-    background-image: url(/assets/home_Banner/bannerCity.jpg) !important;
+    background-image: url(/public/assets/home_Banner/bannerCity.jpg) !important;
     /* background-repeat: no-repeat;
     background-position-x: right;
     background-size: 800px; */
