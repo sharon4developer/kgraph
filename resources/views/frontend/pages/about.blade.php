@@ -25,7 +25,7 @@
         top: -7px;
 
     } */
-    .slider-endballs::before{
+    /* .slider-endballs::before{
         content:"";
         position: absolute;
         background-color:#062358;
@@ -33,7 +33,7 @@
         height:15px;
         left: 0;
         top: -7px;
-    }
+    } */
     .page-item.active {
         background-color: #0085FF;
     }
@@ -217,36 +217,62 @@
         </div>
     </div>
 
-    <div class="pl-5 lg:pl-[9rem] xl:pl-16 2xl:pl-12 bigscreen-sizing py-8 xl:pt-16 top-height-adjust flex flex-col-reverse lg:flex-row overflow-x-hidden">
-        <div class="flex justify-end lg:justify-start items-center gap-3 pt-[5%] xl:pt-0 xl:mt-[-36px] 2xl:mt-0 2xl:pt-[3.5%] mr-4">
-            <div class="aboutprev bg-[#062358] rounded-full w-8 h-8 flex justify-center items-center text-white font-semibold cursor-pointer pb-[3.5px]"><</div>
-            <div class="aboutnext bg-[#062358] rounded-full w-8 h-8 flex justify-center items-center text-white font-semibold cursor-pointer pb-[3.5px]">></div>
-        </div>
-        <div id="aboutSplide" class="splide flex items-center w-[100vw] about-slider 2xl:pt-[4%] pt-[8%] xl:pt-0">
-            <div class="splide__track w-full">
-                <ul class="splide__list">
-                    @foreach ($ourStory as $data)
-                    <li class="splide__slide flex flex-col gap-4 w-[100vw]">
-                        <div class="flex items-end md:gap-10">
-                            <h5 class="pl-[45px] pt text-[#072558] font_inter font-semibold text-[10px] xl:text-[18px]">{{$data->year}}</h5>
-                            <div class="flex gap-2 md:gap-4 pl-[11%] pb-10 lg:pb-2 slider-image-parent">
-                                <img class="h-[90px] w-[100px] lg:h-[100px] lg:w-[150px] object-cover" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="{{$data->alt_tag}}">
-                                <img class="h-[90px] w-[100px] lg:h-[100px] lg:w-[150px] object-cover" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->second_image }}" alt="{{$data->second_alt_tag}}">
+    <div class="relative container mx-auto px-5 lg:px-12 py-12 lg:py-[120px] bg-[#F8FAFC] overflow-hidden">
+        <div class="relative h-full w-full flex items-center justify-between">
+            <!-- Previous Button -->
+            <div class="aboutprev bg-[#062358] rounded-full w-10 h-10 px-5 flex justify-center items-center text-white font-bold cursor-pointer shadow-md text-lg">‹</div>
+    
+            <!-- Splide Slider -->
+            <div id="newaboutSplide" class="splide flex items-center w-[79%] md:w-[90%] lg:w-[90%] xl:w-[94%]">
+                <div class="splide__track">
+                    <ul class="splide__list">
+                        @foreach ($ourStory as $data)
+                        <li class="splide__slide flex flex-col md:flex-row items-center justify-around gap-6">
+                            <!-- Left Section -->
+                            <div class="flex flex-col w-full md:w-[45%] lg:w-[40%] gap-4 relative z-10">
+                                <!-- Year and Title -->
+                                <div class="flex items-center gap-4 h-[100px] md:h-[160px] xl:h-[90px]">
+                                    <h5 class="text-[#072558] font-bold text-[20px] md:text-[24px] lg:text-[28px] pl-4 leading-none">
+                                        {{$data->year}}
+                                    </h5>
+                                    <h3 class="text-[#07245A] font-semibold text-[16px] md:text-[20px] lg:text-[24px] leading-tight w-3/4">
+                                        {{$data->title}}
+                                    </h3>
+                                </div>
+                                <!-- Description -->
+                                <p class="pl-4 text-[#07245A] h-[100px] md:h-[160px] xl:h-[90px] opacity-70 font-medium text-[14px] md:text-[16px] lg:text-[18px] leading-relaxed">
+                                    {{$data->description}}
+                                </p>
                             </div>
-                        </div>
-                        <div class="bg-[#062358] w-full h-[1px] slider-endballs relative"></div>
-                        <div class="flex gap-8 pl-[6%] pt-2">
-                            <h3 class="w-[25%] text-[#07245A] font_inter font-semibold md:text-[10px] text-[14px] xl:text-[18px]">{{$data->title}}</h3>
-                            <p class="w-[50%] text-[#07245A] opacity-40 font_inter font-semibold text-[14px] md:text-[10px] 2xl:text-[16px]">
-                                {{$data->description}}
-                            </p>
-                        </div>
-                    </li>
-                    @endforeach
-                </ul>
+    
+                            <!-- Horizontal Line -->
+                            <div class="absolute top-1/2 left-0 w-full h-[1px] bg-[#072558] opacity-50 z-0"></div>
+    
+                            <!-- Right Section (Images) -->
+                            <div class="flex gap-4 w-full md:w-[50%] lg:w-[40%] justify-end relative z-10">
+                                <img
+                                    class="max-h-[60px] md:max-h-[80px] lg:max-h-[100px] 2xl:max-h-[170px] aspect-video object-cover rounded-md shadow-md"
+                                    src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}"
+                                    alt="{{$data->alt_tag}}"
+                                />
+                                <img
+                                    class="max-h-[60px] md:max-h-[80px] lg:max-h-[100px] 2xl:max-h-[170px] aspect-video object-cover rounded-md shadow-md"
+                                    src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->second_image }}"
+                                    alt="{{$data->second_alt_tag}}"
+                                />
+                            </div>
+                        </li>
+                        @endforeach
+                    </ul>
+                </div>
             </div>
+    
+            <!-- Next Button -->
+            <div class="aboutnext bg-[#062358] rounded-full w-10 h-10 px-5 flex justify-center items-center text-white font-bold cursor-pointer shadow-md text-lg">›</div>
         </div>
     </div>
+    
+
 </div>
 
 <div class="loaction bg-[#062358] gradient-evition relative overflow-hidden ">
@@ -432,93 +458,91 @@
             }
         });
     });
-
-
 </script>
 
 <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Select all slides in the slider
+        var slides = document.querySelectorAll('.about-meet-slider .splide__slide');
 
-        document.addEventListener('DOMContentLoaded', function () {
-            // Select all slides in the slider
-            var slides = document.querySelectorAll('.about-meet-slider .splide__slide');
-
-            // Initialize slider only if more than one slide exists
-            if (slides.length > 1) {
-                var splide = new Splide('.about-meet-slider', {
-                    type: 'loop',      // Loop through slides
-                    perMove: 1,        // Move one slide at a time
-                    perPage: 3.5,      // Show multiple slides per page
-                    arrows: false,     // Disable default arrows
-                    pagination: false, // Disable default dots pagination
-                    autoplay: false,   // Disable autoplay
-                    interval: 3000,    // Interval for auto-slide
-                    gap: '16px',       // Gap between slides
-                    breakpoints: {     // Responsive breakpoints
-                        640: { perPage: 1 },
-                        768: { perPage: 1.5 },
-                        1024: { perPage: 2 },
-                        1280: { perPage: 2.8 },
-                    }
-                }).mount();
-
-                // Custom Previous Button
-                document.querySelector('.card-explore-slide-prev-button').addEventListener('click', function () {
-                    splide.go('<'); // Navigate to previous slide
-                });
-
-                // Custom Next Button
-                document.querySelector('.card-explore-slide-next-button').addEventListener('click', function () {
-                    splide.go('>'); // Navigate to next slide
-                });
-            } else {
-                // Log placeholder for cases with insufficient slides
-                console.log("Slider requires more than one slide to initialize.");
-            }
-        });
-
-        document.addEventListener('DOMContentLoaded', function () {
-            var splide = new Splide('#aboutSplide', {
-                type: 'loop',
-                perMove: 1,
-                perPage: 2.5,
-                arrows: false,
-                pagination: false,
-                autoplay: true,
-                pauseOnHover: false,
-                interval: 3000,
-                breakpoints: {
-                    640: { perPage: 1.2},
+        // Initialize slider only if more than one slide exists
+        if (slides.length > 1) {
+            var splide = new Splide('.about-meet-slider', {
+                type: 'loop',      // Loop through slides
+                perMove: 1,        // Move one slide at a time
+                perPage: 3.5,      // Show multiple slides per page
+                arrows: false,     // Disable default arrows
+                pagination: false, // Disable default dots pagination
+                autoplay: false,   // Disable autoplay
+                interval: 3000,    // Interval for auto-slide
+                gap: '16px',       // Gap between slides
+                breakpoints: {     // Responsive breakpoints
+                    640: { perPage: 1 },
                     768: { perPage: 1.5 },
-                    1280: { perPage: 2},
+                    1024: { perPage: 2 },
+                    1280: { perPage: 2.8 },
                 }
             }).mount();
 
-            // Bind custom previous button
-            document.querySelector('.aboutprev').addEventListener('click', function () {
+            // Custom Previous Button
+            document.querySelector('.card-explore-slide-prev-button').addEventListener('click', function () {
+                splide.go('<'); // Navigate to previous slide
+            });
+
+            // Custom Next Button
+            document.querySelector('.card-explore-slide-next-button').addEventListener('click', function () {
+                splide.go('>'); // Navigate to next slide
+            });
+        } else {
+            // Log placeholder for cases with insufficient slides
+            console.log("Slider requires more than one slide to initialize.");
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var splide = new Splide('#newaboutSplide', {
+            type: 'loop',
+            perMove: 1,
+            perPage: 1,
+            arrows: false,
+            pagination: false,
+            autoplay: true,
+            pauseOnHover: false,
+            interval: 3000,
+        }).mount();
+
+        // Safeguarded custom navigation
+        const prevButton = document.querySelector('.aboutprev');
+        const nextButton = document.querySelector('.aboutnext');
+
+        if (prevButton) {
+            prevButton.addEventListener('click', function () {
                 splide.go('<'); // Go to the previous slide
             });
+        }
 
-            // Bind custom next button
-            document.querySelector('.aboutnext').addEventListener('click', function () {
+        if (nextButton) {
+            nextButton.addEventListener('click', function () {
                 splide.go('>'); // Go to the next slide
             });
-        });
+        }
+    });
 
-        document.addEventListener('DOMContentLoaded', function () {
-            const sliderElement = document.getElementById('locationsection');
-            const slides = sliderElement.getElementsByClassName('splide__slide');
+    document.addEventListener('DOMContentLoaded', function () {
+        const sliderElement = document.getElementById('locationsection');
+        const slides = sliderElement.getElementsByClassName('splide__slide');
 
-            new Splide('#locationsection', {
-                type   : 'slide',
-                perPage: 1,
-                autoplay: true,
-                interval: 3000,
-                arrows: false,
-                pagination: false,
-                gap: '1rem',
-                arrows: slides.length > 1,  // Show arrows only if there are more than one slide
-            }).mount();
-        });
+        new Splide('#locationsection', {
+            type   : 'slide',
+            perPage: 1,
+            autoplay: true,
+            interval: 3000,
+            arrows: false,
+            pagination: false,
+            gap: '1rem',
+            arrows: slides.length > 1,  // Show arrows only if there are more than one slide
+        }).mount();
+    });
 </script>
 
 <script src="{{ asset('frontend/js/about.js') }}"></script>
