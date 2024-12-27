@@ -358,7 +358,7 @@
                                 @foreach ($locations as $data)
 
                                 <li class="splide__slide">
-                                    <div class="flex lg:gap-6 lg:py-[56px] justify-between">
+                                    <div class="flex lg:gap-6 lg:py-[56px] justify-center">
                                         <div class="bg-white my-4 lg:my-0 p-5 w-full lg:max-w-[430px] h-[288px] rounded-xl block">
                                             <div class="flex items-center justify-between">
                                                 <h5 class="text-black uppercase">Office Address</h5>
