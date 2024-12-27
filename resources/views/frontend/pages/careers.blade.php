@@ -467,32 +467,45 @@
         @if(count($careers))
         @foreach ($careers as $index => $data)
         <div class="container mx-auto px-5 xl:px-12 lg:pb-[2px] h-full w-full text-white">
-            <div class="cursor-pointer rounded-[33px] my-4 border border-white" data-accordion>
-                <div class="flex justify-between items-center px-5 py-4 accordion-header-careers">
-                    <div class="flex gap-10 items-center">
-                        <div class="flex items-center gap-6">
-                            <img src="{{asset('assets/home_banner/jobbox.png')}}" alt="">
-                            <h2 class="font_inter font-bold text-[15px] text-white uppercase">{{ $data->title }}</h2>
+            <div class="cursor-pointer rounded-[33px] my-12 lg:my-4 border border-white" data-accordion>
+                <div class="accordion-header-careers">
+                    <div class="flex justify-between items-center px-5 pb-4 pt-6">
+                        <div class="flex flex-col md:flex-row gap-6 lg:gap-10 md:items-center">
+                            <div class="flex items-end gap-3">
+                                <img class="w-[28px]" src="{{asset('assets/home_banner/jobbox.png')}}" alt="">
+                                <h2 class="font_inter font-bold text-[15px] text-white uppercase">{{ $data->title }}</h2>
+                            </div>
+                            <div class="flex flex-col md:flex-row md:items-baseline gap-2">
+                                <p class="text-[10px] font-extralight uppercase">{{ $data->location }} /</p><p class="text-[10px] font-extralight uppercase">Remote  / </p><p class="text-[10px] font-extralight uppercase">{{ $data->experience }}</p>
+                            </div>
                         </div>
+    
                         <div class="flex items-center gap-2">
-                            <p class="text-sm font-extralight">{{ $data->location }}</p> / <p class="text-sm font-extralight">Remote</p> / <p class="text-sm font-extralight">{{ $data->experience }}</p>
+                            <div class="flex items-center gap-2 pr-5">
+                                <img class="w-[13px]" src="{{asset('assets/home_banner/dateicon.png')}}" alt="">
+                                <div class="text-[12px] font-extralight uppercase">{{ \Carbon\Carbon::parse($data->created_at)->format('d/m/Y') }}</div>
+                            </div>
                         </div>
                     </div>
+                    <div class="px-5 lg:pr-8 lg:pl-[62px] pt-3 pb-6 flex flex-col lg:flex-row lg:items-end h-fit lg:justify-between gap-7">
+                        <div class="lg:w-[70%]">
+                            <h2 class="text-sm font_inter font-extrabold pb-3 uppercase">overview</h2>
 
-                    <div class="flex items-center gap-2">
-                        <div>
-                            <img src="{{asset('assets/home_banner/dateicon.png')}}" alt="">
-                            <div>{{ $data->created_at }}</div>
+                            @if(!empty($data->overview))
+                                <p class="text-sm font_inter font-light pb-3 uppercase">{{ $data->overview }}</p>
+                            @else
+                                <p class="text-sm font_inter font-light pb-3 uppercase">We help unlock value through a start-up mindset and modern methods, fusing strategy, consulting and customer experience with agile engineering and problem-solving creativity. United by our core values and our purpose of helping people thrive in the brave pursuit.</p>
+                            @endif
                         </div>
-                        <div>
-                            <svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg" class="accordion-icon">
-                                <path d="M1 1L9 9L17 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
+
+                        <div class="lg:w-[30%] flex justify-end items-center">
+                            <button class="rounded-full px-16 py-2 text-sm border-[2px] font-semibold border-white uppercase font_inter">View More</button>
                         </div>
                     </div>
                 </div>
+
                 <div class="accordion-content-careers">
-                    <div class="px-5 py-4 text-white job-decsript">
+                    <div class="px-5 lg:px-8 py-4 text-white job-decsript">
                         {!! $data->description !!}
                     </div>
                     <div class="accordion-content-careers">

@@ -430,14 +430,14 @@
                         <ul class="splide__list">
                             @foreach ($locations as $data)
                             <li class="splide__slide">
-                                <div class="bg-white my-4 lg:my-0 p-5 w-full lg:max-w-[430px] h-[288px] rounded-xl">
+                                <div class="bg-white my-4 lg:my-0 p-5 w-full lg:max-w-[430px] h-[218px] rounded-xl">
                                     <div class="flex items-center justify-between">
-                                        <h5 class="text-black uppercase">Office Address</h5>
+                                        <h5 class="text-black uppercase">{{$data->location}}</h5>
                                         <img class="w-[48px] h-[48px] rounded-full" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="{{$data->alt_tag}}">
                                     </div>
-                                    <div class="bg-[#072558] text-white rounded-md w-fit px-5 py-1 lg:my-3">
+                                    {{-- <div class="bg-[#072558] text-white rounded-md w-fit px-5 py-1 lg:my-3">
                                         {{$data->location}}
-                                    </div>
+                                    </div> --}}
 
                                     <div class="flex flex-col md:flex-row items-start gap-[35px]">
                                         <div class="border-r pr-12">

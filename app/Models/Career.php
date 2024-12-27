@@ -73,7 +73,7 @@ class Career extends Model
     }
 
     public static function getFullDataForHome(){
-        return SELF::select('location','id','title','description','experience')->orderBy('order','asc')->where('status',1)->get();
+        return SELF::select('location','id','title','description','experience','created_at')->orderBy('order','asc')->where('status',1)->get();
     }
 
     public static function updateOrder($data)
