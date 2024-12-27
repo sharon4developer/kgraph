@@ -259,7 +259,7 @@
         <div class="flex flex-col lg:flex-row lg:gap-[10%] mt-9 py-4">
             <!-- Slider Section -->
             <div class="w-full lg:w-1/2 mb-6 lg:mb-0">
-                <div class="lg:w-[75%]">
+                <div class="w-full 2xl:w-[75%]">
                     <h4 class="font_inter font-semibold text-[20px] text-white pb-8">@if(isset($aboutUs)) {{$aboutUs->location_sub_title}} @endif</h4>
                     <div id="locationsection" class="splide">
                         <div class="splide__track">
@@ -267,15 +267,15 @@
                                 @foreach ($locations as $data)
 
                                 <li class="splide__slide">
-                                    <div class="flex lg:gap-6 lg:py-[56px] justify-center">
-                                        <div class="bg-white my-4 lg:my-0 p-5 w-full lg:max-w-[430px] h-[288px] rounded-xl block">
+                                    <div class="flex lg:gap-6 lg:py-[56px] lg:px-10 justify-center">
+                                        <div class="bg-white my-4 lg:my-0 p-5 w-full lg:max-w-[430px] h-[248px] rounded-xl block">
                                             <div class="flex items-center justify-between">
-                                                <h5 class="text-black uppercase">Office Address</h5>
+                                                <h5 class="text-black uppercase">{{$data->location}}</h5>
                                                 <img class="w-[48px] h-[48px] rounded-full" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="{{$data->alt_tag}}">
                                             </div>
-                                            <div class="bg-[#072558] text-white rounded-md w-fit px-5 py-1 my-2">
+                                            {{-- <div class="bg-[#072558] text-white rounded-md w-fit px-5 py-1 my-2">
                                                 {{$data->location}}
-                                            </div>
+                                            </div> --}}
 
                                             <div class="flex flex-col md:flex-row items-start pl-[10%] gap-[35px]">
                                                 <div class="">
