@@ -497,7 +497,7 @@
                             @if(!empty($data->overview))
                                 <p class="text-sm font_inter font-light pb-3 uppercase">{{ $data->overview }}</p>
                             @else
-                                <p class="text-sm font_inter font-light pb-3">We help unlock value through a start-up mindset and modern methods, fusing strategy, consulting and customer experience with agile engineering and problem-solving creativity. United by our core values and our purpose of helping people thrive in the brave pursuit.</p>
+                                <p class="text-sm font_inter font-light pb-3 lowercase">We help unlock value through a start-up mindset and modern methods, fusing strategy, consulting and customer experience with agile engineering and problem-solving creativity. United by our core values and our purpose of helping people thrive in the brave pursuit.</p>
                             @endif
                         </div>
 
