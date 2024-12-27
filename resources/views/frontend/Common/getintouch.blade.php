@@ -7,11 +7,10 @@
 </style>
 
 {{-- get in touch section --}}
-<div class="get-in-Touch bg-[#051b3b] py-28">
+{{-- <div class="get-in-Touch bg-[#051b3b] py-28">
     <div class="container mx-auto px-5 xl:px-12 h-full w-full">
         <div class="flex justify-center items-center flex-col ">
             <div class="flex flex-col-reverse md:flex-row items-center gap-5">
-                {{-- <h2 class="font_inter font-semibold text-4xl 2xl:text-5xl text-center md:text-left gettouch uppercase gradient-text">Get IN TOUCH WITH US</h2> --}}
                 <h2 class="font_inter font-semibold text-4xl 2xl:text-5xl text-center md:text-left gettouch uppercase gradient-text">
                     Get IN TOUCH WITH US
                   </h2>
@@ -29,4 +28,4 @@
 
         </div>
     </div>
-</div>
+</div> --}}

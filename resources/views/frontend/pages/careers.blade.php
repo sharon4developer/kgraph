@@ -458,7 +458,7 @@
         </div>
     </div>
 
-    <div class="open-positions bg-[#04183c] py-8 lg:pt-[%] lg:pb-[1%]">
+    <div class="open-positions bg-[#04183c] py-8 lg:pt-[%] lg:pb-[4%]">
         @if(count($careers))
             <div class="container mx-auto px-5 xl:px-12 h-full w-full  text-white">
                 <h2 class="my-10 font_inter font-semibold text-[25px] md:text-[50px] uppercase w-[50%]">Open positions</h2>
@@ -472,7 +472,7 @@
                     <div class="flex justify-between items-center px-5 pb-4 pt-6">
                         <div class="flex flex-col md:flex-row gap-6 lg:gap-10 md:items-center">
                             <div class="flex items-end gap-3">
-                                <img class="w-[28px]" src="{{asset('assets/home_banner/jobbox.png')}}" alt="">
+                                <img class="w-[28px]" src="{{asset('assets/home_Banner/jobbox.png')}}" alt="">
                                 <h2 class="font_inter font-bold text-[15px] text-white uppercase">{{ $data->title }}</h2>
                             </div>
                             <div class="flex flex-col md:flex-row md:items-baseline gap-2">
@@ -482,7 +482,7 @@
     
                         <div class="flex items-center gap-2">
                             <div class="flex items-center gap-2 pr-5">
-                                <img class="w-[13px]" src="{{asset('assets/home_banner/dateicon.png')}}" alt="">
+                                <img class="w-[13px]" src="{{asset('assets/home_Banner/dateicon.png')}}" alt="">
                                 <div class="text-[12px] font-extralight uppercase">{{ \Carbon\Carbon::parse($data->created_at)->format('d/m/Y') }}</div>
                             </div>
                         </div>
@@ -823,8 +823,8 @@
         </div>
     </div>
     </div>
-
-    @include('frontend.Common.getintouch')
+{{-- 
+    @include('frontend.Common.getintouch') --}}
 
     <script>
         function handleFileChange() {

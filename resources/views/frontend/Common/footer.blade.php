@@ -66,7 +66,7 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
 
 <footer class="w-full footer-secpernt h-full relative overflow-hidden">
     <div class="bg-black">
-        <div class="container mx-auto px-5 lg:px-12 h-full flex justify-center w-full md:py-4">
+        <div class="container mx-auto px-5 lg:px-12 h-full flex justify-center w-full md:pb-4">
             <div class="bg-[linear-gradient(89.96deg,_#00154E_-47.02%,_#00B0FF_112.6%)] flex flex-col md:flex-row lg:items-center gap-6 py-10 w-full lg:w-[92%] 2xl:w-full px-10 md:rounded-[30px] md:mb-[-80px] relative z-10">
                 <div class="flex flex-row items-center justify-center gap-5 w-full">
                     {{-- <h2 class="font_inter font-semibold text-4xl 2xl:text-5xl text-center md:text-left gettouch uppercase gradient-text">Get IN TOUCH WITH US</h2> --}}

@@ -27,5 +27,5 @@
         </div>
     </div>
 
-    @include('frontend.Common.getintouch')
+    {{-- @include('frontend.Common.getintouch') --}}
 @endsection
