@@ -105,10 +105,9 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                     <div>
                         <h4 class="text-lg font-bold mb-4 text-white">Services</h4>
                         <ul class="services-list">
-                            <li><a href="#" class="text-sm hover:underline text-white whitespace-nowrap">Mistakes To Avoid</a></li>
-                            <li><a href="#" class="text-sm hover:underline text-white whitespace-nowrap">Your Startup</a></li>
-                            <li><a href="#" class="text-sm hover:underline text-white whitespace-nowrap">Know About Fonts</a></li>
-                            <li><a href="#" class="text-sm hover:underline text-white whitespace-nowrap">Case Studies</a></li>
+                            @foreach ($serviceCategories as $serviceCategory)
+                                <li><a href="{{ url('services') }}" class="text-sm hover:underline text-white whitespace-nowrap">{{$serviceCategory->title}}</a></li>
+                            @endforeach
                         </ul>
                     </div>
                 
@@ -116,10 +115,10 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                     <div>
                         <h4 class="text-lg font-bold mb-4 text-white">Useful Links</h4>
                         <ul class="links-list">
-                            <li><a href="#" class="text-sm hover:underline text-white whitespace-nowrap">Latest News</a></li>
-                            <li><a href="#" class="text-sm hover:underline text-white whitespace-nowrap">Careers</a></li>
-                            <li><a href="#" class="text-sm hover:underline text-white whitespace-nowrap">General Inquiries</a></li>
-                            <li><a href="#" class="text-sm hover:underline text-white whitespace-nowrap">Case Studies</a></li>
+                            <li><a href="{{ url('terms-and-conditions') }}" class="text-sm hover:underline text-white whitespace-nowrap">Terms & Conditions</a></li>
+                            <li><a href="{{ url('privacy-policy') }}" class="text-sm hover:underline text-white whitespace-nowrap">Privacy Policy</a></li>
+                            <li><a href="{{ url('careers') }}" class="text-sm hover:underline text-white whitespace-nowrap">Careers</a></li>
+                            <li><a href="{{ url('blogs') }}" class="text-sm hover:underline text-white whitespace-nowrap">Blogs</a></li>
                         </ul>
                     </div>
                 </div>
