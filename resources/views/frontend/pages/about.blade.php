@@ -66,13 +66,12 @@
 
 <div class="cta bg-[#062358]">
     <div class="container mx-auto px-5 lg:px-12 py-8 translate-large z-10 relative">
+        
         <div class="md:py-10">
             <h6 class="capitalize mb-5 text-white font_inter font-semibold text-[19px]"> @if(isset($aboutUs)) {{$aboutUs->crew_title}} @endif</h6>
-
-
             <div class="about-meet-slider">
                 <div class="splide__track">
-                    <ul id="crew-list" class="splide__list">
+                    <ul id="crew-list" class="splide__list gap-8">
                         {{-- Example Slide --}}
                         <li class="splide__slide">
                             <div class="crew-card" bis_skin_checked="1">
@@ -98,32 +97,8 @@
             <div id="crew-list-pagination" class="flex items-center custom-navigation text-white space-x-2 justify-center py-8 md:py-5 md:mt-[66px]">
                 <!-- Pagination Buttons -->
             </div>
-            
-             {{-- <div class="flex items-center custom-navigation text-white space-x-2 justify-center py-8 md:py-5 md:mt-[66px]">
-                <div class="prev-button bg-white px-2 py-2 cursor-pointer font-bold">
-                    <svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M7.01172 11.09L2.68513 6.5L7.01172 1.91L5.67974 0.5L0.0117188 6.5L5.67974 12.5L7.01172 11.09Z" fill="black"/>
-                    </svg>
-
-                </div>
-
-                <div class="flex justify-evenly items-center pagination">
-                    <ol class="flex space-x-2">
-                        <li class="page-item border-white border px-2 py-[1px] cursor-pointer" data-slide="0">1</li>
-                        <li class="page-item border-white border px-2 py-[1px] cursor-pointer" data-slide="1">2</li>
-                        <li class="page-item border-white border px-2 py-[1px] cursor-pointer" data-slide="2">3</li>
-                        <li class="page-item border-white border px-2 py-[1px] cursor-pointer" data-slide="3">4</li>
-                    </ol>
-                </div>
-
-                <div class="next-button bg-white px-2 py-2 cursor-pointer font-bold">
-                    <svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0.589845 1.91L4.91643 6.5L0.589844 11.09L1.92182 12.5L7.58984 6.5L1.92182 0.5L0.589845 1.91Z" fill="black"/>
-                    </svg>
-                </div>
-            </div>  --}}
-
         </div>
+
         <div class="lg:my-16">
             <div class="flex flex-col lg:flex-row gap-6">
                 <div class="w-full">
