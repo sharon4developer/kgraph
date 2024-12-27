@@ -491,6 +491,9 @@
         #exploreSplide.splide__slide {
             transition: transform 0.5s ease-in-out; /* Smooth transition for scaling */
         }
+        .blakorblue{
+            background: black;
+        }
     </style>
 
 

@@ -137,6 +137,9 @@
                 margin-top: 15px;
             }
         }
+        .blakorblue{
+            background: #04183c;
+        }
 
     </style>
     @include('frontend.Common.whatsapplogo')

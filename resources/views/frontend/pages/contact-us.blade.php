@@ -104,6 +104,9 @@
                 margin-top: 64px;
             }
         }
+        .blakorblue{
+            background: #04183c;
+        }
     </style>
     @include('frontend.Common.whatsapplogo')
     <div class="contact-US-banner h-full w-full">

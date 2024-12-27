@@ -4,6 +4,9 @@
     .services-grade{
         background: linear-gradient(22deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
     }
+    .blakorblue{
+        background: black;
+    }
 </style>
 @include('frontend.Common.whatsapplogo')
 {{-- services banner --}}
