@@ -13,7 +13,7 @@ class Career extends Model
 
     protected $table = 'careers';
 
-    protected $fillable = ['title', 'location', 'experience', 'status','order','description'];
+    protected $fillable = ['title', 'location', 'experience', 'status','order','description','type','overview'];
 
     public static function getFullData($data)
     {
@@ -32,6 +32,8 @@ class Career extends Model
         $value->description  = $data->description;
         $value->location  = $data->location;
         $value->experience  = $data->experience;
+        $value->type  = $data->type;
+        $value->overview  = $data->overview;
         $value->status       = 1;
         return $value->save();
     }
@@ -48,6 +50,8 @@ class Career extends Model
         $value->description  = $data->description;
         $value->location  = $data->location;
         $value->experience  = $data->experience;
+        $value->type  = $data->type;
+        $value->overview  = $data->overview;
         return $value->save();
     }
 
@@ -73,7 +77,7 @@ class Career extends Model
     }
 
     public static function getFullDataForHome(){
-        return SELF::select('location','id','title','description','experience','created_at')->orderBy('order','asc')->where('status',1)->get();
+        return SELF::select('location','id','title','description','experience','created_at','type','overview')->orderBy('order','asc')->where('status',1)->get();
     }
 
     public static function updateOrder($data)

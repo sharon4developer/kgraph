@@ -43,6 +43,28 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label class="form-label" for="location">Type</label>
+                                        <input type="text" class="form-control" id="type" name="type"
+                                            placeholder="Type" required>
+                                        <div class="valid-feedback">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label class="form-label" for="location">Overview</label>
+                                        <textarea class="form-control" id="overview" name="overview"
+                                            placeholder="Overview" required></textarea>
+                                        <div class="valid-feedback">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <div class="form-group">
