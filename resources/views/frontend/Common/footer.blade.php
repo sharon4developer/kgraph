@@ -65,8 +65,34 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
 ?>
 
 <footer class="w-full footer-secpernt h-full relative overflow-hidden">
+    <div class="bg-black">
+        <div class="container mx-auto px-5 lg:px-12 h-full w-full py-4">
+            <div class="bg-[linear-gradient(89.96deg,_#00154E_-47.02%,_#00B0FF_112.6%)] flex items-center py-16 px-10 rounded-[50px] mb-[-107px] relative z-50">
+                <div class="flex flex-col-reverse md:flex-row items-center justify-center gap-5 w-full">
+                    {{-- <h2 class="font_inter font-semibold text-4xl 2xl:text-5xl text-center md:text-left gettouch uppercase gradient-text">Get IN TOUCH WITH US</h2> --}}
+                    <h2 class="font_inter font-semibold text-4xl text-center md:text-left gettouch uppercase gradient-text">
+                        Get IN TOUCH WITH US
+                      </h2>
+                    <img class="w-[70px]" src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="">
+                </div>
+
+                <div class="flex justify-center w-full">
+                    <div>
+                        <div class="relative cursor-pointer flex justify-center items-center w-fit rounded-full gap-5 py-[6.5px] lg:py-[4.5px] pl-6 pr-1 overflow-hidden group">
+                            <!-- Background animation using pseudo-element -->
+                            <div class="absolute inset-0 bg-[linear-gradient(90deg,_#003D99_0%,_#0066FF_100%)] transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
+                            <h6 class="relative z-10 text-white text-[10px] md:text-[14px] 2xl">Have any doubt</h6>
+                            <div class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:py-[4px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                                <a href="{{ url('contact-us') }}" class="h-full text-[12px] lg:text-[16px] font-semibold">Connect Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="globebg">
-        <div class="relative w-full footer z-30 py-6 md:pt-28 md:pb-6">
+        <div class="relative w-full footer z-30 py-6 md:pt-40 md:pb-6">
             <div class="container mx-auto px-5 lg:px-12 h-full w-full py-4  lg:py-0 flex flex-col lg:flex-row justify-between gap-40  items-start">
                 <div class="w-full flex flex-col gap-6">
                     <div class="flex items-center gap-5">
@@ -100,7 +126,6 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                     </div>
                 </div>
                 
-                
                 <div class="w-full">
                     <h6 class="font_inter text-[30px] lg:text-[33px] font-semibold text-white">GET THE LATEST NEWS AND INSIGHTS</h6>
                     <div class="flex items-center gap-3 pt-12">
@@ -132,7 +157,6 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
     <div class="bg-white">
