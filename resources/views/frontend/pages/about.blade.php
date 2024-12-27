@@ -73,24 +73,7 @@
             <div class="about-meet-slider">
                 <div class="splide__track">
                     <ul id="crew-list" class="splide__list">
-                        {{-- <li class="splide__slide">
-                            <div class="crew-card" bis_skin_checked="1">
-                                <div class="crew-card-img-parent" bis_skin_checked="1">
-                                    <img class="crew-card-img" src="https://kgraph-iroid.s3.ap-south-1.amazonaws.com/storage/assets/uploads/mathews-benny-director-c0SPVtbopABTLRi.png" alt="Crew Image">
-                                </div>
-                                <div class="crew-card-content" bis_skin_checked="1">
-                                    <h5>Mathews Benny</h5>
-                                    <h6>Director</h6>
-
-                                    <div class="address" bis_skin_checked="1">
-                                        <p>Canada</p>
-                                        <a class="email-link" href="mail.canada@kgraph.ca">canada@kgraph.ca</a>
-                                    </div>
-
-                                    <a class="read-bio-link" href="#">Read full bio &gt;</a>
-                                </div>
-                            </div>
-                        </li>
+                        {{-- Example Slide --}}
                         <li class="splide__slide">
                             <div class="crew-card" bis_skin_checked="1">
                                 <div class="crew-card-img-parent" bis_skin_checked="1">
@@ -99,97 +82,23 @@
                                 <div class="crew-card-content" bis_skin_checked="1">
                                     <h5>Mathews Benny</h5>
                                     <h6>Director</h6>
-
                                     <div class="address" bis_skin_checked="1">
                                         <p>Canada</p>
                                         <a class="email-link" href="mail.canada@kgraph.ca">canada@kgraph.ca</a>
                                     </div>
-
                                     <a class="read-bio-link" href="#">Read full bio &gt;</a>
                                 </div>
                             </div>
                         </li>
-                        <li class="splide__slide">
-                            <div class="crew-card" bis_skin_checked="1">
-                                <div class="crew-card-img-parent" bis_skin_checked="1">
-                                    <img class="crew-card-img" src="https://kgraph-iroid.s3.ap-south-1.amazonaws.com/storage/assets/uploads/mathews-benny-director-c0SPVtbopABTLRi.png" alt="Crew Image">
-                                </div>
-                                <div class="crew-card-content" bis_skin_checked="1">
-                                    <h5>Mathews Benny</h5>
-                                    <h6>Director</h6>
-
-                                    <div class="address" bis_skin_checked="1">
-                                        <p>Canada</p>
-                                        <a class="email-link" href="mail.canada@kgraph.ca">canada@kgraph.ca</a>
-                                    </div>
-
-                                    <a class="read-bio-link" href="#">Read full bio &gt;</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="splide__slide">
-                            <div class="crew-card" bis_skin_checked="1">
-                                <div class="crew-card-img-parent" bis_skin_checked="1">
-                                    <img class="crew-card-img" src="https://kgraph-iroid.s3.ap-south-1.amazonaws.com/storage/assets/uploads/mathews-benny-director-c0SPVtbopABTLRi.png" alt="Crew Image">
-                                </div>
-                                <div class="crew-card-content" bis_skin_checked="1">
-                                    <h5>Mathews Benny</h5>
-                                    <h6>Director</h6>
-
-                                    <div class="address" bis_skin_checked="1">
-                                        <p>Canada</p>
-                                        <a class="email-link" href="mail.canada@kgraph.ca">canada@kgraph.ca</a>
-                                    </div>
-
-                                    <a class="read-bio-link" href="#">Read full bio &gt;</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="splide__slide">
-                            <div class="crew-card" bis_skin_checked="1">
-                                <div class="crew-card-img-parent" bis_skin_checked="1">
-                                    <img class="crew-card-img" src="https://kgraph-iroid.s3.ap-south-1.amazonaws.com/storage/assets/uploads/mathews-benny-director-c0SPVtbopABTLRi.png" alt="Crew Image">
-                                </div>
-                                <div class="crew-card-content" bis_skin_checked="1">
-                                    <h5>Mathews Benny</h5>
-                                    <h6>Director</h6>
-
-                                    <div class="address" bis_skin_checked="1">
-                                        <p>Canada</p>
-                                        <a class="email-link" href="mail.canada@kgraph.ca">canada@kgraph.ca</a>
-                                    </div>
-
-                                    <a class="read-bio-link" href="#">Read full bio &gt;</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="splide__slide">
-                            <div class="crew-card" bis_skin_checked="1">
-                                <div class="crew-card-img-parent" bis_skin_checked="1">
-                                    <img class="crew-card-img" src="https://kgraph-iroid.s3.ap-south-1.amazonaws.com/storage/assets/uploads/mathews-benny-director-c0SPVtbopABTLRi.png" alt="Crew Image">
-                                </div>
-                                <div class="crew-card-content" bis_skin_checked="1">
-                                    <h5>Mathews Benny</h5>
-                                    <h6>Director</h6>
-
-                                    <div class="address" bis_skin_checked="1">
-                                        <p>Canada</p>
-                                        <a class="email-link" href="mail.canada@kgraph.ca">canada@kgraph.ca</a>
-                                    </div>
-
-                                    <a class="read-bio-link" href="#">Read full bio &gt;</a>
-                                </div>
-                            </div>
-                        </li> --}}
+                        {{-- Repeat Slides as Needed --}}
                     </ul>
                 </div>
-              </div>
-
-
-
-            <div id="crew-list-pagination" class="flex items-center custom-navigation text-white space-x-2 justify-center py-8 md:py-5 md:mt-[66px]">
-
             </div>
+            
+            <div id="crew-list-pagination" class="flex items-center custom-navigation text-white space-x-2 justify-center py-8 md:py-5 md:mt-[66px]">
+                <!-- Pagination Buttons -->
+            </div>
+            
              {{-- <div class="flex items-center custom-navigation text-white space-x-2 justify-center py-8 md:py-5 md:mt-[66px]">
                 <div class="prev-button bg-white px-2 py-2 cursor-pointer font-bold">
                     <svg width="8" height="13" viewBox="0 0 8 13" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -411,164 +320,6 @@
                                 </li>
                                 @endforeach
 
-                                {{-- <li class="splide__slide">
-                                    <div class="lg:flex lg:gap-6 py-[56px] justify-between">
-                                        <div class="bg-white my-4 lg:my-0 p-5 w-full rounded-xl hidden xl:block">
-                                            <div class="flex items-center justify-between">
-                                                <h5 class="text-black uppercase">Office Address</h5>
-                                                <img src="{{ asset('assets/indian-flag.png') }}" alt="">
-                                            </div>
-                                            <div class="bg-[#072558] text-white rounded-md w-fit px-5 py-1">
-                                                INDIA
-                                            </div>
-
-                                            <div class="flex flex-col md:flex-row items-start pl-[10%] gap-[35px]">
-                                                <div class="">
-                                                    <div class="flex items-center gap-[20px] my-4">
-                                                        <div>
-                                                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path d="M21.047 16.0415L20.0847 20.0911C19.9644 20.6925 19.4833 21.0935 18.8819 21.0935C8.77801 21.0534 0.558594 12.8339 0.558594 2.73008C0.558594 2.12866 0.919446 1.64752 1.52087 1.52724L5.57043 0.564964C6.13176 0.44468 6.73318 0.765438 6.97375 1.28667L8.8582 5.65699C9.05867 6.17823 8.93839 6.77965 8.49735 7.1004L6.33223 8.86457C7.69545 11.6311 9.94076 13.8764 12.7474 15.2396L14.5116 13.0745C14.8323 12.6736 15.4337 12.5132 15.955 12.7137L20.3253 14.5981C20.8465 14.8788 21.1673 15.4802 21.047 16.0415Z" fill="#072558"/>
-                                                            </svg>
-                                                        </div>
-                                                        <div class="font_jakarta">
-                                                            <h4 class="phone-text font-semibold">(629) 555-0129</h4>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-center gap-[20px] my-4">
-                                                        <div>
-                                                            <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path d="M19.1625 0.246205C20.205 0.246205 21.0871 1.12829 21.0871 2.17075C21.0871 2.81227 20.7663 3.37359 20.2852 3.73445L11.5846 10.2699C11.1035 10.6307 10.5021 10.6307 10.0209 10.2699L1.32039 3.73445C0.839257 3.37359 0.558594 2.81227 0.558594 2.17075C0.558594 1.12829 1.40058 0.246205 2.48314 0.246205H19.1625ZM9.25915 11.3123C10.1813 11.994 11.4243 11.994 12.3464 11.3123L21.0871 4.73681V13.0765C21.0871 14.5199 19.9243 15.6426 18.521 15.6426H3.12466C1.68125 15.6426 0.558594 14.5199 0.558594 13.0765V4.73681L9.25915 11.3123Z" fill="#072558"/>
-                                                                </svg>
-                                                        </div>
-                                                        <div class="font_jakarta">
-                                                            <h4 class="phone-text font-semibold">(629) 555-0129</h4>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-center gap-[20px] my-4">
-                                                        <div>
-                                                            <svg width="16" height="21" viewBox="0 0 16 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path d="M7.29451 20.3769C5.20958 17.7708 0.558594 11.5561 0.558594 8.02774C0.558594 3.7777 3.96665 0.329557 8.25678 0.329557C12.5068 0.329557 15.955 3.7777 15.955 8.02774C15.955 11.5561 11.2639 17.7708 9.17896 20.3769C8.69782 20.9783 7.77564 20.9783 7.29451 20.3769ZM8.25678 10.5938C9.6601 10.5938 10.8228 9.47115 10.8228 8.02774C10.8228 6.62443 9.6601 5.46168 8.25678 5.46168C6.81337 5.46168 5.69072 6.62443 5.69072 8.02774C5.69072 9.47115 6.81337 10.5938 8.25678 10.5938Z" fill="#072558"/>
-                                                            </svg>
-                                                        </div>
-                                                        <div class="font_jakarta">
-                                                            <h4 class="phone-text font-semibold">(629) 555-0129</h4>
-                                                        </div>
-                                                    </div>
-
-                                                    <button class="rounded-md text-[#061F4C] border border-[#061F4C] w-fit px-3 py-1 mt-4 font_inter font-medium text-[12px] cursor-pointer">
-                                                        View Larger Map
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="splide__slide">
-                                    <div class="lg:flex lg:gap-6 py-[56px] justify-between">
-                                        <div class="bg-white my-4 lg:my-0 p-5 w-full rounded-xl hidden xl:block">
-                                            <div class="flex items-center justify-between">
-                                                <h5 class="text-black uppercase">Office Address</h5>
-                                                <img src="{{ asset('assets/indian-flag.png') }}" alt="">
-                                            </div>
-                                            <div class="bg-[#072558] text-white rounded-md w-fit px-5 py-1">
-                                                INDIA
-                                            </div>
-
-                                            <div class="flex flex-col md:flex-row items-start pl-[10%] gap-[35px]">
-                                                <div class="">
-                                                    <div class="flex items-center gap-[20px] my-4">
-                                                        <div>
-                                                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path d="M21.047 16.0415L20.0847 20.0911C19.9644 20.6925 19.4833 21.0935 18.8819 21.0935C8.77801 21.0534 0.558594 12.8339 0.558594 2.73008C0.558594 2.12866 0.919446 1.64752 1.52087 1.52724L5.57043 0.564964C6.13176 0.44468 6.73318 0.765438 6.97375 1.28667L8.8582 5.65699C9.05867 6.17823 8.93839 6.77965 8.49735 7.1004L6.33223 8.86457C7.69545 11.6311 9.94076 13.8764 12.7474 15.2396L14.5116 13.0745C14.8323 12.6736 15.4337 12.5132 15.955 12.7137L20.3253 14.5981C20.8465 14.8788 21.1673 15.4802 21.047 16.0415Z" fill="#072558"/>
-                                                            </svg>
-                                                        </div>
-                                                        <div class="font_jakarta">
-                                                            <h4 class="phone-text font-semibold">(629) 555-0129</h4>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-center gap-[20px] my-4">
-                                                        <div>
-                                                            <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path d="M19.1625 0.246205C20.205 0.246205 21.0871 1.12829 21.0871 2.17075C21.0871 2.81227 20.7663 3.37359 20.2852 3.73445L11.5846 10.2699C11.1035 10.6307 10.5021 10.6307 10.0209 10.2699L1.32039 3.73445C0.839257 3.37359 0.558594 2.81227 0.558594 2.17075C0.558594 1.12829 1.40058 0.246205 2.48314 0.246205H19.1625ZM9.25915 11.3123C10.1813 11.994 11.4243 11.994 12.3464 11.3123L21.0871 4.73681V13.0765C21.0871 14.5199 19.9243 15.6426 18.521 15.6426H3.12466C1.68125 15.6426 0.558594 14.5199 0.558594 13.0765V4.73681L9.25915 11.3123Z" fill="#072558"/>
-                                                                </svg>
-                                                        </div>
-                                                        <div class="font_jakarta">
-                                                            <h4 class="phone-text font-semibold">(629) 555-0129</h4>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-center gap-[20px] my-4">
-                                                        <div>
-                                                            <svg width="16" height="21" viewBox="0 0 16 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path d="M7.29451 20.3769C5.20958 17.7708 0.558594 11.5561 0.558594 8.02774C0.558594 3.7777 3.96665 0.329557 8.25678 0.329557C12.5068 0.329557 15.955 3.7777 15.955 8.02774C15.955 11.5561 11.2639 17.7708 9.17896 20.3769C8.69782 20.9783 7.77564 20.9783 7.29451 20.3769ZM8.25678 10.5938C9.6601 10.5938 10.8228 9.47115 10.8228 8.02774C10.8228 6.62443 9.6601 5.46168 8.25678 5.46168C6.81337 5.46168 5.69072 6.62443 5.69072 8.02774C5.69072 9.47115 6.81337 10.5938 8.25678 10.5938Z" fill="#072558"/>
-                                                            </svg>
-                                                        </div>
-                                                        <div class="font_jakarta">
-                                                            <h4 class="phone-text font-semibold">(629) 555-0129</h4>
-                                                        </div>
-                                                    </div>
-
-                                                    <button class="rounded-md text-[#061F4C] border border-[#061F4C] w-fit px-3 py-1 mt-4 font_inter font-medium text-[12px] cursor-pointer">
-                                                        View Larger Map
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-
-                                <li class="splide__slide">
-                                    <div class="lg:flex lg:gap-6 py-[56px] justify-between">
-                                        <div class="bg-white my-4 lg:my-0 p-5 w-full rounded-xl hidden xl:block">
-                                            <div class="flex items-center justify-between">
-                                                <h5 class="text-black uppercase">Office Address</h5>
-                                                <img src="{{ asset('assets/indian-flag.png') }}" alt="">
-                                            </div>
-                                            <div class="bg-[#072558] text-white rounded-md w-fit px-5 py-1">
-                                                INDIA
-                                            </div>
-
-                                            <div class="flex flex-col md:flex-row items-start pl-[10%] gap-[35px]">
-                                                <div class="">
-                                                    <div class="flex items-center gap-[20px] my-4">
-                                                        <div>
-                                                            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path d="M21.047 16.0415L20.0847 20.0911C19.9644 20.6925 19.4833 21.0935 18.8819 21.0935C8.77801 21.0534 0.558594 12.8339 0.558594 2.73008C0.558594 2.12866 0.919446 1.64752 1.52087 1.52724L5.57043 0.564964C6.13176 0.44468 6.73318 0.765438 6.97375 1.28667L8.8582 5.65699C9.05867 6.17823 8.93839 6.77965 8.49735 7.1004L6.33223 8.86457C7.69545 11.6311 9.94076 13.8764 12.7474 15.2396L14.5116 13.0745C14.8323 12.6736 15.4337 12.5132 15.955 12.7137L20.3253 14.5981C20.8465 14.8788 21.1673 15.4802 21.047 16.0415Z" fill="#072558"/>
-                                                            </svg>
-                                                        </div>
-                                                        <div class="font_jakarta">
-                                                            <h4 class="phone-text font-semibold">(629) 555-0129</h4>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-center gap-[20px] my-4">
-                                                        <div>
-                                                            <svg width="22" height="16" viewBox="0 0 22 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path d="M19.1625 0.246205C20.205 0.246205 21.0871 1.12829 21.0871 2.17075C21.0871 2.81227 20.7663 3.37359 20.2852 3.73445L11.5846 10.2699C11.1035 10.6307 10.5021 10.6307 10.0209 10.2699L1.32039 3.73445C0.839257 3.37359 0.558594 2.81227 0.558594 2.17075C0.558594 1.12829 1.40058 0.246205 2.48314 0.246205H19.1625ZM9.25915 11.3123C10.1813 11.994 11.4243 11.994 12.3464 11.3123L21.0871 4.73681V13.0765C21.0871 14.5199 19.9243 15.6426 18.521 15.6426H3.12466C1.68125 15.6426 0.558594 14.5199 0.558594 13.0765V4.73681L9.25915 11.3123Z" fill="#072558"/>
-                                                                </svg>
-                                                        </div>
-                                                        <div class="font_jakarta">
-                                                            <h4 class="phone-text font-semibold">(629) 555-0129</h4>
-                                                        </div>
-                                                    </div>
-                                                    <div class="flex items-center gap-[20px] my-4">
-                                                        <div>
-                                                            <svg width="16" height="21" viewBox="0 0 16 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                                <path d="M7.29451 20.3769C5.20958 17.7708 0.558594 11.5561 0.558594 8.02774C0.558594 3.7777 3.96665 0.329557 8.25678 0.329557C12.5068 0.329557 15.955 3.7777 15.955 8.02774C15.955 11.5561 11.2639 17.7708 9.17896 20.3769C8.69782 20.9783 7.77564 20.9783 7.29451 20.3769ZM8.25678 10.5938C9.6601 10.5938 10.8228 9.47115 10.8228 8.02774C10.8228 6.62443 9.6601 5.46168 8.25678 5.46168C6.81337 5.46168 5.69072 6.62443 5.69072 8.02774C5.69072 9.47115 6.81337 10.5938 8.25678 10.5938Z" fill="#072558"/>
-                                                            </svg>
-                                                        </div>
-                                                        <div class="font_jakarta">
-                                                            <h4 class="phone-text font-semibold">(629) 555-0129</h4>
-                                                        </div>
-                                                    </div>
-
-                                                    <button class="rounded-md text-[#061F4C] border border-[#061F4C] w-fit px-3 py-1 mt-4 font_inter font-medium text-[12px] cursor-pointer">
-                                                        View Larger Map
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li> --}}
                             </ul>
                         </div>
                     </div>
@@ -686,20 +437,23 @@
 </script>
 
 <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var slides = document.querySelectorAll('.about-meet-slider .splide__slide'); // Select all slides
 
-            if (slides.length > 1) { // Only initialize the slider if there are more than 1 slide
+        document.addEventListener('DOMContentLoaded', function () {
+            // Select all slides in the slider
+            var slides = document.querySelectorAll('.about-meet-slider .splide__slide');
+
+            // Initialize slider only if more than one slide exists
+            if (slides.length > 1) {
                 var splide = new Splide('.about-meet-slider', {
-                    type: 'loop',   // Loop through the slides
-                    perMove: 1,     // Moves one slide at a time
-                    perPage: 3.5,   // Shows multiple slides per page
-                    arrows: false,  // Disable default arrows
-                    pagination: false, // Disable the dots (pagination)
-                    autoplay: false,
-                    interval: 3000, // Auto-slide interval
-                    gap:'16px',
-                    breakpoints: {
+                    type: 'loop',      // Loop through slides
+                    perMove: 1,        // Move one slide at a time
+                    perPage: 3.5,      // Show multiple slides per page
+                    arrows: false,     // Disable default arrows
+                    pagination: false, // Disable default dots pagination
+                    autoplay: false,   // Disable autoplay
+                    interval: 3000,    // Interval for auto-slide
+                    gap: '16px',       // Gap between slides
+                    breakpoints: {     // Responsive breakpoints
                         640: { perPage: 1 },
                         768: { perPage: 1.5 },
                         1024: { perPage: 2 },
@@ -709,15 +463,16 @@
 
                 // Custom Previous Button
                 document.querySelector('.card-explore-slide-prev-button').addEventListener('click', function () {
-                    splide.go('<'); // Go to the previous slide
+                    splide.go('<'); // Navigate to previous slide
                 });
 
                 // Custom Next Button
                 document.querySelector('.card-explore-slide-next-button').addEventListener('click', function () {
-                    splide.go('>'); // Go to the next slide
+                    splide.go('>'); // Navigate to next slide
                 });
             } else {
-                console.log("");
+                // Log placeholder for cases with insufficient slides
+                console.log("Slider requires more than one slide to initialize.");
             }
         });
 
@@ -764,9 +519,6 @@
                 arrows: slides.length > 1,  // Show arrows only if there are more than one slide
             }).mount();
         });
-
-
-
 </script>
 
 <script src="{{ asset('frontend/js/about.js') }}"></script>

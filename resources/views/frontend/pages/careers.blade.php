@@ -467,13 +467,28 @@
         @if(count($careers))
         @foreach ($careers as $index => $data)
         <div class="container mx-auto px-5 xl:px-12 lg:pb-[2px] h-full w-full text-white">
-            <div class="bg-[#072f77] cursor-pointer rounded-[8px] my-4 border-b border-b-[#868686]" data-accordion>
+            <div class="cursor-pointer rounded-[33px] my-4 border border-white" data-accordion>
                 <div class="flex justify-between items-center px-5 py-4 accordion-header-careers">
-                    <h2 class="font_inter font-bold text-[15px] text-white">{{ $data->title }}, {{ $data->location }}</h2>
-                    <div>
-                        <svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg" class="accordion-icon">
-                            <path d="M1 1L9 9L17 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
+                    <div class="flex gap-10 items-center">
+                        <div class="flex items-center gap-6">
+                            <img src="{{asset('assets/home_banner/jobbox.png')}}" alt="">
+                            <h2 class="font_inter font-bold text-[15px] text-white uppercase">{{ $data->title }}</h2>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <p class="text-sm font-extralight">{{ $data->location }}</p> / <p class="text-sm font-extralight">Remote</p> / <p class="text-sm font-extralight">{{ $data->experience }}</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <div>
+                            <img src="{{asset('assets/home_banner/dateicon.png')}}" alt="">
+                            <div>{{ $data->created_at }}</div>
+                        </div>
+                        <div>
+                            <svg width="18" height="10" viewBox="0 0 18 10" fill="none" xmlns="http://www.w3.org/2000/svg" class="accordion-icon">
+                                <path d="M1 1L9 9L17 1" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
                     </div>
                 </div>
                 <div class="accordion-content-careers">
@@ -493,7 +508,7 @@
                 </div>
             </div>
         </div>
-    @endforeach
+        @endforeach
 
 
         @else
