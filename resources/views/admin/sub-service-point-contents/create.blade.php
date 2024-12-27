@@ -5,7 +5,7 @@
         <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
-                    <h4 class="card-title">Add Service Point Contents</h4>
+                    <h4 class="card-title">Add Sub Service Point Contents</h4>
                 </div>
                 <div class="card-body">
                     <form class="needs-validation" novalidate id="service-add-form" method="POST">

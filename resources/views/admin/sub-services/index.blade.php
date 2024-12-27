@@ -7,7 +7,7 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-md-10">
-                            <h4 class="box-title">Services</h4>
+                            <h4 class="box-title">Sub Services</h4>
                         </div>
 
                         <div class="col-md-2">
