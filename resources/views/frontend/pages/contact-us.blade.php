@@ -442,7 +442,7 @@
                                     <div class="flex flex-col md:flex-row items-start gap-[35px]">
                                         <div class="border-r pr-12">
                                             <div class="flex items-center gap-[20px] my-4">
-                                                <div>
+                                                <div class="w-6">
                                                     <svg width="22" height="22" viewBox="0 0 22 22" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg">
                                                         <path
@@ -456,7 +456,7 @@
                                                 </div>
                                             </div>
                                             <div class="flex items-center gap-[20px] my-4">
-                                                <div>
+                                                <div class="w-6">
                                                     <svg width="22" height="16" viewBox="0 0 22 16" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg">
                                                         <path
@@ -470,7 +470,7 @@
                                                 </div>
                                             </div>
                                             <div class="flex items-center gap-[20px] my-4">
-                                                <div>
+                                                <div class="w-6">
                                                     <svg width="16" height="21" viewBox="0 0 16 21" fill="none"
                                                         xmlns="http://www.w3.org/2000/svg">
                                                         <path
