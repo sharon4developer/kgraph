@@ -72,7 +72,7 @@
                                     <div class="form-group">
                                         <label class="form-label" for="rating">Rating</label>
                                         <input type="text" class="form-control" id="rating" name="rating"
-                                            placeholder="Enter Rating 1 - 5" required value="{{$data->rating}}">
+                                            placeholder="Enter Rating 1 - 5" max="5" required value="{{$data->rating}}">
                                         <div class="valid-feedback">
                                         </div>
                                     </div>
