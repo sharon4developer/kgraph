@@ -66,17 +66,15 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
 
 <footer class="w-full footer-secpernt h-full relative overflow-hidden">
     <div class="bg-black">
-        <div class="container mx-auto px-5 lg:px-12 h-full w-full py-4">
-            <div class="bg-[linear-gradient(89.96deg,_#00154E_-47.02%,_#00B0FF_112.6%)] flex items-center py-16 px-10 rounded-[50px] mb-[-107px] relative z-50">
-                <div class="flex flex-col-reverse md:flex-row items-center justify-center gap-5 w-full">
+        <div class="container mx-auto px-5 lg:px-12 h-full flex justify-center w-full md:py-4">
+            <div class="bg-[linear-gradient(89.96deg,_#00154E_-47.02%,_#00B0FF_112.6%)] flex flex-col md:flex-row lg:items-center gap-6 py-10 w-full lg:w-[92%] 2xl:w-full px-10 md:rounded-[30px] md:mb-[-80px] relative z-10">
+                <div class="flex flex-row items-center justify-center gap-5 w-full">
                     {{-- <h2 class="font_inter font-semibold text-4xl 2xl:text-5xl text-center md:text-left gettouch uppercase gradient-text">Get IN TOUCH WITH US</h2> --}}
-                    <h2 class="font_inter font-semibold text-4xl text-center md:text-left gettouch uppercase gradient-text">
-                        Get IN TOUCH WITH US
-                      </h2>
+                    <h2 class="font_inter font-semibold text-xl 2xl:text-4xl text-left gettouch uppercase gradient-text lg:whitespace-nowrap">Get IN TOUCH WITH US</h2>
                     <img class="w-[70px]" src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="">
                 </div>
 
-                <div class="flex justify-center w-full">
+                <div class="flex justify-end 2xl:justify-center w-full">
                     <div>
                         <div class="relative cursor-pointer flex justify-center items-center w-fit rounded-full gap-5 py-[6.5px] lg:py-[4.5px] pl-6 pr-1 overflow-hidden group">
                             <!-- Background animation using pseudo-element -->
@@ -92,8 +90,8 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
         </div>
     </div>
     <div class="globebg">
-        <div class="relative w-full footer z-30 py-6 md:pt-40 md:pb-6">
-            <div class="container mx-auto px-5 lg:px-12 h-full w-full py-4  lg:py-0 flex flex-col lg:flex-row justify-between gap-40  items-start">
+        <div class="relative w-full footer z-30 py-6 md:pt-28 md:pb-6">
+            <div class="container mx-auto px-5 lg:px-12 h-full w-full py-4  lg:py-0 flex flex-col lg:flex-row justify-between gap-8 lg:gap-14 2xl:gap-40  items-start">
                 <div class="w-full flex flex-col gap-6">
                     <div class="flex items-center gap-5">
                         <img class="" src="{{ asset('assets/home_Banner/grouplogo.png') }}" alt="K-graph logo">
@@ -102,7 +100,7 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                     <p class="font_inter text-[12px]  font-light lg:text-justify capitalize  text-white">simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
                 </div>
 
-                <div class="flex gap-40">
+                <div class="flex gap-14 2xl:gap-40">
                     <!-- Services Section -->
                     <div>
                         <h4 class="text-lg font-bold mb-4 text-white">Services</h4>
@@ -127,12 +125,12 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                 </div>
                 
                 <div class="w-full">
-                    <h6 class="font_inter text-[30px] lg:text-[33px] font-semibold text-white">GET THE LATEST NEWS AND INSIGHTS</h6>
-                    <div class="flex items-center gap-3 pt-12">
+                    <h6 class="font_inter text-[20pxpx] 2xl:text-[33px] font-semibold text-white">GET THE LATEST NEWS AND INSIGHTS</h6>
+                    <div class="flex flex-col xl:flex-row w-fit xl:items-center gap-3 pt-12">
                         <span class="capitalize font-bold text-sm text-white font_roboto hidden lg:block">Subscribe</span>
                         <form id="news-letter-add-form" class="relative">
                             <div class="bg-white rounded-[50px] flex items-center overflow-hidden glow-effect">
-                                <input type="email" class="min-w-[189px] w-[100vw] max-w-[245px] md:w-[280px] py-2 px-3 outline-none font_roboto" style="background: none;" name="news_letter_email" id="news-letter-email" placeholder="Enter your email Address">
+                                <input type="email" class="min-w-[189px] w-[100vw] max-w-[245px] lg:w-[148px] lg:min-w-[100px] 2xl:w-[280px] py-2 px-3 outline-none font_roboto" style="background: none;" name="news_letter_email" id="news-letter-email" placeholder="Enter your email Address">
                                 <button type="submit" class="bg-black text-white rounded-[50px] font_roboto font-normal text-sm py-2 px-3 mx-[2px] block">Subscribe</button>
                             </div>
                         </form>

@@ -1090,7 +1090,7 @@
         </div>
     </div>
 
-    @include('frontend.Common.getintouch')
+    {{-- @include('frontend.Common.getintouch') --}}
 
     {{-- explore section --}}
     <div class="explore-section bg-black">
