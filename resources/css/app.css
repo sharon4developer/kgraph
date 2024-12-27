@@ -75,13 +75,7 @@ right: -10px; /* Move it closer to the text */
 width: 100%; /* Expand the underline */
 }
 .globebg{
-    background-image: url(/public/assets/home_Banner/bannerCity.jpg) !important;
-    /* background-repeat: no-repeat;
-    background-position-x: right;
-    background-size: 800px; */
-    background-position-y: 6%;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: linear-gradient(264.16deg, #00154E -3.02%, #00B0FF 281.57%);
 }
 @media (min-width: 1024px){
 
