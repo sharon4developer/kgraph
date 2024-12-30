@@ -67,16 +67,16 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
 <footer class="w-full footer-secpernt h-full relative overflow-hidden">
     <div class="blakorblue lg:pt-10">
         <div class="container mx-auto px-5 lg:px-12 h-full flex justify-center w-full md:pb-4">
-            <div class="bg-[linear-gradient(89.96deg,_#00154E_-47.02%,_#00B0FF_112.6%)] flex flex-col md:flex-row lg:items-center gap-6 py-2 rounded-t-lg md:py-10 w-full lg:w-[92%] 2xl:w-full px-py-2 md:px-10 md:rounded-[30px] mb-[-60px] md:mb-[-80px] relative z-10">
-                <div class="flex flex-col-reverse md:flex-row items-center justify-center gap-5 w-full">
+            <div class="bg-[linear-gradient(89.96deg,_#00154E_-47.02%,_#00B0FF_112.6%)] flex flex-col md:flex-row lg:items-center gap-3 py-4 md:py-10 w-full lg:w-[92%] 2xl:w-full px-3 md:px-10 rounded-[30px] mb-[-60px] md:mb-[-80px] relative z-50">
+                <div class="flex  items-center justify-center gap-5 w-full">
                     {{-- <h2 class="font_inter font-semibold text-4xl 2xl:text-5xl text-center md:text-left gettouch uppercase gradient-text">Get IN TOUCH WITH US</h2> --}}
-                    <h2 class="font_inter font-semibold text-xl 2xl:text-4xl text-left gettouch uppercase gradient-text lg:whitespace-nowrap">Get IN TOUCH WITH US</h2>
-                    <img class="w-[70px]" src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="">
+                    <h2 class="font_inter font-semibold text-base md:text-xl 2xl:text-4xl text-left gettouch uppercase text-white lg:whitespace-nowrap">Get IN TOUCH WITH US</h2>
+                    <img class="w-[43px] lg:w-[70px]" src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="">
                 </div>
 
                 <div class="flex justify-center lg:justify-end 2xl:justify-center w-full">
                     <div>
-                        <div class="relative cursor-pointer flex justify-center items-center w-fit rounded-full gap-5 py-[6.5px] lg:py-[4.5px] pl-6 pr-1 overflow-hidden group">
+                        <div class="relative cursor-pointer flex justify-center items-center w-fit rounded-full gap-5 py-[4.5px] pl-6 pr-1 overflow-hidden group">
                             <!-- Background animation using pseudo-element -->
                             <div class="absolute inset-0 bg-[linear-gradient(90deg,_#003D99_0%,_#0066FF_100%)] transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
                             <h6 class="relative z-10 text-white text-[10px] md:text-[14px] 2xl">Have any doubt</h6>
