@@ -204,7 +204,7 @@
                         @foreach ($ourStory as $data)
                         <li class="splide__slide flex flex-col md:flex-row items-center justify-around gap-6">
                             <!-- Left Section -->
-                            <div class="flex flex-col w-full md:w-[45%] lg:w-[40%] gap-4 relative z-10">
+                            <div class="flex flex-col w-full md:w-[45%] lg:w-[40%] md:gap-4 relative z-10">
                                 <!-- Year and Title -->
                                 <div class="flex items-center gap-4 h-[100px] md:h-[160px] xl:h-[90px]">
                                     <h5 class="text-[#072558] font-bold text-[20px] md:text-[24px] lg:text-[28px] pl-4 leading-none">
@@ -221,7 +221,7 @@
                             </div>
     
                             <!-- Horizontal Line -->
-                            <div class="absolute top-1/2 left-0 w-full h-[1px] bg-[#072558] opacity-50 z-0"></div>
+                            <div class="absolute hidden md:top-1/2 left-0 w-full h-[1px] bg-[#072558] opacity-50 z-0"></div>
     
                             <!-- Right Section (Images) -->
                             <div class="flex gap-4 w-full md:w-[50%] lg:w-[40%] justify-end relative z-10">
