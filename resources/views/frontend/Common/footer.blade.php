@@ -91,7 +91,7 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
     </div>
     <div class="globebg">
         <div class="relative w-full footer z-30 pt-[86px] py-6 md:pt-28 md:pb-6">
-            <div class="container mx-auto px-5 lg:px-12 h-full w-full py-4  lg:py-0 flex flex-col lg:flex-row justify-between gap-8 lg:gap-14 2xl:gap-40  items-start">
+            <div class="container mx-auto px-5 lg:px-12 h-full w-full py-4  lg:py-0 flex flex-col lg:flex-row justify-between gap-8 lg:gap-12 2xl:gap-28   items-start">
                 <div class="w-full flex flex-col gap-6">
                     <div class="flex items-center gap-5">
                         <img class="" src="{{ asset('assets/home_Banner/grouplogo.png') }}" alt="K-graph logo">
@@ -100,7 +100,7 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                     <p class="font_inter text-[12px]  font-light lg:text-justify capitalize  text-white">simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
                 </div>
 
-                <div class="flex flex-col md:flex-row gap-6 md:gap-14 2xl:gap-40">
+                <div class="flex flex-col md:flex-row gap-6 md:gap-14">
                     <!-- Services Section -->
                     <div>
                         <h4 class="text-lg font-bold mb-4 text-white">Services</h4>
@@ -136,7 +136,7 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                     </div>
 
                     <div class="flex gap-5 flex-col pt-10">
-                        <div class="capitalize font-bold text-sm text-white font_inter">Subscribe</div>
+                        {{-- <div class="capitalize font-bold text-sm text-white font_inter">Subscribe</div> --}}
                         <div class=" flex items-center gap-5">
                             <a href="https://www.facebook.com/KGraphimmigration/" target="_blank" rel="noopener noreferrer">
                                 <img  class="w-auto h-[20px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/fbvector.png') }}" alt="facebook">

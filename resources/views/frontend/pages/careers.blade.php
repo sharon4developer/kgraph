@@ -501,7 +501,7 @@
                         </div>
 
                         <div class="lg:w-[30%] flex justify-end items-center">
-                            <button class="rounded-full px-16 py-2 text-sm border-[2px] font-semibold border-white uppercase font_inter">View More</button>
+                            <button  class="viewmorebtn rounded-full px-16 py-2 text-sm border-[2px] font-semibold border-white uppercase font_inter">View More</button>
                         </div>
                     </div>
                 </div>
@@ -902,7 +902,29 @@
                 });
             });
         });
+
+        
     </script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const viewMoreButtons = document.querySelectorAll(".viewmorebtn");
+
+        viewMoreButtons.forEach(button => {
+            button.addEventListener("click", (event) => {
+                const clickedButton = event.target; // Identify the clicked button
+
+                // Toggle the text of the clicked button
+                if (clickedButton.textContent.trim() === "View More") {
+                    clickedButton.textContent = "View Less";
+                } else {
+                    clickedButton.textContent = "View More";
+                }
+            });
+        });
+    });
+</script>
+
+
 
 
     @endsection
