@@ -65,16 +65,16 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
 ?>
 
 <footer class="w-full footer-secpernt h-full relative overflow-hidden">
-    <div class="blakorblue">
+    <div class="blakorblue lg:pt-10">
         <div class="container mx-auto px-5 lg:px-12 h-full flex justify-center w-full md:pb-4">
-            <div class="bg-[linear-gradient(89.96deg,_#00154E_-47.02%,_#00B0FF_112.6%)] flex flex-col md:flex-row lg:items-center gap-6 py-10 w-full lg:w-[92%] 2xl:w-full px-10 md:rounded-[30px] md:mb-[-80px] relative z-10">
-                <div class="flex flex-row items-center justify-center gap-5 w-full">
+            <div class="bg-[linear-gradient(89.96deg,_#00154E_-47.02%,_#00B0FF_112.6%)] flex flex-col md:flex-row lg:items-center gap-6 py-2 rounded-t-lg md:py-10 w-full lg:w-[92%] 2xl:w-full px-py-2 md:px-10 md:rounded-[30px] md:mb-[-80px] relative z-10">
+                <div class="flex flex-col-reverse md:flex-row items-center justify-center gap-5 w-full">
                     {{-- <h2 class="font_inter font-semibold text-4xl 2xl:text-5xl text-center md:text-left gettouch uppercase gradient-text">Get IN TOUCH WITH US</h2> --}}
                     <h2 class="font_inter font-semibold text-xl 2xl:text-4xl text-left gettouch uppercase gradient-text lg:whitespace-nowrap">Get IN TOUCH WITH US</h2>
                     <img class="w-[70px]" src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="">
                 </div>
 
-                <div class="flex justify-end 2xl:justify-center w-full">
+                <div class="flex justify-center lg:justify-end 2xl:justify-center w-full">
                     <div>
                         <div class="relative cursor-pointer flex justify-center items-center w-fit rounded-full gap-5 py-[6.5px] lg:py-[4.5px] pl-6 pr-1 overflow-hidden group">
                             <!-- Background animation using pseudo-element -->
@@ -100,7 +100,7 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                     <p class="font_inter text-[12px]  font-light lg:text-justify capitalize  text-white">simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
                 </div>
 
-                <div class="flex gap-14 2xl:gap-40">
+                <div class="flex flex-col md:flex-row gap-6 md:gap-14 2xl:gap-40">
                     <!-- Services Section -->
                     <div>
                         <h4 class="text-lg font-bold mb-4 text-white">Services</h4>

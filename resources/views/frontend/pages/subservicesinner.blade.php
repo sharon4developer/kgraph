@@ -344,7 +344,7 @@
 
                     <div class="blufader-grade text-white my-6 px-5 rounded-md py-3">Key Highlight</div>
 
-                    <ul class="list-disc lg:pl-5 text-[#062358] leading-normal list-none">
+                    <ul class="list-disc lg:pl-5 text-[#062358] leading-normal list-none md:pb-6">
                         @foreach ($services->ServicePoint as $key => $ServicePoint)
                             @if($ServicePoint->status ==1)
                                 <li class="my-1 py-2 px-4 w-full lg:w-1/2 transition-all duration-200 cursor-pointer rounded-md border border-[#d6d6d6] text-gray-800 @if ($key == 0) active-item @endif" data-target="service-point{{ $key }}">
