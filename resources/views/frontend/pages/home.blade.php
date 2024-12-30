@@ -902,7 +902,7 @@
                     </div>
 
                     <!-- Custom Navigation Buttons -->
-                    <div class="flex flex-col lg:flex-row items-center justify-between mt-4 space-x-4">
+                    <div class="flex flex-col-reverse gap-3 lg:gap-0 lg:flex-row items-start lg:items-center justify-between mt-4 space-x-4">
                         <div class="lg:ml-8">
                             <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[4.5px] pl-5 pr-1 group">
                                 <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 min-w-fit max-w-full rounded-full"></div>
@@ -1013,7 +1013,7 @@
                     </div>
                 </div>
 
-                <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-2 h-full w-full flex items-center justify-end">
+                <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-2 h-full w-full flex items-center justify-start md:justify-end">
                     <div class="flex justify-center gap-3 items-center">
                         <div class="blog-slider-prev cursor-pointer">
                             <img class="w-[40px]" src="{{ asset('assets/Button-Previous.png') }}" alt="">
