@@ -81,14 +81,14 @@
                     <p class="text-lg font-bold text-gray-800">{{$crew->name}}</p>
                     <p class="text-gray-600">{{$crew->position}} at K-graph</p>
                 </div>
-                <div class="mt-4 flex justify-center lg:justify-start space-x-4">
+                {{-- <div class="mt-4 flex justify-center lg:justify-start space-x-4">
                     <a href="https://www.facebook.com/KGraphimmigration/" target="_blank" rel="noopener noreferrer">
                         <img  class="w-[30px] h-[30px] bg-black p-[2px] rounded-[6px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/fbvector.png') }}" alt="facebook">
                     </a>
                     <a href="https://www.instagram.com/kgraph_immigration?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
                         <img  class="w-[30px] h-auto bg-black p-[2px] rounded-[6px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/instagaramvector.png') }}" alt="instagram">
                     </a>
-                </div>
+                </div> --}}
             </div>
             <!-- Image Section -->
             <div class="lg:w-1/3 lg:flex justify-center items-center">
