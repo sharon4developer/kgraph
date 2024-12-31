@@ -65,14 +65,46 @@
 </div>
 
 <div class="cta bg-[#062358]">
-    <div class="container mx-auto px-5 lg:px-12 py-8 translate-large z-10 relative">
+    <div class="container mx-auto px-5 lg:px-12">
+        <section class="flex flex-col lg:flex-row items-center bg-blue-50 p-8 lg:p-16 space-y-8 lg:space-y-0 lg:space-x-12">
+            <!-- Text Section -->
+            <div class="lg:w-2/3 text-center lg:text-left">
+                <h2 class="text-3xl font-bold text-gray-800">
+                    Note from the <span class="text-blue-500">CEO</span>
+                </h2>
+                <p class="mt-4 text-gray-700 leading-relaxed">
+                    We are in the business of solving problems. We empower entrepreneurs and startups with the right technology to help them turn their ideas into lightning-fast solutions that revolutionize industries.
+                </p>
+                <div class="mt-8">
+                    <p class="text-lg font-bold text-gray-800">FAIZ MOHAMED HANEEF</p>
+                    <p class="text-gray-600">CEO at K-graph</p>
+                </div>
+                <div class="mt-4 flex justify-center lg:justify-start space-x-4">
+                    <a href="https://www.facebook.com/KGraphimmigration/" target="_blank" rel="noopener noreferrer">
+                        <img  class="w-[30px] h-[30px] bg-black p-[2px] rounded-[6px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/fbvector.png') }}" alt="facebook">
+                    </a>
+                    <a href="https://www.instagram.com/kgraph_immigration?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
+                        <img  class="w-[30px] h-auto bg-black p-[2px] rounded-[6px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/instagaramvector.png') }}" alt="instagram">
+                    </a>
+                </div>
+            </div>
+            <!-- Image Section -->
+            <div class="lg:w-1/3 lg:flex justify-center items-center">
+                <img class="crew-card-img" src="https://kgraph-test.s3.ap-south-1.amazonaws.com/storage/assets/uploads/mathews-benny-images(14)-FjIQl4elu2FeJDW.jpeg">
+            </div>
+        </section>
+    </div>
+</div>
+
+
+<div class="cta bg-[#062358]">
+    <div class="container mx-auto px-5 lg:px-12 py-8 z-10 relative">
         
-        <div class="md:py-10">
+        {{-- <div class="md:py-10">
             <h6 class="capitalize mb-5 text-white font_inter font-semibold text-[19px]"> @if(isset($aboutUs)) {{$aboutUs->crew_title}} @endif</h6>
             <div class="about-meet-slider">
                 <div class="splide__track">
                     <ul id="crew-list" class="splide__list gap-8">
-                        {{-- Example Slide --}}
                         <li class="splide__slide">
                             <div class="crew-card" bis_skin_checked="1">
                                 <div class="crew-card-img-parent" bis_skin_checked="1">
@@ -89,15 +121,13 @@
                                 </div>
                             </div>
                         </li>
-                        {{-- Repeat Slides as Needed --}}
                     </ul>
                 </div>
             </div>
             
             <div id="crew-list-pagination" class="flex items-center custom-navigation text-white space-x-2 justify-center py-8 md:py-5 md:mt-[66px]">
-                <!-- Pagination Buttons -->
             </div>
-        </div>
+        </div> --}}
 
         <div class="lg:my-16">
             <div class="flex flex-col lg:flex-row gap-6">
@@ -221,7 +251,7 @@
                             </div>
     
                             <!-- Horizontal Line -->
-                            <div class="absolute hidden md:top-1/2 left-0 w-full h-[1px] bg-[#072558] opacity-50 z-0"></div>
+                            <div class="absolute hidden lg:block md:top-1/2 left-0 w-full h-[1px] bg-[#072558] opacity-50 z-0"></div>
     
                             <!-- Right Section (Images) -->
                             <div class="flex gap-4 w-full md:w-[50%] lg:w-[40%] justify-end relative z-10">

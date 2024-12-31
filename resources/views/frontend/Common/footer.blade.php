@@ -57,6 +57,12 @@
     text-decoration: underline;
 }
 
+@media (min-width: 1460px){
+    .footer-gaping{
+        gap: 10rem;
+    }
+}
+
 </style>
 
 <?php
@@ -67,22 +73,20 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
 <footer class="w-full footer-secpernt h-full relative overflow-hidden">
     <div class="blakorblue lg:pt-10">
         <div class="container mx-auto px-5 lg:px-12 h-full flex justify-center w-full md:pb-4">
-            <div class="bg-[linear-gradient(89.96deg,_#00154E_-47.02%,_#00B0FF_112.6%)] flex flex-col md:flex-row lg:items-center gap-3 py-4 md:py-10 w-full lg:w-[92%] 2xl:w-full px-3 md:px-10 rounded-[30px] mb-[-60px] md:mb-[-80px] relative z-50">
-                <div class="flex  items-center justify-center gap-5 w-full">
+            <div class="bg-[linear-gradient(89.96deg,_#00154E_-47.02%,_#00B0FF_112.6%)] flex flex-col md:flex-row lg:justify-around lg:items-center gap-3 py-4 md:py-10 w-full lg:w-[80%] px-3 md:px-10 rounded-[30px] mb-[-60px] md:mb-[-80px] relative z-40">
+                <div class="flex  items-center justify-center gap-5">
                     {{-- <h2 class="font_inter font-semibold text-4xl 2xl:text-5xl text-center md:text-left gettouch uppercase gradient-text">Get IN TOUCH WITH US</h2> --}}
                     <h2 class="font_inter font-semibold text-base md:text-xl 2xl:text-4xl text-left gettouch uppercase text-white lg:whitespace-nowrap">Get IN TOUCH WITH US</h2>
                     <img class="w-[43px] lg:w-[70px]" src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="">
                 </div>
 
-                <div class="flex justify-center lg:justify-end 2xl:justify-center w-full">
-                    <div>
-                        <div class="relative cursor-pointer flex justify-center items-center w-fit rounded-full gap-5 py-[4.5px] pl-6 pr-1 overflow-hidden group">
-                            <!-- Background animation using pseudo-element -->
-                            <div class="absolute inset-0 bg-[linear-gradient(90deg,_#003D99_0%,_#0066FF_100%)] transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
-                            <h6 class="relative z-10 text-white text-[10px] md:text-[14px] 2xl">Have any doubt</h6>
-                            <div class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:py-[4px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
-                                <a href="{{ url('contact-us') }}" class="h-full text-[12px] lg:text-[16px] font-semibold">Connect Us</a>
-                            </div>
+                <div class="flex justify-center lg:justify-end">
+                    <div class="relative cursor-pointer flex justify-center items-center w-fit rounded-full gap-5 py-[4.5px] pl-6 pr-1 overflow-hidden group">
+                        <!-- Background animation using pseudo-element -->
+                        <div class="absolute inset-0 bg-[linear-gradient(90deg,_#003D99_0%,_#0066FF_100%)] transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
+                        <h6 class="relative z-10 text-white text-[10px] md:text-[14px] 2xl">Have any doubt</h6>
+                        <div class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:py-[4px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                            <a href="{{ url('contact-us') }}" class="h-full text-[12px] lg:text-[16px] font-semibold">Connect Us</a>
                         </div>
                     </div>
                 </div>
@@ -91,7 +95,7 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
     </div>
     <div class="globebg">
         <div class="relative w-full footer z-30 pt-[86px] py-6 md:pt-28 md:pb-6">
-            <div class="container mx-auto px-5 lg:px-12 h-full w-full py-4  lg:py-0 flex flex-col lg:flex-row justify-between gap-8 lg:gap-12 2xl:gap-28   items-start">
+            <div class="container mx-auto px-5 lg:px-12 h-full w-full py-4 footer-gaping lg:py-0 flex flex-col lg:flex-row justify-between gap-8 lg:gap-12 2xl:gap-28   items-start">
                 <div class="w-full flex flex-col gap-6">
                     <div class="flex items-center gap-5">
                         <img class="" src="{{ asset('assets/home_Banner/grouplogo.png') }}" alt="K-graph logo">

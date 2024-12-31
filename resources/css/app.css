@@ -8,6 +8,12 @@
 .blakorblue{
     background: #062358;
 }
+
+@media (min-width: 1560px){
+    .footer-gaping{
+        gap: 10rem;
+    }
+}
 /* body{
     background: #04183c;
 } */
