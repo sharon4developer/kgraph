@@ -49,48 +49,48 @@ function loadDataTableForCrew() {
                 orderable: false,
                 searchable: false,
             },
+            // {
+            //     data: null,
+            //     render: function (row) {
+
+            //         if (row.status == 1)
+            //             return `<span class="badge rounded-pill bg-success-subtle text-success">Active</span>`;
+            //         else
+            //             return `<span class="badge rounded-pill bg-danger-subtle text-danger">Deactivated</span>`;
+
+
+            //     }, orderable: false, searchable: false
+            // },
+            // {
+            //     data: null,
+            //     render: function (row) {
+            //         return moment(row.created_at).format('DD MMM  YYYY hh:mm:a')
+            //     },
+            //     orderable:
+            //         false,
+            //     searchable: false
+            // },
             {
                 data: null,
                 render: function (row) {
 
-                    if (row.status == 1)
-                        return `<span class="badge rounded-pill bg-success-subtle text-success">Active</span>`;
-                    else
-                        return `<span class="badge rounded-pill bg-danger-subtle text-danger">Deactivated</span>`;
-
-
-                }, orderable: false, searchable: false
-            },
-            {
-                data: null,
-                render: function (row) {
-                    return moment(row.created_at).format('DD MMM  YYYY hh:mm:a')
-                },
-                orderable:
-                    false,
-                searchable: false
-            },
-            {
-                data: null,
-                render: function (row) {
-
-                    if (row.status == 1)
-                        statusCheck = ` <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light" href="#"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Deactivate" data-bs-placement="top"   onclick="changeStatus(` + row.id + `,` + row.status + `)">
-                                            <i class="fa fa-ban"></i>
-                                        </a>`;
-                    else
-                        statusCheck = ` <a class="datatable-buttons btn btn-outline-success btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light" href="#"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Activate" data-bs-placement="top" onclick="changeStatus(` + row.id + `,` + row.status + `)">
-                                            <i class="fa fa-check"></i>
-                                        </a>`;
+                    // if (row.status == 1)
+                    //     statusCheck = ` <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light" href="#"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Deactivate" data-bs-placement="top"   onclick="changeStatus(` + row.id + `,` + row.status + `)">
+                    //                         <i class="fa fa-ban"></i>
+                    //                     </a>`;
+                    // else
+                    //     statusCheck = ` <a class="datatable-buttons btn btn-outline-success btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light" href="#"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Activate" data-bs-placement="top" onclick="changeStatus(` + row.id + `,` + row.status + `)">
+                    //                         <i class="fa fa-check"></i>
+                    //                     </a>`;
                     return (`<div style="white-space:no-wrap">
                                     <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Edit" data-bs-placement="top"  href="` + $("#route-for-user").val() + `/crew/` + row.id + `/edit">
                                         <i class="fa fa-edit"></i>
                                     </a>
-                                    `+ statusCheck + `
                                     <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light" href="#"   data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Delete" data-bs-placement="top"   onclick="deleteData(`+ row.id + `)">
-                                         <i class="fa fa-trash"></i>
+                                    <i class="fa fa-trash"></i>
                                     </a>
-                                 </div>`);
+                                    </div>`);
+                                    // `+ statusCheck + `
 
                 }, orderable: false, searchable: false
             },

@@ -15,8 +15,9 @@ class CrewController extends Controller
     {
         $title = 'Crew';
         $sub_title = 'Crew';
+        $count = Crew::count();
 
-        return view('admin.crew.index',compact('title','sub_title'));
+        return view('admin.crew.index',compact('title','sub_title','count'));
     }
 
     public function create()

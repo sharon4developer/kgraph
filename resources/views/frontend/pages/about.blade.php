@@ -64,20 +64,22 @@
     </div>
 </div>
 
+@if($crew)
 <div class="cta bg-[#062358]">
     <div class="container mx-auto px-5 lg:px-12">
         <section class="flex flex-col lg:flex-row items-center bg-blue-50 p-8 lg:p-16 space-y-8 lg:space-y-0 lg:space-x-12">
             <!-- Text Section -->
+
             <div class="lg:w-2/3 text-center lg:text-left">
                 <h2 class="text-3xl font-bold text-gray-800">
-                    Note from the <span class="text-blue-500">CEO</span>
+                    Note from the <span class="text-blue-500">{{$crew->position}}</span>
                 </h2>
                 <p class="mt-4 text-gray-700 leading-relaxed">
-                    We are in the business of solving problems. We empower entrepreneurs and startups with the right technology to help them turn their ideas into lightning-fast solutions that revolutionize industries.
+                    {{$crew->description}}
                 </p>
                 <div class="mt-8">
-                    <p class="text-lg font-bold text-gray-800">FAIZ MOHAMED HANEEF</p>
-                    <p class="text-gray-600">CEO at K-graph</p>
+                    <p class="text-lg font-bold text-gray-800">{{$crew->name}}</p>
+                    <p class="text-gray-600">{{$crew->position}} at K-graph</p>
                 </div>
                 <div class="mt-4 flex justify-center lg:justify-start space-x-4">
                     <a href="https://www.facebook.com/KGraphimmigration/" target="_blank" rel="noopener noreferrer">
@@ -90,16 +92,17 @@
             </div>
             <!-- Image Section -->
             <div class="lg:w-1/3 lg:flex justify-center items-center">
-                <img class="crew-card-img" src="https://kgraph-test.s3.ap-south-1.amazonaws.com/storage/assets/uploads/mathews-benny-images(14)-FjIQl4elu2FeJDW.jpeg">
+                <img class="crew-card-img" src="{{$crew->image}}">
             </div>
         </section>
     </div>
 </div>
+@endif
 
 
 <div class="cta bg-[#062358]">
     <div class="container mx-auto px-5 lg:px-12 py-8 z-10 relative">
-        
+
         {{-- <div class="md:py-10">
             <h6 class="capitalize mb-5 text-white font_inter font-semibold text-[19px]"> @if(isset($aboutUs)) {{$aboutUs->crew_title}} @endif</h6>
             <div class="about-meet-slider">
@@ -124,7 +127,7 @@
                     </ul>
                 </div>
             </div>
-            
+
             <div id="crew-list-pagination" class="flex items-center custom-navigation text-white space-x-2 justify-center py-8 md:py-5 md:mt-[66px]">
             </div>
         </div> --}}
@@ -226,7 +229,7 @@
         <div class="relative h-full w-full flex items-center justify-between">
             <!-- Previous Button -->
             <div class="aboutprev bg-[#062358] rounded-full w-10 h-10 px-5 flex justify-center items-center text-white font-bold cursor-pointer shadow-md text-lg">‹</div>
-    
+
             <!-- Splide Slider -->
             <div id="newaboutSplide" class="splide flex items-center w-[79%] md:w-[90%] lg:w-[90%] xl:w-[94%]">
                 <div class="splide__track">
@@ -249,10 +252,10 @@
                                     {{$data->description}}
                                 </p>
                             </div>
-    
+
                             <!-- Horizontal Line -->
                             <div class="absolute hidden lg:block md:top-1/2 left-0 w-full h-[1px] bg-[#072558] opacity-50 z-0"></div>
-    
+
                             <!-- Right Section (Images) -->
                             <div class="flex gap-4 w-full md:w-[50%] lg:w-[40%] justify-end relative z-10">
                                 <img
@@ -271,12 +274,12 @@
                     </ul>
                 </div>
             </div>
-    
+
             <!-- Next Button -->
             <div class="aboutnext bg-[#062358] rounded-full w-10 h-10 px-5 flex justify-center items-center text-white font-bold cursor-pointer shadow-md text-lg">›</div>
         </div>
     </div>
-    
+
 
 </div>
 
