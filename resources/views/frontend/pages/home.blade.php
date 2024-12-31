@@ -707,7 +707,7 @@
                             <div class="hidden lg:block w-full lg:mr-8" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;" data-animate-left></div>
                         </div>
 
-                        <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 my-6 lg:py-20  py-[6.5px]  xl:py-[4.5px] pl-5 pr-1 group">
+                        <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 my-6  py-[6.5px]  xl:py-[4.5px] pl-5 pr-1 group">
                             <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 min-w-fit max-w-full rounded-full"></div>
                             <h6 class="relative z-10 text-white text-[12px] xl:text-[14px] lg:whitespace-nowrap">Let's turn your vision into reality</h6>
                             <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:pb-[2px] xl:pt-[1px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
