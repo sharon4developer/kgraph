@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('position')->nullable();
             $table->string('address')->nullable();
             $table->string('email')->nullable();
-            $table->string('description')->nullable();
+            $table->text('description')->nullable();
             $table->string('image')->nullable();
             $table->string('intervention_image')->nullable();
             $table->string('alt_tag')->nullable()->default('k-graph');
