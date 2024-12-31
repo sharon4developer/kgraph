@@ -135,7 +135,7 @@ class NewsLetterController extends Controller
         } catch (Exception $e) {
             $response = [
                 'status' => false,
-                'message' => $e->getMessage(),
+                'message' => 'Something went wrong please try again.',
                 'error' => $e->getMessage(),
             ];
         }
