@@ -63,7 +63,7 @@
     }
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1480px) {
     .placeholder-custom::placeholder {
         font-size: 0.65rem;
     }
@@ -136,7 +136,7 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                 </div>
                 
                 <div class="w-full">
-                    <h6 class="font_inter text-[20pxpx] 2xl:text-[33px] font-semibold text-white">GET THE LATEST NEWS AND INSIGHTS</h6>
+                    <h6 class="font_inter text-[20px] lg:text-[33px] font-semibold text-white">GET THE LATEST NEWS AND INSIGHTS</h6>
                     <div class="flex flex-col xl:flex-row w-fit xl:items-center gap-3 pt-12">
                         <span class="capitalize font-bold text-sm text-white font_roboto hidden lg:block">Subscribe</span>
                         <form id="news-letter-add-form" class="relative">

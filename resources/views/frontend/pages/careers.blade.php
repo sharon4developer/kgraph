@@ -85,6 +85,14 @@
             padding-top: 10px;
             margin-top: 30px;
         }
+        @media (max-width: 768px){
+            .enquiry-form-inputparent {
+                display: flex;
+                align-items: center;
+                padding-top: 10px;
+                margin-top: 20px;
+            }
+        }
 
         .enquiry-form select {
             width: 100%;
@@ -542,8 +550,8 @@
 
     <div class="relative">
         <!-- Unique Modal ID -->
-        <div id="jobenquirey" class="modalPopup hidden lg:fixed inset-0 bg-gray-800 bg-opacity-50 items-center justify-center z-50">
-            <div class="rounded-xl pb-11 px-2 lg:p-6 w-full lg:max-w-[50%]">
+        <div id="jobenquirey" class="modalPopup hidden  fixed inset-0 bg-gray-800 bg-opacity-50 items-center justify-center z-50">
+            <div class="rounded-xl pb-11 px-2 lg:p-6 w-[92%] lg:max-w-[50%]">
                 <div class="relative">
                     <div class="bg-white rounded-xl h-fit w-full canada-flag relative lg:h-fit 2xl:h-auto">
                         <div class="absolute top-0 left-[30px]">
@@ -553,7 +561,7 @@
                         </div>
                         <form action="" class="text-black enquiry-form" id="career-add-form-new">
                             <input type="hidden" name="job_id" id="job_id" value="">
-                            <h4 class="font_inter font-semibold text-black text-[32px] py-10">Start Your Journey with Us</h4>
+                            <h4 class="font_inter font-semibold text-black text-[18px] lg:text-[32px] py-10">Start Your Journey with Us</h4>
                             <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent !mt-[-11px]">
                                 <label for="name">NAME<span>*</span></label>
                                 <input type="text" name="name_n">
@@ -925,38 +933,36 @@
         });
     </script>
 
-<script>
-    // Check if the device is mobile
-    document.addEventListener('DOMContentLoaded', () => {
-    // Ensure the DOM is fully loaded
-    const applyNowButton = document.getElementById('applyNowBtn');
-    const jobEnquirySection = document.getElementById('jobenquirey');
+    <script>
+        // Check if the device is mobile
+        document.addEventListener('DOMContentLoaded', () => {
+        // Ensure the DOM is fully loaded
+        const applyNowButton = document.getElementById('applyNowBtn');
+        const jobEnquirySection = document.getElementById('jobenquirey');
 
-    if (applyNowButton && jobEnquirySection) {
-        applyNowButton.addEventListener('click', function () {
-            if (/Mobi|Android/i.test(navigator.userAgent)) {
-                // Show the modal by removing the 'hidden' class
-                jobEnquirySection.classList.remove('hidden');
-                jobEnquirySection.style.display = 'flex'; // Ensure it displays correctly
-                
-                // Scroll to the modal section
-                jobEnquirySection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center' // Adjust block position if needed
-                });
+        if (applyNowButton && jobEnquirySection) {
+            applyNowButton.addEventListener('click', function () {
+                if (/Mobi|Android/i.test(navigator.userAgent)) {
+                    // Show the modal by removing the 'hidden' class
+                    jobEnquirySection.classList.remove('hidden');
+                    jobEnquirySection.style.display = 'flex'; // Ensure it displays correctly
+                    
+                    // Scroll to the modal section
+                    jobEnquirySection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center' // Adjust block position if needed
+                    });
 
-                console.log('Apply button clicked, and scrolling to #jobenquirey.');
-            } else {
-                console.log('Not a mobile device. Action skipped.');
-            }
-        });
-    } else {
-        console.error('Element with ID "applyNowBtn" or "jobenquirey" not found.');
-    }
-});
-
-
-</script>
+                    console.log('Apply button clicked, and scrolling to #jobenquirey.');
+                } else {
+                    console.log('Not a mobile device. Action skipped.');
+                }
+            });
+        } else {
+            console.error('Element with ID "applyNowBtn" or "jobenquirey" not found.');
+        }
+    });
+    </script>
 
 
 
