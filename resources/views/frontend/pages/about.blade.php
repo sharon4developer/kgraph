@@ -247,7 +247,7 @@
                                     </h3>
                                 </div>
                                 <!-- Description -->
-                                <p class="pl-4 text-[#07245A] h-[100px] md:h-[160px] xl:h-[90px] opacity-70 font-medium text-[14px] md:text-[16px] lg:text-[18px] leading-relaxed">
+                                <p class="px-4 lg:pl-4 lg:pr-0 text-[#07245A] h-[100px] md:h-[160px] xl:h-[90px] opacity-70 font-medium text-[14px] md:text-[16px] lg:text-[18px] leading-relaxed">
                                     {{$data->description}}
                                 </p>
                             </div>
@@ -256,7 +256,7 @@
                             <div class="absolute hidden lg:block md:top-1/2 left-0 w-full h-[1px] bg-[#072558] opacity-50 z-0"></div>
 
                             <!-- Right Section (Images) -->
-                            <div class="flex gap-4 w-full md:w-[50%] lg:w-[40%] justify-end relative z-10">
+                            <div class="flex gap-4 w-full md:w-[50%] lg:w-[40%] justify-center lg:justify-end relative z-10">
                                 <img
                                     class="max-h-[60px] md:max-h-[80px] lg:max-h-[100px] 2xl:max-h-[170px] aspect-video object-cover rounded-md shadow-md"
                                     src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}"
