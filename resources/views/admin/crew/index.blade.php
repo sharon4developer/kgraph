@@ -9,11 +9,13 @@
                         <div class="col-md-10">
                             <h4 class="box-title">Crew</h4>
                         </div>
+                        @if($count == 0)
                         <div class="col-md-2">
                             <a class="btn btn-outline-info btn-rounded m-3 _effect--ripple waves-effect waves-light float-end"
                                 href="{{ url('admin/crew/create') }}"><i class="fa fa-plus" aria-hidden="true"></i>
                                 Add</a>
                         </div>
+                        @endif
                     </div>
                 </div>
                 <div class="card-body">
@@ -25,8 +27,8 @@
                                 <th>Position</th>
                                 <th>Email</th>
                                 <th>Image</th>
-                                <th>Status</th>
-                                <th>Created Date</th>
+                                {{-- <th>Status</th>
+                                <th>Created Date</th> --}}
                                 <th>Action</th>
                             </tr>
                         </thead>

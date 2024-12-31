@@ -99,7 +99,7 @@ class Crew extends Model
 
         $locationData = getLocationData();
 
-        return SELF::select(DB::raw("CONCAT('{$locationData['storage_server_path']}', '{$locationData['storage_image_path']}', image) as image"),'id','address','email','description','name', 'position','alt_tag')->orderBy('order','asc')->where('status',1);
+        return SELF::select(DB::raw("CONCAT('{$locationData['storage_server_path']}', '{$locationData['storage_image_path']}', image) as image"),'id','address','email','description','name', 'position','alt_tag')->orderBy('order','asc')->where('status',1)->first();
     }
 
     public static function updateOrder($data)
