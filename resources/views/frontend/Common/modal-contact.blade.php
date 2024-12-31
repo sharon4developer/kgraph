@@ -125,7 +125,7 @@
                         </div>
 
                         <div class="border-b border-b-[#D9D9D9] flex-col md:flex-row enquiry-form-inputparent mobile">
-                            <div class="mb-[40px] border-b border-b-[#D9D9D9] md:border-none  md:mb-0">
+                            <div class="mb-[40px] border-b border-b-[#D9D9D9] md:border-none w-full md:w-auto md:mb-0">
                                 <select name="country" id="">
                                     <option value="+1">+1 (Canada)</option>
                                     <option value="+93">+93 (Afghanistan)</option>
