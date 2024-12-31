@@ -71,15 +71,21 @@
             <!-- Text Section -->
 
             <div class="lg:w-2/3 text-center lg:text-left">
-                <h2 class="text-3xl font-bold text-gray-800">
-                    Note from the <span class="text-blue-500">{{$crew->position}}</span>
+                <h2 class="text-3xl font-bold text-gray-800">Director's<span class="text-blue-500"> Message</span>
                 </h2>
-                <p class="mt-4 text-gray-700 leading-relaxed">
+                <p class="mt-4 text-gray-700 leading-relaxed text-justify">
                     {{$crew->description}}
+
+                    
+                    Mathews Benny, RCIC CAPIC Member Commissioner of Oaths
+                    Canada is a land of dreams and opportunities for many people who seek quality education and rewarding careers. Can-Direct Overseas Education Services, our first venture founded in 2015, has been a catalyst for many students and professionals who wanted to pursue their aspirations in Canada. In 2018, we launched KGraph INC, a vibrant and rapidly growing firm that offers expert guidance on various programs offered by the Canadian government in the fields of education and employment.
+                    As the Director of KGraph, I am honored and humbled to say that we touch the lives of our clients by providing them with personalized and professional advice from our consultants who have lived and worked in Canada themselves. Since its inception in 2018, I have seen KGraph's growth as an outstanding overseas Immigration firm in both Canada and India. We have seen an increase in our staff strength, as much as we have seen our team take action and support our clientele across our various offices in Toronto, Mississuaga & Kitchener in Canada, and Kottayam & Kochi in Kerala.
+                    We have also tailored our services to meet the needs and expectations of each location, and we have added new features such as visa assistance, pre-departure orientation, post-arrival support, and career counseling. It has been a privilege to serve as the Director over the years, collaborating with a brilliant and committed team of staff members in this organization. I would like to express my heartfelt gratitude to everyone who has contributed to KGraph's success and recognition among overseas consultancies in Canada. I look forward to the challenges and opportunities that await us!
+                
                 </p>
                 <div class="mt-8">
                     <p class="text-lg font-bold text-gray-800">{{$crew->name}}</p>
-                    <p class="text-gray-600">{{$crew->position}} at K-graph</p>
+                    <p class="text-gray-600 font-semibold">{{$crew->position}} at K-graph</p>
                 </div>
                 {{-- <div class="mt-4 flex justify-center lg:justify-start space-x-4">
                     <a href="https://www.facebook.com/KGraphimmigration/" target="_blank" rel="noopener noreferrer">
