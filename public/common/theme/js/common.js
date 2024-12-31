@@ -24,6 +24,11 @@ $('#news-letter-add-form').validate({
             required: true,
         },
     },
+    messages: {
+        news_letter_email: {
+            required: "Please enter your email address",
+        },
+    },
     errorElement: 'span',
     submitHandler: function (form, event) {
         //

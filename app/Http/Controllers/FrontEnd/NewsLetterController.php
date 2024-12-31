@@ -19,7 +19,7 @@ class NewsLetterController extends Controller
             if ($save) {
                 $response = [
                     'status' => true,
-                    'message' => 'Submitted successfully',
+                    'message' => 'Thank you for subscribing! We will keep you informed about immigration updates',
                 ];
             } else {
                 $response = [
