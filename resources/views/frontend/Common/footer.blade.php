@@ -63,6 +63,14 @@
     }
 }
 
+@media (max-width: 1280px) {
+    .placeholder-custom::placeholder {
+        font-size: 0.65rem;
+    }
+}
+
+
+
 </style>
 
 <?php
@@ -133,7 +141,7 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                         <span class="capitalize font-bold text-sm text-white font_roboto hidden lg:block">Subscribe</span>
                         <form id="news-letter-add-form" class="relative">
                             <div class="bg-white rounded-[50px] flex items-center overflow-hidden glow-effect">
-                                <input type="email" class="min-w-[189px] w-[100vw] max-w-[245px] lg:w-[148px] lg:min-w-[100px] 2xl:w-[280px] py-2 px-3 outline-none font_roboto" style="background: none;" name="news_letter_email" id="news-letter-email" placeholder="Enter your email Address">
+                                <input type="email" class="min-w-[189px] w-[100vw] max-w-[245px] lg:w-[148px] lg:min-w-[100px] 2xl:w-[280px] py-2 px-3 outline-none font_roboto placeholder-custom" style="background: none;" name="news_letter_email" id="news-letter-email" placeholder="Enter your email Address">
                                 <button type="submit" class="bg-black text-white rounded-[50px] font_roboto font-normal text-sm py-2 px-3 mx-[2px] block">Subscribe</button>
                             </div>
                         </form>
