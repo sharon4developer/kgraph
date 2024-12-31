@@ -516,7 +516,7 @@
                             <button id="applyNowBtn" data-job-id="{{$data->id}}"
                                     class="relative font-semibold font_inter text-white px-7 py-2 rounded-md border border-white overflow-hidden transition-all duration-500 ease-out hover:text-black group applyNowBtn">
                                 <span class="absolute inset-0 bg-white transform -translate-x-full transition-transform duration-500 ease-out group-hover:translate-x-0"></span>
-                                <span class="relative z-10 font_inter font-bold"><a href="#jobenquirey">Apply now</></span>
+                                <span class="relative z-10 font_inter font-bold block">Apply now</span>
                             </button>
                         </div>
                     </div>
@@ -905,25 +905,58 @@
 
         
     </script>
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const viewMoreButtons = document.querySelectorAll(".viewmorebtn");
 
-        viewMoreButtons.forEach(button => {
-            button.addEventListener("click", (event) => {
-                const clickedButton = event.target; // Identify the clicked button
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const viewMoreButtons = document.querySelectorAll(".viewmorebtn");
 
-                // Toggle the text of the clicked button
-                if (clickedButton.textContent.trim() === "View More") {
-                    clickedButton.textContent = "View Less";
-                } else {
-                    clickedButton.textContent = "View More";
-                }
+            viewMoreButtons.forEach(button => {
+                button.addEventListener("click", (event) => {
+                    const clickedButton = event.target; // Identify the clicked button
+
+                    // Toggle the text of the clicked button
+                    if (clickedButton.textContent.trim() === "View More") {
+                        clickedButton.textContent = "View Less";
+                    } else {
+                        clickedButton.textContent = "View More";
+                    }
+                });
             });
         });
-    });
-</script>
+    </script>
 
+<script>
+    // Check if the device is mobile
+    document.addEventListener('DOMContentLoaded', () => {
+    // Ensure the DOM is fully loaded
+    const applyNowButton = document.getElementById('applyNowBtn');
+    const jobEnquirySection = document.getElementById('jobenquirey');
+
+    if (applyNowButton && jobEnquirySection) {
+        applyNowButton.addEventListener('click', function () {
+            if (/Mobi|Android/i.test(navigator.userAgent)) {
+                // Show the modal by removing the 'hidden' class
+                jobEnquirySection.classList.remove('hidden');
+                jobEnquirySection.style.display = 'flex'; // Ensure it displays correctly
+                
+                // Scroll to the modal section
+                jobEnquirySection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center' // Adjust block position if needed
+                });
+
+                console.log('Apply button clicked, and scrolling to #jobenquirey.');
+            } else {
+                console.log('Not a mobile device. Action skipped.');
+            }
+        });
+    } else {
+        console.error('Element with ID "applyNowBtn" or "jobenquirey" not found.');
+    }
+});
+
+
+</script>
 
 
 
