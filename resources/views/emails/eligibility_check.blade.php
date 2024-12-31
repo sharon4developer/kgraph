@@ -70,33 +70,34 @@
                 <h2>Eligibility Check Submission</h2>
                 <p>Here are the details submitted:</p>
 
-                <div class="field"><strong>First Name:</strong> {{ $data['first_name'] }}</div>
-                <div class="field"><strong>Last Name:</strong> {{ $data['last_name'] }}</div>
-                <div class="field"><strong>Email:</strong> {{ $data['email'] }}</div>
-                <div class="field"><strong>Address:</strong> {{ $data['street_address'] }}</div>
-                <div class="field"><strong>Citizenship:</strong> {{ $data['city'] }}</div>
-                <div class="field"><strong>Canadian Experience:</strong> {{ $data['state'] }}</div>
-                <div class="field"><strong>Foreign Experience:</strong> {{ $data['zip'] }}</div>
-                <div class="field"><strong>Mobile Number:</strong> {{ $data['mobile'] }}</div>
-                <div class="field"><strong>Date of Birth:</strong> {{ $data['dob'] }}</div>
-                <div class="field"><strong>Marital Status:</strong> {{ $data['marital_status'] }}</div>
-                <div class="field"><strong>How Did you Hear about Us:</strong> {{ $data['hear_about_canada'] }}</div>
-                <div class="field"><strong>Do you have a valid Language Skills Test Result:</strong> {{ $data['country_of_studies'] }}</div>
-                <div class="field"><strong>Highest Level of Education:</strong> {{ $data['highest_education_inside_can'] }}</div>
-                <div class="field"><strong>Canadian Education:</strong> {{ $data['certificate_of_qualification'] }}</div>
-                <div class="field"><strong>Family Relation in Canada:</strong> {{ $data['family_relations_in_canada'] }}</div>
-                <div class="field"><strong>Previous Visa Refusal:</strong> {{ $data['refused_or_cancelled_visa'] }}</div>
-                <div class="field"><strong>Criminal Record:</strong> {{ $data['criminal_record'] }}</div>
-                <div class="field"><strong>Additional Information:</strong> {{ $data['detained'] }}</div>
+                <div class="field"><strong>First Name:</strong> {{ $data['first_name'] ?? 'N/A' }}</div>
+                <div class="field"><strong>Last Name:</strong> {{ $data['last_name'] ?? 'N/A' }}</div>
+                <div class="field"><strong>Email:</strong> {{ $data['email'] ?? 'N/A' }}</div>
+                <div class="field"><strong>Address:</strong> {{ $data['street_address'] ?? 'N/A' }}</div>
+                <div class="field"><strong>Citizenship:</strong> {{ $data['city'] ?? 'N/A' }}</div>
+                <div class="field"><strong>Canadian Experience:</strong> {{ $data['state'] ?? 'N/A' }}</div>
+                <div class="field"><strong>Foreign Experience:</strong> {{ $data['zip'] ?? 'N/A' }}</div>
+                <div class="field"><strong>Mobile Number:</strong> {{ $data['mobile'] ?? 'N/A' }}</div>
+                <div class="field"><strong>Date of Birth:</strong> {{ $data['dob'] ?? 'N/A' }}</div>
+                <div class="field"><strong>Marital Status:</strong> {{ $data['marital_status'] ?? 'N/A' }}</div>
+                <div class="field"><strong>How Did you Hear about Us:</strong> {{ $data['hear_about_canada'] ?? 'N/A' }}</div>
+                <div class="field"><strong>Do you have a valid Language Skills Test Result:</strong> {{ $data['country_of_studies'] ?? 'N/A' }}</div>
+                <div class="field"><strong>Highest Level of Education:</strong> {{ $data['highest_education_inside_can'] ?? 'N/A' }}</div>
+                <div class="field"><strong>Canadian Education:</strong> {{ $data['certificate_of_qualification'] ?? 'N/A' }}</div>
+                <div class="field"><strong>Family Relation in Canada:</strong> {{ $data['family_relations_in_canada'] ?? 'N/A' }}</div>
+                <div class="field"><strong>Previous Visa Refusal:</strong> {{ $data['refused_or_cancelled_visa'] ?? 'N/A' }}</div>
+                <div class="field"><strong>Criminal Record:</strong> {{ $data['criminal_record'] ?? 'N/A' }}</div>
+                <div class="field"><strong>Additional Information:</strong> {{ $data['detained'] ?? 'N/A' }}</div>
 
-                @if ($data['country_of_studies'] == 'Yes')
+                @if (!empty($data['country_of_studies']) && $data['country_of_studies'] == 'Yes')
                     <h3>Language Test Details</h3>
-                    <div class="field"><strong>Language Test:</strong> {{ $data['language_test'] }}</div>
-                    <div class="field"><strong>Speaking:</strong> {{ $data['speaking'] }}</div>
-                    <div class="field"><strong>Reading:</strong> {{ $data['reading'] }}</div>
-                    <div class="field"><strong>Listening:</strong> {{ $data['listening'] }}</div>
-                    <div class="field"><strong>Writing:</strong> {{ $data['writing'] }}</div>
+                    <div class="field"><strong>Language Test:</strong> {{ $data['language_test'] ?? 'N/A' }}</div>
+                    <div class="field"><strong>Speaking:</strong> {{ $data['speaking'] ?? 'N/A' }}</div>
+                    <div class="field"><strong>Reading:</strong> {{ $data['reading'] ?? 'N/A' }}</div>
+                    <div class="field"><strong>Listening:</strong> {{ $data['listening'] ?? 'N/A' }}</div>
+                    <div class="field"><strong>Writing:</strong> {{ $data['writing'] ?? 'N/A' }}</div>
                 @endif
+
             </div>
             <!-- Call-to-Action Button -->
             <div class="cta-button">
