@@ -79,7 +79,7 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
 ?>
 
 <footer class="w-full footer-secpernt h-full relative overflow-hidden">
-    <div class="blakorblue lg:pt-10">
+    <div class="blakorblue pt-10">
         <div class="container mx-auto px-5 lg:px-12 h-full flex justify-center w-full md:pb-4">
             <div class="bg-[linear-gradient(89.96deg,_#00154E_-47.02%,_#00B0FF_112.6%)] flex flex-col md:flex-row lg:justify-around lg:items-center gap-3 py-4 md:py-10 w-full lg:w-[80%] px-3 md:px-10 rounded-[30px] mb-[-60px] md:mb-[-80px] relative z-40">
                 <div class="flex  items-center justify-center gap-5">
