@@ -187,7 +187,7 @@
                                 </div>
 
                                 <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent mobile flex-col !items-start !pointer-events-nonemd:items-center md:flex-row gap-4 md:gap-0">
-                                    <div>
+                                    <div class="border-b border-b-[#D9D9D9] w-full md:w-auto md:border-none">
                                         <select name="country" id="" class="bg-transparent">
                                             <option value="+1">+1 (Canada)</option>
                                             <option value="+93">+93 (Afghanistan)</option>
@@ -573,7 +573,7 @@
                             </div>
 
                             <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent mobile flex-col !items-start !pointer-events-nonemd:items-center md:flex-row gap-4 md:gap-0">
-                                <div>
+                                <div class="border-b border-b-[#D9D9D9] w-full md:w-auto md:border-none">
                                     <select name="country_n" id="" class="bg-transparent">
                                         <option value="+1">+1 (Canada)</option>
                                         <option value="+93">+93 (Afghanistan)</option>

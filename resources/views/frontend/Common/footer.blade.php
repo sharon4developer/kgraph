@@ -7,6 +7,9 @@
 }
 
 .services-list li {
+    color: white;
+    white-space: nowrap;
+    text-transform: capitalize;
     position: relative;
     padding-left: 25px; /* Space for bullet image */
     margin-bottom: 10px; /* Space between items */
@@ -187,6 +190,16 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
     links.forEach(link => {
     link.textContent = link.textContent.charAt(0).toUpperCase() + link.textContent.slice(1).toLowerCase();
     });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const serviceListItems = document.querySelectorAll('.services-list li');
+        serviceListItems.forEach((item) => {
+            item.textContent = item.textContent
+                .toLowerCase()
+                .replace(/\b\w/g, (char) => char.toUpperCase());
+        });
+    });
+
 </script>
 
 <script src="{{ asset('admin/theme/assets/libs/jquery/jquery.min.js') }}"></script>

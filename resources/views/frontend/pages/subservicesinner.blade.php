@@ -187,29 +187,58 @@
             }
         }
 
+
         .custom-list {
             list-style: none;
             padding: 0;
             margin: 0;
         }
 
-        /* Spacing for Parent <li> Tags */
+        .custom-list li::before {
+            content: '\2713';
+            color: #062358;
+            background-color: #FFFFFF;
+            border-radius: 26px;
+            padding-left: 4px;
+            padding-right: 3px;
+            font-size: 12px;
+            margin-right: 8px;
+        }
+
+        .custom-list ul {
+            padding-top: 10px;
+            padding-left: 15px;
+        }
+
+        .custom-list li {
+            padding-left: 0;
+            padding-bottom: 10px;
+        }
+
+        .custom-list ul li {
+            padding-left: 10px;
+        }
+
+        /* .custom-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
         .custom-list > li {
             position: relative;
-            padding-left: 30px; /* Space for custom bullet */
+            padding-left: 30px; 
             margin-top: 15px !important;
-            margin-bottom: 15px !important; /* Add spacing under parent list items */
+            margin-bottom: 15px !important; 
             font-size: 16px;
-            /* color: #333; */
             line-height: 1.6;
         }
 
-        /* Default Bullet for Parent List Items */
         .custom-list > li::before {
-            content: '\2713'; /* Unicode for checkmark */
+            content: '\2713'; 
             position: absolute;
             left: 0;
-            top: 50%; /* Default alignment for bullets */
+            top: 50%; 
             transform: translateY(-50%);
             width: 15px;
             height: 15px;
@@ -222,7 +251,6 @@
             font-weight: 800;
         }
 
-        /* Nested List Styling */
         .custom-list ul {
             list-style: none;
             padding: 0;
@@ -238,17 +266,9 @@
 
         .custom-list > li:has(ul)::before {
             top: 11%;
-        }
-
-        /* @media (max-width: 767px){
-            .custom-list > li:has(ul)::before {
-                top: 5%;
-            }
-
-            .custom-list > li::before {
-                top: 10%;
-            }
         } */
+
+
 
         .active-item {
             font-weight: bold;
@@ -257,15 +277,24 @@
             background-color: #062358;
             /* padding-left: 10px; */
         }
-
-        .active-button {
+        .content-btn.active-button {
             background-color: white;
             color: #062358;
             font-weight: 700;
-            border-top-right-radius: 7px;
-            border-top-left-radius: 7px;
+            border-radius: 25px;
             border: none;
         }
+
+        /* @media (min-width: 768px){
+            .content-btn.active-button {
+                background-color: white;
+                color: #062358;
+                font-weight: 700;
+                border-top-right-radius: 7px;
+                border-top-left-radius: 7px;
+                border: none;
+            }
+        } */
 
         /* .custom-tab-content {
             display: none;
@@ -285,6 +314,8 @@
         }
 
         .content-btn {
+            background-color: #04152f;
+            border-radius: 25px;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
         .content-btn:hover {
@@ -364,7 +395,7 @@
             @if($ServicePoint->status ==1)
                 <div id="service-point{{ $key }}" class="buttons-wrapper @if ($key != 0) hidden @endif">
                     <div id="sub-services" class="">
-                        <div class="mb-8 flex flex-wrap items-center gap-3 border-b border-b-white mb-2">
+                        <div class="mb-8 pb-5 flex flex-wrap items-center gap-3 border-b border-b-white mb-2">
                             @foreach ($ServicePoint->ServicePointContents as $index => $content)
                                 @if( $content->status ==1 )
                                     <button class="content-btn text-left md:whitespace-nowrap w-fit bg-[#062358] text-white py-2 px-4  font-semibold focus:outline-none @if ($index == 0) active-button @endif"
