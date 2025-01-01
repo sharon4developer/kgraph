@@ -191,14 +191,14 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
     link.textContent = link.textContent.charAt(0).toUpperCase() + link.textContent.slice(1).toLowerCase();
     });
 
-    document.addEventListener('DOMContentLoaded', () => {
-        const serviceListItems = document.querySelectorAll('.services-list li');
-        serviceListItems.forEach((item) => {
-            item.textContent = item.textContent
-                .toLowerCase()
-                .replace(/\b\w/g, (char) => char.toUpperCase());
-        });
-    });
+    // document.addEventListener('DOMContentLoaded', () => {
+    //     const serviceListItems = document.querySelectorAll('.services-list li');
+    //     serviceListItems.forEach((item) => {
+    //         item.textContent = item.textContent
+    //             .toLowerCase()
+    //             .replace(/\b\w/g, (char) => char.toUpperCase());
+    //     });
+    // });
 
 </script>
 
