@@ -28,17 +28,31 @@ class EligibilityCheck extends Model
     ];
 
     // Method to get all eligibility check data
-    public static function getData()
+    public static function getData($request)
     {
 
         $value = self::select(
             'first_name', 'last_name', 'email', 'mobile','id','created_at'
         )->orderBy('order', 'asc');
 
+        if ($request->has('from_date') && $request->filled('from_date')) {
+            $startDate = $request->input('to_date') . ' 00:00:00';
+            $value->whereDate('created_at', '>=', $startDate);
+        }
+
+        // Apply the to_date filter if provided
+        if ($request->has('to_date') && $request->filled('to_date')) {
+            $toDate = $request->input('to_date') . ' 23:59:59';
+            $value->whereDate('created_at', '<=', $toDate);
+        }
+
         return DataTables::of($value)
             ->addIndexColumn()
             ->addColumn('name', function ($row) {
                 return $row->first_name .' '. $row->last_name;
+            })
+            ->editColumn('created_at', function ($row) {
+                return date('Y-m-d H:i:s',strtotime($row->created_at));
             })
 
             ->make(true);
@@ -65,6 +79,7 @@ class EligibilityCheck extends Model
         $data = self::find($id);
 
         $locationData = getLocationData();
+
 
         $data->resume = $locationData['storage_server_path'].$locationData['storage_image_path'].$data->resume;
 

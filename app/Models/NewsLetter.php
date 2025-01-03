@@ -16,12 +16,24 @@ class NewsLetter extends Model
 
     protected $fillable = ['email','order'];
 
-    public static function getFullData()
+    public static function getFullData($request)
     {
         $value =  SELF::select('email', 'id', 'created_at')->orderBy('order', 'asc');
 
+        if ($request->has('from_date') && $request->filled('from_date')) {
+            $value->whereDate('created_at', '>=', $request->input('from_date'));
+        }
+
+        if ($request->has('to_date') && $request->filled('to_date')) {
+            $value->whereDate('created_at', '<=', $request->input('to_date'));
+        }
+
         return DataTables::of($value)
+
             ->addIndexColumn()
+            ->editColumn('created_at', function ($row) {
+                return date('Y-m-d H:i:s',strtotime($row->created_at));
+            })
             ->make(true);
     }
 
