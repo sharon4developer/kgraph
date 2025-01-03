@@ -115,8 +115,9 @@
         }
 
         ul.tabs li {
-            background: none;
             color: #ededed;
+            background: #04152f;
+            border-radius: 30px;
             display: inline-block;
             padding: 10px 15px;
             cursor: pointer;
@@ -145,8 +146,7 @@
         }
 
         .tab-link.current {
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+            border-radius: 30px;
             background: #ededed;
             color: #062358;
         }

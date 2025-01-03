@@ -119,8 +119,9 @@
 			list-style: none;
 		}
 		 ul.tabs li{
-			background: none;
-			color: #ededed;
+            color: #ededed;
+            background: #04152f;
+            border-radius: 30px;
 			display: inline-block;
 			padding: 10px 15px;
 			cursor: pointer;
@@ -150,8 +151,7 @@
         }
 
         .tab-link.current {
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+            border-radius: 30px;
             background: #ededed;
             color: #062358;
         }
@@ -260,7 +260,7 @@
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 flex justify-center items-start flex-col text-white">
             <!-- Tab Names -->
             <div class="tab-names flex flex-col relative  max-w-[100vw] scrollbar-hidden">
-                <ul class="tabs border-b-2 border-b-white scrollbar-hidden">
+                <ul class="tabs scrollbar-hidden lg:flex gap-3 items-center">
                     @foreach ($services->ServicePoint as $key => $ServicePoint)
                     @if($ServicePoint->status ==1)
                     <li class="tab-link {{ $key === 0 ? 'current' : '' }}" data-tab="tab-{{$key+1}}">{{ $ServicePoint->title }}</li>
