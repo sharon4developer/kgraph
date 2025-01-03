@@ -11,10 +11,11 @@ class NewsLetterController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         $title = 'News Letters';
         $sub_title = 'News Letters';
+
 
         return view('admin.news-letter.index',compact('title','sub_title'));
     }

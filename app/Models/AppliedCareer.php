@@ -28,11 +28,19 @@ class AppliedCareer extends Model
         return  $this->belongsTo(CareerDepartment::class,'department')->withTrashed();
     }
 
-    public static function getFullData()
+    public static function getFullData($request)
     {
         $locationData = getLocationData();
 
         $value =  SELF::with(['Branch:id,title','Department:id,title'])->select('email', 'id', 'created_at','name','country_code','mobile','branch','department','message','resume','career_id')->orderBy('order', 'asc');
+
+        if ($request->has('from_date') && $request->filled('from_date')) {
+            $value->whereDate('created_at', '>=', $request->input('from_date'));
+        }
+
+        if ($request->has('to_date') && $request->filled('to_date')) {
+            $value->whereDate('created_at', '<=', $request->input('to_date'));
+        }
 
         return DataTables::of($value)
             ->addIndexColumn()
@@ -54,6 +62,9 @@ class AppliedCareer extends Model
             })
             ->editColumn('message', function ($row) use($locationData) {
                 return isset($row->message) ?  $locationData['storage_server_path'].$locationData['storage_image_path'].$row->message : NULL;
+            })
+            ->editColumn('created_at', function ($row) {
+                return date('Y-m-d H:i:s',strtotime($row->created_at));
             })
             ->make(true);
     }

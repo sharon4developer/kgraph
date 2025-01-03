@@ -11,6 +11,24 @@
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="from_date">From Date:</label>
+                                <input  type="date" id="from_date" class="form-control" name="from_date" value="{{ request('from_date') }}">
+                            <div class="valid-feedback">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="to_date">To Date:</label>
+                                <input type="date" class="form-control" id="to_date" name="to_date" value="{{ request('to_date') }}">
+                            <div class="valid-feedback">
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="card-body">
                     <table id="contact-details-table" class="table table-bordered dt-responsive  nowrap w-100">
                         <thead>

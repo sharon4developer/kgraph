@@ -35,7 +35,16 @@ function loadDataTableForEligibility() {
     table = $('#eligibility-details-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: $('#route-for-user').val() + '/eligibility-check/show',
+
+        ajax: {
+            url: $('#route-for-user').val() + '/eligibility-check/show',
+            dataType: "json",
+            type: "GET",
+            data: function (d) {
+                d.from_date = $('#from_date').val();
+                d.to_date = $('#to_date').val();
+            }
+        },
         columns: [
             { data: 'DT_RowIndex', orderable: false, searchable: false },
             { data: 'name' },
@@ -51,14 +60,17 @@ function loadDataTableForEligibility() {
                 }, orderable: false, searchable: false
             },
             {
-                data: null,
-                render: function (row) {
-                    return moment(row.created_at).format('DD MMM  YYYY hh:mm:a')
-                },
-                orderable:
-                    false,
-                searchable: false
+                data:'created_at',
             },
+            // {
+            //     data: null,
+            //     render: function (row) {
+            //         return moment(row.created_at).format('DD MMM  YYYY hh:mm:a')
+            //     },
+            //     orderable:
+            //         false,
+            //     searchable: false
+            // },
             {
                 data: null,
                 render: function (row) {
@@ -243,3 +255,11 @@ function deleteData(id) {
         }
     })
 }
+$('#from_date').on('change',function (e) {
+
+    table.ajax.reload();
+})
+$('#to_date').on('change',function (e) {
+
+    table.ajax.reload();
+})

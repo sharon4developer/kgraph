@@ -15,11 +15,13 @@
                                 Add</a>
                         </div>
                     </div>
+            
                 </div>
                 <div class="card-body">
                     <table id="career-details-table" class="table table-bordered dt-responsive  nowrap w-100">
                         <thead>
                             <tr>
+
                                 <th>SL No</th>
                                 <th>Title</th>
                                 <th>Location</th>
