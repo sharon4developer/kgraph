@@ -141,7 +141,7 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                 <div class="w-full">
                     <h6 class="font_inter text-[20px] lg:text-[33px] font-semibold text-white">GET THE LATEST NEWS AND INSIGHTS</h6>
                     <div class="flex flex-col xl:flex-row w-fit xl:items-center gap-3 pt-12">
-                        <span class="capitalize font-bold text-sm text-white font_roboto hidden lg:block">Subscribe</span>
+                        {{-- <span class="capitalize font-bold text-sm text-white font_roboto hidden lg:block">Subscribe</span> --}}
                         <form id="news-letter-add-form" class="relative">
                             <div class="bg-white rounded-[50px] flex items-center overflow-hidden glow-effect">
                                 <input type="email" class="min-w-[189px] w-[100vw] max-w-[245px] lg:w-[148px] lg:min-w-[100px] 2xl:w-[280px] py-2 px-3 outline-none font_roboto placeholder-custom" style="background: none;" name="news_letter_email" id="news-letter-email" placeholder="Enter your email Address">
