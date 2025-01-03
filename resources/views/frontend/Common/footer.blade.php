@@ -17,7 +17,7 @@
 
 .services-list li::before {
     content: "";
-    background-image: url(assets/listbullets.png);
+    background-image: url(/assets/listbullets.png);
     background-size: contain;
     background-repeat: no-repeat;
     width: 16px; /* Adjust based on your image size */
@@ -43,7 +43,7 @@
 
 .links-list li::before {
     content: "";
-    background-image: url(assets/nowlistbullets.png); /* Replace with the actual path to your arrow icon */
+    background-image: url(/assets/nowlistbullets.png); /* Replace with the actual path to your arrow icon */
     background-size: contain;
     background-repeat: no-repeat;
     width: 16px; /* Adjust based on your image size */
