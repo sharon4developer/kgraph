@@ -113,7 +113,7 @@
                 </div>
                 <div>
                     <form action="" class="text-black enquiry-form" id="contact-add-form">
-                        <h4 class="font_inter font-semibold text-black text-[32px] pb-10">Enquiry</h4>
+                        <h4 class="font_inter font-semibold text-black text-[32px] pb-10">Enquiry </h4>
                         <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
                             <label for="name">NAME<span>*</span></label>
                             <input type="text" name="name">
@@ -345,6 +345,10 @@
                             </div>
                         </div>
 
+                        <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
+                            <label for="message">Message</label>
+                            <input type="text" name="message">
+                        </div>
                         {{-- <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
                             <label class="whitespace-nowrap" for="email">select branch<span>*</span></label>
                             <select name="" id="">

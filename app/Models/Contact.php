@@ -46,6 +46,7 @@ class Contact extends Model
         $value->country_code = $data->country;
         $value->mobile = $data->mobile;
         $value->message = $data->message;
+       
         $value->save();
 
         $contactData = [

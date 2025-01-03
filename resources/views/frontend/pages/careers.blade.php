@@ -433,7 +433,7 @@
                                     <label for="coverUploaderone" class="cursor-pointer flex justify-between items-center w-full gap-3 pb-1">
                                         <div class="md:whitespace-nowrap">Cover letter</div>
                                         <div class="w-full flex justify-end">
-                                            <input id="coverUploaderone" class="!p-0" type="file" accept=".pdf, image/jpeg, image/png, image/jpg" name="message"/>
+                                            <input id="coverUploaderone" class="!p-0" type="file" accept=".pdf,doc,docx " name="message"/>
                                             <img id="coveruploadIconone" src="{{ asset('assets/home_Banner/fileuploadbutton.png') }}" alt="Upload Logo" width="19" height="15" />
                                         </div>
                                     </label>
@@ -447,7 +447,7 @@
                                     <label for="resume" class="cursor-pointer flex justify-between items-center w-full !border-1 !border-b !border-b-[#D9D9D9] gap-3 pb-1" style="border:1px solid #D9D9D9 !important; border-top: transparent !important; border-left:transparent !important; border-right: transparent !important; ">
                                         <div class="md:whitespace-nowrap">Upload Resume<span>*</span></div>
                                         <div class="w-full flex justify-end">
-                                            <input id="imageUploader"  type="file" accept=".pdf, image/jpeg, image/png, image/jpg" class="relative z-50 !p-0"  name="resume" onchange="handleFileChange()" />
+                                            <input id="imageUploader"  type="file" accept=".pdf,doc,docx" class="relative z-50 !p-0"  name="resume" onchange="handleFileChange()" />
                                             <img id="uploadIcon" src="{{ asset('assets/home_Banner/fileuploadbutton.png') }}" alt="Upload Logo" width="19" height="15" />
                                         </div>
                                     </label>
@@ -489,7 +489,7 @@
                                 <p class="text-[10px] font-extralight uppercase">{{ $data->location }} /</p><p class="text-[10px] font-extralight uppercase">Remote  / </p><p class="text-[10px] font-extralight uppercase">{{ $data->experience }}</p>
                             </div>
                         </div>
-    
+
                         <div class="flex items-center gap-2">
                             <div class="flex items-center gap-2 pr-5">
                                 <img class="w-[13px]" src="{{asset('assets/home_Banner/dateicon.png')}}" alt="">
@@ -800,7 +800,7 @@
                                     class="cursor-pointer flex justify-between items-center w-full">
                                     <div class="md:whitespace-nowrap">Cover letter</div>
                                     <div class="w-full flex justify-end">
-                                        <input id="coverUploadersec" class="pb-2" type="file" accept=".pdf, image/jpeg, image/png, image/jpg" name="message_n" onchange="handleFileChange(1)" />
+                                        <input id="coverUploadersec" class="pb-2" type="file" accept=".pdf,doc,docx " name="message_n" onchange="handleFileChange(1)" />
                                         <img id="coveruploadIconsec" src="{{ asset('assets/home_Banner/fileuploadbutton.png') }}" alt="Upload Logo" class="w-[19px] h-[22px]" width="19" height="15" />
                                     </div>
                                 </label>
@@ -812,7 +812,7 @@
                                     class="cursor-pointer flex justify-between items-center w-full">
                                     <div class="md:whitespace-nowrap">Upload Resume<span>*</span></div>
                                     <div class="w-full flex justify-end">
-                                        <input id="imageUploadersec" class="pb-2" type="file" accept=".pdf, image/jpeg, image/png, image/jpg" required name="resume_n" onchange="handleFileChange()" />
+                                        <input id="imageUploadersec" class="pb-2" type="file" accept=".pdf, doc,docx" required name="resume_n" onchange="handleFileChange()" />
                                         <img id="uploadIconsec" src="{{ asset('assets/home_Banner/fileuploadbutton.png') }}" alt="Upload Logo" class="w-[19px] h-[22px]" width="19" height="15" />
                                     </div>
                                 </label>
@@ -911,7 +911,7 @@
             });
         });
 
-        
+
     </script>
 
     <script>
@@ -946,7 +946,7 @@
                     // Show the modal by removing the 'hidden' class
                     jobEnquirySection.classList.remove('hidden');
                     jobEnquirySection.style.display = 'flex'; // Ensure it displays correctly
-                    
+
                     // Scroll to the modal section
                     jobEnquirySection.scrollIntoView({
                         behavior: 'smooth',
