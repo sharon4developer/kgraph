@@ -116,6 +116,7 @@ $('#contact-add-form').validate({
             digits: true,
             // minlength: 10
         },
+      
     },
     messages: {
         name: "Please enter your name",
@@ -211,7 +212,11 @@ $('#contact-add-form').validate({
             mobile: { required: true, digits: true },
             branch: { required: true },
             department: { required: true },
-            resume: { required: true }
+            resume: {
+                required: true,
+
+
+            }
         },
         messages: {
             name: "Please enter your name",
@@ -226,7 +231,8 @@ $('#contact-add-form').validate({
             },
             branch: "Please select a branch",
             department: "Please select a department",
-            resume: "Please upload your resume"
+            resume: "Please upload your resume",
+
         },
         errorElement: 'span',
         errorClass: 'error invalid-feedback',
@@ -331,6 +337,7 @@ $('#career-add-form-new').validate({
         // },
         resume_n: {
             required: true,
+            // extension: "pdf|doc|docx",
         },
     },
     messages: {

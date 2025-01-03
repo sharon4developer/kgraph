@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\FrontEnd;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\EligibilityCheck_nRequest;
+use App\Http\Requests\EligibilityCheckRequest;
 use App\Models\AppliedCareer;
 use App\Models\Contact;
 use App\Models\EligibilityCheck;
@@ -64,7 +66,7 @@ class NewsLetterController extends Controller
         return response()->json($response);
     }
 
-    public function submitCareer(Request $request)
+    public function submitCareer(EligibilityCheckRequest $request)
     {
         try {
             $save = AppliedCareer::saveCareer($request);
@@ -90,7 +92,7 @@ class NewsLetterController extends Controller
         return response()->json($response);
     }
 
-    public function submitCareerNew(Request $request)
+    public function submitCareerNew(EligibilityCheck_nRequest $request)
     {
         try {
             $save = AppliedCareer::saveCareerNew($request);
