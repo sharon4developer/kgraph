@@ -410,7 +410,7 @@
                             @foreach ($ServicePoint->ServicePointContents as $key2 => $ServicePointContent)
                             @if($ServicePointContent->status ==1)
                                 <div id="content{{ $key }}-{{ $key2 }}"
-                                        class="custom-tab-content @if ($key != 0) hidden @endif">
+                                        class="custom-tab-content lg:mt-4 @if ($key != 0) hidden @endif">
                                     {{-- <h2 class="text-xl font-bold mb-4 text-white">{{ $ServicePointContent->title }}</h2> --}}
                                     <p class="text-white mb-4">{{ $content->description }}</p>
 

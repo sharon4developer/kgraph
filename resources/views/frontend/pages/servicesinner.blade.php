@@ -260,16 +260,16 @@
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 flex justify-center items-start flex-col text-white">
             <!-- Tab Names -->
             <div class="tab-names flex flex-col relative  max-w-[100vw] scrollbar-hidden">
-                <ul class="tabs scrollbar-hidden lg:flex gap-3 items-center">
+                <ul class="tabs scrollbar-hidden lg:flex flex-wrap gap-3 items-center">
                     @foreach ($services->ServicePoint as $key => $ServicePoint)
                     @if($ServicePoint->status ==1)
-                    <li class="tab-link {{ $key === 0 ? 'current' : '' }}" data-tab="tab-{{$key+1}}">{{ $ServicePoint->title }}</li>
+                    <li class="lg:whitespace-nowrap tab-link {{ $key === 0 ? 'current' : '' }}" data-tab="tab-{{$key+1}}">{{ $ServicePoint->title }}</li>
                     @endif
                     @endforeach
                 </ul>
                 @foreach ($services->ServicePoint as $key => $ServicePoint)
                 @if($ServicePoint->status ==1)
-                <div id="tab-{{$key+1}}" class="tab-content {{ $key === 0 ? 'current' : 'hidden lg:w-[89vw]' }}">
+                <div id="tab-{{$key+1}}" class="tab-content mt-4 {{ $key === 0 ? 'current' : 'hidden lg:w-[89vw]' }}">
                     {!! $ServicePoint->description !!}
                 </div>
                 @endif
