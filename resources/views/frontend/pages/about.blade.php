@@ -34,6 +34,14 @@
         left: 0;
         top: -7px;
     } */
+    .crew-card {
+        width: 290px;
+        border: 1px solid #000000;
+        border-radius: 6px;
+        margin-left: 0rem;
+        margin-right: 0rem;
+        overflow: hidden;
+    }
     .page-item.active {
         background-color: #0085FF;
     }
@@ -67,33 +75,57 @@
 @if($crew)
 <div class="cta bg-[#062358]">
     <div class="container mx-auto px-5 lg:px-12">
-        <section class="flex flex-col lg:flex-row items-center bg-blue-50 p-8 lg:p-16 space-y-8 lg:space-y-0 lg:space-x-12">
-            <!-- Text Section -->
-
-            <div class="lg:w-2/3 text-center lg:text-left">
-                <h2 class="text-3xl font-bold text-gray-800">Director's<span class="text-blue-500"> Message</span>
-                </h2>
-                <p class="mt-4 text-gray-700 leading-relaxed text-justify">
-                    {{$crew->description}}                
-                </p>
-                <div class="mt-8">
-                    <p class="text-lg font-bold text-gray-800">{{$crew->name}}</p>
-                    <p class="text-gray-600 font-semibold">{{$crew->position}} at K-graph</p>
+        <div class="bg-blue-50">
+            <section class="flex flex-col lg:flex-row items-center p-8 lg:p-16 space-y-8 lg:space-y-0 lg:space-x-12">
+                <div class="lg:w-2/3 text-center lg:text-left">
+                    <h2 class="text-3xl font-bold text-gray-800">Director's<span class="text-blue-500"> Message</span>
+                    </h2>
+                    <p class="mt-4 text-gray-700 leading-relaxed text-justify">
+                        {{$crew->description}}                
+                    </p>
+                    <div class="mt-8">
+                        <p class="text-lg font-bold text-gray-800">{{$crew->name}}</p>
+                        <p class="text-gray-600 font-semibold">{{$crew->position}} at K-graph</p>
+                    </div>
                 </div>
-                {{-- <div class="mt-4 flex justify-center lg:justify-start space-x-4">
-                    <a href="https://www.facebook.com/KGraphimmigration/" target="_blank" rel="noopener noreferrer">
-                        <img  class="w-[30px] h-[30px] bg-black p-[2px] rounded-[6px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/fbvector.png') }}" alt="facebook">
-                    </a>
-                    <a href="https://www.instagram.com/kgraph_immigration?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
-                        <img  class="w-[30px] h-auto bg-black p-[2px] rounded-[6px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/instagaramvector.png') }}" alt="instagram">
-                    </a>
-                </div> --}}
+    
+                <div class="lg:w-1/3 lg:flex justify-center items-center">
+                    <img class="crew-card-img" src="{{$crew->image}}">
+                </div>
+            </section>
+
+            <div class="lg:flex items-center flex-wrap justify-start gap-6 px-16 py-8">
+                <div class="crew-card" bis_skin_checked="1">
+                    <div class="crew-card-img-parent" bis_skin_checked="1">
+                        <img class="crew-card-img !rounded-none" src="{{$crew->image}}" alt="Crew Image">
+                    </div>
+                    <div class="crew-card-content" bis_skin_checked="1">
+                        <h5 class="text-black">Mathews Benny</h5>
+                        <h6 class="text-black">Director</h6>
+                        <div class="address text-black" bis_skin_checked="1">
+                            <p class="text-black">Canada</p>
+                            <a class="email-link text-black" href="mail.canada@kgraph.ca">canada@kgraph.ca</a>
+                        </div>
+                        <a class="read-bio-link text-black" href="#">Read full bio &gt;</a>
+                    </div>
+                </div>
+
+                <div class="crew-card" bis_skin_checked="1">
+                    <div class="crew-card-img-parent" bis_skin_checked="1">
+                        <img class="crew-card-img !rounded-none" src="{{$crew->image}}" alt="Crew Image">
+                    </div>
+                    <div class="crew-card-content text-black" bis_skin_checked="1">
+                        <h5 class="text-black">Mathews Benny</h5>
+                        <h6 class="text-black">Director</h6>
+                        <div class="address text-black" bis_skin_checked="1">
+                            <p class="text-black">Canada</p>
+                            <a class="email-link text-black" href="mail.canada@kgraph.ca">canada@kgraph.ca</a>
+                        </div>
+                        <a class="read-bio-link text-black" href="#">Read full bio &gt;</a>
+                    </div>
+                </div>
             </div>
-            <!-- Image Section -->
-            <div class="lg:w-1/3 lg:flex justify-center items-center">
-                <img class="crew-card-img" src="{{$crew->image}}">
-            </div>
-        </section>
+        </div>
     </div>
 </div>
 @endif
