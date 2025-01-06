@@ -152,11 +152,11 @@
 
     </style>
     @include('frontend.Common.whatsapplogo')
-    <div class="careers-parent contact-US-banner h-full w-full">
-        <div class="contact-US h-full w-full">
+    <div class="w-full h-full careers-parent contact-US-banner">
+        <div class="w-full h-full contact-US">
             <div class="container mx-auto px-5 xl:px-12 h-full w-full py-8 lg:pt-[8%] text-white">
                 <div class="flex flex-col lg:flex-row justify-between items-start gap-[15%] lg:py-[50px] md:mt-36 lg:mt-0">
-                    <div class="w-full h-full font_inter mb-8">
+                    <div class="w-full h-full mb-8 font_inter">
                         <h1 class="mainHead font-semibold text-[40px] xl:w-[70%] uppercase">@if(isset($careerContents)) {{$careerContents->title}} @endif
                         </h1>
                         <p class="font-semibold text-[15px] py-[30px]">@if(isset($careerContents)) {{$careerContents->sub_title}} @endif</p>
@@ -169,7 +169,7 @@
                             <li class="py-2">Replace Self - Mentoring Other Team Members</li>
                         </ul> --}}
                     </div>
-                    <div class="bg-white rounded-xl h-fit w-full canada-flag relative">
+                    <div class="relative w-full bg-white rounded-xl h-fit canada-flag">
                         <div class="absolute right-6 top-[-10px]">
                             <img src="assets/home_Banner/reduse.png" class="flag-img" alt="Canada Flag" />
                         </div>
@@ -401,8 +401,8 @@
                                             <option value="+263">+263 (Zimbabwe)</option>
                                         </select>
                                     </div>
-                                    <div class=" flex items-center w-full mt-7 md:mt-0  md:pl-4">
-                                        <label class="md:whitespace-nowrap flex" for="mobile">
+                                    <div class="flex items-center w-full  mt-7 md:mt-0 md:pl-4">
+                                        <label class="flex md:whitespace-nowrap" for="mobile">
                                             Mobile <span class="!text-black hidden md:block pl-1"> NUMBER</span><span>*</span>
                                         </label>
                                         <input type="tel" name="mobile">
@@ -430,9 +430,9 @@
                                 </div>
 
                                 <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
-                                    <label for="coverUploaderone" class="cursor-pointer flex justify-between items-center w-full gap-3 pb-1">
+                                    <label for="coverUploaderone" class="flex items-center justify-between w-full gap-3 pb-1 cursor-pointer">
                                         <div class="md:whitespace-nowrap">Cover letter</div>
-                                        <div class="w-full flex justify-end">
+                                        <div class="flex justify-end w-full">
                                             <input id="coverUploaderone" class="!p-0" type="file" accept=".pdf,doc,docx " name="message"/>
                                             <img id="coveruploadIconone" src="{{ asset('assets/home_Banner/fileuploadbutton.png') }}" alt="Upload Logo" width="19" height="15" />
                                         </div>
@@ -443,10 +443,10 @@
                                 </div>
 
                                 <!-- Resume Upload Section -->
-                                <div class="enquiry-form-inputparent flex-col">
+                                <div class="flex-col enquiry-form-inputparent">
                                     <label for="resume" class="cursor-pointer flex justify-between items-center w-full !border-1 !border-b !border-b-[#D9D9D9] gap-3 pb-1" style="border:1px solid #D9D9D9 !important; border-top: transparent !important; border-left:transparent !important; border-right: transparent !important; ">
                                         <div class="md:whitespace-nowrap">Upload Resume<span>*</span></div>
-                                        <div class="w-full flex justify-end">
+                                        <div class="flex justify-end w-full">
                                             <input id="imageUploader"  type="file" accept=".pdf,doc,docx" class="relative z-50 !p-0"  name="resume" onchange="handleFileChange()" />
                                             <img id="uploadIcon" src="{{ asset('assets/home_Banner/fileuploadbutton.png') }}" alt="Upload Logo" width="19" height="15" />
                                         </div>
@@ -454,24 +454,21 @@
                                     {{-- <span id="resume-error" class="error invalid-feedback"></span> --}}
                                 </div>
 
-                                <div class="flex flex-col lg:flex-row justify-between items-center  mt-10">
-                                    <div class="relative group">
-                                        <p class="text-justify lg:pr-8 text-xs truncate">
-                                            <span class="!text-black">!</span> 
-                                            Disclaimer: In order to provide you...
+                                <div class="mt-10">    
+                                    <div class="border rounded-full border-[#072558] cursor-pointer w-fit">
+                                        <button  type="submit" class="!px-[80px] py-3 uppercase text-[#072558] cursor-pointer text-[16px] font-bold bg-transparent hover:bg-[#072558] hover:text-white transition-colors duration-300 rounded-full">Submit</button>
+                                    </div>
+
+                                    <div class="relative mt-4 group">
+                                        <p class="text-xs whitespace-normal">
+                                            Disclaimer: In order to provide you In order to provide 
+                                            you with the service you requested,  we need to store and process 
+                                            your personal data. By submitting the form, you consent to us storing
+                                            your personal data for this purpose. For more information about 
+                                            our privacy practices and how we are committed to protecting your 
+                                            privacy, please review our
                                             <a class="inline-block text-blue-500 underline" href="{{ url('privacy-policy') }}">Privacy Policy</a>
                                         </p>
-                                        <div class="absolute hidden group-hover:block bg-gray-700 text-white text-xs rounded p-3 shadow-lg max-w-xs">
-                                            In order to provide you with the service you requested, 
-                                            we need to store and process your personal data. By submitting 
-                                            the form, you consent to us storing your personal data for 
-                                            this purpose. For more information about our privacy practices 
-                                            and how we are committed to protecting your privacy, please review our 
-                                            <a class="text-blue-300 underline" href="{{ url('privacy-policy') }}">Privacy Policy</a>.
-                                        </div>
-                                    </div>
-                                    <div class="border rounded-full border-[#072558] cursor-pointer">
-                                        <button  type="submit" class="!px-[80px] py-3 uppercase text-[#072558] cursor-pointer text-[16px] font-bold bg-transparent hover:bg-[#072558] hover:text-white transition-colors duration-300 rounded-full">Submit</button>
                                     </div>
                                 </div>
 
@@ -485,7 +482,7 @@
 
     <div class="open-positions bg-[#04183c] py-8 lg:pt-[%] lg:pb-[4%]">
         @if(count($careers))
-            <div class="container mx-auto px-5 xl:px-12 h-full w-full  text-white">
+            <div class="container w-full h-full px-5 mx-auto text-white xl:px-12">
                 <h2 class="my-10 font_inter font-semibold text-[25px] md:text-[50px] uppercase w-[50%]">Open positions</h2>
             </div>
         @endif
@@ -494,13 +491,13 @@
         <div class="container mx-auto px-5 xl:px-12 lg:pb-[2px] h-full w-full text-white">
             <div class="cursor-pointer rounded-[33px] my-12 lg:my-4 border border-white" data-accordion>
                 <div class="accordion-header-careers">
-                    <div class="flex justify-between items-center px-5 pb-4 pt-6">
-                        <div class="flex flex-col md:flex-row gap-6 lg:gap-10 md:items-center">
+                    <div class="flex items-center justify-between px-5 pt-6 pb-4">
+                        <div class="flex flex-col gap-6 md:flex-row lg:gap-10 md:items-center">
                             <div class="flex items-end gap-3">
                                 <img class="w-[28px]" src="{{asset('assets/home_Banner/jobbox.png')}}" alt="">
                                 <h2 class="font_inter font-bold text-[15px] text-white uppercase">{{ $data->title }}</h2>
                             </div>
-                            <div class="flex flex-col md:flex-row md:items-baseline gap-2">
+                            <div class="flex flex-col gap-2 md:flex-row md:items-baseline">
                                 <p class="text-[10px] font-extralight uppercase">{{ $data->location }} /</p><p class="text-[10px] font-extralight uppercase">Remote  / </p><p class="text-[10px] font-extralight uppercase">{{ $data->experience }}</p>
                             </div>
                         </div>
@@ -514,12 +511,12 @@
                     </div>
                     <div class="px-5 lg:pr-8 lg:pl-[62px] pt-3 pb-6 flex flex-col lg:flex-row lg:items-end h-fit lg:justify-between gap-7">
                         <div class="lg:w-[70%]">
-                            <h2 class="text-sm font_inter font-extrabold pb-3 uppercase">overview</h2>
+                            <h2 class="pb-3 text-sm font-extrabold uppercase font_inter">overview</h2>
 
                             @if(!empty($data->overview))
-                                <p class="text-sm font_inter font-light pb-3 uppercase">{{ $data->overview }}</p>
+                                <p class="pb-3 text-sm font-light uppercase font_inter">{{ $data->overview }}</p>
                             @else
-                                <p class="text-sm font_inter font-light pb-3 lowercase">We help unlock value through a start-up mindset and modern methods, fusing strategy, consulting and customer experience with agile engineering and problem-solving creativity. United by our core values and our purpose of helping people thrive in the brave pursuit.</p>
+                                <p class="pb-3 text-sm font-light lowercase font_inter">We help unlock value through a start-up mindset and modern methods, fusing strategy, consulting and customer experience with agile engineering and problem-solving creativity. United by our core values and our purpose of helping people thrive in the brave pursuit.</p>
                             @endif
                         </div>
 
@@ -530,16 +527,16 @@
                 </div>
 
                 <div class="accordion-content-careers">
-                    <div class="px-5 lg:px-8 py-4 text-white job-decsript">
+                    <div class="px-5 py-4 text-white lg:px-8 job-decsript">
                         {!! $data->description !!}
                     </div>
                     <div class="accordion-content-careers">
-                        <div class="px-5 py-4 flex justify-end items-center">
+                        <div class="flex items-center justify-end px-5 py-4">
                             <!-- Unique Button ID -->
                             <button id="applyNowBtn" data-job-id="{{$data->id}}"
-                                    class="relative font-semibold font_inter text-white px-7 py-2 rounded-md border border-white overflow-hidden transition-all duration-500 ease-out hover:text-black group applyNowBtn">
-                                <span class="absolute inset-0 bg-white transform -translate-x-full transition-transform duration-500 ease-out group-hover:translate-x-0"></span>
-                                <span class="relative z-10 font_inter font-bold block">Apply now</span>
+                                    class="relative py-2 overflow-hidden font-semibold text-white transition-all duration-500 ease-out border border-white rounded-md font_inter px-7 hover:text-black group applyNowBtn">
+                                <span class="absolute inset-0 transition-transform duration-500 ease-out transform -translate-x-full bg-white group-hover:translate-x-0"></span>
+                                <span class="relative z-10 block font-bold font_inter">Apply now</span>
                             </button>
                         </div>
                     </div>
@@ -550,13 +547,13 @@
 
 
         @else
-        <div class="container mx-auto px-5 xl:px-12 h-full w-full  text-white flex justify-center">
+        <div class="container flex justify-center w-full h-full px-5 mx-auto text-white xl:px-12">
             <h2 class="mb-8 font_inter font-semibold text-center text-[25px] md:text-[50px] uppercase w-[50%]">Open positions</h2>
         </div>
         <div class="flex items-center justify-center mb-10">
-            <div class="container mx-auto px-5 xl:px-12 h-full w-full text-white flex items-center justify-center">
+            <div class="container flex items-center justify-center w-full h-full px-5 mx-auto text-white xl:px-12">
                 <div class="flex items-center justify-center">
-                    <h2 class="lg:w-1/2 font-medium font_inter text-white text-center text-sm px-5 rounded-lg capitalize"><span class="bg-black text-white px-2 block text-2xl mb-3">At present, we do not have any available positions !!</span>However, we are continuously seeking skilled and talented individuals to join our workforce. We encourage you to visit our careers page regularly or follow us on social media for updates on future job openings</h2>
+                    <h2 class="px-5 text-sm font-medium text-center text-white capitalize rounded-lg lg:w-1/2 font_inter"><span class="block px-2 mb-3 text-2xl text-white bg-black">At present, we do not have any available positions !!</span>However, we are continuously seeking skilled and talented individuals to join our workforce. We encourage you to visit our careers page regularly or follow us on social media for updates on future job openings</h2>
                 </div>
             </div>
         </div>
@@ -565,12 +562,12 @@
 
     <div class="relative">
         <!-- Unique Modal ID -->
-        <div id="jobenquirey" class="modalPopup hidden  fixed inset-0 bg-gray-800 bg-opacity-50 items-center justify-center z-50">
+        <div id="jobenquirey" class="fixed inset-0 z-50 items-center justify-center hidden bg-gray-800 bg-opacity-50 modalPopup">
             <div class="rounded-xl pb-11 px-2 lg:p-6 w-[92%] lg:max-w-[50%]">
                 <div class="relative">
-                    <div class="bg-white rounded-xl h-fit w-full canada-flag relative lg:h-fit 2xl:h-auto">
+                    <div class="relative w-full bg-white rounded-xl h-fit canada-flag lg:h-fit 2xl:h-auto">
                         <div class="absolute top-0 left-[30px]">
-                            <button id="closejobModal" class="mt-2 mr-2 text-black closeModal z-50">
+                            <button id="closejobModal" class="z-50 mt-2 mr-2 text-black closeModal">
                                 <img width="25px" class="my-4" src="{{ asset('assets/home_Banner/cross.png') }}" alt="">
                             </button>
                         </div>
@@ -802,8 +799,8 @@
                                         <option value="+263">+263 (Zimbabwe)</option>
                                     </select>
                                 </div>
-                                <div class=" flex items-center w-full mt-7 md:mt-0  md:pl-4">
-                                    <label class="md:whitespace-nowrap flex" for="mobile">
+                                <div class="flex items-center w-full  mt-7 md:mt-0 md:pl-4">
+                                    <label class="flex md:whitespace-nowrap" for="mobile">
                                         Mobile <span class="!text-black hidden md:block pl-1"> NUMBER</span><span>*</span>
                                     </label>
                                     <input type="tel" name="mobile_n">
@@ -812,9 +809,9 @@
 
                             <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
                                 <label for="coverUploadersec"
-                                    class="cursor-pointer flex justify-between items-center w-full">
+                                    class="flex items-center justify-between w-full cursor-pointer">
                                     <div class="md:whitespace-nowrap">Cover letter</div>
-                                    <div class="w-full flex justify-end">
+                                    <div class="flex justify-end w-full">
                                         <input id="coverUploadersec" class="pb-2" type="file" accept=".pdf,doc,docx " name="message_n" onchange="handleFileChange(1)" />
                                         <img id="coveruploadIconsec" src="{{ asset('assets/home_Banner/fileuploadbutton.png') }}" alt="Upload Logo" class="w-[19px] h-[22px]" width="19" height="15" />
                                     </div>
@@ -824,16 +821,16 @@
 
                             <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent">
                                 <label for="imageUploadersec"
-                                    class="cursor-pointer flex justify-between items-center w-full">
+                                    class="flex items-center justify-between w-full cursor-pointer">
                                     <div class="md:whitespace-nowrap">Upload Resume<span>*</span></div>
-                                    <div class="w-full flex justify-end">
+                                    <div class="flex justify-end w-full">
                                         <input id="imageUploadersec" class="pb-2" type="file" accept=".pdf, doc,docx" required name="resume_n" onchange="handleFileChange()" />
                                         <img id="uploadIconsec" src="{{ asset('assets/home_Banner/fileuploadbutton.png') }}" alt="Upload Logo" class="w-[19px] h-[22px]" width="19" height="15" />
                                     </div>
                                 </label>
                             </div>
 
-                            <div class="flex justify-start md:justify-end items-center overflow-hidden rounded-full mt-10">
+                            <div class="flex items-center justify-start mt-10 overflow-hidden rounded-full md:justify-end">
                                 <div class="border rounded-full border-[#072558] cursor-pointer">
                                     <button  type="submit"
                                         class="!px-[80px] py-3 uppercase text-[#072558] cursor-pointer text-[16px] font-bold bg-transparent hover:bg-[#072558] hover:text-white transition-colors duration-300 rounded-full">Submit</button>

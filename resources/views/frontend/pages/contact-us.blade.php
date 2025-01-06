@@ -109,8 +109,8 @@
         }
     </style>
     @include('frontend.Common.whatsapplogo')
-    <div class="contact-US-banner h-full w-full">
-        <div class="contact-US h-full w-full">
+    <div class="w-full h-full contact-US-banner">
+        <div class="w-full h-full contact-US">
             <div class="container mx-auto px-5 xl:px-12 h-full w-full py-8 lg:pt-[8%] text-white">
                 <div
                     class="flex flex-col lg:flex-row justify-between items-start gap-[15%] lg:py-[50px] md:mt-[100px] lg:mt-0">
@@ -361,7 +361,7 @@
                                             <option value="+263">+263 (Zimbabwe)</option>
                                         </select>
                                     </div>
-                                    <div class=" flex items-center w-full lg:pl-4">
+                                    <div class="flex items-center w-full lg:pl-4">
                                         <label class="whitespace-nowrap" for="mobile">Mobile <span class="hidden lg:inline-block !text-black">NUMBER</span><span>*</span></label>
                                         <input type="tel" name="mobile">
                                     </div>
@@ -372,25 +372,22 @@
                                     <input type="text" name="message">
                                 </div>
 
-                                <div class="flex flex-col lg:flex-row justify-between items-center  mt-10">
-                                    <div class="relative group">
-                                        <p class="text-justify lg:pr-8 text-xs truncate">
-                                            <span class="!text-black">!</span> 
-                                            Disclaimer: In order to provide you...
+                                <div class="mt-10">    
+
+                                    <div class="border rounded-full border-[#072558] cursor-pointer w-fit">
+                                        <button  type="submit" class="!px-[80px] py-3 uppercase text-[#072558] cursor-pointer text-[16px] font-bold bg-transparent hover:bg-[#072558] hover:text-white transition-colors duration-300 rounded-full">Submit</button>
+                                    </div>
+
+                                    <div class="relative mt-4 group">
+                                        <p class="text-xs whitespace-normal">
+                                            Disclaimer: In order to provide you In order to provide 
+                                            you with the service you requested,  we need to store and process 
+                                            your personal data. By submitting the form, you consent to us storing
+                                            your personal data for this purpose. For more information about 
+                                            our privacy practices and how we are committed to protecting your 
+                                            privacy, please review our
                                             <a class="inline-block text-blue-500 underline" href="{{ url('privacy-policy') }}">Privacy Policy</a>
                                         </p>
-                                        <div class="absolute hidden group-hover:block bg-gray-700 text-white text-xs rounded p-3 shadow-lg max-w-xs">
-                                            In order to provide you with the service you requested, 
-                                            we need to store and process your personal data. By submitting 
-                                            the form, you consent to us storing your personal data for 
-                                            this purpose. For more information about our privacy practices 
-                                            and how we are committed to protecting your privacy, please review our 
-                                            <a class="text-blue-300 underline" href="{{ url('privacy-policy') }}">Privacy Policy</a>.
-                                        </div>
-                                    </div>
-                                      
-                                    <div class="border rounded-full border-[#072558] cursor-pointer">
-                                        <button  type="submit" class="!px-[80px] py-3 uppercase text-[#072558] cursor-pointer text-[16px] font-bold bg-transparent hover:bg-[#072558] hover:text-white transition-colors duration-300 rounded-full">Submit</button>
                                     </div>
                                 </div>
 
@@ -404,11 +401,11 @@
 
     <div class="open-positions bg-[#04183c]">
         <div class="container mx-auto px-5 xl:px-12 h-full w-full py-8 lg:py-[8%] text-white">
-            <div class="md:flex items-center">
+            <div class="items-center md:flex">
                 <h2 class="left-to-right-animation font_inter font-semibold text-[50px] text-white leading-none uppercase">
                     <span class="inline-block">WE </span><span class="inline-block">ARE IN</span>
                 </h2>
-                <div class="md:pl-2 w-full" style="margin-bottom: -6%;">
+                <div class="w-full md:pl-2" style="margin-bottom: -6%;">
                     <div class="w-full my-6 left-to-right-width-animation" style="border: 1px solid #FFFFFF8C;"></div>
                 </div>
             </div>
@@ -428,7 +425,7 @@
                                 </svg>
                             </div>
                             <div class="font_jakarta">
-                                <h4 class="phone-text font-semibold">{{$data->phone}}</h4>
+                                <h4 class="font-semibold phone-text">{{$data->phone}}</h4>
                             </div>
                         </div>
                         <div class="flex items-center gap-[20px]">
@@ -438,7 +435,7 @@
                                 </svg>
                             </div>
                             <div class="font_jakarta">
-                                <h4 class="phone-text font-semibold">{{$data->email}}</h4>
+                                <h4 class="font-semibold phone-text">{{$data->email}}</h4>
                             </div>
                         </div>
                         <div class="flex items-center gap-[20px]">
@@ -448,7 +445,7 @@
                                 </svg>
                             </div>
                             <div class="font_jakarta">
-                                <h4 class="phone-text font-semibold">{{$data->address}}</h4>
+                                <h4 class="font-semibold phone-text">{{$data->address}}</h4>
                             </div>
                         </div>
                     </div>
@@ -457,11 +454,11 @@
             </div>
             
 
-            <div class="flex justify-center mx-5 lg:mx-0 py-6 relative z-10">
+            <div class="relative z-10 flex justify-center py-6 mx-5 lg:mx-0">
                 <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[4.5px] pl-5 pr-1 overflow-hidden group">
                     <!-- Initially the background will cover the full button -->
                     <div
-                        class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full">
+                        class="absolute inset-0 left-0 w-full transition-all duration-500 ease-out bg-blue-600 group-hover:left-full">
                     </div>
                     <h6 class="relative z-10 text-white text-[12px] xl:text-[14px]">Let's turn your vision into reality</h6>
                     <div

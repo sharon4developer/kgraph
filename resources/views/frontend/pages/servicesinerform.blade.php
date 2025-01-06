@@ -103,7 +103,7 @@
     <div class="services-banner md:h-[50vh]">
         <div class="services-banner-overlay">
             <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[8%]">
-                <div class="text-left text-white mt-10">
+                <div class="mt-10 text-left text-white">
                     <div class="text-white text-[12px] font_inter font-semibold mt-[20px] mb-[6%]">
                         <a href="#">Study</a> > <a href="#">Study in Canada</a> > <a href="#">Immigration
                             Enquiry</a>
@@ -147,31 +147,31 @@
             </div>
         </div>
 
-        <form action="" class="contact-form bg-white" id="eligibility-form">
+        <form action="" class="bg-white contact-form" id="eligibility-form">
             <div class="container mx-auto px-5 lg:px-12 xl:px-32 h-full w-full py-8 md:pt-[15%] lg:pb-[4%] lg:pt-0">
                 <div class="lg:grid grid-cols-[1fr_1fr_auto_1fr] gap-x-14 items-start">
                     <!-- First Name -->
                     <div class="flex flex-col">
                         <label for="first-name">First Name<span>*</span></label>
-                        <input type="text" id="first-name" name="first_name" class="border rounded px-2 py-1 w-full">
+                        <input type="text" id="first-name" name="first_name" class="w-full px-2 py-1 border rounded">
                     </div>
 
                     <!-- Last Name -->
                     <div class="flex flex-col">
                         <label for="last-name">Last Name<span>*</span></label>
-                        <input type="text" id="last-name" name="last_name" class="border rounded px-2 py-1 w-full">
+                        <input type="text" id="last-name" name="last_name" class="w-full px-2 py-1 border rounded">
                     </div>
 
                     <!-- Date of Birth -->
                     <div class="flex flex-col">
                         <label for="dob">Date of Birth<span>*</span></label>
-                        <input type="date" id="dob" name="dob" value="2000-01-01" class="border rounded px-2 py-1 w-full">
+                        <input type="date" id="dob" name="dob" value="2000-01-01" class="w-full px-2 py-1 border rounded">
                     </div>
 
                     <!-- Marital Status -->
                     <div class="flex flex-col">
                         <label for="marital-status">Marital Status<span>*</span></label>
-                        <select id="marital-status" name="marital_status" class="border rounded px-2 py-1 w-full">
+                        <select id="marital-status" name="marital_status" class="w-full px-2 py-1 border rounded">
                             <option value="" disabled selected>Select your marital status</option>
                             <option value="Never Married / Single">Never Married / Single</option>
                             <option value="Married">Married</option>
@@ -197,14 +197,14 @@
                         </section>
                     </div>
 
-                    <div class="hidden lg:flex flex-col invisible">
+                    <div class="flex-col invisible hidden lg:flex">
                         <label for="dob">Date of Birth<span>*</span></label>
-                        <input type="date" id="d-ob" name="d-ob" value="2000-01-01" class="border rounded px-2 py-1 w-full">
+                        <input type="date" id="d-ob" name="d-ob" value="2000-01-01" class="w-full px-2 py-1 border rounded">
                     </div>
 
-                    <div class="hidden lg:flex flex-col invisible">
+                    <div class="flex-col invisible hidden lg:flex">
                         <label for="marital-status">Marital Status<span>*</span></label>
-                        <select id="marital-status" name="marita-lstatus" class="border rounded px-2 py-1 w-full">
+                        <select id="marital-status" name="marita-lstatus" class="w-full px-2 py-1 border rounded">
                             <option value="" disabled selected>Select your marital status</option>
                             <option value="Never Married / Single">Never Married / Single</option>
                             <option value="Married">Married</option>
@@ -230,10 +230,10 @@
 
                 <div class="hidden lg:block h-[2px] bg-[#D3D3D3] w-full lg:!my-12"></div>
 
-                <div class="lg:grid grid-cols-2 gap-x-14">
+                <div class="grid-cols-2 lg:grid gap-x-14">
                     <div class="flex flex-col lg:w-1/2">
                         <label for="highest-education-inside">Highest Level of Education<span>*</span></label>
-                        <select id="highest-education-inside" name="highest_education_inside_can" class="border rounded px-2 py-1">
+                        <select id="highest-education-inside" name="highest_education_inside_can" class="px-2 py-1 border rounded">
                             <option value="" disabled selected>Select your highest level of education</option>
                             <option value="None, or high school">None, or high school</option>
                             <option value="Secondary diploma">Secondary diploma</option>
@@ -261,7 +261,7 @@
 
                 </div>
 
-                <div class="lg:grid grid-cols-3 items-start gap-x-14 lg:py-5">
+                <div class="items-start grid-cols-3 lg:grid gap-x-14 lg:py-5">
                     <div>
                         <label>Do you have a valid Language Skills Test Result<span>*</span></label>
                         <div id="language-skills" class="check-box-wrpr !mt-0">
@@ -278,7 +278,7 @@
 
                     <div id="language-test" class="hidden flex-col w-full bg-[#EDEDED] h-full py-4 px-3">
                         <label for="which-lang">Which language test did you take?<span>*</span></label>
-                        <select id="which-lang" name="language_test" class="border rounded px-2 py-1">
+                        <select id="which-lang" name="language_test" class="px-2 py-1 border rounded">
                             <option value="" disabled selected>Select</option>
                             <option value="CELPIP-G">CELPIP-G</option>
                             <option value="IELTS">IELTS</option>
@@ -290,7 +290,7 @@
 
                     <div id="language-scores" class="hidden flex-col bg-[#EDEDED] h-full py-4 px-3">
                         {{-- <label for="scores" class="invisible">If selected any of the above, show the below text boxes<span>*</span></label> --}}
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
                             <div>
                                 <label for="speaking" class="">Speaking<span>*</span></label>
                                 <input type="number" id="speaking" name="speaking" class="w-full" min="0"
@@ -318,7 +318,7 @@
                 <div class="lg:grid grid-cols-3 gap-[53px] lg:!mb-12">
                     <div class="flex flex-col w-full">
                         <label for="state">Canadian Experience<span>*</span></label>
-                        <select id="state" name="state" class="border rounded px-2 py-1">
+                        <select id="state" name="state" class="px-2 py-1 border rounded">
                             <option value="" disabled selected>Select your Canadian Experience</option>
                             <option value="0 year">0 year</option>
                             <option value="1 year">1 year</option>
@@ -331,7 +331,7 @@
 
                     <div class="flex flex-col w-full">
                         <label for="zip">Foreign Experience<span>*</span></label>
-                        <select id="zip" name="zip" class="border rounded px-2 py-1">
+                        <select id="zip" name="zip" class="px-2 py-1 border rounded">
                             <option value="" disabled selected>Select your Foreign Experience</option>
                             <option value="0 year">0 year</option>
                             <option value="1 year">1 year</option>
@@ -370,7 +370,7 @@
                     </div>
                 </div>
 
-                <div class="lg:grid grid-cols-2 lg:pt-10">
+                <div class="grid-cols-2 lg:grid lg:pt-10">
                     <div>
                         <label>Do you or your spouse or common-law partner have a blood relative living in
                             Canada who is a citizen or a permanent resident of Canada<span>*</span></label>
@@ -390,7 +390,7 @@
                 <div class="lg:py-5">
                     <div class="flex flex-col lg:w-1/4">
                         <label for="hear-about-us">How Did You Hear About Us<span>*</span></label>
-                        <select id="hear-about-us" name="hear_about_canada" class="border rounded px-2 py-1">
+                        <select id="hear-about-us" name="hear_about_canada" class="px-2 py-1 border rounded">
                             <option value="" disabled selected>Select an option</option>
                             <option value="Social Media">Social Media</option>
                             <option value="Google Search">Google Search</option>
@@ -410,25 +410,21 @@
                 </div>
             </div>
 
-            <div class=" bg-gradient-to-r from-black to-transparent ">
-                <div class="submit-btn container mx-auto px-5 lg:px-12 xl:px-32 h-full w-full">
+            <div class=" bg-gradient-to-r from-black to-transparent">
+                <div class="container w-full h-full px-5 mx-auto submit-btn lg:px-12 xl:px-32">
                     <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[2%] mt-[-50px]">
                         <button  type="submit"  class="font_syne my-4 text-white border border-white rounded-full w-full lg:w-fit lg:px-16 py-2 text-[14px] lg:text-base  hover:bg-white hover:border-black hover:text-black ease-linear duration-300 font-bold" style="">SUBMIT</button>
 
-                        <div class="relative group">
-                            <p class="text-justify lg:pr-8 text-xs truncate text-white">
-                                <span class="!text-white">!</span> 
-                                Disclaimer: In order to provide you...
+                        <div class="relative mt-4 group">
+                            <p class="text-xs text-white whitespace-normal">
+                                Disclaimer: In order to provide you In order to provide 
+                                you with the service you requested,  we need to store and process 
+                                your personal data. By submitting the form, you consent to us storing
+                                your personal data for this purpose. For more information about 
+                                our privacy practices and how we are committed to protecting your 
+                                privacy, please review our
                                 <a class="inline-block text-blue-500 underline" href="{{ url('privacy-policy') }}">Privacy Policy</a>
                             </p>
-                            <div class="absolute z-50 hidden group-hover:block bg-gray-700 text-white text-xs rounded p-3 shadow-lg max-w-xs">
-                                In order to provide you with the service you requested, 
-                                we need to store and process your personal data. By submitting 
-                                the form, you consent to us storing your personal data for 
-                                this purpose. For more information about our privacy practices 
-                                and how we are committed to protecting your privacy, please review our 
-                                <a class="text-blue-300 underline" href="{{ url('privacy-policy') }}">Privacy Policy</a>.
-                            </div>
                         </div>
                     </div>
                 </div>
