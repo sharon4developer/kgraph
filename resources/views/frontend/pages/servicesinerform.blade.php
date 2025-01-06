@@ -414,6 +414,22 @@
                 <div class="submit-btn container mx-auto px-5 lg:px-12 xl:px-32 h-full w-full">
                     <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[2%] mt-[-50px]">
                         <button  type="submit"  class="font_syne my-4 text-white border border-white rounded-full w-full lg:w-fit lg:px-16 py-2 text-[14px] lg:text-base  hover:bg-white hover:border-black hover:text-black ease-linear duration-300 font-bold" style="">SUBMIT</button>
+
+                        <div class="relative group">
+                            <p class="text-justify lg:pr-8 text-xs truncate text-white">
+                                <span class="!text-white">!</span> 
+                                Disclaimer: In order to provide you...
+                                <a class="inline-block text-blue-500 underline" href="{{ url('privacy-policy') }}">Privacy Policy</a>
+                            </p>
+                            <div class="absolute z-50 hidden group-hover:block bg-gray-700 text-white text-xs rounded p-3 shadow-lg max-w-xs">
+                                In order to provide you with the service you requested, 
+                                we need to store and process your personal data. By submitting 
+                                the form, you consent to us storing your personal data for 
+                                this purpose. For more information about our privacy practices 
+                                and how we are committed to protecting your privacy, please review our 
+                                <a class="text-blue-300 underline" href="{{ url('privacy-policy') }}">Privacy Policy</a>.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

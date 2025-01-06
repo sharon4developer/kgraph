@@ -454,7 +454,22 @@
                                     {{-- <span id="resume-error" class="error invalid-feedback"></span> --}}
                                 </div>
 
-                                <div class="flex justify-start md:justify-end items-center overflow-hidden rounded-full mt-10">
+                                <div class="flex flex-col lg:flex-row justify-between items-center  mt-10">
+                                    <div class="relative group">
+                                        <p class="text-justify lg:pr-8 text-xs truncate">
+                                            <span class="!text-black">!</span> 
+                                            Disclaimer: In order to provide you...
+                                            <a class="inline-block text-blue-500 underline" href="{{ url('privacy-policy') }}">Privacy Policy</a>
+                                        </p>
+                                        <div class="absolute hidden group-hover:block bg-gray-700 text-white text-xs rounded p-3 shadow-lg max-w-xs">
+                                            In order to provide you with the service you requested, 
+                                            we need to store and process your personal data. By submitting 
+                                            the form, you consent to us storing your personal data for 
+                                            this purpose. For more information about our privacy practices 
+                                            and how we are committed to protecting your privacy, please review our 
+                                            <a class="text-blue-300 underline" href="{{ url('privacy-policy') }}">Privacy Policy</a>.
+                                        </div>
+                                    </div>
                                     <div class="border rounded-full border-[#072558] cursor-pointer">
                                         <button  type="submit" class="!px-[80px] py-3 uppercase text-[#072558] cursor-pointer text-[16px] font-bold bg-transparent hover:bg-[#072558] hover:text-white transition-colors duration-300 rounded-full">Submit</button>
                                     </div>
