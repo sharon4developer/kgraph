@@ -401,7 +401,7 @@
                                             <option value="+263">+263 (Zimbabwe)</option>
                                         </select>
                                     </div>
-                                    <div class="flex items-center w-full  mt-7 md:mt-0 md:pl-4">
+                                    <div class="flex items-center w-full mt-7 md:mt-0 md:pl-4">
                                         <label class="flex md:whitespace-nowrap" for="mobile">
                                             Mobile <span class="!text-black hidden md:block pl-1"> NUMBER</span><span>*</span>
                                         </label>
@@ -460,13 +460,9 @@
                                     </div>
 
                                     <div class="relative mt-4 group">
-                                        <p class="text-xs whitespace-normal">
-                                            Disclaimer: In order to provide you In order to provide 
-                                            you with the service you requested,  we need to store and process 
-                                            your personal data. By submitting the form, you consent to us storing
-                                            your personal data for this purpose. For more information about 
-                                            our privacy practices and how we are committed to protecting your 
-                                            privacy, please review our
+                                        <p class="text-xs capitalize whitespace-normal">
+                                        Disclaimer:
+                                        In order to provide you with the service you requested, we need to store and process your personal data. By submitting the form, you consent to us storing your personal data for this purpose. For more information about our privacy practices and how we are committed to protecting your privacy, please review our
                                             <a class="inline-block text-blue-500 underline" href="{{ url('privacy-policy') }}">Privacy Policy</a>
                                         </p>
                                     </div>
@@ -799,7 +795,7 @@
                                         <option value="+263">+263 (Zimbabwe)</option>
                                     </select>
                                 </div>
-                                <div class="flex items-center w-full  mt-7 md:mt-0 md:pl-4">
+                                <div class="flex items-center w-full mt-7 md:mt-0 md:pl-4">
                                     <label class="flex md:whitespace-nowrap" for="mobile">
                                         Mobile <span class="!text-black hidden md:block pl-1"> NUMBER</span><span>*</span>
                                     </label>
@@ -830,12 +826,19 @@
                                 </label>
                             </div>
 
-                            <div class="flex items-center justify-start mt-10 overflow-hidden rounded-full md:justify-end">
-                                <div class="border rounded-full border-[#072558] cursor-pointer">
-                                    <button  type="submit"
-                                        class="!px-[80px] py-3 uppercase text-[#072558] cursor-pointer text-[16px] font-bold bg-transparent hover:bg-[#072558] hover:text-white transition-colors duration-300 rounded-full">Submit</button>
-                                </div>
+                            <div class="mt-10">    
+                            <div class="border rounded-full border-[#072558] cursor-pointer w-fit">
+                                <button  type="submit" class="!px-[80px] py-3 uppercase text-[#072558] cursor-pointer text-[16px] font-bold bg-transparent hover:bg-[#072558] hover:text-white transition-colors duration-300 rounded-full">Submit</button>
                             </div>
+
+                            <div class="relative mt-4 group">
+                                <p class="text-xs capitalize whitespace-normal">
+                                Disclaimer:
+                                In order to provide you with the service you requested, we need to store and process your personal data. By submitting the form, you consent to us storing your personal data for this purpose. For more information about our privacy practices and how we are committed to protecting your privacy, please review our
+                                    <a class="inline-block text-blue-500 underline" href="{{ url('privacy-policy') }}">Privacy Policy</a>
+                                </p>
+                            </div>
+                        </div>
 
 
                         </form>
