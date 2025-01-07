@@ -389,12 +389,13 @@
 
                             <div class="relative mt-4 group">
                                 <p class="text-xs whitespace-normal">
-                                    Disclaimer: In order to provide you In order to provide 
-                                    you with the service you requested,  we need to store and process 
-                                    your personal data. By submitting the form, you consent to us storing
-                                    your personal data for this purpose. For more information about 
-                                    our privacy practices and how we are committed to protecting your 
-                                    privacy, please review our
+                                    Disclaimer:
+                                    In order to provide you with the service you requested, 
+                                    we need to store and process your personal data. By 
+                                    submitting the form, you consent to us storing your 
+                                    personal data for this purpose. For more information 
+                                    about our privacy practices and how we are committed to 
+                                    protecting your privacy, please review our
                                     <a class="inline-block text-blue-500 underline" href="{{ url('privacy-policy') }}">Privacy Policy</a>
                                 </p>
                             </div>
