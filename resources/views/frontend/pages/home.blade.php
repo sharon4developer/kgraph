@@ -308,7 +308,7 @@
         .video-imagepos{
             transition: all 2s;
         }
-        @media (min-width: 768px){
+        @media (min-width: 1024px){
             .video-grade:hover .video-imagepos{
                 transform: scale(1.2);
             }
