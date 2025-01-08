@@ -494,7 +494,7 @@
                                 <h2 class="font_inter font-bold text-[15px] text-white uppercase">{{ $data->title }}</h2>
                             </div>
                             <div class="flex flex-col gap-2 md:flex-row md:items-baseline">
-                                <p class="text-[10px] font-extralight uppercase">{{ $data->location }} /</p><p class="text-[10px] font-extralight uppercase">Remote  / </p><p class="text-[10px] font-extralight uppercase">{{ $data->experience }}</p>
+                                <p class="text-[10px] font-extralight uppercase md:whitespace-nowrap lg:whitespace-normal">{{ $data->location }} /</p><p class="text-[10px] font-extralight uppercase">Remote  / </p><p class="text-[10px] font-extralight uppercase">{{ $data->experience }}</p>
                             </div>
                         </div>
 

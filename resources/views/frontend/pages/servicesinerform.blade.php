@@ -138,7 +138,7 @@
         </div>
 
         <div class="bg-white">
-            <div class="container mx-auto px-5 lg:px-12 xl:px-32 h-full w-full py-8 md:pt-[15%] lg:pb-[4%] lg:pt-0">
+            <div class="container mx-auto px-5 lg:px-12 xl:px-32 h-full w-full pb-4  lg:pt-0">
                 <div class="w-full py-2 mt-8 mb-4 flex justify-between items-center border-b border-b-[#062358] pt-14">
                     <h2 class="text-[#014598] font_inter text-[16px] md:text-[23px] font-extrabold font_inter capitalize">Immigration Pre-Assessment Form</h2>
                     <img class="w-[115px]" src="{{ asset('assets/home_Banner/k-graph-logo-blue.png') }}" alt="k-graph">
@@ -148,7 +148,7 @@
         </div>
 
         <form action="" class="bg-white contact-form" id="eligibility-form">
-            <div class="container mx-auto px-5 lg:px-12 xl:px-32 h-full w-full py-8 md:pt-[15%] lg:pb-[4%] lg:pt-0">
+            <div class="container mx-auto px-5 lg:px-12 xl:px-32 h-full w-full py-8 md:pt-[5%] lg:pb-[4%] lg:pt-[5%]">
                 <div class="lg:grid grid-cols-[1fr_1fr_auto_1fr] gap-x-14 items-start">
                     <!-- First Name -->
                     <div class="flex flex-col">

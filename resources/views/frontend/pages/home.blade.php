@@ -777,7 +777,6 @@
                         </div>
 
                         <div class="w-full flex justify-center items-center rounded-lg overflow-hidden mt-6 relative group video-grade">
-                            <!-- <img src="@if (isset($home)) {{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $home->journey_image1 }} @endif" alt="@if (isset($home)) {{ $home->journey_image1_alt_tag }} @endif" style="object-position: 0px 0px;" class="w-full h-[400px] object-cover video-imagepos"> -->
                             <video
                                 class="w-full h-full lg:h-[400px] object-cover object-center video-imagepos autoplay-video"
                                 style="object-position: 0px 0px;"
@@ -807,7 +806,7 @@
                                 </div>
 
                                 <!-- Text Content -->
-                                <div class="bg-[#11316595] px-5 rounded-md pb-1 hidden md:block lg:bg-transparent lg:px-0 lg:rounded-none lg:pb-0">
+                                <div class="bg-[#11316595] px-5 rounded-md pb-1 hidden lg:block lg:bg-transparent lg:px-0 lg:rounded-none lg:pb-0">
                                     <p class="text-[12px] lg:text-lg font-bold">{{$home->journey_video_name}}</p>
                                     <p class="text-[12px] lg:text-sm">{{$home->journey_video_position}}</p>
                                 </div>

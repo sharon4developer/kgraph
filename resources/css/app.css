@@ -706,6 +706,16 @@ video {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.clamp-text-seven {
+    display: -webkit-box;
+    -webkit-line-clamp: 7; /* Limit to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 10px;
+    line-height: 1.5; /* Adjust this value based on your design */
+    max-height: calc(2em * 6); /* 1.5 is line-height and 2 is the number of lines */
+  }
 .clamp-text-two {
     display: -webkit-box;
     -webkit-line-clamp: 2; /* Limit to 2 lines */
@@ -778,7 +788,7 @@ video {
 
 .crew-card {
     width: 100%;
-    border: 1px solid #E5E7EB; /* Replace with desired border color */
+    border: 1px solid #ffffff; /* Replace with desired border color */
     border-radius: 6px; /* Rounded corners */
     /* margin-left: 1rem; */
     margin-right: 1rem;
@@ -800,7 +810,7 @@ video {
 
 .crew-card-content {
     padding: 0.25rem 1rem 1rem 1rem; /* padding: 20px left/right, 16px bottom */
-    color: #FFFFFF;
+    color: #ffffff;
     font-family: 'Inter', sans-serif; /* Assuming you're using Inter font */
 }
 
@@ -899,8 +909,8 @@ video {
 
     }
     .crew-card {
-        width: 290px;
-        border: 1px solid #E5E7EB; /* Replace with desired border color */
+        width: 280px;
+        border: 1px solid #ffffff; /* Replace with desired border color */
         border-radius: 6px; /* Rounded corners */
         margin-left: 0rem;
         margin-right: 0rem;
@@ -908,6 +918,7 @@ video {
     }
 }
 @media (max-width: 1023px){
+
     .footer-secpernt{
         height: 100%;
     }
@@ -921,6 +932,14 @@ video {
     }
 }
 @media (min-width: 1024px){
+    .crew-card {
+        width: 290px;
+        border: 1px solid #ffffff; /* Replace with desired border color */
+        border-radius: 6px; /* Rounded corners */
+        margin-left: 0rem;
+        margin-right: 0rem;
+        overflow: hidden;
+    }
     .accordion-header>h6{
         font-size: 18px;
     }

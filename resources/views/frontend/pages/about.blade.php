@@ -34,14 +34,14 @@
         left: 0;
         top: -7px;
     } */
-    .crew-card {
+    /* .crew-card {
         width: 290px;
         border: 1px solid #000000;
         border-radius: 6px;
         margin-left: 0rem;
         margin-right: 0rem;
         overflow: hidden;
-    }
+    } */
     .page-item.active {
         background-color: #0085FF;
     }
@@ -94,41 +94,47 @@
                 </div>
             </section>
 
-            <div class="lg:flex items-center flex-wrap justify-start gap-6 px-16 py-8">
-                <div class="crew-card" bis_skin_checked="1">
-                    <div class="crew-card-img-parent" bis_skin_checked="1">
-                        <img class="crew-card-img !rounded-none" src="{{$crew->image}}" alt="Crew Image">
-                    </div>
-                    <div class="crew-card-content" bis_skin_checked="1">
-                        <h5 class="text-black">Mathews Benny</h5>
-                        <h6 class="text-black">Director</h6>
-                        <div class="address text-black" bis_skin_checked="1">
-                            <p class="text-black">Canada</p>
-                            <a class="email-link text-black" href="mail.canada@kgraph.ca">canada@kgraph.ca</a>
-                        </div>
-                        <a class="read-bio-link text-black" href="#">Read full bio &gt;</a>
-                    </div>
-                </div>
 
-                <div class="crew-card" bis_skin_checked="1">
-                    <div class="crew-card-img-parent" bis_skin_checked="1">
-                        <img class="crew-card-img !rounded-none" src="{{$crew->image}}" alt="Crew Image">
+        </div>
+    </div>
+</div>
+@endif
+
+<div class="cta bg-[#062358]">
+    <div class="container mx-auto px-5 lg:px-12 py-8 z-10 relative">
+        <div class="flex items-center flex-wrap justify-start gap-6 lg:py-8">
+            <div class="crew-card" bis_skin_checked="1">
+                <div class="crew-card-img-parent" bis_skin_checked="1">
+                    <img class="crew-card-img !rounded-none" src="{{$crew->image}}" alt="Crew Image">
+                </div>
+                <div class="crew-card-content" bis_skin_checked="1">
+                    <h5 class="text-white">Mathews Benny</h5>
+                    <h6 class="text-white">Director</h6>
+                    <div class="address text-white" bis_skin_checked="1">
+                        <p class="text-white">Canada</p>
+                        <a class="email-link text-white" href="mail.canada@kgraph.ca">canada@kgraph.ca</a>
                     </div>
-                    <div class="crew-card-content text-black" bis_skin_checked="1">
-                        <h5 class="text-black">Mathews Benny</h5>
-                        <h6 class="text-black">Director</h6>
-                        <div class="address text-black" bis_skin_checked="1">
-                            <p class="text-black">Canada</p>
-                            <a class="email-link text-black" href="mail.canada@kgraph.ca">canada@kgraph.ca</a>
-                        </div>
-                        <a class="read-bio-link text-black" href="#">Read full bio &gt;</a>
+                    <a class="read-bio-link text-white" href="#">Read full bio &gt;</a>
+                </div>
+            </div>
+
+            <div class="crew-card" bis_skin_checked="1">
+                <div class="crew-card-img-parent" bis_skin_checked="1">
+                    <img class="crew-card-img !rounded-none" src="{{$crew->image}}" alt="Crew Image">
+                </div>
+                <div class="crew-card-content text-white" bis_skin_checked="1">
+                    <h5 class="text-white">Mathews Benny</h5>
+                    <h6 class="text-white">Director</h6>
+                    <div class="address text-white" bis_skin_checked="1">
+                        <p class="text-white">Canada</p>
+                        <a class="email-link text-white" href="mail.canada@kgraph.ca">canada@kgraph.ca</a>
                     </div>
+                    <a class="read-bio-link text-white" href="#">Read full bio &gt;</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-@endif
 
 
 <div class="cta bg-[#062358]">

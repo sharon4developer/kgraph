@@ -80,17 +80,7 @@ Route::get('privacy-policy', [FrontEndController::class, 'privacyPolicy']);
 Route::get('sub-service-details/{slug}', [FrontEndServiceController::class, 'subServiceDetails']);
 Route::post('submit-career-form-new', [NewsLetterController::class, 'submitCareerNew'])->name('submit-career-form-new');
 
-// Route::get('contact-us', function () {
-//     return view('main');
-// });
 
-// Route::get('blogdetail', function () {
-//     return view('frontend.pages.blog-detail');
-// });
-
-// Route::get('services-form', function () {
-//     return view('frontend.pages.servicesinerform');
-// });
 
 Auth::routes();
 
