@@ -416,7 +416,7 @@
                         <button  type="submit"  class="font_syne my-4 text-white border border-white rounded-full w-full lg:w-fit lg:px-16 py-2 text-[14px] lg:text-base  hover:bg-white hover:border-black hover:text-black ease-linear duration-300 font-bold" style="">SUBMIT</button>
 
                         <div class="relative mt-4 group">
-                            <p class="text-[10px] lg:text-xs text-white capitalize whitespace-normal">
+                            <p class="text-[8px] text-white capitalize whitespace-normal">
                             Disclaimer:
                             In order to provide you with the service you requested, we need to store and process your personal data. By submitting the form, you consent to us storing your personal data for this purpose. For more information about our privacy practices and how we are committed to protecting your privacy, please review our 
                                 <a class="inline-block text-blue-500 underline" href="{{ url('privacy-policy') }}">Privacy Policy</a>

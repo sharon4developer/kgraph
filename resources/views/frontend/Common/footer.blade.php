@@ -81,13 +81,13 @@ use App\Models\ServiceCategory;
 $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slug','sub_title')->orderBy('order','asc')->where('status',1)->limit(4)->get();
 ?>
 
-<footer class="w-full footer-secpernt h-full relative overflow-hidden">
-    <div class="blakorblue pt-10">
-        <div class="container mx-auto px-5 lg:px-12 h-full flex justify-center w-full md:pb-4">
+<footer class="relative w-full h-full overflow-hidden footer-secpernt">
+    <div class="pt-10 blakorblue">
+        <div class="container flex justify-center w-full h-full px-5 mx-auto lg:px-12 md:pb-4">
             <div class="bg-[linear-gradient(89.96deg,_#00154E_-47.02%,_#00B0FF_112.6%)] flex flex-col md:flex-row lg:justify-around lg:items-center gap-3 py-4 md:py-10 w-full lg:w-[80%] px-3 md:px-10 rounded-[30px] mb-[-60px] md:mb-[-80px] relative z-40">
-                <div class="flex  items-center justify-center gap-5">
-                    {{-- <h2 class="font_inter font-semibold text-4xl 2xl:text-5xl text-center md:text-left gettouch uppercase gradient-text">Get IN TOUCH WITH US</h2> --}}
-                    <h2 class="font_inter font-semibold text-base md:text-xl 2xl:text-4xl text-left gettouch uppercase text-white lg:whitespace-nowrap">Get IN TOUCH WITH US</h2>
+                <div class="flex items-center justify-center gap-5">
+                    {{-- <h2 class="text-4xl font-semibold text-center uppercase font_inter 2xl:text-5xl md:text-left gettouch gradient-text">Get IN TOUCH WITH US</h2> --}}
+                    <h2 class="text-base font-semibold text-left text-white uppercase font_inter md:text-xl 2xl:text-4xl gettouch lg:whitespace-nowrap">Get IN TOUCH WITH US</h2>
                     <img class="w-[43px] lg:w-[70px]" src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="">
                 </div>
 
@@ -106,42 +106,44 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
     </div>
     <div class="globebg">
         <div class="relative w-full footer z-30 pt-[86px] py-6 md:pt-28 md:pb-6">
-            <div class="container mx-auto px-5 lg:px-12 h-full w-full py-4 footer-gaping lg:py-0 flex flex-col lg:flex-row justify-between gap-8 lg:gap-12 2xl:gap-28   items-start">
-                <div class="w-full flex flex-col gap-6">
+            <div class="container flex flex-col items-start justify-between w-full h-full gap-8 px-5 py-4 mx-auto lg:px-12 footer-gaping lg:py-0 lg:flex-row lg:gap-12 2xl:gap-28">
+                <div class="flex flex-col w-full gap-6">
                     <div class="flex items-center gap-5">
                         <img class="" src="{{ asset('assets/home_Banner/grouplogo.png') }}" alt="K-graph logo">
                     </div>
 
-                    <p class="font_inter text-[12px]  font-light lg:text-justify capitalize  text-white">simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                    <p class="font_inter text-[12px]  font-light lg:text-justify capitalize  text-white">
+                    A team of certified consultants is ready to guide your immigration journey. 
+                    Contact us to get expert help with your visa, residency or citizenship application</p>
                 </div>
 
-                <div class="flex flex-col md:flex-row gap-6 md:gap-14">
+                <div class="flex flex-col gap-6 md:flex-row md:gap-14">
                     <!-- Services Section -->
                     <div>
-                        <h4 class="text-lg font-bold mb-4 text-white">Services</h4>
+                        <h4 class="mb-4 text-lg font-bold text-white">Services</h4>
                         <ul class="services-list">
                             @foreach ($serviceCategories as $serviceCategory)
-                                <li><a href="{{ url('services') }}" class="text-sm hover:underline text-white whitespace-nowrap">{{$serviceCategory->title}}</a></li>
+                                <li><a href="{{ url('services') }}" class="text-sm text-white hover:underline whitespace-nowrap">{{$serviceCategory->title}}</a></li>
                             @endforeach
                         </ul>
                     </div>
                 
                     <!-- Useful Links Section -->
                     <div>
-                        <h4 class="text-lg font-bold mb-4 text-white">Useful Links</h4>
+                        <h4 class="mb-4 text-lg font-bold text-white">Useful Links</h4>
                         <ul class="links-list">
-                            <li><a href="{{ url('terms-and-conditions') }}" class="text-sm hover:underline text-white whitespace-nowrap">Terms & Conditions</a></li>
-                            <li><a href="{{ url('privacy-policy') }}" class="text-sm hover:underline text-white whitespace-nowrap">Privacy Policy</a></li>
-                            <li><a href="{{ url('careers') }}" class="text-sm hover:underline text-white whitespace-nowrap">Careers</a></li>
-                            <li><a href="{{ url('blogs') }}" class="text-sm hover:underline text-white whitespace-nowrap">Blogs</a></li>
+                            <li><a href="{{ url('terms-and-conditions') }}" class="text-sm text-white hover:underline whitespace-nowrap">Terms & Conditions</a></li>
+                            <li><a href="{{ url('privacy-policy') }}" class="text-sm text-white hover:underline whitespace-nowrap">Privacy Policy</a></li>
+                            <li><a href="{{ url('careers') }}" class="text-sm text-white hover:underline whitespace-nowrap">Careers</a></li>
+                            <li><a href="{{ url('blogs') }}" class="text-sm text-white hover:underline whitespace-nowrap">Blogs</a></li>
                         </ul>
                     </div>
                 </div>
                 
                 <div class="w-full">
                     <h6 class="font_inter text-[20px] lg:text-[33px] font-semibold text-white">GET THE LATEST NEWS AND INSIGHTS</h6>
-                    <div class="flex flex-col xl:flex-row w-fit xl:items-center gap-3 pt-12">
-                        {{-- <span class="capitalize font-bold text-sm text-white font_roboto hidden lg:block">Subscribe</span> --}}
+                    <div class="flex flex-col gap-3 pt-12 xl:flex-row w-fit xl:items-center">
+                        {{-- <span class="hidden text-sm font-bold text-white capitalize font_roboto lg:block">Subscribe</span> --}}
                         <form id="news-letter-add-form" class="relative">
                             <div class="bg-white rounded-[50px] flex items-center overflow-hidden glow-effect">
                                 <input type="email" class="min-w-[189px] w-[100vw] max-w-[245px] lg:w-[148px] lg:min-w-[100px] 2xl:w-[280px] py-2 px-3 outline-none font_roboto placeholder-custom" style="background: none;" name="news_letter_email" id="news-letter-email" placeholder="Enter your email Address">
@@ -150,9 +152,9 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                         </form>
                     </div>
 
-                    <div class="flex gap-5 flex-col pt-10">
-                        {{-- <div class="capitalize font-bold text-sm text-white font_inter">Subscribe</div> --}}
-                        <div class=" flex items-center gap-5">
+                    <div class="flex flex-col gap-5 pt-10">
+                        {{-- <div class="text-sm font-bold text-white capitalize font_inter">Subscribe</div> --}}
+                        <div class="flex items-center gap-5 ">
                             <a href="https://www.facebook.com/KGraphimmigration/" target="_blank" rel="noopener noreferrer">
                                 <img  class="w-auto h-[20px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/fbvector.png') }}" alt="facebook">
                             </a>
@@ -172,13 +174,13 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
         </div>
     </div>
     <div class="bg-white">
-        <div class="container mx-auto px-5 lg:px-12 h-full w-full py-4  lg:py-0 lg:flex justify-between gap-72 items-start">
-            <div class="py-4 flex flex-col md:flex-row md:items-center gap-6">
-                <div class="text-black font_jakartafoot font-normal text-xs opacity-80">© 2024 - K-graph Canadian Immigration Services.</div>
+        <div class="container items-start justify-between w-full h-full px-5 py-4 mx-auto lg:px-12 lg:py-0 lg:flex gap-72">
+            <div class="flex flex-col gap-6 py-4 md:flex-row md:items-center">
+                <div class="text-xs font-normal text-black font_jakartafoot opacity-80">© 2024 - K-graph Canadian Immigration Services.</div>
                 <div class="flex items-center gap-7">
-                    <div><a class="text-black font_jakartafoot font-normal text-xs" href="{{ url('terms-and-conditions') }}">Terms and conditions</a></div>
-                    <div><a class="text-black font_jakartafoot font-normal text-xs" href="{{ url('privacy-policy') }}">Privacy Policy</a></div>
-                    <div><a class="text-black font_jakartafoot font-normal text-xs" href="{{ url('contact-us') }}">Contact Us</a></div>
+                    <div><a class="text-xs font-normal text-black font_jakartafoot" href="{{ url('terms-and-conditions') }}">Terms and conditions</a></div>
+                    <div><a class="text-xs font-normal text-black font_jakartafoot" href="{{ url('privacy-policy') }}">Privacy Policy</a></div>
+                    <div><a class="text-xs font-normal text-black font_jakartafoot" href="{{ url('contact-us') }}">Contact Us</a></div>
                 </div>
             </div>
         </div>
