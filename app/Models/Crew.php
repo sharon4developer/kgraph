@@ -33,6 +33,12 @@ class Crew extends Model
 
     public static function createData($data)
     {
+
+
+        if (isset($data->main) && (bool) $data->main) {
+
+            Crew::where('main', true)->update(['main' => false]);
+        }
         $value = new Crew;
         $value->name        = $data->name;
         $value->position  = $data->position;
@@ -41,6 +47,7 @@ class Crew extends Model
         $value->description  = $data->description;
         $value->position  = $data->position;
         $value->alt_tag           =  $data->alt_tag;
+        $value->main = isset($data->main) ? (bool) $data->main : false;
         if ($data->image) {
             $value->image = Cms::storeImage($data->image, $data->name);
             $intervention_image = $value->image;
@@ -58,6 +65,12 @@ class Crew extends Model
 
     public static function updateData($data)
     {
+
+
+        if (isset($data->main) && (bool) $data->main) {
+
+            Crew::where('main', true)->update(['main' => false]);
+        }
         $value = Crew::find($data->crew_id);
         $value->name        = $data->name;
         $value->position  = $data->position;
@@ -99,8 +112,15 @@ class Crew extends Model
 
         $locationData = getLocationData();
 
-        return SELF::select(DB::raw("CONCAT('{$locationData['storage_server_path']}', '{$locationData['storage_image_path']}', image) as image"),'id','address','email','description','name', 'position','alt_tag')->orderBy('order','asc')->where('status',1)->first();
+        return SELF::where('main',1)->select(DB::raw("CONCAT('{$locationData['storage_server_path']}', '{$locationData['storage_image_path']}', image) as image"),'id','address','email','description','name', 'position','alt_tag')->orderBy('order','asc')->where('status',1)->first();
     }
+
+    public static function getFullDataForAbout(){
+        $locationData = getLocationData();
+
+        return SELF::select(DB::raw("CONCAT('{$locationData['storage_server_path']}', '{$locationData['storage_image_path']}', image) as image"),'id','address','email','description','name', 'position','alt_tag')->orderBy('order','asc')->where('status',1)->get();
+    }
+
 
     public static function updateOrder($data)
     {

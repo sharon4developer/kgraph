@@ -81,14 +81,15 @@
                     <h2 class="text-3xl font-bold text-gray-800">Director's<span class="text-blue-500"> Message</span>
                     </h2>
                     <p class="mt-4 text-gray-700 leading-relaxed text-justify">
-                        {{$crew->description}}                
+                        {{$crew->description}}
+
                     </p>
                     <div class="mt-8">
                         <p class="text-lg font-bold text-gray-800">{{$crew->name}}</p>
                         <p class="text-gray-600 font-semibold">{{$crew->position}} at K-graph</p>
                     </div>
                 </div>
-    
+
                 <div class="lg:w-1/3 lg:flex justify-center items-center">
                     <img class="crew-card-img" src="{{$crew->image}}">
                 </div>
@@ -100,24 +101,27 @@
 </div>
 @endif
 
+
 <div class="cta bg-[#062358]">
     <div class="container mx-auto px-5 lg:px-12 py-8 z-10 relative">
         <div class="flex items-center flex-wrap justify-start gap-6 lg:py-8">
+            @foreach ($outMain as $item)
             <div class="crew-card" bis_skin_checked="1">
                 <div class="crew-card-img-parent" bis_skin_checked="1">
-                    <img class="crew-card-img !rounded-none" src="{{$crew->image}}" alt="Crew Image">
+                    <img class="crew-card-img lg:h-[191px] !rounded-none" src="{{$item->image}}" alt="Crew Image">
                 </div>
                 <div class="crew-card-content" bis_skin_checked="1">
-                    <h5 class="text-white">Mathews Benny</h5>
-                    <h6 class="text-white">Director</h6>
+                    <h5 class="text-white">{{$item->name}}</h5>
+                    <h6 class="text-white">{{$item->position}}  at K-graph</h6>
                     <div class="address text-white" bis_skin_checked="1">
                         <p class="text-white">Canada</p>
-                        <a class="email-link text-white" href="mail.canada@kgraph.ca">canada@kgraph.ca</a>
+                        <a class="email-link text-white" href="mail.canada@kgraph.ca">{{$item->email}}</a>
                     </div>
-                    <a class="read-bio-link text-white" href="#">Read full bio &gt;</a>
+                    {{-- <a class="read-bio-link text-white" href="#">Read full bio &gt;</a> --}}
                 </div>
             </div>
-
+            @endforeach
+{{--
             <div class="crew-card" bis_skin_checked="1">
                 <div class="crew-card-img-parent" bis_skin_checked="1">
                     <img class="crew-card-img !rounded-none" src="{{$crew->image}}" alt="Crew Image">
@@ -131,7 +135,8 @@
                     </div>
                     <a class="read-bio-link text-white" href="#">Read full bio &gt;</a>
                 </div>
-            </div>
+            </div> --}}
+
         </div>
     </div>
 </div>

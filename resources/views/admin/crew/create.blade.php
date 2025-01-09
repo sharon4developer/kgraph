@@ -87,6 +87,13 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-md-2">
+                                <div class="form-group">
+                                    <label>Main</label>
+                                    <input type="hidden" name="main" value="0">
+                                    <input type="checkbox" name="main" value="1" class="main-checkbox">
+                                </div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-md-6">
