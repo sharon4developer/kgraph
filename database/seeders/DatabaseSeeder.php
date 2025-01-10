@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
+
         User::create([
             'name' => 'Admin',
             'email' => 'admin@kgraph.com',
@@ -23,5 +24,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $this->call(PageSeeder::class);
+        $this->call(PermissionSeeder::class);
+        $this->call(RoleSeeder::class);
     }
 }

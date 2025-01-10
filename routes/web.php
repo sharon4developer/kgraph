@@ -31,6 +31,8 @@ use App\Http\Controllers\Admin\PackagePointController;
 use App\Http\Controllers\Admin\PackageSeoController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\PrivacyPolicyController;
+use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\Admin\RollController;
 use App\Http\Controllers\Admin\SeoController;
 use App\Http\Controllers\Admin\ServiceCategoryController;
 use App\Http\Controllers\Admin\ServiceContentController;
@@ -39,6 +41,7 @@ use App\Http\Controllers\Admin\ServiceFaqController;
 use App\Http\Controllers\Admin\ServicePointContentPointsController;
 use App\Http\Controllers\Admin\ServicePointController;
 use App\Http\Controllers\Admin\ServiceSeoController;
+use App\Http\Controllers\Admin\SubAdminController;
 use App\Http\Controllers\Admin\SubServicePointContentController;
 use App\Http\Controllers\Admin\SubServicesController;
 use App\Http\Controllers\Admin\SubServicesFaqController;
@@ -156,7 +159,14 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'sub-service-faq' => SubServicesFaqController::class,
         'sub-service-points' => SubServicesPointController::class,
         'sub-service-point-contents' => SubServicePointContentController::class,
+        'sub-admin'=> SubAdminController::class,
+        'roles' => RoleController::class,
     ]);
+
+
+
+    Route::get('role-permissions/{id}', [RoleController::class, 'permissions'])->name('role.permissions');
+    Route::post('role-permissions/{id}/store', [RoleController::class, 'storeRolePermision'])->name('role.storeRolePermision');
 
     Route::prefix('pages')->name('.pages')->group(function () {
         Route::resources([

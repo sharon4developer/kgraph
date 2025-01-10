@@ -807,8 +807,12 @@
 
                                 <!-- Text Content -->
                                 <div class="bg-[#11316595] px-5 rounded-md pb-1 hidden lg:block lg:bg-transparent lg:px-0 lg:rounded-none lg:pb-0">
+                                    @isset($home->journey_video_name)
+
+
                                     <p class="text-[12px] lg:text-lg font-bold">{{$home->journey_video_name}}</p>
                                     <p class="text-[12px] lg:text-sm">{{$home->journey_video_position}}</p>
+                                    @endisset
                                 </div>
                             </div>
                         </div>

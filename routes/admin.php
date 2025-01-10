@@ -5,3 +5,4 @@ use Illuminate\Support\Facades\Route;
 
 //Login
 Route::post('login', [AdminLoginController::class, 'login']);
+
