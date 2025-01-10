@@ -21,7 +21,9 @@ class AboutController extends Controller
         $aboutUs = AboutUs::getFullDataForHome();
         $seo = Page::getSeoDetails(request()->path());
         $crew = Crew::getFullDataForHome();
-        return view('frontend.pages.about',compact('journey','ourStory','locations','aboutUs','seo','crew'));
+        $outMain = Crew::getFullDataForAbout();
+
+        return view('frontend.pages.about',compact('journey','ourStory','locations','aboutUs','seo','crew','outMain'));
     }
 
     public function crewShow()
