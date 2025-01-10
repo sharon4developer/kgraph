@@ -112,7 +112,7 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                         <img class="" src="{{ asset('assets/home_Banner/grouplogo.png') }}" alt="K-graph logo">
                     </div>
 
-                    <p class="font_inter text-[12px]  font-light lg:text-justify capitalize  text-white">
+                    <p class="font_inter text-[12px]  font-light  capitalize  text-white">
                     A team of certified consultants is ready to guide your immigration journey. 
                     Contact us to get expert help with your visa, residency or citizenship application</p>
                 </div>
