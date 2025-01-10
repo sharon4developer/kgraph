@@ -118,7 +118,7 @@ class Crew extends Model
     public static function getFullDataForAbout(){
         $locationData = getLocationData();
 
-        return SELF::select(DB::raw("CONCAT('{$locationData['storage_server_path']}', '{$locationData['storage_image_path']}', image) as image"),'id','address','email','description','name', 'position','alt_tag')->orderBy('order','asc')->where('status',1)->get();
+        return SELF::where('main',0)->select(DB::raw("CONCAT('{$locationData['storage_server_path']}', '{$locationData['storage_image_path']}', image) as image"),'id','address','email','description','name', 'position','alt_tag')->orderBy('order','asc')->where('status',1)->get();
     }
 
 
