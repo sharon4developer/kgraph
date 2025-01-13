@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StorePackageFaqRequest;
@@ -14,6 +15,7 @@ class PackageFaqController extends Controller
 {
     public function index()
     {
+        abort_unless(Gate::allows('package-faq'), 403);
         $title = 'Package Faq';
         $sub_title = 'Package Faq';
 
@@ -24,6 +26,7 @@ class PackageFaqController extends Controller
 
     public function create()
     {
+        abort_unless(Gate::allows('package-faq-create'), 403);
         $title = 'Package Faq';
         $sub_title = 'Add';
 
@@ -34,6 +37,7 @@ class PackageFaqController extends Controller
 
     public function store(StorePackageFaqRequest $request)
     {
+        abort_unless(Gate::allows('package-faq-create'), 403);
         try{
             $save= PackageFaq::createData($request);
 
@@ -62,12 +66,14 @@ class PackageFaqController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('package-faq'), 403);
         $data = PackageFaq::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
+        abort_unless(Gate::allows('package-faq-edit'), 403);
         $data = PackageFaq::getData($id);
         if(!$data){
             abort(404);
@@ -82,6 +88,7 @@ class PackageFaqController extends Controller
 
     public function update(UpdatePackageFaqRequest $request, $id)
     {
+        abort_unless(Gate::allows('package-faq-edit'), 403);
         try{
             $save= PackageFaq::updateData($request);
 
@@ -110,6 +117,7 @@ class PackageFaqController extends Controller
 
     public function destroy(Request $request)
     {
+        abort_unless(Gate::allows('package-faq-delete'), 403);
         $delete = PackageFaq::deleteData($request);
         return response()->json($delete);
     }

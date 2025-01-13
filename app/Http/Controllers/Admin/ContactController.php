@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use App\Models\Contact;
 use Illuminate\Http\Request;
@@ -13,6 +13,7 @@ class ContactController extends Controller
      */
     public function index()
     {
+        abort_unless(Gate::allows('contact'), 403);
         $title = 'Contact Us';
         $sub_title = 'Contact Us';
 
@@ -21,12 +22,15 @@ class ContactController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('contact'), 403);
         $data = Contact::getFullData($request);
         return $data;
     }
 
     public function destroy(Request $request)
     {
+
+        abort_unless(Gate::allows('contact-delete'), 403);
         $delete = Contact::deleteData($request);
         return response()->json($delete);
     }

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreLocationRequest;
 use App\Http\Requests\Admin\UpdateLocationRequest;
@@ -13,6 +13,7 @@ class LocationController extends Controller
 {
     public function index()
     {
+        abort_unless(Gate::allows('locations'), 403);
         $title = 'Locations';
         $sub_title = 'Locations';
 
@@ -21,6 +22,7 @@ class LocationController extends Controller
 
     public function create()
     {
+        abort_unless(Gate::allows('locations-create'), 403);
         $title = 'Locations';
         $sub_title = 'Add';
         return view('admin.locations.create',compact('title','sub_title'));
@@ -28,6 +30,7 @@ class LocationController extends Controller
 
     public function store(StoreLocationRequest $request)
     {
+        abort_unless(Gate::allows('locations-create'), 403);
         try{
             $save= Location::createData($request);
 
@@ -56,12 +59,14 @@ class LocationController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('locations'), 403);
         $data = Location::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
+        abort_unless(Gate::allows('locations-edit'), 403);
         $data = Location::getData($id);
         if(!$data){
             abort(404);
@@ -73,6 +78,7 @@ class LocationController extends Controller
 
     public function update(UpdateLocationRequest $request, $id)
     {
+        abort_unless(Gate::allows('locations-edit'), 403);
         try{
             $save= Location::updateData($request);
 
@@ -101,6 +107,8 @@ class LocationController extends Controller
 
     public function destroy(Request $request)
     {
+
+        abort_unless(Gate::allows('locations-delete'), 403);
         $delete = Location::deleteData($request);
         return response()->json($delete);
     }

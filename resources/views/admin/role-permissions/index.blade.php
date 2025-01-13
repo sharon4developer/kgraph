@@ -9,7 +9,7 @@
                         <form id="table-add-role-permission-form" method="POST">
                         @csrf
 
-                        <input type="hidden" name="role_id" value="{{$role->id}}">
+                        <input type="hidden" name="table_id" value="{{$role->id}}">
 
                         <div class="mb-3">
                             <div class="row">
@@ -24,7 +24,7 @@
                                         </label>
                                     </div>
                                 @endforeach
-                            </div>
+
                         </div><!-- Row -->
                         @if ($role->name != 'super-admin')
                             <button type="submit" class="btn btn-primary">Submit</button>

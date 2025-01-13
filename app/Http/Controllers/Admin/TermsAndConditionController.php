@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreTermsAndConditionRequest;
@@ -13,6 +14,7 @@ class TermsAndConditionController extends Controller
 {
     public function index()
     {
+        abort_unless(Gate::allows('terms-and-condition'), 403);
         $title = 'Terms And Condition';
         $sub_title = 'Terms And Condition';
 
@@ -23,6 +25,7 @@ class TermsAndConditionController extends Controller
 
     public function store(StoreTermsAndConditionRequest $request)
     {
+        abort_unless(Gate::allows('terms-and-condition-create'), 403);
         try{
             $save= TermsAndCondition::updateData($request);
 

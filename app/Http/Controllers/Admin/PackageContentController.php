@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StorePackageContentRequest;
@@ -13,6 +14,7 @@ class PackageContentController extends Controller
 {
     public function index()
     {
+        abort_unless(Gate::allows('package-contents'), 403);
         $title = 'Package Content';
         $sub_title = 'Package Content';
 
@@ -23,6 +25,7 @@ class PackageContentController extends Controller
 
     public function create()
     {
+        abort_unless(Gate::allows('package-contents-create'), 403);
         $title = 'Package Content';
         $sub_title = 'Add';
 
@@ -31,6 +34,7 @@ class PackageContentController extends Controller
 
     public function store(StorePackageContentRequest $request)
     {
+        abort_unless(Gate::allows('package-contents-create'), 403);
         try{
             $save= PackageContent::createData($request);
 
@@ -59,12 +63,15 @@ class PackageContentController extends Controller
 
     public function show(Request $request)
     {
+
+        abort_unless(Gate::allows('package-contents'), 403);
         $data = PackageContent::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
+        abort_unless(Gate::allows('package-contents-edit'), 403);
         $data = PackageContent::getData($id);
         if(!$data){
             abort(404);
@@ -77,6 +84,7 @@ class PackageContentController extends Controller
 
     public function update(UpdatePackageContentRequest $request, $id)
     {
+        abort_unless(Gate::allows('package-contents-edit'), 403);
         try{
             $save= PackageContent::updateData($request);
 

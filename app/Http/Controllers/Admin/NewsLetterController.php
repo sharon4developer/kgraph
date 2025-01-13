@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Controller;
 use App\Models\NewsLetter;
@@ -13,6 +14,7 @@ class NewsLetterController extends Controller
      */
     public function index(Request $request)
     {
+        abort_unless(Gate::allows('news-letter'), 403);
         $title = 'News Letters';
         $sub_title = 'News Letters';
 
@@ -22,12 +24,14 @@ class NewsLetterController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('news-letter'), 403);
         $data = NewsLetter::getFullData($request);
         return $data;
     }
 
     public function destroy(Request $request)
     {
+        abort_unless(Gate::allows('news-letter-delete'), 403);
         $delete = NewsLetter::deleteData($request);
         return response()->json($delete);
     }

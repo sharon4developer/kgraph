@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreServiceFaqRequest;
@@ -14,6 +15,7 @@ class ServiceFaqController extends Controller
 {
     public function index()
     {
+        abort_unless(Gate::allows('service-faq'), 403);
         $title = 'Service Faq';
         $sub_title = 'Service Faq';
 
@@ -24,6 +26,7 @@ class ServiceFaqController extends Controller
 
     public function create()
     {
+        abort_unless(Gate::allows('service-faq-create'), 403);
         $title = 'Service Faq';
         $sub_title = 'Add';
 
@@ -34,6 +37,7 @@ class ServiceFaqController extends Controller
 
     public function store(StoreServiceFaqRequest $request)
     {
+        abort_unless(Gate::allows('service-faq-create'), 403);
         try{
             $save= ServiceFaq::createData($request);
 
@@ -62,12 +66,14 @@ class ServiceFaqController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('service-faq'), 403);
         $data = ServiceFaq::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
+        abort_unless(Gate::allows('service-faq-edit'), 403);
         $data = ServiceFaq::getData($id);
         if(!$data){
             abort(404);
@@ -82,6 +88,7 @@ class ServiceFaqController extends Controller
 
     public function update(UpdateServiceFaqRequest $request, $id)
     {
+        abort_unless(Gate::allows('service-faq-edit'), 403);
         try{
             $save= ServiceFaq::updateData($request);
 
@@ -110,6 +117,7 @@ class ServiceFaqController extends Controller
 
     public function destroy(Request $request)
     {
+        abort_unless(Gate::allows('service-faq-delete'), 403);
         $delete = ServiceFaq::deleteData($request);
         return response()->json($delete);
     }

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StorePackageSeoRequest;
@@ -13,6 +14,7 @@ class PackageSeoController extends Controller
 {
     public function store(StorePackageSeoRequest $request)
     {
+        abort_unless(Gate::allows('packages-seo'), 403);
         try{
             $save= PackageSeo::createData($request);
 
@@ -40,6 +42,7 @@ class PackageSeoController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('packages-seo'), 403);
         $data = PackageSeo::getData($request->package_id);
         return $data;
     }

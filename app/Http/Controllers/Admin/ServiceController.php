@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreServiceRequest;
@@ -14,6 +15,7 @@ class ServiceController extends Controller
 {
     public function index()
     {
+        abort_unless(Gate::allows('services'), 403);
         $title = 'Services';
         $sub_title = 'Services';
 
@@ -24,6 +26,7 @@ class ServiceController extends Controller
 
     public function create()
     {
+        abort_unless(Gate::allows('services-create'), 403);
         $title = 'Services';
         $sub_title = 'Add';
 
@@ -34,6 +37,7 @@ class ServiceController extends Controller
 
     public function store(StoreServiceRequest $request)
     {
+        abort_unless(Gate::allows('services-create'), 403);
         try{
             $save= Service::createData($request);
 
@@ -62,12 +66,14 @@ class ServiceController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('services'), 403);
         $data = Service::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
+        abort_unless(Gate::allows('services-edit'), 403);
         $data = Service::getData($id);
         if(!$data){
             abort(404);
@@ -82,6 +88,7 @@ class ServiceController extends Controller
 
     public function update(UpdateServiceRequest $request, $id)
     {
+        abort_unless(Gate::allows('services-edit'), 403);
         try{
             $save= Service::updateData($request);
 
@@ -110,6 +117,7 @@ class ServiceController extends Controller
 
     public function destroy(Request $request)
     {
+        abort_unless(Gate::allows('services-delete'), 403);
         $delete = Service::deleteData($request);
         return response()->json($delete);
     }

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreTestimonialRequest;
@@ -13,6 +14,7 @@ class TestimonialController extends Controller
 {
     public function index()
     {
+        abort_unless(Gate::allows('testimonials'), 403);
         $title = 'Testimonials';
         $sub_title = 'Testimonials';
 
@@ -21,6 +23,7 @@ class TestimonialController extends Controller
 
     public function create()
     {
+        abort_unless(Gate::allows('testimonials-create'), 403);
         $title = 'Testimonials';
         $sub_title = 'Add';
         return view('admin.testimonials.create',compact('title','sub_title'));
@@ -28,6 +31,7 @@ class TestimonialController extends Controller
 
     public function store(StoreTestimonialRequest $request)
     {
+        abort_unless(Gate::allows('testimonials-create'), 403);
         try{
             $save= Testimonial::createData($request);
 
@@ -56,12 +60,14 @@ class TestimonialController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('testimonials'), 403);
         $data = Testimonial::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
+        abort_unless(Gate::allows('testimonials-edit'), 403);
         $data = Testimonial::getData($id);
         if(!$data){
             abort(404);
@@ -73,6 +79,7 @@ class TestimonialController extends Controller
 
     public function update(UpdateTestimonialRequest $request, $id)
     {
+        abort_unless(Gate::allows('testimonials-edit'), 403);
         try{
             $save= Testimonial::updateData($request);
 
@@ -101,6 +108,7 @@ class TestimonialController extends Controller
 
     public function destroy(Request $request)
     {
+        abort_unless(Gate::allows('testimonials-delete'), 403);
         $delete = Testimonial::deleteData($request);
         return response()->json($delete);
     }

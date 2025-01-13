@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreCrewRequest;
@@ -13,6 +14,7 @@ class CrewController extends Controller
 {
     public function index()
     {
+        abort_unless(Gate::allows('crew'), 403);
         $title = 'Crew';
         $sub_title = 'Crew';
         $count = Crew::count();
@@ -22,6 +24,7 @@ class CrewController extends Controller
 
     public function create()
     {
+        abort_unless(Gate::allows('crew-create'), 403);
         $title = 'Crew';
         $sub_title = 'Add';
         return view('admin.crew.create',compact('title','sub_title'));
@@ -29,6 +32,7 @@ class CrewController extends Controller
 
     public function store(StoreCrewRequest $request)
     {
+        abort_unless(Gate::allows('crew-create'), 403);
         try{
             $save= Crew::createData($request);
 
@@ -57,12 +61,14 @@ class CrewController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('crew'), 403);
         $data = Crew::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
+        abort_unless(Gate::allows('crew-edit'), 403);
         $data = Crew::getData($id);
         if(!$data){
             abort(404);
@@ -74,6 +80,7 @@ class CrewController extends Controller
 
     public function update(UpdateCrewRequest $request, $id)
     {
+        abort_unless(Gate::allows('crew-edit'), 403);
         try{
             $save= Crew::updateData($request);
 
@@ -102,6 +109,7 @@ class CrewController extends Controller
 
     public function destroy(Request $request)
     {
+        abort_unless(Gate::allows('crew-delete'), 403);
         $delete = Crew::deleteData($request);
         return response()->json($delete);
     }

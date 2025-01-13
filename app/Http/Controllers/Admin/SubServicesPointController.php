@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreSubServicesPointRequest;
 use App\Http\Requests\Admin\UpdateSubServicesPointRequest;
@@ -17,6 +18,7 @@ class SubServicesPointController extends Controller
      */
     public function index()
     {
+        abort_unless(Gate::allows('sub-service-points'), 403);
         $title = 'Service Points';
         $sub_title = 'Service Points';
 
@@ -27,6 +29,7 @@ class SubServicesPointController extends Controller
 
     public function create()
     {
+        abort_unless(Gate::allows('sub-service-points-create'), 403);
         $title = 'Service Points';
         $sub_title = 'Add';
 
@@ -37,6 +40,7 @@ class SubServicesPointController extends Controller
 
     public function store(StoreSubServicesPointRequest $request)
     {
+        abort_unless(Gate::allows('sub-service-points-create'), 403);
         try{
             $save= SubServicesPoint::createData($request);
 
@@ -65,12 +69,14 @@ class SubServicesPointController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('sub-service-points'), 403);
         $data = SubServicesPoint::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
+        abort_unless(Gate::allows('sub-service-points-edit'), 403);
         $data = SubServicesPoint::getData($id);
         if(!$data){
             abort(404);
@@ -85,6 +91,7 @@ class SubServicesPointController extends Controller
 
     public function update(UpdateSubServicesPointRequest $request, $id)
     {
+        abort_unless(Gate::allows('sub-service-points-edit'), 403);
         try{
             $save= SubServicesPoint::updateData($request);
 
@@ -113,6 +120,7 @@ class SubServicesPointController extends Controller
 
     public function destroy(Request $request)
     {
+        abort_unless(Gate::allows('sub-service-points-delete'), 403);
         $delete = SubServicesPoint::deleteData($request);
         return response()->json($delete);
     }

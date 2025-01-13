@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StorePackagePointRequest;
@@ -14,6 +15,7 @@ class PackagePointController extends Controller
 {
     public function index()
     {
+        abort_unless(Gate::allows('package-points'), 403);
         $title = 'Package Points';
         $sub_title = 'Package Points';
 
@@ -24,6 +26,7 @@ class PackagePointController extends Controller
 
     public function create()
     {
+        abort_unless(Gate::allows('package-points-create'), 403);
         $title = 'Package Points';
         $sub_title = 'Add';
 
@@ -34,6 +37,7 @@ class PackagePointController extends Controller
 
     public function store(StorePackagePointRequest $request)
     {
+        abort_unless(Gate::allows('package-points-create'), 403);
         try{
             $save= PackagePoint::createData($request);
 
@@ -62,12 +66,14 @@ class PackagePointController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('package-points'), 403);
         $data = PackagePoint::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
+        abort_unless(Gate::allows('package-points-edit'), 403);
         $data = PackagePoint::getData($id);
         if(!$data){
             abort(404);
@@ -82,6 +88,7 @@ class PackagePointController extends Controller
 
     public function update(UpdatePackagePointRequest $request, $id)
     {
+        abort_unless(Gate::allows('package-points-edit'), 403);
         try{
             $save= PackagePoint::updateData($request);
 
@@ -110,6 +117,7 @@ class PackagePointController extends Controller
 
     public function destroy(Request $request)
     {
+        abort_unless(Gate::allows('package-points-delete'), 403);
         $delete = PackagePoint::deleteData($request);
         return response()->json($delete);
     }

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreJourneyRequest;
 use App\Http\Requests\Admin\UpdateJourneyRequest;
@@ -13,6 +13,7 @@ class JourneyController extends Controller
 {
     public function index()
     {
+        abort_unless(Gate::allows('journey'), 403);
         $title = 'Journey';
         $sub_title = 'Journey';
 
@@ -23,6 +24,7 @@ class JourneyController extends Controller
 
     public function create()
     {
+        abort_unless(Gate::allows('journey-create'), 403);
         $title = 'Journey';
         $sub_title = 'Add';
 
@@ -31,6 +33,7 @@ class JourneyController extends Controller
 
     public function store(StoreJourneyRequest $request)
     {
+        abort_unless(Gate::allows('journey-create'), 403);
         try{
             $save= Journey::createData($request);
 
@@ -59,12 +62,14 @@ class JourneyController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('journey'), 403);
         $data = Journey::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
+        abort_unless(Gate::allows('journey-edit'), 403);
         $data = Journey::getData($id);
         if(!$data){
             abort(404);
@@ -77,6 +82,7 @@ class JourneyController extends Controller
 
     public function update(UpdateJourneyRequest $request, $id)
     {
+        abort_unless(Gate::allows('journey-edit'), 403);
         try{
             $save= Journey::updateData($request);
 

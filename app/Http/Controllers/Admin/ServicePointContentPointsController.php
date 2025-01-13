@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreServicePointContentPointsRequest;
@@ -17,6 +18,7 @@ class ServicePointContentPointsController extends Controller
      */
     public function index(Request $request)
     {
+        abort_unless(Gate::allows('service-point-content'), 403);
 
         $title = 'Sub Service Point Content';
         $sub_title = 'Sub Service Point Content';
@@ -41,6 +43,7 @@ class ServicePointContentPointsController extends Controller
 
     public function create()
     {
+        abort_unless(Gate::allows('service-point-content-create'), 403);
         $title = 'Sub Service Point Content';
         $sub_title = 'Add';
 
@@ -51,6 +54,7 @@ class ServicePointContentPointsController extends Controller
 
     public function store(StoreServicePointContentPointsRequest $request)
     {
+        abort_unless(Gate::allows('service-point-content-create'), 403);
         try{
             $save= ServicePointContentPoints::createData($request);
 
@@ -79,12 +83,14 @@ class ServicePointContentPointsController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('service-point-content'), 403);
         $data = ServicePointContentPoints::getFullData($request);
         return $data;
     }
 
     public function destroy(Request $request)
     {
+        abort_unless(Gate::allows('service-point-content-delete'), 403);
         $delete = ServicePointContentPoints::deleteData($request);
         $data = SubServicePointContent::getData($request->service_point_content_id);
         return response()->json(['status' => true, 'data' => $data]);

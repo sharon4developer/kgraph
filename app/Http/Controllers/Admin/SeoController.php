@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreSeoRequest;
@@ -13,6 +14,7 @@ class SeoController extends Controller
 {
     public function store(StoreSeoRequest $request)
     {
+        abort_unless(Gate::allows('seo-create'), 403);
         try{
             $save= Seo::createData($request);
 
@@ -40,6 +42,7 @@ class SeoController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('seo'), 403);
         $data = Seo::getData($request->page_id);
         return $data;
     }

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreSubServicesFaqRequest;
@@ -17,6 +18,7 @@ class SubServicesFaqController extends Controller
      */
     public function index()
     {
+        abort_unless(Gate::allows('sub-service-faq'), 403);
         $title = 'Service Faq';
         $sub_title = 'Service Faq';
 
@@ -27,6 +29,7 @@ class SubServicesFaqController extends Controller
 
     public function create()
     {
+        abort_unless(Gate::allows('sub-service-faq-create'), 403);
         $title = 'Service Faq';
         $sub_title = 'Add';
 
@@ -37,6 +40,7 @@ class SubServicesFaqController extends Controller
 
     public function store(StoreSubServicesFaqRequest $request)
     {
+        abort_unless(Gate::allows('sub-service-faq-create'), 403);
         try{
             $save= SubServicesFaq::createData($request);
 
@@ -65,12 +69,14 @@ class SubServicesFaqController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('sub-service-faq'), 403);
         $data = SubServicesFaq::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
+        abort_unless(Gate::allows('sub-service-faq-edit'), 403);
         $data = SubServicesFaq::getData($id);
         if(!$data){
             abort(404);
@@ -85,6 +91,7 @@ class SubServicesFaqController extends Controller
 
     public function update(UpdateSubServicesFaqRequest $request, $id)
     {
+        abort_unless(Gate::allows('sub-service-faq-edit'), 403);
         try{
             $save= SubServicesFaq::updateData($request);
 
@@ -113,6 +120,7 @@ class SubServicesFaqController extends Controller
 
     public function destroy(Request $request)
     {
+        abort_unless(Gate::allows('sub-service-faq-delete'), 403);
         $delete = SubServicesFaq::deleteData($request);
         return response()->json($delete);
     }

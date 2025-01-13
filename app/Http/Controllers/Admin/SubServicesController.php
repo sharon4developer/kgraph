@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreSubServicesRequest;
@@ -17,6 +18,7 @@ class SubServicesController extends Controller
      */
     public function index()
     {
+        abort_unless(Gate::allows('sub-services'), 403);
         $title = 'Sub Services';
         $sub_title = 'Sub Services';
 
@@ -27,6 +29,7 @@ class SubServicesController extends Controller
 
     public function create()
     {
+        abort_unless(Gate::allows('sub-services-create'), 403);
         $title = 'Sub Services';
         $sub_title = 'Add';
 
@@ -37,6 +40,7 @@ class SubServicesController extends Controller
 
     public function store(StoreSubServicesRequest $request)
     {
+        abort_unless(Gate::allows('sub-services-create'), 403);
         try{
             $save= SubServices::createData($request);
 
@@ -65,12 +69,14 @@ class SubServicesController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('sub-services'), 403);
         $data = SubServices::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
+        abort_unless(Gate::allows('sub-services-edit'), 403);
         $data = SubServices::getData($id);
         if(!$data){
             abort(404);
@@ -85,6 +91,7 @@ class SubServicesController extends Controller
 
     public function update(UpdateSubServicesRequest $request, $id)
     {
+        abort_unless(Gate::allows('sub-services-edit'), 403);
         try{
             $save= SubServices::updateData($request);
 
@@ -113,6 +120,7 @@ class SubServicesController extends Controller
 
     public function destroy(Request $request)
     {
+        abort_unless(Gate::allows('sub-services-delete'), 403);
         $delete = SubServices::deleteData($request);
         return response()->json($delete);
     }

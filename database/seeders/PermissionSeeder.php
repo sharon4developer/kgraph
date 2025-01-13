@@ -14,28 +14,29 @@ class PermissionSeeder extends Seeder
     {
         $permissions = [
             'dashboard',
-            'roles',
-            // 'pages',
-            'sub-admin',
-            // 'home',
+
+
+
+
             'banners',
             'banners-create',
+            'banners-edit',
             'banners-delete',
 
             'services',
             'services-create',
-            // 'services-edit',
-            // 'services-delete',
+            'services-edit',
+            'services-delete',
 
             'service-points',
             'service-points-create',
-            // 'service-points-edit',
+            'service-points-edit',
             'service-points-delete',
 
             'service-faq',
             'service-faq-create',
-            // 'service-faq-edit',
-            // 'service-faq-delete',
+            'service-faq-edit',
+            'service-faq-delete',
 
             'who-we-are',
             'who-we-are-create',
@@ -44,7 +45,8 @@ class PermissionSeeder extends Seeder
 
             'testimonials',
             'testimonials-create',
-
+            'testimonials-delete',
+            'testimonials-edit',
 
             'faq',
             'faq-create',
@@ -53,48 +55,91 @@ class PermissionSeeder extends Seeder
 
             'blogs',
             'blogs-create',
-            // 'blogs-edit',
-            // 'blogs-delete',
+            'blogs-edit',
+            'blogs-delete',
+
+            'blogs-seo',
+            'blogs-seo-create',
+            'blogs-seo-edit',
+            'blogs-seo-delete',
+
+            'blog-content',
+            'blog-content-create',
+            'blog-content-edit',
 
             'explore',
             'explore-create',
-            // 'explore-edit',
-            // 'explore-delete',
+            'explore-edit',
+            'explore-delete',
 
             'certificates',
             'certificates-create',
-            // 'certificates-edit',
-            // 'certificates-delete',
+            'certificates-edit',
+            'certificates-delete',
 
             'journey',
             'journey-create',
-            // 'journey-edit',
-            // 'journey-delete',
+            'journey-edit',
+            'journey-delete',
 
             'crew',
             'crew-create',
-            // 'crew-edit',
-            // 'crew-delete',
+            'crew-edit',
+            'crew-delete',
 
             'our-story',
             'our-story-create',
-            // 'our-story-edit',
-            // 'our-story-delete',
+            'our-story-edit',
+            'our-story-delete',
 
             'locations',
             'locations-create',
-            // 'locations-edit',
-            // 'locations-delete',
+            'locations-edit',
+            'locations-delete',
 
             'careers',
             'careers-create',
-            // 'careers-edit',
-            // 'careers-delete',
+            'careers-edit',
+            'careers-delete',
+
+
+            'sub-admin',
+            'sub-admin-create',
+            'sub-admin-edit',
+            'sub-admin-delete',
+
+
+            'roles',
+            'roles-create',
+            'roles-edit',
+            'roles-delete',
+
+            'service-point-content',
+            'service-point-content-create',
+            'service-point-content-edit',
+            'service-point-content-delete',
+
+
+            'careers-departments',
+            'careers-departments-create',
+            'careers-departments-edit',
+            'careers-departments-delete',
+
+
+            'career-contents',
+            'career-contents-create',
+            'career-contents-edit',
+            // 'career-contents-delete',
+
+            'career-branches',
+            'career-branches-create',
+            'career-branches-edit',
+            'career-branches-delete',
 
             'privacy-policy',
             'privacy-policy-create',
-            'privacy-policy-edit',
-            'privacy-policy-delete',
+            // 'privacy-policy-edit',
+            // 'privacy-policy-delete',
 
             'terms-and-condition',
             'terms-and-condition-create',
@@ -103,63 +148,78 @@ class PermissionSeeder extends Seeder
 
             'contact-us',
             'contact-us-create',
-            'contact-us-edit',
-            'contact-us-delete',
+            // 'contact-us-edit',
+            // 'contact-us-delete',
 
             'packages',
             'packages-create',
-            // 'packages-edit',
-            // 'packages-delete',
+            'packages-edit',
+            'packages-delete',
+
+            'packages-seo',
+            'packages-seo-create',
+            'packages-seo-edit',
+            'packages-seo-delete',
+
+            'seo',
+            'seo-create',
+            'seo-edit',
+            'seo-delete',
 
             'package-points',
             'package-points-create',
-            // 'package-points-edit',
-            // 'package-points-delete',
+            'package-points-edit',
+            'package-points-delete',
 
             'package-faq',
             'package-faq-create',
-            // 'package-faq-edit',
-            // 'package-faq-delete',
+            'package-faq-edit',
+            'package-faq-delete',
 
             'pages',
             'pages-create',
-            // 'pages-edit',
-            // 'pages-delete',
+            'pages-edit',
+            'pages-delete',
 
             'career-departments',
             'career-departments-create',
             // 'career-departments-edit',
             // 'career-departments-delete',
 
-            'career-branches',
-            'career-branches-create',
+            // 'career-branches',
+            // 'career-branches-create',
             // 'career-branches-edit',
             // 'career-branches-delete',
 
             'about-us',
             'about-us-create',
-            // 'about-us-edit',
+            'about-us-edit',
             // 'about-us-delete',
 
             'service-categories',
             'service-categories-create',
-            // 'service-categories-edit',
-            // 'service-categories-delete',
+            'service-categories-edit',
+            'service-categories-delete',
+
+            'service-seo',
+            'service-seo-create',
+            // 'service-seo-edit',
+            // 'service-seo-delete',
 
             'home',
             'home-create',
-            // 'home-edit',
-            // 'home-delete',
+            'home-edit',
+            'home-delete',
 
             'service-contents',
             'service-contents-create',
-            // 'service-contents-edit',
+            'service-contents-edit',
             // 'service-contents-delete',
 
             'package-contents',
             'package-contents-create',
-            // 'package-contents-edit',
-            // 'package-contents-delete',
+            'package-contents-edit',
+            'package-contents-delete',
 
             'blog-contents',
             'blog-contents-create',
@@ -167,34 +227,35 @@ class PermissionSeeder extends Seeder
             // 'blog-contents-delete',
 
             'news-letter',
-            'news-letter-create',
+            // 'news-letter-create',
             // 'news-letter-edit',
-            // 'news-letter-delete',
+            'news-letter-delete',
 
             'contact',
-            'contact-create',
-            'contact-edit',
+            // 'contact-create',
+            // 'contact-edit',
             'contact-delete',
 
             'applied-career',
             'applied-career-create',
             // 'applied-career-edit',
-            // 'applied-career-delete',
+            'applied-career-delete',
 
             'eligibility-check',
-            'eligibility-check-create',
-            // 'eligibility-check-edit',
-            // 'eligibility-check-delete',
+            // 'eligibility-check-create',
+            'eligibility-check-edit',
+            'eligibility-check-delete',
 
-            'career-contents',
-            'career-contents-create',
+            // 'career-contents',
+            // 'career-contents-create',
             // 'career-contents-edit',
             // 'career-contents-delete',
 
             'sub-services',
             'sub-services-create',
-            // 'sub-services-edit',
-            // 'sub-services-delete',
+            'sub-services-edit',
+            'sub-services-delete',
+
 
             'sub-service-faq',
             'sub-service-faq-create',
@@ -203,8 +264,8 @@ class PermissionSeeder extends Seeder
 
             'sub-service-points',
             'sub-service-points-create',
-            // 'sub-service-points-edit',
-            // 'sub-service-points-delete',
+            'sub-service-points-edit',
+            'sub-service-points-delete',
 
             'sub-service-point-contents',
             'sub-service-point-contents-create',

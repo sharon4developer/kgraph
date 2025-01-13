@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreCareerRequest;
 use App\Http\Requests\Admin\UpdateCareerRequest;
@@ -13,6 +13,7 @@ class CareerController extends Controller
 {
     public function index()
     {
+        abort_unless(Gate::allows('careers'), 403);
         $title = 'Careers';
         $sub_title = 'Careers';
 
@@ -21,6 +22,7 @@ class CareerController extends Controller
 
     public function create()
     {
+        abort_unless(Gate::allows('careers-create'), 403);
         $title = 'Careers';
         $sub_title = 'Add';
         return view('admin.careers.create',compact('title','sub_title'));
@@ -28,6 +30,7 @@ class CareerController extends Controller
 
     public function store(StoreCareerRequest $request)
     {
+        abort_unless(Gate::allows('careers-create'), 403);
         try{
             $save= Career::createData($request);
 
@@ -56,12 +59,14 @@ class CareerController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('careers'), 403);
         $data = Career::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
+        abort_unless(Gate::allows('careers-edit'), 403);
         $data = Career::getData($id);
         if(!$data){
             abort(404);
@@ -73,6 +78,7 @@ class CareerController extends Controller
 
     public function update(UpdateCareerRequest $request, $id)
     {
+        abort_unless(Gate::allows('careers-edit'), 403);
         try{
             $save= Career::updateData($request);
 
@@ -101,6 +107,7 @@ class CareerController extends Controller
 
     public function destroy(Request $request)
     {
+        abort_unless(Gate::allows('careers-delete'), 403);
         $delete = Career::deleteData($request);
         return response()->json($delete);
     }

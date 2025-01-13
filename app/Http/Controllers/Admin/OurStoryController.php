@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreOurStoryRequest;
@@ -13,6 +14,7 @@ class OurStoryController extends Controller
 {
     public function index()
     {
+        abort_unless(Gate::allows('our-story'), 403);
         $title = 'Our Story';
         $sub_title = 'Our Story';
 
@@ -21,6 +23,8 @@ class OurStoryController extends Controller
 
     public function create()
     {
+        abort_unless(Gate::allows('our-story-create'), 403);
+        $title = 'Our Story';
         $title = 'Our Story';
         $sub_title = 'Add';
         return view('admin.our-story.create',compact('title','sub_title'));
@@ -28,6 +32,7 @@ class OurStoryController extends Controller
 
     public function store(StoreOurStoryRequest $request)
     {
+        abort_unless(Gate::allows('our-story-create'), 403);
         try{
             $save= OurStory::createData($request);
 
@@ -56,12 +61,14 @@ class OurStoryController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('our-story'), 403);
         $data = OurStory::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
+        abort_unless(Gate::allows('our-story-edit'), 403);
         $data = OurStory::getData($id);
         if(!$data){
             abort(404);
@@ -73,6 +80,7 @@ class OurStoryController extends Controller
 
     public function update(UpdateOurStoryRequest $request, $id)
     {
+        abort_unless(Gate::allows('our-story-edit'), 403);
         try{
             $save= OurStory::updateData($request);
 
@@ -101,6 +109,7 @@ class OurStoryController extends Controller
 
     public function destroy(Request $request)
     {
+        abort_unless(Gate::allows('our-story-delete'), 403);
         $delete = OurStory::deleteData($request);
         return response()->json($delete);
     }

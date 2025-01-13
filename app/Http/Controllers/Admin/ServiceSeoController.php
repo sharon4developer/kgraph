@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreServiceSeoRequest;
@@ -13,6 +14,7 @@ class ServiceSeoController extends Controller
 {
     public function store(StoreServiceSeoRequest $request)
     {
+        abort_unless(Gate::allows('service-seo-create'), 403);
         try{
             $save= ServiceSeo::createData($request);
 
@@ -40,6 +42,7 @@ class ServiceSeoController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('service-seo'), 403);
         $data = ServiceSeo::getData($request->service_id);
         return $data;
     }

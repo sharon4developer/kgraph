@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreContactUsRequest;
@@ -13,6 +14,8 @@ class ContactUsController extends Controller
 {
     public function index()
     {
+
+        abort_unless(Gate::allows('contact-us'), 403);
         $title = 'Contact Us';
         $sub_title = 'Contact Us';
 
@@ -23,6 +26,8 @@ class ContactUsController extends Controller
 
     public function store(StoreContactUsRequest $request)
     {
+
+        abort_unless(Gate::allows('contact-us-create'), 403);
         try{
             $save= ContactUs::updateData($request);
 

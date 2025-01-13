@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StorePageRequest;
@@ -14,6 +15,7 @@ class PageController extends Controller
 {
     public function index()
     {
+        abort_unless(Gate::allows('pages'), 403);
         $title = 'Pages';
         $sub_title = 'Pages';
         return view('admin.pages.index',compact('title','sub_title'));
@@ -21,12 +23,14 @@ class PageController extends Controller
 
     public function show()
     {
+        abort_unless(Gate::allows('pages'), 403);
         $data = Page::getFullData();
         return $data;
     }
 
     public function edit($id)
     {
+        abort_unless(Gate::allows('pages-edit'), 403);
         $data = Page::getData($id);
         if(!$data){
             abort(404);
@@ -38,6 +42,7 @@ class PageController extends Controller
 
     public function update(UpdatePageRequest $request,$id)
     {
+        abort_unless(Gate::allows('pages-edit'), 403);
         try{
             $save= Page::updateData($request);
 

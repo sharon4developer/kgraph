@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StorePrivacyPolicyRequest;
@@ -13,6 +14,7 @@ class PrivacyPolicyController extends Controller
 {
     public function index()
     {
+        abort_unless(Gate::allows('privacy-policy'), 403);
         $title = 'Privacy Policy';
         $sub_title = 'Privacy Policy';
 
@@ -23,6 +25,7 @@ class PrivacyPolicyController extends Controller
 
     public function store(StorePrivacyPolicyRequest $request)
     {
+        abort_unless(Gate::allows('privacy-policy-create'), 403);
         try{
             $save= PrivacyPolicy::updateData($request);
 

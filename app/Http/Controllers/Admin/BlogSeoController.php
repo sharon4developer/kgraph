@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreBlogSeoRequest;
@@ -13,6 +14,9 @@ class BlogSeoController extends Controller
 {
     public function store(StoreBlogSeoRequest $request)
     {
+
+        abort_unless(Gate::allows('blogs-seo'), 403);
+
         try{
             $save= BlogSeo::createData($request);
 
@@ -40,6 +44,7 @@ class BlogSeoController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('blogs-seo'), 403);
         $data = BlogSeo::getData($request->blog_id);
         return $data;
     }

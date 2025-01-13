@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreServicePointRequest;
@@ -14,6 +15,7 @@ class ServicePointController extends Controller
 {
     public function index()
     {
+        abort_unless(Gate::allows('service-points'), 403);
         $title = 'Service Points';
         $sub_title = 'Service Points';
 
@@ -24,6 +26,7 @@ class ServicePointController extends Controller
 
     public function create()
     {
+        abort_unless(Gate::allows('service-points-create'), 403);
         $title = 'Service Points';
         $sub_title = 'Add';
 
@@ -34,6 +37,7 @@ class ServicePointController extends Controller
 
     public function store(StoreServicePointRequest $request)
     {
+        abort_unless(Gate::allows('service-points-create'), 403);
         try{
             $save= ServicePoint::createData($request);
 
@@ -62,12 +66,14 @@ class ServicePointController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('service-points'), 403);
         $data = ServicePoint::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
+        abort_unless(Gate::allows('service-points-edit'), 403);
         $data = ServicePoint::getData($id);
         if(!$data){
             abort(404);
@@ -82,6 +88,7 @@ class ServicePointController extends Controller
 
     public function update(UpdateServicePointRequest $request, $id)
     {
+        abort_unless(Gate::allows('service-points-edit'), 403);
         try{
             $save= ServicePoint::updateData($request);
 
@@ -110,6 +117,7 @@ class ServicePointController extends Controller
 
     public function destroy(Request $request)
     {
+        abort_unless(Gate::allows('service-points-delete'), 403);
         $delete = ServicePoint::deleteData($request);
         return response()->json($delete);
     }

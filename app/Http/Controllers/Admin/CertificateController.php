@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreCertificateRequest;
 use App\Http\Requests\Admin\UpdateCertificateRequest;
@@ -13,6 +13,7 @@ class CertificateController extends Controller
 {
     public function index()
     {
+        abort_unless(Gate::allows('certificates'), 403);
         $title = 'Certificates';
         $sub_title = 'Certificates';
 
@@ -21,6 +22,7 @@ class CertificateController extends Controller
 
     public function create()
     {
+        abort_unless(Gate::allows('certificates-create'), 403);
         $title = 'Certificates';
         $sub_title = 'Add';
         return view('admin.certificates.create',compact('title','sub_title'));
@@ -28,6 +30,8 @@ class CertificateController extends Controller
 
     public function store(StoreCertificateRequest $request)
     {
+        abort_unless(Gate::allows('certificates-create'), 403);
+
         try{
             $save= Certificate::createData($request);
 
@@ -56,12 +60,14 @@ class CertificateController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('certificates'), 403);
         $data = Certificate::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
+        abort_unless(Gate::allows('certificates-edit'), 403);
         $data = Certificate::getData($id);
         if(!$data){
             abort(404);
@@ -73,6 +79,7 @@ class CertificateController extends Controller
 
     public function update(UpdateCertificateRequest $request, $id)
     {
+        abort_unless(Gate::allows('certificates-edit'), 403);
         try{
             $save= Certificate::updateData($request);
 
@@ -101,6 +108,7 @@ class CertificateController extends Controller
 
     public function destroy(Request $request)
     {
+        abort_unless(Gate::allows('certificates-delete'), 403);
         $delete = Certificate::deleteData($request);
         return response()->json($delete);
     }

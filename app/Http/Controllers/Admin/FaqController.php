@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreFaqRequest;
 use App\Http\Requests\Admin\UpdateFaqRequest;
@@ -13,6 +13,7 @@ class FaqController extends Controller
 {
     public function index()
     {
+        abort_unless(Gate::allows('faq'), 403);
         $title = 'Faq';
         $sub_title = 'Faq';
 
@@ -21,6 +22,7 @@ class FaqController extends Controller
 
     public function create()
     {
+        abort_unless(Gate::allows('faq-create'), 403);
         $title = 'Faq';
         $sub_title = 'Add';
 
@@ -29,6 +31,7 @@ class FaqController extends Controller
 
     public function store(StoreFaqRequest $request)
     {
+        abort_unless(Gate::allows('faq-create'), 403);
         try{
             $save= Faq::createData($request);
 
@@ -57,12 +60,14 @@ class FaqController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('faq'), 403);
         $data = Faq::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
+        abort_unless(Gate::allows('faq-edit'), 403);
         $data = Faq::getData($id);
         if(!$data){
             abort(404);
@@ -75,6 +80,7 @@ class FaqController extends Controller
 
     public function update(UpdateFaqRequest $request, $id)
     {
+        abort_unless(Gate::allows('faq-edit'), 403);
         try{
             $save= Faq::updateData($request);
 
@@ -103,6 +109,7 @@ class FaqController extends Controller
 
     public function destroy(Request $request)
     {
+        abort_unless(Gate::allows('faq-delete'), 403);
         $delete = Faq::deleteData($request);
         return response()->json($delete);
     }

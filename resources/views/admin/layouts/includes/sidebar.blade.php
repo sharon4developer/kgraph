@@ -34,12 +34,14 @@
                 @endif
                 {{-- @endif --}}
                 {{-- @if (auth()->user()->hasPermissionTo('sub-admin')) --}}
+                @if (auth()->user()->hasPermissionTo('sub-admin'))
                 <li>
                     <a href="{{ url('admin/sub-admin') }}">
                         <i class="fa fa-files-o" aria-hidden="true"></i>
                         <span data-key="t-dashboard">Sub Admin</span>
                     </a>
                 </li>
+                @endif
                 {{-- @endif --}}
                 @if (auth()->user()->hasPermissionTo('home'))
                     <li>

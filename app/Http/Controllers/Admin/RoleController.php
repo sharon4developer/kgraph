@@ -1,18 +1,20 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use DB;
 
+use Exception;
+use App\Models\Admin;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StoreRoleRequest;
 use App\Http\Requests\UpdateRoleRequest;
-use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
-use Illuminate\View\View;
 use Yajra\DataTables\Facades\DataTables;
-use Illuminate\Http\RedirectResponse;
-use DB;
-use App\Models\Admin;
 
 
 class RoleController extends Controller
@@ -25,6 +27,8 @@ class RoleController extends Controller
         // if(!auth('admin')->user()->hasPermissionTo('roles')){
         //     return redirect()->route('admin.dashboard');
         // }
+
+        abort_unless(Gate::allows('roles'), 403);
         $title = 'Role';
         $sub_title = 'Role';
         return view('admin.roles.index', compact('title','sub_title'));
@@ -34,7 +38,11 @@ class RoleController extends Controller
      * Show the form for creating a new resource.
      */
     public function create()
-    { $title = 'Role';
+
+    {
+
+        abort_unless(Gate::allows('roles-create'), 403);
+        $title = 'Role';
         $sub_title = 'Role';
         return view('admin.roles.create', [
             'title' => $title,
@@ -48,10 +56,11 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-
+        abort_unless(Gate::allows('roles-create'), 403);
         try{
 
             $value             = new Role;
+
             $value->name       = $request->name;
             $value->guard_name = 'web';
             $save              = $value->save();
@@ -84,7 +93,7 @@ class RoleController extends Controller
      * Display the specified resource.
      */
     public function show(string $id)
-    {
+    { abort_unless(Gate::allows('roles'), 403);
         $data = Role::orderBy('created_at','desc');
         return DataTables::of($data)
         ->addIndexColumn()
@@ -107,7 +116,10 @@ class RoleController extends Controller
      */
     public function edit(string $id)
     {
+
+        abort_unless(Gate::allows('roles-edit'), 403);
         $data = Role::where('id',$id)->first();
+
         if(!$data){
             abort(404);
         }
@@ -121,6 +133,7 @@ class RoleController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        abort_unless(Gate::allows('roles-edit'), 403);
         try{
             $value             = Role::find($request->table_id);
             $value->name       = $request->name;
@@ -156,6 +169,7 @@ class RoleController extends Controller
      */
     public function destroy(string $id)
     {
+        abort_unless(Gate::allows('roles-delete'), 403);
         $data = Admin::where('id','!=',1)->orderBy('created_at','desc')->whereHas("roles", function($q) use($id) {
             $q->where("id", $id);
         })->get();
@@ -191,9 +205,10 @@ class RoleController extends Controller
     // Store
     public function storeRolePermision(Request $request, $id)
     {
+
         try{
-            $role = Role::where('id', $request->role_id)->first();
-            if ($role->name != 'super-admin') {
+            $role = Role::where('id', $request->table_id)->first();
+            if ($role->name != 'super admin') {
                 $role->syncPermissions($request->name);
                 $response=[
                     'status'=>true,

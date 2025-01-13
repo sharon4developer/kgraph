@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreServiceContentRequest;
@@ -13,6 +14,7 @@ class ServiceContentController extends Controller
 {
     public function index()
     {
+        abort_unless(Gate::allows('service-contents'), 403);
         $title = 'Service Content';
         $sub_title = 'Service Content';
 
@@ -23,6 +25,7 @@ class ServiceContentController extends Controller
 
     public function create()
     {
+        abort_unless(Gate::allows('service-contents-create'), 403);
         $title = 'Service Content';
         $sub_title = 'Add';
 
@@ -31,6 +34,7 @@ class ServiceContentController extends Controller
 
     public function store(StoreServiceContentRequest $request)
     {
+        abort_unless(Gate::allows('service-contents-create'), 403);
         try{
             $save= ServiceContent::createData($request);
 
@@ -59,12 +63,14 @@ class ServiceContentController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('service-contents'), 403);
         $data = ServiceContent::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
+        abort_unless(Gate::allows('service-contents-edit'), 403);
         $data = ServiceContent::getData($id);
         if(!$data){
             abort(404);
@@ -77,6 +83,7 @@ class ServiceContentController extends Controller
 
     public function update(UpdateServiceContentRequest $request, $id)
     {
+        abort_unless(Gate::allows('service-contents-edit'), 403);
         try{
             $save= ServiceContent::updateData($request);
 

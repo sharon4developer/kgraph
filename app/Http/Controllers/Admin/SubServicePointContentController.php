@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreSubServicePointContentRequest;
@@ -17,6 +18,8 @@ class SubServicePointContentController extends Controller
      */
     public function index()
     {
+
+        abort_unless(Gate::allows('sub-service-points'), 403);
         $title = 'Sub Service Point Content';
         $sub_title = 'Sub Service Point Content';
 
@@ -27,6 +30,8 @@ class SubServicePointContentController extends Controller
 
     public function create()
     {
+
+        abort_unless(Gate::allows('sub-service-points-create'), 403);
         $title = 'Sub Service Point Content';
         $sub_title = 'Add';
 
@@ -37,6 +42,8 @@ class SubServicePointContentController extends Controller
 
     public function store(StoreSubServicePointContentRequest $request)
     {
+
+        abort_unless(Gate::allows('sub-service-points-create'), 403);
         try{
             $save= SubServicePointContent::createData($request);
 
@@ -65,12 +72,16 @@ class SubServicePointContentController extends Controller
 
     public function show(Request $request)
     {
+
+        abort_unless(Gate::allows('sub-service-points'), 403);
         $data = SubServicePointContent::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
+
+        abort_unless(Gate::allows('sub-service-points-edit'), 403);
         $data = SubServicePointContent::getData($id);
         if(!$data){
             abort(404);
@@ -85,6 +96,8 @@ class SubServicePointContentController extends Controller
 
     public function update(UpdateSubServicePointContentRequest $request, $id)
     {
+
+        abort_unless(Gate::allows('sub-service-points-edit'), 403);
         try{
             $save= SubServicePointContent::updateData($request);
 
@@ -113,6 +126,8 @@ class SubServicePointContentController extends Controller
 
     public function destroy(Request $request)
     {
+
+        abort_unless(Gate::allows('sub-service-points-delete'), 403);
         $delete = SubServicePointContent::deleteData($request);
         return response()->json($delete);
     }

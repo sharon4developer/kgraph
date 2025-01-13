@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreBlogContentRequest;
 use App\Http\Requests\Admin\UpdateBlogContentRequest;
@@ -13,6 +13,7 @@ class BlogContentController extends Controller
 {
     public function index()
     {
+        abort_unless(Gate::allows('blog-content'), 403);
         $title = 'Blog Content';
         $sub_title = 'Blog Content';
 
@@ -23,6 +24,7 @@ class BlogContentController extends Controller
 
     public function create()
     {
+        abort_unless(Gate::allows('blog-content-create'), 403);
         $title = 'Blog Content';
         $sub_title = 'Add';
 
@@ -30,7 +32,7 @@ class BlogContentController extends Controller
     }
 
     public function store(StoreBlogContentRequest $request)
-    {
+    {    abort_unless(Gate::allows('blog-content-create'), 403);
         try{
             $save= BlogContent::createData($request);
 
@@ -59,12 +61,14 @@ class BlogContentController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('blog-content'), 403);
         $data = BlogContent::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
+        abort_unless(Gate::allows('blog-content-edit'), 403);
         $data = BlogContent::getData($id);
         if(!$data){
             abort(404);
@@ -77,6 +81,8 @@ class BlogContentController extends Controller
 
     public function update(UpdateBlogContentRequest $request, $id)
     {
+
+        abort_unless(Gate::allows('blog-content-edit'), 403);
         try{
             $save= BlogContent::updateData($request);
 

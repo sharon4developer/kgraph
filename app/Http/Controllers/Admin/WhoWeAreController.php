@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreWhoWeAreRequest;
@@ -13,6 +14,7 @@ class WhoWeAreController extends Controller
 {
     public function index()
     {
+        abort_unless(Gate::allows('who-we-are'), 403);
         $title = 'Who We Are';
         $sub_title = 'Who We Are';
 
@@ -21,6 +23,7 @@ class WhoWeAreController extends Controller
 
     public function create()
     {
+        abort_unless(Gate::allows('who-we-are-create'), 403);
         $title = 'Who We Are';
         $sub_title = 'Add';
         return view('admin.who-we-are.create',compact('title','sub_title'));
@@ -28,6 +31,7 @@ class WhoWeAreController extends Controller
 
     public function store(StoreWhoWeAreRequest $request)
     {
+        abort_unless(Gate::allows('who-we-are-create'), 403);
         try{
             $save= WhoWeAre::createData($request);
 
@@ -56,12 +60,14 @@ class WhoWeAreController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('who-we-are'), 403);
         $data = WhoWeAre::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
+        abort_unless(Gate::allows('who-we-are-edit'), 403);
         $data = WhoWeAre::getData($id);
         if(!$data){
             abort(404);
@@ -73,6 +79,7 @@ class WhoWeAreController extends Controller
 
     public function update(UpdateWhoWeAreRequest $request, $id)
     {
+        abort_unless(Gate::allows('who-we-are-edit'), 403);
         try{
             $save= WhoWeAre::updateData($request);
 
@@ -101,6 +108,7 @@ class WhoWeAreController extends Controller
 
     public function destroy(Request $request)
     {
+        abort_unless(Gate::allows('who-we-are-delete'), 403);
         $delete = WhoWeAre::deleteData($request);
         return response()->json($delete);
     }

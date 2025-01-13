@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreBlogRequest;
 use App\Http\Requests\Admin\UpdateBlogRequest;
@@ -13,6 +13,7 @@ class BlogController extends Controller
 {
     public function index()
     {
+         abort_unless(Gate::allows('blogs'), 403);
         $title = 'Blogs';
         $sub_title = 'Blogs';
 
@@ -21,6 +22,7 @@ class BlogController extends Controller
 
     public function create()
     {
+        abort_unless(Gate::allows('blogs-create'), 403);
         $title = 'Blogs';
         $sub_title = 'Add';
         return view('admin.blogs.create',compact('title','sub_title'));
@@ -28,6 +30,7 @@ class BlogController extends Controller
 
     public function store(StoreBlogRequest $request)
     {
+        abort_unless(Gate::allows('blogs-create'), 403);
         try{
             $save= Blog::createData($request);
 
@@ -56,12 +59,14 @@ class BlogController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('blogs'), 403);
         $data = Blog::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
+        abort_unless(Gate::allows('blogs-edit'), 403);
         $data = Blog::getData($id);
         if(!$data){
             abort(404);
@@ -73,6 +78,7 @@ class BlogController extends Controller
 
     public function update(UpdateBlogRequest $request, $id)
     {
+        abort_unless(Gate::allows('blogs-edit'), 403);
         try{
             $save= Blog::updateData($request);
 
@@ -101,6 +107,7 @@ class BlogController extends Controller
 
     public function destroy(Request $request)
     {
+        abort_unless(Gate::allows('blogs-delete'), 403);
         $delete = Blog::deleteData($request);
         return response()->json($delete);
     }

@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StorePackageRequest;
@@ -13,6 +14,7 @@ class PackageController extends Controller
 {
     public function index()
     {
+        abort_unless(Gate::allows('packages'), 403);
         $title = 'Packages';
         $sub_title = 'Packages';
 
@@ -21,6 +23,7 @@ class PackageController extends Controller
 
     public function create()
     {
+        abort_unless(Gate::allows('packages-create'), 403);
         $title = 'Packages';
         $sub_title = 'Add';
         return view('admin.packages.create',compact('title','sub_title'));
@@ -28,6 +31,7 @@ class PackageController extends Controller
 
     public function store(StorePackageRequest $request)
     {
+        abort_unless(Gate::allows('packages-create'), 403);
         try{
             $save= Package::createData($request);
 
@@ -56,12 +60,14 @@ class PackageController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('packages'), 403);
         $data = Package::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
+        abort_unless(Gate::allows('packages-edit'), 403);
         $data = Package::getData($id);
         if(!$data){
             abort(404);
@@ -73,6 +79,7 @@ class PackageController extends Controller
 
     public function update(UpdatePackageRequest $request, $id)
     {
+        abort_unless(Gate::allows('packages-edit'), 403);
         try{
             $save= Package::updateData($request);
 
@@ -101,6 +108,7 @@ class PackageController extends Controller
 
     public function destroy(Request $request)
     {
+        abort_unless(Gate::allows('packages-delete'), 403);
         $delete = Package::deleteData($request);
         return response()->json($delete);
     }

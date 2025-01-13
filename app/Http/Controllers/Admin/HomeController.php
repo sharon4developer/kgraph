@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreHomeRequest;
@@ -13,6 +14,7 @@ class HomeController extends Controller
 {
     public function index()
     {
+        abort_unless(Gate::allows('home'), 403);
         $title = 'About Us';
         $sub_title = 'About Us';
 
@@ -23,6 +25,7 @@ class HomeController extends Controller
 
     public function create()
     {
+        abort_unless(Gate::allows('home-create'), 403);
         $title = 'About Us';
         $sub_title = 'Add';
 
@@ -31,6 +34,7 @@ class HomeController extends Controller
 
     public function store(StoreHomeRequest $request)
     {
+        abort_unless(Gate::allows('home-create'), 403);
         try{
             $save= Home::createData($request);
 
@@ -65,6 +69,7 @@ class HomeController extends Controller
 
     public function edit($id)
     {
+        abort_unless(Gate::allows('home-edit'), 403);
         $data = Home::getData($id);
         if(!$data){
             abort(404);
@@ -77,6 +82,7 @@ class HomeController extends Controller
 
     public function update(UpdateHomeRequest $request, $id)
     {
+        abort_unless(Gate::allows('home-edit'), 403);
         try{
             $save= Home::updateData($request);
 

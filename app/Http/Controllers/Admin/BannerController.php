@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
-
+use Illuminate\Support\Facades\Gate;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreBannerRequest;
 use App\Http\Requests\Admin\UpdateBannerRequest;
@@ -13,6 +13,8 @@ class BannerController extends Controller
 {
     public function index()
     {
+        abort_unless(Gate::allows('banners'), 403);
+
         $title = 'Banners';
         $sub_title = 'Banners';
 
@@ -20,7 +22,7 @@ class BannerController extends Controller
     }
 
     public function create()
-    {
+    {    abort_unless(Gate::allows('banners-create'), 403);
         $title = 'Banners';
         $sub_title = 'Add';
         return view('admin.banners.create',compact('title','sub_title'));
@@ -28,6 +30,7 @@ class BannerController extends Controller
 
     public function store(StoreBannerRequest $request)
     {
+          abort_unless(Gate::allows('banners-create'), 403);
         try{
             $save= Banner::createData($request);
 
@@ -56,12 +59,14 @@ class BannerController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('banners'), 403);
         $data = Banner::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
+        abort_unless(Gate::allows('banners-edit'), 403);
         $data = Banner::getData($id);
         if(!$data){
             abort(404);
@@ -73,6 +78,8 @@ class BannerController extends Controller
 
     public function update(UpdateBannerRequest $request, $id)
     {
+
+        abort_unless(Gate::allows('banners-edit'), 403);
         try{
             $save= Banner::updateData($request);
 
@@ -101,6 +108,7 @@ class BannerController extends Controller
 
     public function destroy(Request $request)
     {
+        abort_unless(Gate::allows('banners-delete'), 403);
         $delete = Banner::deleteData($request);
         return response()->json($delete);
     }

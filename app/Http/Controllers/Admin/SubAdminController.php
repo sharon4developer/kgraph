@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use DB;
 use Validator;
@@ -22,13 +23,16 @@ use Yajra\DataTables\Facades\DataTables;
 use App\Http\Requests\Admin\StoreSubAdminRequest;
 use App\Http\Requests\Admin\UpdateSubAdminRequest;
 
+
 class SubAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {   $sub_title = 'role';
+    {
+        abort_unless(Gate::allows('sub-admin'), 403);
+        $sub_title = 'role';
         $title = 'Sub-Admin';
         return view('admin.sub-admins.index', compact('title','sub_title'));
     }
@@ -38,6 +42,7 @@ class SubAdminController extends Controller
      */
     public function create()
     {
+        abort_unless(Gate::allows('sub-admin-create'), 403);
         $title = 'Role';
         $sub_title = 'role';
         return view('admin.sub-admins.create', [
@@ -52,6 +57,8 @@ class SubAdminController extends Controller
      */
     public function store(StoreSubAdminRequest $request)
     {
+
+        abort_unless(Gate::allows('sub-admin-create'), 403);
 
             DB::beginTransaction();
             try {
@@ -103,6 +110,7 @@ class SubAdminController extends Controller
     public function show(string $id)
 
     {
+        abort_unless(Gate::allows('sub-admin'), 403);
 
         $data = User::where('id','!=',1)->orderBy('created_at','desc');
 
@@ -122,6 +130,7 @@ class SubAdminController extends Controller
      */
     public function edit(string $id)
     {
+        abort_unless(Gate::allows('sub-admin-edit'), 403);
 
         $roles = Role::get();
 
@@ -140,6 +149,8 @@ class SubAdminController extends Controller
      */
     public function update(UpdateSubAdminRequest $request, string $id)
     {
+
+        abort_unless(Gate::allows('sub-admin-edit'), 403);
         try {
             DB::beginTransaction();
             $admin           = User::find($id);
@@ -182,6 +193,7 @@ class SubAdminController extends Controller
     public function destroy(string $id)
     {
 
+        abort_unless(Gate::allows('sub-admin-delete'), 403);
         $value = Admin::find($id);
          if($value){
              $value->forceDelete();

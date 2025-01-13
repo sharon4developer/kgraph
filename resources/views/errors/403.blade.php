@@ -1,5 +1,14 @@
-@extends('layouts.main')
-@section('content')
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
     <style>
         .services-grade {
             background: linear-gradient(22deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
@@ -61,6 +70,16 @@
             padding-bottom: 10px;
         }
     </style>
+    .  <div class="section">
+        <h1 class="error-code">403</h1>
+        <div class="page">Access Denied. Sorry, but you don't have permission to access this page.</div>
+        <a class="back-home" href="{{url('/')}}">Back to home</a>
+    </div>
+</body>
+</html>
+{{-- @extends('layouts.main')
+@section('content') --}}
+{{--
     <link rel="shortcut icon" href="{{ asset('admin/theme/assets/images/favicon.ico') }}">
 
     <!-- preloader css -->
@@ -69,17 +88,17 @@
     <!-- Bootstrap Css -->
     {{-- <link href="{{ asset('admin/theme/assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" /> --}}
     <!-- Icons Css -->
-    <link href="{{ asset('admin/theme/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
+    {{-- <link href="{{ asset('admin/theme/assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" /> --}}
     <!-- App Css-->
-    <link href="{{ asset('admin/theme/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
+    {{-- <link href="{{ asset('admin/theme/assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
     <link href="{{ asset('common/theme/css/alertify.min.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('common/theme/css/common.css') }}" rel="stylesheet" type="text/css" />
-    @include('frontend.Common.whatsapplogo')
+    <link href="{{ asset('common/theme/css/common.css') }}" rel="stylesheet" type="text/css" /> --}}
+    {{-- @include('frontend.Common.whatsapplogo')
     <div class="section">
         <h1 class="error-code">403</h1>
         <div class="page">Access Denied. Sorry, but you don't have permission to access this page.</div>
         <a class="back-home" href="{{url('/')}}">Back to home</a>
-    </div>
+    </div> --}}
 
-    @include('frontend.Common.getintouch')
-@endsection
+    {{-- @include('frontend.Common.getintouch') --}}
+{{-- @endsection --}}

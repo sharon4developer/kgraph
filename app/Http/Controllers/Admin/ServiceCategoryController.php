@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreServiceCategoryRequest;
@@ -13,6 +14,7 @@ class ServiceCategoryController extends Controller
 {
     public function index()
     {
+        abort_unless(Gate::allows('service-categories'), 403);
         $title = 'Service Category';
         $sub_title = 'Service Category';
 
@@ -21,6 +23,7 @@ class ServiceCategoryController extends Controller
 
     public function create()
     {
+        abort_unless(Gate::allows('service-categories-create'), 403);
         $title = 'Service Category';
         $sub_title = 'Add';
         return view('admin.service-category.create',compact('title','sub_title'));
@@ -28,6 +31,7 @@ class ServiceCategoryController extends Controller
 
     public function store(StoreServiceCategoryRequest $request)
     {
+        abort_unless(Gate::allows('service-categories-create'), 403);
         try{
             $save= ServiceCategory::createData($request);
 
@@ -56,12 +60,14 @@ class ServiceCategoryController extends Controller
 
     public function show(Request $request)
     {
+        abort_unless(Gate::allows('service-categories'), 403);
         $data = ServiceCategory::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
+        abort_unless(Gate::allows('service-categories-edit'), 403);
         $data = ServiceCategory::getData($id);
         if(!$data){
             abort(404);
@@ -73,6 +79,7 @@ class ServiceCategoryController extends Controller
 
     public function update(UpdateServiceCategoryRequest $request, $id)
     {
+        abort_unless(Gate::allows('service-categories-edit'), 403);
         try{
             $save= ServiceCategory::updateData($request);
 
@@ -101,6 +108,7 @@ class ServiceCategoryController extends Controller
 
     public function destroy(Request $request)
     {
+        abort_unless(Gate::allows('service-categories-delete'), 403);
         $delete = ServiceCategory::deleteData($request);
         return response()->json($delete);
     }
