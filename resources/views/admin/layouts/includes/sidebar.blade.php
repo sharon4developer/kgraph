@@ -121,7 +121,7 @@
                 @endif
             </ul>
             </li>
-            @if (auth()->user()->hasPermissionTo('service-contents') ||
+            {{-- @if (auth()->user()->hasPermissionTo('service-contents') ||
                     auth()->user()->hasPermissionTo('service-categories') ||
 
                     auth()->user()->hasPermissionTo('services-create') ||
@@ -141,7 +141,28 @@
                     <ul class="sub-menu" aria-expanded="true">
                         <li><a href="{{ url('admin/service-contents') }}" data-key="t-level-2-2">Service Contents </a>
                         </li>
-            @endif
+            @endif --}}
+
+            @if (auth()->user()->hasAnyPermission([
+        'service-contents',
+        'service-categories',
+        'services-create',
+        'sub-services',
+        'sub-services-create',
+        'service-points',
+        'service-points-create',
+        'sub-service-points',
+        'service-faq',
+        'service-faq-create',
+        'sub-service-point-contents']))
+    <li>
+        <a href="javascript: void(0);" class="has-arrow">
+            <i class="fa fa-wrench" aria-hidden="true"></i>
+            <span data-key="t-multi-level">Services</span>
+        </a>
+        <ul class="sub-menu" aria-expanded="true">
+            <li><a href="{{ url('admin/service-contents') }}" data-key="t-level-2-2">Service Contents</a></li>
+@endif
 
             @if (auth()->user()->hasPermissionTo('service-categories'))
                 <li>

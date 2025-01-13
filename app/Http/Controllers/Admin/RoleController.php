@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 use DB;
 
 use Exception;
+use App\Models\User;
 use App\Models\Admin;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
@@ -170,7 +171,7 @@ class RoleController extends Controller
     public function destroy(string $id)
     {
         abort_unless(Gate::allows('roles-delete'), 403);
-        $data = Admin::where('id','!=',1)->orderBy('created_at','desc')->whereHas("roles", function($q) use($id) {
+        $data = User::where('id','!=',1)->orderBy('created_at','desc')->whereHas("roles", function($q) use($id) {
             $q->where("id", $id);
         })->get();
         if($data){
