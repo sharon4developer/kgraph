@@ -43,14 +43,14 @@
                 </li>
                 @endif
                 {{-- @endif --}}
-                @if (auth()->user()->hasPermissionTo('home'))
-                    <li>
+                @if (auth()->user()->hasPermissionTo('home') || auth()->user()->hasPermissionTo('banners') || auth()->user()->hasPermissionTo('banners-create'))                    <li>
                         <a href="javascript: void(0);" class="has-arrow">
                             <i class="fa fa-home" aria-hidden="true"></i>
                             <span data-key="t-multi-level">Home</span>
                         </a>
                         <ul class="sub-menu" aria-expanded="true">
                             <li><a href="{{ url('admin/home') }}" data-key="t-level-2-2">Home </a></li>
+                            @if (auth()->user()->hasPermissionTo('banners')||auth()->user()->hasPermissionTo('banners-create'))
                             <li>
                                 <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Banners</a>
                                 <ul class="sub-menu" aria-expanded="true">
@@ -58,6 +58,7 @@
                                     <li><a href="{{ url('admin/banners/create') }}" data-key="t-level-2-1">Add </a></li>
                                 </ul>
                             </li>
+                            @endif
                 @endif
 
                 {{-- <li>
@@ -195,8 +196,7 @@
                     </ul>
                 </li>
             @endif
-            @if (auth()->user()->hasPermissionTo('service-faq'))
-                <li>
+            {{-- @if (auth()->user()->hasPermissionTo('service-faq') || auth()->user()->hasPermissionTo('service-faq-create'))                <li>
                     <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Service Faq</a>
                     <ul class="sub-menu" aria-expanded="true">
                         <li><a href="{{ url('admin/service-faq') }}" data-key="t-level-2-2">View </a></li>
@@ -205,7 +205,21 @@
                         @endif
                     </ul>
                 </li>
+            @endif --}}
+
+
+            @if (auth()->user()->hasAnyPermission(['service-faq', 'service-faq-create']))
+    <li>
+        <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Service Faq</a>
+        <ul class="sub-menu" aria-expanded="true">
+            <li><a href="{{ url('admin/service-faq') }}" data-key="t-level-2-2">View</a></li>
+            @if (auth()->user()->hasPermissionTo('service-faq-create'))
+                <li><a href="{{ url('admin/service-faq/create') }}" data-key="t-level-2-1">Add</a></li>
             @endif
+        </ul>
+    </li>
+@endif
+
 
 
             @if (auth()->user()->hasPermissionTo('sub-service-faq'))

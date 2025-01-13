@@ -56,9 +56,18 @@
                                 <div class="invalid-feedback">{{ $errors->first('role_id') }}</div>
                             </div>
 
-                            <div class="mb-0">
-                                <button class="btn btn-primary" type="submit">Submit form</button>
-                                <a href="{{ url('admin/sub-admin') }}" class="btn btn-danger">Cancel</a>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <a type="button" href="{{ url('admin/sub-admin') }}"
+                                            class="btn btn-outline-warning btn-rounded mb-2">
+                                            <i class="ti-close"></i> Cancel
+                                        </a>
+                                        <button class="btn btn-outline-secondary btn-rounded mb-2" type="submit"> <i class="ti-save-alt"></i>
+                                            Save</button>
+                                    </div>
+
+                                </div>
                             </div>
                         </form>
                     </div>

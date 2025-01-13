@@ -265,7 +265,7 @@ class PermissionSeeder extends Seeder
             'sub-service-points',
             'sub-service-points-create',
             'sub-service-points-edit',
-            'sub-service-points-delete',
+            // 'sub-service-points-delete',
 
             'sub-service-point-contents',
             'sub-service-point-contents-create',

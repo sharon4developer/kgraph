@@ -194,7 +194,8 @@ class SubAdminController extends Controller
     {
 
         abort_unless(Gate::allows('sub-admin-delete'), 403);
-        $value = Admin::find($id);
+        $value = User::find($id);
+      
          if($value){
              $value->forceDelete();
              $delete = true;

@@ -41,15 +41,15 @@
                                 <div class="form-group">
                                     <label>Previous Image</label>
                                     <div class="avatar-preview">
-                                        <img class="previous-image" src="{{asset('storage/'.$data->image)}}" alt="profile-image">
+                                        <img class="previous-image" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="profile-image" onerror="this.src='{{ $locationData['storage_server_path'].$locationData['admin_assets_path'].'placeholder.png' }}';">
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Password</label>
-                                <div class="form-group">
+                                {{-- <div class="form-group"> --}}
                                     <input type="password" class="form-control" id="password" name="password"  placeholder="Password">
-                                </div>
+                                {{-- </div> --}}
                             </div>
 
                             <div class="form-group">
@@ -67,8 +67,8 @@
                             </div>
 
                             <div class="mb-0">
-                                <button class="btn btn-primary" type="submit">Submit form</button>
-                                <a href="{{ url('admin/roles') }}" class="btn btn-danger">Cancel</a>
+                                <a href="{{ url('admin/roles') }}"class="btn btn-outline-warning btn-rounded mb-2">Cancel</a>
+                                <button class="btn btn-outline-secondary btn-rounded mb-2"  type="submit">Submit form</button>
                             </div>
                         </form>
                     </div>

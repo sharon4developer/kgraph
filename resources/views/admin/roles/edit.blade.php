@@ -5,7 +5,7 @@
             <div class="col-xl">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Edit Country</h5>
+                        <h5 class="card-title">Edit </h5>
                         <form id="table-edit-form" method="POST">
                             @csrf
                             @method('PUT')
