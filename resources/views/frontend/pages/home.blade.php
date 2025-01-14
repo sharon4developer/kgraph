@@ -895,8 +895,9 @@
                                         <p class="text-sm text-gray-300 leading-relaxed py-7 truncate-text">
                                             {{ $data->description }}
                                         </p>
-                                        <div class="flex justify-end items-center">
-                                            <img class="w-[25px] h-[25px] mt-6" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
+                                        <div class="flex justify-between items-center  mt-6">
+                                            <h6 class="opacity-75 text-xs uppercase">canada</h6>
+                                            <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
                                         </div>
                                     </div>
                                 @endforeach
@@ -973,7 +974,7 @@
                             @foreach ($blogs as $data)
                                 <li class="splide__slide">
                                     <a href="{{url('blog-details/'.$data->slug)}}">
-                                        <div class="mx-auto bg-[#051b3b] shadow-lg rounded-lg overflow-hidden mt-[8px] 2xl:mt-10 lg:h-fit w-full sm:max-w-sm h-auto">
+                                        <div class="mx-auto h-[474px] bg-[#051b3b] shadow-lg rounded-lg overflow-hidden mt-[8px] 2xl:mt-10 lg:h-fit w-full sm:max-w-sm">
                                             <img class="w-full object-cover aspect-video" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"  alt="{{ $data->alt_tag }}">
                                             <div class="p-6 border-b border-l border-r border-white rounded-lg mt-[-7px]">
                                                 <?php $date = $data->date . ' ' . $data->time; ?>
