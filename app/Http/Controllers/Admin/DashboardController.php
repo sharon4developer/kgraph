@@ -10,7 +10,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        abort_unless(Gate::allows('dashboard'), 403);
+        // abort_unless(Gate::allows('dashboard'), 403);
         $title = 'Dashboard';
         $sub_title = 'Dashboard';
         return view('admin.dashboard.index',compact('title','sub_title'));

@@ -194,7 +194,7 @@ class RoleController extends Controller
         $sub_title = 'Role Permissions';
 
         $role = Role::find($id);
-        $permissions = Permission::get();
+        $permissions = Permission::orderBy('name','asc')->get();
         $rolePermissions = Permission::join("role_has_permissions", "role_has_permissions.permission_id", "=", "permissions.id")
         ->where("role_has_permissions.role_id", $id)
         ->pluck('permission_id')

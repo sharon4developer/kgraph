@@ -507,6 +507,9 @@
             -webkit-line-clamp: unset;
             max-height: none;
         }
+        .cardparent{
+            transition: height 0.3s ease;
+        }
     </style>
 
 
@@ -929,6 +932,7 @@
                                                 <p class="text-sm text-gray-400">{{ $data->occupation }}</p>
                                             </div>
                                         </div>
+
                                         <div class="ml-auto flex items-center gap-2">
                                             <span class="text-lg font-bold">{{ $data->rating }}</span>
                                             <div class="flex items-center">
@@ -937,18 +941,22 @@
                                                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
                                                     </div>
                                                 @endfor
+                                                @if ($data->rating - floor($data->rating) >= 0.5)
+                                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/halfstar.png') }}" alt="Half Star">
+                                                @endif
                                             </div>
-                                            @if ($data->rating - floor($data->rating) >= 0.5)
-                                                <img class="w-[12px]" src="{{ asset('assets/Navigation/halfstar.png') }}" alt="Half Star">
-                                            @endif
+
                                         </div>
+
                                     </div>
-                                    <p class="text-sm text-gray-300 leading-relaxed py-7 truncate-text" data-full-text="{{ $data->description }}">
-                                        {{ $data->description }}
-                                    </p>
-                                    <button class="view-more-btn text-blue-500 text-sm mt-2">View More</button>
-                                    <div class="flex justify-between items-center mt-6">
-                                        <h6 class="opacity-75 text-xs uppercase">Canada</h6>
+                                    <div>
+                                        <p class="text-sm text-gray-300 leading-relaxed py-7 truncate-text" data-full-text="{{ $data->description }}">
+                                            {{ $data->description }}
+                                        </p>
+                                        <button class="view-more-btn text-blue-500 text-sm mt-2">View More</button>
+                                    </div>
+                                    <div class="flex justify-between items-center  mt-6">
+                                        <h6 class="opacity-75 text-xs uppercase">{{ $data->place }}</h6>
                                         <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
                                     </div>
                                 </div>
