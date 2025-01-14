@@ -21,6 +21,7 @@
                                             @if (in_array($permission->id, $rolePermissions)) checked @endif>
                                         <label class="form-check-label ml-1" for="check-{{ $permission->id }}">
                                             {{ $permission->name }}
+
                                         </label>
                                     </div>
                                 @endforeach

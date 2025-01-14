@@ -65,6 +65,7 @@
                                 </select>
                                 <div class="invalid-feedback">{{ $errors->first('role_id') }}</div>
                             </div>
+                            <br>
 
                             <div class="mb-0">
                                 <a href="{{ url('admin/roles') }}"class="btn btn-outline-warning btn-rounded mb-2">Cancel</a>
