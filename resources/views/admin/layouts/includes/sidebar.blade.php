@@ -442,7 +442,9 @@
             @endif
             @if (auth()->user()->hasPermissionTo('contact') ||
                     auth()->user()->hasPermissionTo('applied-career') ||
-                    auth()->user()->hasPermissionTo('eligibility-check'))
+                    auth()->user()->hasPermissionTo('eligibility-check')||
+                    auth()->user()->hasPermissionTo('news-letter')||
+                    )
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <i class="fa fa-address-book" aria-hidden="true"></i>
