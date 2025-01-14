@@ -55,7 +55,7 @@
                                 </select>
                                 <div class="invalid-feedback">{{ $errors->first('role_id') }}</div>
                             </div>
-
+                            <br>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="mb-3">
