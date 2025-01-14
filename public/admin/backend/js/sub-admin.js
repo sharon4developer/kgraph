@@ -79,10 +79,10 @@ $('#table-add-form').validate({
             required: true,
         },
         phone: {
-            required: true,
+           
         },
         address: {
-            required: true,
+
         },
         image: {
             required: true,
@@ -181,10 +181,10 @@ $('#table-edit-form').validate({
             required: true,
         },
         phone: {
-            required: true,
+
         },
         address: {
-            required: true,
+
         },
         table_id: {
             required: true,
@@ -193,8 +193,8 @@ $('#table-edit-form').validate({
     messages: {
         name    : "Name field is required",
         role_id : "Role field is required",
-        address : "address field is required",
-        phone   : "phone field is required",
+
+
         email   : "email field is required",
     },
     errorElement: 'span',

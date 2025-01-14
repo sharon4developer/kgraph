@@ -24,10 +24,10 @@ class StoreSubAdminRequest extends FormRequest
         return [
             'name'     => 'required',
             'email'    => 'required',
-            'address'  => 'required',
+
             'password' => 'required',
             'email'    => 'required|email|unique:users,email',
-            'phone'    => 'required|numeric|unique:users,phone',
+            'phone'    => 'nullable|unique:users,phone',
         ];
     }
 }

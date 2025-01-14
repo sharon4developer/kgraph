@@ -24,10 +24,10 @@ class UpdateSubAdminRequest extends FormRequest
         return [
             'name'     => 'required',
             'email'    => 'required',
-            'address'  => 'required',
+            'address'  => '',
             'password' => 'required',
             'email' => 'required|email|unique:users,email,' . $this->table_id,
-            'phone' => 'required|numeric|unique:users,phone,' . $this->table_id,
+            'phone' => 'nullable|unique:users,phone,' . $this->table_id,
         ];
     }
 }
