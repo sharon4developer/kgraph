@@ -494,6 +494,19 @@
         .blakorblue{
             background: black;
         }
+        .truncate-text {
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            /* max-height: 5.5em; Adjust this value for 4 lines depending on font size */
+            transition: max-height 0.3s ease;
+        }
+        .expanded {
+            -webkit-line-clamp: unset;
+            max-height: none;
+        }
     </style>
 
 
@@ -864,46 +877,86 @@
                         @endif
                     </p>
 
+                    {{-- <div class="flex justify-between gap-6">
+                        @foreach ($testimonials as $data)
+                            <div class="p-6 bg-grade-testimonial text-white rounded-lg shadow-md w-[500px] h-[400px] relative cardparent">
+                                <div class="flex items-center justify-between space-x-4 mb-4">
+                                    <div class="flex items-center gap-2">
+                                        <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"
+                                        alt="{{ $data->alt_tag }}" class="w-12 h-12 rounded-full">
+                                        <div>
+                                            <h2 class="text-lg font-semibold">{{ $data->name }}</h2>
+                                            <p class="text-sm text-gray-400">{{ $data->occupation }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="ml-auto flex items-center gap-2">
+                                        <span class="text-lg font-bold">{{ $data->rating }}</span>
+                                        <div class="flex items-center">
+                                            @for ($i = 1; $i <= floor($data->rating); $i++)
+                                                <div class="text-yellow-500 flex items-center">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                                </div>
+                                            @endfor
+                                        </div>
+                                        @if ($data->rating - floor($data->rating) >= 0.5)
+                                            <img class="w-[12px]" src="{{ asset('assets/Navigation/halfstar.png') }}" alt="Half Star">
+                                        @endif
+                                    </div>
+                                </div>
+                                <p class="text-sm text-gray-300 leading-relaxed py-7 truncate-text" data-full-text="{{ $data->description }}">
+                                    {{ $data->description }}
+                                </p>
+                                <button class="view-more-btn text-blue-500 text-sm mt-2">View More</button>
+                                <div class="flex justify-between items-center mt-6">
+                                    <h6 class="opacity-75 text-xs uppercase">Canada</h6>
+                                    <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
+                                </div>
+                            </div>
+                        @endforeach
+                    </div> --}}
+
                     <div id="testimonial-slider" class="splide w-full">
                         <div class="splide__track">
                             <div class="splide__list flex gap-5 px-4 md:px-0">
                                 @foreach ($testimonials as $data)
-                                    <div class="splide__slide p-6 bg-grade-testimonial text-white rounded-lg shadow-md">
-                                        <div class="flex items-center justify-between space-x-4 mb-4">
-                                            <div class="flex items-center gap-2">
-                                                <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"
-                                                alt="{{ $data->alt_tag }}" class="w-12 h-12 rounded-full">
-                                                <div>
-                                                    <h2 class="text-lg font-semibold">{{ $data->name }}</h2>
-                                                    <p class="text-sm text-gray-400">{{ $data->occupation }}</p>
-                                                </div>
-                                            </div>
-                                            <div class="ml-auto flex items-center gap-2">
-                                                <span class="text-lg font-bold">{{ $data->rating }}</span>
-                                                <div class="flex items-center">
-                                                    @for ($i = 1; $i <= floor($data->rating); $i++)
-                                                        <div class="text-yellow-500 flex items-center">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                                                        </div>
-                                                    @endfor
-                                                </div>
-                                                @if ($data->rating - floor($data->rating) >= 0.5)
-                                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/halfstar.png') }}" alt="Half Star">
-                                                @endif
+                                <div class="splide__slide p-6 bg-grade-testimonial text-white rounded-lg shadow-md h-[340px] relative cardparent">
+                                    <div class="flex items-center justify-between space-x-4 mb-4">
+                                        <div class="flex items-center gap-2">
+                                            <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"
+                                            alt="{{ $data->alt_tag }}" class="w-12 h-12 rounded-full">
+                                            <div>
+                                                <h2 class="text-lg font-semibold clamp-text-one">{{ $data->name }}</h2>
+                                                <p class="text-sm text-gray-400">{{ $data->occupation }}</p>
                                             </div>
                                         </div>
-                                        <p class="text-sm text-gray-300 leading-relaxed py-7 truncate-text">
-                                            {{ $data->description }}
-                                        </p>
-                                        <div class="flex justify-between items-center  mt-6">
-                                            <h6 class="opacity-75 text-xs uppercase">canada</h6>
-                                            <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
+                                        <div class="ml-auto flex items-center gap-2">
+                                            <span class="text-lg font-bold">{{ $data->rating }}</span>
+                                            <div class="flex items-center">
+                                                @for ($i = 1; $i <= floor($data->rating); $i++)
+                                                    <div class="text-yellow-500 flex items-center">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                                    </div>
+                                                @endfor
+                                            </div>
+                                            @if ($data->rating - floor($data->rating) >= 0.5)
+                                                <img class="w-[12px]" src="{{ asset('assets/Navigation/halfstar.png') }}" alt="Half Star">
+                                            @endif
                                         </div>
                                     </div>
-                                @endforeach
+                                    <p class="text-sm text-gray-300 leading-relaxed py-7 truncate-text" data-full-text="{{ $data->description }}">
+                                        {{ $data->description }}
+                                    </p>
+                                    <button class="view-more-btn text-blue-500 text-sm mt-2">View More</button>
+                                    <div class="flex justify-between items-center mt-6">
+                                        <h6 class="opacity-75 text-xs uppercase">Canada</h6>
+                                        <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
+                                    </div>
+                                </div>
+                            @endforeach
                             </div>
                         </div>
                     </div>
+                    
 
                     <!-- Custom Navigation Buttons -->
                     <div class="flex  gap-3 lg:gap-0 flex-col-reverse lg:flex-row items-end lg:items-center justify-between mt-4 space-x-4">
@@ -928,8 +981,7 @@
                                 <svg width="40" height="40" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect x="0.5" y="0.5" width="69" height="69" rx="34.5" stroke="white" stroke-opacity="0.8"/>
                                     <path d="M31.616 26.616C31.8504 26.3816 32.1683 26.25 32.4997 26.25C32.8312 26.25 33.1491 26.3816 33.3835 26.616L40.8835 34.116C41.1178 34.3504 41.2495 34.6683 41.2495 34.9997C41.2495 35.3312 41.1178 35.6491 40.8835 35.8835L33.3835 43.3835C33.1477 43.6112 32.832 43.7372 32.5042 43.7343C32.1765 43.7315 31.863 43.6 31.6312 43.3683C31.3994 43.1365 31.268 42.823 31.2651 42.4952C31.2623 42.1675 31.3883 41.8517 31.616 41.616L38.2322 34.9997L31.616 28.3835C31.3816 28.1491 31.25 27.8312 31.25 27.4997C31.25 27.1683 31.3816 26.8504 31.616 26.616Z" fill="white"/>
-                            5</svg>
-
+                                </svg>
                             </button>
                         </div>
                     </div>
@@ -1265,58 +1317,135 @@
                 console.log("Not enough slides to initialize the slider.");
             }
         });
+        document.addEventListener('DOMContentLoaded', function () {
+            const viewMoreButtons = document.querySelectorAll('.view-more-btn');
+
+            viewMoreButtons.forEach((btn) => {
+                btn.addEventListener('click', function () {
+                    // Collapse all other cards and reset height
+                    document.querySelectorAll('.truncate-text.expanded').forEach((expandedParagraph) => {
+                        if (expandedParagraph !== this.previousElementSibling) {
+                            expandedParagraph.classList.remove('expanded');
+                            expandedParagraph.nextElementSibling.textContent = 'View More';
+
+                            // Reset the height of the parent card
+                            const parentCard = expandedParagraph.closest('.cardparent');
+                            if (parentCard) {
+                                parentCard.classList.remove('h-auto');
+                                parentCard.classList.add('h-[340px]');
+                            }
+                        }
+                    });
+
+                    const paragraph = this.previousElementSibling;
+                    const parentCard = this.closest('.cardparent');
+
+                    // Toggle the clicked paragraph and adjust card height
+                    if (paragraph.classList.contains('expanded')) {
+                        paragraph.classList.remove('expanded');
+                        this.textContent = 'View More';
+
+                        // Reset the height of the parent card
+                        if (parentCard) {
+                            parentCard.classList.remove('h-auto');
+                            parentCard.classList.add('h-[340px]');
+                        }
+                    } else {
+                        paragraph.classList.add('expanded');
+                        this.textContent = 'View Less';
+
+                        // Set the height of the parent card to fit content
+                        if (parentCard) {
+                            parentCard.classList.remove('h-[340px]');
+                            parentCard.classList.add('h-auto');
+                        }
+                    }
+                });
+            });
+        });
 
         document.addEventListener('DOMContentLoaded', function () {
-            var slides = document.querySelectorAll('#testimonial-slider .splide__slide');
+            new Splide('#testimonial-slider', {
+                type: 'slide',
+                perMove: 1,
+                perPage: 3.1,
+                arrows: false,
+                pagination: false,
+                autoplay: true,
+                interval: 3000,
+                pauseOnHover: false,
+                pauseOnFocus: false,
+                breakpoints: {
+                    1420: { perPage: 2.5 },
+                    1285: { perPage: 2.9 },
+                    1024: { perPage: 1.5 },
+                    768: { perPage: 1 },
+                    480: { perPage: 1 },
+                }
+            }).mount();
 
-            if (slides.length > 1) {
-                var splide = new Splide('#testimonial-slider', {
-                    type: 'loop',
-                    perMove: 1,
-                    perPage: 3.3,
-                    arrows: false,
-                    pagination: false,
-                    autoplay: true,
-                    interval: 3000,
-                    breakpoints: {
-                        640: {
-                            perPage: 1,
-                            gap: '0px',
-                        },
-                        768: {
-                            perPage: 1.9,
-                            gap: '8px',
-                        },
-                        1024: {
-                            perPage: 2,
-                            gap: '12px',
-                        },
-                        1280: {
-                            perPage: 2.8,
-                            gap: '16px',
-                        },
-                        1580: {
-                            perPage: 3.3,
-                            gap: '16px',
-                        },
-                    },
-                }).mount();
-
-                document
-                    .querySelector('.card-testi-slide-prev-button')
-                    .addEventListener('click', function () {
+            document.querySelector('.card-testi-slide-prev-button').addEventListener('click', function () {
                         splide.go('<');
-                    });
+            });
 
-                document
-                    .querySelector('.card-testi-slide-next-button')
-                    .addEventListener('click', function () {
-                        splide.go('>');
-                    });
-            } else {
-                console.log('Not enough slides to initialize the slider.');
-            }
+            document.querySelector('.card-testi-slide-next-button').addEventListener('click', function () {
+                    splide.go('>');
+            });
         });
+
+
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     var slides = document.querySelectorAll('#testimonial-slider .splide__slide');
+
+        //     if (slides.length > 1) {
+        //         var splide = new Splide('#testimonial-slider', {
+        //             type: 'loop',
+        //             perMove: 1,
+        //             perPage: 3.3,
+        //             arrows: false,
+        //             pagination: false,
+        //             autoplay: true,
+        //             interval: 3000,
+        //             breakpoints: {
+        //                 640: {
+        //                     perPage: 1,
+        //                     gap: '0px',
+        //                 },
+        //                 768: {
+        //                     perPage: 1.9,
+        //                     gap: '8px',
+        //                 },
+        //                 1024: {
+        //                     perPage: 2,
+        //                     gap: '12px',
+        //                 },
+        //                 1280: {
+        //                     perPage: 2.8,
+        //                     gap: '16px',
+        //                 },
+        //                 1580: {
+        //                     perPage: 3.3,
+        //                     gap: '16px',
+        //                 },
+        //             },
+        //         }).mount();
+
+        //         document
+        //             .querySelector('.card-testi-slide-prev-button')
+        //             .addEventListener('click', function () {
+        //                 splide.go('<');
+        //             });
+
+        //         document
+        //             .querySelector('.card-testi-slide-next-button')
+        //             .addEventListener('click', function () {
+        //                 splide.go('>');
+        //             });
+        //     } 
+        //     else {
+        //         console.log('Not enough slides to initialize the slider.');
+        //     }
+        // });
 
         document.addEventListener('DOMContentLoaded', function () {
             const bannerSlider = document.querySelector('#home-banner-slider .splide__list');
