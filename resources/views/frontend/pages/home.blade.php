@@ -895,8 +895,9 @@
                                         <p class="text-sm text-gray-300 leading-relaxed py-7 truncate-text">
                                             {{ $data->description }}
                                         </p>
-                                        <div class="flex justify-end items-center">
-                                            <img class="w-[25px] h-[25px] mt-6" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
+                                        <div class="flex justify-between items-center  mt-6">
+                                            <h6 class="opacity-75 text-xs uppercase">canada</h6>
+                                            <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
                                         </div>
                                     </div>
                                 @endforeach
