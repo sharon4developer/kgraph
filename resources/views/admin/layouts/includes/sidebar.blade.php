@@ -47,8 +47,7 @@
                         auth()->user()->hasPermissionTo('banners') ||
                         auth()->user()->hasPermissionTo('banners-create'))
                     <li>
-                        @if (auth()->user()->hasPermissionTo('home')  || auth()->user()->hasPermissionTo('banners') ||
-                        auth()->user()->hasPermissionTo('banners-create'))
+                        @if (auth()->user()->hasPermissionTo('home') )
                         <a href="javascript: void(0);" class="has-arrow">
                             <i class="fa fa-home" aria-hidden="true"></i>
                             <span data-key="t-multi-level">Home</span>
