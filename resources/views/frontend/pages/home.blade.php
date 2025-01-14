@@ -972,8 +972,8 @@
                         <ul class="splide__list">
                             @foreach ($blogs as $data)
                                 <li class="splide__slide">
-                                    <a class="h-[474px]" href="{{url('blog-details/'.$data->slug)}}">
-                                        <div class="mx-auto bg-[#051b3b] shadow-lg rounded-lg overflow-hidden mt-[8px] 2xl:mt-10 lg:h-fit w-full sm:max-w-sm h-auto">
+                                    <a href="{{url('blog-details/'.$data->slug)}}">
+                                        <div class="mx-auto h-[474px] bg-[#051b3b] shadow-lg rounded-lg overflow-hidden mt-[8px] 2xl:mt-10 lg:h-fit w-full sm:max-w-sm">
                                             <img class="w-full object-cover aspect-video" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"  alt="{{ $data->alt_tag }}">
                                             <div class="p-6 border-b border-l border-r border-white rounded-lg mt-[-7px]">
                                                 <?php $date = $data->date . ' ' . $data->time; ?>
