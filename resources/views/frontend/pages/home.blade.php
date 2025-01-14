@@ -896,7 +896,7 @@
                                             {{ $data->description }}
                                         </p>
                                         <div class="flex justify-between items-center  mt-6">
-                                            <h6 class="opacity-75 text-xs uppercase">canada</h6>
+                                            <h6 class="opacity-75 text-xs uppercase">{{ $data->place }}</h6>
                                             <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
                                         </div>
                                     </div>

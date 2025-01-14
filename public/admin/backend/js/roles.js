@@ -33,10 +33,12 @@ function loadDataTable() {
                 div1 = `<a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1" href="${$("#route-for-user").val()}/roles/${row.id}/edit">
                             <i class="fa fa-edit"></i>
                         </a>`;
-
-                div2 = `<a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1" href="#" onclick="deleteData(${row.id})">
+                if(row.id != 1)
+                    div2 = `<a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1" href="#" onclick="deleteData(${row.id})">
                             <i class="fa fa-trash"></i>
                         </a>`;
+                else
+                     div2 = '';
 
 
             return `<div style="white-space:nowrap">${div1}${div2}</div>`;

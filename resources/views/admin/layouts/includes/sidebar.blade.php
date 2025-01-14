@@ -7,14 +7,14 @@
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li class="menu-title" data-key="t-menu">Menu</li>
-                @if (auth()->user()->hasPermissionTo('dashboard'))
+                {{-- @if (auth()->user()->hasPermissionTo('dashboard')) --}}
                     <li>
                         <a href="{{ url('admin/dashboard') }}">
                             <i data-feather="home"></i>
                             <span data-key="t-dashboard">Dashboard</span>
                         </a>
                     </li>
-                @endif
+                {{-- @endif --}}
                 @if (auth()->user()->hasPermissionTo('pages'))
                     <li>
                         <a href="{{ url('admin/pages') }}">
