@@ -117,11 +117,13 @@ class SubAdminController extends Controller
         return DataTables::of($data)
         ->addIndexColumn()
         ->addColumn('role', function (User $data) {
-            $d = $data->roles->pluck('name');
-            return $d[0] ?? '';
-        })
+            $d = $data->roles->pluck('name',);
+            return $d[0] ?? '';})
 
-        ->rawColumns(['action','permissions'])
+        //    ->addColumn('email', function (User $data) { $c = $data->roles->pluck('email'); return $c[0] ?? ''; })
+
+
+        ->rawColumns(['email','action','permissions'])
         ->make(true);
     }
 

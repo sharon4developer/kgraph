@@ -17,6 +17,9 @@ function loadDataTable() {
             { data: 'DT_RowIndex', orderable: false, searchable: false },
             { data: 'name' },
             { data: 'role' },
+            { data: 'email'},
+           
+
             {
                 data: 'created_at',
                 render: function (data) {
@@ -79,7 +82,7 @@ $('#table-add-form').validate({
             required: true,
         },
         phone: {
-           
+
         },
         address: {
 
