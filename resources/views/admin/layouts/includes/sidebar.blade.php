@@ -7,14 +7,14 @@
             <!-- Left Menu Start -->
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li class="menu-title" data-key="t-menu">Menu</li>
-                {{-- @if (auth()->user()->hasPermissionTo('dashboard')) --}}
+                @if (auth()->user()->hasPermissionTo('dashboard'))
                 <li>
                     <a href="{{ url('admin/dashboard') }}">
                         <i data-feather="home"></i>
                         <span data-key="t-dashboard">Dashboard</span>
                     </a>
                 </li>
-                {{-- @endif --}}
+                @endif
                 @if (auth()->user()->hasPermissionTo('pages'))
                     <li>
                         <a href="{{ url('admin/pages') }}">
@@ -322,34 +322,39 @@
             @endif
             </ul>
             </li>
-            @if (auth()->user()->hasPermissionTo('career-contents'))
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow">
-                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
-                        <span data-key="t-multi-level">Careers</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="true">
-
-                        <li><a href="{{ url('admin/career-contents') }}" data-key="t-level-2-2">Career Contents
-                            </a>
+            {{-- @if (auth()->user()->hasPermissionTo('career-contents'))
+            <li>
+            <li>
+                <a href="javascript: void(0);" class="has-arrow">
+                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                    <span data-key="t-multi-level">Careers</span>
+                </a>
+                <ul class="sub-menu" aria-expanded="true">
+                    <li>
+                        <a href="{{ url('admin/career-contents') }}" data-key="t-level-2-2">Career Contents</a>
+                    </li>
+                    @if (auth()->user()->hasPermissionTo('careers'))
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Careers</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                <li><a href="{{ url('admin/careers') }}" data-key="t-level-2-2">View</a></li>
+                            </ul>
                         </li>
-                        @if (auth()->user()->hasPermissionTo('careers'))
-                            <li>
-                                <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Careers</a>
-                                <ul class="sub-menu" aria-expanded="true">
-                                    <li><a href="{{ url('admin/careers') }}" data-key="t-level-2-2">View </a>
-                                    </li>
-                        @endif
-                        @if (auth()->user()->hasPermissionTo('careers-create'))
-                            <li><a href="{{ url('admin/careers/create') }}" data-key="t-level-2-1">Add </a></li>
-                    </ul>
-                </li>
-            @endif
+                    @endif
+                    @if (auth()->user()->hasPermissionTo('careers-create'))
+                        <li><a href="{{ url('admin/careers/create') }}" data-key="t-level-2-1">Add</a></li>
+                    @endif
+                </ul>
+
+                         @endif
+
             @if (auth()->user()->hasPermissionTo('career-branches'))
                 <li>
                     <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Branches</a>
                     <ul class="sub-menu" aria-expanded="true">
+                        @if (auth()->user()->hasPermissionTo('career-branches'))
                         <li><a href="{{ url('admin/career-branches') }}" data-key="t-level-2-2">View </a></li>
+                        @endif
                         @if (auth()->user()->hasPermissionTo('career-branches-create'))
                             <li><a href="{{ url('admin/career-branches/create') }}" data-key="t-level-2-1">Add
                                 </a>
@@ -362,7 +367,9 @@
                 <li>
                     <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Departments</a>
                     <ul class="sub-menu" aria-expanded="true">
+                        @if (auth()->user()->hasPermissionTo('career-departments'))
                         <li><a href="{{ url('admin/career-departments') }}" data-key="t-level-2-2">View </a></li>
+                        @endif
                         @if (auth()->user()->hasPermissionTo('career-departments-create'))
                             <li><a href="{{ url('admin/career-departments/create') }}" data-key="t-level-2-1">Add
                                 </a></li>
@@ -372,14 +379,89 @@
             @endif
             </ul>
             </li>
-            @endif
-            @if (auth()->user()->hasPermissionTo('career-departments'))
+        </li>
+            @endif --}}
+            @if (
+                auth()->user()->hasPermissionTo('career-contents') ||
+                auth()->user()->hasPermissionTo('careers') ||
+                auth()->user()->hasPermissionTo('careers-create') ||
+                auth()->user()->hasPermissionTo('career-branches') ||
+                auth()->user()->hasPermissionTo('career-branches-create') ||
+                auth()->user()->hasPermissionTo('career-departments')
+            )
+
+            <li>
+                <a href="javascript: void(0);" class="has-arrow">
+                    <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                    <span data-key="t-multi-level">Careers</span>
+                </a>
+                <ul class="sub-menu" aria-expanded="true">
+                    <li>
+                        <a href="{{ url('admin/career-contents') }}" data-key="t-level-2-2">Career Contents</a>
+                    </li>
+                    @if (auth()->user()->hasPermissionTo('careers'))
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Careers</a>
+                            <ul class="sub-menu" aria-expanded="true">
+
+                                <li><a href="{{ url('admin/careers') }}" data-key="t-level-2-2">View</a></li>
+                            </ul>
+                        </li>
+                    @endif
+                    @if (auth()->user()->hasPermissionTo('careers-create'))
+                        <li><a href="{{ url('admin/careers/create') }}" data-key="t-level-2-1">Add</a></li>
+                    @endif
+                    @if (auth()->user()->hasPermissionTo('career-branches'))
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Branches</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                @if (auth()->user()->hasPermissionTo('career-branches'))
+                                    <li><a href="{{ url('admin/career-branches') }}" data-key="t-level-2-2">View</a></li>
+                                @endif
+                                @if (auth()->user()->hasPermissionTo('career-branches-create'))
+                                    <li><a href="{{ url('admin/career-branches/create') }}" data-key="t-level-2-1">Add</a></li>
+                                @endif
+                            </ul>
+                        </li>
+                    @endif
+                    @if (auth()->user()->hasPermissionTo('career-departments'))
+                        <li>
+                            <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Departments</a>
+                            <ul class="sub-menu" aria-expanded="true">
+                                @if (auth()->user()->hasPermissionTo('career-departments'))
+                                    <li><a href="{{ url('admin/career-departments') }}" data-key="t-level-2-2">View</a></li>
+                                @endif
+                                @if (auth()->user()->hasPermissionTo('career-departments-create'))
+                                    <li><a href="{{ url('admin/career-departments/create') }}" data-key="t-level-2-1">Add</a></li>
+                                @endif
+                            </ul>
+                        </li>
+                    @endif
+                </ul>
+            </li>
+        @endif
+
+
+
+
+
+
+            {{-- @if (auth()->user()->hasPermissionTo('career-departments')) --}}
+            @if (
+                auth()->user()->hasPermissionTo('package-contents') ||
+                auth()->user()->hasPermissionTo('packages') ||
+                auth()->user()->hasPermissionTo('packages-create') ||
+                auth()->user()->hasPermissionTo('package-points') ||
+                auth()->user()->hasPermissionTo('package-points-create') ||
+                auth()->user()->hasPermissionTo('package-faq')
+            )
+
                 <li>
                     <a href="javascript: void(0);" class="has-arrow">
                         <i class="fa fa-gift" aria-hidden="true"></i>
                         <span data-key="t-multi-level">Packages</span>
                     </a>
-                    @if (auth()->user()->hasPermissionTo('package-contents'))
+                    @if (auth()->user()->hasPermissionTo('package-contents') ||auth()->user()->hasPermissionTo('packages') || auth()->user()->hasPermissionTo('packages\create') ||  )
                         <ul class="sub-menu" aria-expanded="true">
                             <li><a href="{{ url('admin/package-contents') }}" data-key="t-level-2-2">Package Contents
                                 </a></li>
@@ -390,32 +472,41 @@
                                     <ul class="sub-menu" aria-expanded="true">
                                         <li><a href="{{ url('admin/packages') }}" data-key="t-level-2-2">View </a>
                                         </li>
+                                        @if (auth()->user()->hasPermissionTo('packages\create'))
                                         <li><a href="{{ url('admin/packages/create') }}" data-key="t-level-2-1">Add
                                             </a></li>
+                                            @endif
                                     </ul>
                                 </li>
                             @endif
-                            @if (auth()->user()->hasPermissionTo('package-points'))
+                            @if (auth()->user()->hasPermissionTo('package-points') || auth()->user()->hasPermissionTo('package-points/create') )
                                 <li>
                                     <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Package
                                         Points</a>
                                     <ul class="sub-menu" aria-expanded="true">
+                                        @if (auth()->user()->hasPermissionTo('package-points'))
                                         <li><a href="{{ url('admin/package-points') }}" data-key="t-level-2-2">View
                                             </a></li>
+                                            @endif
+                                            @if (auth()->user()->hasPermissionTo('package-points/create'))
                                         <li><a href="{{ url('admin/package-points/create') }}"
                                                 data-key="t-level-2-1">Add </a></li>
+                                                @endif
                                     </ul>
                                 </li>
                             @endif
-                            @if (auth()->user()->hasPermissionTo('package-faq'))
+                            @if (auth()->user()->hasPermissionTo('package-faq') || auth()->user()->hasPermissionTo('package-faq-create'))
+
                                 <li>
                                     <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Package
                                         Faq</a>
                                     <ul class="sub-menu" aria-expanded="true">
                                         <li><a href="{{ url('admin/package-faq') }}" data-key="t-level-2-2">View </a>
                                         </li>
+                                        @if (auth()->user()->hasPermissionTo('package-faq/create'))
                                         <li><a href="{{ url('admin/package-faq/create') }}"
                                                 data-key="t-level-2-1">Add </a></li>
+                                                @endif
                                     </ul>
                                 </li>
                             @endif
