@@ -26,10 +26,11 @@
                                 @endforeach
 
                         </div><!-- Row -->
+                        <br>
                         @if ($role->name != 'super-admin')
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="submit" class="btn btn-outline-secondary btn-rounded mb-2">Submit</button>
                         @endif
-                        <a href="{{ url('admin/roles') }}" class="btn btn-outline-warning">Go Back</a>
+                        <a href="{{ url('admin/roles') }}" class="btn btn-outline-warning btn-rounded mb-2">Go Back</a>
                     </form>
 
                 </div>
