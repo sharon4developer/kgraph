@@ -461,7 +461,12 @@
                         <i class="fa fa-gift" aria-hidden="true"></i>
                         <span data-key="t-multi-level">Packages</span>
                     </a>
-                    @if (auth()->user()->hasPermissionTo('package-contents') ||auth()->user()->hasPermissionTo('packages') || auth()->user()->hasPermissionTo('packages\create') ||  )
+                    @if (
+                        auth()->user()->hasPermissionTo('package-contents') ||
+                        auth()->user()->hasPermissionTo('packages') ||
+                        auth()->user()->hasPermissionTo('packages-create')
+                    )
+
                         <ul class="sub-menu" aria-expanded="true">
                             <li><a href="{{ url('admin/package-contents') }}" data-key="t-level-2-2">Package Contents
                                 </a></li>
