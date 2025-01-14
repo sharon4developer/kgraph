@@ -47,7 +47,8 @@
                         auth()->user()->hasPermissionTo('banners') ||
                         auth()->user()->hasPermissionTo('banners-create'))
                     <li>
-                        @if (auth()->user()->hasPermissionTo('home'))
+                        @if (auth()->user()->hasPermissionTo('home')  || auth()->user()->hasPermissionTo('banners') ||
+                        auth()->user()->hasPermissionTo('banners-create'))
                         <a href="javascript: void(0);" class="has-arrow">
                             <i class="fa fa-home" aria-hidden="true"></i>
                             <span data-key="t-multi-level">Home</span>
@@ -74,33 +75,43 @@
                                                             <li><a href="{{ url('admin/who-we-are/create') }}" data-key="t-level-2-1">Add </a></li>
                                                         </ul>
                                                                             </li> --}}
-                                        @if (auth()->user()->hasPermissionTo('testimonials'))
-                                            <li>
+                                        @if (auth()->user()->hasPermissionTo('testimonials') ||
+                                        auth()->user()->hasPermissionTo('testimonials-create') )
+                                                <li>
                                                 <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Testimonials</a>
                                                 <ul class="sub-menu" aria-expanded="true">
                                                     <li><a href="{{ url('admin/testimonials') }}" data-key="t-level-2-2">View </a></li>
-                                                    <li><a href="{{ url('admin/testimonials/create') }}" data-key="t-level-2-1">Add </a></li>
+                                                    @if (auth()->user()->hasPermissionTo('testimonials-create'))
+                                                    <li><a href="{{ url('admin/testimonials-create') }}" data-key="t-level-2-1">Add </a></li>
+                                                    @endif
                                                 </ul>
                                             </li>
                                         @endif
-                                        @if (auth()->user()->hasPermissionTo('faq'))
+                                        @if (auth()->user()->hasPermissionTo('faq') || auth()->user()->hasPermissionTo('faq-create'))
                                             <li>
                         <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Faq</a>
                         <ul class="sub-menu" aria-expanded="true">
                             <li><a href="{{ url('admin/faq') }}" data-key="t-level-2-2">View </a></li>
+                            @if (auth()->user()->hasPermissionTo('faq-create'))
                             <li><a href="{{ url('admin/faq/create') }}" data-key="t-level-2-1">Add </a></li>
+                            @endif
                         </ul>
                     </li>
                      @endif
-                                            @if (auth()->user()->hasPermissionTo('blog-contents'))
+                                            @if (auth()->user()->hasPermissionTo('blog-contents') ||
+                                            auth()->user()->hasPermissionTo('blogs-create') || auth()->user()->hasPermissionTo('blogs')
+                                            )
                                                 <li><a href="{{ url('admin/blog-contents') }}" data-key="t-level-2-2">Blog Contents </a></li>
                                             @endif
                                             @if (auth()->user()->hasPermissionTo('blogs'))
                                                 <li>
                         <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Blogs</a>
                         <ul class="sub-menu" aria-expanded="true">
+
                             <li><a href="{{ url('admin/blogs') }}" data-key="t-level-2-2">View </a></li>
+                            @if (auth()->user()->hasPermissionTo('blogs-create'))
                             <li><a href="{{ url('admin/blogs/create') }}" data-key="t-level-2-1">Add </a></li>
+                            @endif
                         </ul>
                     </li>
                 @endif
@@ -468,8 +479,11 @@
                     )
 
                         <ul class="sub-menu" aria-expanded="true">
+                            @if (
+                        auth()->user()->hasPermissionTo('package-contents') )
                             <li><a href="{{ url('admin/package-contents') }}" data-key="t-level-2-2">Package Contents
                                 </a></li>
+                                @endif
                             @if (auth()->user()->hasPermissionTo('packages'))
                                 <li>
                                     <a href="javascript: void(0);" class="has-arrow"
@@ -477,14 +491,14 @@
                                     <ul class="sub-menu" aria-expanded="true">
                                         <li><a href="{{ url('admin/packages') }}" data-key="t-level-2-2">View </a>
                                         </li>
-                                        @if (auth()->user()->hasPermissionTo('packages\create'))
+                                        @if (auth()->user()->hasPermissionTo('packages-create'))
                                         <li><a href="{{ url('admin/packages/create') }}" data-key="t-level-2-1">Add
                                             </a></li>
                                             @endif
                                     </ul>
                                 </li>
                             @endif
-                            @if (auth()->user()->hasPermissionTo('package-points') || auth()->user()->hasPermissionTo('package-points/create') )
+                            @if (auth()->user()->hasPermissionTo('package-points') || auth()->user()->hasPermissionTo('package-points-create') )
                                 <li>
                                     <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Package
                                         Points</a>
@@ -493,7 +507,7 @@
                                         <li><a href="{{ url('admin/package-points') }}" data-key="t-level-2-2">View
                                             </a></li>
                                             @endif
-                                            @if (auth()->user()->hasPermissionTo('package-points/create'))
+                                            @if (auth()->user()->hasPermissionTo('package-points-create'))
                                         <li><a href="{{ url('admin/package-points/create') }}"
                                                 data-key="t-level-2-1">Add </a></li>
                                                 @endif
@@ -508,7 +522,7 @@
                                     <ul class="sub-menu" aria-expanded="true">
                                         <li><a href="{{ url('admin/package-faq') }}" data-key="t-level-2-2">View </a>
                                         </li>
-                                        @if (auth()->user()->hasPermissionTo('package-faq/create'))
+                                        @if (auth()->user()->hasPermissionTo('package-faq-create'))
                                         <li><a href="{{ url('admin/package-faq/create') }}"
                                                 data-key="t-level-2-1">Add </a></li>
                                                 @endif
