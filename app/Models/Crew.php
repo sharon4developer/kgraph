@@ -71,6 +71,7 @@ class Crew extends Model
 
             Crew::where('main', true)->update(['main' => false]);
         }
+
         $value = Crew::find($data->crew_id);
         $value->name        = $data->name;
         $value->position  = $data->position;
@@ -78,6 +79,7 @@ class Crew extends Model
         $value->description  = $data->description;
         $value->email        = $data->email;
         $value->alt_tag           =  $data->alt_tag;
+        $value->main = isset($data->main) ? (bool) $data->main : false;
         if ($data->image) {
             $value->image = Cms::storeImage($data->image, $data->name);
             $intervention_image = $value->image;
