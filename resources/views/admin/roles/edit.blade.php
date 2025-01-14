@@ -17,8 +17,8 @@
                             </div>
 
                             <div class="mb-0">
-                                <button class="btn btn-primary" type="submit">Submit form</button>
-                                <a href="{{ url('admin/roles') }}" class="btn btn-danger">Cancel</a>
+                                <a href="{{ url('admin/roles') }}" class="btn btn-outline-warning btn-rounded mb-2">Cancel</a>
+                                <button class="btn btn-outline-secondary btn-rounded mb-2" type="submit">Submit form</button>
                             </div>
                         </form>
                     </div>

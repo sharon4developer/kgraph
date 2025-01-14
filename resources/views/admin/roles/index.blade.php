@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-    <div class="main-wrapper">
+    <div class="card">
         <div class="row">
             <div class="col-md-10">
                 <h4 class="box-title">Roles & Permissions</h4>
