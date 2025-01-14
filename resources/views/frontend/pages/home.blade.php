@@ -978,14 +978,14 @@
                             </div>
                         </div>
                         <div class="flex justify-center items-center">
-                            <button class="card-testi-slide-prev-button  p-2 rounded-full">
+                            <button class="card-testi-slide-prev-button relative z-50  p-2 rounded-full">
                                 <svg width="40" height="40" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect x="69.5" y="69.5" width="69" height="69" rx="34.5" transform="rotate(180 69.5 69.5)" stroke="white" stroke-opacity="0.8"/>
                                     <path d="M38.384 43.384C38.1496 43.6184 37.8317 43.75 37.5003 43.75C37.1688 43.75 36.8509 43.6184 36.6165 43.384L29.1165 35.884C28.8822 35.6496 28.7505 35.3317 28.7505 35.0003C28.7505 34.6688 28.8822 34.3509 29.1165 34.1165L36.6165 26.6165C36.8523 26.3888 37.168 26.2628 37.4958 26.2657C37.8235 26.2685 38.137 26.4 38.3688 26.6317C38.6006 26.8635 38.732 27.177 38.7349 27.5048C38.7377 27.8325 38.6117 28.1483 38.384 28.384L31.7678 35.0003L38.384 41.6165C38.6184 41.8509 38.75 42.1688 38.75 42.5003C38.75 42.8317 38.6184 43.1496 38.384 43.384Z" fill="white"/>
                                 </svg>
 
                             </button>
-                            <button class="card-testi-slide-next-button p-2 rounded-full">
+                            <button class="card-testi-slide-next-button relative z-50 p-2 rounded-full">
                                 <svg width="40" height="40" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect x="0.5" y="0.5" width="69" height="69" rx="34.5" stroke="white" stroke-opacity="0.8"/>
                                     <path d="M31.616 26.616C31.8504 26.3816 32.1683 26.25 32.4997 26.25C32.8312 26.25 33.1491 26.3816 33.3835 26.616L40.8835 34.116C41.1178 34.3504 41.2495 34.6683 41.2495 34.9997C41.2495 35.3312 41.1178 35.6491 40.8835 35.8835L33.3835 43.3835C33.1477 43.6112 32.832 43.7372 32.5042 43.7343C32.1765 43.7315 31.863 43.6 31.6312 43.3683C31.3994 43.1365 31.268 42.823 31.2651 42.4952C31.2623 42.1675 31.3883 41.8517 31.616 41.616L38.2322 34.9997L31.616 28.3835C31.3816 28.1491 31.25 27.8312 31.25 27.4997C31.25 27.1683 31.3816 26.8504 31.616 26.616Z" fill="white"/>
@@ -1325,6 +1325,7 @@
                 console.log("Not enough slides to initialize the slider.");
             }
         });
+
         document.addEventListener('DOMContentLoaded', function () {
             const viewMoreButtons = document.querySelectorAll('.view-more-btn');
 
@@ -1373,7 +1374,8 @@
         });
 
         document.addEventListener('DOMContentLoaded', function () {
-            new Splide('#testimonial-slider', {
+            // Initialize Splide and assign it to a variable
+            const splide = new Splide('#testimonial-slider', {
                 type: 'slide',
                 perMove: 1,
                 perPage: 3.1,
@@ -1392,14 +1394,18 @@
                 }
             }).mount();
 
+            // Attach event listeners to custom buttons
             document.querySelector('.card-testi-slide-prev-button').addEventListener('click', function () {
-                        splide.go('<');
+                splide.go('<'); // Go to the previous slide
+                splide.play();  // Resume autoplay
             });
 
             document.querySelector('.card-testi-slide-next-button').addEventListener('click', function () {
-                    splide.go('>');
+                splide.go('>'); // Go to the next slide
+                splide.play();  // Resume autoplay
             });
         });
+
 
 
         // document.addEventListener('DOMContentLoaded', function () {
