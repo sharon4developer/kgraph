@@ -11,7 +11,9 @@
                             @method('PUT')
                             <input type="hidden" name="table_id" value="{{ $data->id }}">
                             <div class="form-group">
-                                <label for="exampleFormControlInput1">Name</label>
+                                <label for="exampleFormControlInput1">Name
+                                    <span class="text-danger">*</span>
+                                </label>
                                 <input type="text" name="name" class="form-control" id="name"
                                     placeholder="Enter Name" value="{{$data->name}}">
                             </div>

@@ -9,12 +9,15 @@
                         <form id="table-add-form" method="POST" autocomplete="off">
                             @csrf
                             <div class="form-group">
-                                <label for="exampleFormControlInput1">Name</label>
+                                <label for="exampleFormControlInput1">Name <span class="text-danger">*</span></label>
+
                                 <input type="text" name="name" class="form-control" id="name"
                                     placeholder="Enter Name">
+
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlInput1">email</label>
+                                <label for="exampleFormControlInput1">email
+                                      <span class="text-danger">*</span></label>
                                 <input type="text" name="email" class="form-control" id="email"
                                     placeholder="Enter Email">
                             </div>
@@ -29,12 +32,16 @@
                                 placeholder="Enter address"></textarea>
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlInput1">Image</label>
+                                <label for="exampleFormControlInput1">Image
+                                    <span class="text-danger">*</span>
+                                </label>
                                 <input type="file" name="image" class="form-control" id="image"
                                 placeholder="Enter image" accept="image/*">
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlInput1">Password</label>
+                                <label for="exampleFormControlInput1">Password
+                                    <span class="text-danger">*</span>
+                                </label>
                                 <div class="form-group">
                                     <input type="password" class="form-control" id="password" name="password"  placeholder="Password">
                                 </div>
@@ -46,7 +53,9 @@
                                 </label>
                                 <select name="role_id" required
                                     class="form-control text-dark @if ($errors->has('role_id')) is-invalid @endif">
-                                    <option selected disabled>Choose Role</option>
+                                    <option selected disabled>Choose Role
+                                        <span class="text-danger">*</span>
+                                    </option>
                                     @foreach ($roles as $role)
                                         <option value="{{ $role->id }}"
                                             @if (@old('role_id')) selected @endif>

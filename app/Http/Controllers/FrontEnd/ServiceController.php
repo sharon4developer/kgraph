@@ -52,6 +52,7 @@ class ServiceController extends Controller
         if(!$services){
             abort(404);
         }
+        // dd($services);
 
         $seo = ServiceSeo::getSeoDetails($services->id);
 

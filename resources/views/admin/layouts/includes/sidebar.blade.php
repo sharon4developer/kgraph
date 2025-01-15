@@ -595,11 +595,12 @@
                     </ul>
                 </li>
             @endif
-            @if (auth()->user()->hasPermissionTo('contact') ||
+            @if (auth()->user()->hasPermissionTo('contact-us') ||
                     auth()->user()->hasPermissionTo('applied-career') ||
                     auth()->user()->hasPermissionTo('eligibility-check') ||
                     auth()->user()->hasPermissionTo('news-letter'))
                 <li>
+
                     <a href="javascript: void(0);" class="has-arrow">
                         <i class="fa fa-address-book" aria-hidden="true"></i>
                         <span data-key="t-multi-level">Contact</span>
@@ -609,8 +610,8 @@
                             <li><a href="{{ url('admin/news-letter') }}" data-key="t-level-2-2">News Letter </a>
                             </li>
                         @endif
-                        @if (auth()->user()->hasPermissionTo('contact'))
-                            <li><a href="{{ url('admin/contact') }}" data-key="t-level-2-2">Contact Us </a></li>
+                        @if (auth()->user()->hasPermissionTo('contact-us'))
+                            <li><a href="{{ url('admin/contact-us') }}" data-key="t-level-2-2">Contact Us </a></li>
                         @endif
                         @if (auth()->user()->hasPermissionTo('applied-career'))
                             <li><a href="{{ url('admin/applied-career') }}" data-key="t-level-2-2">Career </a>
