@@ -880,43 +880,7 @@
                         @endif
                     </p>
 
-                    {{-- <div class="flex justify-between gap-6">
-                        @foreach ($testimonials as $data)
-                            <div class="p-6 bg-grade-testimonial text-white rounded-lg shadow-md w-[500px] h-[400px] relative cardparent">
-                                <div class="flex items-center justify-between space-x-4 mb-4">
-                                    <div class="flex items-center gap-2">
-                                        <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"
-                                        alt="{{ $data->alt_tag }}" class="w-12 h-12 rounded-full">
-                                        <div>
-                                            <h2 class="text-lg font-semibold">{{ $data->name }}</h2>
-                                            <p class="text-sm text-gray-400">{{ $data->occupation }}</p>
-                                        </div>
-                                    </div>
-                                    <div class="ml-auto flex items-center gap-2">
-                                        <span class="text-lg font-bold">{{ $data->rating }}</span>
-                                        <div class="flex items-center">
-                                            @for ($i = 1; $i <= floor($data->rating); $i++)
-                                                <div class="text-yellow-500 flex items-center">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                                                </div>
-                                            @endfor
-                                        </div>
-                                        @if ($data->rating - floor($data->rating) >= 0.5)
-                                            <img class="w-[12px]" src="{{ asset('assets/Navigation/halfstar.png') }}" alt="Half Star">
-                                        @endif
-                                    </div>
-                                </div>
-                                <p class="text-sm text-gray-300 leading-relaxed py-7 truncate-text" data-full-text="{{ $data->description }}">
-                                    {{ $data->description }}
-                                </p>
-                                <button class="view-more-btn text-blue-500 text-sm mt-2">View More</button>
-                                <div class="flex justify-between items-center mt-6">
-                                    <h6 class="opacity-75 text-xs uppercase">Canada</h6>
-                                    <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
-                                </div>
-                            </div>
-                        @endforeach
-                    </div> --}}
+
 
                     <div id="testimonial-slider" class="splide w-full">
                         <div class="splide__track">
@@ -1407,69 +1371,21 @@
             // Attach event listeners to custom buttons
             document.querySelector('.card-testi-slide-prev-button').addEventListener('click', function () {
                 splide.go('<'); // Go to the previous slide
-                splide.play();  // Resume autoplay
+                restartAutoplay(splide);  // Restart autoplay
             });
 
             document.querySelector('.card-testi-slide-next-button').addEventListener('click', function () {
                 splide.go('>'); // Go to the next slide
-                splide.play();  // Resume autoplay
+                restartAutoplay(splide);  // Restart autoplay
             });
+
+            // Function to restart autoplay
+            function restartAutoplay(splideInstance) {
+                splideInstance.options = { ...splideInstance.options, autoplay: true }; // Ensure autoplay is enabled
+                splideInstance.play(); // Resume autoplay
+            }
         });
 
-
-
-        // document.addEventListener('DOMContentLoaded', function () {
-        //     var slides = document.querySelectorAll('#testimonial-slider .splide__slide');
-
-        //     if (slides.length > 1) {
-        //         var splide = new Splide('#testimonial-slider', {
-        //             type: 'loop',
-        //             perMove: 1,
-        //             perPage: 3.3,
-        //             arrows: false,
-        //             pagination: false,
-        //             autoplay: true,
-        //             interval: 3000,
-        //             breakpoints: {
-        //                 640: {
-        //                     perPage: 1,
-        //                     gap: '0px',
-        //                 },
-        //                 768: {
-        //                     perPage: 1.9,
-        //                     gap: '8px',
-        //                 },
-        //                 1024: {
-        //                     perPage: 2,
-        //                     gap: '12px',
-        //                 },
-        //                 1280: {
-        //                     perPage: 2.8,
-        //                     gap: '16px',
-        //                 },
-        //                 1580: {
-        //                     perPage: 3.3,
-        //                     gap: '16px',
-        //                 },
-        //             },
-        //         }).mount();
-
-        //         document
-        //             .querySelector('.card-testi-slide-prev-button')
-        //             .addEventListener('click', function () {
-        //                 splide.go('<');
-        //             });
-
-        //         document
-        //             .querySelector('.card-testi-slide-next-button')
-        //             .addEventListener('click', function () {
-        //                 splide.go('>');
-        //             });
-        //     } 
-        //     else {
-        //         console.log('Not enough slides to initialize the slider.');
-        //     }
-        // });
 
         document.addEventListener('DOMContentLoaded', function () {
             const bannerSlider = document.querySelector('#home-banner-slider .splide__list');
