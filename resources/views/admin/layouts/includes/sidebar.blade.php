@@ -624,7 +624,9 @@
                     </ul>
                 </li>
             @endif
-            </ul>
+             @if (auth()->user()->hasPermissionTo('settings'))
+            <li><a href="{{ url('admin/settings') }}" data-key="t-level-2-2">Settings </a></li>
+            @endif
 
             {{-- <div class="card sidebar-alert shadow-none text-center mx-4 mb-0 mt-5">
                 <div class="card-body">

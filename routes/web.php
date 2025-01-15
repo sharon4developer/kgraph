@@ -58,6 +58,7 @@ use App\Http\Controllers\FrontEnd\HomeController;
 use App\Http\Controllers\FrontEnd\NewsLetterController;
 use App\Http\Controllers\FrontEnd\PackageController as FrontEndPackageController;
 use App\Http\Controllers\FrontEnd\ServiceController as FrontEndServiceController;
+use App\Http\Controllers\Admin\WhatsAppController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -161,6 +162,7 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'sub-service-point-contents' => SubServicePointContentController::class,
         'sub-admin'=> SubAdminController::class,
         'roles' => RoleController::class,
+        'settings' => WhatsAppController::class,
     ]);
 
 

@@ -13,7 +13,7 @@ class PermissionSeeder extends Seeder
     public function run(): void
     {
         $permissions = [
-         
+
 
 
 
@@ -155,6 +155,10 @@ class PermissionSeeder extends Seeder
             'packages-create',
             'packages-edit',
             'packages-delete',
+
+            'settings',
+        
+
 
             'packages-seo',
             'packages-seo-create',
