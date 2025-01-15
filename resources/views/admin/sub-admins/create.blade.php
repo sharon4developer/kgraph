@@ -42,9 +42,12 @@
                                 <label for="exampleFormControlInput1">Password
                                     <span class="text-danger">*</span>
                                 </label>
-                                <div class="form-group">
-                                    <input type="password" class="form-control" id="password" name="password"  placeholder="Password">
-                                </div>
+                                <div class="form-group position-relative">
+                                    <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                                    <span class="position-absolute" style="right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
+                                      <i class="fa fa-eye" id="togglePassword"></i>
+                                    </span>
+                                  </div>
                             </div>
 
                             <div class="form-group">

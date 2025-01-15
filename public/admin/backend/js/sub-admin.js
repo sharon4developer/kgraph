@@ -18,7 +18,7 @@ function loadDataTable() {
             { data: 'name' },
             { data: 'role' },
             { data: 'email'},
-           
+
 
             {
                 data: 'created_at',
@@ -401,5 +401,13 @@ $('#table-add-role-permission-form').validate({
     unhighlight: function (element, errorClass, validClass) {
         $(element).removeClass('is-invalid');
     }
+});
+const togglePassword = document.querySelector('#togglePassword');
+const passwordField = document.querySelector('#password');
+
+togglePassword.addEventListener('click', function () {
+  const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+  passwordField.setAttribute('type', type);
+  this.classList.toggle('fa-eye-slash');
 });
 
