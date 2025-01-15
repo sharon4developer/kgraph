@@ -369,8 +369,9 @@
                                     </ul>
                                 </li>
                             @endif
+                        </ul>
                     </li>
-            </ul>
+            {{-- </ul> --}}
             @endif
             {{-- @if (auth()->user()->hasPermissionTo('career-contents'))
             <li>
@@ -624,8 +625,19 @@
                     </ul>
                 </li>
             @endif
-             @if (auth()->user()->hasPermissionTo('settings'))
-            <li><a href="{{ url('admin/settings') }}" data-key="t-level-2-2">Settings </a></li>
+
+            @if (auth()->user()->hasPermissionTo('settings'))
+            <li>
+                <a href="javascript: void(0);" class="has-arrow">
+                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                    <span data-key="t-multi-level">Settings</span>
+                </a>
+                <ul class="sub-menu" aria-expanded="true">
+                    @if (auth()->user()->hasPermissionTo('settings'))
+                    <li><a href="{{ url('admin/settings') }}" data-key="t-level-2-2">WhatsApp Number </a></li>
+                    @endif
+                </ul>
+            </li>
             @endif
 
             {{-- <div class="card sidebar-alert shadow-none text-center mx-4 mb-0 mt-5">
