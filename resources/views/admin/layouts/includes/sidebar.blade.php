@@ -629,7 +629,7 @@
             @if (auth()->user()->hasPermissionTo('settings'))
             <li>
                 <a href="javascript: void(0);" class="has-arrow">
-                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                     <i class="fa fa-solid fa-bars" aria-hidden="true"></i>
                     <span data-key="t-multi-level">Settings</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="true">
