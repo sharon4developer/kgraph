@@ -1314,12 +1314,17 @@
 
             viewMoreButtons.forEach((btn) => {
                 btn.addEventListener('click', function () {
-                    const paragraph = this.previousElementSibling;
-                    const fullText = paragraph.getAttribute('data-full-text') || paragraph.textContent;
+                    const card = this.closest('.cardparent'); // Find the parent card
+                    const fullText = this.previousElementSibling.getAttribute('data-full-text') || this.previousElementSibling.textContent;
+                    const imageSrc = card.querySelector('img').src; // Get the image source
+                    const name = card.querySelector('h2').textContent; // Get the name (title)
 
                     // Show the popup with SweetAlert2
                     Swal.fire({
-                        title: 'Full Description',
+                        title: `<div style="display: flex; align-items: center; gap: 10px; justify-content: center;">
+                            <img src="${imageSrc}" alt="Image" class="rounded-full" style="width: 60px; height: 60px;">
+                            <span style="font-size: 18px; font-weight: bold;">${name}</span>
+                        </div>`,
                         html: `<p style="text-align: left; line-height: 1.6;">${fullText}</p>`,
                         width: '600px',
                         showCloseButton: true,
