@@ -629,7 +629,7 @@
             @if (auth()->user()->hasPermissionTo('settings'))
             <li>
                 <a href="javascript: void(0);" class="has-arrow">
-                    <i class="fa fa-info-circle" aria-hidden="true"></i>
+                     <i class="fa fa-solid fa-gear" aria-hidden="true"></i>
                     <span data-key="t-multi-level">Settings</span>
                 </a>
                 <ul class="sub-menu" aria-expanded="true">
@@ -639,7 +639,7 @@
                 </ul>
             </li>
             @endif
-
+           
             {{-- <div class="card sidebar-alert shadow-none text-center mx-4 mb-0 mt-5">
                 <div class="card-body">
                     <img src="{{ asset('admin/theme/assets/images/giftbox.png') }}" alt="">
