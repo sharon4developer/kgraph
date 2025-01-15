@@ -402,12 +402,15 @@ $('#table-add-role-permission-form').validate({
         $(element).removeClass('is-invalid');
     }
 });
-const togglePassword = document.querySelector('#togglePassword');
-const passwordField = document.querySelector('#password');
+
+const togglePassword = document.getElementById('togglePassword');
+const passwordField = document.getElementById('passwordField');
 
 togglePassword.addEventListener('click', function () {
-  const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
-  passwordField.setAttribute('type', type);
-  this.classList.toggle('fa-eye-slash');
+    const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordField.setAttribute('type', type);
+    this.querySelector('i').classList.toggle('fa-eye-slash');
+    this.querySelector('i').classList.toggle('fa-eye');
 });
+
 
