@@ -510,6 +510,19 @@
         .cardparent{
             transition: height 0.3s ease;
         }
+
+        .custom-swal-popup {
+            font-family: 'Arial', sans-serif;
+            font-size: 12px;
+            color: #333;
+        }
+        #testimonial-slider .slick-slide {
+            margin: 0 10px; /* Adjust the gap as needed */
+        }
+
+        #testimonial-slider .slick-list {
+            margin: 0 -10px; /* Negative margin to ensure alignment */
+        }
     </style>
 
 
@@ -881,63 +894,59 @@
                     </p>
 
 
-
-                    <div id="testimonial-slider" class="splide w-full">
-                        <div class="splide__track">
-                            <div class="splide__list flex gap-5 px-4 md:px-0">
-                                @foreach ($testimonials as $data)
-                                    <div class="splide__slide p-6 bg-grade-testimonial text-white rounded-lg shadow-md h-[340px] relative cardparent">
-                                        <div class="flex items-center justify-between space-x-4 mb-4">
-                                            <div class="flex items-center gap-2">
-                                                <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"
-                                                alt="{{ $data->alt_tag }}" class="w-12 h-12 rounded-full">
-                                                <div>
-                                                    <h2 class="text-lg font-semibold clamp-text-one">{{ $data->name }}</h2>
-                                                    <p class="text-sm text-gray-400">{{ $data->occupation }}</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="ml-auto flex items-center gap-2">
-                                                <span class="text-lg font-bold">{{ $data->rating }}</span>
-                                                <div class="flex items-center">
-                                                    @for ($i = 1; $i <= floor($data->rating); $i++)
-                                                        <div class="text-yellow-500 flex items-center">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                                                        </div>
-                                                    @endfor
-                                                    @if ($data->rating - floor($data->rating) >= 0.5)
-                                                        <img class="w-[12px]" src="{{ asset('assets/Navigation/halfstar.png') }}" alt="Half Star">
-                                                    @endif
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                        <div class="flex flex-col justify-between h-[73%]">
-                                            <div>
-                                                <?php 
-                                                    $description = $data->description; 
-                                                ?>
-                                                <p class="text-sm text-gray-300 leading-relaxed py-7 truncate-text" data-full-text="{{ $description }}">
-                                                    {{ $description }}
-                                                </p>
-                                                <?php if (strlen(strip_tags($description)) > 242): ?>
-                                                    <button class="view-more-btn text-blue-500 text-sm mt-2">View More</button>
-                                                <?php endif; ?>
-                                            </div>
-                                            
-                                            
-                                            <div class="flex justify-between items-center  mt-6">
-                                                <h6 class="opacity-75 text-xs uppercase">{{ $data->place }}</h6>
-                                                <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
-                                            </div>
+                    <div id="testimonial-slider" class="slider w-full">
+                        @foreach ($testimonials as $data)
+                            <div class="p-6 bg-grade-testimonial text-white rounded-lg shadow-md h-[340px] relative cardparent">
+                                <div class="flex items-center justify-between space-x-4 mb-4">
+                                    <div class="flex items-center gap-2">
+                                        <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"
+                                             alt="{{ $data->alt_tag }}" class="w-12 h-12 rounded-full">
+                                        <div>
+                                            <h2 class="text-lg font-semibold clamp-text-one">{{ $data->name }}</h2>
+                                            <p class="text-sm text-gray-400">{{ $data->occupation }}</p>
                                         </div>
                                     </div>
-                                @endforeach
+                    
+                                    <div class="ml-auto flex items-center gap-2">
+                                        <span class="text-lg font-bold">{{ $data->rating }}</span>
+                                        <div class="flex items-center">
+                                            @for ($i = 1; $i <= floor($data->rating); $i++)
+                                                <div class="text-yellow-500 flex items-center">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3"
+                                                         viewBox="0 0 24 24">
+                                                        <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                                                    </svg>
+                                                </div>
+                                            @endfor
+                                            @if ($data->rating - floor($data->rating) >= 0.5)
+                                                <img class="w-[12px]" src="{{ asset('assets/Navigation/halfstar.png') }}" alt="Half Star">
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                    
+                                <div class="flex flex-col justify-between h-[73%]">
+                                    <div>
+                                        <?php 
+                                            $description = $data->description; 
+                                        ?>
+                                        <p class="text-sm text-gray-300 leading-relaxed py-7 truncate-text" data-full-text="{{ $description }}">
+                                            {{ $description }}
+                                        </p>
+                                        <?php if (strlen(strip_tags($description)) > 242): ?>
+                                            <button class="view-more-btn text-blue-500 text-sm mt-2">View More</button>
+                                        <?php endif; ?>
+                                    </div>
+                    
+                                    <div class="flex justify-between items-center mt-6">
+                                        <h6 class="opacity-75 text-xs uppercase">{{ $data->place }}</h6>
+                                        <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
+                    
                     
 
                     <!-- Custom Navigation Buttons -->
@@ -1305,87 +1314,103 @@
 
             viewMoreButtons.forEach((btn) => {
                 btn.addEventListener('click', function () {
-                    // Collapse all other cards and reset height
-                    document.querySelectorAll('.truncate-text.expanded').forEach((expandedParagraph) => {
-                        if (expandedParagraph !== this.previousElementSibling) {
-                            expandedParagraph.classList.remove('expanded');
-                            expandedParagraph.nextElementSibling.textContent = 'View More';
+                    const paragraph = this.previousElementSibling;
+                    const fullText = paragraph.getAttribute('data-full-text') || paragraph.textContent;
 
-                            // Reset the height of the parent card
-                            const parentCard = expandedParagraph.closest('.cardparent');
-                            if (parentCard) {
-                                parentCard.classList.remove('h-auto');
-                                parentCard.classList.add('h-[340px]');
-                            }
+                    // Show the popup with SweetAlert2
+                    Swal.fire({
+                        title: 'Full Description',
+                        html: `<p style="text-align: left; line-height: 1.6;">${fullText}</p>`,
+                        width: '600px',
+                        showCloseButton: true,
+                        confirmButtonText: 'Close',
+                        customClass: {
+                            popup: 'custom-swal-popup'
                         }
                     });
-
-                    const paragraph = this.previousElementSibling;
-                    const parentCard = this.closest('.cardparent');
-
-                    // Toggle the clicked paragraph and adjust card height
-                    if (paragraph.classList.contains('expanded')) {
-                        paragraph.classList.remove('expanded');
-                        this.textContent = 'View More';
-
-                        // Reset the height of the parent card
-                        if (parentCard) {
-                            parentCard.classList.remove('h-auto');
-                            parentCard.classList.add('h-[340px]');
-                        }
-                    } else {
-                        paragraph.classList.add('expanded');
-                        this.textContent = 'View Less';
-
-                        // Set the height of the parent card to fit content
-                        if (parentCard) {
-                            parentCard.classList.remove('h-[340px]');
-                            parentCard.classList.add('h-auto');
-                        }
-                    }
                 });
             });
         });
 
-        document.addEventListener('DOMContentLoaded', function () {
-            // Initialize Splide and assign it to a variable
-            const splide = new Splide('#testimonial-slider', {
-                type: 'slide',
-                perMove: 1,
-                perPage: 3.1,
-                arrows: false,
-                pagination: false,
+        $(document).ready(function () {
+            $('#testimonial-slider').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
                 autoplay: true,
-                interval: 3000,
-                pauseOnHover: false,
-                pauseOnFocus: false,
-                breakpoints: {
-                    1420: { perPage: 2.5 },
-                    1285: { perPage: 2.9 },
-                    1024: { perPage: 1.5 },
-                    768: { perPage: 1 },
-                    480: { perPage: 1 },
-                }
-            }).mount();
-
-            // Attach event listeners to custom buttons
-            document.querySelector('.card-testi-slide-prev-button').addEventListener('click', function () {
-                splide.go('<'); // Go to the previous slide
-                restartAutoplay(splide);  // Restart autoplay
+                autoplaySpeed: 3000,
+                dots: false,
+                arrows: false,
+                responsive: [
+                    {
+                        breakpoint: 1420,
+                        settings: { slidesToShow: 2.5 }
+                    },
+                    {
+                        breakpoint: 1285,
+                        settings: { slidesToShow: 2 }
+                    },
+                    {
+                        breakpoint: 1024,
+                        settings: { slidesToShow: 1.5 }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: { slidesToShow: 1 }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: { slidesToShow: 1 }
+                    }
+                ]
+            });
+            $('.card-testi-slide-prev-button').on('click', function () {
+                $('#testimonial-slider').slick('slickPrev'); // Move to the previous slide
             });
 
-            document.querySelector('.card-testi-slide-next-button').addEventListener('click', function () {
-                splide.go('>'); // Go to the next slide
-                restartAutoplay(splide);  // Restart autoplay
+            // Custom next button
+            $('.card-testi-slide-next-button').on('click', function () {
+                $('#testimonial-slider').slick('slickNext'); // Move to the next slide
             });
-
-            // Function to restart autoplay
-            function restartAutoplay(splideInstance) {
-                splideInstance.options = { ...splideInstance.options, autoplay: true }; // Ensure autoplay is enabled
-                splideInstance.play(); // Resume autoplay
-            }
         });
 
+        // document.addEventListener('DOMContentLoaded', function () {
+        //     // Initialize Splide and assign it to a variable
+        //     const splide = new Splide('#testimonial-slider', {
+        //         type: 'loop',
+        //         perMove: 1, // Move one slide at a time
+        //         perPage: 2.9,
+        //         arrows: false,
+        //         pagination: false,
+        //         autoplay: true,
+        //         interval: 3000,
+        //         pauseOnHover: false,
+        //         pauseOnFocus: false,
+        //         breakpoints: {
+        //             1420: { perPage: 2.5 },
+        //             1285: { perPage: 2.9 },
+        //             1024: { perPage: 1.5 },
+        //             768: { perPage: 1 },
+        //             480: { perPage: 1 },
+        //         }
+        //     }).mount();
+
+        //     // Attach event listeners to custom buttons
+        //     document.querySelector('.card-testi-slide-prev-button').addEventListener('click', function () {
+        //         splide.go('-1'); // Move to the previous slide
+        //         restartAutoplay(splide); // Restart autoplay
+        //     });
+
+        //     document.querySelector('.card-testi-slide-next-button').addEventListener('click', function () {
+        //         splide.go('+1'); // Move to the next slide
+        //         restartAutoplay(splide); // Restart autoplay
+        //     });
+
+        //     // Function to restart autoplay
+        //     function restartAutoplay(splideInstance) {
+        //         splideInstance.options = { ...splideInstance.options, autoplay: true }; // Ensure autoplay is enabled
+        //         splideInstance.play(); // Resume autoplay
+        //     }
+        // });
 
         document.addEventListener('DOMContentLoaded', function () {
             const bannerSlider = document.querySelector('#home-banner-slider .splide__list');
