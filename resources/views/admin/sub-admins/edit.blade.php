@@ -65,10 +65,11 @@
 
                             <div class="form-group">
                                 <label class="control-label">{{ __('Role') }} </label>
+                                <span class="text-danger">*</span>
                                 <select name="role_id" required
                                     class="form-control text-dark @if ($errors->has('role_id')) is-invalid @endif">
                                     <option selected disabled>Choose Role
-                                        <span class="text-danger">*</span>
+
                                     </option>
                                     @foreach ($roles as $role)
                                         <option value="{{ $role->id }}"
