@@ -922,45 +922,55 @@
                         <div class="splide__track">
                             <div class="splide__list flex gap-5 px-4 md:px-0">
                                 @foreach ($testimonials as $data)
-                                <div class="splide__slide p-6 bg-grade-testimonial text-white rounded-lg shadow-md h-[340px] relative cardparent">
-                                    <div class="flex items-center justify-between space-x-4 mb-4">
-                                        <div class="flex items-center gap-2">
-                                            <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"
-                                            alt="{{ $data->alt_tag }}" class="w-12 h-12 rounded-full">
+                                    <div class="splide__slide p-6 bg-grade-testimonial text-white rounded-lg shadow-md h-[340px] relative cardparent">
+                                        <div class="flex items-center justify-between space-x-4 mb-4">
+                                            <div class="flex items-center gap-2">
+                                                <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"
+                                                alt="{{ $data->alt_tag }}" class="w-12 h-12 rounded-full">
+                                                <div>
+                                                    <h2 class="text-lg font-semibold clamp-text-one">{{ $data->name }}</h2>
+                                                    <p class="text-sm text-gray-400">{{ $data->occupation }}</p>
+                                                </div>
+                                            </div>
+
+                                            <div class="ml-auto flex items-center gap-2">
+                                                <span class="text-lg font-bold">{{ $data->rating }}</span>
+                                                <div class="flex items-center">
+                                                    @for ($i = 1; $i <= floor($data->rating); $i++)
+                                                        <div class="text-yellow-500 flex items-center">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                                                        </div>
+                                                    @endfor
+                                                    @if ($data->rating - floor($data->rating) >= 0.5)
+                                                        <img class="w-[12px]" src="{{ asset('assets/Navigation/halfstar.png') }}" alt="Half Star">
+                                                    @endif
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                        <div class="flex flex-col justify-between h-[73%]">
                                             <div>
-                                                <h2 class="text-lg font-semibold clamp-text-one">{{ $data->name }}</h2>
-                                                <p class="text-sm text-gray-400">{{ $data->occupation }}</p>
+                                                <?php 
+                                                    $description = $data->description; 
+                                                ?>
+                                                <p class="text-sm text-gray-300 leading-relaxed py-7 truncate-text" data-full-text="{{ $description }}">
+                                                    {{ $description }}
+                                                </p>
+                                                <?php if (strlen(strip_tags($description)) > 242): ?>
+                                                    <button class="view-more-btn text-blue-500 text-sm mt-2">View More</button>
+                                                <?php endif; ?>
+                                            </div>
+                                            
+                                            
+                                            <div class="flex justify-between items-center  mt-6">
+                                                <h6 class="opacity-75 text-xs uppercase">{{ $data->place }}</h6>
+                                                <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
                                             </div>
                                         </div>
-
-                                        <div class="ml-auto flex items-center gap-2">
-                                            <span class="text-lg font-bold">{{ $data->rating }}</span>
-                                            <div class="flex items-center">
-                                                @for ($i = 1; $i <= floor($data->rating); $i++)
-                                                    <div class="text-yellow-500 flex items-center">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
-                                                    </div>
-                                                @endfor
-                                                @if ($data->rating - floor($data->rating) >= 0.5)
-                                                    <img class="w-[12px]" src="{{ asset('assets/Navigation/halfstar.png') }}" alt="Half Star">
-                                                @endif
-                                            </div>
-
-                                        </div>
-
                                     </div>
-                                    <div>
-                                        <p class="text-sm text-gray-300 leading-relaxed py-7 truncate-text" data-full-text="{{ $data->description }}">
-                                            {{ $data->description }}
-                                        </p>
-                                        <button class="view-more-btn text-blue-500 text-sm mt-2">View More</button>
-                                    </div>
-                                    <div class="flex justify-between items-center  mt-6">
-                                        <h6 class="opacity-75 text-xs uppercase">{{ $data->place }}</h6>
-                                        <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
-                                    </div>
-                                </div>
-                            @endforeach
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -1034,9 +1044,9 @@
                             @foreach ($blogs as $data)
                                 <li class="splide__slide">
                                     <a href="{{url('blog-details/'.$data->slug)}}">
-                                        <div class="mx-auto h-[474px] bg-[#051b3b] shadow-lg rounded-lg overflow-hidden mt-[8px] 2xl:mt-10 lg:h-fit w-full sm:max-w-sm">
+                                        <div class="mx-auto min-h-[474px] bg-[#051b3b] shadow-lg rounded-lg overflow-hidden mt-[8px] 2xl:mt-10 lg:h-fit w-full sm:max-w-sm">
                                             <img class="w-full object-cover aspect-video" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"  alt="{{ $data->alt_tag }}">
-                                            <div class="p-6 border-b border-l border-r border-white rounded-lg mt-[-7px]">
+                                            <div class="p-6 border-b border-l border-r border-white rounded-lg mt-[-7px] h-[264px] flex flex-col justify-between">
                                                 <?php $date = $data->date . ' ' . $data->time; ?>
 
                                                 <div class="flex items-center justify-between">
