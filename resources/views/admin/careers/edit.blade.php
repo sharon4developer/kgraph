@@ -15,7 +15,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="title">Title</label>
+                                        <label class="form-label" for="title">Title<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="title" name="title"
                                             placeholder="Title" required  value="{{$data->title}}">
                                         <div class="valid-feedback">
@@ -26,7 +26,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="location">Location</label>
+                                        <label class="form-label" for="location">Location<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="location" name="location"
                                             placeholder="Location" required  value="{{$data->location}}">
                                         <div class="valid-feedback">
@@ -37,7 +37,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="experience">Experience</label>
+                                        <label class="form-label" for="experience">Experience<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="experience" name="experience"
                                             placeholder="Date" required  value="{{$data->experience}}">
                                         <div class="valid-feedback">
@@ -48,7 +48,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="location">Type</label>
+                                        <label class="form-label" for="location">Type<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="type" name="type"
                                             placeholder="Type" required value="{{$data->type}}">
                                         <div class="valid-feedback">
@@ -59,7 +59,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="location">Overview</label>
+                                        <label class="form-label" for="location">Overview<span class="text-danger">*</span></label>
                                         <textarea class="form-control" id="overview" name="overview"
                                             placeholder="Overview" required>{{$data->overview}}</textarea>
                                         <div class="valid-feedback">

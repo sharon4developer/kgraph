@@ -15,7 +15,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="title">Title</label>
+                                        <label class="form-label" for="title">Title<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="title" name="title"
                                             placeholder="Title" required  value="{{$data->title}}">
                                         <div class="valid-feedback">
@@ -26,7 +26,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="year">Year</label>
+                                        <label class="form-label" for="year">Year<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="year" name="year"
                                             placeholder="Year" required value="{{$data->year}}">
                                         <div class="valid-feedback">
@@ -37,7 +37,7 @@
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="description">Description</label>
+                                        <label class="form-label" for="description">Description<span class="text-danger">*</span></label>
                                         <textarea type="text" class="form-control" id="description" name="description"
                                             placeholder="Description" required>{{$data->description}}</textarea>
                                         <div class="valid-feedback">
@@ -48,7 +48,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="sub_title">Image</label>
+                                        <label class="form-label" for="sub_title">Image<span class="text-danger">*</span></label>
                                         <input type="file" accept=".png, .jpg, .jpeg,.webp" class="form-control"
                                             id="image" name="image">
                                         <div class="valid-feedback">
@@ -59,7 +59,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="second_image">Second Image</label>
+                                        <label class="form-label" for="second_image">Second Image<span class="text-danger">*</span></label>
                                         <input type="file" accept=".png, .jpg, .jpeg,.webp" class="form-control"
                                             id="second_image" name="second_image">
                                         <div class="valid-feedback">
@@ -70,7 +70,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="title">Alt Tag</label>
+                                        <label class="form-label" for="title">Alt Tag<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="alt_tag" name="alt_tag"
                                             placeholder="Alt Tag" required value="{{ $data->alt_tag }}">
                                         <div class="valid-feedback">
@@ -81,7 +81,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="title">Second Alt Tag</label>
+                                        <label class="form-label" for="title">Second Alt Tag<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="second_alt_tag" name="second_alt_tag"
                                             placeholder="Second Alt Tag" required value="{{ $data->second_alt_tag }}">
                                         <div class="valid-feedback">

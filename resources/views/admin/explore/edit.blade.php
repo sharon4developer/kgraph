@@ -15,7 +15,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="sub_title">Image</label>
+                                        <label class="form-label" for="sub_title">Image<span class="text-danger">*</span></label>
                                         <input type="file" accept=".png, .jpg, .jpeg,.webp" class="form-control"
                                             id="image" name="image">
                                         <div class="valid-feedback">
@@ -26,7 +26,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="title">Alt Tag</label>
+                                        <label class="form-label" for="title">Alt Tag<span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="alt_tag" name="alt_tag"
                                             placeholder="Alt Tag" required value="{{ $data->alt_tag }}">
                                         <div class="valid-feedback">
