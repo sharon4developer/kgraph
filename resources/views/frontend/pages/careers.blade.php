@@ -507,7 +507,7 @@
                     </div>
                     <div class="px-5 lg:pr-8 lg:pl-[62px] pt-3 pb-6 flex flex-col lg:flex-row lg:items-end h-fit lg:justify-between gap-7">
                         <div class="lg:w-[70%]">
-                            <h2 class="pb-3 text-sm font-extrabold uppercase font_inter">overview</h2>
+                            <h2 class="pb-3 text-sm font-extrabold font_inter">overview</h2>
 
                             @if(!empty($data->overview))
                                 <p class="pb-3 text-sm font-light uppercase font_inter">{{ $data->overview }}</p>
