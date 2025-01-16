@@ -127,4 +127,25 @@ class TestimonialController extends Controller
 
         return response()->json(['message' => 'Order updated successfully']);
     }
+
+
+public function removeImage(Request $request)
+{
+
+    $imageId = $request->input('id');
+
+
+    $data = Testimonial::find($imageId);
+    
+    if ($data && $data->image) {
+
+        $data->image = null;
+        $data->save();
+
+        return response()->json(['success' => true]);
+    }
+
+    return response()->json(['success' => false]);
+}
+
 }

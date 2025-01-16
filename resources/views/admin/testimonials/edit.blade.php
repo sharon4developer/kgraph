@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <form class="needs-validation" novalidate id="testimonial-edit-form" method="POST">
                         @method('PUT')
-                        <input type="hidden" name="testimonial_id" value="{{$data->id}}">
+                        <input type="hidden" name="testimonial_id" id="testimonial_id" value="{{$data->id}}">
                         <div class="row">
                             {{-- <div class="col-md-6">
                                 <div class="mb-3">
@@ -100,12 +100,13 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6" id='oldImage'>
                                 <div class="form-group">
                                     @if(isset($data->image))
                                     <label>Previous Image</label>
+                                    <button type="button" id="remove_image" class="remove_image" onclick="deleteImage({{$data->id}}) " >Remove</button>
                                     <div class="avatar-preview">
-                                        <img class="previous-image" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="profile-image" onerror="this.src='{{ $locationData['storage_server_path'].$locationData['admin_assets_path'].'placeholder.png' }}';">
+                                        <img id="image_id" class="previous-image" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="profile-image" onerror="this.src='{{ $locationData['storage_server_path'].$locationData['admin_assets_path'].'placeholder.png' }}';">
                                     </div>
                                     @endif
                                 </div>

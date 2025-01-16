@@ -370,3 +370,37 @@ function deleteData(id) {
     })
 }
 
+function deleteImage(id) {
+    Swal.fire({
+        title: 'Are you sure?',
+        text: "Are you sure you want to remove this image?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes!',
+        cancelButtonText: 'No, cancel!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type: "POST",
+                url: $("#route-for-user").val() + '/testimonials/remove/image',
+                data: {
+                    id: id,
+                },
+                success: function (data) {
+                    table.ajax.reload(null, false);
+                    if (data == true)
+                        showMessage('success', "Image deleted successfully");
+                    $('#oldImage').hide();
+                },
+                error: function (data) {
+                    showMessage("warning", "Something went wrong...");
+                },
+            });
+        }
+    })
+}
+
+
+
+

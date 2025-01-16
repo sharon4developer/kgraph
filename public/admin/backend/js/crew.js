@@ -40,7 +40,7 @@ function loadDataTableForCrew() {
             { data: 'DT_RowIndex', orderable: false, searchable: false },
             { data: 'name' },
             { data: 'position' },
-            { data: 'email' },
+         
             {
                 data: null,
                 render: function (row) {
@@ -210,12 +210,7 @@ $('#crew-edit-form').validate({
             required: true,
         },
 
-        email: {
-            required: true,
-        },
-        description: {
-            required: true,
-        },
+
         crew_id: {
             required: true,
         },
@@ -223,7 +218,7 @@ $('#crew-edit-form').validate({
     messages: {
         name: "Name field is required",
         position: "Position field is required",
-      
+
         email: "Email field is required",
         description: "Description field is required",
         image: "Image field is required",

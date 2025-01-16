@@ -25,7 +25,7 @@
                                 <th>SL No</th>
                                 <th>Name</th>
                                 <th>Position</th>
-                                <th>Email</th>
+                             
                                 <th>Image</th>
                                 {{-- <th>Status</th>
                                 <th>Created Date</th> --}}

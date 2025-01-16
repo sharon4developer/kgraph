@@ -86,6 +86,7 @@ Route::post('submit-career-form-new', [NewsLetterController::class, 'submitCaree
 
 
 
+
 Auth::routes();
 
 Route::get('login', function () {
@@ -212,7 +213,7 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
     });
 
     Route::prefix('testimonials')->name('.testimonials')->group(function () {
-
+        Route::post('remove/image', [TestimonialController::class, 'removeImage'])->name('image.remove');
         Route::post('change/status', [TestimonialController::class, 'changeStatus'])->name('change-status');
         Route::post('update/order', [TestimonialController::class, 'changeOrder'])->name('update-order');
     });
