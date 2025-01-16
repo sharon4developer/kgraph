@@ -15,7 +15,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="name">Name</label>
+                                        <label class="form-label" for="name">Name <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="name" name="name"
                                             placeholder="Name" required value="{{$data->name}}">
                                         <div class="valid-feedback">
@@ -26,7 +26,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="position">Position</label>
+                                        <label class="form-label" for="position">Position <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="position" name="position"
                                             placeholder="Position" required value="{{$data->position}}">
                                         <div class="valid-feedback">
@@ -48,7 +48,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="email">Email</label>
+                                        <label class="form-label" for="email">Email <span class="text-danger">*</span></label>
                                         <input type="email" class="form-control" id="email" name="email"
                                             placeholder="Email" required value="{{$data->email}}">
                                         <div class="valid-feedback">
@@ -59,7 +59,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="description">Description</label>
+                                        <label class="form-label" for="description">Description  <span class="text-danger">*</span></label>
                                         <textarea type="text" class="form-control" id="description" name="description"
                                             placeholder="Description" required>{{$data->description}}</textarea>
                                         <div class="valid-feedback">
@@ -70,7 +70,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="title">Alt Tag</label>
+                                        <label class="form-label" for="title">Alt Tag <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="alt_tag" name="alt_tag"
                                             placeholder="Alt Tag" required value="{{ $data->alt_tag }}">
                                         <div class="valid-feedback">
@@ -81,7 +81,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="sub_title">Image</label>
+                                        <label class="form-label" for="sub_title">Image <span class="text-danger">*</span></label>
                                         <input type="file" accept=".png, .jpg, .jpeg,.webp" class="form-control"
                                             id="image" name="image">
                                         <div class="valid-feedback">

@@ -24,7 +24,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="name">Name</label>
+                                        <label class="form-label" for="name">Name <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="name" name="name"
                                             placeholder="Name" required>
                                         <div class="valid-feedback">
@@ -57,7 +57,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="description">Description</label>
+                                        <label class="form-label" for="description">Description <span class="text-danger">*</span></label>
                                         <textarea type="text" class="form-control" id="description" name="description"
                                             placeholder="Description" required></textarea>
                                         <div class="valid-feedback">
@@ -68,7 +68,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="rating">Rating</label>
+                                        <label class="form-label" for="rating">Rating  <span class="text-danger">*</span></label>
                                         <input type="text" class="form-control" id="rating" name="rating"
                                             placeholder="Enter Rating 1 - 5" max="5" required>
                                         <div class="valid-feedback">
