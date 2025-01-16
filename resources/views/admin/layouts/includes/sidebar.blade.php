@@ -612,7 +612,7 @@
                             </li>
                         @endif
                         @if (auth()->user()->hasPermissionTo('contact-us'))
-                            <li><a href="{{ url('admin/contact-us') }}" data-key="t-level-2-2">Contact Us </a></li>
+                            <li><a href="{{ url('admin/contact') }}" data-key="t-level-2-2">Contact Us </a></li>
                         @endif
                         @if (auth()->user()->hasPermissionTo('applied-career'))
                             <li><a href="{{ url('admin/applied-career') }}" data-key="t-level-2-2">Career </a>
@@ -639,7 +639,7 @@
                 </ul>
             </li>
             @endif
-           
+
             {{-- <div class="card sidebar-alert shadow-none text-center mx-4 mb-0 mt-5">
                 <div class="card-body">
                     <img src="{{ asset('admin/theme/assets/images/giftbox.png') }}" alt="">
