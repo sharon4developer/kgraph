@@ -507,10 +507,10 @@
                     </div>
                     <div class="px-5 lg:pr-8 lg:pl-[62px] pt-3 pb-6 flex flex-col lg:flex-row lg:items-end h-fit lg:justify-between gap-7">
                         <div class="lg:w-[70%]">
-                            <h2 class="pb-3 text-sm font-extrabold uppercase font_inter">overview</h2>
+                            {{-- <h2 class="pb-3 text-sm font-extrabold font_inter">overview</h2> --}}
 
                             @if(!empty($data->overview))
-                                <p class="pb-3 text-sm font-light uppercase font_inter">{{ $data->overview }}</p>
+                                <p class="pb-3 text-sm font-light font_inter">{{ $data->overview }}</p>
                             @else
                                 <p class="pb-3 text-sm font-light lowercase font_inter">We help unlock value through a start-up mindset and modern methods, fusing strategy, consulting and customer experience with agile engineering and problem-solving creativity. United by our core values and our purpose of helping people thrive in the brave pursuit.</p>
                             @endif
