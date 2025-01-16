@@ -24,9 +24,8 @@ class StoreCrewRequest extends FormRequest
         return [
             'name' => 'required',
             'position' => 'required',
-            'address' => 'required',
-            'email' => 'required',
-            'description' => 'required',
+
+           
             'image' => 'mimes:jpeg,png,jpg,gif,webp',
         ];
     }

@@ -22,13 +22,13 @@ class StoreTestimonialRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required',
+
             'name' => 'required',
-            'place' => 'required',
-            'occupation' => 'required',
+
+            
             'description' => 'required',
             'rating' => 'required',
-            'image' => 'required|mimes:jpeg,png,jpg,gif,webp',
+            'image' => 'mimes:jpeg,png,jpg,gif,webp',
         ];
     }
 }

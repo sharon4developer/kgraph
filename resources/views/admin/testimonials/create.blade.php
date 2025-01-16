@@ -10,17 +10,17 @@
                 <div class="card-body">
                     <form class="needs-validation" novalidate id="testimonial-add-form" method="POST">
                         <div class="row">
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
                                         <label class="form-label" for="title">Title</label>
                                         <input type="text" class="form-control" id="title" name="title"
-                                            placeholder="Title" required>
+                                            placeholder="Title" >
                                         <div class="valid-feedback">
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
@@ -37,23 +37,23 @@
                                     <div class="form-group">
                                         <label class="form-label" for="place">Place</label>
                                         <input type="text" class="form-control" id="place" name="place"
-                                            placeholder="Place" required>
+                                            placeholder="Place" >
                                         <div class="valid-feedback">
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
                                         <label class="form-label" for="occupation">Occupation</label>
                                         <input type="text" class="form-control" id="occupation" name="occupation"
-                                            placeholder="Occupation" required>
+                                            placeholder="Occupation" >
                                         <div class="valid-feedback">
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
@@ -81,7 +81,7 @@
                                     <div class="form-group">
                                         <label class="form-label" for="title">Alt Tag</label>
                                         <input type="text" class="form-control" id="alt_tag" name="alt_tag"
-                                            placeholder="Alt Tag" required>
+                                            placeholder="Alt Tag" >
                                         <div class="valid-feedback">
                                         </div>
                                     </div>
@@ -92,7 +92,7 @@
                                     <div class="form-group">
                                         <label class="form-label" for="sub_title">Image</label>
                                         <input type="file" accept=".png, .jpg, .jpeg,.webp" class="form-control"
-                                            id="image" name="image" required>
+                                            id="image" name="image" >
                                         <div class="valid-feedback">
                                         </div>
                                     </div>

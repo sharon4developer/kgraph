@@ -21,6 +21,7 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
@@ -32,23 +33,23 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
                                         <label class="form-label" for="address">Address</label>
                                         <textarea type="text" class="form-control" id="address" name="address"
-                                            placeholder="Address" required></textarea>
+                                            placeholder="Address" ></textarea>
                                         <div class="valid-feedback">
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
                                         <label class="form-label" for="email">Email</label>
                                         <input type="email" class="form-control" id="email" name="email"
-                                            placeholder="Email" required>
+                                            placeholder="Email" >
                                         <div class="valid-feedback">
                                         </div>
                                     </div>
@@ -59,7 +60,7 @@
                                     <div class="form-group">
                                         <label class="form-label" for="description">Description</label>
                                         <textarea type="text" class="form-control" id="description" name="description"
-                                            placeholder="Description" required></textarea>
+                                            placeholder="Description" ></textarea>
                                         <div class="valid-feedback">
                                         </div>
                                     </div>

@@ -118,15 +118,9 @@ $('#crew-add-form').validate({
         position: {
             required: true,
         },
-        address: {
-            required: true,
-        },
-        email: {
-            required: true,
-        },
-        description: {
-            required: true,
-        },
+
+
+
         image: {
             required: true,
         },
@@ -134,7 +128,7 @@ $('#crew-add-form').validate({
     messages: {
         name: "Name field is required",
         position: "Position field is required",
-        address:  "Address field is required",
+
         email: "Email field is required",
         description: "Description field is required",
         image: "Image field is required",
@@ -215,9 +209,7 @@ $('#crew-edit-form').validate({
         position: {
             required: true,
         },
-        address: {
-            required: true,
-        },
+
         email: {
             required: true,
         },
@@ -231,7 +223,7 @@ $('#crew-edit-form').validate({
     messages: {
         name: "Name field is required",
         position: "Position field is required",
-        address:  "Address field is required",
+      
         email: "Email field is required",
         description: "Description field is required",
         image: "Image field is required",

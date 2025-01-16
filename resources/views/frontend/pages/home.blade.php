@@ -867,6 +867,7 @@
             </div>
         </div>
         {{-- Testimonial --}}
+
         <div class="Testimonial bg-[#051b3b] relative">
             <div class="absolute -top-1/3">
                 <img src="{{ asset('assets/home_Banner/testiminoalbgvect.png') }}" alt="" class="">
@@ -895,18 +896,33 @@
 
 
                     <div id="testimonial-slider" class="slider w-full">
+
                         @foreach ($testimonials as $data)
                             <div class="p-6 bg-grade-testimonial text-white rounded-lg shadow-md h-[340px] relative cardparent">
                                 <div class="flex items-center justify-between space-x-4 mb-4">
                                     <div class="flex items-center gap-2">
+
+
+
+
+
+
+
+
+                                    @if($data->image)
                                         <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"
                                              alt="{{ $data->alt_tag }}" class="w-12 h-12 rounded-full">
+
+                                             @else
+                                             <div class="w-16 h-16 rounded-full bg-gray-500 flex items-center justify-center text-white text-lg font-semibold">                                                {{ strtoupper(substr($data->name, 0, 1)) }}
+                                            </div>
+                                                                                         @endif
                                         <div>
                                             <h2 class="text-lg font-semibold clamp-text-one">{{ $data->name }}</h2>
                                             <p class="text-sm text-gray-400">{{ $data->occupation }}</p>
                                         </div>
                                     </div>
-                    
+
                                     <div class="ml-auto flex items-center gap-2">
                                         <span class="text-lg font-bold">{{ $data->rating }}</span>
                                         <div class="flex items-center">
@@ -924,11 +940,11 @@
                                         </div>
                                     </div>
                                 </div>
-                    
+
                                 <div class="flex flex-col justify-between h-[73%]">
                                     <div>
-                                        <?php 
-                                            $description = $data->description; 
+                                        <?php
+                                            $description = $data->description;
                                         ?>
                                         <p class="text-sm text-gray-300 leading-relaxed py-7 truncate-text" data-full-text="{{ $description }}">
                                             {{ $description }}
@@ -937,7 +953,7 @@
                                             <button class="view-more-btn text-blue-500 text-sm mt-2">View More</button>
                                         <?php endif; ?>
                                     </div>
-                    
+
                                     <div class="flex justify-between items-center mt-6">
                                         <h6 class="opacity-75 text-xs uppercase">{{ $data->place }}</h6>
                                         <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
@@ -946,8 +962,8 @@
                             </div>
                         @endforeach
                     </div>
-                    
-                    
+
+
 
                     <!-- Custom Navigation Buttons -->
                     <div class="flex  gap-3 lg:gap-0 flex-col-reverse lg:flex-row items-end lg:items-center justify-between mt-4 space-x-4">

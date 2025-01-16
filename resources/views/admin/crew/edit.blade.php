@@ -34,17 +34,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
                                         <label class="form-label" for="address">Address</label>
                                         <textarea type="text" class="form-control" id="address" name="address"
-                                            placeholder="Address" required>{{$data->address}}</textarea>
+                                            placeholder="Address" >{{$data->address}}</textarea>
                                         <div class="valid-feedback">
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">

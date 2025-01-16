@@ -111,36 +111,28 @@ function loadDataTableForTestimonials() {
 
 $('#testimonial-add-form').validate({
     rules: {
-        title: {
-            required: true,
-        },
+
         name: {
             required: true,
         },
-        place: {
-            required: true,
-        },
-        occupation: {
-            required: true,
-        },
+
+      
         description: {
             required: true,
         },
         rating: {
             required: true,
         },
-        image: {
-            required: true,
-        },
+
     },
     messages: {
         title: "Title field is required",
         name: "Name field is required",
-        place: "Place field is required",
+
         occupation: "Occupation field is required",
         description: "Description field is required",
         // rating: "Rating field is required",
-        image: "Image field is required",
+
     },
     errorElement: 'span',
     submitHandler: function (form, event) {
@@ -212,18 +204,12 @@ $('#testimonial-add-form').validate({
 
 $('#testimonial-edit-form').validate({
     rules: {
-        title: {
-            required: true,
-        },
+
         name: {
             required: true,
         },
-        place: {
-            required: true,
-        },
-        occupation: {
-            required: true,
-        },
+
+
         description: {
             required: true,
         },
@@ -235,13 +221,13 @@ $('#testimonial-edit-form').validate({
         },
     },
     messages: {
-        title: "Title field is required",
+
         name: "Name field is required",
-        place: "Place field is required",
-        occupation: "Occupation field is required",
+
+
         description: "Description field is required",
         // rating: "Rating field is required",
-        image: "Image field is required",
+
     },
     errorElement: 'span',
     submitHandler: function (form, event) {
