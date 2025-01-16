@@ -107,12 +107,12 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
     <div class="globebg">
         <div class="relative w-full footer z-30 pt-[86px] py-6 md:pt-28 md:pb-6">
             <div class="container flex flex-col items-start justify-between w-full h-full gap-8 px-5 py-4 mx-auto lg:px-12 footer-gaping lg:py-0 lg:flex-row lg:gap-12 2xl:gap-28">
-                <div class="flex flex-col w-full gap-6 lg:w-[753px]">
-                    <div class="flex items-center gap-5">
-                        <img class="w-[7pb-3 text-sm font-extrabold  font_inter53px]" src="{{ asset('assets/home_Banner/grouplogo.png') }}" alt="K-graph logo">
+                <div class="flex flex-col gap-6  lg:w-[753px]">
+                    <div class="flex items-center gap-5 lg:gap-0">
+                        <img class="lg:w-[753px] pb-3 text-sm font-extrabold  font_inter" src="{{ asset('assets/home_Banner/grouplogo.png') }}" alt="K-graph logo">
                     </div>
 
-                    <p class="font_inter text-[12px]  font-light  capitalize  text-white">
+                    <p class="font_inter text-[12px] w-1/2 lg:w-full  font-light  capitalize  text-white">
                     A team of certified consultants is ready to guide your immigration journey. 
                     Contact us to get expert help with your visa, residency or citizenship application</p>
                 </div>
