@@ -48,9 +48,9 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="email">Email <span class="text-danger">*</span></label>
+                                        <label class="form-label" for="email">Email </label>
                                         <input type="email" class="form-control" id="email" name="email"
-                                            placeholder="Email" required value="{{$data->email}}">
+                                            placeholder="Email"  value="{{$data->email}}">
                                         <div class="valid-feedback">
                                         </div>
                                     </div>
@@ -59,9 +59,9 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="description">Description  <span class="text-danger">*</span></label>
+                                        <label class="form-label" for="description">Description  </label>
                                         <textarea type="text" class="form-control" id="description" name="description"
-                                            placeholder="Description" required>{{$data->description}}</textarea>
+                                            placeholder="Description" >{{$data->description}}</textarea>
                                         <div class="valid-feedback">
                                         </div>
                                     </div>
