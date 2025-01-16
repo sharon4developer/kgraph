@@ -24,16 +24,16 @@
                                 <input type="text" name="email" class="form-control" id="email"
                                     placeholder="Enter Email" value="{{$data->email}}">
                             </div>
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label for="exampleFormControlInput1">Phone</label>
                                 <input type="text" name="phone" class="form-control" id="phone"
                                     placeholder="Enter Phone" value="{{$data->phone}}">
-                            </div>
-                            <div class="form-group">
+                            </div> --}}
+                            {{-- <div class="form-group">
                                 <label for="exampleFormControlInput1">Address</label>
                                 <textarea type="text" name="address" class="form-control" id="address"
                                 placeholder="Enter address">{{$data->address}}</textarea>
-                            </div>
+                            </div> --}}
 
                             <div class="form-group">
                                 <label for="exampleFormControlInput1">Image
