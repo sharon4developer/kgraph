@@ -115,7 +115,7 @@
                     <h6 class="text-white">{{$item->position}}  at K-graph</h6>
                     <div class="address text-white" bis_skin_checked="1">
                         <p class="text-white">Canada</p>
-                        <a class="email-link text-white" href="mail.canada@kgraph.ca">{{$item->email}}</a>
+                        <p class="email-link text-white">{{$item->email}}</p>
                     </div>
                     {{-- <a class="read-bio-link text-white" href="#">Read full bio &gt;</a> --}}
                 </div>
