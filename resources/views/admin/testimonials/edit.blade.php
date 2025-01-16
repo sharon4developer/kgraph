@@ -102,10 +102,12 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    @if(isset($data->image))
                                     <label>Previous Image</label>
                                     <div class="avatar-preview">
                                         <img class="previous-image" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="profile-image" onerror="this.src='{{ $locationData['storage_server_path'].$locationData['admin_assets_path'].'placeholder.png' }}';">
                                     </div>
+                                    @endif
                                 </div>
                             </div>
                         </div>

@@ -914,7 +914,8 @@
                                              alt="{{ $data->alt_tag }}" class="w-12 h-12 rounded-full">
 
                                              @else
-                                             <div class="w-16 h-16 rounded-full bg-gray-500 flex items-center justify-center text-white text-lg font-semibold">                                                {{ strtoupper(substr($data->name, 0, 1)) }}
+                                             <div class="w-16 h-16 rounded-full bg-gray-500 flex items-center justify-center text-white text-lg font-semibold">
+                                                   {{ strtoupper(substr($data->name, 0, 1)) }}
                                             </div>
                                                                                          @endif
                                         <div>

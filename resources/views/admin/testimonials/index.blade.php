@@ -21,7 +21,6 @@
                         <thead>
                             <tr>
                                 <th>SL No</th>
-                                <th>Title</th>
                                 <th>Name</th>
                                 <th>Image</th>
                                 <th>Status</th>

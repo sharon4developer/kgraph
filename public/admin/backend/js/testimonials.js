@@ -38,12 +38,12 @@ function loadDataTableForTestimonials() {
         ajax: $('#route-for-user').val() + '/testimonials/show',
         columns: [
             { data: 'DT_RowIndex', orderable: false, searchable: false },
-            { data: 'title' },
+
             { data: 'name' },
             {
                 data: null,
                 render: function (row) {
-                    return `<img class="table-img" src=` + row.image + `>`;
+                    return row.image;
                 },
                 orderable: false,
                 searchable: false,
@@ -116,7 +116,7 @@ $('#testimonial-add-form').validate({
             required: true,
         },
 
-      
+
         description: {
             required: true,
         },

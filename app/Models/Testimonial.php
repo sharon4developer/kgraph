@@ -22,11 +22,17 @@ class Testimonial extends Model
         $value =  SELF::select('title', 'name','id','description','status','place','occupation','image','created_at')->orderBy('order', 'asc');
 
         return DataTables::of($value)
-            ->editColumn('image', function ($row) use($locationData) {
-                return $locationData['storage_server_path'].$locationData['storage_image_path'].$row->image;
-            })
+        ->editColumn('image', function ($row) use ($locationData) {
+            if ($row->image) {
+                return '<img src="' . $locationData['storage_server_path'] . $locationData['storage_image_path'] . $row->image . '" class="table-img" alt="Image">';
+            } else {
+                $initial = strtoupper(substr($row->name, 0, 1));
+                return '<div style="width: 4rem; height: 4rem; border-radius: 50%; background-color: #6B7280; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.125rem; font-weight: 600;">'
+                . $initial .
+                '</div>';}
+        })
             ->addIndexColumn()
-            ->rawColumns(['action'])
+            ->rawColumns(['action','image'])
             ->make(true);
     }
 
@@ -61,7 +67,7 @@ class Testimonial extends Model
 
         $value->name        = $data->name;
         $value->place  = $data->place;
-      
+
         $value->description  = $data->description;
         $value->rating  = $data->rating;
         $value->alt_tag           =  $data->alt_tag;
