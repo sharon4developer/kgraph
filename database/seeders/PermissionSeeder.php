@@ -157,7 +157,7 @@ class PermissionSeeder extends Seeder
             'packages-delete',
 
             'settings',
-        
+
 
 
             'packages-seo',
@@ -279,12 +279,7 @@ class PermissionSeeder extends Seeder
         foreach ($permissions as $permission) {
             $permissionExists = Permission::where('name', $permission)->exists();
             if (!$permissionExists) {
-                $data[] = [
-                    'name'       => $permission,
-                    'guard_name' => 'web',
-                    'created_at' => now(),
-                    'updated_at' => now(),
-                ];
+                $data = []; foreach ($permissions as $permission) { $permissionExists = Permission::where('name', $permission)->exists(); if (!$permissionExists) { $data[] = [ 'name' => $permission, 'guard_name' => 'web', 'status' => str_contains($permission, 'delete') ? 1 : 0, 'created_at' => now(), 'updated_at' => now(), ]; } } 
             }
         }
         // Insert permissions in bulk

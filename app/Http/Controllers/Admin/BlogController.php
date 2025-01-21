@@ -14,10 +14,11 @@ class BlogController extends Controller
     public function index()
     {
          abort_unless(Gate::allows('blogs'), 403);
+         $userCanDelete = Gate::allows('blogs-delete');
         $title = 'Blogs';
         $sub_title = 'Blogs';
 
-        return view('admin.blogs.index',compact('title','sub_title'));
+        return view('admin.blogs.index',compact('title','sub_title','userCanDelete'));
     }
 
     public function create()
@@ -64,6 +65,7 @@ class BlogController extends Controller
         return $data;
     }
 
+
     public function edit($id)
     {
         abort_unless(Gate::allows('blogs-edit'), 403);
@@ -75,6 +77,11 @@ class BlogController extends Controller
         $sub_title = 'Edit';
         return view('admin.blogs.edit',compact('data','title','sub_title'));
     }
+
+
+
+
+
 
     public function update(UpdateBlogRequest $request, $id)
     {
@@ -108,9 +115,15 @@ class BlogController extends Controller
     public function destroy(Request $request)
     {
         abort_unless(Gate::allows('blogs-delete'), 403);
+
         $delete = Blog::deleteData($request);
         return response()->json($delete);
     }
+
+
+
+
+
 
     public function changeStatus(Request $request)
     {

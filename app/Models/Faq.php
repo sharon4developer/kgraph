@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Faq extends Model
 {
@@ -22,10 +23,16 @@ class Faq extends Model
         $value =  SELF::select('title', 'id', 'status', 'created_at')->orderBy('order', 'asc');
 
         return DataTables::of($value)
-            ->addIndexColumn()
-            ->rawColumns(['action'])
-            ->make(true);
+        ->addColumn('can_delete', function ($row)
+        { return Gate::allows('faq-delete'); })
+         ->addColumn('can_edit', function ($row)
+         { return Gate::allows('faq-edit'); })
+          ->addIndexColumn()
+          ->rawColumns(['action'])
+          ->make(true);
     }
+
+
 
     public static function createData($data)
     {

@@ -3,10 +3,11 @@
 namespace App\Models;
 
 use App\Mail\CareerApplication;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Database\Eloquent\Model;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class AppliedCareer extends Model
 {
@@ -42,32 +43,67 @@ class AppliedCareer extends Model
             $value->whereDate('created_at', '<=', $request->input('to_date'));
         }
 
-        return DataTables::of($value)
-            ->addIndexColumn()
-            ->editColumn('mobile', function ($row) {
-                return $row->country_code . $row->mobile;
-            })
-            ->editColumn('branch', function ($row) {
-                return $row->branch ? $row->Branch->title : '';
-            })
-            ->editColumn('career_id', function ($row) {
+        // return DataTables::of($value)
+            // ->addIndexColumn()
+            // ->editColumn('mobile', function ($row) {
+            //     return $row->country_code . $row->mobile;
+            // })
+            // ->editColumn('branch', function ($row) {
+            //     return $row->branch ? $row->Branch->title : '';
+            // })
+            // ->editColumn('career_id', function ($row) {
 
-                return $row->career_id ? $row->Career->title : '';
-            })
-            ->editColumn('department', function ($row) {
-                return $row->department ? $row->Department->title : '';
-            })
-            ->editColumn('resume', function ($row) use($locationData) {
-                return isset($row->resume) ? $locationData['storage_server_path'].$locationData['storage_image_path'].$row->resume : NULL;
-            })
-            ->editColumn('message', function ($row) use($locationData) {
-                return isset($row->message) ?  $locationData['storage_server_path'].$locationData['storage_image_path'].$row->message : NULL;
-            })
-            ->editColumn('created_at', function ($row) {
-                return date('Y-m-d H:i:s',strtotime($row->created_at));
-            })
-            ->make(true);
-    }
+            //     return $row->career_id ? $row->Career->title : '';
+            // })
+            // ->editColumn('department', function ($row) {
+            //     return $row->department ? $row->Department->title : '';
+            // })
+            // ->editColumn('resume', function ($row) use($locationData) {
+            //     return isset($row->resume) ? $locationData['storage_server_path'].$locationData['storage_image_path'].$row->resume : NULL;
+            // })
+            // ->editColumn('message', function ($row) use($locationData) {
+            //     return isset($row->message) ?  $locationData['storage_server_path'].$locationData['storage_image_path'].$row->message : NULL;
+            // })
+            // ->editColumn('created_at', function ($row) {
+            //     return date('Y-m-d H:i:s',strtotime($row->created_at));
+            // })
+            // ->make(true);
+
+            return DataTables::of($value)
+    ->addIndexColumn()
+    ->editColumn('mobile', function ($row) {
+        return $row->country_code . $row->mobile;
+    })
+    ->editColumn('branch', function ($row) {
+        return $row->branch ? $row->Branch->title : '';
+    })
+    ->editColumn('career_id', function ($row) {
+        return $row->career_id ? $row->Career->title : '';
+    })
+    ->editColumn('department', function ($row) {
+        return $row->department ? $row->Department->title : '';
+    })
+    ->editColumn('resume', function ($row) use($locationData) {
+        return isset($row->resume) ? $locationData['storage_server_path'] . $locationData['storage_image_path'] . $row->resume : NULL;
+    })
+    ->editColumn('message', function ($row) use($locationData) {
+        return isset($row->message) ? $locationData['storage_server_path'] . $locationData['storage_image_path'] . $row->message : NULL;
+    })
+    ->editColumn('created_at', function ($row) {
+        return date('Y-m-d H:i:s', strtotime($row->created_at));
+    })
+    ->addColumn('can_delete', function ($row) {
+        return Gate::allows('faq-delete');
+    })
+    ->addColumn('can_edit', function ($row) {
+        return Gate::allows('faq-edit');
+    })
+    ->rawColumns(['action'])
+    ->make(true);
+
+
+
+        }
 
     public static function saveCareer($data)
     {

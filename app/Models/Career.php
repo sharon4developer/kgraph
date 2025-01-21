@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Career extends Model
 {
@@ -21,7 +22,13 @@ class Career extends Model
 
         return DataTables::of($value)
             ->addIndexColumn()
-            ->rawColumns(['action'])
+            ->addColumn('can_delete', function ($row) {
+                return Gate::allows('careers-delete');
+            })
+            ->addColumn('can_edit', function ($row) {
+                return Gate::allows('careers-edit'); })
+            ->addIndexColumn()
+            ->rawColumns(['action', 'edit', 'delete'])
             ->make(true);
     }
 

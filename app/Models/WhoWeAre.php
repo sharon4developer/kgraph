@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class WhoWeAre extends Model
 {
@@ -29,8 +30,13 @@ class WhoWeAre extends Model
                     return $locationData['storage_server_path'].$locationData['storage_video_path'].$row->file;
 
             })
+            ->addColumn('can_delete', function ($row) {
+                return Gate::allows('who-we-are-delete');
+            })
+            ->addColumn('can_edit', function ($row) {
+                return Gate::allows('who-we-are-edit'); })
             ->addIndexColumn()
-            ->rawColumns(['action'])
+            ->rawColumns(['action', 'edit', 'delete'])
             ->make(true);
     }
 

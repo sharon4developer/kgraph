@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Database\Eloquent\Model;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class ServiceContent extends Model
 {
@@ -20,7 +21,13 @@ class ServiceContent extends Model
 
         return DataTables::of($value)
             ->addIndexColumn()
-            ->rawColumns(['action'])
+            ->addColumn('can_delete', function ($row) {
+                return Gate::allows('service-contents-delete');
+            })
+            ->addColumn('can_edit', function ($row) {
+                return Gate::allows('service-contents-edit'); })
+            ->addIndexColumn()
+            ->rawColumns(['action', 'edit', 'delete'])
             ->make(true);
     }
 

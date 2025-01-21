@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Yajra\DataTables\Facades\DataTables;
 use Str;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Database\Eloquent\Model;
+use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Service extends Model
 {
@@ -55,8 +56,13 @@ class Service extends Model
             ->editColumn('service_category_id', function ($row) {
                 return $row->ServiceCategory->title;
             })
+            ->addColumn('can_delete', function ($row) {
+                return Gate::allows('services-delete');
+            })
+            ->addColumn('can_edit', function ($row) {
+                return Gate::allows('services-edit'); })
             ->addIndexColumn()
-            ->rawColumns(['action'])
+            ->rawColumns(['action', 'edit', 'delete'])
             ->make(true);
     }
 

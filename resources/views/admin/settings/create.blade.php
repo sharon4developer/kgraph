@@ -21,6 +21,13 @@
                                         <div class="valid-feedback">
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="title">Email </label>
+                                        <input type="text" class="form-control" id="email" name="email"
+                                            placeholder="Email " required>
+                                        <div class="valid-feedback">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 

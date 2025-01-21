@@ -17,6 +17,7 @@ function loadDataTable() {
         columns: [
             { data: 'DT_RowIndex', orderable: false, searchable: false },
             { data: 'phone' },
+            { data: 'email' },
             {
                 data: 'created_at',
                 render: function (data) {
@@ -36,7 +37,7 @@ function loadDataTable() {
                                href="${$("#route-for-user").val()}/settings/${row.id}/edit">
                                 <i class="fa fa-edit"></i>
                             </a>
-                       
+
                         </div>`;
                 },
                 orderable: false,
@@ -64,12 +65,16 @@ $('#table-add-form').validate({
         phone: {
             required: true,
         },
+        email: {
+            required: true,
+        },
 
 
 
     },
     messages: {
         phone    : "Phone field is required",
+        email    : "Email field is required",
 
     },
     errorElement: 'span',
@@ -146,11 +151,14 @@ $('#table-edit-form').validate({
         phone: {
             required: true,
         },
+        email: {
+            required: true,
+        },
 
     },
     messages: {
         phone    : "Name field is required",
-
+        email    : "Email field is required",
 
 
 

@@ -22,6 +22,14 @@
                                             placeholder="What's App Number " value ={{$data->phone}}>
                                         <div class="valid-feedback">
                                         </div>
+                                        <div class="form-group">
+                                            <input type="hidden" name="table_id" value="{{$data->id}}">
+                                            <label class="form-label" for="title">Email </label>
+                                            <input type="text" class="form-control" id="title" name="email"
+                                                placeholder="Email " value ={{$data->email}}>
+                                            <div class="valid-feedback">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

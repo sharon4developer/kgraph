@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class SubServicesFaq extends Model
 {
@@ -35,7 +36,13 @@ class SubServicesFaq extends Model
             ->addColumn('service_id', function ($row) {
                 return $row->Services->title;
             })
-            ->rawColumns(['action'])
+            ->addColumn('can_delete', function ($row) {
+                return Gate::allows('sub-service-faq-delete');
+            })
+            ->addColumn('can_edit', function ($row) {
+                return Gate::allows('sub-service-faq-edit'); })
+            ->addIndexColumn()
+            ->rawColumns(['action', 'edit', 'delete'])
             ->make(true);
     }
 

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -20,26 +20,49 @@ class Blog extends Model
         return  $this->hasOne(BlogSeo::class);
     }
 
-    public static function getFullData($data)
-    {
-        $locationData = getLocationData();
+// public static function getFullData($data)
+// {
+//     $locationData = getLocationData();
 
-        $value =  SELF::select('title','name','date', 'image', 'id', 'status', 'created_at','time')->orderBy('order', 'asc');
+//     $value = SELF::select('title','name','date', 'image', 'id', 'status', 'created_at','time')->orderBy('order', 'asc');
 
-        return DataTables::of($value)
-            ->editColumn('image', function ($row) use($locationData) {
-                return $locationData['storage_server_path'].$locationData['storage_image_path'].$row->image;
-            })
-            ->editColumn('user_image', function ($row) use($locationData) {
-                return $locationData['storage_server_path'].$locationData['storage_image_path'].$row->user_image;
-            })
-            ->editColumn('date', function ($row) {
-                return $row->date.' '.$row->time;
-            })
-            ->addIndexColumn()
-            ->rawColumns(['action'])
-            ->make(true);
-    }
+//     return DataTables::of($value)
+//         ->editColumn('image', function ($row) use($locationData) {
+//             return $locationData['storage_server_path'].$locationData['storage_image_path'].$row->image;
+//         })
+//         ->editColumn('date', function ($row) {
+//             return $row->date.' '.$row->time;
+//         })
+//         ->addIndexColumn()
+//         ->rawColumns(['action', 'edit', 'delete'])
+//         ->make(true);
+// }
+
+public static function getFullData($data) {
+    $locationData = getLocationData();
+
+    $value = SELF::select('title', 'name', 'date', 'image', 'id', 'status', 'created_at', 'time')
+                ->orderBy('order', 'asc');
+
+    return DataTables::of($value)
+        ->editColumn('image', function ($row) use ($locationData) {
+            return $locationData['storage_server_path'] . $locationData['storage_image_path'] . $row->image;
+        })
+        ->editColumn('date', function ($row) {
+            return $row->date . ' ' . $row->time;
+        })
+        ->addColumn('can_delete', function ($row) {
+            return Gate::allows('blogs-delete');
+        })
+        ->addColumn('can_edit', function ($row) {
+            return Gate::allows('blogs-edit'); })
+        ->addIndexColumn()
+        ->rawColumns(['action', 'edit', 'delete'])
+        ->make(true);
+}
+
+
+
 
     public static function createData($data)
     {

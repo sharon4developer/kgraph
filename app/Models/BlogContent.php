@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Yajra\DataTables\Facades\DataTables;
@@ -20,7 +20,13 @@ class BlogContent extends Model
 
         return DataTables::of($value)
             ->addIndexColumn()
-            ->rawColumns(['action'])
+            ->addColumn('can_delete', function ($row) {
+                return Gate::allows('blogs-delete');
+            })
+            ->addColumn('can_edit', function ($row) {
+                return Gate::allows('blogs-edit'); })
+            ->addIndexColumn()
+            ->rawColumns(['action', 'edit', 'delete'])
             ->make(true);
     }
 

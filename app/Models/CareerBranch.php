@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Support\Facades\Gate;
 
 class CareerBranch extends Model
 {
@@ -20,9 +21,16 @@ class CareerBranch extends Model
         $value =  SELF::select('title', 'id', 'status', 'created_at')->orderBy('order', 'asc');
 
         return DataTables::of($value)
-            ->addIndexColumn()
-            ->rawColumns(['action'])
-            ->make(true);
+        ->addIndexColumn()
+        ->addColumn('can_delete', function ($row) {
+            return Gate::allows('careers-delete');
+        })
+        ->addColumn('can_edit', function ($row) {
+            return Gate::allows('careers-edit'); })
+        ->addIndexColumn()
+        ->rawColumns(['action', 'edit', 'delete'])
+        ->make(true);
+
     }
 
     public static function createData($data)

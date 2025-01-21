@@ -14,16 +14,63 @@ function loadDataTableForBlog() {
             {
                 data: null,
                 render: function (row) {
+                    let buttons = `<div style="white-space:nowrap">`;
 
+                    // Edit Button
+                    if (row.can_edit) {
+                        buttons += `
+                            <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
+                                data-bs-toggle="popover" data-bs-trigger="hover"
+                                data-bs-original-title="Edit" data-bs-placement="top"
+                                href="${$("#route-for-user").val()}/blogs/${row.id}/edit">
+                                <i class="fa fa-edit"></i>
+                            </a>`;
+                    }
 
-                    return (`<div style="white-space:no-wrap">
-                                    <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Edit" data-bs-placement="top"  href="` + $("#route-for-user").val() + `/blog-contents/` + row.id + `/edit">
-                                        <i class="fa fa-edit"></i>
-                                    </a>
-                                 </div>`);
+                    // Status Toggle Button
+                    if (row.status == 1) {
+                        buttons += `
+                            <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
+                                href="#" data-bs-toggle="popover" data-bs-trigger="hover"
+                                data-bs-original-title="Deactivate" data-bs-placement="top"
+                                onclick="changeStatus(${row.id}, ${row.status})">
+                                <i class="fa fa-ban"></i>
+                            </a>`;
+                    } else {
+                        buttons += `
+                            <a class="datatable-buttons btn btn-outline-success btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
+                                href="#" data-bs-toggle="popover" data-bs-trigger="hover"
+                                data-bs-original-title="Activate" data-bs-placement="top"
+                                onclick="changeStatus(${row.id}, ${row.status})">
+                                <i class="fa fa-check"></i>
+                            </a>`;
+                    }
 
-                }, orderable: false, searchable: false
-            },
+                    // Delete Button
+                    if (row.can_delete) {
+                        buttons += `
+                            <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
+                                href="#" data-bs-toggle="popover" data-bs-trigger="hover"
+                                data-bs-original-title="Delete" data-bs-placement="top"
+                                onclick="deleteData(${row.id})">
+                                <i class="fa fa-trash"></i>
+                            </a>`;
+                    }
+
+                    // SEO Button
+                    buttons += `
+                        <a class="btn btn-outline-info btn-rounded mb-2 me-4 _effect--ripple waves-effect waves-light"
+                            href="#" onclick="loadSeo(${row.id})" data-bs-toggle="popover"
+                            data-bs-trigger="hover" data-bs-original-title="Seo" data-bs-placement="top">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </a>
+                    </div>`;
+
+                    return buttons;
+                },
+                orderable: false,
+                searchable: false
+            }
         ],
         pagingType: "full_numbers",
         "dom": "<'dt--top-section'<'row'<'col-12 col-sm-6 d-flex justify-content-sm-start justify-content-center'l><'col-12 col-sm-6 d-flex justify-content-sm-end justify-content-center mt-sm-0 mt-3'f>>>" +

@@ -23,6 +23,7 @@ class UpdatewhatsAppRequest extends FormRequest
     {
         return [
             'phone' => 'required|numeric ',
+               'email' => 'required|email'
         ];
     }
 }

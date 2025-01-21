@@ -71,27 +71,54 @@ function loadDataTableForCertificates() {
             {
                 data: null,
                 render: function (row) {
+                    let buttons = `<div style="white-space:no-wrap">`;
 
-                    if (row.status == 1)
-                        statusCheck = ` <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light" href="#"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Deactivate" data-bs-placement="top"   onclick="changeStatus(` + row.id + `,` + row.status + `)">
-                                            <i class="fa fa-ban"></i>
-                                        </a>`;
-                    else
-                        statusCheck = ` <a class="datatable-buttons btn btn-outline-success btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light" href="#"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Activate" data-bs-placement="top" onclick="changeStatus(` + row.id + `,` + row.status + `)">
-                                            <i class="fa fa-check"></i>
-                                        </a>`;
-                    return (`<div style="white-space:no-wrap">
-                                    <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Edit" data-bs-placement="top"  href="` + $("#route-for-user").val() + `/certificates/` + row.id + `/edit">
-                                        <i class="fa fa-edit"></i>
-                                    </a>
-                                    `+ statusCheck + `
-                                    <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light" href="#"   data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Delete" data-bs-placement="top"   onclick="deleteData(`+ row.id + `)">
-                                         <i class="fa fa-trash"></i>
-                                    </a>
-                                 </div>`);
+                    // Edit Button (conditionally rendered based on can_edit permission)
+                    if (row.can_edit) {
+                        buttons += `
+                            <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
+                                data-bs-toggle="popover" data-bs-trigger="hover"
+                                data-bs-original-title="Edit" data-bs-placement="top"
+                                href="${$("#route-for-user").val()}/careers/${row.id}/edit">
+                                <i class="fa fa-edit"></i>
+                            </a>`;
+                    }
 
-                }, orderable: false, searchable: false
-            },
+                    // Status Toggle Button (Activate/Deactivate based on status)
+                    if (row.status == 1) {
+                        buttons += `
+                            <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
+                                href="#" data-bs-toggle="popover" data-bs-trigger="hover"
+                                data-bs-original-title="Deactivate" data-bs-placement="top"
+                                onclick="changeStatus(${row.id}, ${row.status})">
+                                <i class="fa fa-ban"></i>
+                            </a>`;
+                    } else {
+                        buttons += `
+                            <a class="datatable-buttons btn btn-outline-success btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
+                                href="#" data-bs-toggle="popover" data-bs-trigger="hover"
+                                data-bs-original-title="Activate" data-bs-placement="top"
+                                onclick="changeStatus(${row.id}, ${row.status})">
+                                <i class="fa fa-check"></i>
+                            </a>`;
+                    }
+
+                    // Delete Button (conditionally rendered based on can_delete permission)
+                    if (row.can_delete) {
+                        buttons += `
+                            <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
+                                href="#" data-bs-toggle="popover" data-bs-trigger="hover"
+                                data-bs-original-title="Delete" data-bs-placement="top"
+                                onclick="deleteData(${row.id})">
+                                <i class="fa fa-trash"></i>
+                            </a>`;
+                    }
+
+                    buttons += `</div>`;
+                    return buttons;
+                },
+                orderable: false, searchable: false
+            }
         ],
         pagingType: "full_numbers",
         "dom": "<'dt--top-section'<'row'<'col-12 col-sm-6 d-flex justify-content-sm-start justify-content-center'l><'col-12 col-sm-6 d-flex justify-content-sm-end justify-content-center mt-sm-0 mt-3'f>>>" +

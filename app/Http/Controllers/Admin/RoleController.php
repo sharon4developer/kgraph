@@ -96,6 +96,7 @@ class RoleController extends Controller
     public function show(string $id)
     { abort_unless(Gate::allows('roles'), 403);
         $data = Role::orderBy('created_at','desc');
+
         return DataTables::of($data)
         ->addIndexColumn()
         ->addColumn('permissions', function (Role $role) {
@@ -137,6 +138,7 @@ class RoleController extends Controller
         abort_unless(Gate::allows('roles-edit'), 403);
         try{
             $value             = Role::find($request->table_id);
+
             $value->name       = $request->name;
             $value->name       = $request->name;
             $value->guard_name = 'web';
@@ -204,33 +206,73 @@ class RoleController extends Controller
     }
 
     // Store
-    public function storeRolePermision(Request $request, $id)
-    {
+    // public function storeRolePermision(Request $request, $id)
+    // {
 
-        try{
-            $role = Role::where('id', $request->table_id)->first();
-            if ($role->name != 'super admin') {
-                $role->syncPermissions($request->name);
-                $response=[
-                    'status'=>true,
-                    'message'=>'Saved successfully...',
-                    'return_url'=>'/admin/roles',
-                ];
-            } else {
-                $response=[
-                    'status'=>false,
-                    'message'=>'Something wrong please try again.',
-                ];
-            }
-        }catch(Exception $e){
-            $response=[
-                'status'=>false,
-                'message'=>'Something went wrong please try again.',
-                'error'=>$e->getMessage(),
+    //     try{
+    //         $role = Role::where('id', $request->table_id)->first();
+
+
+    //         if ($role->name != 'super admin') {
+    //             $role->syncPermissions($request->name);
+    //             $response=[
+    //                 'status'=>true,
+    //                 'message'=>'Saved successfully...',
+    //                 'return_url'=>'/admin/roles',
+    //             ];
+    //         } else {
+    //             $response=[
+    //                 'status'=>false,
+    //                 'message'=>'Something wrong please try again.',
+    //             ];
+    //         }
+    //     }catch(Exception $e){
+    //         $response=[
+    //             'status'=>false,
+    //             'message'=>'Something went wrong please try again.',
+    //             'error'=>$e->getMessage(),
+    //         ];
+    //     }
+    //     return response()->json($response);
+    // }
+
+
+
+
+    public function storeRolePermision(Request $request, $id)
+{
+    try {
+        $role = Role::where('id', $request->table_id)->first();
+
+        if ($role->name != 'super admin') {
+            // Sync the permissions for the role
+            $role->syncPermissions($request->name);
+
+            // Check if 'blogs-delete' permission is granted
+            $hasDeletePermission = in_array('blogs-delete', $request->name);
+
+            $response = [
+                'status' => true,
+                'message' => 'Saved successfully...',
+                'return_url' => '/admin/roles',
+                'hasDeletePermission' => $hasDeletePermission, // Send this to frontend
+            ];
+        } else {
+            $response = [
+                'status' => false,
+                'message' => 'Something wrong please try again.',
             ];
         }
-        return response()->json($response);
+    } catch (Exception $e) {
+        $response = [
+            'status' => false,
+            'message' => 'Something went wrong please try again.',
+            'error' => $e->getMessage(),
+        ];
     }
+    return response()->json($response);
+}
+
 
 
 }

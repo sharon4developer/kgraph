@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Testimonial extends Model
 {
@@ -31,9 +32,14 @@ class Testimonial extends Model
                 . $initial .
                 '</div>';}
         })
-            ->addIndexColumn()
-            ->rawColumns(['action','image'])
-            ->make(true);
+        ->addColumn('can_delete', function ($row) {
+            return Gate::allows('testimonials-delete');
+        })
+        ->addColumn('can_edit', function ($row) {
+            return Gate::allows('testimonials-edit'); })
+        ->addIndexColumn()
+        ->rawColumns(['action', 'edit', 'delete','image'])
+        ->make(true);
     }
 
     public static function createData($data)

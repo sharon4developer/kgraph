@@ -3,10 +3,11 @@
 namespace App\Models;
 
 use App\Mail\NewsLetterSubscribed;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Database\Eloquent\Model;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class NewsLetter extends Model
 {
@@ -34,6 +35,13 @@ class NewsLetter extends Model
             ->editColumn('created_at', function ($row) {
                 return date('Y-m-d H:i:s',strtotime($row->created_at));
             })
+            ->addColumn('can_delete', function ($row) {
+                return Gate::allows('news-letter-delete');
+            })
+            ->addColumn('can_edit', function ($row) {
+                return Gate::allows('news-letter-edit'); })
+            ->addIndexColumn()
+            ->rawColumns(['action', 'edit', 'delete'])
             ->make(true);
     }
 

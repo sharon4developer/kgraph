@@ -19,7 +19,8 @@
                     <thead>
                         <tr>
                             <th>SL No</th>
-                            <th>Number</th>
+                            <th>Whats App Number</th>
+                            <th>Email</th>
                             <th>Created Date</th>
                             <th>Action</th>
                         </tr>

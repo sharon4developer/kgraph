@@ -13,7 +13,7 @@ class CareerBranchController extends Controller
 {
     public function index()
     {
-        abort_unless(Gate::allows(' career-branches'), 403);
+        abort_unless(Gate::allows('career-branches'), 403);
         $title = 'Career Branch';
         $sub_title = 'Career Branch';
 
@@ -22,7 +22,7 @@ class CareerBranchController extends Controller
 
     public function create()
     {
-        abort_unless(Gate::allows(' career-branches-create'), 403);
+        abort_unless(Gate::allows('career-branches-create'), 403);
         $title = 'Career Branch';
         $sub_title = 'Add';
         return view('admin.career-branch.create',compact('title','sub_title'));
@@ -30,7 +30,7 @@ class CareerBranchController extends Controller
 
     public function store(StoreCareerBranchRequest $request)
     {
-        abort_unless(Gate::allows(' career-branches-create'), 403);
+        abort_unless(Gate::allows('career-branches-create'), 403);
         try{
             $save= CareerBranch::createData($request);
 
@@ -59,14 +59,14 @@ class CareerBranchController extends Controller
 
     public function show(Request $request)
     {
-        abort_unless(Gate::allows(' career-branches'), 403);
+        abort_unless(Gate::allows('career-branches'), 403);
         $data = CareerBranch::getFullData($request);
         return $data;
     }
 
     public function edit($id)
     {
-        abort_unless(Gate::allows(' career-branches-edit'), 403);
+        abort_unless(Gate::allows('career-branches-edit'), 403);
         $data = CareerBranch::getData($id);
         if(!$data){
             abort(404);
@@ -78,7 +78,7 @@ class CareerBranchController extends Controller
 
     public function update(UpdateCareerBranchRequest $request, $id)
     {
-        abort_unless(Gate::allows(' career-branches-edit'), 403);
+        abort_unless(Gate::allows('career-branches-edit'), 403);
         try{
             $save= CareerBranch::updateData($request);
 
@@ -107,7 +107,7 @@ class CareerBranchController extends Controller
 
     public function destroy(Request $request)
     {
-        abort_unless(Gate::allows(' career-branches-delete'), 403);
+        abort_unless(Gate::allows('career-branches-delete'), 403);
         $delete = CareerBranch::deleteData($request);
         return response()->json($delete);
     }

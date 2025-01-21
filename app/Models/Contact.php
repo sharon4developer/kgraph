@@ -3,10 +3,11 @@
 namespace App\Models;
 
 use App\Mail\ContactMessage;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Database\Eloquent\Model;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Contact extends Model
 {
@@ -35,6 +36,13 @@ class Contact extends Model
             ->editColumn('created_at', function ($row) {
                 return date('Y-m-d H:i:s',strtotime($row->created_at));
             })
+            ->addColumn('can_delete', function ($row) {
+                return Gate::allows('contact-delete');
+            })
+            ->addColumn('can_edit', function ($row) {
+                return Gate::allows('contact-edit'); })
+            ->addIndexColumn()
+            ->rawColumns(['action', 'edit', 'delete'])
             ->make(true);
     }
 
@@ -46,7 +54,7 @@ class Contact extends Model
         $value->country_code = $data->country;
         $value->mobile = $data->mobile;
         $value->message = $data->message;
-       
+
         $value->save();
 
         $contactData = [
@@ -57,8 +65,12 @@ class Contact extends Model
         ];
 
         // Send the email
-        Mail::to($data->email)->send(new ContactMessage($contactData));
+        $email = whatsApp::first('email');
 
+        if(isset($email) && isset($email->email)){
+         
+            Mail::to($email->email)->send(new ContactMessage($contactData));
+        }
         return true;
     }
 

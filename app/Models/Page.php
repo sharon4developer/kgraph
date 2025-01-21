@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Database\Eloquent\Model;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Page extends Model
 {
@@ -19,9 +20,14 @@ class Page extends Model
         $value =  SELF::select('title','id','status');
 
         return DataTables::of($value)
-                ->addIndexColumn()
-                ->rawColumns(['action'])
-                ->make(true);
+        ->addColumn('can_delete', function ($row) {
+            return Gate::allows('pages-delete');
+        })
+        ->addColumn('can_edit', function ($row) {
+            return Gate::allows('pages-edit'); })
+        ->addIndexColumn()
+        ->rawColumns(['action', 'edit', 'delete'])
+        ->make(true);
 	}
 
     public function Seo(){

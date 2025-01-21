@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
-use Yajra\DataTables\Facades\DataTables;
 use Str;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Database\Eloquent\Model;
+use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Package extends Model
 {
@@ -38,8 +39,13 @@ class Package extends Model
             ->editColumn('image', function ($row) use($locationData) {
                 return $locationData['storage_server_path'].$locationData['storage_image_path'].$row->image;
             })
+            ->addColumn('can_delete', function ($row) {
+                return Gate::allows('packages-delete');
+            })
+            ->addColumn('can_edit', function ($row) {
+                return Gate::allows('packages-edit'); })
             ->addIndexColumn()
-            ->rawColumns(['action'])
+            ->rawColumns(['action', 'edit', 'delete'])
             ->make(true);
     }
 

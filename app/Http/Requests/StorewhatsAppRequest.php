@@ -23,6 +23,7 @@ class StorewhatsAppRequest extends FormRequest
     {
         return [
           'phone' => 'required|numeric ',
+          'email' => 'required|email'
         ];
     }
 }

@@ -2,11 +2,12 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Database\Eloquent\Model;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Crew extends Model
 {
@@ -26,8 +27,13 @@ class Crew extends Model
             ->editColumn('image', function ($row) use($locationData) {
                 return $locationData['storage_server_path'].$locationData['storage_image_path'].$row->image;
             })
+            ->addColumn('can_delete', function ($row) {
+                return Gate::allows('crew-delete');
+            })
+            ->addColumn('can_edit', function ($row) {
+                return Gate::allows('crew-edit'); })
             ->addIndexColumn()
-            ->rawColumns(['action'])
+            ->rawColumns(['action', 'edit', 'delete'])
             ->make(true);
     }
 

@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Database\Eloquent\Model;
 use Yajra\DataTables\Facades\DataTables;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Home extends Model
 {
@@ -58,9 +59,14 @@ class Home extends Model
         ])->get();
 
         return DataTables::of($value)
-            ->addIndexColumn()
-            ->rawColumns(['action'])
-            ->make(true);
+        ->addColumn('can_delete', function ($row) {
+            return Gate::allows('home-delete');
+        })
+        ->addColumn('can_edit', function ($row) {
+            return Gate::allows('home-edit'); })
+        ->addIndexColumn()
+        ->rawColumns(['action', 'edit', 'delete'])
+        ->make(true);
     }
 
     // Create new Home entry
