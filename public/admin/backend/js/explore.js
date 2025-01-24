@@ -78,7 +78,7 @@ function loadDataTableForExplore() {
                             <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
                                 data-bs-toggle="popover" data-bs-trigger="hover"
                                 data-bs-original-title="Edit" data-bs-placement="top"
-                                href="${$("#route-for-user").val()}/careers/${row.id}/edit">
+                                href="${$("#route-for-user").val()}/explore/${row.id}/edit">
                                 <i class="fa fa-edit"></i>
                             </a>`;
                     }

@@ -22,40 +22,40 @@ function loadDataTableForBlog() {
                             <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
                                 data-bs-toggle="popover" data-bs-trigger="hover"
                                 data-bs-original-title="Edit" data-bs-placement="top"
-                                href="${$("#route-for-user").val()}/blogs/${row.id}/edit">
+                                href="${$("#route-for-user").val()}/blog-contents/${row.id}/edit">
                                 <i class="fa fa-edit"></i>
                             </a>`;
                     }
 
                     // Status Toggle Button
-                    if (row.status == 1) {
-                        buttons += `
-                            <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
-                                href="#" data-bs-toggle="popover" data-bs-trigger="hover"
-                                data-bs-original-title="Deactivate" data-bs-placement="top"
-                                onclick="changeStatus(${row.id}, ${row.status})">
-                                <i class="fa fa-ban"></i>
-                            </a>`;
-                    } else {
-                        buttons += `
-                            <a class="datatable-buttons btn btn-outline-success btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
-                                href="#" data-bs-toggle="popover" data-bs-trigger="hover"
-                                data-bs-original-title="Activate" data-bs-placement="top"
-                                onclick="changeStatus(${row.id}, ${row.status})">
-                                <i class="fa fa-check"></i>
-                            </a>`;
-                    }
+                    // if (row.status == 1) {
+                    //     buttons += `
+                    //         <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
+                    //             href="#" data-bs-toggle="popover" data-bs-trigger="hover"
+                    //             data-bs-original-title="Deactivate" data-bs-placement="top"
+                    //             onclick="changeStatus(${row.id}, ${row.status})">
+                    //             <i class="fa fa-ban"></i>
+                    //         </a>`;
+                    // } else {
+                    //     buttons += `
+                    //         <a class="datatable-buttons btn btn-outline-success btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
+                    //             href="#" data-bs-toggle="popover" data-bs-trigger="hover"
+                    //             data-bs-original-title="Activate" data-bs-placement="top"
+                    //             onclick="changeStatus(${row.id}, ${row.status})">
+                    //             <i class="fa fa-check"></i>
+                    //         </a>`;
+                    // }
 
-                    // Delete Button
-                    if (row.can_delete) {
-                        buttons += `
-                            <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
-                                href="#" data-bs-toggle="popover" data-bs-trigger="hover"
-                                data-bs-original-title="Delete" data-bs-placement="top"
-                                onclick="deleteData(${row.id})">
-                                <i class="fa fa-trash"></i>
-                            </a>`;
-                    }
+                    // // Delete Button
+                    // if (row.can_delete) {
+                    //     buttons += `
+                    //         <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
+                    //             href="#" data-bs-toggle="popover" data-bs-trigger="hover"
+                    //             data-bs-original-title="Delete" data-bs-placement="top"
+                    //             onclick="deleteData(${row.id})">
+                    //             <i class="fa fa-trash"></i>
+                    //         </a>`;
+                    // }
 
                     // SEO Button
                     buttons += `

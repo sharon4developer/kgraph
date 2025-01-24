@@ -71,29 +71,29 @@ function loadDataTableForContact() {
                             <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
                                 data-bs-toggle="popover" data-bs-trigger="hover"
                                 data-bs-original-title="Edit" data-bs-placement="top"
-                                href="${$("#route-for-user").val()}/careers/${row.id}/edit">
+                                href="${$("#route-for-user").val()}/contact/${row.id}/edit">
                                 <i class="fa fa-edit"></i>
                             </a>`;
                     }
 
                     // Status Toggle Button (Activate/Deactivate based on status)
-                    if (row.status == 1) {
-                        buttons += `
-                            <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
-                                href="#" data-bs-toggle="popover" data-bs-trigger="hover"
-                                data-bs-original-title="Deactivate" data-bs-placement="top"
-                                onclick="changeStatus(${row.id}, ${row.status})">
-                                <i class="fa fa-ban"></i>
-                            </a>`;
-                    } else {
-                        buttons += `
-                            <a class="datatable-buttons btn btn-outline-success btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
-                                href="#" data-bs-toggle="popover" data-bs-trigger="hover"
-                                data-bs-original-title="Activate" data-bs-placement="top"
-                                onclick="changeStatus(${row.id}, ${row.status})">
-                                <i class="fa fa-check"></i>
-                            </a>`;
-                    }
+                    // if (row.status == 1) {
+                    //     buttons += `
+                    //         <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
+                    //             href="#" data-bs-toggle="popover" data-bs-trigger="hover"
+                    //             data-bs-original-title="Deactivate" data-bs-placement="top"
+                    //             onclick="changeStatus(${row.id}, ${row.status})">
+                    //             <i class="fa fa-ban"></i>
+                    //         </a>`;
+                    // } else {
+                    //     buttons += `
+                    //         <a class="datatable-buttons btn btn-outline-success btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
+                    //             href="#" data-bs-toggle="popover" data-bs-trigger="hover"
+                    //             data-bs-original-title="Activate" data-bs-placement="top"
+                    //             onclick="changeStatus(${row.id}, ${row.status})">
+                    //             <i class="fa fa-check"></i>
+                    //         </a>`;
+                    // }
 
                     // Delete Button (conditionally rendered based on can_delete permission)
                     if (row.can_delete) {
