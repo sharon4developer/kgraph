@@ -44,6 +44,7 @@ use App\Http\Controllers\Admin\ServiceSeoController;
 use App\Http\Controllers\Admin\SubAdminController;
 use App\Http\Controllers\Admin\SubServicePointContentController;
 use App\Http\Controllers\Admin\SubServicesController;
+use App\Http\Controllers\Admin\SubServiceSeoController;
 use App\Http\Controllers\Admin\SubServicesFaqController;
 use App\Http\Controllers\Admin\SubServicesPointController;
 use App\Http\Controllers\Admin\TermsAndConditionController;
@@ -300,6 +301,10 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
     });
 
     Route::prefix('sub-services')->name('.sub-services')->group(function () {
+
+        Route::resources([
+            'seo' => SubServiceSeoController::class,
+        ]);
 
         Route::post('change/status', [SubServicesController::class, 'changeStatus'])->name('change-status');
         Route::post('update/order', [SubServicesController::class, 'changeOrder'])->name('update-order');

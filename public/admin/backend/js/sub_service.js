@@ -96,11 +96,10 @@ function loadDataTableForServices() {
                                     <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light" href="#"   data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Delete" data-bs-placement="top"   onclick="deleteData(`+ row.id + `)">
                                          <i class="fa fa-trash"></i>
                                     </a>
-
+                                    <a class="btn btn-outline-info btn-rounded mb-2 me-4 _effect--ripple waves-effect waves-light" href="#"  onclick="loadSeo(` + row.id + `)" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Seo" data-bs-placement="top">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </a>
                                  </div>`);
-                            //      <a class="btn btn-outline-info btn-rounded mb-2 me-4 _effect--ripple waves-effect waves-light" href="#"  onclick="loadSeo(` + row.id + `)" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Seo" data-bs-placement="top">
-                            //      <i class="fa fa-search" aria-hidden="true"></i>
-                            //  </a>
 
                 }, orderable: false, searchable: false
             },
@@ -385,7 +384,7 @@ $('#select-service').on('change',function (e) {
 function loadSeo(service_id) {
     $('.popover-header').hide();
     $('.popover-arrow').hide();
-    $('#service_id').val(service_id);
+    $('#sub_service_id').val(service_id);
     $.ajax({
         url: $('#route-for-user').val() + '/sub-services/seo/show?service_id=' + service_id,
         type: 'GET',

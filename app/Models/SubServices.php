@@ -30,7 +30,7 @@ class SubServices extends Model
     }
 
     public function Seo(){
-        return  $this->hasOne(ServiceSeo::class);
+        return  $this->hasOne(SubServiceSeo::class,'sub_service_id');
     }
 
     public static function getFullData($data)
