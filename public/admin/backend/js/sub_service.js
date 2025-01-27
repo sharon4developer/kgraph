@@ -450,32 +450,32 @@ function showSeo(data) {
 
 $('#seo-edit-form').validate({
     rules: {
-        meta_title: {
-            required: true,
-        },
-        meta_description: {
-            required: true,
-        },
-        meta_keywords: {
-            required: true,
-        },
-        og_title: {
-            required: true,
-        },
-        og_description: {
-            required: true,
-        },
-        og_url: {
-            required: true,
-        },
-        schema: {
-            required: true,
-        },
-        og_image: {
-            required: function () {
-                return $("#seo_id").val() == '';
-            },
-        },
+        // meta_title: {
+        //     required: true,
+        // },
+        // meta_description: {
+        //     required: true,
+        // },
+        // meta_keywords: {
+        //     required: true,
+        // },
+        // og_title: {
+        //     required: true,
+        // },
+        // og_description: {
+        //     required: true,
+        // },
+        // og_url: {
+        //     required: true,
+        // },
+        // schema: {
+        //     required: true,
+        // },
+        // og_image: {
+        //     required: function () {
+        //         return $("#seo_id").val() == '';
+        //     },
+        // },
         service_id: {
             required: true,
         },

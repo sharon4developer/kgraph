@@ -22,13 +22,13 @@ class StoreSeoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'meta_title' => 'required',
-            'meta_description' => 'required',
-            'meta_keywords' => 'required',
-            'og_title' => 'required',
-            'og_description' => 'required',
-            'og_url' => 'required',
-            'og_image' => 'required_if:seo_id,""|mimes:jpeg,png,jpg,gif',
+            // 'meta_title' => 'required',
+            // 'meta_description' => 'required',
+            // 'meta_keywords' => 'required',
+            // 'og_title' => 'required',
+            // 'og_description' => 'required',
+            // 'og_url' => 'required',
+            // 'og_image' => 'required_if:seo_id,""|mimes:jpeg,png,jpg,gif',
             'page_id' => 'required|exists:pages,id',
         ];
     }

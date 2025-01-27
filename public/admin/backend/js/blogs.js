@@ -2,6 +2,25 @@ $(document).ready(function () {
 
     loadDataTableForBlogs();
 
+    if($('#summernote').length){
+
+        $('#summernote').summernote({
+            height: 300, // Set the editor height
+            toolbar: [
+                // Customize your toolbar
+                ['style', ['style']],
+                ['font', ['bold', 'italic', 'underline', 'clear']],
+                ['fontname', ['fontname']],
+                ['fontsize', ['fontsize']],
+                ['color', ['color']], // Add color options
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    }
+
     if(document.getElementById('blog-details-table')){
 
         Sortable.create(document.getElementById('blog-details-table').getElementsByTagName('tbody')[0], {
@@ -272,7 +291,7 @@ $('#blog-add-form').validate({
         $('.error').html('');
         var submitButton = $(form).find('[type=submit]');
         var current_btn_text = submitButton.html();
-        formData.append('description', $('.ck-content').html());
+        // formData.append('description', $('.ck-content').html());
         button_loading_text = 'Saving...';
         // Create
         $.ajax({
@@ -374,7 +393,7 @@ $('#blog-edit-form').validate({
         var submitButton = $(form).find('[type=submit]');
         var current_btn_text = submitButton.html();
         button_loading_text = 'Saving...';
-        formData.append('description', $('.ck-content').html());
+        // formData.append('description', $('.ck-content').html());
         var blog_id = $(form).find('input[name=blog_id]').val();
         // Create
         $.ajax({
@@ -576,32 +595,32 @@ function showSeo(data) {
 
 $('#seo-edit-form').validate({
     rules: {
-        meta_title: {
-            required: true,
-        },
-        meta_description: {
-            required: true,
-        },
-        meta_keywords: {
-            required: true,
-        },
-        og_title: {
-            required: true,
-        },
-        og_description: {
-            required: true,
-        },
-        og_url: {
-            required: true,
-        },
-        schema: {
-            required: true,
-        },
-        og_image: {
-            required: function () {
-                return $("#seo_id").val() == '';
-            },
-        },
+        // meta_title: {
+        //     required: true,
+        // },
+        // meta_description: {
+        //     required: true,
+        // },
+        // meta_keywords: {
+        //     required: true,
+        // },
+        // og_title: {
+        //     required: true,
+        // },
+        // og_description: {
+        //     required: true,
+        // },
+        // og_url: {
+        //     required: true,
+        // },
+        // schema: {
+        //     required: true,
+        // },
+        // og_image: {
+        //     required: function () {
+        //         return $("#seo_id").val() == '';
+        //     },
+        // },
         blog_id: {
             required: true,
         },

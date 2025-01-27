@@ -104,6 +104,8 @@ function loadDataTableForPackages() {
                             </a>`;
                     }
 
+
+
                     // Delete Button (conditionally rendered based on can_delete permission)
                     if (row.can_delete) {
                         buttons += `
@@ -114,7 +116,10 @@ function loadDataTableForPackages() {
                                 <i class="fa fa-trash"></i>
                             </a>`;
                     }
-
+                    buttons += `<a class="btn btn-outline-info btn-rounded mb-2 me-4 _effect--ripple waves-effect waves-light" href="#"  onclick="loadSeo(` + row.id + `)" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Seo" data-bs-placement="top">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                                    </a>
+                              `;
                     buttons += `</div>`;
                     return buttons;
                 },
@@ -455,32 +460,32 @@ function showSeo(data) {
 
 $('#seo-edit-form').validate({
     rules: {
-        meta_title: {
-            required: true,
-        },
-        meta_description: {
-            required: true,
-        },
-        meta_keywords: {
-            required: true,
-        },
-        og_title: {
-            required: true,
-        },
-        og_description: {
-            required: true,
-        },
-        og_url: {
-            required: true,
-        },
-        schema: {
-            required: true,
-        },
-        og_image: {
-            required: function () {
-                return $("#seo_id").val() == '';
-            },
-        },
+        // meta_title: {
+        //     required: true,
+        // },
+        // meta_description: {
+        //     required: true,
+        // },
+        // meta_keywords: {
+        //     required: true,
+        // },
+        // og_title: {
+        //     required: true,
+        // },
+        // og_description: {
+        //     required: true,
+        // },
+        // og_url: {
+        //     required: true,
+        // },
+        // schema: {
+        //     required: true,
+        // },
+        // og_image: {
+        //     required: function () {
+        //         return $("#seo_id").val() == '';
+        //     },
+        // },
         package_id: {
             required: true,
         },
