@@ -137,6 +137,11 @@ width: 100%; /* Expand the underline */
     }
 }
 
+.tab-content.current ul li {
+    list-style-type: disc !important;
+}
+
+
 
 
 .nav-link {
