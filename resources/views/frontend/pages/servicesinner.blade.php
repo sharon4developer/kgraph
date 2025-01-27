@@ -168,6 +168,18 @@
             opacity: 1;
             transform: translateY(0);
         }
+        .tab-content.current ul li {
+            list-style-type: disc;
+        }
+
+        .tab-content.current ul li,
+        .tab-content.current ol li{
+            margin-left:10px;
+        }
+
+        .tab-content.current ol li {
+            list-style-type: decimal;
+        }
         @media (max-width: 1023px){
             .tab-names ul.tabs li{
                 white-space: nowrap;
@@ -269,7 +281,7 @@
                 </ul>
                 @foreach ($services->ServicePoint as $key => $ServicePoint)
                 @if($ServicePoint->status ==1)
-                <div id="tab-{{$key+1}}" class="tab-content mt-4 {{ $key === 0 ? 'current' : 'hidden lg:w-[89vw]' }}">
+                <div id="tab-{{$key+1}}" class="tab-content mt-4 {{ $key === 0 ? 'current' : 'hidden lg:w-full' }}">
                     {!! $ServicePoint->description !!}
                 </div>
                 @endif
