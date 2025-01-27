@@ -137,10 +137,13 @@ width: 100%; /* Expand the underline */
     }
 }
 
-.tab-content li {
+.tab-content ul li {
     list-style-type: disc !important;
 }
 
+.tab-content ol li {
+    list-style-type: decimal !important;
+}
 
 
 
