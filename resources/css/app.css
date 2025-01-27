@@ -137,7 +137,7 @@ width: 100%; /* Expand the underline */
     }
 }
 
-.tab-content.current ul li {
+.tab-content ul li {
     list-style-type: disc !important;
 }
 
