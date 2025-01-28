@@ -139,10 +139,12 @@ width: 100%; /* Expand the underline */
 
 .tab-content ul li {
     list-style-type: disc !important;
+    list-style: inside;
 }
 
 .tab-content ol li {
     list-style-type: decimal !important;
+    list-style: inside;
 }
 
 
