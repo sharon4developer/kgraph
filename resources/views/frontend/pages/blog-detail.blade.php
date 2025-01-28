@@ -12,16 +12,34 @@
         }
 
         .blog__content h1 {
-            font-size: 2rem;
+            font-size: 34px;
             font-weight: bold;
             color: #ffffff;
-            margin-bottom: 20px;
         }
 
         .blog-content h2 {
+            font-size: 30px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .blog-content h3 {
             font-size: 24px;
             font-weight: bold;
-            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        .blog-content h4 {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .blog-content h5 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .blog-content h5 {
+            font-size: 16px;
+            font-weight: bold;
             color: #ffffff;
         }
 
