@@ -35,7 +35,12 @@ $(document).ready(function () {
 
             [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
             [{ 'font': [] }],
-            [{ 'align': [] }],
+            [
+                { align: "" }, // left align
+                { align: "center" }, // center align
+                { align: "right" }, // right align
+                { align: "justify" }, // justify align
+            ],
 
             ['clean']                                         // remove formatting button
           ];

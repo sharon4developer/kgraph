@@ -147,6 +147,11 @@
 href="{{ asset('quill/quill.snow.css') }}">
 <link rel="stylesheet" type="text/css"
 href="{{ asset('quill/quill.snow-dark.css') }}">
+<style>
+    div#summernote {
+        min-height: 200px;
+    }
+</style>
 @endpush
 @push('script')
 {{-- <script src="{{ asset('admin/theme/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js')}}"></script> --}}
