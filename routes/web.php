@@ -85,8 +85,7 @@ Route::get('privacy-policy', [FrontEndController::class, 'privacyPolicy']);
 Route::get('sub-service-details/{slug}', [FrontEndServiceController::class, 'subServiceDetails']);
 Route::post('submit-career-form-new', [NewsLetterController::class, 'submitCareerNew'])->name('submit-career-form-new');
 
-
-
+Route::get('convert-html', [HomeController::class, 'convertHtml']);
 
 Auth::routes();
 

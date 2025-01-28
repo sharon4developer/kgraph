@@ -265,7 +265,7 @@
                                                 data-key="t-level-2-2">View
                                             </a></li>
                                         @if (auth()->user()->hasPermissionTo('sub-service-points-create'))
-                                            <li><a href="{{ url('admin/sub-service-points-create') }}"
+                                            <li><a href="{{ url('admin/sub-service-points/create') }}"
                                                     data-key="t-level-2-1">Add
                                                 </a></li>
                                         @endif
