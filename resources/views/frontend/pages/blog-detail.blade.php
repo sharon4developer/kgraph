@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-<link rel="stylesheet" type="text/css" href="{{ asset('quill/quill.snow.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('quill/ql-front.css') }}">
     <style>
         .blog-detail{
             background-color: #062358;

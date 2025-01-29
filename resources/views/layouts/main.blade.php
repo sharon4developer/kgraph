@@ -24,7 +24,6 @@
     {{-- slick --}}
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('quill/quill.snow.css') }}">
 
 </head>
 
