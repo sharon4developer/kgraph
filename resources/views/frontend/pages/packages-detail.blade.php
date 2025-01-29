@@ -1,5 +1,6 @@
 @extends('layouts.main')
 @section('content')
+<link rel="stylesheet" type="text/css" href="{{ asset('quill/quill.snow.css') }}">
 <style>
     .services-grade{
         background: linear-gradient(22deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);

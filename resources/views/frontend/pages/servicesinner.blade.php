@@ -2,7 +2,7 @@
 @section('content')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/css/splide.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/js/splide.min.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('quill/quill.snow.css') }}">
     <style>
         .services-grade {
             background: linear-gradient(22deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);

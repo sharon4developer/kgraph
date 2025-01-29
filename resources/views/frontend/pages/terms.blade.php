@@ -1,5 +1,6 @@
 @extends('layouts.main')
 @section('content')
+<link rel="stylesheet" type="text/css" href="{{ asset('quill/quill.snow.css') }}">
     <style>
     </style>
     <link rel="shortcut icon" href="{{ asset('admin/theme/assets/images/favicon.ico') }}">
