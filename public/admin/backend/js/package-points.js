@@ -2,30 +2,37 @@ $(document).ready(function () {
 
     loadDataTableForPackages();
 
-    var toolbarOptions = [
-        ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-        ['blockquote', 'code-block'],
-        ['image', 'code-block'],
-        [{ 'header': 1 }, { 'header': 2 }],               // custom button values
-        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-        [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-        [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
-        [{ 'direction': 'rtl' }],                         // text direction
+    var Parchment = Quill.import('parchment');
+        var lineHeightConfig = new Parchment.Attributor.Style('lineHeight', 'line-height', {
+          scope: Parchment.Scope.BLOCK,
+          whitelist: ['1', '1.5', '2', '2.5', '3', '4'] // Allowed line heights
+        });
+        Quill.register(lineHeightConfig, true);
 
-        [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+        var toolbarOptions = [
+            ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+            ['blockquote', 'code-block'],
+            ['image', 'code-block'],
+            [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+            [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+            [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+            [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+            [{ 'direction': 'rtl' }],                         // text direction
 
-        [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-        [{ 'font': [] }],
-        [
-            { align: "" }, // left align
-            { align: "center" }, // center align
-            { align: "right" }, // right align
-            { align: "justify" }, // justify align
-        ],
+            [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+            [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
 
-        ['clean']                                         // remove formatting button
-      ];
+            [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+            [{ 'font': [] }],
+            [
+                { align: "" }, // left align
+                { align: "center" }, // center align
+                { align: "right" }, // right align
+                { align: "justify" }, // justify align
+            ],
+            [{ 'lineHeight': ['1', '1.5', '2', '2.5', '3', '4'] }],
+            ['clean']                                         // remove formatting button
+        ];
 
     Quill.register("modules/htmlEditButton", htmlEditButton);
 
