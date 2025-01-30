@@ -36,18 +36,18 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            {{-- <div class="col-md-12">
                                 <div class="mb-3">
                                     <div class="form-group">
                                         <label class="form-label" for="ckeditor-classic">Description</label>
                                         <div id="summernote" name="content"></div>
-                                        {{-- <textarea rows="15" class="form-control" name="description" id="summernote" required></textarea> --}}
-                                        {{-- <div id="ckeditor-classic"></div> --}}
                                         <div class="valid-feedback">
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
+                            {{-- <textarea rows="15" class="form-control" name="description" id="summernote" required></textarea> --}}
+                            {{-- <div id="ckeditor-classic"></div> --}}
                         </div>
                         <div class="row">
                             <div class="col-md-6">
