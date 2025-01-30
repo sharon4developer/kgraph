@@ -73,7 +73,16 @@ public static function getFullData($data) {
         $value->time  = $data->time;
         $value->name  = $data->name;
         $value->topics  = $data->topics;
+        // $slug = Str::slug($data->title);
         $slug = Str::slug($data->title);
+        $originalSlug = $slug;
+        $count = 1;
+
+        while (Blog::where('slug', $slug)->exists()) {
+            $slug = $originalSlug . '-' . $count;
+            $count++;
+        }
+
         $value->slug = $slug;
         $value->alt_tag           =  $data->alt_tag;
         $value->user_alt_tag           =  $data->user_alt_tag;
@@ -107,8 +116,8 @@ public static function getFullData($data) {
         $value->time  = $data->time;
         $value->name  = $data->name;
         $value->topics  = $data->topics;
-        $slug = Str::slug($data->title);
-        $value->slug = $slug;
+        // $slug = Str::slug($data->title);
+        // $value->slug = $slug;
         $value->alt_tag           =  $data->alt_tag;
         $value->user_alt_tag           =  $data->user_alt_tag;
         if ($data->image) {

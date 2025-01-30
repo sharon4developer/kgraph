@@ -8,7 +8,7 @@ use Yajra\DataTables\Facades\DataTables;
 class whatsApp extends Model
 {
     protected $table = 'whats_apps';
-    protected $fillable = ['phone','email'];
+    protected $fillable = ['phone','email','youtube','linkedin','instagram','facebook'];
 
 
     protected static function createData($data)
@@ -17,6 +17,10 @@ class whatsApp extends Model
         $value = new whatsApp();
         $value->phone = $data->phone;
         $value->email = $data->email;
+        $value->facebook = $data->facebook;
+        $value->instagram = $data->instagram;
+        $value->linkedin = $data->linkedin;
+        $value->youtube = $data->youtube;
         $value->status       = 1;
         return $value->save();
     }
@@ -29,7 +33,7 @@ class whatsApp extends Model
     {
 
 
-        $value =  SELF::select('phone','email', 'created_at','id');
+        $value =  SELF::select('phone','email', 'created_at','id','youtube','linkedin','instagram','facebook');
 
         return DataTables::of($value)
 
@@ -43,6 +47,10 @@ class whatsApp extends Model
 
         $value->phone = $data->phone;
         $value->email = $data->email;
+        $value->facebook = $data->facebook;
+        $value->instagram = $data->instagram;
+        $value->linkedin = $data->linkedin;
+        $value->youtube = $data->youtube;
         $value->status       = 1;
         return $value->save();
     }

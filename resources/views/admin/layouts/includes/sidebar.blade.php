@@ -14,6 +14,12 @@
                         <span data-key="t-dashboard">Dashboard</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ url('admin/profile') }}">
+                        <i data-feather="user"></i>
+                        <span data-key="t-user">Profile</span>
+                    </a>
+                </li>
                 {{-- @endif --}}
                 @if (auth()->user()->hasPermissionTo('pages'))
                     <li>

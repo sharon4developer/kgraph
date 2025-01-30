@@ -1134,7 +1134,7 @@
                             </div>
                         </div>
                         <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 ease-out">
-                            {{ $data->description }}
+                            {!! $data->description !!}
                         </div>
                     </div>
                 @endforeach

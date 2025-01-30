@@ -31,6 +31,7 @@ use App\Http\Controllers\Admin\PackagePointController;
 use App\Http\Controllers\Admin\PackageSeoController;
 use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\PrivacyPolicyController;
+use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\RollController;
 use App\Http\Controllers\Admin\SeoController;
@@ -166,9 +167,8 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'settings' => WhatsAppController::class,
     ]);
 
-
-
     Route::get('role-permissions/{id}', [RoleController::class, 'permissions'])->name('role.permissions');
+
     Route::post('role-permissions/{id}/store', [RoleController::class, 'storeRolePermision'])->name('role.storeRolePermision');
 
     Route::prefix('pages')->name('.pages')->group(function () {
@@ -363,5 +363,14 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
     Route::prefix('eligibility-check')->name('.eligibility-check')->group(function () {
 
         Route::post('update/order', [EligibilityCheckController::class, 'changeOrder'])->name('update-order');
+    });
+
+    Route::prefix('profile')->name('.profile')->group(function () {
+
+        Route::get('/', [ProfileController::class, 'index']);
+
+        Route::post('reset-password', [ProfileController::class, 'updatePassword'])->name('reset-password');
+
+        Route::post('edit-details', [ProfileController::class, 'editDetails'])->name('edit-details');
     });
 });
