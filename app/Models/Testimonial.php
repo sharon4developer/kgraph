@@ -73,7 +73,7 @@ class Testimonial extends Model
 
         $value->name        = $data->name;
         $value->place  = $data->place;
-
+        $value->occupation  = $data->occupation;
         $value->description  = $data->description;
         $value->rating  = $data->rating;
         $value->alt_tag           =  $data->alt_tag;

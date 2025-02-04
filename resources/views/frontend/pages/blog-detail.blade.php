@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+<link rel="stylesheet" type="text/css" href="{{ asset('quill/ql-front.css') }}">
     <style>
         .blog-detail{
             background-color: #062358;
@@ -100,15 +101,15 @@
     <div class="blog-detail overflow-hidden relative">
         <div class="container mx-auto px-5 lg:px-32 2xl:px-48 mt-[5%] relative z-10">
             <div class="pt-5 blog__content">
-                
+
                 <!-- Dynamic Main Image -->
                 <div class="pb-10 z-20 relative">
                     <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $blog->image }}"
                     class="w-full h-full object-cover rounded-sm" alt="{{ $blog->alt_tag }}">
                 </div>
-                
+
                 <img class="absolute left-[-30%] top-[30%]" src="{{asset('assets/Group.png')}}" alt="">
-                
+
                 <div class="flex flex-col z-20 relative">
                     <!-- Dynamic Blog Title -->
                     <h1 class="text-6xl font-bold pb-3">{{ $blog->title }}</h1>

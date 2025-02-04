@@ -2,7 +2,7 @@
 @section('content')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/css/splide.min.css">
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/js/splide.min.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('quill/ql-front.css') }}">
     <style>
         .services-grade {
             background: linear-gradient(22deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
@@ -227,18 +227,18 @@
 
         .custom-list > li {
             position: relative;
-            padding-left: 30px; 
+            padding-left: 30px;
             margin-top: 15px !important;
-            margin-bottom: 15px !important; 
+            margin-bottom: 15px !important;
             font-size: 16px;
             line-height: 1.6;
         }
 
         .custom-list > li::before {
-            content: '\2713'; 
+            content: '\2713';
             position: absolute;
             left: 0;
-            top: 50%; 
+            top: 50%;
             transform: translateY(-50%);
             width: 15px;
             height: 15px;

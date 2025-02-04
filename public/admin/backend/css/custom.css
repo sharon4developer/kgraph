@@ -395,3 +395,46 @@ h4.box-title {
     display: flex;
     gap: 20px;
 }
+
+.ql-picker.ql-lineHeight .ql-picker-options {
+    /* display: block !important; */
+    background: #fff;  /* Background color */
+    border: 1px solid #ccc; /* Border */
+    border: 1px solid #ccc;
+  }
+  .ql-picker.ql-lineHeight .ql-picker-item::before {
+    content: attr(data-value); /* Display the value as text */
+    display: block;
+    font-size: 10px;
+    color: black;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  /* Style each dropdown item */
+  .ql-picker.ql-lineHeight .ql-picker-item {
+    padding: 5px 10px;
+    font-size: 14px;
+    color: black; /* Text color */
+  }
+
+  /* Show correct line height for each item */
+  /* .ql-picker.ql-lineHeight .ql-picker-item[data-value="1"] {
+    line-height: 1;
+    content: "1";
+  }
+  .ql-picker.ql-lineHeight .ql-picker-item[data-value="1.5"] {
+    line-height: 1.5;
+  }
+  .ql-picker.ql-lineHeight .ql-picker-item[data-value="2"] {
+    line-height: 2;
+  }
+  .ql-picker.ql-lineHeight .ql-picker-item[data-value="2.5"] {
+    line-height: 2.5;
+  }
+  .ql-picker.ql-lineHeight .ql-picker-item[data-value="3"] {
+    line-height: 3;
+  }
+  .ql-picker.ql-lineHeight .ql-picker-item[data-value="4"] {
+    line-height: 4;
+  } */

@@ -113,7 +113,7 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                     </div>
 
                     <p class="font_inter text-[12px] w-1/2 lg:w-full  font-light  capitalize  text-white">
-                    A team of certified consultants is ready to guide your immigration journey. 
+                    A team of certified consultants is ready to guide your immigration journey.
                     Contact us to get expert help with your visa, residency or citizenship application</p>
                 </div>
 
@@ -127,7 +127,7 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                             @endforeach
                         </ul>
                     </div>
-                
+
                     <!-- Useful Links Section -->
                     <div>
                         <h4 class="mb-4 text-lg font-bold text-white">Useful Links</h4>
@@ -139,7 +139,7 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                         </ul>
                     </div>
                 </div>
-                
+
                 <div class="w-full">
                     <h6 class="font_inter text-[20px] lg:text-[33px] font-semibold text-white">GET THE LATEST NEWS AND INSIGHTS</h6>
                     <div class="flex flex-col gap-3 pt-12 xl:flex-row w-fit xl:items-center">
@@ -155,16 +155,17 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                     <div class="flex flex-col gap-5 pt-10">
                         {{-- <div class="text-sm font-bold text-white capitalize font_inter">Subscribe</div> --}}
                         <div class="flex items-center gap-5 ">
-                            <a href="https://www.facebook.com/KGraphimmigration/" target="_blank" rel="noopener noreferrer">
+                            <?php use App\Models\whatsApp; $links = whatsApp::first(); ?>
+                            <a href="@if(isset($links) && isset($links->facebook)) {{$links->facebook}} @else https://www.facebook.com/KGraphimmigration/ @endif" target="_blank" rel="noopener noreferrer">
                                 <img  class="w-auto h-[20px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/fbvector.png') }}" alt="facebook">
                             </a>
-                            <a href="https://www.instagram.com/kgraph_immigration?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
+                            <a href="@if(isset($links) && isset($links->instagram)) {{$links->instagram}} @else https://www.instagram.com/kgraph_immigration?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw== @endif" target="_blank" rel="noopener noreferrer">
                                 <img  class="w-auto h-[20px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/instagaramvector.png') }}" alt="instagram">
                             </a>
-                            <a href="https://ca.linkedin.com/company/kgraph-homeabout-usstudy-abroadcanada-immigrationieltsother-servicescontact-1-416-989-7788-91-94476" target="_blank" rel="noopener noreferrer">
+                            <a href="@if(isset($links) && isset($links->linkedin)) {{$links->linkedin}} @else https://ca.linkedin.com/company/kgraph-homeabout-usstudy-abroadcanada-immigrationieltsother-servicescontact-1-416-989-7788-91-94476 @endif" target="_blank" rel="noopener noreferrer">
                                 <img  class="w-auto h-[20px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/linkedinvector.png') }}" alt="linkedin">
                             </a>
-                            <a href="https://www.youtube.com/@kgraphimmigration8686/featured" target="_blank" rel="noopener noreferrer">
+                            <a href="@if(isset($links) && isset($links->youtube)) {{$links->youtube}} @else https://www.youtube.com/@kgraphimmigration8686/featured @endif" target="_blank" rel="noopener noreferrer">
                                 <img  class="w-auto h-[20px] transition-transform duration-300 transform hover:scale-125" src="{{ asset('assets/home_Banner/youtubenew.png') }}" alt="youtube">
                             </a>
                         </div>

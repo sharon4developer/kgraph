@@ -4,6 +4,13 @@ $(document).ready(function () {
 
     // if ($('#summernote').length) {
 
+    var Parchment = Quill.import('parchment');
+        var lineHeightConfig = new Parchment.Attributor.Style('lineHeight', 'line-height', {
+        scope: Parchment.Scope.BLOCK,
+        whitelist: ['1', '1.5', '2', '2.5', '3', '4'] // Allowed line heights
+        });
+        Quill.register(lineHeightConfig, true);
+
         var toolbarOptions = [
             ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
             ['blockquote', 'code-block'],
@@ -19,10 +26,15 @@ $(document).ready(function () {
 
             [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
             [{ 'font': [] }],
-            [{ 'align': [] }],
-
+            [
+                { align: "" }, // left align
+                { align: "center" }, // center align
+                { align: "right" }, // right align
+                { align: "justify" }, // justify align
+            ],
+            [{ 'lineHeight': ['1', '1.5', '2', '2.5', '3', '4'] }],
             ['clean']                                         // remove formatting button
-          ];
+        ];
 
         Quill.register("modules/htmlEditButton", htmlEditButton);
 

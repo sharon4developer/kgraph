@@ -4,7 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateSubAdminRequest extends FormRequest
+class UserEditRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -22,12 +22,12 @@ class UpdateSubAdminRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name'     => 'required',
-            'email'    => 'required',
-            'address'  => '',
-            // 'password' => 'required',
-            'email' => 'required|email|unique:users,email,' . $this->table_id,
-            'phone' => 'nullable|unique:users,phone,' . $this->table_id,
+            'name' => 'required',
+            'email' => [
+                'required',
+                'unique:users,email,' . $this->user_id,
+                'regex:/^[^\s]+(\s+[^\s]+)*$/',
+            ],
         ];
     }
 }

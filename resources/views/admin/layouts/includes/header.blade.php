@@ -315,9 +315,9 @@
                         <button type="button" class="btn header-item bg-light-subtle border-start border-end"
                             id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
                             aria-expanded="false">
-                            <img class="rounded-circle header-profile-user" src="@if(Auth::user()->image) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].Auth::user()->image }} @else {{ asset('admin/theme/assets/images/users/avatar-1.jpg') }} @endif"
+                            <img id="header-profile-image" class="rounded-circle header-profile-user" src="@if(Auth::user()->image) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].Auth::user()->image }} @else {{ asset('admin/theme/assets/images/users/avatar-1.jpg') }} @endif"
                                 alt="Header Avatar">
-                            <span class="d-none d-xl-inline-block ms-1 fw-medium">{{Auth::user()->name}}</span>
+                            <span class="d-none d-xl-inline-block ms-1 fw-medium" id="header_user_name">{{Auth::user()->name}}</span>
                             <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-end">

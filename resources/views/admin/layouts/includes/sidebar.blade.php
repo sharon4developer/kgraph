@@ -14,6 +14,12 @@
                         <span data-key="t-dashboard">Dashboard</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ url('admin/profile') }}">
+                        <i data-feather="user"></i>
+                        <span data-key="t-user">Profile</span>
+                    </a>
+                </li>
                 {{-- @endif --}}
                 @if (auth()->user()->hasPermissionTo('pages'))
                     <li>
@@ -265,7 +271,7 @@
                                                 data-key="t-level-2-2">View
                                             </a></li>
                                         @if (auth()->user()->hasPermissionTo('sub-service-points-create'))
-                                            <li><a href="{{ url('admin/sub-service-points-create') }}"
+                                            <li><a href="{{ url('admin/sub-service-points/create') }}"
                                                     data-key="t-level-2-1">Add
                                                 </a></li>
                                         @endif

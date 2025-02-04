@@ -78,7 +78,7 @@
  href="{{ asset('quill/quill.snow-dark.css') }}">
  <style>
     div#summernote {
-        min-height: 250px;
+        min-height: 200px;
     }
 </style>
 @endpush

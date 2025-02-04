@@ -43,17 +43,17 @@
                                     </div>
                                 </div>
                             </div>
-                            {{-- <div class="col-md-6">
+                            <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="occupation">Occupation</label>
+                                        <label class="form-label" for="occupation">Visa Type</label>
                                         <input type="text" class="form-control" id="occupation" name="occupation"
-                                            placeholder="Occupation" >
+                                            placeholder="Visa Type" >
                                         <div class="valid-feedback">
                                         </div>
                                     </div>
                                 </div>
-                            </div> --}}
+                            </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
