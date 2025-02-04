@@ -17,7 +17,7 @@
 </style>
 
 {{-- services banner --}}
-<div class="packaginner-banner h-full relative">
+<div class="packaginner-banner h-full relative overflow-hidden">
     <img  src="{{ asset('assets/home_banner/bannerCity.jpg') }}" alt="" class="absolute top-0 left-0 w-full h-full object-cover z-[-1] object-top" alt="Banner City">
     <div class="packages-banner-overlay">
         <div id="toptobottom" class="opacity-0 translate-y-20 container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[8%]">
@@ -45,7 +45,7 @@
     </div>
 </div>
 
-<div class="bg-[#072358]">
+<div class="bg-[#072358] overflow-hidden">
     <div class="bg-[linear-gradient(140deg,#000000_0%,rgba(0,0,0,0)_100%)]">
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%] flex flex-col-reverse lg:flex-row gap-4 md:gap-0 items-start justify-between">
             <div leftto class="md:w-1/2 flex flex-col h-[400px] justify-between z-10 relative opacity-0 -translate-x-20">
@@ -68,7 +68,7 @@
     </div>
 </div>
 
-<div class="bg-[#062358]">
+<div class="bg-[#062358] overflow-hidden">
     <div class="relative">
         <img class="absolute right-[-20%] top-[-10%] w-[970px]" src="{{ asset('assets/blue-glow-image.png') }}" alt="">
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%] text-white relative z-10">
@@ -169,7 +169,7 @@
     </div>
 </div>
 
-<div class="bg-[#072358]">
+<div class="bg-[#072358] overflow-hidden">
     <div class="bg-[linear-gradient(140deg,#000000_0%,rgba(0,0,0,0)_100%)] relative z-10">
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%]">
             <h3 righttotext class="font-bold text-4xl text-white uppercase mb-5 opacity-0 translate-x-2 0">Top Cities Preferred by students in Canada</h3>
@@ -211,7 +211,7 @@
 </div>
 
 {{-- faq section --}}
-<div class="faq-section bg-[#F7FCFF]">
+<div class="faq-section bg-[#F7FCFF]  overflow-hidden">
     <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full">
         <div class="flex justify-center items-center flex-col">
             <h2 class="font_aktiv font-bold text-[18px] faqSectHead text-[#07245A]">
