@@ -101,9 +101,9 @@ Route::get('login', function () {
 })->name('login');
 
 
-// Route::get('contact-us', function () {
-//     return view('frontend.pages.contact-us');
-// });
+Route::get('study', function () {
+    return view('frontend.pages.study');
+});
 
 
 

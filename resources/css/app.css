@@ -744,6 +744,16 @@ video {
     overflow: hidden;
     text-overflow: ellipsis;
 }
+.clamp-text-twelve {
+    display: -webkit-box;
+    -webkit-line-clamp: 12; /* Limit to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* margin-bottom: 10px; */
+    line-height: 1.5; 
+    /* max-height: calc(2em * 6);  */
+  }
 .clamp-text-seven {
     display: -webkit-box;
     -webkit-line-clamp: 7; /* Limit to 2 lines */
