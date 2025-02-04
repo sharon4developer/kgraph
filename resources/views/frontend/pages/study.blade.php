@@ -179,22 +179,22 @@
                     <div class="splide__track">
                         <ul class="splide__list">
                             <li class="splide__slide">
-                                <img class="h-[300px] rounded-[25px] object-cover" src="{{ asset('assets/home_Banner/contactUsbackground.webp') }}" alt="">
+                                <img class="h-[260px] rounded-[25px] object-cover" src="{{ asset('assets/home_Banner/contactUsbackground.webp') }}" alt="">
                             </li>
                             <li class="splide__slide">
-                                <img class="h-[300px] rounded-[25px] object-cover" src="{{ asset('assets/home_Banner/contactUsbackground(2).webp') }}" alt="">
+                                <img class="h-[260px] rounded-[25px] object-cover" src="{{ asset('assets/home_Banner/contactUsbackground(2).webp') }}" alt="">
                             </li>
                             <li class="splide__slide">
-                                <img class="h-[300px] rounded-[25px] object-cover" src="{{ asset('assets/home_Banner/Canadas.jpeg') }}" alt="">
+                                <img class="h-[260px] rounded-[25px] object-cover" src="{{ asset('assets/home_Banner/Canadas.jpeg') }}" alt="">
                             </li>
                             <li class="splide__slide">
-                                <img class="h-[300px] rounded-[25px] object-cover" src="{{ asset('assets/home_Banner/contactUsbackground.webp') }}" alt="">
+                                <img class="h-[260px] rounded-[25px] object-cover" src="{{ asset('assets/home_Banner/contactUsbackground.webp') }}" alt="">
                             </li>
                             <li class="splide__slide">
-                                <img class="h-[300px] rounded-[25px] object-cover" src="{{ asset('assets/home_Banner/contactUsbackground(2).webp') }}" alt="">
+                                <img class="h-[260px] rounded-[25px] object-cover" src="{{ asset('assets/home_Banner/contactUsbackground(2).webp') }}" alt="">
                             </li>
                             <li class="splide__slide">
-                                <img class="h-[300px] rounded-[25px] object-cover" src="{{ asset('assets/home_Banner/Canadas.jpeg') }}" alt="">
+                                <img class="h-[260px] rounded-[25px] object-cover" src="{{ asset('assets/home_Banner/Canadas.jpeg') }}" alt="">
                             </li>
                         </ul>
                     </div>
