@@ -166,7 +166,7 @@
                                 </ul>
                             </li>
                             <li class="px-4 py-2">
-                                <a href="{{ url('packages') }}">Packages</a>
+                                <a href="{{ url('study') }}">Study</a>
                             </li>
                             <li class="px-4 py-2">
                                 <a href="{{ url('careers') }}">Careers</a>
@@ -229,7 +229,7 @@
                             @endforeach
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('packages') }}">Packages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('study') }}">Study</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('careers') }}">Careers</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('blogs') }}">Blogs</a></li>
                 </ul>
