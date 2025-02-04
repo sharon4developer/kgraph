@@ -18,25 +18,21 @@
 
 {{-- services banner --}}
 <div class="packaginner-banner h-full relative">
-    {{-- @if($package)  --}}
     <img  src="{{ asset('assets/home_banner/bannerCity.jpg') }}" alt="" class="absolute top-0 left-0 w-full h-full object-cover z-[-1] object-top" alt="Banner City">
-    {{-- @endif --}}
-
     <div class="packages-banner-overlay">
-        <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[8%]">
+        <div id="toptobottom" class="opacity-0 translate-y-20 container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[8%]">
             <div class="text-white text-[12px] font_inter font-semibold">
                 <a href="#">Study</a> > <a href="#">Study in Canada</a>
             </div>
             <div class="text-center text-white my-10 flex flex-col justify-center items-center">
                 <h1 class="font_inter font-semibold text-3xl lg:text-[40px] uppercase">Canada student visa</h1>
                 <p class="lg:w-1/2 mt-5 font_inter font-medium text-sm lg:text-[14px]">
-                    Studying in America can be an exciting experience, but it also comes with its own set of challenges. One such challenge is getting your US student visa approved by the US embassy or consulate
+                    Studying in America can be an exciting experience, but it also comes with its own set of challenges. One such challenge is getting your US student visa approved by the US embassy or consulate.
                 </p>
             </div>
             <div class="flex justify-center items-center lg:mt-16">
                 <div class="w-fit">
                     <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-[4.5px] pl-6 pr-1 overflow-hidden group">
-                        <!-- Background animation using pseudo-element -->
                         <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
                         <h6 class="relative z-10 text-white text-[10px] md:text-[14px] 2xl">Let's turn your vision into reality.</h6>
                         <div class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:py-[4px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
@@ -45,34 +41,27 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
 
 <div class="bg-[#072358]">
     <div class="bg-[linear-gradient(140deg,#000000_0%,rgba(0,0,0,0)_100%)]">
-        <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%] flex flex-col-reverse lg:flex-row  gap-4 md:gap-0  items-start justify-between">
-            <div class="md:w-1/2 flex flex-col h-[400px] justify-between z-10 relative">
+        <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%] flex flex-col-reverse lg:flex-row gap-4 md:gap-0 items-start justify-between">
+            <div leftto class="md:w-1/2 flex flex-col h-[400px] justify-between z-10 relative opacity-0 -translate-x-20">
                 <div>
                     <h3 class="font-bold text-4xl text-white uppercase mb-5">Canada</h3>
-                    <p class="font_inter text-sm font-semibold mb-5 text-white clamp-text-twelve lg:w-[80%]">Studying in America can be an exciting experience, but it also comes with its own set of challenges. 
-                        One such challenge is getting your US student visa approved by the US embassy or consulateLorem Ipsum is simply dummy text of the printing and 
-                        typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                         galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap 
-                         into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset 
-                         sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including 
-                         versions of Lorem Ipsum.One such challenge is getting your US student visa approved by the US embassy or consulateLorem Ipsum is simply dummy text of the printing and 
-                         typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                          galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap 
-                          into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset 
-                          sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including 
-                          versions of Lorem Ipsum.
+                    <p class="font_inter text-sm font-semibold mb-5 text-white clamp-text-twelve lg:w-[80%]">
+                        Studying in America can be an exciting experience, but it also comes with its own set of challenges.
+                        One such challenge is getting your US student visa approved by the US embassy or consulate.
                     </p>
                 </div>
-                <button class="font_inter text-sm font-semibold mb-3 text-white border border-white rounded-full w-fit uppercase px-7 py-2 hover:bg-white hover:text-black hover:border-slate-600 transform duration-200 ease-linear">Learn More</button>
+                <button class="font_inter text-sm font-semibold mb-3 text-white border border-white rounded-full w-fit uppercase px-7 py-2 hover:bg-white hover:text-black hover:border-slate-600 transform duration-200 ease-linear">
+                    Learn More
+                </button>
             </div>
-            <div class="h-[400px] md:w-1/2 z-10 relative">
+            
+            <div rightto class="h-[400px] md:w-1/2 z-10 relative opacity-0 translate-x-20">
                 <img class="h-[400px] object-cover object-left-top rounded-3xl overflow-hidden" src="{{ asset('assets/home_Banner/backgroun-eligiblity.png') }}" alt="">
             </div>
         </div>
@@ -83,7 +72,7 @@
     <div class="relative">
         <img class="absolute right-[-20%] top-[-10%] w-[970px]" src="{{ asset('assets/blue-glow-image.png') }}" alt="">
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%] text-white relative z-10">
-            <div class="lg:w-1/2">
+            <div bottomtotoppara class="lg:w-1/2 opacity-0 translate-y-20">
                 <h2 class="font-semibold font_inter text-3xl capitalize mb-3">How is Kgraph the best study abroad consultant in Canada</h2>
                 <p class="text-sm font-medium font_inter mb-3">Studying in America can be an exciting experience, but it also comes 
                     with its own set of challenges. One such challenge is getting your US 
@@ -91,8 +80,8 @@
                 </p>
             </div>
     
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-[64px] gap-4">
-                <div class="bg-white rounded-[26px] text-[#062358] p-6">
+            <div class="grid cards grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-[64px] gap-4">
+                <div class="bg-white card rounded-[26px] text-[#062358] p-6">
                     <div class="mb-3">
                         <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M35 0C15.701 0 0 15.701 0 35C0 54.299 15.701 70 35 70C54.299 70 70 54.299 70 35C70 15.701 54.299 0 35 0ZM7 35C7 31.8535 7.546 28.833 8.5085 26.0085L14 31.5L21 38.5V45.5L28 52.5L31.5 56V62.7585C17.7135 61.026 7 49.252 7 35ZM57.155 52.0555C54.8695 50.2145 51.4045 49 49 49V45.5C49 43.6435 48.2625 41.863 46.9497 40.5503C45.637 39.2375 43.8565 38.5 42 38.5H28V28C29.8565 28 31.637 27.2625 32.9497 25.9497C34.2625 24.637 35 22.8565 35 21V17.5H38.5C40.3565 17.5 42.137 16.7625 43.4497 15.4497C44.7625 14.137 45.5 12.3565 45.5 10.5V9.0615C55.748 13.223 63 23.275 63 35C62.9994 41.1764 60.943 47.177 57.155 52.0555Z" fill="#062358"/>
@@ -104,7 +93,7 @@
                     </div>
                 </div>
     
-                <div class="bg-white rounded-[26px] text-[#062358] p-6">
+                <div class="bg-white card rounded-[26px] text-[#062358] p-6">
                     <div class="mb-3">
                         <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M35 0C15.701 0 0 15.701 0 35C0 54.299 15.701 70 35 70C54.299 70 70 54.299 70 35C70 15.701 54.299 0 35 0ZM7 35C7 31.8535 7.546 28.833 8.5085 26.0085L14 31.5L21 38.5V45.5L28 52.5L31.5 56V62.7585C17.7135 61.026 7 49.252 7 35ZM57.155 52.0555C54.8695 50.2145 51.4045 49 49 49V45.5C49 43.6435 48.2625 41.863 46.9497 40.5503C45.637 39.2375 43.8565 38.5 42 38.5H28V28C29.8565 28 31.637 27.2625 32.9497 25.9497C34.2625 24.637 35 22.8565 35 21V17.5H38.5C40.3565 17.5 42.137 16.7625 43.4497 15.4497C44.7625 14.137 45.5 12.3565 45.5 10.5V9.0615C55.748 13.223 63 23.275 63 35C62.9994 41.1764 60.943 47.177 57.155 52.0555Z" fill="#062358"/>
@@ -116,7 +105,7 @@
                     </div>
                 </div>
     
-                <div class="bg-white rounded-[26px] text-[#062358] p-6">
+                <div class="bg-white card rounded-[26px] text-[#062358] p-6">
                     <div class="mb-3">
                         <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M35 0C15.701 0 0 15.701 0 35C0 54.299 15.701 70 35 70C54.299 70 70 54.299 70 35C70 15.701 54.299 0 35 0ZM7 35C7 31.8535 7.546 28.833 8.5085 26.0085L14 31.5L21 38.5V45.5L28 52.5L31.5 56V62.7585C17.7135 61.026 7 49.252 7 35ZM57.155 52.0555C54.8695 50.2145 51.4045 49 49 49V45.5C49 43.6435 48.2625 41.863 46.9497 40.5503C45.637 39.2375 43.8565 38.5 42 38.5H28V28C29.8565 28 31.637 27.2625 32.9497 25.9497C34.2625 24.637 35 22.8565 35 21V17.5H38.5C40.3565 17.5 42.137 16.7625 43.4497 15.4497C44.7625 14.137 45.5 12.3565 45.5 10.5V9.0615C55.748 13.223 63 23.275 63 35C62.9994 41.1764 60.943 47.177 57.155 52.0555Z" fill="#062358"/>
@@ -128,7 +117,7 @@
                     </div>
                 </div>
     
-                <div class="bg-white rounded-[26px] text-[#062358] p-6">
+                <div class="bg-white card rounded-[26px] text-[#062358] p-6">
                     <div class="mb-3">
                         <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M35 0C15.701 0 0 15.701 0 35C0 54.299 15.701 70 35 70C54.299 70 70 54.299 70 35C70 15.701 54.299 0 35 0ZM7 35C7 31.8535 7.546 28.833 8.5085 26.0085L14 31.5L21 38.5V45.5L28 52.5L31.5 56V62.7585C17.7135 61.026 7 49.252 7 35ZM57.155 52.0555C54.8695 50.2145 51.4045 49 49 49V45.5C49 43.6435 48.2625 41.863 46.9497 40.5503C45.637 39.2375 43.8565 38.5 42 38.5H28V28C29.8565 28 31.637 27.2625 32.9497 25.9497C34.2625 24.637 35 22.8565 35 21V17.5H38.5C40.3565 17.5 42.137 16.7625 43.4497 15.4497C44.7625 14.137 45.5 12.3565 45.5 10.5V9.0615C55.748 13.223 63 23.275 63 35C62.9994 41.1764 60.943 47.177 57.155 52.0555Z" fill="#062358"/>
@@ -140,7 +129,7 @@
                     </div>
                 </div>
     
-                <div class="bg-white rounded-[26px] text-[#062358] p-6">
+                <div class="bg-white card rounded-[26px] text-[#062358] p-6">
                     <div class="mb-3">
                         <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M35 0C15.701 0 0 15.701 0 35C0 54.299 15.701 70 35 70C54.299 70 70 54.299 70 35C70 15.701 54.299 0 35 0ZM7 35C7 31.8535 7.546 28.833 8.5085 26.0085L14 31.5L21 38.5V45.5L28 52.5L31.5 56V62.7585C17.7135 61.026 7 49.252 7 35ZM57.155 52.0555C54.8695 50.2145 51.4045 49 49 49V45.5C49 43.6435 48.2625 41.863 46.9497 40.5503C45.637 39.2375 43.8565 38.5 42 38.5H28V28C29.8565 28 31.637 27.2625 32.9497 25.9497C34.2625 24.637 35 22.8565 35 21V17.5H38.5C40.3565 17.5 42.137 16.7625 43.4497 15.4497C44.7625 14.137 45.5 12.3565 45.5 10.5V9.0615C55.748 13.223 63 23.275 63 35C62.9994 41.1764 60.943 47.177 57.155 52.0555Z" fill="#062358"/>
@@ -152,7 +141,7 @@
                     </div>
                 </div>
     
-                <div class="bg-white rounded-[26px] text-[#062358] p-6">
+                <div class="bg-white card rounded-[26px] text-[#062358] p-6">
                     <div class="mb-3">
                         <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M35 0C15.701 0 0 15.701 0 35C0 54.299 15.701 70 35 70C54.299 70 70 54.299 70 35C70 15.701 54.299 0 35 0ZM7 35C7 31.8535 7.546 28.833 8.5085 26.0085L14 31.5L21 38.5V45.5L28 52.5L31.5 56V62.7585C17.7135 61.026 7 49.252 7 35ZM57.155 52.0555C54.8695 50.2145 51.4045 49 49 49V45.5C49 43.6435 48.2625 41.863 46.9497 40.5503C45.637 39.2375 43.8565 38.5 42 38.5H28V28C29.8565 28 31.637 27.2625 32.9497 25.9497C34.2625 24.637 35 22.8565 35 21V17.5H38.5C40.3565 17.5 42.137 16.7625 43.4497 15.4497C44.7625 14.137 45.5 12.3565 45.5 10.5V9.0615C55.748 13.223 63 23.275 63 35C62.9994 41.1764 60.943 47.177 57.155 52.0555Z" fill="#062358"/>
@@ -164,7 +153,7 @@
                     </div>
                 </div>
     
-                <div class="bg-white rounded-[26px] text-[#062358] p-6">
+                <div class="bg-white card rounded-[26px] text-[#062358] p-6">
                     <div class="mb-3">
                         <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M35 0C15.701 0 0 15.701 0 35C0 54.299 15.701 70 35 70C54.299 70 70 54.299 70 35C70 15.701 54.299 0 35 0ZM7 35C7 31.8535 7.546 28.833 8.5085 26.0085L14 31.5L21 38.5V45.5L28 52.5L31.5 56V62.7585C17.7135 61.026 7 49.252 7 35ZM57.155 52.0555C54.8695 50.2145 51.4045 49 49 49V45.5C49 43.6435 48.2625 41.863 46.9497 40.5503C45.637 39.2375 43.8565 38.5 42 38.5H28V28C29.8565 28 31.637 27.2625 32.9497 25.9497C34.2625 24.637 35 22.8565 35 21V17.5H38.5C40.3565 17.5 42.137 16.7625 43.4497 15.4497C44.7625 14.137 45.5 12.3565 45.5 10.5V9.0615C55.748 13.223 63 23.275 63 35C62.9994 41.1764 60.943 47.177 57.155 52.0555Z" fill="#062358"/>
@@ -183,9 +172,9 @@
 <div class="bg-[#072358]">
     <div class="bg-[linear-gradient(140deg,#000000_0%,rgba(0,0,0,0)_100%)] relative z-10">
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%]">
-            <h3 class="font-bold text-4xl text-white uppercase mb-5">Top Cities Preferred by students in Canada</h3>
+            <h3 righttotext class="font-bold text-4xl text-white uppercase mb-5 opacity-0 translate-x-2 0">Top Cities Preferred by students in Canada</h3>
             
-            <div class="mt-[4%]">
+            <div lefttoslider class="mt-[4%] opacity-0 -translate-x-20">
                 <div id="studyimage-slider" class="splide" aria-label="Image Slider">
                     <div class="splide__track">
                         <ul class="splide__list">
@@ -217,7 +206,6 @@
                     <div><button id="next-slide"><img class="w-[50px]" src="{{ asset('assets/nextbutton.png') }}" alt=""></button></div>
                 </div>
             </div>
-        </div>
         </div>
     </div>
 </div>
@@ -285,6 +273,8 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -335,6 +325,96 @@
                 iconExpanded.classList.remove('hidden');
             }
         });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.to("#toptobottom", {
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: "#toptobottom",
+                start: "top 80%", // Starts animation when 80% of the element is in view
+                toggleActions: "play none none none"
+            }
+        });
+
+        gsap.to("[leftto]", {
+            opacity: 1,
+            x: 0,
+            duration: 1.2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: "[leftto]",
+                start: "top 80%",
+                toggleActions: "play none none none"
+            }
+        });
+
+        gsap.to("[rightto]", {
+            opacity: 1,
+            x: 0,
+            duration: 1.2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: "[rightto]",
+                start: "top 80%",
+                toggleActions: "play none none none"
+            }
+        });
+
+        gsap.to("[bottomtotoppara]", {
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: "[bottomtotoppara]",
+                start: "top 80%", // Starts animation when 80% of the element is in view
+                toggleActions: "play none none none"
+            }
+        });
+
+        gsap.to("[righttotext]", {
+            opacity: 1,
+            x: 0,
+            duration: 1.2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: "[righttotext]",
+                start: "top 80%",
+                toggleActions: "play none none none"
+            }
+        });
+
+        gsap.to("[lefttoslider]", {
+            opacity: 1,
+            x: 0,
+            duration: 1.2,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: "[lefttoslider]",
+                start: "top 80%",
+                toggleActions: "play none none none"
+            }
+        });
+
+        gsap.from(".card", {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            stagger: 0.2,
+            ease: "power2.out",
+            scrollTrigger: {
+            trigger: ".cards",
+            start: "top 80%",
+            toggleActions: "play none none reverse"
+            }
+        });
+    
     });
 </script>
 
