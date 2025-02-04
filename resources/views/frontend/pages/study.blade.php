@@ -48,7 +48,7 @@
 <div class="bg-[#072358] overflow-hidden">
     <div class="bg-[linear-gradient(140deg,#000000_0%,rgba(0,0,0,0)_100%)]">
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%] flex flex-col-reverse lg:flex-row gap-4 md:gap-0 items-start justify-between">
-            <div leftto class="md:w-1/2 flex flex-col h-[400px] justify-between z-10 relative opacity-0 -translate-x-20">
+            <div leftto class="md:w-1/2 flex flex-col md:h-[400px] justify-between z-10 relative opacity-0 -translate-x-20">
                 <div>
                     <h3 class="font-bold text-4xl text-white uppercase mb-5">Canada</h3>
                     <p class="font_inter text-sm font-semibold mb-5 text-white clamp-text-twelve lg:w-[80%]">
