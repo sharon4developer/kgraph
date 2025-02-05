@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\StoreSubServicePointContentRequest;
 use App\Http\Requests\Admin\UpdateSubServicePointContentRequest;
 use App\Models\SubServicePointContent;
+use App\Models\SubServices;
 use App\Models\SubServicesPoint;
 use Exception;
 use Illuminate\Http\Request;
@@ -23,7 +24,7 @@ class SubServicePointContentController extends Controller
         $title = 'Sub Service Point Content';
         $sub_title = 'Sub Service Point Content';
 
-        $services = SubServicesPoint::getFullDataForHome();
+        $services = SubServices::getFullDataForHome();
 
         return view('admin.sub-service-point-contents.index',compact('title','sub_title','services'));
     }
@@ -145,5 +146,16 @@ class SubServicePointContentController extends Controller
         SubServicePointContent::updateOrder($request);
 
         return response()->json(['message' => 'Order updated successfully']);
+    }
+
+    public function getSubServicePoints(Request $request)
+    {
+        $serviceId = $request->input('service_id');
+
+        // Fetch sub-service points for the selected service
+        $subServicePoints = SubServicesPoint::where('sub_service_id', $serviceId)->get();
+
+        // Return the data as JSON
+        return response()->json($subServicePoints);
     }
 }
