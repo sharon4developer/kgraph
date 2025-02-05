@@ -25,9 +25,7 @@
     <div class="packaginner-banner h-full relative overflow-hidden">
         @foreach ($study as $data)
             <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->study_banner_image }}"
-                alt=""
-            class="absolute top-0 left-0 w-full h-full object-cover z-[-1] object-top"
-            alt="Banner City">
+                alt="" class="absolute top-0 left-0 w-full h-full object-cover z-[-1] object-top" alt="Banner City">
             <div class="packages-banner-overlay">
                 <div id="toptobottom"
                     class="opacity-0 translate-y-20 container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[8%]">
@@ -60,9 +58,9 @@
                     </div>
                 </div>
             </div>
-    </div>
+     </div>
 
-    <div class="bg-[#072358] overflow-hidden">
+     <div class="bg-[#072358] overflow-hidden">
         <div class="bg-[linear-gradient(140deg,#000000_0%,rgba(0,0,0,0)_100%)]">
             <div
                 class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%] flex flex-col-reverse lg:flex-row gap-4 md:gap-0 items-start justify-between">
@@ -81,12 +79,12 @@
                 </div>
 
                 <div rightto class="h-[400px] md:w-1/2 z-10 relative opacity-0 translate-x-20">
-                    @endforeach
 
-                    @foreach ($study as $data)
-                    <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->sub_image }}"
-                        alt="" >
-                        @endforeach
+
+
+                        <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->sub_image }}"
+                            alt="">
+                  
 
 
 
@@ -123,7 +121,7 @@
 
                                     <p>{{ $package->package_list_title }}</p>
                                 </h3>
-                                <p class="clamp-text-seven font_inter text-sm">{{$package->package_list_description}}</p>
+                                <p class="clamp-text-seven font_inter text-sm">{{ $package->package_list_description }}</p>
                             </div>
                         </div>
                     @endforeach
@@ -136,7 +134,8 @@
     <div class="bg-[#072358] overflow-hidden">
         <div class="bg-[linear-gradient(140deg,#000000_0%,rgba(0,0,0,0)_100%)] relative z-10">
             <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%]">
-                <h3 righttotext class="font-bold text-4xl text-white uppercase mb-5 opacity-0 translate-x-2 0">Top Cities Preferred by students in Canada</h3>
+                <h3 righttotext class="font-bold text-4xl text-white uppercase mb-5 opacity-0 translate-x-2 0">Top Cities
+                    Preferred by students in Canada</h3>
                 <div lefttoslider class="mt-[4%] opacity-0 -translate-x-20">
                     <div id="studyimage-slider" class="splide" aria-label="Image Slider">
                         <div class="splide__track">
@@ -145,7 +144,9 @@
                                 @foreach ($data->cities as $city)
                                     @if (isset($city->cities_list_image))
                                         <li class="splide__slide">
-                                            <img class="h-[200px] md:h-[260px] w-full md:w-[430px] rounded-[25px] object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $city->cities_list_image }}" alt="">
+                                            <img class="h-[200px] md:h-[260px] w-full md:w-[430px] rounded-[25px] object-cover"
+                                                src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $city->cities_list_image }}"
+                                                alt="">
                                         </li>
                                     @endif
                                 @endforeach
@@ -182,16 +183,14 @@
                 </div>
             </div>
             <div class="mt-8 faq-parent lg:px-[10%]">
-                @foreach($data->faqs as $faq)
-
-
+                @foreach ($data->faqs as $faq)
                     <div class="accordion bg-white rounded-2xl my-3 lg:my-0 h-fit p-6">
                         <div class="accordion-header flex justify-between items-center  cursor-pointer">
-                            <h6>{{$faq->faq_question}}</h6>
+                            <h6>{{ $faq->faq_question }}</h6>
                             <div class="icon">
                                 <!-- Collapsed Icon -->
-                                <svg class="icon-collapsed" width="40" height="40" viewBox="0 0 40 40"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <svg class="icon-collapsed" width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="20" cy="20" r="20" fill="#E4E4E4" />
                                     <path
                                         d="M14 18C14 17.7188 14.0938 17.4688 14.2812 17.2812C14.6562 16.875 15.3125 16.875 15.6875 17.2812L20 21.5625L24.2812 17.2812C24.6562 16.875 25.3125 16.875 25.6875 17.2812C26.0938 17.6562 26.0938 18.3125 25.6875 18.6875L20.6875 23.6875C20.3125 24.0938 19.6562 24.0938 19.2812 23.6875L14.2812 18.6875C14.0938 18.5 14 18.25 14 18Z"
@@ -208,10 +207,10 @@
                             </div>
                         </div>
                         <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 ease-out">
-                            {{$faq->faq_answer}}
+                            {{ $faq->faq_answer }}
                         </div>
                     </div>
-                    @endforeach
+                @endforeach
             </div>
             <div class="flex justify-center py-6 lg:mt-10">
                 <div
@@ -232,6 +231,8 @@
                 </div>
             </div>
         </div>
+        @endforeach
+
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
