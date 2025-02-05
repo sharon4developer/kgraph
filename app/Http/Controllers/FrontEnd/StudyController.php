@@ -10,8 +10,8 @@ class StudyController extends Controller
     public function index()
     {
         $study = Study::getFullDataForHome();
+// dd($study);
 
-       
         return view('frontend.pages.study', compact('study'));
     }
 }

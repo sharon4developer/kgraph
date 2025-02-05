@@ -132,7 +132,7 @@
                         </div>
                     @endforeach
                     @endforeach
-                 
+
                 </div>
             </div>
         </div>
@@ -148,7 +148,9 @@
                         <div class="splide__track">
                             <ul class="splide__list">
 
-                                @foreach ($data->cities as $city)
+
+                                @foreach ($study->cities as $city)
+                              
                                     @if (isset($city->cities_list_image))
                                         <li class="splide__slide">
                                             <img class="h-[200px] md:h-[260px] w-full md:w-[430px] rounded-[25px] object-cover"
@@ -157,6 +159,7 @@
                                         </li>
                                     @endif
                                 @endforeach
+
 
                             </ul>
                         </div>
