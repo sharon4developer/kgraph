@@ -97,8 +97,9 @@ $study2 = $study;
                 </div>
             </div>
         </div>
+        @endforeach
     </div>
-    @endforeach
+
     <div class="bg-[#062358] overflow-hidden">
         <div class="relative">
             <img class="absolute right-[-20%] top-[-10%] w-[970px]" src="{{ asset('assets/blue-glow-image.png') }}"
