@@ -20,14 +20,7 @@
 
     {{-- services banner --}}
 
-@php
-$study2 = $study;
 
-@endphp
-
-@php
-$study3 = $study
-@endphp
     <div class="packaginner-banner h-full relative overflow-hidden">
         @foreach ($study as $data)
         @if ($loop->first)  {{-- Ensures the image only appears once --}}
@@ -157,7 +150,7 @@ $study3 = $study
                         <div class="splide__track">
                             <ul class="splide__list">
 
-                                @foreach ($study2 as $demo)
+                                @foreach ($study as $demo)
 
                                 @foreach ($demo?->cities ?? [] as $city)
                                     @if (isset($city->cities_list_image))
