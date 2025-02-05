@@ -25,9 +25,7 @@ $study2 = $study;
 
 @endphp
 
-@php
-$study3 = $study
-@endphp
+
     <div class="packaginner-banner h-full relative overflow-hidden">
         @foreach ($study as $data)
         @if ($loop->first)  {{-- Ensures the image only appears once --}}
@@ -234,7 +232,7 @@ $study3 = $study
                     </div>
                     @endforeach
                     {{-- @endforeach --}}
-            {{-- </div> --}} 
+            {{-- </div> --}}
             <div class="flex justify-center py-6 lg:mt-10">
                 <div
                     class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group w-fit">
