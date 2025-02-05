@@ -40,7 +40,7 @@ function loadDataTableForServices() {
             "dataType": "json",
             "type": "GET",
             "data": function(d) {
-                d.service_id=$('#select-service').val();
+                d.service_id=$('#select-sub-service-point').val();
             }
         },
         columns: [
@@ -353,7 +353,42 @@ function deleteData(id) {
     })
 }
 
-$('#select-service').on('change',function (e) {
+$('#select-sub-service-point').on('change',function (e) {
 
     table.ajax.reload();
 })
+
+$(document).ready(function () {
+    // Listen for changes in the "Select Service" dropdown
+    $('#select-service').on('change', function () {
+        const serviceId = $(this).val(); // Get the selected service ID
+
+        // Clear the "Sub Service Point" dropdown
+        $('#select-sub-service-point').empty().append('<option value="" selected>Select</option>');
+
+        if (serviceId) {
+            // Fetch sub-service points for the selected service via AJAX
+            $.ajax({
+                url: $('#route-for-user').val() + '/sub-service-point-contents/get/sub-service-points', // Replace with your Laravel route
+                type: 'GET',
+                data: { service_id: serviceId },
+                success: function (response) {
+                    if (response.length > 0) {
+                        // Populate the "Sub Service Point" dropdown
+                        response.forEach(function (subServicePoint) {
+                            $('#select-sub-service-point').append(
+                                `<option value="${subServicePoint.id}">${subServicePoint.title}</option>`
+                            );
+                        });
+                    } else {
+                        // If no sub-service points are available, show a default option
+                        $('#select-sub-service-point').append('<option value="">No Sub Service Points Available</option>');
+                    }
+                },
+                error: function () {
+                    alert('An error occurred while fetching sub-service points.');
+                }
+            });
+        }
+    });
+});

@@ -17,9 +17,8 @@
                                 Add</a>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    {{-- <div class="col-md-4">
                         <div class="form-group">
-                            {{-- <label class="form-label" for="sub_title">Select Service</label> --}}
                             <select class="form-select" name="service_id" id="select-service">
                                 <option value="" selected>All</option>
                                 @foreach ($services as $service)
@@ -29,7 +28,33 @@
                             <div class="valid-feedback">
                             </div>
                         </div>
+                    </div> --}}
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="form-label" for="service_id">Select Service</label>
+                                <select class="form-select" name="service_id" id="select-service">
+                                    <option value="" selected>Select a Service</option>
+                                    @foreach ($services as $service)
+                                        <option value="{{ $service->id }}">{{ $service->title }}</option>
+                                    @endforeach
+                                </select>
+                                <div class="valid-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label class="form-label" for="sub_service_point_id">Select Sub Service Point</label>
+                                <select class="form-select" name="sub_service_point_id" id="select-sub-service-point">
+                                    <option value="" selected>Select a Sub Service Point</option>
+                                    <!-- Options will be populated dynamically -->
+                                </select>
+                                <div class="valid-feedback"></div>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
                 <div class="card-body">
                     <table id="service-details-table" class="table table-bordered dt-responsive  nowrap w-100">
