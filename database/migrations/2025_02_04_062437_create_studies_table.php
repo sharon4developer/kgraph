@@ -19,8 +19,9 @@ return new class extends Migration
             $table->string('sub_content_title')->nullable();
             $table->text('sub_content_description')->nullable();
             $table->string('sub_image')->nullable();
-            $table->string('package_title');
-            $table->string('package_description')->nullable();
+            $table->string('package_title')->nullable();
+            $table->longText('banner_description')->nullable();
+            $table->longText('package_description')->nullable();
             $table->timestamps();
         });
 }

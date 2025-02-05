@@ -62,6 +62,7 @@ use App\Http\Controllers\FrontEnd\PackageController as FrontEndPackageController
 use App\Http\Controllers\FrontEnd\ServiceController as FrontEndServiceController;
 use App\Http\Controllers\Admin\WhatsAppController;
 use App\Http\Controllers\Admin\StudyController;
+use App\Http\Controllers\FrontEnd\StudyController as FrontEndStudyController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -85,6 +86,8 @@ Route::get('eligibility-check', [FrontEndServiceController::class, 'eligibilityC
 Route::get('terms-and-conditions', [FrontEndController::class, 'termsConditions']);
 Route::get('privacy-policy', [FrontEndController::class, 'privacyPolicy']);
 Route::get('sub-service-details/{slug}', [FrontEndServiceController::class, 'subServiceDetails']);
+Route::get('study', [FrontEndStudyController::class, 'index']);
+
 Route::post('submit-career-form-new', [NewsLetterController::class, 'submitCareerNew'])->name('submit-career-form-new');
 
 Route::get('convert-html', [HomeController::class, 'convertHtml']);
@@ -102,9 +105,9 @@ Route::get('login', function () {
 })->name('login');
 
 
-Route::get('study', function () {
-    return view('frontend.pages.study');
-});
+// Route::get('study', function () {
+//     return view('frontend.pages.study');
+// });
 
 
 

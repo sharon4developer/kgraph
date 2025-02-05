@@ -17,7 +17,8 @@ class Study extends Model
         'sub_content_description',
         'sub_image',
         'package_title',
-        'package_description'
+        'package_description',
+        'banner_description'
     ];
 
     // One Study has many FAQs
@@ -50,7 +51,8 @@ class Study extends Model
             'sub_content_title' => $data['sub_content_title'],
             'sub_content_description' => $data['sub_content_description'],
             'package_title' => $data['package_title'],
-            'package_description' => $data['package_description']  // ✅ Corrected
+            'package_description' => $data['package_description'],
+            'banner_description' => $data['banner_description']   // ✅ Corrected
         ]);
 
         if ($data->study_banner_image) {
@@ -82,7 +84,6 @@ class Study extends Model
             }
         }
 
-
         // Save city data
         $citySaved = true; // Track the overall success
         if (isset($data['cities_list_place']) && is_array($data['cities_list_place'])) {
@@ -93,6 +94,9 @@ class Study extends Model
                     'cities_title' => $data['cities_title'],
                     'cities_list_place' => $cityPlace,
                 ]);
+
+
+
 
                 if (isset($data['cities_list_image'][$index])) {
 
@@ -171,6 +175,7 @@ class Study extends Model
         $study->sub_content_title = $data['sub_content_title'] ?? null;
         $study->sub_content_description = $data['sub_content_description'] ?? null;
         $study->package_title = $data['package_title'] ?? null;
+        $study->banner_description = $data['banner_description'];
         $study->package_description = is_array($data['package_description'])
             ? implode(', ', $data['package_description']) // Convert array to string
             : $data['package_description'];
@@ -261,5 +266,11 @@ class Study extends Model
             return true;
         } else
             return false;
+    }
+
+
+
+    public static function getFullDataForHome(){
+        return SELF::with(['faqs', 'cities', 'packages'])->get();
     }
 }

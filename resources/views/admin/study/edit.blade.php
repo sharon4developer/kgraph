@@ -26,7 +26,11 @@
                             </div>
                             @endif
                         </div>
-
+                        <div class="form-group">
+                            <label for="study_banner_title">Banner Description <span class="text-danger">*</span></label>
+                            <input type="text" name="banner_description" class="form-control" id="banner_description"
+                            value="{{ old('banner_description', $data->banner_description) }}"      placeholder="Enter the title">
+                        </div>
                         <div class="form-group">
                             <label for="study_banner_title">Title <span class="text-danger">*</span></label>
                             <input type="text" name="study_banner_title" class="form-control" id="study_banner_title"

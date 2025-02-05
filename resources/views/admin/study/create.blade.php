@@ -14,9 +14,12 @@
                                        placeholder="Enter image" accept="image/*">
                             </div>
                             <div class="form-group">
-                                <label for="study_banner_title">Title <span class="text-danger">*</span></label>
-                                <input type="text" name="study_banner_title" class="form-control" id="study_banner_title"
-                                       placeholder="Enter the title">
+                                <label for="study_banner_title">Banner Description <span class="text-danger">*</span></label>
+                              
+
+                                       <textarea class="form-control" id="sub_content_description" name="banner_description"
+                                       placeholder="Description" ></textarea>
+
                             </div>
 
                             <div class="form-group">
@@ -30,7 +33,7 @@
                                     <div class="form-group">
                                         <label class="form-label" for="sub_content_description">Sub content Description</label>
                                         <textarea class="form-control" id="sub_content_description" name="sub_content_description"
-                                                  placeholder="Description" required></textarea>
+                                                  placeholder="Description" ></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -67,7 +70,7 @@
                                         <div class="form-group">
                                             <label class="form-label">Packages list Description</label>
                                             <textarea class="form-control" name="package_list_description[]"
-                                                      placeholder="Description" required></textarea>
+                                                      placeholder="Description" ></textarea>
                                         </div>
                                     </div>
                                 </div>
