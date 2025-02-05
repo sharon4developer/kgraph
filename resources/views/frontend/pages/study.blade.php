@@ -119,8 +119,8 @@ $study3 = $study
 
                 <div class="grid cards grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-[64px] gap-4">
 
-                    @foreach ($study as $study)
-                    @foreach ($study->packages as $package)
+                    @foreach ($study as $studyItem)
+                    @foreach ($studyItem->packages as $package)
 
                         <div class="bg-white card rounded-[26px] text-[#062358] p-6">
                             <div class="mb-3">
@@ -202,9 +202,8 @@ $study3 = $study
                 </div>
             </div>
             <div class="mt-8 faq-parent lg:px-[10%]">
-
-                @foreach ($study3->faqs as $faqs)
-
+                @foreach ($study as $studyItem)
+                @foreach ($studyItem?->faqs ?? [] as $faq)
 
 
                     <div class="accordion bg-white rounded-2xl my-3 lg:my-0 h-fit p-6">
@@ -233,7 +232,8 @@ $study3 = $study
                             {{ $faq->faq_answer }}
                         </div>
                     </div>
-                @endforeach
+                    @endforeach
+                    @endforeach
             </div>
             <div class="flex justify-center py-6 lg:mt-10">
                 <div
