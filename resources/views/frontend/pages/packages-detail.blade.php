@@ -1,6 +1,7 @@
 @extends('layouts.main')
 @section('content')
 <link rel="stylesheet" type="text/css" href="{{ asset('quill/ql-front.css') }}">
+
 <style>
     .services-grade{
         background: linear-gradient(22deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);
@@ -12,7 +13,6 @@
     }
     .packages-banner-overlay{
         background: #00000099;
-
         height: 100%;
     }
     .services-inner> h2,h3,h4,h5,h6{
@@ -61,30 +61,30 @@
         background-size: cover;
      }
      .services-inner {
-    color: white; /* Example styles */
-    font-family: 'Inter', sans-serif;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-}
+        color: white; /* Example styles */
+        font-family: 'Inter', sans-serif;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
 
-.services-inner h3, .services-inner h2, .services-inner p {
-    padding-top: 0.25rem;
-    padding-bottom: 0.25rem;
-}
+    .services-inner h3, .services-inner h2, .services-inner p {
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+    }
 
-.services-inner ul {
-    list-style-type: disc;
-    padding-left: 1.25rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-}
+    .services-inner ul {
+        list-style-type: disc;
+        padding-left: 1.25rem;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
 
-.services-inner ul li {
-    /* Style for the list items */
-    margin-bottom: 0.5rem; /* Example: space between list items */
-    color: inherit; /* Inherits the text color from .services-inner */
-    font-size: 1rem; /* Example font size */
-}
+    .services-inner ul li {
+        /* Style for the list items */
+        margin-bottom: 0.5rem; /* Example: space between list items */
+        color: inherit; /* Inherits the text color from .services-inner */
+        font-size: 1rem; /* Example font size */
+    }
 
 </style>
 
@@ -178,33 +178,31 @@
 @include('frontend.Common.getintouch')
 
 <script>
-function toggleAccordion(element) {
-    // Find the parent accordion-item
-    const parent = element.closest('.accordion-item');
-    const content = parent.querySelector('.accordion-content');
-    const icon = parent.querySelector('.accordion-icon');
+    function toggleAccordion(element) {
+        // Find the parent accordion-item
+        const parent = element.closest('.accordion-item');
+        const content = parent.querySelector('.accordion-content');
+        const icon = parent.querySelector('.accordion-icon');
 
-    // Check if the content is already expanded
-    if (content.style.maxHeight) {
-        // Close the accordion
-        content.style.maxHeight = null;
-        icon.style.transform = "rotate(0deg)"; // Reset the plus icon to original position
-    } else {
-        // Close any other open accordion
-        document.querySelectorAll('.accordion-content').forEach((p) => {
-            p.style.maxHeight = null;
-        });
-        document.querySelectorAll('.accordion-icon').forEach((img) => {
-            img.style.transform = "rotate(0deg)";
-        });
+        // Check if the content is already expanded
+        if (content.style.maxHeight) {
+            // Close the accordion
+            content.style.maxHeight = null;
+            icon.style.transform = "rotate(0deg)"; // Reset the plus icon to original position
+        } else {
+            // Close any other open accordion
+            document.querySelectorAll('.accordion-content').forEach((p) => {
+                p.style.maxHeight = null;
+            });
+            document.querySelectorAll('.accordion-icon').forEach((img) => {
+                img.style.transform = "rotate(0deg)";
+            });
 
-        // Open the current accordion
-        content.style.maxHeight = content.scrollHeight + "px"; // Set the max height dynamically based on content
-        icon.style.transform = "rotate(45deg)"; // Rotate the plus icon to indicate it's open
+            // Open the current accordion
+            content.style.maxHeight = content.scrollHeight + "px"; // Set the max height dynamically based on content
+            icon.style.transform = "rotate(45deg)"; // Rotate the plus icon to indicate it's open
+        }
     }
-}
-
-
 </script>
 
 
