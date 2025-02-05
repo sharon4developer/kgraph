@@ -25,7 +25,7 @@
     <div class="packaginner-banner h-full relative overflow-hidden">
         @foreach ($study as $data)
             <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->study_banner_image }}"
-                alt="" @endforeach
+                alt=""
             class="absolute top-0 left-0 w-full h-full object-cover z-[-1] object-top"
             alt="Banner City">
             <div class="packages-banner-overlay">
@@ -81,7 +81,7 @@
                 </div>
 
                 <div rightto class="h-[400px] md:w-1/2 z-10 relative opacity-0 translate-x-20">
-
+                    @endforeach
 
                     @foreach ($study as $data)
                     <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->sub_image }}"
