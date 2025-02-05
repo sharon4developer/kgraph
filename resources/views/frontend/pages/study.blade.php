@@ -106,9 +106,12 @@ $study2 = $study;
                 alt="">
             <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%] text-white relative z-10">
                 <div bottomtotoppara class="lg:w-1/2 opacity-0 translate-y-20">
-                    <h2 class="font-semibold font_inter text-3xl capitalize mb-3">{{ $data->package_title }}</h2>
+                    @foreach($study as $data)
+
+                    <h2 liho class="font-semibold font_inter text-3xl capitalize mb-3">{{ $data->package_title }}</h2>
                     <p class="text-sm font-medium font_inter mb-3">{{ $data->package_description }}
                     </p>
+                    @endforeach
                 </div>
 
                 <div class="grid cards grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-[64px] gap-4">
