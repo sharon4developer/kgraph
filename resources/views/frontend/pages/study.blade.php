@@ -25,6 +25,9 @@ $study2 = $study;
 
 @endphp
 
+@php
+$study3 = $study
+@endphp
     <div class="packaginner-banner h-full relative overflow-hidden">
         @foreach ($study as $data)
         @if ($loop->first)  {{-- Ensures the image only appears once --}}
@@ -199,7 +202,11 @@ $study2 = $study;
                 </div>
             </div>
             <div class="mt-8 faq-parent lg:px-[10%]">
-                @foreach ($study->faqs as $faq)
+
+                @foreach ($study3->faqs as $faqs)
+
+
+
                     <div class="accordion bg-white rounded-2xl my-3 lg:my-0 h-fit p-6">
                         <div class="accordion-header flex justify-between items-center  cursor-pointer">
                             <h6>{{ $faq->faq_question }}</h6>
