@@ -656,6 +656,21 @@
                     </li>
                 @endif
 
+                @if (auth()->user()->hasPermissionTo('study'))
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow">
+                        <i class="fa fa-solid fa-gear" aria-hidden="true"></i>
+                        <span data-key="t-multi-level">Study</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="true">
+                        @if (auth()->user()->hasPermissionTo('study'))
+                            <li><a href="{{ url('admin/study') }}" data-key="t-level-2-2">Study </a>
+                            </li>
+                        @endif
+                    </ul>
+
+                </li>
+                @endif
                 {{-- <div class="card sidebar-alert shadow-none text-center mx-4 mb-0 mt-5">
                 <div class="card-body">
                     <img src="{{ asset('admin/theme/assets/images/giftbox.png') }}" alt="">

@@ -87,6 +87,11 @@ class PermissionSeeder extends Seeder
             'crew-edit',
             'crew-delete',
 
+            'study',
+            'study-create',
+            'study-edit',
+            'study-delete',
+
             'our-story',
             'our-story-create',
             'our-story-edit',
@@ -279,7 +284,7 @@ class PermissionSeeder extends Seeder
         foreach ($permissions as $permission) {
             $permissionExists = Permission::where('name', $permission)->exists();
             if (!$permissionExists) {
-                $data = []; foreach ($permissions as $permission) { $permissionExists = Permission::where('name', $permission)->exists(); if (!$permissionExists) { $data[] = [ 'name' => $permission, 'guard_name' => 'web', 'status' => str_contains($permission, 'delete') ? 1 : 0, 'created_at' => now(), 'updated_at' => now(), ]; } } 
+                $data = []; foreach ($permissions as $permission) { $permissionExists = Permission::where('name', $permission)->exists(); if (!$permissionExists) { $data[] = [ 'name' => $permission, 'guard_name' => 'web', 'status' => str_contains($permission, 'delete') ? 1 : 0, 'created_at' => now(), 'updated_at' => now(), ]; } }
             }
         }
         // Insert permissions in bulk
