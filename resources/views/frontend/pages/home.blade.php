@@ -528,14 +528,14 @@
 
     <div class="relative overflow-hidden">
 
-        <div class="h-dvh md:h-screen lg:h-screen w-full homeBanner relative overflow-hidden">
+        <div class="h-[85vh] lg:h-screen w-full homeBanner relative overflow-hidden">
             <div class="banner-gradient-overlay banner-container-elem-bottom-to-top absolute inset-0">
                 <div id="home-banner-slider" class="splide !absolute inset-0 z-[-1] h-full banner-container-elem-bottom-to-top">
                     <div class="splide__track">
                         <ul class="splide__list">
                                 @foreach ($banner as $data)
                                     <li class="splide__slide">
-                                        <div class="w-full h-dvh lg:h-[121vh] bg-cover bg-center bg-no-repeat" style="background-image: url('{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}');">
+                                        <div class="w-full h-[85vh] lg:h-[121vh] bg-cover bg-center bg-no-repeat" style="background-image: url('{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}');">
                                             <div class="banner-gradient-overlay banner-container-elem-bottom-to-top absolute inset-0"></div>
                                             <div class="container mx-auto pt-12 lg:pt-0 px-5 xl:px-12 h-full w-full relative z-10">
                                                 <div class="h-full w-full flex flex-col justify-start md:justify-center items-center text-center mb-4 md:pt-8 pb-0 gap-[5%] md:gap-[31px] lg:gap-0">
