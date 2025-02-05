@@ -535,9 +535,9 @@
                         <ul class="splide__list">
                                 @foreach ($banner as $data)
                                     <li class="splide__slide">
-                                        <div class="w-full h-[121vh] bg-cover bg-center bg-no-repeat" style="background-image: url('{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}');">
+                                        <div class="w-full h-dvh lg:h-[121vh] bg-cover bg-center bg-no-repeat" style="background-image: url('{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}');">
                                             <div class="banner-gradient-overlay banner-container-elem-bottom-to-top absolute inset-0"></div>
-                                            <div class="container mx-auto px-5 xl:px-12 h-full w-full relative z-10">
+                                            <div class="container mx-auto pt-12 lg:pt-0 px-5 xl:px-12 h-full w-full relative z-10">
                                                 <div class="h-full w-full flex flex-col justify-start md:justify-center items-center text-center mb-4 md:pt-8 pb-0 gap-[5%] md:gap-[31px] lg:gap-0">
                                                     <div class="z-10 flex flex-col lg:flex-row items-center lg:gap-[23px] pt-[10%] lg:pt-0 banner-container-elem">
                                                         <img class="pt-[22px] md:pt-0 w-[40px] lg:w-[100px]" src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="rocket icon">
