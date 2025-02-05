@@ -177,7 +177,9 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
     <div class="bg-white">
         <div class="container items-start justify-between w-full h-full px-5 py-4 mx-auto lg:px-12 lg:py-0 lg:flex gap-72">
             <div class="flex flex-col gap-6 py-4 md:flex-row md:items-center">
-                <div class="text-xs font-normal text-black font_jakartafoot opacity-80">© 2024 - K-graph Canadian Immigration Services.</div>
+                <div class="text-xs font-normal text-black font_jakartafoot opacity-80">
+                    © <span id="currentYear" class="inline-block"></span> - K-graph Canadian Immigration Services.
+                </div>
                 <div class="flex items-center gap-7">
                     <div><a class="text-xs font-normal text-black font_jakartafoot" href="{{ url('terms-and-conditions') }}">Terms and conditions</a></div>
                     <div><a class="text-xs font-normal text-black font_jakartafoot" href="{{ url('privacy-policy') }}">Privacy Policy</a></div>
@@ -189,6 +191,7 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
 </footer>
 
 <script>
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
     const links = document.querySelectorAll('.arrow-comig');
     links.forEach(link => {
     link.textContent = link.textContent.charAt(0).toUpperCase() + link.textContent.slice(1).toLowerCase();
