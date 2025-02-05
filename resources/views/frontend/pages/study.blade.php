@@ -24,33 +24,35 @@
 
     <div class="packaginner-banner h-full relative overflow-hidden">
         @foreach ($study as $data)
+        @if ($loop->first)  {{-- Ensures the image only appears once --}}
             <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->study_banner_image }}"
                 alt="" class="absolute top-0 left-0 w-full h-full object-cover z-[-1] object-top" alt="Banner City">
-            <div class="packages-banner-overlay">
-                <div id="toptobottom"
-                    class="opacity-0 translate-y-20 container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[8%]">
-                    <div class="text-white text-[12px] font_inter font-semibold">
-                        <a href="#">Study</a> > <a href="#">Study in Canada</a>
-                    </div>
-                    <div class="text-center text-white my-10 flex flex-col justify-center items-center">
-                        <h1 class="font_inter font-semibold text-3xl lg:text-[40px] uppercase">
-                            {{ $data->study_banner_title }}</h1>
-                        <p class="lg:w-1/2 mt-5 font_inter font-medium text-sm lg:text-[14px]">
-                            {{ $data->banner_description }}
-                        </p>
-                    </div>
-                    <div class="flex justify-center items-center lg:mt-16">
-                        <div class="w-fit">
+        @endif
+        <div class="packages-banner-overlay">
+            <div id="toptobottom"
+                class="opacity-0 translate-y-20 container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[8%]">
+                <div class="text-white text-[12px] font_inter font-semibold">
+                    <a href="#">Study</a> > <a href="#">Study in Canada</a>
+                </div>
+                <div class="text-center text-white my-10 flex flex-col justify-center items-center">
+                    <h1 class="font_inter font-semibold text-3xl lg:text-[40px] uppercase">
+                        {{ $data->study_banner_title }}</h1>
+                    <p class="lg:w-1/2 mt-5 font_inter font-medium text-sm lg:text-[14px]">
+                        {{ $data->banner_description }}
+                    </p>
+                </div>
+                <div class="flex justify-center items-center lg:mt-16">
+                    <div class="w-fit">
+                        <div
+                            class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-[4.5px] pl-6 pr-1 overflow-hidden group">
                             <div
-                                class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-[4.5px] pl-6 pr-1 overflow-hidden group">
-                                <div
-                                    class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full">
-                                </div>
-                                <h6 class="relative z-10 text-white text-[10px] md:text-[14px] 2xl">Let's turn your vision
-                                    into reality.</h6>
-                                <div
-                                    class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:py-[4px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
-                                    <a href="{{ url('contact-us') }}"
+                                class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full">
+                            </div>
+                            <h6 class="relative z-10 text-white text-[10px] md:text-[14px] 2xl">Let's turn your vision
+                                into reality.</h6>
+                            <div
+                                class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:py-[4px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                                <a href="{{ url('contact-us') }}"
                                         class="h-full text-[12px] lg:text-[16px] font-semibold">Connect Us</a>
                                 </div>
                             </div>
@@ -84,7 +86,7 @@
 
                         <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->sub_image }}"
                             alt="">
-                  
+
 
 
 
@@ -104,6 +106,7 @@
                     <p class="text-sm font-medium font_inter mb-3">{{ $data->package_description }}
                     </p>
                 </div>
+         
 
                 <div class="grid cards grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-[64px] gap-4">
                     @foreach ($data->packages as $package)
