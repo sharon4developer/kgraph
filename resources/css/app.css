@@ -9,6 +9,13 @@
     background: #062358;
 }
 
+p{
+    text-align: justify;
+}
+.accordion-content{
+    text-align: justify;
+    padding-top: 10px;
+}
 .tab-content h1 {
     font-size: 34px;
     font-weight: 700;

@@ -320,30 +320,60 @@
 
     {{-- faq --}}
     <div class="faq bg-[#062358]">
-        <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:pt-[2%] lg:pb-[5%]">
+        {{-- <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:pt-[2%] lg:pb-[5%]">
             <div>
                 <div class="services-grade w-full py-2 rounded-md my-8">
                     <h2 class="text-[#072459] font_inter text-[20px] pl-4 font-extrabold capitalize">other important FAQs</h2>
                 </div>
-                <div class="services-inner faq text-[#2D3E50] font_inter py-4 flex flex-col justify-start items-start gap-4">
-                    @foreach ($services->ServiceFaq as $key => $ServiceFaq)
-                    @if($ServiceFaq->status ==1)
-                    <div class="accordion-item bg-white p-5 lg:w-1/2 rounded-xl overflow-hidden cursor-pointer transition-all duration-300" onclick="toggleAccordion(this)">
-                        <div class="flex justify-start items-center w-full h-full accordion-header gap-4">
-                            <img class="accordion-icon transition-transform duration-300 w-2 lg:w-[14px]" src="{{ asset('assets/faqplus.png') }}" alt="Plus Icon">
-                            <h3 class="text-[12px] text-[#2D3E50] font-semibold lg:text-[14px] lg:font-medium">{{ $ServiceFaq->title }}</h3>
-                        </div>
-                        <div class="pl-10 accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                            <p class="pt-3">{{ $ServiceFaq->description }}</p>
-                        </div>
-                    </div>
-                    @endif
-                    @endforeach
+            </div>
+        </div> --}}
 
+        <div class="faq-section bg-[#F7FCFF]">
+            <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full">
+                <div class="flex justify-center items-center">
+                    <h2 class="text-[#072459] font_inter text-[20px] pl-4 font-extrabold uppercase">other important FAQs</h2>
+                </div>
+                <div class="mt-8 faq-parent lg:px-[10%]">
+    
+                    @foreach ($services->ServiceFaq as $key => $ServiceFaq)
+                        @if($ServiceFaq->status ==1)
+                            <div class="accordion bg-white rounded-2xl my-3 lg:my-0 h-fit p-6">
+                                <div class="accordion-header flex justify-between items-center  cursor-pointer">
+                                    <h6>{{ $ServiceFaq->title }}</h6>
+                                    <div class="icon">
+                                        <!-- Collapsed Icon -->
+                                        <svg class="icon-collapsed" width="40" height="40" viewBox="0 0 40 40"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="20" cy="20" r="20" fill="#E4E4E4" />
+                                            <path
+                                                d="M14 18C14 17.7188 14.0938 17.4688 14.2812 17.2812C14.6562 16.875 15.3125 16.875 15.6875 17.2812L20 21.5625L24.2812 17.2812C24.6562 16.875 25.3125 16.875 25.6875 17.2812C26.0938 17.6562 26.0938 18.3125 25.6875 18.6875L20.6875 23.6875C20.3125 24.0938 19.6562 24.0938 19.2812 23.6875L14.2812 18.6875C14.0938 18.5 14 18.25 14 18Z"
+                                                fill="#072558" />
+                                        </svg>
+                                        <!-- Expanded Icon -->
+                                        <svg class="icon-expanded hidden" width="40" height="40" viewBox="0 0 40 40"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="20" cy="20" r="20" fill="#072558" />
+                                            <path
+                                                d="M26 22C26 22.2813 25.9062 22.5313 25.7188 22.7188C25.3438 23.125 24.6875 23.125 24.3125 22.7188L20 18.4375L15.7188 22.7188C15.3438 23.125 14.6875 23.125 14.3125 22.7188C13.9062 22.3438 13.9062 21.6875 14.3125 21.3125L19.3125 16.3125C19.6875 15.9063 20.3438 15.9063 20.7188 16.3125L25.7188 21.3125C25.9062 21.5 26 21.75 26 22Z"
+                                                fill="white" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 ease-out">
+                                    {!! $ServiceFaq->description !!}
+                                </div>
+                            </div>
+                        @endif
+                    @endforeach
+    
+                    
                 </div>
             </div>
         </div>
     </div>
+
+
+
 
     {{-- don't wait --}}
     <div class="dontwait bg-[#062358] h-[30vh] w-full">
@@ -411,24 +441,27 @@
             }
         });
 
-        function toggleAccordion(element) {
-            const parent = element.closest('.accordion-item');
-            const content = parent.querySelector('.accordion-content');
-            const icon = parent.querySelector('.accordion-icon');
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-                icon.style.transform = "rotate(0deg)";
-            } else {
-                document.querySelectorAll('.accordion-content').forEach((p) => {
-                    p.style.maxHeight = null;
-                });
-                document.querySelectorAll('.accordion-icon').forEach((img) => {
-                    img.style.transform = "rotate(0deg)";
-                });
-                content.style.maxHeight = content.scrollHeight + "px";
-                icon.style.transform = "rotate(45deg)";
-            }
-        }
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const iconCollapsed = this.querySelector('.icon-collapsed');
+                const iconExpanded = this.querySelector('.icon-expanded');
+
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    iconCollapsed.classList.remove('hidden');
+                    iconExpanded.classList.add('hidden');
+                } else {
+                    document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
+                    document.querySelectorAll('.icon-collapsed').forEach(i => i.classList.remove('hidden'));
+                    document.querySelectorAll('.icon-expanded').forEach(i => i.classList.add('hidden'));
+
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    iconCollapsed.classList.add('hidden');
+                    iconExpanded.classList.remove('hidden');
+                }
+            });
+        });
     </script>
 
     {{-- <script> --}}

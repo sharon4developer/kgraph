@@ -43,6 +43,11 @@
             font-weight: bold;
             color: #ffffff;
         }
+        .blog-content h6 {
+            font-size: 14px;
+            font-weight: bold;
+            color: #ffffff;
+        }
 
         .blog-content p {
             font-size: 18px;
@@ -127,7 +132,7 @@
                     {{-- <h2 class="text-2xl font-bold mt-8">{{ $blog->name }}</h2> --}}
 
                     <!-- Dynamic Section Content -->
-                    <p class="text-lg text-gray-700 mt-4 leading-[29.6px]">{!! $blog->description !!}</p>
+                    <div class="text-lg text-gray-700 mt-4 leading-[29.6px]">{!! $blog->description !!}</div>
                 </div>
 
                 <!-- Footer Section or Additional Links -->
