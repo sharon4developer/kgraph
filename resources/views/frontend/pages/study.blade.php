@@ -20,7 +20,10 @@
 
     {{-- services banner --}}
 
+@php
+$study2 = $study;
 
+@endphp
 
     <div class="packaginner-banner h-full relative overflow-hidden">
         @foreach ($study as $data)
@@ -95,7 +98,7 @@
             </div>
         </div>
     </div>
-
+    @endforeach
     <div class="bg-[#062358] overflow-hidden">
         <div class="relative">
             <img class="absolute right-[-20%] top-[-10%] w-[970px]" src="{{ asset('assets/blue-glow-image.png') }}"
@@ -106,12 +109,11 @@
                     <p class="text-sm font-medium font_inter mb-3">{{ $data->package_description }}
                     </p>
                 </div>
-                @endforeach
-                <div class="grid cards grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-[64px] gap-4">
-                    @foreach ($study as $study) <!-- Assuming $studies is a collection -->
-              @foreach ($study->packages as $package)
-        <!-- Render package data here -->
 
+                <div class="grid cards grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-[64px] gap-4">
+
+                    @foreach ($study as $study)
+                    @foreach ($study->packages as $package)
 
                         <div class="bg-white card rounded-[26px] text-[#062358] p-6">
                             <div class="mb-3">
@@ -148,20 +150,20 @@
                         <div class="splide__track">
                             <ul class="splide__list">
 
+                                @foreach ($study2 as $demo)
 
-                                @foreach ($study->cities as $city)
-                              
+                                @foreach ($demo?->cities ?? [] as $city)
                                     @if (isset($city->cities_list_image))
-                                        <li class="splide__slide">
-                                            <img class="h-[200px] md:h-[260px] w-full md:w-[430px] rounded-[25px] object-cover"
-                                                src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $city->cities_list_image }}"
-                                                alt="">
-                                        </li>
-                                    @endif
-                                @endforeach
-
-
+                                            <li class="splide__slide">
+                                                <img class="h-[200px] md:h-[260px] w-full md:w-[430px] rounded-[25px] object-cover"
+                                                     src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $city->cities_list_image }}"
+                                                     alt="">
+                                            </li>
+                                            @endif
+                                            @endforeach
+                                        @endforeach
                             </ul>
+
                         </div>
                     </div>
 
