@@ -27,7 +27,7 @@
 
 </head>
 
-<body style="overflow-x: hidden !important;">
+<body style="overflow-x: hidden !important; margin: 0; padding: 0;">
     @include('frontend.Common.navbar')
     <input type="hidden" id="base-route" value="{{ url('/') }}">
     <main class="content-container h-full w-full">

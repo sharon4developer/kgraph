@@ -342,6 +342,8 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
 
         Route::post('change/status', [SubServicePointContentController::class, 'changeStatus'])->name('change-status');
         Route::post('update/order', [SubServicePointContentController::class, 'changeOrder'])->name('update-order');
+
+        Route::get('get/sub-service-points', [SubServicePointContentController::class, 'getSubServicePoints'])->name('get.sub.service.points');
     });
 
     Route::prefix('blogs')->name('.blogs')->group(function () {

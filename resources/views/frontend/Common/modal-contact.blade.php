@@ -407,17 +407,24 @@
     let closebtn = document.getElementById('close-btn');
     let modal = document.getElementById('modalpopup');
     let scrollTimeout;
+    let modalClosedTime = localStorage.getItem('modalClosedTime');
+    let currentTime = new Date().getTime();
+    let oneHour = 60 * 60 * 1000; // 1 hour in milliseconds
 
-    window.addEventListener('scroll', function() {
-        clearTimeout(scrollTimeout);
+    // Check if the modal was closed within the last hour
+    if (!modalClosedTime || currentTime - modalClosedTime > oneHour) {
+        window.addEventListener('scroll', function() {
+            clearTimeout(scrollTimeout);
 
-        scrollTimeout = setTimeout(function() {
-            modal.classList.remove('hidden');
-        }, 2000);
-    });
-
+            scrollTimeout = setTimeout(function() {
+                modal.classList.remove('hidden');
+            }, 2000);
+        });
+    }
 
     closebtn.addEventListener('click', function() {
         modal.classList.add('!hidden');
+        localStorage.setItem('modalClosedTime', new Date().getTime());
     });
 </script>
+

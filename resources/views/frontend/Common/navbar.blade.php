@@ -208,14 +208,14 @@
                                 <ul class=" bg-white hidden absolute left-[95%] rounded-[18px] top-0 z-50 shadow-md transition-[height] duration-300 opacity-0">
                                     @foreach ($navbarServiceCategory->Service as $innerServices)
                                     @if($innerServices->status ==1)
-                                    <li class="nav-item nav-link-for @if(count($innerServices->SubService)) relative @endif">
-                                        <a class="text-blue-700 font_inter font-semibold text-[15px]" href="{{url('service-details/'.$innerServices->slug)}}">{{$innerServices->title}}</a>
+                                    <li class="nav-item nav-link-for w-full pt-0 pb-0  @if(count($innerServices->SubService)) relative @endif">
+                                        <a class="text-blue-700 w-full block font_inter font-semibold text-[15px]" href="{{url('service-details/'.$innerServices->slug)}}">{{$innerServices->title}}</a>
                                         <!-- Sub-submenu for PNP -->
                                         @if(count($innerServices->SubService))
                                         <ul class="sub-mnu-pnrt bg-white hidden absolute rounded-[18px] left-[95%] top-0 z-50 shadow-md transition-[height] duration-300 opacity-0">
                                             @foreach ($innerServices->SubService as $innerSubServices)
                                             @if($innerSubServices->status ==1)
-                                            <li class="nav-item nav-link-for !my-[1px]"><a class=" text-blue-700 font_inter font-semibold text-[15px]" href="{{url('sub-service-details/'.$innerSubServices->slug)}}">{{$innerSubServices->title}}</a></li>
+                                            <li class="nav-item nav-link-for !my-[1px]"><a class=" text-blue-700 block w-full font_inter font-semibold text-[15px]" href="{{url('sub-service-details/'.$innerSubServices->slug)}}">{{$innerSubServices->title}}</a></li>
                                             @endif
                                             @endforeach
                                         </ul>
