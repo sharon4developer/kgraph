@@ -20,7 +20,14 @@
 
     {{-- services banner --}}
 
+@php
+$study2 = $study;
 
+@endphp
+
+@php
+$study3 = $study
+@endphp
     <div class="packaginner-banner h-full relative overflow-hidden">
         @foreach ($study as $data)
         @if ($loop->first)  {{-- Ensures the image only appears once --}}
@@ -112,8 +119,8 @@
 
                 <div class="grid cards grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-[64px] gap-4">
 
-                    @foreach ($study as $studyItem)
-                    @foreach ($studyItem->packages as $package)
+                    @foreach ($study as $study)
+                    @foreach ($study->packages as $package)
 
                         <div class="bg-white card rounded-[26px] text-[#062358] p-6">
                             <div class="mb-3">
@@ -150,7 +157,7 @@
                         <div class="splide__track">
                             <ul class="splide__list">
 
-                                @foreach ($study as $demo)
+                                @foreach ($study2 as $demo)
 
                                 @foreach ($demo?->cities ?? [] as $city)
                                     @if (isset($city->cities_list_image))
@@ -194,9 +201,9 @@
                         alt="">
                 </div>
             </div>
-            <div class="mt-8 faq-parent lg:px-[10%]">
-                @foreach ($study as $studyItem)
-                @foreach ($studyItem?->faqs ?? [] as $faq)
+            {{-- <div class="mt-8 faq-parent lg:px-[10%]">
+                @foreach ($study2 as $study)
+                @foreach ($study?->faqs ?? [] as $faq)
 
 
                     <div class="accordion bg-white rounded-2xl my-3 lg:my-0 h-fit p-6">
@@ -226,8 +233,8 @@
                         </div>
                     </div>
                     @endforeach
-                    @endforeach
-            </div>
+                    {{-- @endforeach --}}
+            {{-- </div> --}} 
             <div class="flex justify-center py-6 lg:mt-10">
                 <div
                     class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group w-fit">
