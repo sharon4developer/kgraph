@@ -88,7 +88,7 @@
                             alt="">
 
 
-@endforeach
+
 
 
                 </div>
@@ -102,15 +102,17 @@
                 alt="">
             <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%] text-white relative z-10">
                 <div bottomtotoppara class="lg:w-1/2 opacity-0 translate-y-20">
-                    @forEach($study as $data)
                     <h2 class="font-semibold font_inter text-3xl capitalize mb-3">{{ $data->package_title }}</h2>
                     <p class="text-sm font-medium font_inter mb-3">{{ $data->package_description }}
                     </p>
                 </div>
-@endforeach
-
+                @endforeach
                 <div class="grid cards grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-[64px] gap-4">
-                    @foreach ($data->packages as $package)
+                    @foreach ($study as $study) <!-- Assuming $studies is a collection -->
+              @foreach ($study->packages as $package)
+        <!-- Render package data here -->
+
+
                         <div class="bg-white card rounded-[26px] text-[#062358] p-6">
                             <div class="mb-3">
                                 <svg width="70" height="70" viewBox="0 0 70 70" fill="none"
@@ -129,7 +131,8 @@
                             </div>
                         </div>
                     @endforeach
-
+                    @endforeach
+                 
                 </div>
             </div>
         </div>
