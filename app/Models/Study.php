@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\City;
+use App\Models\Packagestudy;
 use Yajra\DataTables\DataTables;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Database\Eloquent\Model;
