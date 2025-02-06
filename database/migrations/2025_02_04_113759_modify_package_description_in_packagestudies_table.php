@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('packagestudies', function (Blueprint $table) {
-            $table->text('package_description')->default('')->change(); // Default value as an empty string
+            $table->text('package_description')->nullable()->change(); // Default value as an empty string
         });
     }
 
@@ -22,7 +22,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('packagestudies', function (Blueprint $table) {
-            //
+            $table->dropColumn('package_description');
         });
     }
 };
