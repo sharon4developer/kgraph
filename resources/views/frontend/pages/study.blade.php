@@ -82,7 +82,7 @@
 
                         <div rightto class="h-[400px] md:w-1/2 z-10 relative opacity-0 translate-x-20">
 
-                            <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->sub_image }}"
+                            <img class="h-[400px] object-cover object-left-top rounded-3xl overflow-hidden" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->sub_image }}"
                                 alt="">
 
                         </div>
