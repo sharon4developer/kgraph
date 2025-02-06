@@ -12,7 +12,7 @@ class City extends Model
         'cities_title',
         'cities_list_image',
         'cities_list_place',
-        'study_id' // Foreign key for relation
+        'study_id' 
     ];
 
     public function study()
