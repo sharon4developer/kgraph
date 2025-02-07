@@ -88,6 +88,11 @@ class PermissionSeeder extends Seeder
             'crew-edit',
             'crew-delete',
 
+            'study',
+            'study-create',
+            'study-edit',
+            'study-delete',
+
             'our-story',
             'our-story-create',
             'our-story-edit',
@@ -277,6 +282,7 @@ class PermissionSeeder extends Seeder
             // 'sub-service-point-contents-edit',
             // 'sub-service-point-contents-delete',
         ];
+
         foreach ($permissions as $permission) {
             $permissionExists = Permission::where('name', $permission)->exists();
             if (!$permissionExists) {
@@ -289,6 +295,7 @@ class PermissionSeeder extends Seeder
                 }
             }
         }
+
         // Insert permissions in bulk
         Permission::insert($data);
     }

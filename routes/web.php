@@ -61,6 +61,8 @@ use App\Http\Controllers\FrontEnd\NewsLetterController;
 use App\Http\Controllers\FrontEnd\PackageController as FrontEndPackageController;
 use App\Http\Controllers\FrontEnd\ServiceController as FrontEndServiceController;
 use App\Http\Controllers\Admin\WhatsAppController;
+use App\Http\Controllers\Admin\StudyController;
+use App\Http\Controllers\FrontEnd\StudyController as FrontEndStudyController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -84,6 +86,8 @@ Route::get('eligibility-check', [FrontEndServiceController::class, 'eligibilityC
 Route::get('terms-and-conditions', [FrontEndController::class, 'termsConditions']);
 Route::get('privacy-policy', [FrontEndController::class, 'privacyPolicy']);
 Route::get('sub-service-details/{slug}', [FrontEndServiceController::class, 'subServiceDetails']);
+Route::get('study', [FrontEndStudyController::class, 'index']);
+
 Route::post('submit-career-form-new', [NewsLetterController::class, 'submitCareerNew'])->name('submit-career-form-new');
 
 Route::get('convert-html', [HomeController::class, 'convertHtml']);
@@ -101,9 +105,9 @@ Route::get('login', function () {
 })->name('login');
 
 
-Route::get('study', function () {
-    return view('frontend.pages.study');
-});
+// Route::get('study', function () {
+//     return view('frontend.pages.study');
+// });
 
 
 
@@ -165,6 +169,7 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'sub-admin'=> SubAdminController::class,
         'roles' => RoleController::class,
         'settings' => WhatsAppController::class,
+        'study' => StudyController::class,
     ]);
 
     Route::get('role-permissions/{id}', [RoleController::class, 'permissions'])->name('role.permissions');
@@ -184,7 +189,11 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         Route::post('change/status', [BannerController::class, 'changeStatus'])->name('change-status');
         Route::post('update/order', [BannerController::class, 'changeOrder'])->name('update-order');
     });
+    Route::prefix('study')->name('.study')->group(function () {
 
+        Route::post('change/status', [StudyController::class, 'changeStatus'])->name('change-status');
+        Route::post('update/order', [StudyController::class, 'changeOrder'])->name('update-order');
+    });
     Route::prefix('services')->name('.services')->group(function () {
 
         Route::resources([
