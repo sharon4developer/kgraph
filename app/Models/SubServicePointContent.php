@@ -41,6 +41,9 @@ class SubServicePointContent extends Model
                 if (isset($data->service_id)) {
                     $query->where('sub_service_point_id', $data->service_id);
                 }
+            })
+            ->whereHas('SubServicePoint', function ($query) {
+                // Ensure SubServicePoint exists
             })->orderBy('order', 'asc');
 
         return DataTables::of($value)
