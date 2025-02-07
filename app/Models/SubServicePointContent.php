@@ -14,21 +14,22 @@ class SubServicePointContent extends Model
 
     protected $table = 'sub_service_point_contents';
 
-    protected $fillable = ['title', 'sub_service_point_id', 'status','order'];
+    protected $fillable = ['title', 'sub_service_point_id', 'status', 'order'];
 
-    public function SubServicePoint(){
-        return  $this->belongsTo(SubServicesPoint::class,'sub_service_point_id');
+    public function SubServicePoint()
+    {
+        return  $this->belongsTo(SubServicesPoint::class, 'sub_service_point_id');
     }
 
     public function Title()
     {
-        return $this->hasMany(Title::class,'service_point_content_id');
+        return $this->hasMany(Title::class, 'service_point_content_id');
     }
 
 
     public function Options()
     {
-        return $this->hasMany(ServicePointContentPoints::class,'service_point_content_id')->orderBy('order', 'asc');
+        return $this->hasMany(ServicePointContentPoints::class, 'service_point_content_id')->orderBy('order', 'asc');
     }
 
     public static function getFullData($data)
@@ -36,22 +37,23 @@ class SubServicePointContent extends Model
         $locationData = getLocationData();
 
         $value =  SELF::with('SubServicePoint')->select('title', 'id', 'status', 'created_at', 'sub_service_point_id')
-                ->where(function ($query) use ($data) {
-                    if (isset($data->service_id)) {
-                        $query->where('sub_service_point_id', $data->service_id);
-                    }
-                })->orderBy('order', 'asc');
+            ->where(function ($query) use ($data) {
+                if (isset($data->service_id)) {
+                    $query->where('sub_service_point_id', $data->service_id);
+                }
+            })->orderBy('order', 'asc');
 
         return DataTables::of($value)
             ->addIndexColumn()
             ->addColumn('service_id', function ($row) {
-                return $row->SubServicePoint->title . ' (' . $row->SubServicePoint->Services->title.')';
+                return @$row->SubServicePoint->title . ' (' . @$row->SubServicePoint->Services->title . ')';
             })
             ->addColumn('can_delete', function ($row) {
                 return Gate::allows('sub-service-points-delete');
             })
             ->addColumn('can_edit', function ($row) {
-                return Gate::allows('sub-service-points-edit'); })
+                return Gate::allows('sub-service-points-edit');
+            })
             ->addIndexColumn()
             ->rawColumns(['action', 'edit', 'delete'])
             ->make(true);
@@ -112,7 +114,8 @@ class SubServicePointContent extends Model
         return true;
     }
 
-     public static function getFullDataForHome(){
-        return SELF::select('id','title')->orderBy('order','asc')->where('status',1)->get();
+    public static function getFullDataForHome()
+    {
+        return SELF::select('id', 'title')->orderBy('order', 'asc')->where('status', 1)->get();
     }
 }
