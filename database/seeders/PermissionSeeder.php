@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
+
 class PermissionSeeder extends Seeder
 {
     /**
@@ -269,7 +270,7 @@ class PermissionSeeder extends Seeder
             'sub-service-points',
             'sub-service-points-create',
             'sub-service-points-edit',
-            // 'sub-service-points-delete',
+            'sub-service-points-delete',
 
             'sub-service-point-contents',
             'sub-service-point-contents-create',
@@ -279,7 +280,13 @@ class PermissionSeeder extends Seeder
         foreach ($permissions as $permission) {
             $permissionExists = Permission::where('name', $permission)->exists();
             if (!$permissionExists) {
-                $data = []; foreach ($permissions as $permission) { $permissionExists = Permission::where('name', $permission)->exists(); if (!$permissionExists) { $data[] = [ 'name' => $permission, 'guard_name' => 'web', 'status' => str_contains($permission, 'delete') ? 1 : 0, 'created_at' => now(), 'updated_at' => now(), ]; } } 
+                $data = [];
+                foreach ($permissions as $permission) {
+                    $permissionExists = Permission::where('name', $permission)->exists();
+                    if (!$permissionExists) {
+                        $data[] = ['name' => $permission, 'guard_name' => 'web', 'status' => str_contains($permission, 'delete') ? 1 : 0, 'created_at' => now(), 'updated_at' => now(),];
+                    }
+                }
             }
         }
         // Insert permissions in bulk

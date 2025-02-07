@@ -1,110 +1,117 @@
 $(document).ready(function () {
-
     loadDataTableForBlogs();
+
+    if (document.getElementById("blog-details-table")) {
+        Sortable.create(
+            document
+                .getElementById("blog-details-table")
+                .getElementsByTagName("tbody")[0],
+            {
+                onEnd: function (event) {
+                    // Get the new order of the rows
+                    var newOrder = [];
+                    $("#blog-details-table tbody tr").each(function () {
+                        newOrder.push(table.row(this).data());
+                    });
+
+                    // Pass the new order to the backend (e.g., using AJAX)
+                    $.ajax({
+                        url: $("#route-for-user").val() + "/blogs/update/order", // Replace with your Laravel route URL
+                        method: "POST",
+                        data: {
+                            order: newOrder,
+                        },
+                        success: function (response) {
+                            table.ajax.reload(null, false);
+                        },
+                        error: function (xhr) {
+                            // Handle error response
+                        },
+                    });
+                },
+            }
+        );
+    }
 
     // if($('#summernote').length){
 
-        // $('#summernote').summernote({
-        //     height: 300, // Set the editor height
-        //     toolbar: [
-        //         // Customize your toolbar
-        //         ['style', ['style']],
-        //         ['font', ['bold', 'italic', 'underline', 'clear']],
-        //         ['fontname', ['fontname']],
-        //         ['fontsize', ['fontsize']],
-        //         ['color', ['color']], // Add color options
-        //         ['para', ['ul', 'ol', 'paragraph']],
-        //         ['table', ['table']],
-        //         ['insert', ['link', 'picture', 'video']],
-        //         ['view', ['fullscreen', 'codeview', 'help']]
-        //     ]
-        // });
-        var Parchment = Quill.import('parchment');
-        var lineHeightConfig = new Parchment.Attributor.Style('lineHeight', 'line-height', {
-          scope: Parchment.Scope.BLOCK,
-          whitelist: ['1', '1.5', '2', '2.5', '3', '4'] // Allowed line heights
-        });
-        Quill.register(lineHeightConfig, true);
+    // $('#summernote').summernote({
+    //     height: 300, // Set the editor height
+    //     toolbar: [
+    //         // Customize your toolbar
+    //         ['style', ['style']],
+    //         ['font', ['bold', 'italic', 'underline', 'clear']],
+    //         ['fontname', ['fontname']],
+    //         ['fontsize', ['fontsize']],
+    //         ['color', ['color']], // Add color options
+    //         ['para', ['ul', 'ol', 'paragraph']],
+    //         ['table', ['table']],
+    //         ['insert', ['link', 'picture', 'video']],
+    //         ['view', ['fullscreen', 'codeview', 'help']]
+    //     ]
+    // });
+    var Parchment = Quill.import("parchment");
+    var lineHeightConfig = new Parchment.Attributor.Style(
+        "lineHeight",
+        "line-height",
+        {
+            scope: Parchment.Scope.BLOCK,
+            whitelist: ["1", "1.5", "2", "2.5", "3", "4"], // Allowed line heights
+        }
+    );
+    Quill.register(lineHeightConfig, true);
 
-        var toolbarOptions = [
-            ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-            ['blockquote', 'code-block'],
-            ['image', 'code-block'],
-            [{ 'header': 1 }, { 'header': 2 }],               // custom button values
-            [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-            [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-            [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
-            [{ 'direction': 'rtl' }],                         // text direction
+    var toolbarOptions = [
+        ["bold", "italic", "underline", "strike"], // toggled buttons
+        ["blockquote", "code-block"],
+        ["image", "code-block"],
+        [{ header: 1 }, { header: 2 }], // custom button values
+        [{ list: "ordered" }, { list: "bullet" }],
+        [{ script: "sub" }, { script: "super" }], // superscript/subscript
+        [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
+        [{ direction: "rtl" }], // text direction
 
-            [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-            [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+        [{ size: ["small", false, "large", "huge"] }], // custom dropdown
+        [{ header: [1, 2, 3, 4, 5, 6, false] }],
 
-            [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-            [{ 'font': [] }],
-            [
-                { align: "" }, // left align
-                { align: "center" }, // center align
-                { align: "right" }, // right align
-                { align: "justify" }, // justify align
-            ],
-            [{ 'lineHeight': ['1', '1.5', '2', '2.5', '3', '4'] }],
-            ['clean']                                         // remove formatting button
-        ];
+        [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+        [{ font: [] }],
+        [
+            { align: "" }, // left align
+            { align: "center" }, // center align
+            { align: "right" }, // right align
+            { align: "justify" }, // justify align
+        ],
+        [{ lineHeight: ["1", "1.5", "2", "2.5", "3", "4"] }],
+        ["clean"], // remove formatting button
+    ];
 
-        Quill.register("modules/htmlEditButton", htmlEditButton);
+    Quill.register("modules/htmlEditButton", htmlEditButton);
 
-        var quill = new Quill('#summernote', {
-            theme: 'snow',
-            modules: {
-                imageResize: {
-                    displaySize: true
-                },
-                htmlEditButton: {
-                    debug: true, // logging, default:false
-                    msg: "Edit the content in HTML format", //Custom message to display in the editor, default: Edit HTML here, when you click "OK" the quill editor's contents will be replaced
-                    okText: "Save", // Text to display in the OK button, default: Ok,
-                    cancelText: "Cancel", // Text to display in the cancel button, default: Cancel
-                    buttonHTML: "<span class='quill-top-buttons'>&lt;&gt;</span>", // Text to display in the toolbar button, default: <>
-                    buttonTitle: "Show HTML source", // Text to display as the tooltip for the toolbar button, default: Show HTML source
-                    syntax: false, // Show the HTML with syntax highlighting. Requires highlightjs on window.hljs (similar to Quill itself), default: false
-                    prependSelector: 'div#myelement', // a string used to select where you want to insert the overlayContainer, default: null (appends to body),
-                    editorModules: {} // The default mod
-                },
-                toolbar: toolbarOptions,
+    var quill = new Quill("#summernote", {
+        theme: "snow",
+        modules: {
+            imageResize: {
+                displaySize: true,
             },
-            placeholder: '',
-            theme: 'snow'  // or 'bubble'
-        });
-        $('.ql-editor').html($('#text-content').val());
+            htmlEditButton: {
+                debug: true, // logging, default:false
+                msg: "Edit the content in HTML format", //Custom message to display in the editor, default: Edit HTML here, when you click "OK" the quill editor's contents will be replaced
+                okText: "Save", // Text to display in the OK button, default: Ok,
+                cancelText: "Cancel", // Text to display in the cancel button, default: Cancel
+                buttonHTML: "<span class='quill-top-buttons'>&lt;&gt;</span>", // Text to display in the toolbar button, default: <>
+                buttonTitle: "Show HTML source", // Text to display as the tooltip for the toolbar button, default: Show HTML source
+                syntax: false, // Show the HTML with syntax highlighting. Requires highlightjs on window.hljs (similar to Quill itself), default: false
+                prependSelector: "div#myelement", // a string used to select where you want to insert the overlayContainer, default: null (appends to body),
+                editorModules: {}, // The default mod
+            },
+            toolbar: toolbarOptions,
+        },
+        placeholder: "",
+        theme: "snow", // or 'bubble'
+    });
+    $(".ql-editor").html($("#text-content").val());
     // }
-
-    if(document.getElementById('blog-details-table')){
-
-        Sortable.create(document.getElementById('blog-details-table').getElementsByTagName('tbody')[0], {
-            onEnd: function (event) {
-                // Get the new order of the rows
-                var newOrder = [];
-                $('#blog-details-table tbody tr').each(function () {
-                    newOrder.push(table.row(this).data());
-                });
-
-                // Pass the new order to the backend (e.g., using AJAX)
-                $.ajax({
-                    url: $('#route-for-user').val() + '/blogs/update/order', // Replace with your Laravel route URL
-                    method: 'POST',
-                    data: {
-                        order: newOrder
-                    },
-                    success: function (response) {
-                        table.ajax.reload(null, false);
-                    },
-                    error: function (xhr) {
-                        // Handle error response
-                    }
-                });
-            }
-        });
-    }
 });
 
 // function loadDataTableForBlogs() {
@@ -133,7 +140,6 @@ $(document).ready(function () {
 //                         return `<span class="badge rounded-pill bg-success-subtle text-success">Active</span>`;
 //                     else
 //                         return `<span class="badge rounded-pill bg-danger-subtle text-danger">Deactivated</span>`;
-
 
 //                 }, orderable: false, searchable: false
 //             },
@@ -189,17 +195,16 @@ $(document).ready(function () {
 //     });
 // }
 
-
 function loadDataTableForBlogs() {
-    table = $('#blog-details-table').DataTable({
+    table = $("#blog-details-table").DataTable({
         processing: true,
         serverSide: true,
-        ajax: $('#route-for-user').val() + '/blogs/show',
+        ajax: $("#route-for-user").val() + "/blogs/show",
         columns: [
-            { data: 'DT_RowIndex', orderable: false, searchable: false },
-            { data: 'name' },
-            { data: 'title' },
-            { data: 'date' },
+            { data: "DT_RowIndex", orderable: false, searchable: false },
+            { data: "name" },
+            { data: "title" },
+            { data: "date" },
             {
                 data: null,
                 render: function (row) {
@@ -215,15 +220,19 @@ function loadDataTableForBlogs() {
                         return `<span class="badge rounded-pill bg-success-subtle text-success">Active</span>`;
                     else
                         return `<span class="badge rounded-pill bg-danger-subtle text-danger">Deactivated</span>`;
-                }, orderable: false, searchable: false
+                },
+                orderable: false,
+                searchable: false,
             },
             {
                 data: null,
                 render: function (row) {
-                    return moment(row.created_at).format('DD MMM  YYYY hh:mm:a');
+                    return moment(row.created_at).format(
+                        "DD MMM  YYYY hh:mm:a"
+                    );
                 },
                 orderable: false,
-                searchable: false
+                searchable: false,
             },
             {
                 data: null,
@@ -236,7 +245,9 @@ function loadDataTableForBlogs() {
                             <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
                                 data-bs-toggle="popover" data-bs-trigger="hover"
                                 data-bs-original-title="Edit" data-bs-placement="top"
-                                href="${$("#route-for-user").val()}/blogs/${row.id}/edit">
+                                href="${$("#route-for-user").val()}/blogs/${
+                            row.id
+                        }/edit">
                                 <i class="fa fa-edit"></i>
                             </a>`;
                     }
@@ -283,28 +294,30 @@ function loadDataTableForBlogs() {
                     return buttons;
                 },
                 orderable: false,
-                searchable: false
-            }
-
+                searchable: false,
+            },
         ],
         pagingType: "full_numbers",
-        dom: "<'dt--top-section'<'row'<'col-12 col-sm-6 d-flex justify-content-sm-start justify-content-center'l><'col-12 col-sm-6 d-flex justify-content-sm-end justify-content-center mt-sm-0 mt-3'f>>>" +
+        dom:
+            "<'dt--top-section'<'row'<'col-12 col-sm-6 d-flex justify-content-sm-start justify-content-center'l><'col-12 col-sm-6 d-flex justify-content-sm-end justify-content-center mt-sm-0 mt-3'f>>>" +
             "<'table-responsive'tr>" +
             "<'dt--bottom-section d-sm-flex justify-content-sm-between text-center'<'dt--pages-count  mb-sm-0 mb-3'i><'dt--pagination'p>>",
         oLanguage: {
-            oPaginate: { sPrevious: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>', sNext: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>' },
-            sSearch: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
+            oPaginate: {
+                sPrevious:
+                    '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>',
+                sNext: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>',
+            },
+            sSearch:
+                '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
             sSearchPlaceholder: "Search...",
             sLengthMenu: "Results :  _MENU_",
         },
-        stripeClasses: []
+        stripeClasses: [],
     });
 }
 
-
-
-
-$('#blog-add-form').validate({
+$("#blog-add-form").validate({
     rules: {
         title: {
             required: true,
@@ -341,77 +354,92 @@ $('#blog-add-form').validate({
         image: "Image field is required",
         user_image: "User Image field is required",
     },
-    errorElement: 'span',
+    errorElement: "span",
     submitHandler: function (form, event) {
         //
         var formData = new FormData($(form)[0]);
-        formData.append('description', $('.ql-editor').html());
-        $('.error').html('');
-        var submitButton = $(form).find('[type=submit]');
+        formData.append("description", $(".ql-editor").html());
+        $(".error").html("");
+        var submitButton = $(form).find("[type=submit]");
         var current_btn_text = submitButton.html();
         // formData.append('description', $('.ck-content').html());
-        button_loading_text = 'Saving...';
+        button_loading_text = "Saving...";
         // Create
         $.ajax({
             type: "POST",
-            url: $('#route-for-user').val() + '/blogs',
+            url: $("#route-for-user").val() + "/blogs",
             contentType: false,
             processData: false,
             data: formData,
             cache: false,
             beforeSend: function () {
-                submitButton.html(`
+                submitButton
+                    .html(
+                        `
                     <span class="spinner-border spinner-border-sm"></span>
-                    `+ button_loading_text + `
-                `).attr('disabled', true);
+                    ` +
+                            button_loading_text +
+                            `
+                `
+                    )
+                    .attr("disabled", true);
             },
             success: function (response) {
                 if (response.status) {
-                    showMessage('success', response.message);
+                    showMessage("success", response.message);
                     setTimeout(function () {
                         window.location = response.return_url;
                     }, 500);
                 } else {
-                    showMessage('warning', response.message);
+                    showMessage("warning", response.message);
                 }
             },
             error: function (response) {
-                submitButton.html(current_btn_text).attr('disabled', false);
+                submitButton.html(current_btn_text).attr("disabled", false);
                 if (response.responseJSON.errors) {
                     $.each(response.responseJSON.errors, function (i, v) {
-                        element = $(form).find('[name=' + i + ']');
-                        element.addClass('is-invalid');
-                        if ($(form).find('#' + i + '-error').length) {
-                            $(form).find('#' + i + '-error').html(v).show();
+                        element = $(form).find("[name=" + i + "]");
+                        element.addClass("is-invalid");
+                        if ($(form).find("#" + i + "-error").length) {
+                            $(form)
+                                .find("#" + i + "-error")
+                                .html(v)
+                                .show();
                         } else {
-                            element.closest('.form-group').
-                                append(`<span id="` + i + `-error" class="error invalid-feedback">` + v + `</span>`);
-                            $('.error').show();
+                            element
+                                .closest(".form-group")
+                                .append(
+                                    `<span id="` +
+                                        i +
+                                        `-error" class="error invalid-feedback">` +
+                                        v +
+                                        `</span>`
+                                );
+                            $(".error").show();
                         }
-                        element.attr('aria-invalid', true);
+                        element.attr("aria-invalid", true);
                         element.attr("area-describedby", i + "-error");
                         element.focus();
                     });
-                }
-                else {
-                    showMessage('warning', 'Something went wrong...');
+                } else {
+                    showMessage("warning", "Something went wrong...");
                 }
             },
             complete: function () {
-                submitButton.html(current_btn_text).attr('disabled', false);
-            }
+                submitButton.html(current_btn_text).attr("disabled", false);
+            },
         });
         event.preventDefault();
     },
     highlight: function (element, errorClass, validClass) {
-        $(element).addClass('is-invalid');
+        $(element).addClass("is-invalid");
     },
     unhighlight: function (element, errorClass, validClass) {
-        $(element).removeClass('is-invalid');
-    }
+        $(element).removeClass("is-invalid");
+    },
 });
 
-$('#blog-edit-form').validate({
+$("#blog-edit-form").validate({
     rules: {
         title: {
             required: true,
@@ -443,95 +471,109 @@ $('#blog-edit-form').validate({
         name: "Name field is required",
         topics: "Topics field is required",
     },
-    errorElement: 'span',
+    errorElement: "span",
     submitHandler: function (form, event) {
         //
         var formData = new FormData($(form)[0]);
-        formData.append('description', $('.ql-editor').html());
-        $('.error').html('');
-        var submitButton = $(form).find('[type=submit]');
+        formData.append("description", $(".ql-editor").html());
+        $(".error").html("");
+        var submitButton = $(form).find("[type=submit]");
         var current_btn_text = submitButton.html();
-        button_loading_text = 'Saving...';
+        button_loading_text = "Saving...";
         // formData.append('description', $('.ck-content').html());
-        var blog_id = $(form).find('input[name=blog_id]').val();
+        var blog_id = $(form).find("input[name=blog_id]").val();
         // Create
         $.ajax({
             type: "POST",
-            url: $('#route-for-user').val() + '/blogs/' + blog_id,
+            url: $("#route-for-user").val() + "/blogs/" + blog_id,
             contentType: false,
             processData: false,
             data: formData,
             cache: false,
             beforeSend: function () {
-                submitButton.html(`
+                submitButton
+                    .html(
+                        `
                     <span class="spinner-border spinner-border-sm"></span>
-                    `+ button_loading_text + `
-                `).attr('disabled', true);
+                    ` +
+                            button_loading_text +
+                            `
+                `
+                    )
+                    .attr("disabled", true);
             },
             success: function (response) {
                 if (response.status) {
-                    showMessage('success', response.message);
+                    showMessage("success", response.message);
                     setTimeout(function () {
                         window.location = response.return_url;
                     }, 500);
                 } else {
-                    showMessage('warning', response.message);
+                    showMessage("warning", response.message);
                 }
             },
 
             error: function (response) {
-                submitButton.html(current_btn_text).attr('disabled', false);
+                submitButton.html(current_btn_text).attr("disabled", false);
                 if (response.responseJSON.errors) {
                     $.each(response.responseJSON.errors, function (i, v) {
-                        element = $(form).find('[name=' + i + ']');
-                        element.addClass('is-invalid');
-                        if ($(form).find('#' + i + '-error').length) {
-                            $(form).find('#' + i + '-error').html(v).show();
+                        element = $(form).find("[name=" + i + "]");
+                        element.addClass("is-invalid");
+                        if ($(form).find("#" + i + "-error").length) {
+                            $(form)
+                                .find("#" + i + "-error")
+                                .html(v)
+                                .show();
                         } else {
-                            element.closest('.form-group').
-                                append(`<span id="` + i + `-error" class="error invalid-feedback">` + v + `</span>`);
-                            $('.error').show();
+                            element
+                                .closest(".form-group")
+                                .append(
+                                    `<span id="` +
+                                        i +
+                                        `-error" class="error invalid-feedback">` +
+                                        v +
+                                        `</span>`
+                                );
+                            $(".error").show();
                         }
-                        element.attr('aria-invalid', true);
+                        element.attr("aria-invalid", true);
                         element.attr("area-describedby", i + "-error");
                         element.focus();
                     });
-                }
-                else {
-                    showMessage('warning', 'Something went wrong...');
+                } else {
+                    showMessage("warning", "Something went wrong...");
                 }
             },
             complete: function () {
-                submitButton.html(current_btn_text).attr('disabled', false);
-            }
+                submitButton.html(current_btn_text).attr("disabled", false);
+            },
         });
         event.preventDefault();
     },
     highlight: function (element, errorClass, validClass) {
-        $(element).addClass('is-invalid');
+        $(element).addClass("is-invalid");
     },
     unhighlight: function (element, errorClass, validClass) {
-        $(element).removeClass('is-invalid');
-    }
+        $(element).removeClass("is-invalid");
+    },
 });
 
 function changeStatus(id, status) {
     if (status == 1) {
-        text = 'You want to deactivate this blog!';
-        message = 'Deactivated successfully';
-    }
-    else {
-        text = 'You want to activate this blog!';
-        message = 'Activated successfully';
+        text = "You want to deactivate this blog!";
+        message = "Deactivated successfully";
+    } else {
+        text = "You want to activate this blog!";
+        message = "Activated successfully";
     }
     Swal.fire({
-        title: 'Are you sure?',
+        title: "Are you sure?",
         text: text,
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonText: 'Yes!',
-        cancelButtonText: 'No, cancel!',
-        reverseButtons: true
+        confirmButtonText: "Yes!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
     }).then((result) => {
         if (result.isConfirmed) {
             $.ajax({
@@ -542,117 +584,102 @@ function changeStatus(id, status) {
                 },
                 success: function (data) {
                     table.ajax.reload(null, false);
-                    if (data == true)
-                        showMessage(
-                            "success",
-                            message
-                        );
+                    if (data == true) showMessage("success", message);
                 },
                 error: function (data) {
                     showMessage("warning", "Something went wrong...");
                 },
             });
         }
-    })
+    });
 }
 
 function deleteData(id) {
     Swal.fire({
-        title: 'Are you sure?',
+        title: "Are you sure?",
         text: "Are you sure, do yo want to delete the blog ?",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonText: 'Yes!',
-        cancelButtonText: 'No, cancel!',
-        reverseButtons: true
+        confirmButtonText: "Yes!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
     }).then((result) => {
         if (result.isConfirmed) {
             $.ajax({
                 type: "DELETE",
-                url: $("#route-for-user").val() + '/blogs/' + id,
+                url: $("#route-for-user").val() + "/blogs/" + id,
                 data: {
                     id: id,
                 },
                 success: function (data) {
                     table.ajax.reload(null, false);
                     if (data == true)
-                        showMessage('success', "Blog deleted successfully");
+                        showMessage("success", "Blog deleted successfully");
                 },
                 error: function (data) {
                     showMessage("warning", "Something went wrong...");
                 },
             });
         }
-    })
+    });
 }
 
 function loadSeo(blog_id) {
-    $('.popover-header').hide();
-    $('.popover-arrow').hide();
-    $('#blog_id').val(blog_id);
+    $(".popover-header").hide();
+    $(".popover-arrow").hide();
+    $("#blog_id").val(blog_id);
     $.ajax({
-        url: $('#route-for-user').val() + '/blogs/seo/show?blog_id=' + blog_id,
-        type: 'GET',
-        dataType: 'JSON',
+        url: $("#route-for-user").val() + "/blogs/seo/show?blog_id=" + blog_id,
+        type: "GET",
+        dataType: "JSON",
         headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
         },
-    }).done(function (data) {
-        showSeo(data);
-    }).fail(function () {
-        console.log('Error');
-    }).always(function () { });
+    })
+        .done(function (data) {
+            showSeo(data);
+        })
+        .fail(function () {
+            console.log("Error");
+        })
+        .always(function () {});
 }
 
 function showSeo(data) {
-    $('#seo-edit-form').trigger('reset');
-    $('#seo_id').val('');
-    $('#previous-og-image-section').hide();
+    $("#seo-edit-form").trigger("reset");
+    $("#seo_id").val("");
+    $("#previous-og-image-section").hide();
     if (data.status) {
-        if (data.seo.meta_title)
-            $('#meta_title').val(data.seo.meta_title);
-        else
-            $('#meta_title').val('');
+        if (data.seo.meta_title) $("#meta_title").val(data.seo.meta_title);
+        else $("#meta_title").val("");
         if (data.seo.meta_description)
-            $('#meta_description').val(data.seo.meta_description);
-        else
-            $('#meta_description').val('');
+            $("#meta_description").val(data.seo.meta_description);
+        else $("#meta_description").val("");
         if (data.seo.meta_keywords)
-            $('#meta_keywords').val(data.seo.meta_keywords);
-        else
-            $('#meta_keywords').val('');
-        if (data.seo.og_title)
-            $('#og_title').val(data.seo.og_title);
-        else
-            $('#og_title').val('');
+            $("#meta_keywords").val(data.seo.meta_keywords);
+        else $("#meta_keywords").val("");
+        if (data.seo.og_title) $("#og_title").val(data.seo.og_title);
+        else $("#og_title").val("");
         if (data.seo.og_description)
-            $('#og_description').val(data.seo.og_description);
-        else
-            $('#og_description').val('');
-        if (data.seo.og_url)
-            $('#og_url').val(data.seo.og_url);
-        else
-            $('#og_url').val('');
-        if (data.seo.schema)
-            $('#schema').val(data.seo.schema);
-        else
-            $('#schema').val('');
+            $("#og_description").val(data.seo.og_description);
+        else $("#og_description").val("");
+        if (data.seo.og_url) $("#og_url").val(data.seo.og_url);
+        else $("#og_url").val("");
+        if (data.seo.schema) $("#schema").val(data.seo.schema);
+        else $("#schema").val("");
         if (data.seo.og_image) {
-            document.getElementById("previous-og-image").src = data.seo.og_image;
-            $('#previous-og-image-section').show();
-        }
-        else
-            $('#previous-og-image-section').hide();
-        if (data.seo.id)
-            $('#seo_id').val(data.seo.id);
-        else
-            $('#seo_id').val('');
+            document.getElementById("previous-og-image").src =
+                data.seo.og_image;
+            $("#previous-og-image-section").show();
+        } else $("#previous-og-image-section").hide();
+        if (data.seo.id) $("#seo_id").val(data.seo.id);
+        else $("#seo_id").val("");
     }
 
-    $('#seo-modal').modal('show');
+    $("#seo-modal").modal("show");
 }
 
-$('#seo-edit-form').validate({
+$("#seo-edit-form").validate({
     rules: {
         // meta_title: {
         //     required: true,
@@ -694,70 +721,85 @@ $('#seo-edit-form').validate({
         og_image: "OG Image field is required",
         schema: "Schema field is required",
     },
-    errorElement: 'span',
+    errorElement: "span",
     submitHandler: function (form, event) {
         //
         var formData = new FormData($(form)[0]);
-        $('.error').html('');
-        var submitButton = $(form).find('[type=submit]');
+        $(".error").html("");
+        var submitButton = $(form).find("[type=submit]");
         var current_btn_text = submitButton.html();
-        button_loading_text = 'Saving...';
+        button_loading_text = "Saving...";
         // Create
         $.ajax({
             type: "POST",
-            url: $('#route-for-user').val() + '/blogs/seo',
+            url: $("#route-for-user").val() + "/blogs/seo",
             contentType: false,
             processData: false,
             data: formData,
             cache: false,
             beforeSend: function () {
-                submitButton.html(`
+                submitButton
+                    .html(
+                        `
                     <span class="spinner-border spinner-border-sm"></span>
-                    `+ button_loading_text + `
-                `).attr('disabled', true);
+                    ` +
+                            button_loading_text +
+                            `
+                `
+                    )
+                    .attr("disabled", true);
             },
             success: function (response) {
                 if (response.status) {
-                    showMessage('success', response.message);
-                    $('#seo-modal').modal('hide');
-                    $('#seo-edit-form').trigger("reset");
+                    showMessage("success", response.message);
+                    $("#seo-modal").modal("hide");
+                    $("#seo-edit-form").trigger("reset");
                 } else {
-                    showMessage('warning', response.message);
+                    showMessage("warning", response.message);
                 }
             },
 
             error: function (response) {
-                submitButton.html(current_btn_text).attr('disabled', false);
+                submitButton.html(current_btn_text).attr("disabled", false);
                 if (response.responseJSON.errors) {
                     $.each(response.responseJSON.errors, function (i, v) {
-                        element = $(form).find('[name=' + i + ']');
-                        element.addClass('is-invalid');
-                        if ($(form).find('#' + i + '-error').length) {
-                            $(form).find('#' + i + '-error').html(v).show();
+                        element = $(form).find("[name=" + i + "]");
+                        element.addClass("is-invalid");
+                        if ($(form).find("#" + i + "-error").length) {
+                            $(form)
+                                .find("#" + i + "-error")
+                                .html(v)
+                                .show();
                         } else {
-                            element.closest('.form-group').
-                                append(`<span id="` + i + `-error" class="error invalid-feedback">` + v + `</span>`);
-                            $('.error').show();
+                            element
+                                .closest(".form-group")
+                                .append(
+                                    `<span id="` +
+                                        i +
+                                        `-error" class="error invalid-feedback">` +
+                                        v +
+                                        `</span>`
+                                );
+                            $(".error").show();
                         }
-                        element.attr('aria-invalid', true);
+                        element.attr("aria-invalid", true);
                         element.attr("area-describedby", i + "-error");
                         element.focus();
                     });
-                }
-                else {
-                    showMessage('warning', 'Something went wrong...');
+                } else {
+                    showMessage("warning", "Something went wrong...");
                 }
             },
             complete: function () {
-                submitButton.html(current_btn_text).attr('disabled', false);
-            }
+                submitButton.html(current_btn_text).attr("disabled", false);
+            },
         });
         event.preventDefault();
     },
     highlight: function (element, errorClass, validClass) {
-        $(element).addClass('is-invalid');
+        $(element).addClass("is-invalid");
     },
     unhighlight: function (element, errorClass, validClass) {
-        $(element).removeClass('is-invalid');
-    }
+        $(element).removeClass("is-invalid");
+    },
 });

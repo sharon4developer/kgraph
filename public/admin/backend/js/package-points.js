@@ -1,46 +1,83 @@
 $(document).ready(function () {
-
     loadDataTableForPackages();
 
-    var Parchment = Quill.import('parchment');
-        var lineHeightConfig = new Parchment.Attributor.Style('lineHeight', 'line-height', {
-          scope: Parchment.Scope.BLOCK,
-          whitelist: ['1', '1.5', '2', '2.5', '3', '4'] // Allowed line heights
-        });
-        Quill.register(lineHeightConfig, true);
+    if (document.getElementById("package-details-table")) {
+        Sortable.create(
+            document
+                .getElementById("package-details-table")
+                .getElementsByTagName("tbody")[0],
+            {
+                onEnd: function (event) {
+                    // Get the new order of the rows
+                    var newOrder = [];
+                    $("#package-details-table tbody tr").each(function () {
+                        newOrder.push(table.row(this).data());
+                    });
 
-        var toolbarOptions = [
-            ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-            ['blockquote', 'code-block'],
-            ['image', 'code-block'],
-            [{ 'header': 1 }, { 'header': 2 }],               // custom button values
-            [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-            [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-            [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
-            [{ 'direction': 'rtl' }],                         // text direction
+                    // Pass the new order to the backend (e.g., using AJAX)
+                    $.ajax({
+                        url:
+                            $("#route-for-user").val() +
+                            "/package-points/update/order", // Replace with your Laravel route URL
+                        method: "POST",
+                        data: {
+                            order: newOrder,
+                        },
+                        success: function (response) {
+                            table.ajax.reload(null, false);
+                        },
+                        error: function (xhr) {
+                            // Handle error response
+                        },
+                    });
+                },
+            }
+        );
+    }
 
-            [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-            [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+    var Parchment = Quill.import("parchment");
+    var lineHeightConfig = new Parchment.Attributor.Style(
+        "lineHeight",
+        "line-height",
+        {
+            scope: Parchment.Scope.BLOCK,
+            whitelist: ["1", "1.5", "2", "2.5", "3", "4"], // Allowed line heights
+        }
+    );
+    Quill.register(lineHeightConfig, true);
 
-            [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-            [{ 'font': [] }],
-            [
-                { align: "" }, // left align
-                { align: "center" }, // center align
-                { align: "right" }, // right align
-                { align: "justify" }, // justify align
-            ],
-            [{ 'lineHeight': ['1', '1.5', '2', '2.5', '3', '4'] }],
-            ['clean']                                         // remove formatting button
-        ];
+    var toolbarOptions = [
+        ["bold", "italic", "underline", "strike"], // toggled buttons
+        ["blockquote", "code-block"],
+        ["image", "code-block"],
+        [{ header: 1 }, { header: 2 }], // custom button values
+        [{ list: "ordered" }, { list: "bullet" }],
+        [{ script: "sub" }, { script: "super" }], // superscript/subscript
+        [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
+        [{ direction: "rtl" }], // text direction
+
+        [{ size: ["small", false, "large", "huge"] }], // custom dropdown
+        [{ header: [1, 2, 3, 4, 5, 6, false] }],
+
+        [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+        [{ font: [] }],
+        [
+            { align: "" }, // left align
+            { align: "center" }, // center align
+            { align: "right" }, // right align
+            { align: "justify" }, // justify align
+        ],
+        [{ lineHeight: ["1", "1.5", "2", "2.5", "3", "4"] }],
+        ["clean"], // remove formatting button
+    ];
 
     Quill.register("modules/htmlEditButton", htmlEditButton);
 
-    var quill = new Quill('#summernote', {
-        theme: 'snow',
+    var quill = new Quill("#summernote", {
+        theme: "snow",
         modules: {
             imageResize: {
-                displaySize: true
+                displaySize: true,
             },
             htmlEditButton: {
                 debug: true, // logging, default:false
@@ -50,81 +87,53 @@ $(document).ready(function () {
                 buttonHTML: "<span class='quill-top-buttons'>&lt;&gt;</span>", // Text to display in the toolbar button, default: <>
                 buttonTitle: "Show HTML source", // Text to display as the tooltip for the toolbar button, default: Show HTML source
                 syntax: false, // Show the HTML with syntax highlighting. Requires highlightjs on window.hljs (similar to Quill itself), default: false
-                prependSelector: 'div#myelement', // a string used to select where you want to insert the overlayContainer, default: null (appends to body),
-                editorModules: {} // The default mod
+                prependSelector: "div#myelement", // a string used to select where you want to insert the overlayContainer, default: null (appends to body),
+                editorModules: {}, // The default mod
             },
             toolbar: toolbarOptions,
         },
-        placeholder: '',
-        theme: 'snow'  // or 'bubble'
+        placeholder: "",
+        theme: "snow", // or 'bubble'
     });
-    $('.ql-editor').html($('#text-content').val());
-
-    if(document.getElementById('package-details-table')){
-
-        Sortable.create(document.getElementById('package-details-table').getElementsByTagName('tbody')[0], {
-            onEnd: function (event) {
-                // Get the new order of the rows
-                var newOrder = [];
-                $('#package-details-table tbody tr').each(function () {
-                    newOrder.push(table.row(this).data());
-                });
-
-                // Pass the new order to the backend (e.g., using AJAX)
-                $.ajax({
-                    url: $('#route-for-user').val() + '/package-points/update/order', // Replace with your Laravel route URL
-                    method: 'POST',
-                    data: {
-                        order: newOrder
-                    },
-                    success: function (response) {
-                        table.ajax.reload(null, false);
-                    },
-                    error: function (xhr) {
-                        // Handle error response
-                    }
-                });
-            }
-        });
-    }
+    $(".ql-editor").html($("#text-content").val());
 });
 
 function loadDataTableForPackages() {
-    table = $('#package-details-table').DataTable({
+    table = $("#package-details-table").DataTable({
         processing: true,
         serverSide: true,
-        "ajax": {
-            "url": $('#route-for-user').val() + '/package-points/show',
-            "dataType": "json",
-            "type": "GET",
-            "data": function(d) {
-                d.package_id=$('#select-package').val();
-            }
+        ajax: {
+            url: $("#route-for-user").val() + "/package-points/show",
+            dataType: "json",
+            type: "GET",
+            data: function (d) {
+                d.package_id = $("#select-package").val();
+            },
         },
         columns: [
-            { data: 'DT_RowIndex', orderable: false, searchable: false },
-            { data: 'package_id' },
-            { data: 'title' },
+            { data: "DT_RowIndex", orderable: false, searchable: false },
+            { data: "package_id" },
+            { data: "title" },
             {
                 data: null,
                 render: function (row) {
-
                     if (row.status == 1)
                         return `<span class="badge rounded-pill bg-success-subtle text-success">Active</span>`;
                     else
                         return `<span class="badge rounded-pill bg-danger-subtle text-danger">Deactivated</span>`;
-
-
-                }, orderable: false, searchable: false
+                },
+                orderable: false,
+                searchable: false,
             },
             {
                 data: null,
                 render: function (row) {
-                    return moment(row.created_at).format('DD MMM  YYYY hh:mm:a')
+                    return moment(row.created_at).format(
+                        "DD MMM  YYYY hh:mm:a"
+                    );
                 },
-                orderable:
-                    false,
-                searchable: false
+                orderable: false,
+                searchable: false,
             },
             {
                 data: null,
@@ -137,7 +146,9 @@ function loadDataTableForPackages() {
                             <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
                                 data-bs-toggle="popover" data-bs-trigger="hover"
                                 data-bs-original-title="Edit" data-bs-placement="top"
-                                href="${$("#route-for-user").val()}/package-points/${row.id}/edit">
+                                href="${$(
+                                    "#route-for-user"
+                                ).val()}/package-points/${row.id}/edit">
                                 <i class="fa fa-edit"></i>
                             </a>`;
                     }
@@ -175,25 +186,32 @@ function loadDataTableForPackages() {
                     buttons += `</div>`;
                     return buttons;
                 },
-                orderable: false, searchable: false
-            }
+                orderable: false,
+                searchable: false,
+            },
         ],
         pagingType: "full_numbers",
-        "dom": "<'dt--top-section'<'row'<'col-12 col-sm-6 d-flex justify-content-sm-start justify-content-center'l><'col-12 col-sm-6 d-flex justify-content-sm-end justify-content-center mt-sm-0 mt-3'f>>>" +
+        dom:
+            "<'dt--top-section'<'row'<'col-12 col-sm-6 d-flex justify-content-sm-start justify-content-center'l><'col-12 col-sm-6 d-flex justify-content-sm-end justify-content-center mt-sm-0 mt-3'f>>>" +
             "<'table-responsive'tr>" +
             "<'dt--bottom-section d-sm-flex justify-content-sm-between text-center'<'dt--pages-count  mb-sm-0 mb-3'i><'dt--pagination'p>>",
-        "oLanguage": {
-            "oPaginate": { "sPrevious": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>', "sNext": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>' },
+        oLanguage: {
+            oPaginate: {
+                sPrevious:
+                    '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>',
+                sNext: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>',
+            },
             // "sInfo": "Showing page _PAGE_ of _PAGES_",
-            "sSearch": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
-            "sSearchPlaceholder": "Search...",
-            "sLengthMenu": "Results :  _MENU_",
+            sSearch:
+                '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
+            sSearchPlaceholder: "Search...",
+            sLengthMenu: "Results :  _MENU_",
         },
-        "stripeClasses": [],
+        stripeClasses: [],
     });
 }
 
-$('#package-add-form').validate({
+$("#package-add-form").validate({
     rules: {
         title: {
             required: true,
@@ -210,77 +228,92 @@ $('#package-add-form').validate({
         description: "Description field is required",
         package_id: "Package field is required",
     },
-    errorElement: 'span',
+    errorElement: "span",
     submitHandler: function (form, event) {
         //
         var formData = new FormData($(form)[0]);
-        formData.append('description', $('.ql-editor').html());
-        $('.error').html('');
-        var submitButton = $(form).find('[type=submit]');
+        formData.append("description", $(".ql-editor").html());
+        $(".error").html("");
+        var submitButton = $(form).find("[type=submit]");
         var current_btn_text = submitButton.html();
         // formData.append('description', $('.ck-content').html());
-        button_loading_text = 'Saving...';
+        button_loading_text = "Saving...";
         // Create
         $.ajax({
             type: "POST",
-            url: $('#route-for-user').val() + '/package-points',
+            url: $("#route-for-user").val() + "/package-points",
             contentType: false,
             processData: false,
             data: formData,
             cache: false,
             beforeSend: function () {
-                submitButton.html(`
+                submitButton
+                    .html(
+                        `
                     <span class="spinner-border spinner-border-sm"></span>
-                    `+ button_loading_text + `
-                `).attr('disabled', true);
+                    ` +
+                            button_loading_text +
+                            `
+                `
+                    )
+                    .attr("disabled", true);
             },
             success: function (response) {
                 if (response.status) {
-                    showMessage('success', response.message);
+                    showMessage("success", response.message);
                     setTimeout(function () {
                         window.location = response.return_url;
                     }, 500);
                 } else {
-                    showMessage('warning', response.message);
+                    showMessage("warning", response.message);
                 }
             },
             error: function (response) {
-                submitButton.html(current_btn_text).attr('disabled', false);
+                submitButton.html(current_btn_text).attr("disabled", false);
                 if (response.responseJSON.errors) {
                     $.each(response.responseJSON.errors, function (i, v) {
-                        element = $(form).find('[name=' + i + ']');
-                        element.addClass('is-invalid');
-                        if ($(form).find('#' + i + '-error').length) {
-                            $(form).find('#' + i + '-error').html(v).show();
+                        element = $(form).find("[name=" + i + "]");
+                        element.addClass("is-invalid");
+                        if ($(form).find("#" + i + "-error").length) {
+                            $(form)
+                                .find("#" + i + "-error")
+                                .html(v)
+                                .show();
                         } else {
-                            element.closest('.form-group').
-                                append(`<span id="` + i + `-error" class="error invalid-feedback">` + v + `</span>`);
-                            $('.error').show();
+                            element
+                                .closest(".form-group")
+                                .append(
+                                    `<span id="` +
+                                        i +
+                                        `-error" class="error invalid-feedback">` +
+                                        v +
+                                        `</span>`
+                                );
+                            $(".error").show();
                         }
-                        element.attr('aria-invalid', true);
+                        element.attr("aria-invalid", true);
                         element.attr("area-describedby", i + "-error");
                         element.focus();
                     });
-                }
-                else {
-                    showMessage('warning', 'Something went wrong...');
+                } else {
+                    showMessage("warning", "Something went wrong...");
                 }
             },
             complete: function () {
-                submitButton.html(current_btn_text).attr('disabled', false);
-            }
+                submitButton.html(current_btn_text).attr("disabled", false);
+            },
         });
         event.preventDefault();
     },
     highlight: function (element, errorClass, validClass) {
-        $(element).addClass('is-invalid');
+        $(element).addClass("is-invalid");
     },
     unhighlight: function (element, errorClass, validClass) {
-        $(element).removeClass('is-invalid');
-    }
+        $(element).removeClass("is-invalid");
+    },
 });
 
-$('#package-edit-form').validate({
+$("#package-edit-form").validate({
     rules: {
         title: {
             required: true,
@@ -300,100 +333,150 @@ $('#package-edit-form').validate({
         description: "Description field is required",
         package_id: "Package field is required",
     },
-    errorElement: 'span',
+    errorElement: "span",
     submitHandler: function (form, event) {
         //
         var formData = new FormData($(form)[0]);
-        formData.append('description', $('.ql-editor').html());
-        $('.error').html('');
-        var submitButton = $(form).find('[type=submit]');
+        formData.append("description", $(".ql-editor").html());
+        $(".error").html("");
+        var submitButton = $(form).find("[type=submit]");
         var current_btn_text = submitButton.html();
-        button_loading_text = 'Saving...';
-        var package_point_id = $(form).find('input[name=package_point_id]').val();
+        button_loading_text = "Saving...";
+        var package_point_id = $(form)
+            .find("input[name=package_point_id]")
+            .val();
         // formData.append('description', $('.ck-content').html());
         // Create
         $.ajax({
             type: "POST",
-            url: $('#route-for-user').val() + '/package-points/' + package_point_id,
+            url:
+                $("#route-for-user").val() +
+                "/package-points/" +
+                package_point_id,
             contentType: false,
             processData: false,
             data: formData,
             cache: false,
             beforeSend: function () {
-                submitButton.html(`
+                submitButton
+                    .html(
+                        `
                     <span class="spinner-border spinner-border-sm"></span>
-                    `+ button_loading_text + `
-                `).attr('disabled', true);
+                    ` +
+                            button_loading_text +
+                            `
+                `
+                    )
+                    .attr("disabled", true);
             },
             success: function (response) {
                 if (response.status) {
-                    showMessage('success', response.message);
+                    showMessage("success", response.message);
                     setTimeout(function () {
                         window.location = response.return_url;
                     }, 500);
                 } else {
-                    showMessage('warning', response.message);
+                    showMessage("warning", response.message);
                 }
             },
 
             error: function (response) {
-                submitButton.html(current_btn_text).attr('disabled', false);
+                submitButton.html(current_btn_text).attr("disabled", false);
                 if (response.responseJSON.errors) {
                     $.each(response.responseJSON.errors, function (i, v) {
-                        element = $(form).find('[name=' + i + ']');
-                        element.addClass('is-invalid');
-                        if ($(form).find('#' + i + '-error').length) {
-                            $(form).find('#' + i + '-error').html(v).show();
+                        element = $(form).find("[name=" + i + "]");
+                        element.addClass("is-invalid");
+                        if ($(form).find("#" + i + "-error").length) {
+                            $(form)
+                                .find("#" + i + "-error")
+                                .html(v)
+                                .show();
                         } else {
-                            element.closest('.form-group').
-                                append(`<span id="` + i + `-error" class="error invalid-feedback">` + v + `</span>`);
-                            $('.error').show();
+                            element
+                                .closest(".form-group")
+                                .append(
+                                    `<span id="` +
+                                        i +
+                                        `-error" class="error invalid-feedback">` +
+                                        v +
+                                        `</span>`
+                                );
+                            $(".error").show();
                         }
-                        element.attr('aria-invalid', true);
+                        element.attr("aria-invalid", true);
                         element.attr("area-describedby", i + "-error");
                         element.focus();
                     });
-                }
-                else {
-                    showMessage('warning', 'Something went wrong...');
+                } else {
+                    showMessage("warning", "Something went wrong...");
                 }
             },
             complete: function () {
-                submitButton.html(current_btn_text).attr('disabled', false);
-            }
+                submitButton.html(current_btn_text).attr("disabled", false);
+            },
         });
         event.preventDefault();
     },
     highlight: function (element, errorClass, validClass) {
-        $(element).addClass('is-invalid');
+        $(element).addClass("is-invalid");
     },
     unhighlight: function (element, errorClass, validClass) {
-        $(element).removeClass('is-invalid');
-    }
+        $(element).removeClass("is-invalid");
+    },
 });
 
 function changeStatus(id, status) {
     if (status == 1) {
-        text = 'You want to deactivate this package point!';
-        message = 'Deactivated successfully';
-    }
-    else {
-        text = 'You want to activate this package point!';
-        message = 'Activated successfully';
+        text = "You want to deactivate this package point!";
+        message = "Deactivated successfully";
+    } else {
+        text = "You want to activate this package point!";
+        message = "Activated successfully";
     }
     Swal.fire({
-        title: 'Are you sure?',
+        title: "Are you sure?",
         text: text,
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonText: 'Yes!',
-        cancelButtonText: 'No, cancel!',
-        reverseButtons: true
+        confirmButtonText: "Yes!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
     }).then((result) => {
         if (result.isConfirmed) {
             $.ajax({
                 type: "POST",
-                url: $("#route-for-user").val() + "/package-points/change/status",
+                url:
+                    $("#route-for-user").val() +
+                    "/package-points/change/status",
+                data: {
+                    id: id,
+                },
+                success: function (data) {
+                    table.ajax.reload(null, false);
+                    if (data == true) showMessage("success", message);
+                },
+                error: function (data) {
+                    showMessage("warning", "Something went wrong...");
+                },
+            });
+        }
+    });
+}
+
+function deleteData(id) {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "Are you sure, do yo want to delete the package point ?",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Yes!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $.ajax({
+                type: "DELETE",
+                url: $("#route-for-user").val() + "/package-points/" + id,
                 data: {
                     id: id,
                 },
@@ -402,7 +485,7 @@ function changeStatus(id, status) {
                     if (data == true)
                         showMessage(
                             "success",
-                            message
+                            "Package point deleted successfully"
                         );
                 },
                 error: function (data) {
@@ -410,40 +493,9 @@ function changeStatus(id, status) {
                 },
             });
         }
-    })
+    });
 }
 
-function deleteData(id) {
-    Swal.fire({
-        title: 'Are you sure?',
-        text: "Are you sure, do yo want to delete the package point ?",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: 'Yes!',
-        cancelButtonText: 'No, cancel!',
-        reverseButtons: true
-    }).then((result) => {
-        if (result.isConfirmed) {
-            $.ajax({
-                type: "DELETE",
-                url: $("#route-for-user").val() + '/package-points/' + id,
-                data: {
-                    id: id,
-                },
-                success: function (data) {
-                    table.ajax.reload(null, false);
-                    if (data == true)
-                        showMessage('success', "Package point deleted successfully");
-                },
-                error: function (data) {
-                    showMessage("warning", "Something went wrong...");
-                },
-            });
-        }
-    })
-}
-
-$('#select-package').on('change',function (e) {
-
+$("#select-package").on("change", function (e) {
     table.ajax.reload();
-})
+});
