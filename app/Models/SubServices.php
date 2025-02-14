@@ -15,39 +15,43 @@ class SubServices extends Model
 
     protected $table = 'sub_services';
 
-    protected $fillable = ['title', 'sub_title', 'image', 'intervention_image', 'status','order','alt_tag','slug','service_id','inner_title','banner_image','banner_image_alt_tag'];
+    protected $fillable = ['title', 'sub_title', 'image', 'intervention_image', 'status', 'order', 'alt_tag', 'slug', 'service_id', 'inner_title', 'banner_image', 'banner_image_alt_tag', 'description'];
 
-    public function ServicePoint(){
-        return  $this->hasMany(SubServicesPoint::class,'sub_service_id')->orderBy('order', 'asc');
+    public function ServicePoint()
+    {
+        return  $this->hasMany(SubServicesPoint::class, 'sub_service_id')->orderBy('order', 'asc');
     }
 
-    public function ServiceFaq(){
-        return  $this->hasMany(SubServicesFaq::class,'sub_service_id')->orderBy('order', 'asc');
+    public function ServiceFaq()
+    {
+        return  $this->hasMany(SubServicesFaq::class, 'sub_service_id')->orderBy('order', 'asc');
     }
 
-    public function Services(){
-        return  $this->belongsTo(Service::class,'service_id');
+    public function Services()
+    {
+        return  $this->belongsTo(Service::class, 'service_id');
     }
 
-    public function Seo(){
-        return  $this->hasOne(SubServiceSeo::class,'sub_service_id');
+    public function Seo()
+    {
+        return  $this->hasOne(SubServiceSeo::class, 'sub_service_id');
     }
 
     public static function getFullData($data)
     {
         $locationData = getLocationData();
 
-        $value =  SELF::select('title', 'image', 'id', 'status', 'created_at','service_id')
-                    ->where(function ($query) use ($data) {
-                        if (isset($data->service_id)) {
-                            $query->where('service_id', $data->service_id);
-                        }
-                    })->orderBy('order', 'asc');
+        $value =  SELF::select('title', 'image', 'id', 'status', 'created_at', 'service_id')
+            ->where(function ($query) use ($data) {
+                if (isset($data->service_id)) {
+                    $query->where('service_id', $data->service_id);
+                }
+            })->orderBy('order', 'asc');
 
 
         return DataTables::of($value)
-            ->editColumn('image', function ($row) use($locationData) {
-                return $locationData['storage_server_path'].$locationData['storage_image_path'].$row->image;
+            ->editColumn('image', function ($row) use ($locationData) {
+                return $locationData['storage_server_path'] . $locationData['storage_image_path'] . $row->image;
             })
             ->editColumn('service_id', function ($row) {
                 return $row->Services->title;
@@ -56,7 +60,8 @@ class SubServices extends Model
                 return Gate::allows('sub-services-delete');
             })
             ->addColumn('can_edit', function ($row) {
-                return Gate::allows('sub-services-edit'); })
+                return Gate::allows('sub-services-edit');
+            })
             ->addIndexColumn()
             ->rawColumns(['action', 'edit', 'delete'])
             ->make(true);
@@ -70,6 +75,7 @@ class SubServices extends Model
         $value->inner_title  = $data->inner_title;
         $value->alt_tag           =  $data->alt_tag;
         $value->service_id           =  $data->service_id;
+        $value->description           =  $data->description;
         $slug = Str::slug($data->title);
         $value->slug = $slug;
         $value->banner_image_alt_tag           =  $data->banner_image_alt_tag;
@@ -88,7 +94,7 @@ class SubServices extends Model
 
     public static function getData($id)
     {
-        return SELF::with(['ServicePoint','ServiceFaq'])->find($id);
+        return SELF::with(['ServicePoint', 'ServiceFaq'])->find($id);
     }
 
     public static function updateData($data)
@@ -99,6 +105,7 @@ class SubServices extends Model
         $value->inner_title  = $data->inner_title;
         $value->alt_tag           =  $data->alt_tag;
         $value->service_id           =  $data->service_id;
+        $value->description           =  $data->description;
         $slug = Str::slug($data->title);
         $value->slug = $slug;
         $value->banner_image_alt_tag           =  $data->banner_image_alt_tag;
@@ -140,8 +147,9 @@ class SubServices extends Model
             return false;
     }
 
-    public static function getFullDataForHome(){
-        return SELF::with(['ServicePoint','ServiceFaq'])->select('image','id','title','sub_title','alt_tag','slug','inner_title','banner_image')->orderBy('order','asc')->where('status',1)->get();
+    public static function getFullDataForHome()
+    {
+        return SELF::with(['ServicePoint', 'ServiceFaq'])->select('image', 'id', 'title', 'sub_title', 'alt_tag', 'slug', 'inner_title', 'banner_image', 'description')->orderBy('order', 'asc')->where('status', 1)->get();
     }
 
     public static function updateOrder($data)

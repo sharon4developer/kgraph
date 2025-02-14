@@ -9,8 +9,9 @@
         }
 
         .servicesIIner-banner {
-            background-image: url(/assets/servicesinner.jpg) !important;                                                                                                                 background-position-x: center; */
-            background-size: cover;
+            background-image: url(/assets/servicesinner.jpg) !important;
+            background-position-x: center;
+            */ background-size: cover;
             background-repeat: no-repeat;
         }
 
@@ -220,53 +221,53 @@
         }
 
         /* .custom-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+                            list-style: none;
+                            padding: 0;
+                            margin: 0;
+                        }
 
-        .custom-list > li {
-            position: relative;
-            padding-left: 30px;
-            margin-top: 15px !important;
-            margin-bottom: 15px !important;
-            font-size: 16px;
-            line-height: 1.6;
-        }
+                        .custom-list > li {
+                            position: relative;
+                            padding-left: 30px;
+                            margin-top: 15px !important;
+                            margin-bottom: 15px !important;
+                            font-size: 16px;
+                            line-height: 1.6;
+                        }
 
-        .custom-list > li::before {
-            content: '\2713';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 15px;
-            height: 15px;
-            background-color: #ffffff;
-            border-radius: 50%;
-            color: #062358;
-            font-size: 10px;
-            text-align: center;
-            line-height: 15px;
-            font-weight: 800;
-        }
+                        .custom-list > li::before {
+                            content: '\2713';
+                            position: absolute;
+                            left: 0;
+                            top: 50%;
+                            transform: translateY(-50%);
+                            width: 15px;
+                            height: 15px;
+                            background-color: #ffffff;
+                            border-radius: 50%;
+                            color: #062358;
+                            font-size: 10px;
+                            text-align: center;
+                            line-height: 15px;
+                            font-weight: 800;
+                        }
 
-        .custom-list ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            padding-left: 30px;
-        }
+                        .custom-list ul {
+                            list-style: none;
+                            padding: 0;
+                            margin: 0;
+                            padding-left: 30px;
+                        }
 
-        .custom-list ul > li {
-            margin-top: 15px !important;
-            margin-bottom: 15px !important;
-            padding-left: 30px;
-        }
+                        .custom-list ul > li {
+                            margin-top: 15px !important;
+                            margin-bottom: 15px !important;
+                            padding-left: 30px;
+                        }
 
-        .custom-list > li:has(ul)::before {
-            top: 11%;
-        } */
+                        .custom-list > li:has(ul)::before {
+                            top: 11%;
+                        } */
 
 
 
@@ -277,6 +278,7 @@
             background-color: #062358;
             /* padding-left: 10px; */
         }
+
         .content-btn.active-button {
             background-color: white;
             color: #062358;
@@ -286,28 +288,28 @@
         }
 
         /* @media (min-width: 768px){
-            .content-btn.active-button {
-                background-color: white;
-                color: #062358;
-                font-weight: 700;
-                border-top-right-radius: 7px;
-                border-top-left-radius: 7px;
-                border: none;
-            }
-        } */
+                            .content-btn.active-button {
+                                background-color: white;
+                                color: #062358;
+                                font-weight: 700;
+                                border-top-right-radius: 7px;
+                                border-top-left-radius: 7px;
+                                border: none;
+                            }
+                        } */
 
         /* .custom-tab-content {
-            display: none;
-        } */
+                            display: none;
+                        } */
 
         /* .custom-tab-content:not(.hidden) {
-            display: block;
-        } */
+                            display: block;
+                        } */
 
 
         /* .custom-tab-content {
-            display: none;
-        } */
+                            display: none;
+                        } */
 
         .custom-tab-content.active {
             display: block !important;
@@ -318,19 +320,18 @@
             border-radius: 25px;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
+
         .content-btn:hover {
             /* background-color: #2563eb; */
             /* color: white; */
         }
-
-
-
     </style>
 
     {{-- services banner --}}
     <div class="relative servicesIIner-banner h-full">
         <!-- Background Image -->
-        <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $services->banner_image }}" alt="Background Image" class="absolute inset-0 w-full h-full object-cover z-0">
+        <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $services->banner_image }}"
+            alt="Background Image" class="absolute inset-0 w-full h-full object-cover z-0">
 
         <div class="services-banner-overlay relative z-10 bg-black bg-opacity-50 h-full">
             <!-- Overlay for better contrast -->
@@ -369,16 +370,17 @@
             <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%] lg:pb-1">
                 <!-- Services Section -->
                 <div class="lg:w-full font_inter flex flex-col justify-center">
-                    <h2 class="font-semibold text-xl lg:text-4xl text-[#062358] lg:pl-[27px]">
+                    <h2 class="font-semibold text-xl my-4 lg:text-4xl text-[#062358]">
                         {{ $services->inner_title }}
                     </h2>
-
+                    <p>{{ $services->description }}</p>
                     <div class="blufader-grade text-white my-6 px-5 rounded-md py-3">Key Highlight</div>
 
                     <ul class="list-disc lg:pl-5 text-[#062358] leading-normal list-none md:pb-6">
                         @foreach ($services->ServicePoint as $key => $ServicePoint)
-                            @if($ServicePoint->status ==1)
-                                <li class="my-1 py-2 px-4 w-full lg:w-1/2 transition-all duration-200 cursor-pointer rounded-md border border-[#d6d6d6] text-gray-800 @if ($key == 0) active-item @endif" data-target="service-point{{ $key }}">
+                            @if ($ServicePoint->status == 1)
+                                <li class="my-1 py-2 px-4 w-full lg:w-1/2 transition-all duration-200 cursor-pointer rounded-md border border-[#d6d6d6] text-gray-800 @if ($key == 0) active-item @endif"
+                                    data-target="service-point{{ $key }}">
                                     <a href="#sub-services">{{ $ServicePoint->title }}</a>
                                 </li>
                             @endif
@@ -392,59 +394,62 @@
     <div class="services bg-[#062358]">
         <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%]">
             @foreach ($services->ServicePoint as $key => $ServicePoint)
-            @if($ServicePoint->status ==1)
-                <div id="service-point{{ $key }}" class="buttons-wrapper @if ($key != 0) hidden @endif">
-                    <div id="sub-services" class="">
-                        <div class="mb-8 pb-5 flex flex-wrap items-center gap-3 border-b border-b-white mb-2">
-                            @foreach ($ServicePoint->ServicePointContents as $index => $content)
-                                @if( $content->status ==1 )
-                                    <button class="content-btn text-left md:whitespace-nowrap w-fit bg-[#062358] text-white py-2 px-4  font-semibold focus:outline-none @if ($index == 0) active-button @endif"
-                                        data-target="content{{ $key }}-{{ $index }}">
-                                        {{ $content->title }}
-                                    </button>
-                                @endif
-                            @endforeach
-                        </div>
+                @if ($ServicePoint->status == 1)
+                    <div id="service-point{{ $key }}"
+                        class="buttons-wrapper @if ($key != 0) hidden @endif">
+                        <div id="sub-services" class="">
+                            <div class="mb-8 pb-5 flex flex-wrap items-center gap-3 border-b border-b-white mb-2">
+                                @foreach ($ServicePoint->ServicePointContents as $index => $content)
+                                    @if ($content->status == 1)
+                                        <button
+                                            class="content-btn text-left md:whitespace-nowrap w-fit bg-[#062358] text-white py-2 px-4  font-semibold focus:outline-none @if ($index == 0) active-button @endif"
+                                            data-target="content{{ $key }}-{{ $index }}">
+                                            {{ $content->title }}
+                                        </button>
+                                    @endif
+                                @endforeach
+                            </div>
 
-                        <div class="pl-4">
-                            @foreach ($ServicePoint->ServicePointContents as $key2 => $ServicePointContent)
-                            @if($ServicePointContent->status ==1)
-                                <div id="content{{ $key }}-{{ $key2 }}"
-                                        class="custom-tab-content lg:mt-4 @if ($key != 0) hidden @endif">
-                                    {{-- <h2 class="text-xl font-bold mb-4 text-white">{{ $ServicePointContent->title }}</h2> --}}
-                                    <p class="text-white mb-4">{{ $content->description }}</p>
+                            <div class="pl-4">
+                                @foreach ($ServicePoint->ServicePointContents as $key2 => $ServicePointContent)
+                                    @if ($ServicePointContent->status == 1)
+                                        <div id="content{{ $key }}-{{ $key2 }}"
+                                            class="custom-tab-content lg:mt-4 @if ($key != 0) hidden @endif">
+                                            {{-- <h2 class="text-xl font-bold mb-4 text-white">{{ $ServicePointContent->title }}</h2> --}}
+                                            <p class="text-white mb-4">{{ $content->description }}</p>
 
-                                    @foreach ($ServicePointContent->Title as  $title)
-                                        <h2 class="text-xl font-bold mb-4 text-white">
-                                            {{ $title->name }}</h2>
-                                        @if (count($title->paragraphs))
-                                            @foreach ($title->paragraphs as $paragraph)
-                                                <p class="text-white">{{ $paragraph->content }}</p>
-                                            @endforeach
-                                        @endif
-                                        @if (count($title->options))
-                                            <ul class="list-discs custom-list list-inside text-white space-y-2">
-                                                @foreach ($title->options as $option)
-                                                    <li>{{ $option->value }}
-                                                        @if (count($option->subOptions))
-                                                        <ul class="list-discs custom-list list-inside text-white space-y-2">
-                                                        @foreach ($option->subOptions as $subOptions)
-                                                            <li>{{ $subOptions->value }}</li>
+                                            @foreach ($ServicePointContent->Title as $title)
+                                                <h2 class="text-xl font-bold mb-4 text-white">
+                                                    {{ $title->name }}</h2>
+                                                @if (count($title->paragraphs))
+                                                    @foreach ($title->paragraphs as $paragraph)
+                                                        <p class="text-white">{{ $paragraph->content }}</p>
+                                                    @endforeach
+                                                @endif
+                                                @if (count($title->options))
+                                                    <ul class="list-discs custom-list list-inside text-white space-y-2">
+                                                        @foreach ($title->options as $option)
+                                                            <li>{{ $option->value }}
+                                                                @if (count($option->subOptions))
+                                                                    <ul
+                                                                        class="list-discs custom-list list-inside text-white space-y-2">
+                                                                        @foreach ($option->subOptions as $subOptions)
+                                                                            <li>{{ $subOptions->value }}</li>
+                                                                        @endforeach
+                                                                    </ul>
+                                                                @endif
+                                                            </li>
                                                         @endforeach
-                                                        </ul>
-                                                        @endif
-                                                    </li>
-                                                @endforeach
-                                            </ul>
-                                        @endif
-                                    @endforeach
-                                </div>
-                            @endif
-                            @endforeach
+                                                    </ul>
+                                                @endif
+                                            @endforeach
+                                        </div>
+                                    @endif
+                                @endforeach
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endif
+                @endif
             @endforeach
         </div>
     </div>
@@ -463,12 +468,13 @@
         <div class="faq-section bg-[#F7FCFF]">
             <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full">
                 <div class="flex justify-center items-center">
-                    <h2 class="text-[#072459] font_inter text-[20px] pl-4 font-extrabold uppercase">other important FAQs</h2>
+                    <h2 class="text-[#072459] font_inter text-[20px] pl-4 font-extrabold uppercase">other important FAQs
+                    </h2>
                 </div>
                 <div class="mt-8 faq-parent lg:px-[10%]">
-    
+
                     @foreach ($services->ServiceFaq as $key => $ServiceFaq)
-                        @if($ServiceFaq->status ==1)
+                        @if ($ServiceFaq->status == 1)
                             <div class="accordion bg-white rounded-2xl my-3 lg:my-0 h-fit p-6">
                                 <div class="accordion-header flex justify-between items-center  cursor-pointer">
                                     <h6>{{ $ServiceFaq->title }}</h6>
@@ -497,8 +503,8 @@
                             </div>
                         @endif
                     @endforeach
-    
-                    
+
+
                 </div>
             </div>
         </div>
@@ -516,7 +522,7 @@
                 </div>
                 <div class="services-inner faq text-[#2D3E50] font_inter py-4 flex flex-col justify-start items-start gap-4">
                     @foreach ($services->ServiceFaq as $key => $ServiceFaq)
-                    @if($ServiceFaq->status ==1)
+                    @if ($ServiceFaq->status == 1)
                         <div class="accordion-item bg-white p-5 lg:w-1/2 rounded-xl overflow-hidden cursor-pointer transition-all duration-300"
                             onclick="toggleAccordion(this)">
                             <div class="flex justify-start items-center w-full h-full accordion-header gap-4">
@@ -624,7 +630,7 @@
     </script>
 
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             // Hide all `.buttons-wrapper` and `.custom-tab-content` except the first one
             $(".buttons-wrapper").addClass("hidden").first().removeClass("hidden");
             $(".custom-tab-content").addClass("hidden").first().removeClass("hidden");
@@ -632,7 +638,7 @@
             $(".content-btn").first().addClass("active-button");
 
             // Handle clicks on ServicePoint list items (scoped narrowly to direct children only)
-            $(".list-disc > li").on("click", function () {
+            $(".list-disc > li").on("click", function() {
                 // Remove active state from all ServicePoint list items and hide all buttons
                 $(".list-disc > li").removeClass("active-item");
                 $(".buttons-wrapper").addClass("hidden");
@@ -648,7 +654,7 @@
             });
 
             // Handle clicks on buttons inside buttons-wrapper
-            $(".content-btn").on("click", function () {
+            $(".content-btn").on("click", function() {
                 // Remove active state from all buttons and hide all content
                 $(".content-btn").removeClass("active-button");
                 $(".custom-tab-content").addClass("hidden");
@@ -660,39 +666,35 @@
             });
 
             // Prevent clicks on dynamically generated options list items from affecting parent state
-            $(document).on("click", ".custom-list > li", function (e) {
+            $(document).on("click", ".custom-list > li", function(e) {
                 e.stopPropagation(); // Prevent the click from propagating to parent elements
             });
         });
 
 
-        $(document).ready(function () {
-    const offsetAdjustment = $(window).height() / 2; // Center adjustment
+        $(document).ready(function() {
+            const offsetAdjustment = $(window).height() / 2; // Center adjustment
 
-    // Handle clicks on <li> elements in the specific section
-    $(".list-disc > li").on("click", function (e) {
-        e.preventDefault(); // Prevent default behavior
+            // Handle clicks on <li> elements in the specific section
+            $(".list-disc > li").on("click", function(e) {
+                e.preventDefault(); // Prevent default behavior
 
-        const targetId = $(this).data("target"); // Get the target section's ID
-        const target = $(`#${targetId}`); // Find the corresponding section
+                const targetId = $(this).data("target"); // Get the target section's ID
+                const target = $(`#${targetId}`); // Find the corresponding section
 
-        if (target.length) {
-            const targetPosition = target.offset().top - offsetAdjustment; // Calculate the center position
+                if (target.length) {
+                    const targetPosition = target.offset().top -
+                        offsetAdjustment; // Calculate the center position
 
-            // Smooth scroll to bring the section into view
-            $("html, body").animate(
-                {
-                    scrollTop: targetPosition,
-                },
-                500, // Animation duration in milliseconds
-                "swing" // Easing function
-            );
-        }
-    });
-});
-
+                    // Smooth scroll to bring the section into view
+                    $("html, body").animate({
+                            scrollTop: targetPosition,
+                        },
+                        500, // Animation duration in milliseconds
+                        "swing" // Easing function
+                    );
+                }
+            });
+        });
     </script>
-
-
-
 @endsection

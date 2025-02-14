@@ -17,7 +17,7 @@
                                         <select class="form-select" name="service_id">
                                             <option value="" selected disabled>---Select---</option>
                                             @foreach ($services as $service)
-                                                <option value="{{$service->id}}">{{$service->title}}</option>
+                                                <option value="{{ $service->id }}">{{ $service->title }}</option>
                                             @endforeach
                                         </select>
                                         <div class="valid-feedback">
@@ -72,6 +72,16 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
+                                        <label class="form-label">Description</label>
+                                        <textarea type="text" class="form-control" id="description" name="description" placeholder="Description" required></textarea>
+                                        <div class="valid-feedback">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <div class="form-group">
                                         <label class="form-label" for="sub_title">Image</label>
                                         <input type="file" accept=".png, .jpg, .jpeg,.webp" class="form-control"
                                             id="image" name="image" required>
@@ -84,8 +94,8 @@
                                 <div class="mb-3">
                                     <div class="form-group">
                                         <label class="form-label" for="title">Banner Alt Tag</label>
-                                        <input type="text" class="form-control" id="banner_image_alt_tag" name="banner_image_alt_tag"
-                                            placeholder="Banner Alt Tag" required>
+                                        <input type="text" class="form-control" id="banner_image_alt_tag"
+                                            name="banner_image_alt_tag" placeholder="Banner Alt Tag" required>
                                         <div class="valid-feedback">
                                         </div>
                                     </div>
@@ -110,7 +120,8 @@
                                         class="btn btn-outline-warning btn-rounded mb-2">
                                         <i class="ti-close"></i> Cancel
                                     </a>
-                                    <button class="btn btn-outline-secondary btn-rounded mb-2" type="submit"> <i class="ti-save-alt"></i>
+                                    <button class="btn btn-outline-secondary btn-rounded mb-2" type="submit"> <i
+                                            class="ti-save-alt"></i>
                                         Save</button>
                                 </div>
                             </div>
