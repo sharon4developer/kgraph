@@ -130,7 +130,7 @@
                                         <div class="form-group">
                                             <label for="cities_list_image">City List Image <span class="text-danger">*</span></label>
                                             <input type="file" name="cities_list_image[]" class="form-control" accept="image/*">
-{{-- @dd($city) --}}
+ 
 
                                             @if($city->cities_list_image)
                                             <div class="form-group">

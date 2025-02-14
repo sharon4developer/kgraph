@@ -146,17 +146,21 @@
                             <ul class="splide__list">
 
                                 @foreach ($study as $demo)
+
                                     @foreach ($demo->cities as $city)
+
                                         @if (isset($city->cities_list_image))
                                             <li class="splide__slide">
                                                 <img class="h-[200px] md:h-[260px] w-full md:w-[430px] rounded-[25px] object-cover"
                                                     src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $city->cities_list_image }}"
                                                     alt="">
 
-                                                    <p style="color: white;">{{$city->cities_list_place}}</p>
+
                                             </li>
 
                                         @endif
+                                        <p style="color: white;">{{$city->cities_list_place}}</p>
+
                                     @endforeach
                                 @endforeach
                             </ul>

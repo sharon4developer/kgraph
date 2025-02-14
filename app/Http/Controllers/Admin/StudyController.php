@@ -88,7 +88,7 @@ class StudyController extends Controller
     {
         abort_unless(Gate::allows('study'), 403);
         $data = Study::getData($id);
-        // dd($data);
+
         if (!$data) {
             abort(404);
         }
@@ -146,7 +146,7 @@ class StudyController extends Controller
     public function changeStatus(Request $request)
     {
         $data = Study::changeStatus($request);
-        dd($data);
+         
         return response()->json($data);
     }
 }
