@@ -112,16 +112,16 @@ $('#table-add-form').validate({
             // No required rule
         },
         package_title: {
-            // No required rule
+            required:true,
         },
         package_description: {
-            // No required rule
+            required:true,
         },
         "package_list_title[]": {
-            // No required rule
+            required:true,
         },
         "package_list_description[]": {
-            // No required rule
+            required:true,
         },
         cities_title: {
             // No required rule
@@ -239,16 +239,16 @@ $('#table-edit-form').validate({
             // No required rule
         },
         package_title: {
-            // No required rule
+            required:true,
         },
         package_description: {
-            // No required rule
+            required:true,
         },
         "package_list_title[]": {
-            // No required rule
+            required:true,
         },
         "package_list_description[]": {
-            // No required rule
+            required:true,
         },
         cities_title: {
             // No required rule

@@ -15,7 +15,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="study_banner_title">Banner Description <span class="text-danger">*</span></label>
-                              
+
 
                                        <textarea class="form-control" id="sub_content_description" name="banner_description"
                                        placeholder="Description" ></textarea>
@@ -47,7 +47,7 @@
                             <div class="form-group">
                                 <label for="package_title">Package title <span class="text-danger">*</span></label>
                                 <input type="text" name="package_title" class="form-control" id="package_title"
-                                       placeholder="Enter Package title">
+                                       placeholder="Enter Package title" required>
                             </div>
 
                             <div class="col-md-12">
@@ -55,7 +55,7 @@
                                     <div class="form-group">
                                         <label class="form-label" for="package_description">Package Description</label>
                                         <textarea class="form-control" id="package_description" name="package_description"
-                                                  placeholder="Description" ></textarea>
+                                                  placeholder="Description"  required></textarea>
                                     </div>
                                 </div>
                             </div>

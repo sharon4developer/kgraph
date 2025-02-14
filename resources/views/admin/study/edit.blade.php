@@ -8,7 +8,7 @@
                     <h4 class="card-title">Edit Service Points</h4>
                 </div>
                 <div class="card-body">
-                    <form class="needs-validation" novalidate id="table-edit-form" method="POST">
+                    <form class="needs-validation" novalidate  id="table-edit-form" method="POST">
                         @method('PUT')
 
                         <input type="hidden" name="table_id" value="{{$data->id}}">
@@ -70,7 +70,7 @@
                         <div class="form-group">
                             <label for="package_title">Package title <span class="text-danger">*</span></label>
                             <input type="text" name="package_title" class="form-control" id="package_title"
-                                   value="{{ old('package_title', $data->package_title) }}" placeholder="Enter Package title">
+                                   value="{{ old('package_title', $data->package_title) }}" placeholder="Enter Package title" required>
                         </div>
 
                             <div class="col-md-12">
@@ -78,7 +78,7 @@
                                     <div class="form-group">
                                         <label class="form-label" for="package_description">Package Description</label>
                                         <textarea class="form-control" id="package_description" name="package_description[]"
-                                                  placeholder="Description">{{ $data->package_description }}</textarea>
+                                        required     placeholder="Description">{{ $data->package_description }}</textarea>
                                     </div>
                                 </div>
                             </div>

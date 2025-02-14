@@ -22,7 +22,7 @@ class StoreStudyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            
         ];
     }
 }
