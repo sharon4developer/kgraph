@@ -12,7 +12,7 @@ class StudyController extends Controller
 
         $study = Study::getFullDataForHome();
 
-
+      
 
 
         return view('frontend.pages.study', compact('study'));
