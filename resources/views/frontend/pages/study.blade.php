@@ -144,19 +144,24 @@
                     <div id="studyimage-slider" class="splide" aria-label="Image Slider">
                         <div class="splide__track">
                             <ul class="splide__list">
-
                                 @foreach ($study as $demo)
                                     @foreach ($demo->cities as $city)
                                         @if (isset($city->cities_list_image))
-                                            <li class="splide__slide">
+                                            <li class="splide__slide relative">
                                                 <img class="h-[200px] md:h-[260px] w-full md:w-[430px] rounded-[25px] object-cover"
                                                     src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $city->cities_list_image }}"
                                                     alt="">
+
+                                                <!-- City Title Positioned at Bottom Left -->
+                                                <p class="absolute bottom-2 left-2 bg-black bg-opacity-50 text-white text-sm md:text-base px-3 py-1 rounded">
+                                                    {{ $city->cities_title }}
+                                                </p>
                                             </li>
                                         @endif
                                     @endforeach
                                 @endforeach
                             </ul>
+
 
                         </div>
                     </div>
