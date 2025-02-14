@@ -154,8 +154,10 @@
 
                                                 <!-- City Title Positioned at Bottom Left -->
                                                 <p class="absolute bottom-2 left-2 bg-black bg-opacity-50 text-white text-sm md:text-base px-3 py-1 rounded">
-                                                    {{ $city->cities_title }}
+                                                    {{ $city->cities_list_place }}
+
                                                 </p>
+                                               
                                             </li>
                                         @endif
                                     @endforeach
