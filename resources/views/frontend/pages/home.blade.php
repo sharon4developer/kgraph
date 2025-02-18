@@ -682,7 +682,7 @@
 
             </div>
 
-            <div class="overflow-hidden whitespace-nowrap flex items-center py-6 relative z-10">
+            <!-- <div class="overflow-hidden whitespace-nowrap flex items-center py-6 relative z-10">
                 <div class="marquee-content animate-marquee flex items-center lg:gap-24">
                     <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/splunk.png') }}" alt="" class="w-full"></div>
                     <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/segment.png') }}" alt="" class="w-full"></div>
@@ -691,14 +691,13 @@
                     <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/airtasker.png') }}" alt="" class="w-full"></div>
                     <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/splunk.png') }}" alt="" class="w-full"></div>
 
-                    <!-- Duplicate images to create a seamless loop -->
                     <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/segment.png') }}" alt="" class="w-full"></div>
                     <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/Hubspot.png') }}" alt="" class="w-full"></div>
                     <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/asna.png') }}" alt="" class="w-full"></div>
                     <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/airtasker.png') }}" alt="" class="w-full"></div>
                     <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/splunk.png') }}" alt="" class="w-full"></div>
                 </div>
-            </div>
+            </div> -->
 
             <div class="flex justify-center mx-5 lg:mx-0 py-6 relative z-10 lg:pb-20">
                 <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[4.5px] pl-5 pr-1 overflow-hidden group">
@@ -793,12 +792,12 @@
                                     <span>Customers Served</span>
                                 </div>
 
-                                <div class="ctc-sect">
+                                <!-- <div class="ctc-sect">
                                     <h5>@if (isset($journey))
                                         {{ $journey->cases }}
                                     @endif</h5>
                                     <span>Active Cases</span>
-                                </div>
+                                </div> -->
 
                             </div>
 
