@@ -522,21 +522,21 @@
                 </div>
                 <div class="services-inner faq text-[#2D3E50] font_inter py-4 flex flex-col justify-start items-start gap-4">
                     @foreach ($services->ServiceFaq as $key => $ServiceFaq)
-                    @if ($ServiceFaq->status == 1)
-                        <div class="accordion-item bg-white p-5 lg:w-1/2 rounded-xl overflow-hidden cursor-pointer transition-all duration-300"
-                            onclick="toggleAccordion(this)">
-                            <div class="flex justify-start items-center w-full h-full accordion-header gap-4">
-                                <img class="accordion-icon transition-transform duration-300 w-2 lg:w-[14px]"
-                                    src="{{ asset('assets/faqplus.png') }}" alt="Plus Icon">
-                                <h3 class="text-[12px] text-[#2D3E50] font-semibold lg:text-[14px] lg:font-medium">
-                                    {{ $ServiceFaq->title }}</h3>
+                        @if ($ServiceFaq->status == 1)
+                            <div class="accordion-item bg-white p-5 lg:w-1/2 rounded-xl overflow-hidden cursor-pointer transition-all duration-300"
+                                onclick="toggleAccordion(this)">
+                                <div class="flex justify-start items-center w-full h-full accordion-header gap-4">
+                                    <img class="accordion-icon transition-transform duration-300 w-2 lg:w-[14px]"
+                                        src="{{ asset('assets/faqplus.png') }}" alt="Plus Icon">
+                                    <h3 class="text-[12px] text-[#2D3E50] font-semibold lg:text-[14px] lg:font-medium">
+                                        {{ $ServiceFaq->title }}</h3>
+                                </div>
+                                <div
+                                    class="pl-10 accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                                    <p class="pt-3">{{ $ServiceFaq->description }}</p>
+                                </div>
                             </div>
-                            <div
-                                class="pl-10 accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                                <p class="pt-3">{{ $ServiceFaq->description }}</p>
-                            </div>
-                        </div>
-                    @endif
+                        @endif
                     @endforeach
                 </div>
             </div>
@@ -609,24 +609,28 @@
             }
         });
 
-        function toggleAccordion(element) {
-            const parent = element.closest('.accordion-item');
-            const content = parent.querySelector('.accordion-content');
-            const icon = parent.querySelector('.accordion-icon');
-            if (content.style.maxHeight) {
-                content.style.maxHeight = null;
-                icon.style.transform = "rotate(0deg)";
-            } else {
-                document.querySelectorAll('.accordion-content').forEach((p) => {
-                    p.style.maxHeight = null;
-                });
-                document.querySelectorAll('.accordion-icon').forEach((img) => {
-                    img.style.transform = "rotate(0deg)";
-                });
-                content.style.maxHeight = content.scrollHeight + "px";
-                icon.style.transform = "rotate(45deg)";
-            }
-        }
+
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const iconCollapsed = this.querySelector('.icon-collapsed');
+                const iconExpanded = this.querySelector('.icon-expanded');
+
+                if (content.style.maxHeight) {
+                    content.style.maxHeight = null;
+                    iconCollapsed.classList.remove('hidden');
+                    iconExpanded.classList.add('hidden');
+                } else {
+                    document.querySelectorAll('.accordion-content').forEach(c => c.style.maxHeight = null);
+                    document.querySelectorAll('.icon-collapsed').forEach(i => i.classList.remove('hidden'));
+                    document.querySelectorAll('.icon-expanded').forEach(i => i.classList.add('hidden'));
+
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    iconCollapsed.classList.add('hidden');
+                    iconExpanded.classList.remove('hidden');
+                }
+            });
+        });
     </script>
 
     <script>
