@@ -1205,3 +1205,116 @@ video {
     }
 }
 
+
+
+.cm-editercontent {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Headings */
+.cm-editercontent h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.cm-editercontent h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-bottom: 0.9rem;
+}
+
+.cm-editercontent h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.8rem;
+}
+
+.cm-editercontent h4 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.7rem;
+}
+
+.cm-editercontent h5 {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.6rem;
+}
+
+.cm-editercontent h6 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* Paragraph */
+.cm-editercontent p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* Lists */
+.cm-editercontent ul {
+    padding-left: 1.5rem;
+    list-style-type: disc;
+    margin-bottom: 1rem;
+}
+
+.cm-editercontent ol {
+    padding-left: 1.5rem;
+    list-style-type: decimal;
+    margin-bottom: 1rem;
+}
+
+.cm-editercontent li {
+    margin-bottom: 0.5rem;
+}
+
+/* Links */
+.cm-editercontent a {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.cm-editercontent a:hover {
+    color: #0056b3;
+}
+
+/* Blockquote */
+.cm-editercontent blockquote {
+    border-left: 4px solid #ccc;
+    padding-left: 1rem;
+    font-style: italic;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+/* Tables */
+.cm-editercontent table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+.cm-editercontent th,
+.cm-editercontent td {
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.cm-editercontent th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+/* Images */
+.cm-editercontent img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem 0;
+}
