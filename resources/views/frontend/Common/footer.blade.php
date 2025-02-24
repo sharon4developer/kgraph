@@ -113,8 +113,8 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                     </div>
 
                     <p class="font_inter text-[12px] w-1/2 lg:w-full  font-light  capitalize  text-white">
-                    A team of certified consultants is ready to guide your immigration journey.
-                    Contact us to get expert help with your visa, residency or citizenship application</p>
+                        A team of certified consultants is always ready to guide your immigration journey. Contact us to get expert help with your Canadian Immigration, Visa, PR and citizenship application.
+                    </p>
                 </div>
 
                 <div class="flex flex-col gap-6 md:flex-row md:gap-14">

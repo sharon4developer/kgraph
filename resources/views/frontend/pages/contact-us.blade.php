@@ -115,18 +115,17 @@
                 <div
                     class="flex flex-col lg:flex-row justify-between items-start gap-[15%] lg:py-[50px] md:mt-[100px] lg:mt-0">
                     <div class="w-full h-full font_inter">
-                        <h1 class="mainHead font-semibold text-[40px] 2xl:w-[70%] uppercase">Grow Your Career with K-GRAPH
+                        <h1 class="mainHead font-semibold text-[40px]  uppercase">
+                            Get in Touch with KGraph Immigration - Your Gateway to a New Life in Canada
                         </h1>
-                        <p class="font-semibold text-[15px] py-[30px]">Kansas Overseas has prided itself on customer and
-                            employee satisfaction since its inception. This commitment to its staff has allowed the company
-                            to grow to over 200 employees across 5 cities. Kansas is one of the fastest-growing visa
-                            companies and is on track to double its workforce:</p>
+                        <p class="font-semibold text-[15px] py-[30px]">
+                            We understand that navigating the immigration process can be complex and overwhelming. Whether you're looking to study, work, visit, or settle in Canada, the team at KGraph Immigration is here to support you every step of the way. We are committed to providing expert advice, personalized guidance, and tailored solutions to meet your unique immigration needs. With years of experience in the field, our immigration consultants are well-equipped to help you understand your options, prepare your applications, and overcome any challenges that may arise along the way. At KGraph Immigration, we pride ourselves on offering the highest level of service, ensuring that your immigration journey is as smooth and stress-free as possible. Reach out to us today for a consultation, and let us help you take the next step toward your new life in Canada.</p>
                         <h2 class="font-semibold text-[30px]">Our Team Identity :</h2>
                         <ul class="list-disc pl-5 text-[18px]">
-                            <li class="py-2">Assist with Value-added services</li>
-                            <li class="py-2">Learners Before Leaders</li>
-                            <li class="py-2">Prepared for marathon</li>
-                            <li class="py-2">Replace Self - Mentoring Other Team Members</li>
+                            <li class="py-2">Study Permits: Assistance with securing study permits for international students wishing to study in Canada.</li>
+                            <li class="py-2">Work Permits: Guidance for obtaining temporary or permanent work permits for skilled workers, entrepreneurs, and other professionals.</li>
+                            <li class="py-2">Permanent Residency: Expert advice on applying for Canadian Permanent Residency through Express Entry, Provincial Nominee Programs (PNPs), and other pathways.</li>
+                            <li class="py-2">Family Sponsorship: Helping Canadian citizens and permanent residents sponsor their loved ones for reunification in Canada.</li>
                         </ul>
                     </div>
                     <div class="bg-white rounded-xl h-fit w-full mt-[52px] lg:mt-0 relative">
