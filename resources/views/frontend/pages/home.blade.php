@@ -529,15 +529,15 @@
     <div class="relative overflow-hidden">
 
         <div class="h-[85vh] lg:h-screen w-full homeBanner relative overflow-hidden">
-            <div class="banner-gradient-overlay banner-container-elem-bottom-to-top absolute inset-0">
+            <div class="absolute inset-0 banner-gradient-overlay banner-container-elem-bottom-to-top">
                 <div id="home-banner-slider" class="splide !absolute inset-0 z-[-1] h-full banner-container-elem-bottom-to-top">
                     <div class="splide__track">
                         <ul class="splide__list">
                                 @foreach ($banner as $data)
                                     <li class="splide__slide">
                                         <div class="w-full h-[85vh] lg:h-[121vh] bg-cover bg-center bg-no-repeat" style="background-image: url('{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}');">
-                                            <div class="banner-gradient-overlay banner-container-elem-bottom-to-top absolute inset-0"></div>
-                                            <div class="container mx-auto pt-12 lg:pt-0 px-5 xl:px-12 h-full w-full relative z-10">
+                                            <div class="absolute inset-0 banner-gradient-overlay banner-container-elem-bottom-to-top"></div>
+                                            <div class="container relative z-10 w-full h-full px-5 pt-12 mx-auto lg:pt-0 xl:px-12">
                                                 <div class="h-full w-full flex flex-col justify-start md:justify-center items-center text-center mb-4 md:pt-8 pb-0 gap-[5%] md:gap-[31px] lg:gap-0">
                                                     <div class="z-10 flex flex-col lg:flex-row items-center lg:gap-[23px] pt-[10%] lg:pt-0 banner-container-elem">
                                                         <img class="pt-[22px] md:pt-0 w-[40px] lg:w-[100px]" src="{{ asset('assets/home_Banner/rocketicon.png') }}" alt="rocket icon">
@@ -551,10 +551,10 @@
                                                     <h6 class="font_inter font-medium text-[20px] lg:text-[23px] z-20 text-white lg:mt-14 banner-container-elem">
                                                         {{$data->sub_title}}
                                                     </h6>
-                                                    <div class="z-10 flex flex-col md:flex-row justify-center items-start md:items-center gap-4 lg:mb-7 lg:mt-10">
+                                                    <div class="z-10 flex flex-col items-start justify-center gap-4 md:flex-row md:items-center lg:mb-7 lg:mt-10">
                                                         <img width="52px" src="{{ asset('assets/home_Banner/CanadaFlag.png') }}" alt="CanadaFlag">
                                                         <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-[4.5px] pl-6 pr-1 overflow-hidden group">
-                                                            <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full"></div>
+                                                            <div class="absolute inset-0 left-0 w-full transition-all duration-500 ease-out bg-blue-600 group-hover:left-full"></div>
                                                             <h6 class="relative z-10 text-white text-[10px] md:text-[14px] 2xl">Let's turn your vision into reality.</h6>
                                                             <div class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:py-[4px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                                                                 <a href="{{ url('contact-us') }}" class="h-full text-[12px] lg:text-[16px] font-semibold">Connect Us</a>
@@ -599,20 +599,20 @@
     <div class="bg-[#051b3b]">
         {{--our services --}}
         <div class="ourservices rounded-b-[35px] lg:rounded-b-[153px] relative pt-14 pb-6 lg:py-0">
-            <div class="container mx-auto px-5 xl:px-12 lg:pt-16 lg:pb-0 h-full w-full relative z-10">
-                <div class="rounded-lg bgk-grade overflow-hidden mb-10  relative">
-                    <div class="py-8 px-8 relative z-10">
-                        <div class="flex flex-col lg:flex-row justify-between items-center relative overflow-hidden">
+            <div class="container relative z-10 w-full h-full px-5 mx-auto xl:px-12 lg:pt-16 lg:pb-0">
+                <div class="relative mb-10 overflow-hidden rounded-lg bgk-grade">
+                    <div class="relative z-10 px-8 py-8">
+                        <div class="relative flex flex-col items-center justify-between overflow-hidden lg:flex-row">
                             <div class="border-r-white lg:border-r-[1px]  h-full lg:pr-14 2xl:pr-0" data-animate>
-                                <h2 class="pb-8 text-white text-center lg:text-left">
-                                    <span class="font_inter lg:text-4xl xl:text-6xl font-normal uppercase"> @if (isset($home)) {{ $home->service_first_title }} @endif @if (isset($home)) {{ $home->service_second_title }} @endif</span>
-                                    <span class="font-semibold lg:text-lg xl:text-xl capitalize">@if (isset($home)) {{ $home->service_sub_title }} @endif</span>
+                                <h2 class="pb-8 text-center text-white lg:text-left">
+                                    <span class="font-normal uppercase font_inter lg:text-4xl xl:text-6xl"> @if (isset($home)) {{ $home->service_first_title }} @endif @if (isset($home)) {{ $home->service_second_title }} @endif</span>
+                                    <span class="font-semibold capitalize lg:text-lg xl:text-xl">@if (isset($home)) {{ $home->service_sub_title }} @endif</span>
                                 </h2>
                                 <p class="font_inter text-sm xl:text-base text-center lg:text-left  font-normal text-white clamp-3 xl:w-[80%]">@if (isset($home)){{ $home->service_description }}@endif</p>
                             </div>
                             <div class="lg:w-[40%] my-2 lg:pl-14 text-center lg:text-left" data-animate>
-                                <h3 class="font_inter text-base xl:text-xl font-extrabold text-white my-5 lg:w-3/4">Find your Eligibility for PR</h3>
-                                <a class="font_syne uppercase font-bold text-xs xl:text-base whitespace-nowrap border border-white py-2 px-5 rounded-full my-4 text-white bg-transparent transition-all duration-300 hover:bg-white hover:text-black" href="{{ url('eligibility-check') }}">Free Eligibility Check</a>
+                                <h3 class="my-5 text-base font-extrabold text-white font_inter xl:text-xl lg:w-3/4">Find your Eligibility for PR</h3>
+                                <a class="px-5 py-2 my-4 text-xs font-bold text-white uppercase transition-all duration-300 bg-transparent border border-white rounded-full font_syne xl:text-base whitespace-nowrap hover:bg-white hover:text-black" href="{{ url('eligibility-check') }}">Free Eligibility Check</a>
 
 
                             </div>
@@ -631,14 +631,14 @@
                             <li class="splide__slide">
                                 <div class="w-full h-[491px] lg:h-[550px]  2xl:h-[550px] bgk-grade rounded-[26px] py-4 2xl:py-6 text-white lg:shadow-lg relative font-sans overflow-hidden roundring-anim">
                                     <div class="px-3 2xl:px-6">
-                                        <div class="flex justify-between items-center" data-animate>
+                                        <div class="flex items-center justify-between" data-animate>
                                             <div class="relative z-10">
                                                 <svg width="40" height="44" viewBox="0 0 36 42" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M0 34.7294C0 30.122 4.68675 23.2109 18 23.2109C18.801 23.2109 19.5705 23.2354 20.3085 23.2846L19.6875 27.8597C19.1254 27.8315 18.5627 27.8177 18 27.8183V37.0331H27V41.6405H22.5V37.0331H18V41.6405H0V34.7294ZM18 20.9072C16.5871 20.9064 15.1901 20.6028 13.8986 20.0161C12.6072 19.4293 11.45 18.5723 10.5015 17.5002C9.55297 16.4281 8.83409 15.1646 8.39108 13.791C7.94808 12.4173 7.79077 10.964 7.92926 9.52433C8.06775 8.08471 8.49898 6.6907 9.19522 5.43195C9.89146 4.1732 10.8373 3.07758 11.9719 2.21554C13.1065 1.3535 14.4048 0.744132 15.7832 0.426621C17.1616 0.10911 18.5896 0.0904854 19.9755 0.371945L19.1025 4.89181C18.7394 4.8179 18.3702 4.78086 18 4.78123V16.2998C18.3825 16.2998 18.75 16.2629 19.1025 16.1892L19.9755 20.709C19.3249 20.8412 18.6632 20.9075 18 20.9072ZM24.5992 23.8789C26.1517 24.2222 27.5243 24.6852 28.7257 25.2381L26.361 29.1844C25.4728 28.8269 24.5558 28.5494 23.6205 28.355L24.5992 23.8789ZM31.5 41.6405V37.0331H36V41.6405H31.5ZM35.64 32.4257H30.627C30.3093 31.9556 29.9393 31.525 29.5245 31.1425L32.31 27.5096C34.065 29.03 35.1315 30.7716 35.64 32.4257ZM23.625 1.92003L21.1208 5.74879C21.7372 6.17037 22.2682 6.71404 22.68 7.34526L26.4195 4.78123C25.6806 3.64882 24.731 2.67657 23.625 1.92003ZM27.9315 8.51784L23.517 9.41168C23.6625 10.1569 23.6625 10.9241 23.517 11.6693L27.9315 12.5631C28.191 11.2278 28.191 9.85319 27.9315 8.51784ZM26.4195 16.2998L22.68 13.7357C22.2682 14.3669 21.7372 14.9106 21.1208 15.3322L23.625 19.161C24.7275 18.403 25.6792 17.4309 26.4195 16.2998Z" fill="white"/>
                                                 </svg>
                                             </div>
                                             <div class="relative">
-                                                <div class="bg-white rounded-full absolute p-6 round-comimg"></div>
+                                                <div class="absolute p-6 bg-white rounded-full round-comimg"></div>
                                                 <div class="relative z-10">
                                                     <svg width="36" height="40" viewBox="0 0 34 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M33.6332 4.9329L29.7049 0.860485L6.13464 25.295V2.89669L0.556349 2.89669V35.1502H31.669L31.669 29.3674L10.063 29.3674L33.6332 4.9329Z" fill="#005EEA"/>
@@ -647,15 +647,15 @@
                                             </div>
                                         </div>
                                         <h2 class="text-xl xl:text-2xl 2xl:text-4xl clamp-text-two font-bold font_inter mt-8 mb-4 relative z-10 lg:h-[80px]" data-animate>{{ $data->title }}</h2>
-                                        <p class="text-gray-200 font_inter font-normal text-sm relative z-10" data-animate>{{ $data->title }}</p>
+                                        <p class="relative z-10 text-sm font-normal text-gray-200 font_inter" data-animate>{{ $data->title }}</p>
                                     </div>
-                                    <div class="my-4 mx-2" data-animate>
+                                    <div class="mx-2 my-4" data-animate>
                                         <div class="bg-liner h-[1px] w-full rounded-xl"></div>
                                     </div>
                                     <div class="px-3 2xl:px-6">
-                                        <div class="space-y-2 relative z-10" data-animate>
+                                        <div class="relative z-10 space-y-2" data-animate>
                                             @foreach ($data->Service as $service)
-                                            <a href="{{url('service-details/'.$service->slug)}}" class="w-full text-base bg-black text-white py-2 rounded-lg flex justify-between items-center px-4 btn-hover transition">
+                                            <a href="{{url('service-details/'.$service->slug)}}" class="flex items-center justify-between w-full px-4 py-2 text-base text-white transition bg-black rounded-lg btn-hover">
                                                 <span class="clamp-text-one">{{ $service->title }}</span>
                                                 <span>→</span>
                                             </a>
@@ -669,8 +669,8 @@
                     </div>
 
                     <div class="my-8 lg:mx-4">
-                        <div class="flex justify-end gap-3 items-center">
-                            <div class="card-ourSer-slide-prev-button cursor-pointer">
+                        <div class="flex items-center justify-end gap-3">
+                            <div class="cursor-pointer card-ourSer-slide-prev-button">
                                 <img class="w-[40px]" src="{{ asset('assets/Button-Previous.png') }}" alt="">
                             </div>
                             <div class="cursor-pointer card-ourSer-slide-next-button">
@@ -682,8 +682,8 @@
 
             </div>
 
-            <!-- <div class="overflow-hidden whitespace-nowrap flex items-center py-6 relative z-10">
-                <div class="marquee-content animate-marquee flex items-center lg:gap-24">
+            <!-- <div class="relative z-10 flex items-center py-6 overflow-hidden whitespace-nowrap">
+                <div class="flex items-center marquee-content animate-marquee lg:gap-24">
                     <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/splunk.png') }}" alt="" class="w-full"></div>
                     <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/segment.png') }}" alt="" class="w-full"></div>
                     <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/Hubspot.png') }}" alt="" class="w-full"></div>
@@ -699,11 +699,11 @@
                 </div>
             </div> -->
 
-            <div class="flex justify-center mx-5 lg:mx-0 py-6 relative z-10 lg:pb-20">
+            <div class="relative z-10 flex justify-center py-6 mx-5 lg:mx-0 lg:pb-20">
                 <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[4.5px] pl-5 pr-1 overflow-hidden group">
                     <!-- Initially the background will cover the full button -->
                     <div
-                        class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full">
+                        class="absolute inset-0 left-0 w-full transition-all duration-500 ease-out bg-blue-600 group-hover:left-full">
                     </div>
                     <h6 class="relative z-10 text-white text-[12px] xl:text-[14px]">Let's turn your vision into reality</h6>
                     <div
@@ -718,24 +718,24 @@
             </div>
         </div>
         {{-- what makes us diff --}}
-        <div class="what-makes relative mt-20 lg:mt-0">
-            <div class="gradient-evitionstart absolute top-0">
+        <div class="relative mt-20 what-makes lg:mt-0">
+            <div class="absolute top-0 gradient-evitionstart">
                 <img src="{{ asset('assets/home_Banner/sec-vectline.png') }}" alt="" class="">
             </div>
-            <div class="container mx-auto px-5 xl:px-12 pb-12 lg:py-12 lg:my-16 h-full w-full z-10 relative">
+            <div class="container relative z-10 w-full h-full px-5 pb-12 mx-auto xl:px-12 lg:py-12 lg:my-16">
                 <div>
-                    <div class="flex flex-col lg:flex-row justify-center items-center">
+                    <div class="flex flex-col items-center justify-center lg:flex-row">
                         <div class="flex items-center w-full gap-2 lg:gap-7">
                             <h2 class="uppercase text-white font_inter font-normal text-4xl xl:text-6xl w-full lg:min-w-[500px] xl:min-w-[600px]" data-animate-left>
                                 @if (isset($home))
                                     {{ $home->journey_title }}
                                 @endif
                             </h2>
-                            <div class="hidden lg:block w-full lg:mr-8" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;" data-animate-left></div>
+                            <div class="hidden w-full lg:block lg:mr-8" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;" data-animate-left></div>
                         </div>
 
                         <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 my-6  py-[6.5px]  xl:py-[4.5px] pl-5 pr-1 group">
-                            <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 min-w-fit max-w-full rounded-full"></div>
+                            <div class="absolute inset-0 left-0 max-w-full transition-all duration-500 ease-out bg-blue-600 rounded-full group-hover:left-full min-w-fit"></div>
                             <h6 class="relative z-10 text-white text-[12px] xl:text-[14px] lg:whitespace-nowrap">Let's turn your vision into reality</h6>
                             <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:pb-[2px] xl:pt-[1px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                                 <a href="{{ url('contact-us') }}" class="h-full text-[12px] xl:text-[14px]">Connect Us</a>
@@ -760,10 +760,10 @@
 
                             <div class="py-8" data-animate-left>
                                 <h5 id="journeyExperience" class="font_inter font-bold text-[83px] capitalize leading-tight">@if (isset($journey)) <span data-count="{{ $journey->experience }}">{{ $journey->experience }}</span>+ @endif</h5>
-                                <h6 class="font_inter font-semibold text-lg capitalize leading-tight">Years of Experience</h6>
+                                <h6 class="text-lg font-semibold leading-tight capitalize font_inter">Years of Experience</h6>
                             </div>
 
-                            <div class="flex justify-between flex-wrap gap-6 items-center" data-animate-left>
+                            <div class="flex flex-wrap items-center justify-between gap-6" data-animate-left>
                                 <div class="ctc-sect">
                                     <h5>@if (isset($journey))
                                         {{ $journey->employees }}
@@ -775,7 +775,7 @@
                                     <h5>@if (isset($journey))
                                         {{ $journey->ratings }}
                                     @endif</h5>
-                                    <span>Ratings</span>
+                                    <span>Google Rating</span>
                                 </div>
 
                                 <div class="ctc-sect">
@@ -803,7 +803,7 @@
 
                         </div>
 
-                        <div class="w-full flex justify-center items-center rounded-lg overflow-hidden mt-6 relative group video-grade">
+                        <div class="relative flex items-center justify-center w-full mt-6 overflow-hidden rounded-lg group video-grade">
                             <video
                                 class="w-full h-full lg:h-[400px] object-cover object-center video-imagepos autoplay-video"
                                 style="object-position: 0px 0px;"
@@ -818,9 +818,9 @@
 
 
                             <div class="hidden lg:block absolute inset-0 bg-gradient-to-b from-transparent to-[#113165] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                            <div class="absolute bottom-8 lg:bottom-4 left-4 flex items-center space-x-2 text-white">
+                            <div class="absolute flex items-center space-x-2 text-white bottom-8 lg:bottom-4 left-4">
                                 <!-- Play Icon -->
-                                <div onclick="togglePlay(this)" class="cursor-pointer hidden lg:block">
+                                <div onclick="togglePlay(this)" class="hidden cursor-pointer lg:block">
                                     <svg width="78" height="78" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <circle cx="38.6475" cy="38.6475" r="38.6475" fill="white" fill-opacity="0.5"/>
                                         <mask id="mask0_1460_3580" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="23" y="24" width="30" height="30">
@@ -850,12 +850,12 @@
                     <div class="absolute">
                         <img src="@if (isset($home)) {{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $home->certificate_image1 }} @endif" alt="@if (isset($home)) {{ $home->certificate_image1_alt_tag }} @endif" class="h-[600px] lg:h-auto object-cover rounded-lg">
                     </div>
-                    <div id="certificateSection" class="z-10 relative text-white p-8 flex justify-center items-center flex-col" >
+                    <div id="certificateSection" class="relative z-10 flex flex-col items-center justify-center p-8 text-white" >
                         <h2 class="font_inter font-black text-3xl xl:text-4xl lg:w-[65%] xl:w-[50%] text-center">{{ $home->certificate_title ?? '' }}</h2>
                         <p class="py-5 font-semibold font_inter text-lg xl:text-xl clamp-3 text-center lg:w-[65%] xl:w-[50%]">{{ $home->certificate_description ?? '' }}</p>
-                        <div class="flex flex-col lg:flex-row gap-5 items-center mt-6">
+                        <div class="flex flex-col items-center gap-5 mt-6 lg:flex-row">
                             @foreach ($certificate as $data)
-                                <div class="flex items-center flex-col justify-center">
+                                <div class="flex flex-col items-center justify-center">
                                     <img class="w-[200px] max-h-[66px]" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{ $data->alt_tag ?? 'Certificate' }}">
                                 </div>
                             @endforeach
@@ -870,10 +870,10 @@
             <div class="absolute -top-1/3">
                 <img src="{{ asset('assets/home_Banner/testiminoalbgvect.png') }}" alt="" class="">
             </div>
-            <div class="container mx-auto px-5 xl:px-12 lg:py-16 h-full w-full relative z-10">
+            <div class="container relative z-10 w-full h-full px-5 mx-auto xl:px-12 lg:py-16">
 
-                    <div class="flex items-end w-full gap-2 lg:gap-7 py-10">
-                        <h2 class="uppercase text-white font_inter font-normal lg:text-4xl xl:text-6xl w-full xl:whitespace-nowrap" data-animate-left>
+                    <div class="flex items-end w-full gap-2 py-10 lg:gap-7">
+                        <h2 class="w-full font-normal text-white uppercase font_inter lg:text-4xl xl:text-6xl xl:whitespace-nowrap" data-animate-left>
                             @if (isset($home))
                                 {{ $home->testimonial_title }}
                             @endif
@@ -893,11 +893,11 @@
                     </p>
 
 
-                    <div id="testimonial-slider" class="slider w-full">
+                    <div id="testimonial-slider" class="w-full slider">
 
                         @foreach ($testimonials as $data)
                             <div class="p-6 bg-grade-testimonial text-white rounded-lg shadow-md h-[340px] relative cardparent">
-                                <div class="flex items-center justify-between space-x-4 mb-4">
+                                <div class="flex items-center justify-between mb-4 space-x-4">
                                     <div class="flex items-center gap-2">
 
 
@@ -912,7 +912,7 @@
                                              alt="{{ $data->alt_tag }}" class="w-12 h-12 rounded-full">
 
                                              @else
-                                             <div class="w-16 h-16 rounded-full bg-gray-500 flex items-center justify-center text-white text-lg font-semibold">
+                                             <div class="flex items-center justify-center w-16 h-16 text-lg font-semibold text-white bg-gray-500 rounded-full">
                                                    {{ strtoupper(substr($data->name, 0, 1)) }}
                                             </div>
                                                                                          @endif
@@ -922,11 +922,11 @@
                                         </div>
                                     </div>
 
-                                    <div class="ml-auto flex items-center gap-2">
+                                    <div class="flex items-center gap-2 ml-auto">
                                         <span class="text-lg font-bold">{{ $data->rating }}</span>
                                         <div class="flex items-center">
                                             @for ($i = 1; $i <= floor($data->rating); $i++)
-                                                <div class="text-yellow-500 flex items-center">
+                                                <div class="flex items-center text-yellow-500">
                                                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-3 h-3"
                                                          viewBox="0 0 24 24">
                                                         <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
@@ -945,16 +945,16 @@
                                         <?php
                                             $description = $data->description;
                                         ?>
-                                        <p class="text-sm text-gray-300 leading-relaxed py-7 truncate-text" data-full-text="{{ $description }}">
+                                        <p class="text-sm leading-relaxed text-gray-300 py-7 truncate-text" data-full-text="{{ $description }}">
                                             {{ $description }}
                                         </p>
                                         <?php if (strlen(strip_tags($description)) > 242): ?>
-                                            <button class="view-more-btn text-blue-500 text-sm mt-2">View More</button>
+                                            <button class="mt-2 text-sm text-blue-500 view-more-btn">View More</button>
                                         <?php endif; ?>
                                     </div>
 
-                                    <div class="flex justify-between items-center mt-6">
-                                        <h6 class="opacity-75 text-xs uppercase">{{ $data->place }}</h6>
+                                    <div class="flex items-center justify-between mt-6">
+                                        <h6 class="text-xs uppercase opacity-75">{{ $data->place }}</h6>
                                         <img class="w-[25px] h-[25px]" src="{{ asset('assets/home_Banner/dobleinverted.png') }}" alt="">
                                     </div>
                                 </div>
@@ -965,25 +965,25 @@
 
 
                     <!-- Custom Navigation Buttons -->
-                    <div class="flex  gap-3 lg:gap-0 flex-col-reverse lg:flex-row items-end lg:items-center justify-between mt-4 space-x-4">
+                    <div class="flex flex-col-reverse items-end justify-between gap-3 mt-4 space-x-4 lg:gap-0 lg:flex-row lg:items-center">
                         <div class="lg:ml-8">
                             <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[4.5px] pl-5 pr-1 group">
-                                <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 min-w-fit max-w-full rounded-full"></div>
+                                <div class="absolute inset-0 left-0 max-w-full transition-all duration-500 ease-out bg-blue-600 rounded-full group-hover:left-full min-w-fit"></div>
                                 <h6 class="relative z-10 text-white text-[12px] xl:text-[14px] whitespace-nowrap">Be One of Them</h6>
                                 <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:pb-[2px] xl:pt-[1px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                                     <a href="{{ url('contact-us') }}" class="h-full text-[12px] xl:text-[14px]">Connect Us</a>
                                 </div>
                             </div>
                         </div>
-                        <div class="flex justify-center items-center">
-                            <button class="card-testi-slide-prev-button relative z-50  p-2 rounded-full">
+                        <div class="flex items-center justify-center">
+                            <button class="relative z-50 p-2 rounded-full card-testi-slide-prev-button">
                                 <svg width="40" height="40" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect x="69.5" y="69.5" width="69" height="69" rx="34.5" transform="rotate(180 69.5 69.5)" stroke="white" stroke-opacity="0.8"/>
                                     <path d="M38.384 43.384C38.1496 43.6184 37.8317 43.75 37.5003 43.75C37.1688 43.75 36.8509 43.6184 36.6165 43.384L29.1165 35.884C28.8822 35.6496 28.7505 35.3317 28.7505 35.0003C28.7505 34.6688 28.8822 34.3509 29.1165 34.1165L36.6165 26.6165C36.8523 26.3888 37.168 26.2628 37.4958 26.2657C37.8235 26.2685 38.137 26.4 38.3688 26.6317C38.6006 26.8635 38.732 27.177 38.7349 27.5048C38.7377 27.8325 38.6117 28.1483 38.384 28.384L31.7678 35.0003L38.384 41.6165C38.6184 41.8509 38.75 42.1688 38.75 42.5003C38.75 42.8317 38.6184 43.1496 38.384 43.384Z" fill="white"/>
                                 </svg>
 
                             </button>
-                            <button class="card-testi-slide-next-button relative z-50 p-2 rounded-full">
+                            <button class="relative z-50 p-2 rounded-full card-testi-slide-next-button">
                                 <svg width="40" height="40" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <rect x="0.5" y="0.5" width="69" height="69" rx="34.5" stroke="white" stroke-opacity="0.8"/>
                                     <path d="M31.616 26.616C31.8504 26.3816 32.1683 26.25 32.4997 26.25C32.8312 26.25 33.1491 26.3816 33.3835 26.616L40.8835 34.116C41.1178 34.3504 41.2495 34.6683 41.2495 34.9997C41.2495 35.3312 41.1178 35.6491 40.8835 35.8835L33.3835 43.3835C33.1477 43.6112 32.832 43.7372 32.5042 43.7343C32.1765 43.7315 31.863 43.6 31.6312 43.3683C31.3994 43.1365 31.268 42.823 31.2651 42.4952C31.2623 42.1675 31.3883 41.8517 31.616 41.616L38.2322 34.9997L31.616 28.3835C31.3816 28.1491 31.25 27.8312 31.25 27.4997C31.25 27.1683 31.3816 26.8504 31.616 26.616Z" fill="white"/>
@@ -995,14 +995,14 @@
         </div>
         {{-- Blog sect --}}
         <div class="BlogCRDS bg-[#051b3b] lg:pt-24">
-            <div class="container mx-auto px-5 py-12 xl:px-12 lg:py-16 h-full w-full">
+            <div class="container w-full h-full px-5 py-12 mx-auto xl:px-12 lg:py-16">
                 <div class="flex items-end w-full gap-2 lg:gap-7">
                     <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] lg:text-[45px] 2xl:text-[65px] leading-none fourthleft-to-right-animation">
                         @if (isset($home))
                             {{ $home->blog_title }}
                         @endif
                     </h2>
-                    <div class="hidden lg:flex w-full fourthleft-to-right-width-animation" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
+                    <div class="hidden w-full lg:flex fourthleft-to-right-width-animation" style="border: 1px solid #FFFFFF8C;margin-bottom: 8px;"></div>
                 </div>
                 <p
                     class="py-5 text-white font_inter font-medium text-[18px] lg:text-[32px] lg:whitespace-nowrap lg:w-[30%] fourthleft-to-right-animation">
@@ -1016,9 +1016,9 @@
                     @endif
                 </p>
 
-                <div class="flex justify-center lg:justify-start items-center my-12">
+                <div class="flex items-center justify-center my-12 lg:justify-start">
                     <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[4.5px] pl-5 pr-1 group">
-                        <div class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 min-w-fit max-w-full rounded-full"></div>
+                        <div class="absolute inset-0 left-0 max-w-full transition-all duration-500 ease-out bg-blue-600 rounded-full group-hover:left-full min-w-fit"></div>
                         <h6 class="relative z-10 text-white text-[12px] xl:text-[14px] whitespace-nowrap">Be One of Them</h6>
                         <div class="relative z-10 bg-white text-blue-600 px-[20px] py-1 lg:pb-[2px] lg:pt-0 xl:pb-[2px] xl:pt-[1px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                             <a href="{{ url('contact-us') }}" class="h-full text-[12px] xl:text-[14px]">Connect Us</a>
@@ -1033,7 +1033,7 @@
                                 <li class="splide__slide">
                                     <a href="{{url('blog-details/'.$data->slug)}}">
                                         <div class="mx-auto min-h-[474px] bg-[#051b3b] shadow-lg rounded-lg overflow-hidden mt-[8px] 2xl:mt-10 lg:h-fit w-full sm:max-w-sm">
-                                            <img class="w-full object-cover aspect-video" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"  alt="{{ $data->alt_tag }}">
+                                            <img class="object-cover w-full aspect-video" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"  alt="{{ $data->alt_tag }}">
                                             <div class="p-6 border-b border-l border-r border-white rounded-lg mt-[-7px] h-[264px] flex flex-col justify-between">
                                                 <?php $date = $data->date . ' ' . $data->time; ?>
 
@@ -1075,9 +1075,9 @@
                     </div>
                 </div>
 
-                <div class="container mx-auto xl:px-12 py-8 lg:py-2 h-full w-full flex items-center justify-end">
-                    <div class="flex justify-center gap-3 items-center">
-                        <div class="blog-slider-prev cursor-pointer">
+                <div class="container flex items-center justify-end w-full h-full py-8 mx-auto xl:px-12 lg:py-2">
+                    <div class="flex items-center justify-center gap-3">
+                        <div class="cursor-pointer blog-slider-prev">
                             <img class="w-[40px]" src="{{ asset('assets/Button-Previous.png') }}" alt="">
                         </div>
                         <div class="cursor-pointer blog-slider-next">
@@ -1091,8 +1091,8 @@
 
     {{-- faq section --}}
     <div class="faq-section bg-[#F7FCFF]">
-        <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full">
-            <div class="flex justify-center items-center flex-col">
+        <div class="container w-full h-full px-5 py-8 mx-auto xl:px-12 lg:py-16">
+            <div class="flex flex-col items-center justify-center">
                 <h2 class="font_aktiv font-bold text-[18px] faqSectHead text-[#07245A]">
                     @if (isset($home))
                         {{ $home->faq_title }}
@@ -1109,8 +1109,8 @@
             </div>
             <div class="mt-8 faq-parent lg:px-[10%]">
                 @foreach ($faqs as $data)
-                    <div class="accordion bg-white rounded-2xl my-3 lg:my-0 h-fit p-6">
-                        <div class="accordion-header flex justify-between items-center  cursor-pointer">
+                    <div class="p-6 my-3 bg-white accordion rounded-2xl lg:my-0 h-fit">
+                        <div class="flex items-center justify-between cursor-pointer accordion-header">
                             <h6>{{ $data->title }}</h6>
                             <div class="icon">
                                 <!-- Collapsed Icon -->
@@ -1122,7 +1122,7 @@
                                         fill="#072558" />
                                 </svg>
                                 <!-- Expanded Icon -->
-                                <svg class="icon-expanded hidden" width="40" height="40" viewBox="0 0 40 40"
+                                <svg class="hidden icon-expanded" width="40" height="40" viewBox="0 0 40 40"
                                     fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <circle cx="20" cy="20" r="20" fill="#072558" />
                                     <path
@@ -1131,7 +1131,7 @@
                                 </svg>
                             </div>
                         </div>
-                        <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 ease-out">
+                        <div class="overflow-hidden transition-all duration-500 ease-out accordion-content max-h-0">
                             {!! $data->description !!}
                         </div>
                     </div>
@@ -1141,7 +1141,7 @@
                 <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group w-fit">
                     <!-- Background that moves on hover -->
                     <div
-                        class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full">
+                        class="absolute inset-0 left-0 w-full transition-all duration-500 ease-out bg-blue-600 group-hover:left-full">
                     </div>
 
                     <!-- Text color that changes on hover -->
@@ -1158,8 +1158,8 @@
     {{-- @include('frontend.Common.getintouch') --}}
 
     {{-- explore section --}}
-    <div class="explore-section bg-black">
-        <div class="container mx-auto px-5 xl:px-12 py-8 lg:py-16 h-full w-full">
+    <div class="bg-black explore-section">
+        <div class="container w-full h-full px-5 py-8 mx-auto xl:px-12 lg:py-16">
             <div class="flex items-end w-full gap-2 lg:gap-7">
                 <h2 class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] 2xl:text-[65px] leading-none fifthleft-to-right-animation">
                     @if (isset($home))
@@ -1180,7 +1180,7 @@
                     <ul class="splide__list">
                         @foreach ($explore as $data)
                             <li class="splide__slide">
-                                <div class="relative image-card-explore cursor-pointer">
+                                <div class="relative cursor-pointer image-card-explore">
                                     <img class="w-full 2xl:w-[300px] h-full aspect-square object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}" alt="{{ $data->alt_tag }}">
                                 </div>
                             </li>

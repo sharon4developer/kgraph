@@ -133,12 +133,12 @@
                     us after that period,
                     please check your junk/spam emails.</p>
                 <p>We look forward to assisting you with your immigration matter.</p>
-                <p>K-graph Canadian Immigration Services</p>
+                <p>KGraph Immigration Services </p>
             </div>
         </div>
 
         <div class="bg-white">
-            <div class="container mx-auto px-5 lg:px-12 xl:px-32 h-full w-full pb-4  lg:pt-0">
+            <div class="container w-full h-full px-5 pb-4 mx-auto lg:px-12 xl:px-32 lg:pt-0">
                 <div class="w-full py-2 mt-8 mb-4 flex justify-between items-center border-b border-b-[#062358] pt-14">
                     <h2 class="text-[#014598] font_inter text-[16px] md:text-[23px] font-extrabold font_inter capitalize">Immigration Pre-Assessment Form</h2>
                     <img class="w-[115px]" src="{{ asset('assets/home_Banner/k-graph-logo-blue.png') }}" alt="k-graph">
