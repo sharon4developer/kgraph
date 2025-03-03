@@ -80,7 +80,7 @@
                             </button>
                         </div>
 
-                        <div rightto class="h-[400px] md:w-1/2 z-10 relative opacity-0 translate-x-20">
+                        <div rightto class="h-[400px] md:w-1/2 z-10 relative opacity-0 translate-x-20 overflow-hidden">
 
                             <img class="h-[400px] object-cover object-left-top rounded-3xl overflow-hidden" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->sub_image }}"
                                 alt="">
@@ -146,14 +146,22 @@
                             <ul class="splide__list">
 
                                 @foreach ($study as $demo)
+
                                     @foreach ($demo->cities as $city)
+
                                         @if (isset($city->cities_list_image))
                                             <li class="splide__slide">
-                                                <img class="h-[200px] md:h-[260px] w-full md:w-[430px] rounded-[25px] object-cover"
-                                                    src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $city->cities_list_image }}"
-                                                    alt="">
+                                                <div class="relative">
+                                                    <img class="h-[200px] md:h-[260px] w-full md:w-[430px] rounded-[25px] object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $city->cities_list_image }}" alt="">
+                                                    <div class="">
+                                                        <p class="pl-6 pt-2 font_inter font-semibold text-[14px]" style="color: white;">{{$city->cities_list_place}}</p>
+                                                        <!-- <img src="" alt=""> -->
+                                                    </div>
+                                                </div>
                                             </li>
+
                                         @endif
+
                                     @endforeach
                                 @endforeach
                             </ul>
@@ -222,8 +230,7 @@
 
             </div>
             <div class="flex justify-center py-6 lg:mt-10">
-                <div
-                    class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group w-fit">
+                <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group w-fit">
                     <!-- Background that moves on hover -->
                     <div
                         class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full">

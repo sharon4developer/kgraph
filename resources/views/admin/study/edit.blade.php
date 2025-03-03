@@ -86,29 +86,34 @@
 
     <!-- Show only one empty input field for new entry -->
 
+    @foreach($data->packages as $key => $package)
+    <div class="list">
+        <div class="form-group">
+            <label for="package_list_title">Packages List Title <span class="text-danger">*</span></label>
+            <input type="text" name="package_list_title[]" class="form-control" placeholder="Enter Title"
+                   value="{{ $package->package_list_title }}">
+        </div>
+        <div class="col-md-12">
+            <div class="mb-3">
+                <div class="form-group">
+                    <label class="form-label">Packages List Description</label>
+                    <textarea class="form-control" name="package_list_description[]" placeholder="Description">
+                        {{ $package->package_list_description }}
+                    </textarea>
+                </div>
+            </div>
+        </div>
+        <!-- Show Remove Button only if more than 1 package exists -->
+        @if(count($data->packages) > 1)
+            <button type="button" class="btn btn-danger remove-package" data-id="{{ $package->id }}">Remove</button>
+        @endif
+    </div>
+@endforeach
 
-                        @foreach($data->packages as $package)
+<button type="button" id="addMore" class="btn btn-primary mt-2">Add More</button>
 
-
-                        <div class="list">
-                            <div class="form-group">
-                                <label for="package_list_title">Packages List Title <span class="text-danger">*</span></label>
-                                <input type="text" name="package_list_title[]" class="form-control" placeholder="Enter Title"
-                                value="{{$package->package_list_title}}">
-                            </div>
-                            <div class="col-md-12">
-                                <div class="mb-3">
-                                    <div class="form-group">
-                                        <label class="form-label">Packages List Description</label>
-                                        <textarea class="form-control" name="package_list_description[]"
-                                                  placeholder="Description" > {{$package->package_list_description}}</textarea>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        @endforeach
-
-                        <button type="button" id="addMore" class="btn btn-primary mt-2">Add More</button>
+<!-- Package Container -->
+<div id="packageContainer"></div>
 
                         <div id="packageContainer"></div>
 
@@ -125,7 +130,7 @@
                                         <div class="form-group">
                                             <label for="cities_list_image">City List Image <span class="text-danger">*</span></label>
                                             <input type="file" name="cities_list_image[]" class="form-control" accept="image/*">
-{{-- @dd($city) --}}
+ 
 
                                             @if($city->cities_list_image)
                                             <div class="form-group">

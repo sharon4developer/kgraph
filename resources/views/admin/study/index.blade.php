@@ -7,11 +7,14 @@
                 <hr>
             </div>
 
+
+            @if($count === 0)
             @if ($add_button === true)
                 <div class="col-md-2">
                     <a class="btn btn-outline-info btn-rounded m-3 _effect--ripple waves-effect waves-light float-end"
                         href="{{ url('admin/study/create') }}"><i class="fa fa-plus" aria-hidden="true"></i> Add</a>
                 </div>
+            @endif
             @endif
         </div>
         <div class="row stats-row">

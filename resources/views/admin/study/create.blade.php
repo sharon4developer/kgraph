@@ -15,7 +15,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="study_banner_title">Banner Description <span class="text-danger">*</span></label>
-                              
+
 
                                        <textarea class="form-control" id="sub_content_description" name="banner_description"
                                        placeholder="Description" ></textarea>

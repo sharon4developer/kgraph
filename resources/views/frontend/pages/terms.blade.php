@@ -2,6 +2,9 @@
 @section('content')
 <link rel="stylesheet" type="text/css" href="{{ asset('quill/ql-front.css') }}">
     <style>
+
+
+
     </style>
     <link rel="shortcut icon" href="{{ asset('admin/theme/assets/images/favicon.ico') }}">
 
@@ -19,10 +22,10 @@
     @include('frontend.Common.whatsapplogo')
     {{-- services section --}}
     <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[8%]">
-        <div class="md:px-28 px-5 mx-auto">
-            <h2 class="text-center text-3xl md:text-4xl lg:text-5xl font-bold">Terms & Conditions</h2><br>
+        <div class="px-5 mx-auto md:px-28">
+            <h2 class="text-3xl font-bold text-center md:text-4xl lg:text-5xl">Terms & Conditions</h2><br>
 
-            <div class="relative items-start pt-7 lg:pt-10 text-base lg:text-lg textarea_content">
+            <div class="relative items-start text-base pt-7 lg:pt-10 lg:text-lg textarea_content cm-editercontent">
                @if(isset($data)) {!! $data->description !!} @endif
             </div>
         </div>

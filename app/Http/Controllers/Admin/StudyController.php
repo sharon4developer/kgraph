@@ -21,10 +21,10 @@ class StudyController extends Controller
     {
         abort_unless(Gate::allows('study'), 403);
         $add_button =  Gate::allows('study-create');
-
+            $count = Study::count();
         $sub_title = 'Study ';
         $title = 'Study ';
-        return view('admin.study.index', compact('title', 'sub_title', 'add_button'));
+        return view('admin.study.index', compact('title', 'sub_title', 'add_button','count'));
     }
 
     /**
@@ -88,7 +88,7 @@ class StudyController extends Controller
     {
         abort_unless(Gate::allows('study'), 403);
         $data = Study::getData($id);
-        // dd($data);
+
         if (!$data) {
             abort(404);
         }
@@ -146,7 +146,7 @@ class StudyController extends Controller
     public function changeStatus(Request $request)
     {
         $data = Study::changeStatus($request);
-        dd($data);
+         
         return response()->json($data);
     }
 }

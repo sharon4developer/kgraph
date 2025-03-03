@@ -112,16 +112,16 @@ $('#table-add-form').validate({
             // No required rule
         },
         package_title: {
-            // No required rule
+            required:true,
         },
         package_description: {
-            // No required rule
+            required:true,
         },
         "package_list_title[]": {
-            // No required rule
+            required:true,
         },
         "package_list_description[]": {
-            // No required rule
+            required:true,
         },
         cities_title: {
             // No required rule
@@ -239,16 +239,16 @@ $('#table-edit-form').validate({
             // No required rule
         },
         package_title: {
-            // No required rule
+            required:true,
         },
         package_description: {
-            // No required rule
+            required:true,
         },
         "package_list_title[]": {
-            // No required rule
+            required:true,
         },
         "package_list_description[]": {
-            // No required rule
+            required:true,
         },
         cities_title: {
             // No required rule
@@ -446,34 +446,97 @@ function deleteData(id) {
 //     this.querySelector('i').classList.toggle('fa-eye-slash');
 //     this.querySelector('i').classList.toggle('fa-eye');
 // });
+// $(document).ready(function () {
+//     // Handle the "Add More" button click
+//     $("#addMore").click(function () {
+//         var newField = `
+//             <div class="list">
+//                 <div class="form-group">
+//                     <label for="exampleFormControlInput1">Packages list Title <span class="text-danger">*</span></label>
+//                     <input type="text" name="package_list_title[]" class="form-control" placeholder="Enter Title">
+//                 </div>
+//                 <div class="col-md-12">
+//                     <div class="mb-3">
+//                         <div class="form-group">
+//                             <label class="form-label">Packages list Description</label>
+//                             <textarea class="form-control" name="package_list_description[]" placeholder="Description" required></textarea>
+//                         </div>
+//                     </div>
+//                 </div>
+//                 <button type="button" class="btn btn-danger remove">Remove</button>
+//             </div>`;
+
+//         // Append the new field inside the #packageContainer
+//         $("#packageContainer").append(newField);
+//     });
+
+//     // Handle the "Remove" button click to delete the specific field
+//     $(document).on("click", ".remove", function () {
+//         var packageId = $(this).data("id"); // Get package ID if it exists
+//         var parentElement = $(this).closest(".list");
+
+//         if (packageId) {
+//             // Send an AJAX request to remove the item from the database
+//             $.ajax({
+//                 url: "/remove-package/" + packageId, // Replace with your actual route
+//                 type: "DELETE",
+//                 data: {
+//                     _token: $('meta[name="csrf-token"]').attr("content") // CSRF token
+//                 },
+//                 success: function (response) {
+//                     parentElement.remove(); // Remove the element from UI
+//                 },
+//                 error: function () {
+//                     alert("Error removing package. Please try again.");
+//                 }
+//             });
+//         } else {
+//             // Just remove from UI if it's newly added
+//             parentElement.remove();
+//         }
+//     });
+// });
 
 $(document).ready(function () {
+    function toggleRemoveButtons() {
+        if ($(".list").length > 1) {
+            $(".remove-package").show();
+        } else {
+            $(".remove-package").hide();
+        }
+    }
+
+    // Initial check on page load
+    toggleRemoveButtons();
+
     // Handle the "Add More" button click
     $("#addMore").click(function () {
         var newField = `
             <div class="list">
                 <div class="form-group">
-                    <label for="exampleFormControlInput1">Packages Title <span class="text-danger">*</span></label>
+                    <label>Packages List Title <span class="text-danger">*</span></label>
                     <input type="text" name="package_list_title[]" class="form-control" placeholder="Enter Title">
                 </div>
                 <div class="col-md-12">
                     <div class="mb-3">
                         <div class="form-group">
-                            <label class="form-label">Packages Description</label>
+                            <label class="form-label">Packages List Description</label>
                             <textarea class="form-control" name="package_list_description[]" placeholder="Description" required></textarea>
                         </div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-danger remove">Remove</button>
+                <button type="button" class="btn btn-danger remove-package">Remove</button>
             </div>`;
 
         // Append the new field inside the #packageContainer
         $("#packageContainer").append(newField);
+        toggleRemoveButtons(); // Check button visibility
     });
 
-    // Handle the "Remove" button click to delete the field
-    $(document).on("click", ".remove", function () {
+    // Handle Remove Button Click
+    $(document).on("click", ".remove-package", function () {
         $(this).closest(".list").remove();
+        toggleRemoveButtons(); // Check button visibility
     });
 });
 
