@@ -23,23 +23,34 @@ class ServiceController extends Controller
         $seo = Page::getSeoDetails(request()->path());
         $serviceContents = ServiceContent::getFullDataForHome();
 
-        return view('frontend.pages.services', compact('certificate','seo','serviceCategory','serviceContents'));
+        return view('frontend.pages.services', compact('certificate', 'seo', 'serviceCategory', 'serviceContents'));
     }
 
     public function serviceDetails($slug)
     {
-        $services = Service::where('slug',$slug)->first();
+        $services = Service::where('slug', $slug)->first();
 
-        if(!$services){
+        if (!$services) {
             abort(404);
         }
 
         $seo = ServiceSeo::getSeoDetails($services->id);
 
-        return view('frontend.pages.servicesinner', compact('services','seo'));
+        $hasSubServices = $services->SubService->count() > 0;
+        $hasServicePointContents = $services->ServicePoint
+            ->pluck('ServicePointContents')
+            ->flatten()
+            ->isNotEmpty();
+
+        if ($hasSubServices || !$hasServicePointContents) {
+            return view('frontend.pages.servicesinner', compact('services', 'seo'));
+        } else {
+            return view('frontend.pages.subservicesinner', compact('services', 'seo'));
+        }
     }
 
-    public function eligibilityCheck($id=1)
+
+    public function eligibilityCheck($id = 1)
     {
         $seo = Page::getSeoDetails(request()->path());
 
@@ -48,14 +59,14 @@ class ServiceController extends Controller
 
     public function subServiceDetails($slug)
     {
-        $services = SubServices::where('slug',$slug)->first();
+        $services = SubServices::where('slug', $slug)->first();
 
-        if(!$services){
+        if (!$services) {
             abort(404);
         }
 
         $seo = SubServiceSeo::getSeoDetails($services->id);
 
-        return view('frontend.pages.subservicesinner', compact('services','seo'));
+        return view('frontend.pages.subservicesinner', compact('services', 'seo'));
     }
 }

@@ -37,6 +37,8 @@ use App\Http\Controllers\Admin\RollController;
 use App\Http\Controllers\Admin\SeoController;
 use App\Http\Controllers\Admin\ServiceCategoryController;
 use App\Http\Controllers\Admin\ServiceContentController;
+use App\Http\Controllers\Admin\ServiceContentOptionController;
+use App\Http\Controllers\Admin\ServiceContentPointController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ServiceFaqController;
 use App\Http\Controllers\Admin\ServicePointContentPointsController;
@@ -96,7 +98,7 @@ Auth::routes();
 
 Route::get('login', function () {
 
-    if(Auth::user()){
+    if (Auth::user()) {
 
         return redirect('admin/dashboard');
     }
@@ -166,10 +168,11 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'sub-service-faq' => SubServicesFaqController::class,
         'sub-service-points' => SubServicesPointController::class,
         'sub-service-point-contents' => SubServicePointContentController::class,
-        'sub-admin'=> SubAdminController::class,
+        'sub-admin' => SubAdminController::class,
         'roles' => RoleController::class,
         'settings' => WhatsAppController::class,
         'study' => StudyController::class,
+        'service-content-options' => ServiceContentOptionController::class,
     ]);
 
     Route::get('role-permissions/{id}', [RoleController::class, 'permissions'])->name('role.permissions');
@@ -344,6 +347,18 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         Route::post('update/order', [SubServicePointContentController::class, 'changeOrder'])->name('update-order');
 
         Route::get('get/sub-service-points', [SubServicePointContentController::class, 'getSubServicePoints'])->name('get.sub.service.points');
+    });
+
+    Route::prefix('service-content-options')->name('.service-content-options')->group(function () {
+
+        Route::resources([
+            'point-contents/options' => ServiceContentPointController::class,
+        ]);
+
+        Route::post('change/status', [ServiceContentOptionController::class, 'changeStatus'])->name('change-status');
+        Route::post('update/order', [ServiceContentOptionController::class, 'changeOrder'])->name('update-order');
+
+        Route::get('get/sub-service-points', [ServiceContentOptionController::class, 'getSubServicePoints'])->name('get.sub.service.points');
     });
 
     Route::prefix('blogs')->name('.blogs')->group(function () {

@@ -18,7 +18,7 @@ $(document).ready(function () {
                     $.ajax({
                         url:
                             $("#route-for-user").val() +
-                            "/service-points/update/order", // Replace with your Laravel route URL
+                            "/service-content-options/update/order", // Replace with your Laravel route URL
                         method: "POST",
                         data: {
                             order: newOrder,
@@ -34,144 +34,6 @@ $(document).ready(function () {
             }
         );
     }
-
-    // if ($('#summernote').length) {
-
-    var Parchment = Quill.import("parchment");
-    var lineHeightConfig = new Parchment.Attributor.Style(
-        "lineHeight",
-        "line-height",
-        {
-            scope: Parchment.Scope.BLOCK,
-            whitelist: ["1", "1.5", "2", "2.5", "3", "4"], // Allowed line heights
-        }
-    );
-    Quill.register(lineHeightConfig, true);
-
-    var toolbarOptions = [
-        ["bold", "italic", "underline", "strike"], // toggled buttons
-        ["blockquote", "code-block"],
-        ["image", "code-block"],
-        [{ header: 1 }, { header: 2 }], // custom button values
-        [{ list: "ordered" }, { list: "bullet" }],
-        [{ script: "sub" }, { script: "super" }], // superscript/subscript
-        [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
-        [{ direction: "rtl" }], // text direction
-
-        [{ size: ["small", false, "large", "huge"] }], // custom dropdown
-        [{ header: [1, 2, 3, 4, 5, 6, false] }],
-
-        [{ color: [] }, { background: [] }], // dropdown with defaults from theme
-        [{ font: [] }],
-        [
-            { align: "" }, // left align
-            { align: "center" }, // center align
-            { align: "right" }, // right align
-            { align: "justify" }, // justify align
-        ],
-        [{ lineHeight: ["1", "1.5", "2", "2.5", "3", "4"] }],
-        ["clean"], // remove formatting button
-    ];
-
-    Quill.register("modules/htmlEditButton", htmlEditButton);
-
-    var quill = new Quill("#summernote", {
-        theme: "snow",
-        modules: {
-            imageResize: {
-                displaySize: true,
-            },
-            htmlEditButton: {
-                debug: true, // logging, default:false
-                msg: "Edit the content in HTML format", //Custom message to display in the editor, default: Edit HTML here, when you click "OK" the quill editor's contents will be replaced
-                okText: "Save", // Text to display in the OK button, default: Ok,
-                cancelText: "Cancel", // Text to display in the cancel button, default: Cancel
-                buttonHTML: "<span class='quill-top-buttons'>&lt;&gt;</span>", // Text to display in the toolbar button, default: <>
-                buttonTitle: "Show HTML source", // Text to display as the tooltip for the toolbar button, default: Show HTML source
-                syntax: false, // Show the HTML with syntax highlighting. Requires highlightjs on window.hljs (similar to Quill itself), default: false
-                prependSelector: "div#myelement", // a string used to select where you want to insert the overlayContainer, default: null (appends to body),
-                editorModules: {}, // The default mod
-            },
-            toolbar: toolbarOptions,
-        },
-        placeholder: "",
-        theme: "snow", // or 'bubble'
-    });
-    $(".ql-editor").html($("#text-content").val());
-
-    // // Define custom plugins for alignment
-    // $.extend($.summernote.plugins, {
-    //     'floatLeft': function (context) {
-    //         var ui = $.summernote.ui;
-    //         context.memo('button.floatLeft', function () {
-    //             return ui.button({
-    //                 contents: '<i class="note-icon-align-left"/>',
-    //                 tooltip: 'Align Left',
-    //                 click: function () {
-    //                     var $img = $(context.invoke('restoreTarget'));
-    //                     $img.css({
-    //                         float: 'left',
-    //                         display: 'inline'
-    //                     });
-    //                 }
-    //             }).render();
-    //         });
-    //     },
-    //     'floatRight': function (context) {
-    //         var ui = $.summernote.ui;
-    //         context.memo('button.floatRight', function () {
-    //             return ui.button({
-    //                 contents: '<i class="note-icon-align-right"/>',
-    //                 tooltip: 'Align Right',
-    //                 click: function () {
-    //                     var $img = $(context.invoke('restoreTarget'));
-    //                     $img.css({
-    //                         float: 'right',
-    //                         display: 'inline'
-    //                     });
-    //                 }
-    //             }).render();
-    //         });
-    //     },
-    //     'floatCenter': function (context) {
-    //         var ui = $.summernote.ui;
-    //         context.memo('button.floatCenter', function () {
-    //             return ui.button({
-    //                 contents: '<i class="note-icon-align-center"/>',
-    //                 tooltip: 'Align Center',
-    //                 click: function () {
-    //                     var $img = $(context.invoke('restoreTarget'));
-    //                     $img.css({
-    //                         display: 'block', // Ensures the image behaves like a block element
-    //                         marginLeft: 'auto',
-    //                         marginRight: 'auto',
-    //                         float: 'none'
-    //                     });
-    //                 }
-    //             }).render();
-    //         });
-    //     }
-    // });
-
-    // // Initialize Summernote with custom plugins
-    // $('#summernote').summernote({
-    //     height: 300, // Set the editor height
-    //     toolbar: [
-    //         // Default toolbar buttons
-    //         ['style', ['style']],
-    //         ['font', ['bold', 'italic', 'underline', 'clear']],
-    //         ['fontname', ['fontname']],
-    //         ['fontsize', ['fontsize']],
-    //         ['color', ['color']], // Add color options
-    //         ['para', ['ul', 'ol', 'paragraph']],
-    //         ['table', ['table']],
-    //         ['insert', ['link', 'picture', 'video']],
-    //         ['view', ['fullscreen', 'codeview', 'help']],
-    //         // Custom alignment buttons
-    //         ['image', ['floatLeft', 'floatRight', 'floatCenter']]
-    //     ]
-    // });
-    // }
 });
 
 function loadDataTableForServices() {
@@ -179,33 +41,33 @@ function loadDataTableForServices() {
         processing: true,
         serverSide: true,
         ajax: {
-            url: $("#route-for-user").val() + "/service-points/show",
+            url: $("#route-for-user").val() + "/service-content-options/show",
             dataType: "json",
             type: "GET",
             data: function (d) {
-                d.service_id = $("#select-service").val();
+                d.service_id = $("#select-sub-service-point").val();
             },
         },
         columns: [
             { data: "DT_RowIndex", orderable: false, searchable: false },
             { data: "service_id" },
             { data: "title" },
-            // {
-            //     data: null,
-            //     render: function (row) {
-            //         return (
-            //             `<a class="btn btn-outline-info btn-rounded mb-2 me-4 _effect--ripple waves-effect waves-light" href="` +
-            //             $("#route-for-user").val() +
-            //             `/service-points/point-contents/options?service_point_content_id=` +
-            //             row.id +
-            //             `" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Options" data-bs-placement="top">
-            //                     <i class="fa fa-caret-right"></i>
-            //                 </a>`
-            //         );
-            //     },
-            //     orderable: false,
-            //     searchable: false,
-            // },
+            {
+                data: null,
+                render: function (row) {
+                    return (
+                        `<a class="btn btn-outline-info btn-rounded mb-2 me-4 _effect--ripple waves-effect waves-light" href="` +
+                        $("#route-for-user").val() +
+                        `/service-content-options/point-contents/options?service_point_content_id=` +
+                        row.id +
+                        `" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Options" data-bs-placement="top">
+                                <i class="fa fa-caret-right"></i>
+                            </a>`
+                    );
+                },
+                orderable: false,
+                searchable: false,
+            },
             {
                 data: null,
                 render: function (row) {
@@ -230,53 +92,43 @@ function loadDataTableForServices() {
             {
                 data: null,
                 render: function (row) {
-                    let buttons = `<div style="white-space:no-wrap">`;
-
-                    // Edit Button (conditionally rendered based on can_edit permission)
-                    if (row.can_edit) {
-                        buttons += `
-                            <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
-                                data-bs-toggle="popover" data-bs-trigger="hover"
-                                data-bs-original-title="Edit" data-bs-placement="top"
-                                href="${$(
-                                    "#route-for-user"
-                                ).val()}/service-points/${row.id}/edit">
-                                <i class="fa fa-edit"></i>
-                            </a>`;
-                    }
-
-                    // Status Toggle Button (Activate/Deactivate based on status)
-                    if (row.status == 1) {
-                        buttons += `
-                            <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
-                                href="#" data-bs-toggle="popover" data-bs-trigger="hover"
-                                data-bs-original-title="Deactivate" data-bs-placement="top"
-                                onclick="changeStatus(${row.id}, ${row.status})">
-                                <i class="fa fa-ban"></i>
-                            </a>`;
-                    } else {
-                        buttons += `
-                            <a class="datatable-buttons btn btn-outline-success btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
-                                href="#" data-bs-toggle="popover" data-bs-trigger="hover"
-                                data-bs-original-title="Activate" data-bs-placement="top"
-                                onclick="changeStatus(${row.id}, ${row.status})">
-                                <i class="fa fa-check"></i>
-                            </a>`;
-                    }
-
-                    // Delete Button (conditionally rendered based on can_delete permission)
-                    if (row.can_delete) {
-                        buttons += `
-                            <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
-                                href="#" data-bs-toggle="popover" data-bs-trigger="hover"
-                                data-bs-original-title="Delete" data-bs-placement="top"
-                                onclick="deleteData(${row.id})">
-                                <i class="fa fa-trash"></i>
-                            </a>`;
-                    }
-
-                    buttons += `</div>`;
-                    return buttons;
+                    if (row.status == 1)
+                        statusCheck =
+                            ` <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light" href="#"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Deactivate" data-bs-placement="top"   onclick="changeStatus(` +
+                            row.id +
+                            `,` +
+                            row.status +
+                            `)">
+                                            <i class="fa fa-ban"></i>
+                                        </a>`;
+                    else
+                        statusCheck =
+                            ` <a class="datatable-buttons btn btn-outline-success btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light" href="#"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Activate" data-bs-placement="top" onclick="changeStatus(` +
+                            row.id +
+                            `,` +
+                            row.status +
+                            `)">
+                                            <i class="fa fa-check"></i>
+                                        </a>`;
+                    return (
+                        `<div style="white-space:no-wrap">
+                                    <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Edit" data-bs-placement="top"  href="` +
+                        $("#route-for-user").val() +
+                        `/service-content-options/` +
+                        row.id +
+                        `/edit">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                    ` +
+                        statusCheck +
+                        `
+                                    <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light" href="#"   data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Delete" data-bs-placement="top"   onclick="deleteData(` +
+                        row.id +
+                        `)">
+                                         <i class="fa fa-trash"></i>
+                                    </a>
+                                 </div>`
+                    );
                 },
                 orderable: false,
                 searchable: false,
@@ -308,32 +160,26 @@ $("#service-add-form").validate({
         title: {
             required: true,
         },
-        description: {
-            required: true,
-        },
         service_id: {
             required: true,
         },
     },
     messages: {
         title: "Title field is required",
-        description: "Description field is required",
         service_id: "Service field is required",
     },
     errorElement: "span",
     submitHandler: function (form, event) {
         //
         var formData = new FormData($(form)[0]);
-        formData.append("description", $(".ql-editor").html());
         $(".error").html("");
         var submitButton = $(form).find("[type=submit]");
         var current_btn_text = submitButton.html();
-        // formData.append('description', $('.ck-content').html());
         button_loading_text = "Saving...";
         // Create
         $.ajax({
             type: "POST",
-            url: $("#route-for-user").val() + "/service-points",
+            url: $("#route-for-user").val() + "/service-content-options",
             contentType: false,
             processData: false,
             data: formData,
@@ -410,41 +256,35 @@ $("#service-edit-form").validate({
         title: {
             required: true,
         },
-        description: {
-            required: true,
-        },
         service_id: {
             required: true,
         },
-        service_point_id: {
+        service_point_content_id: {
             required: true,
         },
     },
     messages: {
         title: "Title field is required",
-        description: "Description field is required",
         service_id: "Service field is required",
     },
     errorElement: "span",
     submitHandler: function (form, event) {
         //
         var formData = new FormData($(form)[0]);
-        formData.append("description", $(".ql-editor").html());
         $(".error").html("");
         var submitButton = $(form).find("[type=submit]");
         var current_btn_text = submitButton.html();
         button_loading_text = "Saving...";
-        var service_point_id = $(form)
-            .find("input[name=service_point_id]")
+        var service_point_content_id = $(form)
+            .find("input[name=service_point_content_id]")
             .val();
-        // formData.append('description', $('.ck-content').html());
         // Create
         $.ajax({
             type: "POST",
             url:
                 $("#route-for-user").val() +
-                "/service-points/" +
-                service_point_id,
+                "/service-content-options/" +
+                service_point_content_id,
             contentType: false,
             processData: false,
             data: formData,
@@ -519,10 +359,10 @@ $("#service-edit-form").validate({
 
 function changeStatus(id, status) {
     if (status == 1) {
-        text = "You want to deactivate this service point!";
+        text = "You want to deactivate this service content!";
         message = "Deactivated successfully";
     } else {
-        text = "You want to activate this service point!";
+        text = "You want to activate this service content!";
         message = "Activated successfully";
     }
     Swal.fire({
@@ -539,7 +379,7 @@ function changeStatus(id, status) {
                 type: "POST",
                 url:
                     $("#route-for-user").val() +
-                    "/service-points/change/status",
+                    "/service-content-options/change/status",
                 data: {
                     id: id,
                 },
@@ -558,7 +398,7 @@ function changeStatus(id, status) {
 function deleteData(id) {
     Swal.fire({
         title: "Are you sure?",
-        text: "Are you sure, do yo want to delete the service point ?",
+        text: "Are you sure, do yo want to delete the service faq ?",
         icon: "warning",
         showCancelButton: true,
         confirmButtonText: "Yes!",
@@ -568,7 +408,10 @@ function deleteData(id) {
         if (result.isConfirmed) {
             $.ajax({
                 type: "DELETE",
-                url: $("#route-for-user").val() + "/service-points/" + id,
+                url:
+                    $("#route-for-user").val() +
+                    "/service-content-options/" +
+                    id,
                 data: {
                     id: id,
                 },
@@ -577,7 +420,7 @@ function deleteData(id) {
                     if (data == true)
                         showMessage(
                             "success",
-                            "Service point deleted successfully"
+                            "Service content deleted successfully"
                         );
                 },
                 error: function (data) {
@@ -588,6 +431,49 @@ function deleteData(id) {
     });
 }
 
-$("#select-service").on("change", function (e) {
+$("#select-sub-service-point").on("change", function (e) {
     table.ajax.reload();
+});
+
+$(document).ready(function () {
+    // Listen for changes in the "Select Service" dropdown
+    $("#select-service").on("change", function () {
+        const serviceId = $(this).val(); // Get the selected service ID
+
+        // Clear the "Sub Service Point" dropdown
+        $("#select-sub-service-point")
+            .empty()
+            .append('<option value="" selected>Select</option>');
+
+        if (serviceId) {
+            // Fetch sub-service points for the selected service via AJAX
+            $.ajax({
+                url:
+                    $("#route-for-user").val() +
+                    "/service-content-options/get/sub-service-points", // Replace with your Laravel route
+                type: "GET",
+                data: { service_id: serviceId },
+                success: function (response) {
+                    if (response.length > 0) {
+                        // Populate the "Sub Service Point" dropdown
+                        response.forEach(function (subServicePoint) {
+                            $("#select-sub-service-point").append(
+                                `<option value="${subServicePoint.id}">${subServicePoint.title}</option>`
+                            );
+                        });
+                    } else {
+                        // If no sub-service points are available, show a default option
+                        $("#select-sub-service-point").append(
+                            '<option value="">No Sub Service Points Available</option>'
+                        );
+                    }
+                },
+                error: function () {
+                    alert(
+                        "An error occurred while fetching sub-service points."
+                    );
+                },
+            });
+        }
+    });
 });

@@ -12,8 +12,7 @@
 
                         <div class="col-md-2">
                             <a class="btn btn-outline-info btn-rounded m-3 _effect--ripple waves-effect waves-light float-end"
-                                href="{{ url('admin/service-points/create') }}"><i class="fa fa-plus"
-                                    aria-hidden="true"></i>
+                                href="{{ url('admin/service-points/create') }}"><i class="fa fa-plus" aria-hidden="true"></i>
                                 Add</a>
                         </div>
                     </div>
@@ -38,6 +37,7 @@
                                 <th>SL No</th>
                                 <th>Service</th>
                                 <th>Title</th>
+                                {{-- <th>Options</th> --}}
                                 <th>Status</th>
                                 <th>Created Date</th>
                                 <th>Action</th>

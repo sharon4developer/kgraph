@@ -232,6 +232,21 @@
                                     </ul>
                                 </li>
                             @endif
+                            @if (auth()->user()->hasPermissionTo('service-points'))
+                                <li>
+                                    <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Service
+                                        Contents</a>
+                                    <ul class="sub-menu" aria-expanded="true">
+                                        <li><a href="{{ url('admin/service-content-options') }}"
+                                                data-key="t-level-2-2">View </a>
+                                        </li>
+                                        @if (auth()->user()->hasPermissionTo('service-points'))
+                                            <li><a href="{{ url('admin/service-content-options/create') }}"
+                                                    data-key="t-level-2-1">Add </a></li>
+                                        @endif
+                                    </ul>
+                                </li>
+                            @endif
                             @if (auth()->user()->hasAnyPermission(['service-faq', 'service-faq-create']))
                                 <li>
                                     <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Service
@@ -315,7 +330,8 @@
                             @endif
                             @if (auth()->user()->hasPermissionTo('sub-service-point-contents'))
                                 <li>
-                                    <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Sub Service
+                                    <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Sub
+                                        Service
                                         Contents</a>
                                     <ul class="sub-menu" aria-expanded="true">
                                         <li><a href="{{ url('admin/sub-service-point-contents') }}"
@@ -657,19 +673,19 @@
                 @endif
 
                 @if (auth()->user()->hasPermissionTo('study'))
-                <li>
-                    <a href="javascript: void(0);" class="has-arrow">
-                        <i class="fa fa-solid fa-gear" aria-hidden="true"></i>
-                        <span data-key="t-multi-level">Study</span>
-                    </a>
-                    <ul class="sub-menu" aria-expanded="true">
-                        @if (auth()->user()->hasPermissionTo('study'))
-                            <li><a href="{{ url('admin/study') }}" data-key="t-level-2-2">Study </a>
-                            </li>
-                        @endif
-                    </ul>
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow">
+                            <i class="fa fa-solid fa-gear" aria-hidden="true"></i>
+                            <span data-key="t-multi-level">Study</span>
+                        </a>
+                        <ul class="sub-menu" aria-expanded="true">
+                            @if (auth()->user()->hasPermissionTo('study'))
+                                <li><a href="{{ url('admin/study') }}" data-key="t-level-2-2">Study </a>
+                                </li>
+                            @endif
+                        </ul>
 
-                </li>
+                    </li>
                 @endif
                 {{-- <div class="card sidebar-alert shadow-none text-center mx-4 mb-0 mt-5">
                 <div class="card-body">

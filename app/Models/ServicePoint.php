@@ -14,10 +14,16 @@ class ServicePoint extends Model
 
     protected $table = 'service_points';
 
-    protected $fillable = ['title', 'description', 'status','order', 'service_id'];
+    protected $fillable = ['title', 'description', 'status', 'order', 'service_id'];
 
-    public function Services(){
-        return  $this->belongsTo(Service::class,'service_id');
+    public function Services()
+    {
+        return  $this->belongsTo(Service::class, 'service_id');
+    }
+
+    public function ServicePointContents()
+    {
+        return  $this->hasMany(ServiceContentPoint::class, 'service_point_id')->orderBy('order', 'asc');
     }
 
     public static function getFullData($data)
@@ -25,11 +31,11 @@ class ServicePoint extends Model
         $locationData = getLocationData();
 
         $value =  SELF::with('Services')->select('title', 'id', 'status', 'created_at', 'service_id')
-                ->where(function ($query) use ($data) {
-                    if (isset($data->service_id)) {
-                        $query->where('service_id', $data->service_id);
-                    }
-                })->orderBy('order', 'asc');
+            ->where(function ($query) use ($data) {
+                if (isset($data->service_id)) {
+                    $query->where('service_id', $data->service_id);
+                }
+            })->orderBy('order', 'asc');
 
         return DataTables::of($value)
             ->addIndexColumn()
@@ -40,7 +46,8 @@ class ServicePoint extends Model
                 return Gate::allows('service-points-delete');
             })
             ->addColumn('can_edit', function ($row) {
-                return Gate::allows('service-points-edit'); })
+                return Gate::allows('service-points-edit');
+            })
             ->addIndexColumn()
             ->rawColumns(['action', 'edit', 'delete'])
             ->make(true);
@@ -101,5 +108,10 @@ class ServicePoint extends Model
             }
         }
         return true;
+    }
+
+    public static function getFullDataForHome()
+    {
+        return SELF::with('Services')->select('id', 'title', 'service_id')->orderBy('order', 'asc')->where('status', 1)->get();
     }
 }
