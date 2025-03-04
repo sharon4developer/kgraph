@@ -29,7 +29,7 @@ class ServiceContentPoint extends Model
 
     public function Options()
     {
-        return $this->hasMany(ServiceContentOptions::class, 'service_content_point_id')->orderBy('order', 'asc');
+        return $this->hasMany(ServiceContentOptions::class, 'id', 'service_content_point_id');
     }
 
     public static function getFullData($data)

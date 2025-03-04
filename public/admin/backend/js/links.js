@@ -1,24 +1,22 @@
 $(document).ready(function () {
-    loadDataTableForServices();
+    loadDataTableForLink();
 
-    if (document.getElementById("service-details-table")) {
+    if (document.getElementById("table-details-table")) {
         Sortable.create(
             document
-                .getElementById("service-details-table")
+                .getElementById("table-details-table")
                 .getElementsByTagName("tbody")[0],
             {
                 onEnd: function (event) {
                     // Get the new order of the rows
                     var newOrder = [];
-                    $("#service-details-table tbody tr").each(function () {
+                    $("#table-details-table tbody tr").each(function () {
                         newOrder.push(table.row(this).data());
                     });
 
                     // Pass the new order to the backend (e.g., using AJAX)
                     $.ajax({
-                        url:
-                            $("#route-for-user").val() +
-                            "/service-content-options/update/order", // Replace with your Laravel route URL
+                        url: $("#route-for-user").val() + "/links/update/order", // Replace with your Laravel route URL
                         method: "POST",
                         data: {
                             order: newOrder,
@@ -34,47 +32,93 @@ $(document).ready(function () {
             }
         );
     }
+
+    var Parchment = Quill.import("parchment");
+    var lineHeightConfig = new Parchment.Attributor.Style(
+        "lineHeight",
+        "line-height",
+        {
+            scope: Parchment.Scope.BLOCK,
+            whitelist: ["1", "1.5", "2", "2.5", "3", "4"], // Allowed line heights
+        }
+    );
+    Quill.register(lineHeightConfig, true);
+
+    var toolbarOptions = [
+        ["bold", "italic", "underline", "strike"], // toggled buttons
+        ["blockquote", "code-block"],
+        ["image", "code-block"],
+        [{ header: 1 }, { header: 2 }], // custom button values
+        [{ list: "ordered" }, { list: "bullet" }],
+        [{ script: "sub" }, { script: "super" }], // superscript/subscript
+        [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
+        [{ direction: "rtl" }], // text direction
+
+        [{ size: ["small", false, "large", "huge"] }], // custom dropdown
+        [{ header: [1, 2, 3, 4, 5, 6, false] }],
+
+        [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+        [{ font: [] }],
+        [
+            { align: "" }, // left align
+            { align: "center" }, // center align
+            { align: "right" }, // right align
+            { align: "justify" }, // justify align
+        ],
+        [{ lineHeight: ["1", "1.5", "2", "2.5", "3", "4"] }],
+        ["clean"], // remove formatting button
+    ];
+
+    Quill.register("modules/htmlEditButton", htmlEditButton);
+
+    var quill = new Quill("#summernote", {
+        theme: "snow",
+        modules: {
+            imageResize: {
+                displaySize: true,
+            },
+            htmlEditButton: {
+                debug: true, // logging, default:false
+                msg: "Edit the content in HTML format", //Custom message to display in the editor, default: Edit HTML here, when you click "OK" the quill editor's contents will be replaced
+                okText: "Save", // Text to display in the OK button, default: Ok,
+                cancelText: "Cancel", // Text to display in the cancel button, default: Cancel
+                buttonHTML: "<span class='quill-top-buttons'>&lt;&gt;</span>", // Text to display in the toolbar button, default: <>
+                buttonTitle: "Show HTML source", // Text to display as the tooltip for the toolbar button, default: Show HTML source
+                syntax: false, // Show the HTML with syntax highlighting. Requires highlightjs on window.hljs (similar to Quill itself), default: false
+                prependSelector: "div#myelement", // a string used to select where you want to insert the overlayContainer, default: null (appends to body),
+                editorModules: {}, // The default mod
+            },
+            toolbar: toolbarOptions,
+        },
+        placeholder: "",
+        theme: "snow", // or 'bubble'
+    });
+    $(".ql-editor").html($("#text-content").val());
 });
 
-function loadDataTableForServices() {
-    table = $("#service-details-table").DataTable({
+function loadDataTableForLink() {
+    table = $("#table-details-table").DataTable({
         processing: true,
         serverSide: true,
         ajax: {
-            url: $("#route-for-user").val() + "/service-content-options/show",
+            url: $("#route-for-user").val() + "/links/show",
             dataType: "json",
             type: "GET",
             data: function (d) {
-                d.service_id = $("#select-sub-service-point").val();
+                d.service_id = $("#select-service").val();
             },
         },
         columns: [
             { data: "DT_RowIndex", orderable: false, searchable: false },
-            { data: "service_id" },
             { data: "title" },
             {
                 data: null,
                 render: function (row) {
-                    return (
-                        `<a class="btn btn-outline-info btn-rounded mb-2 me-4 _effect--ripple waves-effect waves-light" href="` +
-                        $("#route-for-user").val() +
-                        `/service-content-options/point-contents/options?service_point_content_id=` +
-                        row.id +
-                        `" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Options" data-bs-placement="top">
-                                <i class="fa fa-caret-right"></i>
-                            </a>`
-                    );
-                },
-                orderable: false,
-                searchable: false,
-            },
-            {
-                data: null,
-                render: function (row) {
-                    if (row.status == 1)
+                    if (row.status == 1) {
                         return `<span class="badge rounded-pill bg-success-subtle text-success">Active</span>`;
-                    else
+                    } else {
                         return `<span class="badge rounded-pill bg-danger-subtle text-danger">Deactivated</span>`;
+                    }
                 },
                 orderable: false,
                 searchable: false,
@@ -82,9 +126,7 @@ function loadDataTableForServices() {
             {
                 data: null,
                 render: function (row) {
-                    return moment(row.created_at).format(
-                        "DD MMM  YYYY hh:mm:a"
-                    );
+                    return moment(row.created_at).format("DD MMM YYYY hh:mm:a");
                 },
                 orderable: false,
                 searchable: false,
@@ -92,43 +134,61 @@ function loadDataTableForServices() {
             {
                 data: null,
                 render: function (row) {
-                    if (row.status == 1)
-                        statusCheck =
-                            ` <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light" href="#"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Deactivate" data-bs-placement="top"   onclick="changeStatus(` +
-                            row.id +
-                            `,` +
-                            row.status +
-                            `)">
-                                            <i class="fa fa-ban"></i>
-                                        </a>`;
-                    else
-                        statusCheck =
-                            ` <a class="datatable-buttons btn btn-outline-success btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light" href="#"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Activate" data-bs-placement="top" onclick="changeStatus(` +
-                            row.id +
-                            `,` +
-                            row.status +
-                            `)">
-                                            <i class="fa fa-check"></i>
-                                        </a>`;
-                    return (
-                        `<div style="white-space:no-wrap">
-                                    <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"  data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Edit" data-bs-placement="top"  href="` +
-                        $("#route-for-user").val() +
-                        `/service-content-options/` +
-                        row.id +
-                        `/edit">
-                                        <i class="fa fa-edit"></i>
-                                    </a>
-                                    ` +
-                        statusCheck +
-                        `
-                                    <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light" href="#"   data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Delete" data-bs-placement="top"   onclick="deleteData(` +
-                        row.id +
-                        `)">
-                                         <i class="fa fa-trash"></i>
-                                    </a>
-                                 </div>`
-                    );
+                    let buttons = `<div style="white-space:nowrap">`;
+
+                    // Edit Button
+                    if (row.can_edit) {
+                        buttons += `
+                            <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
+                                data-bs-toggle="popover" data-bs-trigger="hover"
+                                data-bs-original-title="Edit" data-bs-placement="top"
+                                href="${$("#route-for-user").val()}/links/${
+                            row.id
+                        }/edit">
+                                <i class="fa fa-edit"></i>
+                            </a>`;
+                    }
+
+                    // Status Toggle Button
+                    if (row.status == 1) {
+                        buttons += `
+                            <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
+                                href="#" data-bs-toggle="popover" data-bs-trigger="hover"
+                                data-bs-original-title="Deactivate" data-bs-placement="top"
+                                onclick="changeStatus(${row.id}, ${row.status})">
+                                <i class="fa fa-ban"></i>
+                            </a>`;
+                    } else {
+                        buttons += `
+                            <a class="datatable-buttons btn btn-outline-success btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
+                                href="#" data-bs-toggle="popover" data-bs-trigger="hover"
+                                data-bs-original-title="Activate" data-bs-placement="top"
+                                onclick="changeStatus(${row.id}, ${row.status})">
+                                <i class="fa fa-check"></i>
+                            </a>`;
+                    }
+
+                    // Delete Button
+                    if (row.can_delete) {
+                        buttons += `
+                            <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
+                                href="#" data-bs-toggle="popover" data-bs-trigger="hover"
+                                data-bs-original-title="Delete" data-bs-placement="top"
+                                onclick="deleteData(${row.id})">
+                                <i class="fa fa-trash"></i>
+                            </a>`;
+                    }
+
+                    // SEO Button
+                    buttons += `
+                        <a class="btn btn-outline-info btn-rounded mb-2 me-4 _effect--ripple waves-effect waves-light"
+                            href="#" onclick="loadSeo(${row.id})" data-bs-toggle="popover"
+                            data-bs-trigger="hover" data-bs-original-title="Seo" data-bs-placement="top">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </a>
+                    </div>`;
+
+                    return buttons;
                 },
                 orderable: false,
                 searchable: false,
@@ -138,16 +198,15 @@ function loadDataTableForServices() {
         dom:
             "<'dt--top-section'<'row'<'col-12 col-sm-6 d-flex justify-content-sm-start justify-content-center'l><'col-12 col-sm-6 d-flex justify-content-sm-end justify-content-center mt-sm-0 mt-3'f>>>" +
             "<'table-responsive'tr>" +
-            "<'dt--bottom-section d-sm-flex justify-content-sm-between text-center'<'dt--pages-count  mb-sm-0 mb-3'i><'dt--pagination'p>>",
+            "<'dt--bottom-section d-sm-flex justify-content-sm-between text-center'<'dt--pages-count mb-sm-0 mb-3'i><'dt--pagination'p>>",
         oLanguage: {
             oPaginate: {
                 sPrevious:
-                    '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>',
-                sNext: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>',
+                    '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>',
+                sNext: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>',
             },
-            // "sInfo": "Showing page _PAGE_ of _PAGES_",
             sSearch:
-                '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
+                '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
             sSearchPlaceholder: "Search...",
             sLengthMenu: "Results :  _MENU_",
         },
@@ -155,23 +214,24 @@ function loadDataTableForServices() {
     });
 }
 
-$("#service-add-form").validate({
+$("#table-add-form").validate({
     rules: {
         title: {
             required: true,
         },
-        service_id: {
+        description: {
             required: true,
         },
     },
     messages: {
         title: "Title field is required",
-        service_id: "Service field is required",
+        description: "Description field is required",
     },
     errorElement: "span",
     submitHandler: function (form, event) {
         //
         var formData = new FormData($(form)[0]);
+        formData.append("description", $(".ql-editor").html());
         $(".error").html("");
         var submitButton = $(form).find("[type=submit]");
         var current_btn_text = submitButton.html();
@@ -179,7 +239,7 @@ $("#service-add-form").validate({
         // Create
         $.ajax({
             type: "POST",
-            url: $("#route-for-user").val() + "/service-content-options",
+            url: $("#route-for-user").val() + "/links",
             contentType: false,
             processData: false,
             data: formData,
@@ -251,40 +311,36 @@ $("#service-add-form").validate({
     },
 });
 
-$("#service-edit-form").validate({
+$("#table-edit-form").validate({
     rules: {
         title: {
             required: true,
         },
-        service_id: {
+        description: {
             required: true,
         },
-        service_point_content_id: {
+        table_id: {
             required: true,
         },
     },
     messages: {
         title: "Title field is required",
-        service_id: "Service field is required",
+        description: "Description field is required",
     },
     errorElement: "span",
     submitHandler: function (form, event) {
         //
         var formData = new FormData($(form)[0]);
+        formData.append("description", $(".ql-editor").html());
         $(".error").html("");
         var submitButton = $(form).find("[type=submit]");
         var current_btn_text = submitButton.html();
         button_loading_text = "Saving...";
-        var service_point_content_id = $(form)
-            .find("input[name=service_point_content_id]")
-            .val();
+        var links_id = $(form).find("input[name=links_id]").val();
         // Create
         $.ajax({
             type: "POST",
-            url:
-                $("#route-for-user").val() +
-                "/service-content-options/" +
-                service_point_content_id,
+            url: $("#route-for-user").val() + "/links/" + links_id,
             contentType: false,
             processData: false,
             data: formData,
@@ -359,10 +415,10 @@ $("#service-edit-form").validate({
 
 function changeStatus(id, status) {
     if (status == 1) {
-        text = "You want to deactivate this service content!";
+        text = "You want to deactivate this link!";
         message = "Deactivated successfully";
     } else {
-        text = "You want to activate this service content!";
+        text = "You want to activate this link!";
         message = "Activated successfully";
     }
     Swal.fire({
@@ -377,9 +433,7 @@ function changeStatus(id, status) {
         if (result.isConfirmed) {
             $.ajax({
                 type: "POST",
-                url:
-                    $("#route-for-user").val() +
-                    "/service-content-options/change/status",
+                url: $("#route-for-user").val() + "/links/change/status",
                 data: {
                     id: id,
                 },
@@ -398,7 +452,7 @@ function changeStatus(id, status) {
 function deleteData(id) {
     Swal.fire({
         title: "Are you sure?",
-        text: "Are you sure, do yo want to delete the service content ?",
+        text: "Are you sure, do yo want to delete the link ?",
         icon: "warning",
         showCancelButton: true,
         confirmButtonText: "Yes!",
@@ -408,20 +462,14 @@ function deleteData(id) {
         if (result.isConfirmed) {
             $.ajax({
                 type: "DELETE",
-                url:
-                    $("#route-for-user").val() +
-                    "/service-content-options/" +
-                    id,
+                url: $("#route-for-user").val() + "/links/" + id,
                 data: {
                     id: id,
                 },
                 success: function (data) {
                     table.ajax.reload(null, false);
                     if (data == true)
-                        showMessage(
-                            "success",
-                            "Service content deleted successfully"
-                        );
+                        showMessage("success", "Link deleted successfully");
                 },
                 error: function (data) {
                     showMessage("warning", "Something went wrong...");
@@ -430,50 +478,3 @@ function deleteData(id) {
         }
     });
 }
-
-$("#select-sub-service-point").on("change", function (e) {
-    table.ajax.reload();
-});
-
-$(document).ready(function () {
-    // Listen for changes in the "Select Service" dropdown
-    $("#select-service").on("change", function () {
-        const serviceId = $(this).val(); // Get the selected service ID
-
-        // Clear the "Sub Service Point" dropdown
-        $("#select-sub-service-point")
-            .empty()
-            .append('<option value="" selected>Select</option>');
-
-        if (serviceId) {
-            // Fetch sub-service points for the selected service via AJAX
-            $.ajax({
-                url:
-                    $("#route-for-user").val() +
-                    "/service-content-options/get/sub-service-points", // Replace with your Laravel route
-                type: "GET",
-                data: { service_id: serviceId },
-                success: function (response) {
-                    if (response.length > 0) {
-                        // Populate the "Sub Service Point" dropdown
-                        response.forEach(function (subServicePoint) {
-                            $("#select-sub-service-point").append(
-                                `<option value="${subServicePoint.id}">${subServicePoint.title}</option>`
-                            );
-                        });
-                    } else {
-                        // If no sub-service points are available, show a default option
-                        $("#select-sub-service-point").append(
-                            '<option value="">No Sub Service Points Available</option>'
-                        );
-                    }
-                },
-                error: function () {
-                    alert(
-                        "An error occurred while fetching sub-service points."
-                    );
-                },
-            });
-        }
-    });
-});

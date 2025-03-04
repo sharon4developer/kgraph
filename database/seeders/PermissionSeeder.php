@@ -15,10 +15,6 @@ class PermissionSeeder extends Seeder
     {
         $permissions = [
 
-
-
-
-
             'banners',
             'banners-create',
             'banners-edit',
@@ -281,6 +277,11 @@ class PermissionSeeder extends Seeder
             'sub-service-point-contents-create',
             // 'sub-service-point-contents-edit',
             // 'sub-service-point-contents-delete',
+
+            'links',
+            'links-create',
+            'links-edit',
+            'links-delete',
         ];
 
         foreach ($permissions as $permission) {

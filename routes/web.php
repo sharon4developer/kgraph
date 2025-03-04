@@ -21,6 +21,7 @@ use App\Http\Controllers\Admin\ExploreController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
 use App\Http\Controllers\Admin\JourneyController;
+use App\Http\Controllers\Admin\LinkController;
 use App\Http\Controllers\Admin\LocationController;
 use App\Http\Controllers\Admin\NewsLetterController as AdminNewsLetterController;
 use App\Http\Controllers\Admin\OurStoryController;
@@ -64,9 +65,12 @@ use App\Http\Controllers\FrontEnd\PackageController as FrontEndPackageController
 use App\Http\Controllers\FrontEnd\ServiceController as FrontEndServiceController;
 use App\Http\Controllers\Admin\WhatsAppController;
 use App\Http\Controllers\Admin\StudyController;
+use App\Http\Controllers\FrontEnd\LinkController as FrontEndLinkController;
 use App\Http\Controllers\FrontEnd\StudyController as FrontEndStudyController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
+Route::get('{slug}', [FrontEndLinkController::class, 'show']);
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('services', [FrontEndServiceController::class, 'index']);
@@ -119,8 +123,6 @@ Route::get('/logout-me', function () {
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
 Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
 
     Route::prefix('dashboard')->name('.dashboard')->group(function () {
@@ -173,6 +175,7 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'settings' => WhatsAppController::class,
         'study' => StudyController::class,
         'service-content-options' => ServiceContentOptionController::class,
+        'links' => LinkController::class,
     ]);
 
     Route::get('role-permissions/{id}', [RoleController::class, 'permissions'])->name('role.permissions');

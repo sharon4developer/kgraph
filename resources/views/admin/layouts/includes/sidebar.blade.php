@@ -616,10 +616,16 @@
                             <span data-key="t-multi-level">Footer Links</span>
                         </a>
                         <ul class="sub-menu" aria-expanded="true">
-                            <li><a href="{{ url('admin/terms-and-condition') }}" data-key="t-level-2-2">Terms And
-                                    Conditions </a></li>
+                            @if (auth()->user()->hasPermissionTo('terms-and-condition'))
+                                <li><a href="{{ url('admin/terms-and-condition') }}" data-key="t-level-2-2">Terms And
+                                        Conditions </a></li>
+                            @endif
                             @if (auth()->user()->hasPermissionTo('privacy-policy'))
                                 <li><a href="{{ url('admin/privacy-policy') }}" data-key="t-level-2-2">Privacy Policy
+                                    </a></li>
+                            @endif
+                            @if (auth()->user()->hasPermissionTo('links'))
+                                <li><a href="{{ url('admin/links') }}" data-key="t-level-2-2">Links
                                     </a></li>
                             @endif
                             {{-- <li><a href="{{ url('admin/contact-us') }}" data-key="t-level-2-2">Contact Us </a></li> --}}
