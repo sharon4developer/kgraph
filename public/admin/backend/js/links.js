@@ -111,6 +111,7 @@ function loadDataTableForLink() {
         columns: [
             { data: "DT_RowIndex", orderable: false, searchable: false },
             { data: "title" },
+            { data: "slug" },
             {
                 data: null,
                 render: function (row) {

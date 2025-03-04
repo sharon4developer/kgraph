@@ -20,7 +20,7 @@ class Link extends Model
     {
         $locationData = getLocationData();
 
-        $value =  SELF::select('title', 'id', 'status', 'created_at')->orderBy('created_at', 'desc');
+        $value =  SELF::select('title', 'id', 'status', 'created_at', 'slug')->orderBy('created_at', 'desc');
 
         return DataTables::of($value)
             ->addColumn('can_delete', function ($row) {

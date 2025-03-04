@@ -23,6 +23,7 @@
                             <tr>
                                 <th>SL No</th>
                                 <th>Title</th>
+                                <th>Slug</th>
                                 <th>Status</th>
                                 <th>Created Date</th>
                                 <th>Action</th>
