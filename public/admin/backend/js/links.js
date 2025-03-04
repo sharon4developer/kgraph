@@ -152,13 +152,13 @@ function loadDataTableForLink() {
 
                     // Status Toggle Button
                     if (row.status == 1) {
-                        buttons += `
-                            <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
-                                href="#" data-bs-toggle="popover" data-bs-trigger="hover"
-                                data-bs-original-title="Deactivate" data-bs-placement="top"
-                                onclick="changeStatus(${row.id}, ${row.status})">
-                                <i class="fa fa-ban"></i>
-                            </a>`;
+                        // buttons += `
+                        //     <a class="datatable-buttons btn btn-outline-danger btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
+                        //         href="#" data-bs-toggle="popover" data-bs-trigger="hover"
+                        //         data-bs-original-title="Deactivate" data-bs-placement="top"
+                        //         onclick="changeStatus(${row.id}, ${row.status})">
+                        //         <i class="fa fa-ban"></i>
+                        //     </a>`;
                     } else {
                         buttons += `
                             <a class="datatable-buttons btn btn-outline-success btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
@@ -181,13 +181,13 @@ function loadDataTableForLink() {
                     }
 
                     // SEO Button
-                    buttons += `
-                        <a class="btn btn-outline-info btn-rounded mb-2 me-4 _effect--ripple waves-effect waves-light"
-                            href="#" onclick="loadSeo(${row.id})" data-bs-toggle="popover"
-                            data-bs-trigger="hover" data-bs-original-title="Seo" data-bs-placement="top">
-                            <i class="fa fa-search" aria-hidden="true"></i>
-                        </a>
-                    </div>`;
+                    // buttons += `
+                    //     <a class="btn btn-outline-info btn-rounded mb-2 me-4 _effect--ripple waves-effect waves-light"
+                    //         href="#" onclick="loadSeo(${row.id})" data-bs-toggle="popover"
+                    //         data-bs-trigger="hover" data-bs-original-title="Seo" data-bs-placement="top">
+                    //         <i class="fa fa-search" aria-hidden="true"></i>
+                    //     </a>
+                    // </div>`;
 
                     return buttons;
                 },
