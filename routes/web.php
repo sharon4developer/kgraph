@@ -70,7 +70,7 @@ use App\Http\Controllers\FrontEnd\StudyController as FrontEndStudyController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('{slug}', [FrontEndLinkController::class, 'show']);
+Route::get('links/{slug}', [FrontEndLinkController::class, 'show']);
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('services', [FrontEndServiceController::class, 'index']);

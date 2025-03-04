@@ -11,7 +11,7 @@
         .servicesIIner-banner {
             background-image: url(/assets/servicesinner.jpg) !important;
             /* background-position-y: center;
-                                                                                                                                                    background-position-x: center; */
+                                                                                                                                                        background-position-x: center; */
             background-size: cover;
             background-repeat: no-repeat;
         }
@@ -254,6 +254,7 @@
             <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%]">
                 <div class="lg:w-1/2 font_inter">
                     <h2 class="font-semibold text-xl lg:text-4xl text-[#062358]">{{ $services->inner_title }}</h2>
+                    <p>{{ $services->description }}</p>
                     <div class="blufader-grade text-white my-6 px-5 rounded-md py-3">Key Highlight</div>
                     <div>
                         <ul class="list-disc pl-5 text-[#062358] leading-normal">
