@@ -1,109 +1,127 @@
-$('#privacy-add-form').validate({
+$("#privacy-add-form").validate({
     rules: {
         description: {
             required: true,
         },
     },
-    errorElement: 'span',
-    submitHandler: function(form,event) {
+    errorElement: "span",
+    submitHandler: function (form, event) {
         //
         var formData = new FormData($(form)[0]);
-        formData.append('description', $('.ql-editor').html());
-        $('.error').html('');
-        var submitButton=$(form).find('[type=submit]');
-        var current_btn_text=submitButton.html();
-        button_loading_text = 'Saving...';
+        formData.append("description", $(".ql-editor").html());
+        $(".error").html("");
+        var submitButton = $(form).find("[type=submit]");
+        var current_btn_text = submitButton.html();
+        button_loading_text = "Saving...";
         // Create
         $.ajax({
             type: "POST",
-            url: $('#route-for-user').val()+'/privacy-policy',
+            url: $("#route-for-user").val() + "/privacy-policy",
             contentType: false,
             processData: false,
             data: formData,
             cache: false,
             beforeSend: function () {
-                submitButton.html(`
+                submitButton
+                    .html(
+                        `
                     <span class="spinner-border spinner-border-sm"></span>
-                    `+button_loading_text+`
-                `).attr('disabled',true);
+                    ` +
+                            button_loading_text +
+                            `
+                `
+                    )
+                    .attr("disabled", true);
             },
-            success: function(response)
-            {
-                if(response.status){
-                    showMessage('success',response.message);
-                }else{
-                    showMessage('warning',response.message);
+            success: function (response) {
+                if (response.status) {
+                    showMessage("success", response.message);
+                } else {
+                    showMessage("warning", response.message);
                 }
             },
             error: function (response) {
-                submitButton.html(current_btn_text).attr('disabled',false);
-                if(response.responseJSON.errors){
-                    $.each(response.responseJSON.errors, function(i,v) {
-                        element=$(form).find('[name='+i+']');
-                        element.addClass('is-invalid');
-                        if( $(form).find('#'+ i +'-error').length){
-                            $(form).find('#'+ i +'-error').html(v).show();
-                        }else{
-                            element.closest('.form-group').
-                            append(`<span id="`+i+`-error" class="error invalid-feedback">`+v+`</span>`);
-                            $('.error').show();
+                submitButton.html(current_btn_text).attr("disabled", false);
+                if (response.responseJSON.errors) {
+                    $.each(response.responseJSON.errors, function (i, v) {
+                        element = $(form).find("[name=" + i + "]");
+                        element.addClass("is-invalid");
+                        if ($(form).find("#" + i + "-error").length) {
+                            $(form)
+                                .find("#" + i + "-error")
+                                .html(v)
+                                .show();
+                        } else {
+                            element
+                                .closest(".form-group")
+                                .append(
+                                    `<span id="` +
+                                        i +
+                                        `-error" class="error invalid-feedback">` +
+                                        v +
+                                        `</span>`
+                                );
+                            $(".error").show();
                         }
-                        element.attr('aria-invalid',true);
-                        element.attr("area-describedby",i+"-error");
+                        element.attr("aria-invalid", true);
+                        element.attr("area-describedby", i + "-error");
                         element.focus();
                     });
-                }
-                else{
-                    showMessage('warning','Something went wrong...');
+                } else {
+                    showMessage("warning", "Something went wrong...");
                 }
             },
-            complete:function(){
-                submitButton.html(current_btn_text).attr('disabled',false);
-            }
+            complete: function () {
+                submitButton.html(current_btn_text).attr("disabled", false);
+            },
         });
         event.preventDefault();
     },
-    highlight: function(element, errorClass, validClass) {
-        $(element).addClass('is-invalid');
+    highlight: function (element, errorClass, validClass) {
+        $(element).addClass("is-invalid");
     },
-    unhighlight: function(element, errorClass, validClass) {
-        $(element).removeClass('is-invalid');
-    }
+    unhighlight: function (element, errorClass, validClass) {
+        $(element).removeClass("is-invalid");
+    },
 });
 
 $(document).ready(function () {
+    var Parchment = Quill.import("parchment");
+    var lineHeightConfig = new Parchment.Attributor.Style(
+        "lineHeight",
+        "line-height",
+        {
+            scope: Parchment.Scope.BLOCK,
+            whitelist: ["1", "1.5", "2", "2.5", "3", "4"], // Allowed line heights
+        }
+    );
+    Quill.register(lineHeightConfig, true);
 
-    var Parchment = Quill.import('parchment');
-        var lineHeightConfig = new Parchment.Attributor.Style('lineHeight', 'line-height', {
-          scope: Parchment.Scope.BLOCK,
-          whitelist: ['1', '1.5', '2', '2.5', '3', '4'] // Allowed line heights
-        });
-        Quill.register(lineHeightConfig, true);
+    var toolbarOptions = [
+        ["bold", "italic", "underline", "strike"], // toggled buttons
+        ["blockquote", "code-block"],
+        ["image", "code-block"],
+        [{ header: 1 }, { header: 2 }], // custom button values
+        [{ list: "ordered" }, { list: "bullet" }],
+        [{ script: "sub" }, { script: "super" }], // superscript/subscript
+        [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
+        [{ direction: "rtl" }], // text direction
 
-        var toolbarOptions = [
-            ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-            ['blockquote', 'code-block'],
-            ['image', 'code-block'],
-            [{ 'header': 1 }, { 'header': 2 }],               // custom button values
-            [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-            [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-            [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
-            [{ 'direction': 'rtl' }],                         // text direction
+        [{ size: ["small", false, "large", "huge"] }], // custom dropdown
+        [{ header: [1, 2, 3, 4, 5, 6, false] }],
 
-            [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-            [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-
-            [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-            [{ 'font': [] }],
-            [
-                { align: "" }, // left align
-                { align: "center" }, // center align
-                { align: "right" }, // right align
-                { align: "justify" }, // justify align
-            ],
-            [{ 'lineHeight': ['1', '1.5', '2', '2.5', '3', '4'] }],
-            ['clean']                                         // remove formatting button
-        ];
+        [{ color: [] }, { background: [] }], // dropdown with defaults from theme
+        [{ font: [] }],
+        [
+            { align: "" }, // left align
+            { align: "center" }, // center align
+            { align: "right" }, // right align
+            { align: "justify" }, // justify align
+        ],
+        [{ lineHeight: ["1", "1.5", "2", "2.5", "3", "4"] }],
+        ["link", "image", "video"],
+        ["clean"], // remove formatting button
+    ];
 
     Quill.register("modules/htmlEditButton", htmlEditButton);
 
