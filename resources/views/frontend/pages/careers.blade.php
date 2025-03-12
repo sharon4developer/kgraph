@@ -160,7 +160,7 @@
                     <div class="w-full h-full mb-8 font_inter">
                         <h1 class="mainHead font-semibold text-[40px] xl:w-[70%] uppercase">@if(isset($careerContents)) {{$careerContents->title}} @endif
                         </h1>
-                        <p class="font-semibold text-[15px] py-[30px]">@if(isset($careerContents)) {{$careerContents->sub_title}} @endif</p>
+                        <p class="font-semibold text-[12px] lg:text-[15px] py-[30px]">@if(isset($careerContents)) {{$careerContents->sub_title}} @endif</p>
                         @if(isset($careerContents)) {!!$careerContents->description!!} @endif
                         {{-- <h2 class="font-semibold text-[30px]">Our Team Identity :</h2>
                         <ul class="list-disc pl-5 text-[18px] mb-6 lg:mb-0">

@@ -396,12 +396,12 @@
 
     <div class="open-positions bg-[#04183c]">
         <div class="container mx-auto px-5 xl:px-12 h-full w-full py-8 lg:py-[8%] text-white">
-            <div class="items-center md:flex">
+            <div class="flex-col items-start lg:mb-8 md:flex">
                 <h2 class="left-to-right-animation font_inter font-semibold text-[50px] text-white leading-none uppercase">
-                    <span class="inline-block">WE </span><span class="inline-block">ARE IN</span>
+                    WE ARE IN<span class="inline-block"></span><span class="inline-block"> </span>
                 </h2>
                 <div class="w-full md:pl-2" style="margin-bottom: -6%;">
-                    <div class="w-full my-6 left-to-right-width-animation" style="border: 1px solid #FFFFFF8C;"></div>
+                    <div class="w-full mt-3 lg:my-6 left-to-right-width-animation" style="border: 1px solid #FFFFFF8C;"></div>
                 </div>
             </div>
 
