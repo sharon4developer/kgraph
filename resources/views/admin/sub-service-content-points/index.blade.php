@@ -175,7 +175,10 @@
                                                             </div>
                                                             <div class="col-md-6"
                                                                 id="option-content_{{ $titleIndex }}_{{ $paragraphIndex }}">
-                                                                <textarea class="form-control" required name="titles[{{ $titleIndex }}][options][{{ $paragraphIndex }}][content]">{{ $paragraph->content }}</textarea>
+                                                                <textarea class="form-control" required name="titles[{{ $titleIndex }}][options][{{ $paragraphIndex }}][content]">{{ $paragraph->content }}</textarea><br>
+                                                                <input type="url" class="form-control"
+                                                                    name="titles[{{ $titleIndex }}][options][{{ $paragraphIndex }}][url]"
+                                                                    value="{{ $paragraph->url }}" placeholder="Url">
                                                             </div>
                                                             <div class="col-md-2">
                                                                 <button type="button"
