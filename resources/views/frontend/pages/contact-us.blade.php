@@ -115,10 +115,10 @@
                 <div
                     class="flex flex-col lg:flex-row justify-between items-start gap-[15%] lg:py-[50px] md:mt-[100px] lg:mt-0">
                     <div class="w-full h-full font_inter">
-                        <h1 class="mainHead font-semibold text-[40px]  uppercase">
+                        <h1 class="mainHead font-semibold text-[24px] lg:text-[40px]  uppercase">
                             Get in Touch with KGraph Immigration - Your Gateway to a New Life in Canada
                         </h1>
-                        <p class="font-semibold text-[15px] py-[30px]">
+                        <p class="font-semibold text-[12px] lg:text-[15px] py-[30px]">
                             We understand that navigating the immigration process can be complex and overwhelming. Whether you're looking to study, work, visit, or settle in Canada, the team at KGraph Immigration is here to support you every step of the way. We are committed to providing expert advice, personalized guidance, and tailored solutions to meet your unique immigration needs. With years of experience in the field, our immigration consultants are well-equipped to help you understand your options, prepare your applications, and overcome any challenges that may arise along the way. At KGraph Immigration, we pride ourselves on offering the highest level of service, ensuring that your immigration journey is as smooth and stress-free as possible. Reach out to us today for a consultation, and let us help you take the next step toward your new life in Canada.</p>
                         <h2 class="font-semibold text-[30px]">Our Team Identity :</h2>
                         <ul class="list-disc pl-5 text-[18px]">
@@ -397,11 +397,11 @@
     <div class="open-positions bg-[#04183c]">
         <div class="container mx-auto px-5 xl:px-12 h-full w-full py-8 lg:py-[8%] text-white">
             <div class="items-center md:flex">
-                <h2 class="left-to-right-animation font_inter font-semibold text-[50px] text-white leading-none uppercase">
+                <h2 class="left-to-right-animation font_inter font-semibold text-[24px] lg:text-[50px] text-white leading-none uppercase">
                     <span class="inline-block">WE </span><span class="inline-block">ARE IN</span>
                 </h2>
                 <div class="w-full md:pl-2" style="margin-bottom: -6%;">
-                    <div class="w-full my-6 left-to-right-width-animation" style="border: 1px solid #FFFFFF8C;"></div>
+                    <div class="w-full my-3 lg:my-6 left-to-right-width-animation" style="border: 1px solid #FFFFFF8C;"></div>
                 </div>
             </div>
 

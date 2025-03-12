@@ -295,7 +295,7 @@
                                     </h3>
                                 </div>
                                 <!-- Description -->
-                                <p class="px-4 lg:pl-4 lg:pr-0 text-[#07245A] h-[100px] md:h-[160px] xl:h-[90px] opacity-70 font-medium text-[14px] md:text-[16px] lg:text-[18px] leading-relaxed">
+                                <p class="px-4 lg:pl-4 lg:pr-0 text-[#07245A] h-auto mt-2 lg:mt-0 md:h-[160px] xl:h-[90px] opacity-70 font-medium text-[14px] md:text-[16px] lg:text-[18px] leading-relaxed">
                                     {{$data->description}}
                                 </p>
                             </div>
