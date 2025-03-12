@@ -111,7 +111,20 @@ function loadDataTableForLink() {
         columns: [
             { data: "DT_RowIndex", orderable: false, searchable: false },
             { data: "title" },
-            { data: "slug" },
+            {
+                data: "slug",
+                render: function (data, type, row) {
+                    let fullUrl = `${$("#base-route").val()}/links/${row.slug}`;
+                    return `
+                        <button class="btn btn-sm btn-outline-primary" onclick="copyToClipboard('${fullUrl}')"
+                            data-bs-toggle="popover" data-bs-trigger="hover" data-bs-original-title="Copy Link">
+                            <i class="fa fa-copy"></i> Copy
+                        </button>
+                    `;
+                },
+                orderable: false,
+                searchable: false,
+            },
             {
                 data: null,
                 render: function (row) {
@@ -478,4 +491,27 @@ function deleteData(id) {
             });
         }
     });
+}
+
+// Function to Copy Text to Clipboard
+function copyToClipboard(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard
+            .writeText(text)
+            .then(() => {
+                showMessage("success", "Link copied to clipboard!");
+            })
+            .catch((err) => {
+                console.error("Error copying text: ", err);
+            });
+    } else {
+        // Fallback method for unsupported browsers
+        let tempInput = document.createElement("input");
+        tempInput.value = text;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+        showMessage("success", "Link copied to clipboard!");
+    }
 }
