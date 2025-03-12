@@ -9,7 +9,7 @@ class ServiceContentParagraph extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['service_content_title_id', 'content'];
+    protected $fillable = ['service_content_title_id', 'content', 'url'];
 
     public function title()
     {

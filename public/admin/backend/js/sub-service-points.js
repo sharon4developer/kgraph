@@ -87,6 +87,7 @@ $(document).ready(function () {
             { align: "justify" }, // justify align
         ],
         [{ lineHeight: ["1", "1.5", "2", "2.5", "3", "4"] }],
+        ["link", "image", "video"],
         ["clean"], // remove formatting button
     ];
 

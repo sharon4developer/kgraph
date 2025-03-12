@@ -9,7 +9,7 @@ class Paragraph extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title_id', 'content'];
+    protected $fillable = ['title_id', 'content', 'url'];
 
     public function title()
     {

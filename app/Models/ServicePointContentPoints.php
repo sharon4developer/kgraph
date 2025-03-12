@@ -16,8 +16,9 @@ class ServicePointContentPoints extends Model
 
     protected $fillable = ['option', 'service_point_content_id'];
 
-    public function SubServicePoint(){
-        return  $this->belongsTo(SubServicePointContent::class,'service_point_content_id');
+    public function SubServicePoint()
+    {
+        return  $this->belongsTo(SubServicePointContent::class, 'service_point_content_id');
     }
 
     public static function createDataOld($data)
@@ -34,7 +35,7 @@ class ServicePointContentPoints extends Model
 
             foreach ($titleData['options'] as $option) {
                 if ($option['type'] === 'paragraph') {
-                    $title->paragraphs()->create(['content' => $option['content']]);
+                    $title->paragraphs()->create(['content' => $option['content'], 'url' => $option['url']]);
                 } elseif ($option['type'] === 'option') {
                     foreach ($option['multiOptions'] as $multiOption) {
                         $mainOption = $title->options()->create(['value' => $multiOption['value']]);
@@ -101,7 +102,7 @@ class ServicePointContentPoints extends Model
 
             foreach ($titleData['options'] as $option) {
                 if ($option['type'] === 'paragraph') {
-                    $title->paragraphs()->create(['content' => $option['content']]);
+                    $title->paragraphs()->create(['content' => $option['content'], 'url' => $option['url']]);
                 } elseif ($option['type'] === 'option') {
                     foreach ($option['multiOptions'] as $multiOption) {
                         $mainOption = $title->options()->create(['value' => $multiOption['value']]);

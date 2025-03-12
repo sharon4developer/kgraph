@@ -249,7 +249,8 @@ $(document).on("change", ".option-type", function () {
 
     if (type === "paragraph") {
         $(contentId).html(`
-            <textarea class="form-control" required placeholder="Enter paragraph..." name="titles[${titleId}][options][${optionId}][content]"></textarea>
+            <textarea class="form-control" required placeholder="Enter paragraph..." name="titles[${titleId}][options][${optionId}][content]"></textarea><br>
+            <input class="form-control" type="url" name="titles[${titleId}][options][${optionId}][url]" placeholder="Url">
         `);
     } else if (type === "option") {
         $(contentId).html(`
@@ -358,6 +359,7 @@ function serializeForm() {
             .each(function () {
                 let optionType = $(this).find(".option-type").val();
                 let optionContent = $(this).find("[name$='[content]']").val();
+                let optionUrl = $(this).find("[name$='[url]']").val();
                 let multiOptions = [];
 
                 if (optionType === "option") {
@@ -383,7 +385,11 @@ function serializeForm() {
 
                 titleData.options.push(
                     optionType === "paragraph"
-                        ? { type: "paragraph", content: optionContent }
+                        ? {
+                              type: "paragraph",
+                              content: optionContent,
+                              url: optionUrl,
+                          }
                         : { type: "option", multiOptions }
                 );
             });

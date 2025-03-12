@@ -156,7 +156,7 @@ class ServiceContentPoint extends Model
 
             foreach ($titleData['options'] as $option) {
                 if ($option['type'] === 'paragraph') {
-                    $title->paragraphs()->create(['content' => $option['content']]);
+                    $title->paragraphs()->create(['content' => $option['content'], 'url' => $option['url']]);
                 } elseif ($option['type'] === 'option') {
                     foreach ($option['multiOptions'] as $multiOption) {
                         $mainOption = $title->options()->create(['value' => $multiOption['value']]);

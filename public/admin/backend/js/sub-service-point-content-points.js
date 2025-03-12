@@ -175,7 +175,7 @@
 //     }
 // });
 
-let titleIndex = $('#last_index').length > 0 ? $('#last_index').val() : 0;
+let titleIndex = $("#last_index").length > 0 ? $("#last_index").val() : 0;
 
 // Add Title
 $("#add-title").click(function () {
@@ -207,7 +207,8 @@ $(document).on("click", ".remove-title", function () {
 // Add Option/Paragraph
 $(document).on("click", ".add-option", function () {
     const titleId = $(this).data("title-id");
-    const optionIndex = $(`#options-container-${titleId} .option-item`).length + 1;
+    const optionIndex =
+        $(`#options-container-${titleId} .option-item`).length + 1;
 
     $(`#options-container-${titleId}`).append(`
         <div class="option-item mt-3" id="option_${titleId}_${optionIndex}">
@@ -248,7 +249,8 @@ $(document).on("change", ".option-type", function () {
 
     if (type === "paragraph") {
         $(contentId).html(`
-            <textarea class="form-control" required placeholder="Enter paragraph..." name="titles[${titleId}][options][${optionId}][content]"></textarea>
+            <textarea class="form-control" required placeholder="Enter paragraph..." name="titles[${titleId}][options][${optionId}][content]"></textarea><br>
+            <input class="form-control" type="url" name="titles[${titleId}][options][${optionId}][url]" placeholder="Url">
         `);
     } else if (type === "option") {
         $(contentId).html(`
@@ -260,7 +262,7 @@ $(document).on("change", ".option-type", function () {
             </button>
         `);
     } else {
-        $(contentId).html('');
+        $(contentId).html("");
     }
 });
 
@@ -268,7 +270,9 @@ $(document).on("change", ".option-type", function () {
 $(document).on("click", ".add-multi-option", function () {
     const titleId = $(this).data("title-id");
     const optionId = $(this).data("option-id");
-    const multiOptionIndex = $(`#multi-options_${titleId}_${optionId} .multi-option-item`).length + 1;
+    const multiOptionIndex =
+        $(`#multi-options_${titleId}_${optionId} .multi-option-item`).length +
+        1;
 
     $(`#multi-options_${titleId}_${optionId}`).append(`
         <div class="multi-option-item mt-2" id="multi-option_${titleId}_${optionId}_${multiOptionIndex}">
@@ -305,7 +309,10 @@ $(document).on("click", ".add-sub-option", function () {
     const titleId = $(this).data("title-id");
     const optionId = $(this).data("option-id");
     const multiOptionId = $(this).data("multi-option-id");
-    const subOptionIndex = $(`#sub-options_${titleId}_${optionId}_${multiOptionId} .sub-option-item`).length + 1;
+    const subOptionIndex =
+        $(
+            `#sub-options_${titleId}_${optionId}_${multiOptionId} .sub-option-item`
+        ).length + 1;
 
     $(`#sub-options_${titleId}_${optionId}_${multiOptionId}`).append(`
         <div class="sub-option-item mt-2" id="sub-option_${titleId}_${optionId}_${multiOptionId}_${subOptionIndex}">
@@ -329,46 +336,63 @@ $(document).on("click", ".remove-sub-option", function () {
     const optionId = $(this).data("option-id");
     const multiOptionId = $(this).data("multi-option-id");
     const subOptionId = $(this).data("sub-option-id");
-    $(`#sub-option_${titleId}_${optionId}_${multiOptionId}_${subOptionId}`).remove();
+    $(
+        `#sub-option_${titleId}_${optionId}_${multiOptionId}_${subOptionId}`
+    ).remove();
 });
 
 function serializeForm() {
     let formData = {
-        service_point_content_id: $('#service_point_content_id').val(), // Include the hidden input value
-        titles: []
+        service_point_content_id: $("#service_point_content_id").val(), // Include the hidden input value
+        titles: [],
     };
 
     $("#titles-container .card").each(function () {
         let titleId = $(this).attr("id");
         let titleData = {
             title: $(this).find("input[name^='titles']").val(),
-            options: []
+            options: [],
         };
 
-        $(this).find(".option-item").each(function () {
-            let optionType = $(this).find(".option-type").val();
-            let optionContent = $(this).find("[name$='[content]']").val();
-            let multiOptions = [];
+        $(this)
+            .find(".option-item")
+            .each(function () {
+                let optionType = $(this).find(".option-type").val();
+                let optionContent = $(this).find("[name$='[content]']").val();
+                let optionUrl = $(this).find("[name$='[url]']").val();
+                let multiOptions = [];
 
-            if (optionType === "option") {
-                $(this).find(".multi-option-item").each(function () {
+                if (optionType === "option") {
+                    $(this)
+                        .find(".multi-option-item")
+                        .each(function () {
+                            let optionValue = $(this)
+                                .find("input[name$='[value]']")
+                                .val();
+                            console.log(optionValue);
+                            let subOptions = [];
+                            $(this)
+                                .find(".sub-option-item input")
+                                .each(function () {
+                                    subOptions.push($(this).val());
+                                });
+                            multiOptions.push({
+                                value: optionValue,
+                                subOptions,
+                            });
+                        });
+                }
 
-                    let optionValue = $(this).find("input[name$='[value]']").val();
-                    console.log(optionValue);
-                    let subOptions = [];
-                    $(this).find(".sub-option-item input").each(function () {
-                        subOptions.push($(this).val());
-                    });
-                    multiOptions.push({ value: optionValue, subOptions });
-                });
-            }
-
-            titleData.options.push(
-                optionType === "paragraph"
-                    ? { type: "paragraph", content: optionContent }
-                    : { type: "option", multiOptions }
-            );
-        });
+                titleData.options.push(
+                    optionType === "paragraph"
+                        ? {
+                              type: "paragraph",
+                              content: optionContent,
+                              url: optionUrl,
+                          }
+                        : { type: "option", multiOptions }
+                );
+            });
 
         formData.titles.push(titleData);
     });
@@ -378,17 +402,18 @@ function serializeForm() {
 
 // On form submit, serialize and send the data
 $("#dynamic-form").on("submit", function (e) {
-
     e.preventDefault();
     let serializedData = serializeForm();
 
     $.ajax({
-        url: $('#route-for-user').val() + '/sub-service-point-contents/point-contents/options', // Replace with your backend URL
+        url:
+            $("#route-for-user").val() +
+            "/sub-service-point-contents/point-contents/options", // Replace with your backend URL
         type: "POST",
         data: JSON.stringify({ titles: serializedData }),
         contentType: "application/json",
         success: function (response) {
-            showMessage('success', response.message);
+            showMessage("success", response.message);
             setTimeout(function () {
                 window.location = response.return_url;
             }, 500);
@@ -396,6 +421,6 @@ $("#dynamic-form").on("submit", function (e) {
         },
         error: function (error) {
             console.log(error);
-        }
+        },
     });
 });
