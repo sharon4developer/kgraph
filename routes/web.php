@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\EligibilityCheckController;
 use App\Http\Controllers\Admin\ExploreController;
 use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\HomeController as AdminHomeController;
+use App\Http\Controllers\Admin\IconController;
 use App\Http\Controllers\Admin\JourneyController;
 use App\Http\Controllers\Admin\LinkController;
 use App\Http\Controllers\Admin\LocationController;
@@ -176,6 +177,7 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'study' => StudyController::class,
         'service-content-options' => ServiceContentOptionController::class,
         'links' => LinkController::class,
+        'icons' => IconController::class
     ]);
 
     Route::get('role-permissions/{id}', [RoleController::class, 'permissions'])->name('role.permissions');
@@ -188,6 +190,12 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
             // 'cms' => CmsController::class,
         ]);
         Route::post('change/status', [PageController::class, 'changeStatus'])->name('change-status');
+    });
+
+    Route::prefix('icons')->name('.icons')->group(function () {
+
+        Route::post('change/status', [IconController::class, 'changeStatus'])->name('change-status');
+        Route::post('update/order', [IconController::class, 'changeOrder'])->name('update-order');
     });
 
     Route::prefix('banners')->name('.banners')->group(function () {

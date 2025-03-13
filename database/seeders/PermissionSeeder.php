@@ -282,6 +282,11 @@ class PermissionSeeder extends Seeder
             'links-create',
             'links-edit',
             'links-delete',
+
+            'icons',
+            'icons-create',
+            'icons-edit',
+            'icons-delete',
         ];
 
         foreach ($permissions as $permission) {

@@ -80,6 +80,23 @@
                                 </li>
                             @endif
 
+                            @if (auth()->user()->hasPermissionTo('icons') || auth()->user()->hasPermissionTo('icons-create'))
+                                <li>
+                                    <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Icons</a>
+                                    <ul class="sub-menu" aria-expanded="true">
+                                        @if (auth()->user()->hasPermissionTo('icons'))
+                                            <li><a href="{{ url('admin/icons') }}" data-key="t-level-2-2">View
+                                                </a>
+                                            </li>
+                                        @endif
+                                        @if (auth()->user()->hasPermissionTo('icons-create'))
+                                            <li><a href="{{ url('admin/icons-create') }}" data-key="t-level-2-1">Add
+                                                </a></li>
+                                        @endif
+                                    </ul>
+                                </li>
+                            @endif
+
 
                             {{-- <li>
                                                         <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Who We Are</a>
