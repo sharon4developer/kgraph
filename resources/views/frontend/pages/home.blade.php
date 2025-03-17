@@ -49,8 +49,8 @@
         }
 
         /* .left-to-right-animation,
-                        .secleft-to-right-animation,
-                        .thirdleft-to-right-animation, */
+                            .secleft-to-right-animation,
+                            .thirdleft-to-right-animation, */
         .fourthleft-to-right-animation,
         .fifthleft-to-right-animation {
             opacity: 0;
@@ -156,9 +156,9 @@
         }
 
         /* .your-slider-class {
-                                    width: 100%;
-                                    display: flex;
-                                } */
+                                        width: 100%;
+                                        display: flex;
+                                    } */
         .your-slider-class .slick-track,
         .explore-section .slick-track {
             width: 20000px !important;
@@ -422,63 +422,63 @@
         }
 
         /* .award_certificates_s .splide__slide {
-                            transform: translateY(100px);
-                            opacity: 0;
-                        } */
+                                transform: translateY(100px);
+                                opacity: 0;
+                            } */
 
         /* .award_certificates_s .splide__slide.is-visible.is-active {
-                            z-index: 1;
-                        }
+                                z-index: 1;
+                            }
 
-                        .award_certificates_s .splide__slide .certs {
-                            transition: transform .35s ease;
-                        }
+                            .award_certificates_s .splide__slide .certs {
+                                transition: transform .35s ease;
+                            }
 
-                        .award_certificates_s .splide__slide.is-visible.is-active .certs {
-                            transform: scale(1.2);
-                            z-index: 99;
-                        }
-                        .award_certificates_s .splide__track {
-                            padding: 10px 0;
-                        }
+                            .award_certificates_s .splide__slide.is-visible.is-active .certs {
+                                transform: scale(1.2);
+                                z-index: 99;
+                            }
+                            .award_certificates_s .splide__track {
+                                padding: 10px 0;
+                            }
 
 
-                        .award_certificates_s .splide__pagination {
-                            justify-content: end;
-                            margin-top: -5px;
-                            margin-left: 20px;
-                        } */
+                            .award_certificates_s .splide__pagination {
+                                justify-content: end;
+                                margin-top: -5px;
+                                margin-left: 20px;
+                            } */
 
         /* .award_certificates_s .splide__pagination__page {
-                            border: 0;
-                            border-radius: 50%;
-                            display: inline-block;
-                            height: 20px;
-                            width: 20px;
-                            margin: 0 0.1rem;
-                            padding: 0;
-                            position: relative;
-                            transition: background-color 0.2s ease, color 0.2s ease;
-                        } */
+                                border: 0;
+                                border-radius: 50%;
+                                display: inline-block;
+                                height: 20px;
+                                width: 20px;
+                                margin: 0 0.1rem;
+                                padding: 0;
+                                position: relative;
+                                transition: background-color 0.2s ease, color 0.2s ease;
+                            } */
         /*
-                        .award_certificates_s .splide__pagination__page::after {
-                            counter-increment: certificate-counter;
-                            content: counter(certificate-counter);
-                            font-weight: 700;
-                            font-size: 1rem;
-                        }
+                            .award_certificates_s .splide__pagination__page::after {
+                                counter-increment: certificate-counter;
+                                content: counter(certificate-counter);
+                                font-weight: 700;
+                                font-size: 1rem;
+                            }
 
 
-                        .award_certificates_s .splide__pagination__page {
-                            color: var(--darkgray);
-                            transition: all 0.3s ease-in-out;
-                            transform-origin: bottom;
-                        }
+                            .award_certificates_s .splide__pagination__page {
+                                color: var(--darkgray);
+                                transition: all 0.3s ease-in-out;
+                                transform-origin: bottom;
+                            }
 
-                        .award_certificates_s .splide__pagination__page.is-active {
-                            color: var(--bg);
-                            transform: scale(1.25);
-                        } */
+                            .award_certificates_s .splide__pagination__page.is-active {
+                                color: var(--bg);
+                                transform: scale(1.25);
+                            } */
 
         @media(max-width:767px) {
             .image-card-explore img {
@@ -936,13 +936,13 @@
                                 </div>
 
                                 <!-- <div class="ctc-sect">
-                                                    <h5>
-                @if (isset($journey))
+                                                        <h5>
+                    @if (isset($journey))
     {{ $journey->cases }}
     @endif
-                </h5>
-                                                    <span>Active Cases</span>
-                                                </div> -->
+                    </h5>
+                                                        <span>Active Cases</span>
+                                                    </div> -->
 
                             </div>
 
@@ -952,7 +952,8 @@
                             class="relative flex items-center justify-center w-full mt-6 overflow-hidden rounded-lg group video-grade">
                             <video
                                 class="w-full h-full lg:h-[400px] object-cover object-center video-imagepos autoplay-video"
-                                style="object-position: 0px 0px;" playsinline muted controls>
+                                style="object-position: 0px 0px;" playsinline muted controls
+                                poster="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $home->thumb_image }}">
                                 @if (isset($home))
                                     <source
                                         src="{{ $locationData['storage_server_path'] . $locationData['storage_video_path'] . $home->journey_video }}">

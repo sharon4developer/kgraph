@@ -15,58 +15,115 @@ class Home extends Model
 
     protected $fillable = [
         // Services section
-        'service_first_title', 'service_second_title', 'service_sub_title', 'service_description',
+        'service_first_title',
+        'service_second_title',
+        'service_sub_title',
+        'service_description',
 
         // Who We Are section
-        'who_we_are_first_title', 'who_we_are_second_title', 'who_we_are_sub_title',
+        'who_we_are_first_title',
+        'who_we_are_second_title',
+        'who_we_are_sub_title',
 
         // Journey section
-        'journey_title' ,'journey_sub_title', 'journey_description', 'journey_image1', 'journey_image2', 'journey_image3',
-        'journey_image1_alt_tag', 'journey_image2_alt_tag', 'journey_image3_alt_tag', 'journey_video', 'journey_video_position', 'journey_video_name',
+        'journey_title',
+        'journey_sub_title',
+        'journey_description',
+        'journey_image1',
+        'journey_image2',
+        'journey_image3',
+        'journey_image1_alt_tag',
+        'journey_image2_alt_tag',
+        'journey_image3_alt_tag',
+        'journey_video',
+        'journey_video_position',
+        'journey_video_name',
 
         // Certificate section
-        'certificate_title', 'certificate_description', 'certificate_image1', 'certificate_image2', 'certificate_image3',
-        'certificate_image1_alt_tag', 'certificate_image2_alt_tag', 'certificate_image3_alt_tag',
+        'certificate_title',
+        'certificate_description',
+        'certificate_image1',
+        'certificate_image2',
+        'certificate_image3',
+        'certificate_image1_alt_tag',
+        'certificate_image2_alt_tag',
+        'certificate_image3_alt_tag',
 
         // Testimonial section
-        'testimonial_title', 'testimonial_sub_title', 'testimonial_description',
+        'testimonial_title',
+        'testimonial_sub_title',
+        'testimonial_description',
 
         // Blog section
-        'blog_title', 'blog_sub_title', 'blog_description',
+        'blog_title',
+        'blog_sub_title',
+        'blog_description',
 
         // Explore section
-        'explore_title', 'explore_sub_title',
+        'explore_title',
+        'explore_sub_title',
 
         // FAQ section
-        'faq_title', 'faq_sub_title'
+        'faq_title',
+        'faq_sub_title',
+        'thumb_image'
     ];
 
     // Fetch data for DataTables
     public static function getFullData($data)
     {
         $value =  SELF::select([
-            'service_first_title', 'service_second_title', 'service_sub_title', 'service_description',
-            'who_we_are_first_title', 'who_we_are_second_title', 'who_we_are_sub_title',
-            'journey_title', 'journey_description', 'journey_image1', 'journey_image2', 'journey_image3',
-            'journey_image1_alt_tag', 'journey_image2_alt_tag', 'journey_image3_alt_tag',
-            'certificate_title', 'certificate_description', 'certificate_image1', 'certificate_image2', 'certificate_image3',
-            'certificate_image1_alt_tag', 'certificate_image2_alt_tag', 'certificate_image3_alt_tag',
-            'testimonial_title', 'testimonial_sub_title', 'testimonial_description',
-            'blog_title', 'blog_sub_title', 'blog_description',
-            'explore_title', 'explore_sub_title',
-            'faq_title', 'faq_sub_title', 'journey_sub_title', 'journey_video', 'journey_video_position', 'journey_video_name',
+            'service_first_title',
+            'service_second_title',
+            'service_sub_title',
+            'service_description',
+            'who_we_are_first_title',
+            'who_we_are_second_title',
+            'who_we_are_sub_title',
+            'journey_title',
+            'journey_description',
+            'journey_image1',
+            'journey_image2',
+            'journey_image3',
+            'journey_image1_alt_tag',
+            'journey_image2_alt_tag',
+            'journey_image3_alt_tag',
+            'certificate_title',
+            'certificate_description',
+            'certificate_image1',
+            'certificate_image2',
+            'certificate_image3',
+            'certificate_image1_alt_tag',
+            'certificate_image2_alt_tag',
+            'certificate_image3_alt_tag',
+            'testimonial_title',
+            'testimonial_sub_title',
+            'testimonial_description',
+            'blog_title',
+            'blog_sub_title',
+            'blog_description',
+            'explore_title',
+            'explore_sub_title',
+            'faq_title',
+            'faq_sub_title',
+            'journey_sub_title',
+            'journey_video',
+            'journey_video_position',
+            'journey_video_name',
+            'thumb_image',
             'id'
         ])->get();
 
         return DataTables::of($value)
-        ->addColumn('can_delete', function ($row) {
-            return Gate::allows('home-delete');
-        })
-        ->addColumn('can_edit', function ($row) {
-            return Gate::allows('home-edit'); })
-        ->addIndexColumn()
-        ->rawColumns(['action', 'edit', 'delete'])
-        ->make(true);
+            ->addColumn('can_delete', function ($row) {
+                return Gate::allows('home-delete');
+            })
+            ->addColumn('can_edit', function ($row) {
+                return Gate::allows('home-edit');
+            })
+            ->addIndexColumn()
+            ->rawColumns(['action', 'edit', 'delete'])
+            ->make(true);
     }
 
     // Create new Home entry
@@ -142,6 +199,9 @@ class Home extends Model
         };
         if ($data->journey_video) {
             $value->journey_video = Cms::storeVideo($data->journey_video, $data->journey_title);
+        };
+        if ($data->thumb_image) {
+            $value->thumb_image = Cms::storeImage($data->thumb_image, $data->journey_title);
         };
 
         return $value->save();
@@ -226,6 +286,9 @@ class Home extends Model
         if ($data->journey_video) {
             $value->journey_video = Cms::storeVideo($data->journey_video, $data->journey_title);
         };
+        if ($data->thumb_image) {
+            $value->thumb_image = Cms::storeImage($data->thumb_image, $data->journey_title);
+        };
 
         // Handle other updates here (testimonials, blog, explore, FAQ, etc.)
 
@@ -233,24 +296,54 @@ class Home extends Model
     }
 
     // Fetch data for the homepage
-    public static function getFullDataForHome(){
+    public static function getFullDataForHome()
+    {
         return SELF::first([
-            'service_first_title', 'service_second_title', 'service_sub_title', 'service_description',
-            'who_we_are_first_title', 'who_we_are_second_title', 'who_we_are_sub_title',
-            'journey_title', 'journey_description', 'journey_image1', 'journey_image2', 'journey_image3',
-            'journey_image1_alt_tag', 'journey_image2_alt_tag', 'journey_image3_alt_tag',
-            'certificate_title', 'certificate_description', 'certificate_image1', 'certificate_image2', 'certificate_image3',
-            'certificate_image1_alt_tag', 'certificate_image2_alt_tag', 'certificate_image3_alt_tag',
-            'testimonial_title', 'testimonial_sub_title', 'testimonial_description',
-            'blog_title', 'blog_sub_title', 'blog_description',
-            'explore_title', 'explore_sub_title',
-            'faq_title', 'faq_sub_title', 'journey_sub_title', 'journey_video', 'journey_video_position', 'journey_video_name',
+            'service_first_title',
+            'service_second_title',
+            'service_sub_title',
+            'service_description',
+            'who_we_are_first_title',
+            'who_we_are_second_title',
+            'who_we_are_sub_title',
+            'journey_title',
+            'journey_description',
+            'journey_image1',
+            'journey_image2',
+            'journey_image3',
+            'journey_image1_alt_tag',
+            'journey_image2_alt_tag',
+            'journey_image3_alt_tag',
+            'certificate_title',
+            'certificate_description',
+            'certificate_image1',
+            'certificate_image2',
+            'certificate_image3',
+            'certificate_image1_alt_tag',
+            'certificate_image2_alt_tag',
+            'certificate_image3_alt_tag',
+            'testimonial_title',
+            'testimonial_sub_title',
+            'testimonial_description',
+            'blog_title',
+            'blog_sub_title',
+            'blog_description',
+            'explore_title',
+            'explore_sub_title',
+            'faq_title',
+            'faq_sub_title',
+            'journey_sub_title',
+            'journey_video',
+            'journey_video_position',
+            'journey_video_name',
+            'thumb_image',
             'id'
         ]);
     }
 
     // Get count of all entries
-    public static function getCount(){
+    public static function getCount()
+    {
         return SELF::count();
     }
 }
