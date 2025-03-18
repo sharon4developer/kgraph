@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Illuminate\Auth\Access\Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Database\Eloquent\Model;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -14,28 +14,29 @@ class Location extends Model
 
     protected $table = 'locations';
 
-    protected $fillable = ['location','image','second_image','second_intervention_image', 'intervention_image', 'status','order','third_image','third_intervention_image','alt_tag','second_alt_tag','third_alt_tag','address','email','phone'];
+    protected $fillable = ['location', 'image', 'second_image', 'second_intervention_image', 'intervention_image', 'status', 'order', 'third_image', 'third_intervention_image', 'alt_tag', 'second_alt_tag', 'third_alt_tag', 'address', 'email', 'phone'];
 
-    public static function getFullData($data){
-    $locationData = getLocationData();
+    public static function getFullData($data)
+    {
+        $locationData = getLocationData();
 
-    $value = self::select('location', 'email', 'phone', 'id', 'status', 'created_at', 'image')
-        ->orderBy('id', 'asc'); // Ensure 'id' or another valid column is used.
+        $value = self::select('location', 'email', 'phone', 'id', 'status', 'created_at', 'image')
+            ->orderBy('id', 'asc'); // Ensure 'id' or another valid column is used.
 
-    return DataTables::of($value)
-        ->editColumn('image', function ($row) use ($locationData) {
-            return $locationData['storage_server_path'] . $locationData['storage_image_path'] . $row->image;
-        })
-        ->addColumn('can_delete', function ($row) {
-            return Gate::allows('locations-delete');
-        })
-        ->addColumn('can_edit', function ($row) {
-            return Gate::allows('locations-edit');
-        })
-        ->addIndexColumn()
-        ->rawColumns(['can_edit', 'can_delete']) // Ensure columns used here are defined.
-        ->make(true);
-}
+        return DataTables::of($value)
+            ->editColumn('image', function ($row) use ($locationData) {
+                return $locationData['storage_server_path'] . $locationData['storage_image_path'] . $row->image;
+            })
+            ->addColumn('can_delete', function ($row) {
+                return Gate::allows('locations-delete');
+            })
+            ->addColumn('can_edit', function ($row) {
+                return Gate::allows('locations-edit');
+            })
+            ->addIndexColumn()
+            ->rawColumns(['can_edit', 'can_delete']) // Ensure columns used here are defined.
+            ->make(true);
+    }
 
     public static function createData($data)
     {
@@ -126,8 +127,9 @@ class Location extends Model
             return false;
     }
 
-    public static function getFullDataForHome(){
-        return SELF::select('address','id','location','email','phone','image')->orderBy('order','asc')->where('status',1)->get();
+    public static function getFullDataForHome()
+    {
+        return SELF::select('address', 'id', 'location', 'email', 'phone', 'image')->orderBy('order', 'asc')->where('status', 1)->get();
     }
 
     public static function updateOrder($data)

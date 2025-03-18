@@ -14,29 +14,29 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="service_first_title">Service First Title</label>
-                                    <input type="text" class="form-control" id="service_first_title" name="service_first_title"
-                                        placeholder="Service First Title" required>
+                                    <input type="text" class="form-control" id="service_first_title"
+                                        name="service_first_title" placeholder="Service First Title" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="service_second_title">Service Second Title</label>
-                                    <input type="text" class="form-control" id="service_second_title" name="service_second_title"
-                                        placeholder="Service Second Title" required>
+                                    <input type="text" class="form-control" id="service_second_title"
+                                        name="service_second_title" placeholder="Service Second Title" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="service_sub_title">Service Sub Title</label>
-                                    <input type="text" class="form-control" id="service_sub_title" name="service_sub_title"
-                                        placeholder="Service Sub Title" required>
+                                    <input type="text" class="form-control" id="service_sub_title"
+                                        name="service_sub_title" placeholder="Service Sub Title" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="service_description">Service Description</label>
-                                    <textarea class="form-control" id="service_description" name="service_description"
-                                        placeholder="Service Description" required></textarea>
+                                    <textarea class="form-control" id="service_description" name="service_description" placeholder="Service Description"
+                                        required></textarea>
                                 </div>
                             </div>
 
@@ -44,24 +44,24 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="who_we_are_first_title">Who We Are First Title</label>
-                                    <input type="text" class="form-control" id="who_we_are_first_title" name="who_we_are_first_title"
-                                        placeholder="Who We Are First Title" required>
+                                    <input type="text" class="form-control" id="who_we_are_first_title"
+                                        name="who_we_are_first_title" placeholder="Who We Are First Title" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="who_we_are_second_title">Who We Are Second Title</label>
-                                    <input type="text" class="form-control" id="who_we_are_second_title" name="who_we_are_second_title"
-                                        placeholder="Who We Are Second Title" required>
+                                    <input type="text" class="form-control" id="who_we_are_second_title"
+                                        name="who_we_are_second_title" placeholder="Who We Are Second Title" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="who_we_are_sub_title">Who We Are Sub Title</label>
-                                    <input type="text" class="form-control" id="who_we_are_sub_title" name="who_we_are_sub_title"
-                                        placeholder="Who We Are Sub Title" required>
+                                    <input type="text" class="form-control" id="who_we_are_sub_title"
+                                        name="who_we_are_sub_title" placeholder="Who We Are Sub Title" required>
                                 </div>
-                             </div>
+                            </div>
 
                             <!-- Journey Section -->
                             <div class="col-md-6">
@@ -74,15 +74,15 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="journey_sub_title">Journey Sub Title</label>
-                                    <input type="text" class="form-control" id="journey_sub_title" name="journey_sub_title"
-                                        placeholder="Journey Sub Title" required>
+                                    <input type="text" class="form-control" id="journey_sub_title"
+                                        name="journey_sub_title" placeholder="Journey Sub Title" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="journey_description">Journey Description</label>
-                                    <textarea class="form-control" id="journey_description" name="journey_description"
-                                        placeholder="Journey Description" required></textarea>
+                                    <textarea class="form-control" id="journey_description" name="journey_description" placeholder="Journey Description"
+                                        required></textarea>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -102,15 +102,15 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="journey_video_name">Journey Video Name</label>
-                                    <input type="text" class="form-control" id="journey_video_name" name="journey_video_name"
-                                        placeholder="Journey Video Name" required>
+                                    <input type="text" class="form-control" id="journey_video_name"
+                                        name="journey_video_name" placeholder="Journey Video Name" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="journey_video_position">Journey Video Position</label>
-                                    <input type="text" class="form-control" id="journey_video_position" name="journey_video_position"
-                                        placeholder="Journey Video Position" required>
+                                    <input type="text" class="form-control" id="journey_video_position"
+                                        name="journey_video_position" placeholder="Journey Video Position" required>
                                 </div>
                             </div>
                             {{-- <div class="col-md-6">
@@ -131,13 +131,14 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="certificate_title">Certificate Title</label>
-                                    <input type="text" class="form-control" id="certificate_title" name="certificate_title"
-                                        placeholder="Certificate Title" required>
+                                    <input type="text" class="form-control" id="certificate_title"
+                                        name="certificate_title" placeholder="Certificate Title" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label" for="certificate_description">Certificate Description</label>
+                                    <label class="form-label" for="certificate_description">Certificate
+                                        Description</label>
                                     <textarea class="form-control" id="certificate_description" name="certificate_description"
                                         placeholder="Certificate Description" required></textarea>
                                 </div>
@@ -147,6 +148,13 @@
                                     <label class="form-label" for="certificate_image1">Certificate Image </label>
                                     <input type="file" accept=".png, .jpg, .jpeg,.webp" class="form-control"
                                         id="certificate_image1" name="certificate_image1" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label" for="thumb_image">Thumb Image </label>
+                                    <input type="file" accept=".png, .jpg, .jpeg,.webp" class="form-control"
+                                        id="thumb_image" name="thumb_image" required>
                                 </div>
                             </div>
                             {{-- <div class="col-md-6">
@@ -167,13 +175,14 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="testimonial_title">Testimonial Title</label>
-                                    <input type="text" class="form-control" id="testimonial_title" name="testimonial_title"
-                                        placeholder="Testimonial Title" required>
+                                    <input type="text" class="form-control" id="testimonial_title"
+                                        name="testimonial_title" placeholder="Testimonial Title" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label" for="testimonial_description">Testimonial Description</label>
+                                    <label class="form-label" for="testimonial_description">Testimonial
+                                        Description</label>
                                     <textarea class="form-control" id="testimonial_description" name="testimonial_description"
                                         placeholder="Testimonial Description" required></textarea>
                                 </div>
@@ -181,8 +190,8 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="testimonial_title">Testimonial Sub Title</label>
-                                    <input type="text" class="form-control" id="testimonial_sub_title" name="testimonial_sub_title"
-                                        placeholder="Testimonial Sub Title" required>
+                                    <input type="text" class="form-control" id="testimonial_sub_title"
+                                        name="testimonial_sub_title" placeholder="Testimonial Sub Title" required>
                                 </div>
                             </div>
                             <!-- Blog Section -->
@@ -203,8 +212,8 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="blog_description">Blog Description</label>
-                                    <textarea class="form-control" id="blog_description" name="blog_description"
-                                        placeholder="Blog Description" required></textarea>
+                                    <textarea class="form-control" id="blog_description" name="blog_description" placeholder="Blog Description"
+                                        required></textarea>
                                 </div>
                             </div>
 
@@ -219,8 +228,8 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="explore_sub_title">Explore Sub Title</label>
-                                    <input type="text" class="form-control" id="explore_sub_title" name="explore_sub_title"
-                                        placeholder="Explore Sub Title" required>
+                                    <input type="text" class="form-control" id="explore_sub_title"
+                                        name="explore_sub_title" placeholder="Explore Sub Title" required>
                                 </div>
                             </div>
 
@@ -242,7 +251,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="journey_image1_alt_tag">Journey Image Alt Tag</label>
-                                    <input type="text"  placeholder="Journey Image 1 Alt Tag" class="form-control"
+                                    <input type="text" placeholder="Journey Image 1 Alt Tag" class="form-control"
                                         id="journey_image1_alt_tag" name="journey_image1_alt_tag" required>
                                 </div>
                             </div>
@@ -262,8 +271,9 @@
                             </div> --}}
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label" for="certificate_image1_alt_tag">Certificate Image Alt Tag</label>
-                                    <input type="text"  placeholder="Certificate Image 1 Alt Tag" class="form-control"
+                                    <label class="form-label" for="certificate_image1_alt_tag">Certificate Image Alt
+                                        Tag</label>
+                                    <input type="text" placeholder="Certificate Image 1 Alt Tag" class="form-control"
                                         id="certificate_image1_alt_tag" name="certificate_image1_alt_tag" required>
                                 </div>
                             </div>

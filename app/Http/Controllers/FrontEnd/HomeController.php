@@ -10,6 +10,7 @@ use App\Models\Cms;
 use App\Models\Explore;
 use App\Models\Faq;
 use App\Models\Home;
+use App\Models\Icon;
 use App\Models\Journey;
 use App\Models\Page;
 use App\Models\Service;
@@ -35,8 +36,9 @@ class HomeController extends Controller
         $faqs = Faq::getFullDataForHome();
         $seo = Page::getSeoDetails(request()->path());
         $home = Home::getFullDataForHome();
+        $icons = Icon::getFullDataForHome();
 
-        return view('frontend.pages.home', compact('certificate', 'testimonials', 'seo', 'banner', 'serviceCategory', 'whoweare', 'journey', 'blogs', 'explore', 'faqs', 'home'));
+        return view('frontend.pages.home', compact('certificate', 'testimonials', 'seo', 'banner', 'serviceCategory', 'whoweare', 'journey', 'blogs', 'explore', 'faqs', 'home', 'icons'));
     }
 
     function convertHtml()
@@ -70,7 +72,7 @@ class HomeController extends Controller
                 if ($headerCells->length > 0) {
                     $output .= '<h2 style="font-size: 24px; color: white; margin: 10px 0;">';
                     foreach ($headerCells as $th) {
-                        $output .=  htmlspecialchars($th->textContent) ;
+                        $output .=  htmlspecialchars($th->textContent);
                     }
                     $output .= '</h2>';
                 }
@@ -80,7 +82,7 @@ class HomeController extends Controller
                 if ($dataCells->length > 0) {
                     $output .= '<p style="font-size: 16px; color: white; margin: 5px 0;">';
                     foreach ($dataCells as $td) {
-                        $output .=  htmlspecialchars($td->textContent) ;
+                        $output .=  htmlspecialchars($td->textContent);
                     }
                     $output .= '</p>';
                 }

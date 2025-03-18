@@ -9,35 +9,38 @@
                 <div class="card-body">
                     <form class="needs-validation" novalidate id="home-edit-form" method="POST">
                         @method('PUT')
-                        <input type="hidden" name="home_page_id" value="{{$data->id}}">
+                        <input type="hidden" name="home_page_id" value="{{ $data->id }}">
 
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="service_first_title">Service First Title</label>
-                                    <input type="text" class="form-control" id="service_first_title" name="service_first_title"
-                                        placeholder="Service First Title" required value="{{$data->service_first_title}}">
+                                    <input type="text" class="form-control" id="service_first_title"
+                                        name="service_first_title" placeholder="Service First Title" required
+                                        value="{{ $data->service_first_title }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="service_second_title">Service Second Title</label>
-                                    <input type="text" class="form-control" id="service_second_title" name="service_second_title"
-                                        placeholder="Service Second Title" required value="{{$data->service_second_title}}">
+                                    <input type="text" class="form-control" id="service_second_title"
+                                        name="service_second_title" placeholder="Service Second Title" required
+                                        value="{{ $data->service_second_title }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="service_sub_title">Service Sub Title</label>
-                                    <input type="text" class="form-control" id="service_sub_title" name="service_sub_title"
-                                        placeholder="Service Sub Title" required value="{{$data->service_sub_title}}">
+                                    <input type="text" class="form-control" id="service_sub_title"
+                                        name="service_sub_title" placeholder="Service Sub Title" required
+                                        value="{{ $data->service_sub_title }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="service_description">Service Description</label>
-                                    <textarea class="form-control" id="service_description" name="service_description"
-                                        placeholder="Service Description" required>{{$data->service_description}}</textarea>
+                                    <textarea class="form-control" id="service_description" name="service_description" placeholder="Service Description"
+                                        required>{{ $data->service_description }}</textarea>
                                 </div>
                             </div>
 
@@ -45,45 +48,49 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="who_we_are_first_title">Who We Are First Title</label>
-                                    <input type="text" class="form-control" id="who_we_are_first_title" name="who_we_are_first_title"
-                                        placeholder="Who We Are First Title" required value="{{$data->who_we_are_first_title}}">
+                                    <input type="text" class="form-control" id="who_we_are_first_title"
+                                        name="who_we_are_first_title" placeholder="Who We Are First Title" required
+                                        value="{{ $data->who_we_are_first_title }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="who_we_are_second_title">Who We Are Second Title</label>
-                                    <input type="text" class="form-control" id="who_we_are_second_title" name="who_we_are_second_title"
-                                        placeholder="Who We Are Second Title" required value="{{$data->who_we_are_second_title}}">
+                                    <input type="text" class="form-control" id="who_we_are_second_title"
+                                        name="who_we_are_second_title" placeholder="Who We Are Second Title" required
+                                        value="{{ $data->who_we_are_second_title }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="who_we_are_sub_title">Who We Are Sub Title</label>
-                                    <input type="text" class="form-control" id="who_we_are_sub_title" name="who_we_are_sub_title"
-                                        placeholder="Who We Are Sub Title" required value="{{$data->who_we_are_sub_title}}">
+                                    <input type="text" class="form-control" id="who_we_are_sub_title"
+                                        name="who_we_are_sub_title" placeholder="Who We Are Sub Title" required
+                                        value="{{ $data->who_we_are_sub_title }}">
                                 </div>
-                             </div>
+                            </div>
 
                             <!-- Journey Section -->
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="journey_title">Journey Title</label>
                                     <input type="text" class="form-control" id="journey_title" name="journey_title"
-                                        placeholder="Journey Title" required value="{{$data->journey_title}}">
+                                        placeholder="Journey Title" required value="{{ $data->journey_title }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="journey_sub_title">Journey Sub Title</label>
-                                    <input type="text" class="form-control" id="journey_sub_title" name="journey_sub_title"
-                                        placeholder="Journey Sub Title" required value="{{$data->journey_sub_title}}">
+                                    <input type="text" class="form-control" id="journey_sub_title"
+                                        name="journey_sub_title" placeholder="Journey Sub Title" required
+                                        value="{{ $data->journey_sub_title }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="journey_description">Journey Description</label>
-                                    <textarea class="form-control" id="journey_description" name="journey_description"
-                                        placeholder="Journey Description" required>{{$data->journey_description}}</textarea>
+                                    <textarea class="form-control" id="journey_description" name="journey_description" placeholder="Journey Description"
+                                        required>{{ $data->journey_description }}</textarea>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -103,15 +110,17 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="journey_video_name">Journey Video Name</label>
-                                    <input type="text" class="form-control" id="journey_video_name" name="journey_video_name"
-                                        placeholder="Journey Video Name" required value="{{$data->journey_video_name}}">
+                                    <input type="text" class="form-control" id="journey_video_name"
+                                        name="journey_video_name" placeholder="Journey Video Name" required
+                                        value="{{ $data->journey_video_name }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="journey_video_position">Journey Video Position</label>
-                                    <input type="text" class="form-control" id="journey_video_position" name="journey_video_position"
-                                        placeholder="Journey Video Position" required value="{{$data->journey_video_position}}">
+                                    <input type="text" class="form-control" id="journey_video_position"
+                                        name="journey_video_position" placeholder="Journey Video Position" required
+                                        value="{{ $data->journey_video_position }}">
                                 </div>
                             </div>
                             {{-- <div class="col-md-6">
@@ -132,15 +141,17 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="certificate_title">Certificate Title</label>
-                                    <input type="text" class="form-control" id="certificate_title" name="certificate_title"
-                                        placeholder="Certificate Title" required value="{{$data->certificate_title}}">
+                                    <input type="text" class="form-control" id="certificate_title"
+                                        name="certificate_title" placeholder="Certificate Title" required
+                                        value="{{ $data->certificate_title }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label" for="certificate_description">Certificate Description</label>
+                                    <label class="form-label" for="certificate_description">Certificate
+                                        Description</label>
                                     <textarea class="form-control" id="certificate_description" name="certificate_description"
-                                        placeholder="Certificate Description" required>{{$data->certificate_description}}</textarea>
+                                        placeholder="Certificate Description" required>{{ $data->certificate_description }}</textarea>
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -148,6 +159,13 @@
                                     <label class="form-label" for="certificate_image1">Certificate Image </label>
                                     <input type="file" accept=".png, .jpg, .jpeg,.webp" class="form-control"
                                         id="certificate_image1" name="certificate_image1">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label class="form-label" for="thumb_image">Thumb Image </label>
+                                    <input type="file" accept=".png, .jpg, .jpeg,.webp" class="form-control"
+                                        id="thumb_image" name="thumb_image">
                                 </div>
                             </div>
                             {{-- <div class="col-md-6">
@@ -168,22 +186,25 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="testimonial_title">Testimonial Title</label>
-                                    <input type="text" class="form-control" id="testimonial_title" name="testimonial_title"
-                                        placeholder="Testimonial Title" required value="{{$data->testimonial_title}}">
+                                    <input type="text" class="form-control" id="testimonial_title"
+                                        name="testimonial_title" placeholder="Testimonial Title" required
+                                        value="{{ $data->testimonial_title }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="testimonial_title">Testimonial Sub Title</label>
-                                    <input type="text" class="form-control" id="testimonial_sub_title" name="testimonial_sub_title"
-                                        placeholder="Testimonial Sub Title" required value="{{$data->testimonial_sub_title}}">
+                                    <input type="text" class="form-control" id="testimonial_sub_title"
+                                        name="testimonial_sub_title" placeholder="Testimonial Sub Title" required
+                                        value="{{ $data->testimonial_sub_title }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label" for="testimonial_description">Testimonial Description</label>
+                                    <label class="form-label" for="testimonial_description">Testimonial
+                                        Description</label>
                                     <textarea class="form-control" id="testimonial_description" name="testimonial_description"
-                                        placeholder="Testimonial Description" required>{{$data->testimonial_description}}</textarea>
+                                        placeholder="Testimonial Description" required>{{ $data->testimonial_description }}</textarea>
                                 </div>
                             </div>
 
@@ -192,21 +213,21 @@
                                 <div class="mb-3">
                                     <label class="form-label" for="blog_title">Blog Title</label>
                                     <input type="text" class="form-control" id="blog_title" name="blog_title"
-                                        placeholder="Blog Title" required value="{{$data->blog_title}}">
+                                        placeholder="Blog Title" required value="{{ $data->blog_title }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="blog_title">Blog Sub Title</label>
                                     <input type="text" class="form-control" id="blog_sub_title" name="blog_sub_title"
-                                        placeholder="Blog Sub Title" required value="{{$data->blog_sub_title}}">
+                                        placeholder="Blog Sub Title" required value="{{ $data->blog_sub_title }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="blog_description">Blog Description</label>
-                                    <textarea class="form-control" id="blog_description" name="blog_description"
-                                        placeholder="Blog Description" required>{{$data->blog_description}}</textarea>
+                                    <textarea class="form-control" id="blog_description" name="blog_description" placeholder="Blog Description"
+                                        required>{{ $data->blog_description }}</textarea>
                                 </div>
                             </div>
 
@@ -215,14 +236,15 @@
                                 <div class="mb-3">
                                     <label class="form-label" for="explore_title">Explore Title</label>
                                     <input type="text" class="form-control" id="explore_title" name="explore_title"
-                                        placeholder="Explore Title" required value="{{$data->explore_title}}">
+                                        placeholder="Explore Title" required value="{{ $data->explore_title }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="explore_sub_title">Explore Sub Title</label>
-                                    <input type="text" class="form-control" id="explore_sub_title" name="explore_sub_title"
-                                        placeholder="Explore Sub Title" required value="{{$data->explore_sub_title}}">
+                                    <input type="text" class="form-control" id="explore_sub_title"
+                                        name="explore_sub_title" placeholder="Explore Sub Title" required
+                                        value="{{ $data->explore_sub_title }}">
                                 </div>
                             </div>
 
@@ -231,21 +253,22 @@
                                 <div class="mb-3">
                                     <label class="form-label" for="faq_title">FAQ Title</label>
                                     <input type="text" class="form-control" id="faq_title" name="faq_title"
-                                        placeholder="FAQ Title" required value="{{$data->faq_title}}">
+                                        placeholder="FAQ Title" required value="{{ $data->faq_title }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <label class="form-label" for="faq_sub_title">FAQ Sub Title</label>
                                     <input type="text" class="form-control" id="faq_sub_title" name="faq_sub_title"
-                                        placeholder="FAQ Sub Title" required value="{{$data->faq_sub_title}}">
+                                        placeholder="FAQ Sub Title" required value="{{ $data->faq_sub_title }}">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label" for="journey_image1_alt_tag">Journey Image  Alt Tag</label>
+                                    <label class="form-label" for="journey_image1_alt_tag">Journey Image Alt Tag</label>
                                     <input type="text" placeholder="Journey Image 1 Alt Tag" class="form-control"
-                                        id="journey_image1_alt_tag" name="journey_image1_alt_tag" required  value="{{$data->journey_image1_alt_tag}}">
+                                        id="journey_image1_alt_tag" name="journey_image1_alt_tag" required
+                                        value="{{ $data->journey_image1_alt_tag }}">
                                 </div>
                             </div>
                             {{-- <div class="col-md-6">
@@ -264,9 +287,11 @@
                             </div> --}}
                             <div class="col-md-6">
                                 <div class="mb-3">
-                                    <label class="form-label" for="certificate_image1_alt_tag">Certificate Image  Alt Tag</label>
+                                    <label class="form-label" for="certificate_image1_alt_tag">Certificate Image Alt
+                                        Tag</label>
                                     <input type="text" placeholder="Certificate Image 1 Alt Tag" class="form-control"
-                                        id="certificate_image1_alt_tag" name="certificate_image1_alt_tag" required value="{{$data->certificate_image1_alt_tag}}">
+                                        id="certificate_image1_alt_tag" name="certificate_image1_alt_tag" required
+                                        value="{{ $data->certificate_image1_alt_tag }}">
                                 </div>
                             </div>
                             {{-- <div class="col-md-6">
@@ -285,11 +310,14 @@
                             </div> --}}
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Previous Journey Image </label>
                                     <div class="avatar-preview">
-                                        <img class="previous-image" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->journey_image1 }}" alt="profile-image" onerror="this.src='{{ $locationData['storage_server_path'].$locationData['admin_assets_path'].'placeholder.png' }}';">
+                                        <img class="previous-image"
+                                            src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->journey_image1 }}"
+                                            alt="profile-image"
+                                            onerror="this.src='{{ $locationData['storage_server_path'] . $locationData['admin_assets_path'] . 'placeholder.png' }}';">
                                     </div>
                                 </div>
                             </div>
@@ -309,11 +337,26 @@
                                     </div>
                                 </div>
                             </div> --}}
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Previous Certificate Image </label>
                                     <div class="avatar-preview">
-                                        <img class="previous-image" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->certificate_image1 }}" alt="profile-image" onerror="this.src='{{ $locationData['storage_server_path'].$locationData['admin_assets_path'].'placeholder.png' }}';">
+                                        <img class="previous-image"
+                                            src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->certificate_image1 }}"
+                                            alt="profile-image"
+                                            onerror="this.src='{{ $locationData['storage_server_path'] . $locationData['admin_assets_path'] . 'placeholder.png' }}';">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Previous Thumb Image </label>
+                                    <div class="avatar-preview">
+                                        <img class="previous-image"
+                                            src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->thumb_image }}"
+                                            alt="profile-image"
+                                            onerror="this.src='{{ $locationData['storage_server_path'] . $locationData['admin_assets_path'] . 'placeholder.png' }}';">
                                     </div>
                                 </div>
                             </div>
@@ -322,10 +365,14 @@
                                     <label>Previous Journey Video</label>
                                     <div class="avatar-preview">
                                         <video width="320" height="240" controls>
-                                            <source src="{{ $locationData['storage_server_path'].$locationData['storage_video_path'].$data->journey_video }}" type="video/mp4">
-                                            <source src="{{ $locationData['storage_server_path'].$locationData['storage_video_path'].$data->journey_video }}" type="video/ogg">
+                                            <source
+                                                src="{{ $locationData['storage_server_path'] . $locationData['storage_video_path'] . $data->journey_video }}"
+                                                type="video/mp4">
+                                            <source
+                                                src="{{ $locationData['storage_server_path'] . $locationData['storage_video_path'] . $data->journey_video }}"
+                                                type="video/ogg">
                                             Your browser does not support the video tag.
-                                          </video>
+                                        </video>
                                     </div>
                                 </div>
                             </div>
