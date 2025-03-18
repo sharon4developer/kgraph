@@ -697,7 +697,7 @@
                                     </span>
                                 </h2>
                                 <p
-                                    class="font_inter text-sm xl:text-base text-center lg:text-left  font-normal text-white clamp-3 xl:w-[80%]">
+                                    class="font_inter text-sm xl:text-base text-center lg:text-left  font-normal text-white xl:w-[80%]">
                                     @if (isset($home))
                                         {{ $home->service_description }}
                                     @endif
