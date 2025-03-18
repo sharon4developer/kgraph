@@ -608,7 +608,7 @@
                                     <span class="font-normal uppercase font_inter lg:text-4xl xl:text-6xl"> @if (isset($home)) {{ $home->service_first_title }} @endif @if (isset($home)) {{ $home->service_second_title }} @endif</span>
                                     <span class="font-semibold capitalize lg:text-lg xl:text-xl">@if (isset($home)) {{ $home->service_sub_title }} @endif</span>
                                 </h2>
-                                <p class="font_inter text-sm xl:text-base text-center lg:text-left  font-normal text-white clamp-3 xl:w-[80%]">@if (isset($home)){{ $home->service_description }}@endif</p>
+                                <p class="font_inter text-sm xl:text-base text-center lg:text-left  font-normal text-white xl:w-[80%]">@if (isset($home)){{ $home->service_description }}@endif</p>
                             </div>
                             <div class="lg:w-[40%] my-2 lg:pl-14 text-center lg:text-left" data-animate>
                                 <h3 class="my-5 text-base font-extrabold text-white font_inter xl:text-xl lg:w-3/4">Find your Eligibility for PR</h3>
