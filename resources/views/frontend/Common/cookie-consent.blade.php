@@ -1,4 +1,4 @@
-<div style="z-index: 999999999999999999999999;" id="cookie-consent" class="fixed bottom-0 left-0 w-full bg-white  text-black border border-blue-950 p-4 flex lg:flex-col flex-row items-center justify-between shadow-lg translate-y-full transition-transform duration-500 ease-in-out">
+<div style="z-index: 999999999999999999999999;" id="cookie-consent" class="fixed bottom-0 left-0 w-full bg-white  text-black border border-blue-950 p-4 flex flex-col  items-center justify-between shadow-lg translate-y-full transition-transform duration-500 ease-in-out">
     <div class="flex lg:flex-col flex-row items-center">
         <span class="text-xl text-left w-full font-semibold mr-2 mb-4">🍪 Cookies Consent</span>
         <p>We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. By continuing to use this website, you consent to our use of cookies in accordance with our Privacy Policy. You can manage your cookie preferences at any time through your browser settings.</p>
