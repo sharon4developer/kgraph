@@ -952,8 +952,7 @@
 
                         <div
                             class="relative flex items-center justify-center w-full mt-6 overflow-hidden rounded-lg group video-grade">
-                            <video
-                                class="w-full h-full lg:h-[400px] object-cover object-center video-imagepos autoplay-video"
+                            <video class="w-full h-full aspect-video lg:max-h-[400px] object-cover object-center video-imagepos autoplay-video"
                                 style="object-position: 0px 0px;" playsinline muted controls
                                 poster="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $home->thumb_image }}">
                                 @if (isset($home))
@@ -963,31 +962,25 @@
                             </video>
 
 
-                            <div
-                                class="hidden lg:block absolute inset-0 bg-gradient-to-b from-transparent to-[#113165] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div class="hidden lg:block absolute inset-0 bg-gradient-to-b from-transparent to-[#113165] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             </div>
-                            <div class="absolute flex items-center space-x-2 text-white bottom-8 lg:bottom-4 left-4">
+                            <div class="absolute  flex items-center space-x-2 text-white bottom-8 lg:bottom-4 left-4">
                                 <!-- Play Icon -->
                                 <div onclick="togglePlay(this)" class="hidden cursor-pointer lg:block">
-                                    <svg width="78" height="78" viewBox="0 0 78 78" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <circle cx="38.6475" cy="38.6475" r="38.6475" fill="white"
-                                            fill-opacity="0.5" />
-                                        <mask id="mask0_1460_3580" style="mask-type:luminance" maskUnits="userSpaceOnUse"
-                                            x="23" y="24" width="30" height="30">
-                                            <path d="M23.5664 24.5088H52.7877V53.7301H23.5664V24.5088Z" fill="white" />
-                                        </mask>
-                                        <g mask="url(#mask0_1460_3580)">
-                                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                                d="M50.5163 43.0709C53.5572 41.314 53.5572 36.9235 50.5163 35.1647L34.9834 26.1847C31.9407 24.4259 28.1328 26.623 28.1328 30.1387V48.0988C28.1328 51.6145 31.9407 53.8116 34.9834 52.051L50.5163 43.0709Z"
-                                                fill="white" />
+                                    <svg id="playPauseBtn" class="button-container" width="78" height="78" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="38.6475" cy="38.6475" r="38.6475" fill="white" fill-opacity="0.5"></circle>
+                                        <g id="newplayIcon">
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M50.5163 43.0709C53.5572 41.314 53.5572 36.9235 50.5163 35.1647L34.9834 26.1847C31.9407 24.4259 28.1328 26.623 28.1328 30.1387V48.0988C28.1328 51.6145 31.9407 53.8116 34.9834 52.051L50.5163 43.0709Z" fill="white"></path>
+                                        </g>
+                                        <g id="newpauseIcon" style="display: none;">
+                                            <rect x="26" y="28" width="8" height="22" fill="white"></rect>
+                                            <rect x="42" y="28" width="8" height="22" fill="white"></rect>
                                         </g>
                                     </svg>
                                 </div>
 
                                 <!-- Text Content -->
-                                <div
-                                    class="bg-[#11316595] px-5 rounded-md pb-1 hidden lg:block lg:bg-transparent lg:px-0 lg:rounded-none lg:pb-0">
+                                <div class="bg-[#11316595] opacity-0 group-hover:opacity-100 px-5 rounded-md pb-1 hidden lg:block lg:bg-transparent lg:px-0 lg:rounded-none lg:pb-0">
                                     @isset($home->journey_video_name)
                                         <p class="text-[12px] lg:text-lg font-bold">{{ $home->journey_video_name }}</p>
                                         <p class="text-[12px] lg:text-sm">{{ $home->journey_video_position }}</p>
@@ -1856,6 +1849,21 @@
     </script>
 
     <script>
+
+        document.getElementById("playPauseBtn").addEventListener("click", function () {
+            let newplayIcon = document.getElementById("newplayIcon");
+            let newpauseIcon = document.getElementById("newpauseIcon");
+
+            if (newplayIcon.style.display === "none") {
+                newplayIcon.style.display = "block";
+                newpauseIcon.style.display = "none";
+            } else {
+                newplayIcon.style.display = "none";
+                newpauseIcon.style.display = "block";
+            }
+        });
+
+
         function togglePlay(button) {
             const video = button.closest('.video-grade').querySelector('video'); // Select the video element
             const playIcon = button.querySelector('.play-icon'); // Select the play icon

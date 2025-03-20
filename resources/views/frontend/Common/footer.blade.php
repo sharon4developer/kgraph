@@ -109,7 +109,15 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
             <div class="container flex flex-col items-start justify-between w-full h-full gap-8 px-5 py-4 mx-auto lg:px-12 footer-gaping lg:py-0 lg:flex-row lg:gap-12 2xl:gap-28">
                 <div class="flex flex-col gap-6  lg:w-[753px]">
                     <div class="flex items-center gap-5 lg:gap-0">
-                        <img class="lg:w-[753px] pb-3 text-sm font-extrabold  font_inter" src="{{ asset('assets/home_Banner/grouplogo.png') }}" alt="K-graph logo">
+                        {{-- <img class="lg:w-[753px] pb-3 text-sm font-extrabold  font_inter" src="{{ asset('assets/home_Banner/grouplogo.png') }}" alt="K-graph logo"> --}}
+                        <a href="https://demo.kgraph.ca" class="flex items-center gap-[4px] z-10 cursor-pointer">
+                            <img class="w-[1.80rem] logo_image lg:w-[2.5rem] xl:w-[3.5rem]" src="https://demo.kgraph.ca/assets/KgraphLogo.png" alt="K-graph logo">
+                            <div>
+                                <h2 class="lg:text-3xl 2xl:text-[34px] text-white font_inter font-bold logo_text">KGRAPH</h2>
+                                <h6 class="text-[8px] font_inter text-white font-medium logo_title lg:mt-1">IMMIGRATION CONSULTANCY INC.</h6>
+                            </div>
+            
+                        </a>
                     </div>
 
                     <p class="font_inter text-[12px] w-1/2 lg:w-full  font-light  capitalize  text-white">
