@@ -1,7 +1,7 @@
 <div style="z-index: 999999999999999999999999;" id="cookie-consent" class="fixed bottom-0 left-0 w-full bg-white  text-black border border-blue-950 p-4 flex items-center justify-between shadow-lg translate-y-full transition-transform duration-500 ease-in-out">
     <div class="flex items-center">
         <span class="text-xl mr-2">🍪</span>
-        <p>This website uses cookies to ensure you get the best experience.</p>
+        <p>We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. By continuing to use this website, you consent to our use of cookies in accordance with our Privacy Policy. You can manage your cookie preferences at any time through your browser settings.</p>
     </div>
     <div>
         <button onclick="acceptCookies()" class="bg-black shadow-md border hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition">Accept</button>
