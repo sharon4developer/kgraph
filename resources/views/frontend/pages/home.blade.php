@@ -18,6 +18,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
     </style>
+    @include('frontend.Common.cookie-consent')
     <style>
         body {
             counter-reset: certificate-counter;
@@ -336,9 +337,9 @@
         }
 
         @media (min-width: 1024px) {
-            .video-grade:hover .video-imagepos {
+            /* .video-grade:hover .video-imagepos {
                 transform: scale(1.2);
-            }
+            } */
         }
 
         .bg-grade-testimonial {
@@ -669,6 +670,7 @@
         </div>
 
         @include('frontend.Common.modal-contact')
+
     </div>
 
     @include('frontend.Common.whatsapplogo')
