@@ -793,27 +793,16 @@
                                 src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $icon->image }}"
                                 alt="{{ $icon->alt_tag }}" class="w-full"></div>
                     @endforeach
-                    {{-- <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/segment.png') }}" alt=""
-                            class="w-full"></div>
-                    <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/Hubspot.png') }}" alt=""
-                            class="w-full"></div>
-                    <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/asna.png') }}" alt=""
-                            class="w-full"></div>
-                    <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/airtasker.png') }}"
-                            alt="" class="w-full"></div>
-                    <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/splunk.png') }}" alt=""
-                            class="w-full"></div>
-
-                    <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/segment.png') }}" alt=""
-                            class="w-full"></div>
-                    <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/Hubspot.png') }}" alt=""
-                            class="w-full"></div>
-                    <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/asna.png') }}" alt=""
-                            class="w-full"></div>
-                    <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/airtasker.png') }}"
-                            alt="" class="w-full"></div>
-                    <div class="w-[110px] mr-5"><img src="{{ asset('assets/home_Banner/splunk.png') }}" alt=""
-                            class="w-full"></div> --}}
+                    @foreach ($icons as $icon)
+                        <div class="w-[110px] mr-5"><img
+                                src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $icon->image }}"
+                                alt="{{ $icon->alt_tag }}" class="w-full"></div>
+                    @endforeach
+                    @foreach ($icons as $icon)
+                        <div class="w-[110px] mr-5"><img
+                                src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $icon->image }}"
+                                alt="{{ $icon->alt_tag }}" class="w-full"></div>
+                    @endforeach
                 </div>
             </div>
 
