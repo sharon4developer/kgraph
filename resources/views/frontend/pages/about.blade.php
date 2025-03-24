@@ -91,7 +91,7 @@
                     </p>
                     <div class="mt-8">
                         <p class="text-lg font-bold text-gray-800">{{$crew->name}}</p>
-                        <p class="font-semibold text-gray-600">{{$crew->position}} at KGraph Immigrations </p>
+                        <p class="font-semibold text-gray-600">{{$crew->position}}</p>
                     </div>
                 </div>
 
