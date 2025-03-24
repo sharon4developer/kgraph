@@ -101,7 +101,7 @@
 </style>
 </style>
 
-<div id="modalpopup" class="z-50 fixed top-0 bg-[#0000009c] h-screen overflow-hidden hidden">
+<div id="modalpopup" class="z-[99999999999] fixed top-0 bg-[#0000009c] h-screen overflow-hidden hidden">
     <div class="flex justify-center items-center w-screen md:pt-0 lg:pt-[10%] xl:pt-[5%] 2xl:pt-[6%]">
         <div class="w-[85%] md:w-[75%] lg:w-[50vw] 2xl:w-[40%]">
             <div class="bg-white rounded-xl h-fit w-full mt-[52px] lg:mt-0 relative">
