@@ -90,7 +90,7 @@
 
 
 
-    <nav id="imHeader" class="text-white bg-gradient-to-b from-black to-transparent md:fixed top-0 !z-50 w-full">
+    <nav id="imHeader" class="text-white bg-gradient-to-b from-black to-transparent md:fixed top-0 !z-[99999999999] w-full">
         <div class="flex items-center justify-between container mx-auto px-5 xl:px-12 py-4 lg:py-5">
             <a href="{{ url('/') }}"  class="flex items-center gap-[4px] z-10 cursor-pointer">
                 <img class="w-[1.80rem] logo_image lg:w-[2.5rem] xl:w-[3.5rem]" src="{{asset('assets/KgraphLogo.png')}}" alt="K-graph logo">

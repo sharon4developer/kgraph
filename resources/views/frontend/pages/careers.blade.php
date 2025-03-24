@@ -190,7 +190,7 @@
                                 <div class="border-b border-b-[#D9D9D9] enquiry-form-inputparent mobile flex-col !items-start !pointer-events-nonemd:items-center md:flex-row gap-4 md:gap-0">
                                     <div class="border-b border-b-[#D9D9D9] w-[90%] md:w-auto md:border-none">
                                         <select name="country" id="" class="bg-transparent">
-                                            <option value="+1">+1 (Canada)</option>
+                                            <option selected value="+1">+1 (Canada)</option>
                                             <option value="+93">+93 (Afghanistan)</option>
                                             <option value="+355">+355 (Albania)</option>
                                             <option value="+213">+213 (Algeria)</option>
@@ -621,7 +621,8 @@
                                         <option value="+257">+257 (Burundi)</option>
                                         <option value="+855">+855 (Cambodia)</option>
                                         <option value="+237">+237 (Cameroon)</option>
-                                        <option value="+1">+1 (Canada)</option>
+
+                                        {{-- <option value="+1">+1 (Canada)</option> --}}
                                         <option value="+238">+238 (Cape Verde)</option>
                                         <option value="+1345">+1345 (Cayman Islands)</option>
                                         <option value="+236">+236 (Central African Republic)</option>

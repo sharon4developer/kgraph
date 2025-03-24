@@ -194,7 +194,7 @@
                         <section class="flex items-center gap-2">
                             {{-- <input class="w-[40px] inline-block text-center" type="text" name="country_live" id="country" value="" > --}}
                             <select class="w-[80px] inline-block text-center" name="country_live" id="country">
-                                <option value="+1">+1</option>
+                                <option selected value="+1">+1</option>
                                 <option value="+93">+93</option>
                                 <option value="+355">+355</option>
                                 <option value="+213">+213</option>
@@ -587,7 +587,7 @@
         });
     </script>
 
-    <script>
+    {{-- <script>
         const countryInput = document.getElementById('country');
         const defaultCountryCode = '+91';
         countryInput.value = defaultCountryCode;
@@ -597,6 +597,6 @@
                 e.target.value = defaultCountryCode;
             }
         });
-  </script>
+  </script> --}}
 
 @endsection

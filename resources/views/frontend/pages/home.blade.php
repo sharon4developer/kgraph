@@ -575,7 +575,7 @@
 
         <div class="h-[85vh] lg:h-screen w-full homeBanner relative overflow-hidden">
             <div class="absolute inset-0 ">
-                <div id="home-banner-slider" class="splide !absolute inset-0 z-[-1] h-full">
+                <div id="home-banner-slider" class="splide !absolute inset-0 z-[999999] h-full">
                     <div class="splide__track">
                         <ul class="splide__list">
                             @foreach ($banner as $data)
@@ -607,7 +607,7 @@
                                                     {{ $data->sub_title }}
                                                 </h6>
                                                 <div
-                                                    class="z-10 flex flex-col items-start justify-center gap-4 md:flex-row md:items-center lg:mb-7 lg:mt-10">
+                                                    class="z-[9999999999999999999] flex flex-col items-start justify-center gap-4 md:flex-row md:items-center lg:mb-7 lg:mt-10">
                                                     <img width="52px"
                                                         src="{{ asset('assets/home_Banner/CanadaFlag.png') }}"
                                                         alt="CanadaFlag">
@@ -619,7 +619,7 @@
                                                         <h6 class="relative z-10 text-white text-[10px] md:text-[14px] 2xl">
                                                             Let's turn your vision into reality.</h6>
                                                         <div
-                                                            class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:py-[4px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
+                                                            class="relative z-[6666666666666] bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:py-[4px] md:rounded-full cursor-pointer w-fit lg:rounded-full whitespace-nowrap rounded-full">
                                                             <a href="{{ url('contact-us') }}"
                                                                 class="h-full text-[12px] lg:text-[16px] font-semibold">Connect
                                                                 Us</a>
