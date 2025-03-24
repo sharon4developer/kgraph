@@ -62,10 +62,10 @@
                 <h3 class="font_inter font-normal text-[15px] lg:text-[20px] text-justify"> @if(isset($aboutUs)) {{$aboutUs->about_sub_title}} @endif</h3>
                 <img class="w-[50px] lg:w-[73px]" src="{{ asset('assets/about/aboutrocket.png') }}" alt="rocket">
             </div>
-            <div class="flex flex-col lg:flex-row items-end justify-between gap-4 mt-5 md:mt-8 lg:mt-[2.30rem] lg:gap-20">
+            <img class="w-[40px] my-8" src="{{ asset('assets/about/rolloutimage.webp') }}" alt="roll">
+            <div class="flex flex-col lg:flex-row items-start justify-between gap-4 mt-5 md:mt-8 lg:mt-[2.30rem] lg:gap-20">
                 <div class="w-full">
-                    <img class="w-[40px]" src="{{ asset('assets/about/rolloutimage.webp') }}" alt="roll">
-                    <p class="font_inter font-medium text-[14px] lg:text-[16px] text-justify mt-8">
+                    <p class="font_inter font-medium text-[14px] lg:text-[16px] text-justify">
                         @if(isset($aboutUs)) {{$aboutUs->about_description}} @endif
                     </p>
                 </div>
@@ -182,11 +182,11 @@
         <div class="lg:my-16">
             <div class="flex flex-col gap-6 lg:flex-row">
                 <div class="w-full">
-                    <h4 class="text-white font_inter font-semibold text-[22px] lg:text-[30px] lg:w-[75%]">@if(isset($aboutUs)) {{$aboutUs->journey_title}} @endif</h4>
-                    <p class="text-white font_inter font-thin text-justify text-[14px] lg:text-[16px] py-4  lg:w-[75%]">@if(isset($aboutUs)) {{$aboutUs->journey_description}} @endif </p>
+                    <h4 class="text-white font_inter font-semibold text-[22px] lg:text-[34px] lg:w-[75%]">@if(isset($aboutUs)) {{$aboutUs->journey_title}} @endif</h4>
+                    <p class="text-white font_inter font-light text-justify text-[14px] lg:text-[16px] py-4  lg:w-[75%]">@if(isset($aboutUs)) {{$aboutUs->journey_description}} @endif </p>
                 </div>
                 <div class="w-full rounded-[17px] overflow-hidden">
-                    <img class="h-full rounded-[17px] object-center" src="@if(isset($aboutUs)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->journey_image }} @endif" alt="@if(isset($aboutUs)) {{$aboutUs->journey_image_alt_tag}} @endif">
+                    <img class="h-full rounded-[17px] object-center lg:aspect-[4/3]" src="@if(isset($aboutUs)) {{ $locationData['storage_server_path'].$locationData['storage_image_path'].$aboutUs->journey_image }} @endif" alt="@if(isset($aboutUs)) {{$aboutUs->journey_image_alt_tag}} @endif">
                 </div>
             </div>
 

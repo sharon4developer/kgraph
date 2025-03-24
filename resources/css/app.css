@@ -2,6 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+
+/* body{
+    background: #04183c;
+} */
+/* .font_aktiv{
+    font-family: aktiv-grotesk, sans-serif;
+} */
+
+
+.font_aktiv{
+    font-family: "Inter", sans-serif;
+}
+
+.font_inter{
+    font-family: "Inter", sans-serif;
+}
+.font_jakartafoot {
+    font-family: "Plus Jakarta Sans", sans-serif;
+}
+.font_jakarta {
+    font-family: "Inter", sans-serif;
+}
+.font_arial {
+    font-family: "Inter", sans-serif;
+}
+
+.font_roboto {
+    font-family: "Roboto", serif;
+}
+/* .font_arial {
+    font-family: Arial, Helvetica, sans-serif;
+} */
+
+h1,h2,h3,h4,h5,h6,a,p,li,span{
+    font-family: "Inter", sans-serif !important;
+}
+
+@media (min-width: 1024px){
+    p{
+        font-weight: 300;
+    }
+}
+
+
 *{
     scroll-behavior: smooth;
 }
@@ -73,41 +119,6 @@ p{
 
 
 
-
-
-/* body{
-    background: #04183c;
-} */
-/* .font_aktiv{
-    font-family: aktiv-grotesk, sans-serif;
-} */
-.font_aktiv{
-    font-family: "Inter", sans-serif;
-}
-
-.font_inter{
-    font-family: "Inter", sans-serif;
-}
-.font_jakartafoot {
-    font-family: "Plus Jakarta Sans", sans-serif;
-}
-.font_jakarta {
-    font-family: "Inter", sans-serif;
-}
-.font_arial {
-    font-family: "Inter", sans-serif;
-}
-
-.font_roboto {
-    font-family: "Roboto", serif;
-}
-/* .font_arial {
-    font-family: Arial, Helvetica, sans-serif;
-} */
-
-h1,h2,h3,h4,h5,h6,a,p,li{
-    font-family: "Inter", sans-serif;
-}
 
 
 

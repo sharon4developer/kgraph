@@ -1169,7 +1169,7 @@
             <div class="container w-full h-full px-5 py-12 mx-auto xl:px-12 lg:py-16">
                 <div class="flex items-end w-full gap-2 lg:gap-7">
                     <h2
-                        class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] lg:text-[45px] 2xl:text-[65px] leading-none fourthleft-to-right-animation">
+                        class="uppercase text-white font_inter font-normal text-[30px] md:text-[50px] lg:text-4xl 2xl:text-6xl leading-none fourthleft-to-right-animation">
                         @if (isset($home))
                             {{ $home->blog_title }}
                         @endif
@@ -1359,7 +1359,7 @@
         <div class="container w-full h-full px-5 py-8 mx-auto xl:px-12 lg:py-16">
             <div class="flex items-end w-full gap-2 lg:gap-7">
                 <h2
-                    class="uppercase text-white font_inter font-semibold text-[30px] md:text-[50px] 2xl:text-[65px] leading-none fifthleft-to-right-animation">
+                    class="uppercase text-white font_inter font-normal text-[30px] md:text-[50px] lg:text-4xl xl:text-6xl leading-none fifthleft-to-right-animation">
                     @if (isset($home))
                         {{ $home->explore_title }}
                     @endif
