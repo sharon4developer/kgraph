@@ -581,7 +581,7 @@
                             @foreach ($banner as $data)
                                 <li class="splide__slide">
                                     <div class="w-full h-[85vh] lg:h-[121vh] bg-cover bg-center bg-no-repeat" style="background-image: url('{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}');">
-                                        <div  class="absolute  inset-0 banner-gradient-overlay"></div>
+                                        <div  class="absolute inset-0 banner-gradient-overlay"></div>
                                         <div class="container relative z-10 w-full h-full px-5 pt-12 mx-auto lg:pt-0 xl:px-12">
                                             <div class="h-full w-full flex flex-col justify-start md:justify-center items-center text-center mb-4 md:pt-8 pb-0 gap-[5%] md:gap-[31px] lg:gap-0">
                                                 <div class="z-10 flex flex-col lg:flex-row items-center lg:gap-[23px] pt-[10%] lg:pt-0 banner-container-elem">
@@ -950,7 +950,7 @@
 
                             <div class="hidden lg:block absolute inset-0 bg-gradient-to-b from-transparent to-[#113165] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                             </div>
-                            <div class="absolute  flex items-center space-x-2 text-white bottom-8 lg:bottom-4 left-4">
+                            <div class="absolute flex items-center space-x-2 text-white bottom-8 lg:bottom-4 left-4">
                                 <!-- Play Icon -->
                                 <div onclick="togglePlay(this)" class="hidden cursor-pointer lg:block">
                                     <svg id="playPauseBtn" class="button-container" width="78" height="78" viewBox="0 0 78 78" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -977,18 +977,18 @@
                     </div>
                 </div>
 
-                <div class="w-full h-[600px] lg:pb-16 lg:pt-48 relative flex justify-center items-center">
+                <div class="w-full h-[625px] lg:pb-16 lg:pt-48 relative flex justify-center items-center">
                     <div class="absolute">
                         <img src="@if (isset($home)) {{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $home->certificate_image1 }} @endif"
                             alt="@if (isset($home)) {{ $home->certificate_image1_alt_tag }} @endif"
-                            class="h-[600px] lg:h-auto object-cover rounded-lg">
+                            class="h-[625px] lg:h-auto object-cover rounded-lg">
                     </div>
                     <div id="certificateSection"
                         class="relative z-10 flex flex-col items-center justify-center p-8 text-white">
                         <h2 class="font_inter font-black text-3xl xl:text-4xl lg:w-[65%] xl:w-[50%] text-center">
                             {{ $home->certificate_title ?? '' }}</h2>
                         <p
-                            class="py-5 font-semibold font_inter text-lg xl:text-xl clamp-3 text-center lg:w-[65%] xl:w-[50%]">
+                            class="py-5 font-semibold font_inter text-lg xl:text-xl text-center lg:w-[65%] xl:w-[50%]">
                             {{ $home->certificate_description ?? '' }}</p>
                         <div class="flex flex-col items-center gap-5 mt-6 lg:flex-row">
                             @foreach ($certificate as $data)
