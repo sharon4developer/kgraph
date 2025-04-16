@@ -983,6 +983,10 @@ video {
     }
 }
 @media (max-width: 1023px){
+    .positioning{
+        position: fixed;
+        right: 22px;    
+    }
 
     .footer-secpernt{
         height: 100%;

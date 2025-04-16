@@ -85,14 +85,14 @@
 
 
 </style>
-<div class="b-backgroun-nav z-50 w-full">
+<div class="z-50 w-full b-backgroun-nav">
     <?php use App\Models\ServiceCategory; $navbarServiceCategories = ServiceCategory::with(['Service:id,slug,title,service_category_id,status','Service.SubService:id,slug,title,service_id,status'])->select('image','id','title','alt_tag','slug','sub_title')->orderBy('order','asc')->where('status',1)->get();?>
 
 
 
     <nav id="imHeader" class="text-white bg-gradient-to-b from-black to-transparent md:fixed top-0 !z-[99999999999] w-full">
-        <div class="flex items-center justify-between container mx-auto px-5 xl:px-12 py-4 lg:py-5">
-            <a href="{{ url('/') }}"  class="flex items-center gap-[4px] z-10 cursor-pointer">
+        <div class="container flex items-center justify-between px-5 py-4 mx-auto xl:px-12 lg:py-5">
+            <a href="{{ url('/') }}"  class="flex items-center gap-[4px] cursor-pointer !z-[99999999999]">
                 <img class="w-[1.80rem] logo_image lg:w-[2.5rem] xl:w-[3.5rem]" src="{{asset('assets/KgraphLogo.png')}}" alt="K-graph logo">
                 <div>
                     <h2 class="lg:text-3xl 2xl:text-[34px] font_inter font-bold logo_text">KGRAPH</h2>
@@ -101,37 +101,37 @@
 
             </a>
 
-            <div class="relative lg:hidden z-50">
+            <div class="relative lg:hidden  !z-[99999999999]">
                 <nav class="menu--right" role="navigation">
                     <div class="menuToggle">
                         <ul id="mobilemenu" class="menuItem">
-                            <li class="mt-4 px-4 py-2">
+                            <li class="px-4 py-2 mt-4">
                                 <a href="{{ url('about-us') }}">About</a>
                             </li>
                             <li class="relative px-4 py-2">
                                 <div class="accordion-header">
                                     <span>Services</span>
                                     <button class="accordion-toggle">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="arrow h-5 w-5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-transform arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                                         </svg>
                                     </button>
                                 </div>
-                                <ul class="submenu hidden">
+                                <ul class="hidden submenu">
                                     @foreach ($navbarServiceCategories as $navbarServiceCategory)
                                     <li class="submenu-item">
                                         <div class="accordion-header">
                                             <a href="#">{{$navbarServiceCategory->title}}</a>
                                             @if(count($navbarServiceCategory->Service))
                                             <button class="accordion-toggle">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="arrow h-4 w-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                     <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                                                 </svg>
                                             </button>
                                             @endif
                                         </div>
                                         @if(count($navbarServiceCategory->Service))
-                                        <ul class="submenu hidden">
+                                        <ul class="hidden submenu">
                                             @foreach ($navbarServiceCategory->Service as $innerServices)
                                             @if($innerServices->status ==1)
                                             <li class="submenu-item">
@@ -139,18 +139,18 @@
                                                     <a href="{{url('service-details/'.$innerServices->slug)}}">{{$innerServices->title}}</a>
                                                     @if(count($innerServices->SubService))
                                                     <button class="accordion-toggle">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" class="arrow h-4 w-4 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 transition-transform arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                                                         </svg>
                                                     </button>
                                                     @endif
                                                 </div>
                                                 @if(count($innerServices->SubService))
-                                                <ul class="submenu hidden">
+                                                <ul class="hidden submenu">
                                                     @foreach ($innerServices->SubService as $innerSubServices)
                                                     @if($innerSubServices->status ==1)
                                                     <li class="submenu-item">
-                                                        <a class="pb-3 block" href="{{url('sub-service-details/'.$innerSubServices->slug)}}">{{$innerSubServices->title}}</a>
+                                                        <a class="block pb-3" href="{{url('sub-service-details/'.$innerSubServices->slug)}}">{{$innerSubServices->title}}</a>
                                                     </li>
                                                     @endif
                                                     @endforeach
@@ -175,29 +175,22 @@
                                 <a href="{{ url('blogs') }}">Blogs</a>
                             </li>
                             <li class="px-4 py-2">
-                                <a href="{{ url('contact-us') }}" class="bg-white text-blue-600 px-4 py-1 rounded-sm">Contact Us</a>
+                                <a href="{{ url('contact-us') }}" class="px-4 py-1 text-blue-600 bg-white rounded-sm">Contact Us</a>
                             </li>
                         </ul>
                     </div>
                 </nav>
             </div>
 
-
-
-
-
-
-
-
-            <button id="menuButton" class="lg:hidden">
+            <button id="menuButton" class="lg:hidden !z-[99999999999]">
                 <img id="openicon" class="w-[50px]" src="{{ asset('assets/menuopen.png') }}" alt="">
                 <img id="closeicon" class="hidden w-[50px] z-50 relative" style="scale: 0.5;" src="{{ asset('assets/close.png') }}" alt="">
             </button>
 
-            <div class="capitalize hidden lg:flex gap-7">
-                <ul class="flex items-center gap-7 text-base font_inter font-light">
+            <div class="hidden capitalize lg:flex gap-7">
+                <ul class="flex items-center text-base font-light gap-7 font_inter">
                     <li class="nav-item"><a class="nav-link" href="{{ url('about-us') }}">About</a></li>
-                    <li class="nav-item relative flex flex-col items-center">
+                    <li class="relative flex flex-col items-center nav-item">
                         <a class="nav-link Services-nav Services-nav-serv" href="{{ url('services') }}">Services</a>
                         <ul class=" bg-white hidden absolute top-full left-[-230px] w-[300px] rounded-[18px] py-1 z-50 shadow-md flex-col transition-[height] duration-300 opacity-0">
 
@@ -241,7 +234,7 @@
 
 
         </div>
-        <div class="hidden lg:flex justify-center opacity-20">
+        <div class="justify-center hidden lg:flex opacity-20">
             <div class="bg-white line-animation mx-8 w-[98%] h-[0.5px]"></div>
         </div>
     </nav>
@@ -358,7 +351,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let menuItem = document.getElementById('mobilemenu');
     let closeicon = document.getElementById('closeicon');
     let openicon = document.getElementById('openicon');
+    let positioning = document.getElementById('menuButton');
     document.getElementById('menuButton').addEventListener('click', function() {
+        positioning.classList.toggle('positioning');
         menuItem.classList.toggle('openmobilemenu');
         closeicon.classList.toggle('hidden');
         openicon.classList.toggle('hidden');
