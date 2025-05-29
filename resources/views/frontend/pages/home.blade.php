@@ -2,7 +2,7 @@
 
 @section('content')
     {{-- Load GSAP --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/SplitText.min.js"></script> --}}
 
@@ -11,7 +11,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script> --}}
 
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com" defer></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
 
@@ -573,7 +573,7 @@
 
     <div class="relative overflow-hidden">
 
-        <div class="h-[85vh] lg:h-screen w-full homeBanner relative overflow-hidden">
+        <div class="h-[85vh] lg:h-screen w-full homeBanner bg-cover bg-center relative overflow-hidden" style="background-image: url('{{ asset('assets/home_Banner/homebannerdummy.webp') }}');">
             <div class="absolute inset-0 ">
                 <div id="home-banner-slider" class="splide !absolute inset-0 z-[999999] h-full">
                     <div class="splide__track">
