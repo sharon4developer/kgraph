@@ -24,6 +24,8 @@
 
     <!-- Scripts -->
       @vite('resources/css/app.css')
+
+
 </head>
 <body class="!overflow-x-hidden">
     <div id="app">
