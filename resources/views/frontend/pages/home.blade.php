@@ -2,25 +2,24 @@
 
 @section('content')
     {{-- Load GSAP --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/SplitText.min.js"></script> --}}
-
-    {{--
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script> --}}
 
     <script src="https://cdn.tailwindcss.com" defer></script>
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css"> --}}
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
     </style>
+    
     @include('frontend.Common.cookie-consent')
+
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/SplitText.min.js"></script> --}}
+    {{--<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script> --}}
     <style>
         body {
+            bckground-color: #041937;
             counter-reset: certificate-counter;
         }
 
@@ -570,8 +569,16 @@
         }
     </style>
 
+    <script>
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = 'https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css';
+        document.head.prepend(link); // Ensures it loads first
+    </script>
 
-    <div class="relative overflow-hidden">
+
+
+    <div class="relative overflow-hidden bg-[#041937] bg-cover" style="background-image: url('{{ asset('assets/home_Banner/homebannerdummy.webp') }}');">
 
         <div class="h-[85vh] lg:h-screen w-full homeBanner bg-cover bg-center relative overflow-hidden" style="background-image: url('{{ asset('assets/home_Banner/homebannerdummy.webp') }}');">
             <div class="absolute inset-0 ">
@@ -585,19 +592,21 @@
                                         <div class="container relative z-10 w-full h-full px-5 pt-12 mx-auto lg:pt-0 xl:px-12">
                                             <div class="h-full w-full flex flex-col justify-start md:justify-center items-center text-center mb-4 md:pt-8 pb-0 gap-[5%] md:gap-[31px] lg:gap-0">
                                                 <div class="z-10 flex flex-col lg:flex-row items-center lg:gap-[23px] pt-[10%] lg:pt-0 banner-container-elem">
+                                                    
                                                     <img class="pt-[22px] md:pt-0 w-[40px] lg:w-[100px] !opacity-10"
                                                         src="{{ asset('assets/home_Banner/rocketicon.png') }}"
                                                         loading="eager" 
                                                         style="display: none;"
-                                                        alt="rocket icon"
-                                                        >
+                                                        alt="rocket icon" 
+                                                    >
                                                         
-                                                    <h2
-                                                        class="banner-contain-text text-[20px] lg:text-[23px] font_inter font-medium text-white text-center capitalize">
+                                                    <h2 class="banner-contain-text text-[20px] lg:text-[23px] font_inter font-medium text-white text-center capitalize">
                                                         Journey with Confidence <span class="text-[#579aff]">Migrate</span>
                                                         with Us
                                                     </h2>
+
                                                 </div>
+
                                                 <h1 id="animated-heading"
                                                     class="md:text-center text-[31px] md:text-[55px] 2xl:text-[85px] lg:text-[70px] lg:w-[80%] font-medium font_inter gradient-text z-10 lg:mt-8 banner_main-text lg:inline-block banner-container-elem leading-[1.2]">
                                                     {{ $data->title }}
@@ -1638,30 +1647,40 @@
             const bannerSlider = document.querySelector('#home-banner-slider .splide__list');
             const slides = bannerSlider.querySelectorAll('.splide__slide');
 
-            if (slides.length > 1) {
-                const splide = new Splide('#home-banner-slider', {
-                    type: 'fade',
-                    autoplay: true,
-                    interval: 3000,
-                    speed: 1000,
-                    arrows: false,
-                    pagination: false,
-                    pauseOnHover: false,
-                    rewind: true,
-                });
+            window.addEventListener('load', function() {
+                // Short delay after full load for any last resources to settle
+                setTimeout(() => {
+                    const bannerSlider = document.querySelector('#home-banner-slider .splide__list');
+                    const slides = bannerSlider ? bannerSlider.querySelectorAll('.splide__slide') : [];
 
-                splide.mount();
+                    if (slides.length > 1) {
+                        const splide = new Splide('#home-banner-slider', {
+                            type: 'fade',
+                            autoplay: true,
+                            interval: 3000,
+                            speed: 1000,
+                            arrows: false,
+                            pagination: false,
+                            pauseOnHover: false,
+                            rewind: true,
+                        });
 
-                splide.on('move', (newIndex) => {
-                    if (newIndex === slides.length - 1) {
-                        setTimeout(() => {
-                            splide.go(0);
-                        }, 3000);
+                        splide.mount();
+
+                        splide.on('move', (newIndex) => {
+                            if (newIndex === slides.length - 1) {
+                                setTimeout(() => {
+                                    splide.go(0);
+                                }, 3000);
+                            }
+                        });
+                    } else {
+                        console.warn('Not enough slides for a slider.');
                     }
-                });
-            } else {
-                console.warn('Not enough slides for a slider.');
-            }
+                }, 100); // 100ms delay after page fully loaded — feel free to reduce to 10ms if you want it faster
+            });
+
+
         });
 
         document.addEventListener('DOMContentLoaded', function() {
