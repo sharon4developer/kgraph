@@ -579,7 +579,7 @@
 
 
 
-    <div class="relative overflow-hidden bg-[#041937] object-contain object-bottom" style="background-image: url('{{ asset('assets/home_Banner/homebannerdummy.webp') }}');">
+    <div class="relative overflow-hidden bg-[#041937] bg-cover" style="background-image: url('{{ asset('assets/home_Banner/homebannerdummy.webp') }}');">
 
         <div class="h-[85vh] lg:h-screen w-full homeBanner relative overflow-hidden">
             <div class="absolute inset-0 ">
