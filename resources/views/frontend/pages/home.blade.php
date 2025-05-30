@@ -581,7 +581,6 @@
 
 
     <div class="" style="">
-
         {{-- <div class=""> --}}
             <div class="">
                     <!-- Splide Slider Section -->
@@ -634,18 +633,13 @@
                             </ul>
                         </div>
                     </div>
-
-
-
             </div>
         {{-- </div> --}}
-
-        {{-- @include('frontend.Common.modal-contact') --}}
-
+        @include('frontend.Common.modal-contact')
     </div>
 
 
-    <div class="relative overflow-hidden bg-[#041937] bg-cover" style="background-image: url('{{ asset('assets/home_Banner/homebannerdummy.webp') }}');">
+    {{-- <div class="relative overflow-hidden bg-[#041937] bg-cover" style="background-image: url('{{ asset('assets/home_Banner/homebannerdummy.webp') }}');"> --}}
 
         {{-- <div class="h-[85vh] lg:h-screen w-full homeBanner bg-cover bg-center relative overflow-hidden" style="background-image: url('{{ asset('assets/home_Banner/homebannerdummy.webp') }}');">
             <div class="absolute inset-0 ">
@@ -742,9 +736,9 @@
             </div>
         </div> --}}
 
-        @include('frontend.Common.modal-contact')
+        {{-- @include('frontend.Common.modal-contact') --}}
 
-    </div>
+    {{-- </div> --}}
 
     @include('frontend.Common.whatsapplogo')
 

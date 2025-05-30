@@ -38,7 +38,7 @@
 <body style="overflow-x: hidden !important; margin: 0; padding: 0;" class="bg-cover !bg-[#041937] ">
     @include('frontend.Common.navbar')
     <input type="hidden" id="base-route" value="{{ url('/') }}">
-    <main class="content-container h-full w-full">
+    <main class="content-container h-full w-full opacity-0 transition-opacity duration-700 ease-in-out">
         @yield('content')
     </main>
 
