@@ -5,7 +5,7 @@
 
     <script src="https://cdn.tailwindcss.com" defer></script>
 
-    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css"> --}}
+
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
@@ -13,10 +13,11 @@
     
     @include('frontend.Common.cookie-consent')
 
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/SplitText.min.js"></script> --}}
-    {{--<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/SplitText.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script> --}}
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script> 
+    
     <style>
         body {
             bckground-color: #041937;
@@ -578,9 +579,75 @@
 
 
 
+
+    <div class="" style="">
+
+        {{-- <div class=""> --}}
+            <div class="">
+                    <!-- Splide Slider Section -->
+                    <div id="home-banner-slider" class="splide h-screen" style="background-image: url('{{ asset('assets/home_Banner/homebannerdummy.webp') }}');"> 
+                        <div class="splide__track !h-full">
+                            <ul class="splide__list !h-full">
+                                @foreach ($banner as $data)
+                                    <li class="splide__slide !h-full w-screen">
+                                        <div class="bg-cover bg-center bg-no-repeat !pt-[16%] h-full" style="background-image: url('{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}');">
+                                            <div class="absolute inset-0 banner-gradient-overlay"></div>
+                                            <div class="container relative z-10 w-full h-full px-5 pt-12 mx-auto lg:pt-0 xl:px-12">
+                                                <div>
+                                                    <img class="pt-[22px] md:pt-0 w-[40px] lg:w-[100px] !opacity-10"
+                                                        src="{{ asset('assets/home_Banner/rocketicon.png') }}"
+                                                        loading="eager"
+                                                        style="display: none;"
+                                                        alt="rocket icon">
+                                                    <h2 class="banner-contain-text text-[20px] lg:text-[23px] font_inter font-medium text-white text-center banner-container-elem capitalize">
+                                                        Journey with Confidence <span class="text-[#579aff]">Migrate</span> with Us
+                                                    </h2>
+                                                </div>
+
+                                                <div class="flex flex-col items-start justify-center gap-4 md:items-center lg:mb-7 lg:mt-10 z-[999]">
+                                                    <h1 id="animated-heading" class="md:text-center text-[31px] md:text-[55px] 2xl:text-[85px] lg:text-[70px] lg:w-[80%] font-medium font_inter gradient-text z-10 lg:mt-8 banner_main-text banner-container-elem lg:inline-block leading-[1.2]">
+                                                        {{ $data->title }}
+                                                    </h1>
+                                                    <h6 class="font_inter font-medium text-[20px] lg:text-[23px] banner-container-elem !text-center z-20 text-white lg:mt-14">
+                                                        {{ $data->sub_title }}
+                                                    </h6>
+                                                </div>
+
+                                                <div class="flex flex-col items-start justify-center gap-4 md:flex-row md:items-center lg:mb-7 lg:mt-10 z-[999]">
+                                                    <div class="flex items-center gap-2">
+                                                        <img width="52px" src="{{ asset('assets/home_Banner/CanadaFlag.png') }}" alt="CanadaFlag">
+                                                        <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-[4.5px] pl-6 pr-1 overflow-hidden group w-fit">
+                                                            <div class="absolute inset-0 left-0 w-full transition-all duration-500 ease-out bg-blue-600 group-hover:left-full"></div>
+                                                            <h6 class="relative z-10 text-white text-[10px] md:text-[14px]">
+                                                                Let's turn your vision into reality.
+                                                            </h6>
+                                                            <div class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:py-[4px] rounded-full whitespace-nowrap">
+                                                                <a href="{{ url('contact-us') }}" class="h-full text-[12px] lg:text-[16px] font-semibold">Connect Us</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+
+
+
+            </div>
+        {{-- </div> --}}
+
+        {{-- @include('frontend.Common.modal-contact') --}}
+
+    </div>
+
+
     <div class="relative overflow-hidden bg-[#041937] bg-cover" style="background-image: url('{{ asset('assets/home_Banner/homebannerdummy.webp') }}');">
 
-        <div class="h-[85vh] lg:h-screen w-full homeBanner bg-cover bg-center relative overflow-hidden" style="background-image: url('{{ asset('assets/home_Banner/homebannerdummy.webp') }}');">
+        {{-- <div class="h-[85vh] lg:h-screen w-full homeBanner bg-cover bg-center relative overflow-hidden" style="background-image: url('{{ asset('assets/home_Banner/homebannerdummy.webp') }}');">
             <div class="absolute inset-0 ">
                 <div id="home-banner-slider" class="splide !absolute inset-0 z-[999999] h-full">
                     <div class="splide__track">
@@ -673,7 +740,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         @include('frontend.Common.modal-contact')
 
@@ -1394,6 +1461,13 @@
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        gsap.to(".content-container", { opacity: 1, duration: 1 });
+    });
+</script>
+
     <script>
         document.querySelectorAll('.accordion-header').forEach(header => {
             header.addEventListener('click', function() {
@@ -1643,45 +1717,36 @@
         //     }
         // });
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const bannerSlider = document.querySelector('#home-banner-slider .splide__list');
-            const slides = bannerSlider.querySelectorAll('.splide__slide');
 
-            window.addEventListener('load', function() {
-                // Short delay after full load for any last resources to settle
-                setTimeout(() => {
-                    const bannerSlider = document.querySelector('#home-banner-slider .splide__list');
-                    const slides = bannerSlider ? bannerSlider.querySelectorAll('.splide__slide') : [];
+        document.addEventListener('DOMContentLoaded', function () {
+            const slides = document.querySelectorAll('#home-banner-slider .splide__slide');
+            if (slides.length > 1) {
+                const splide = new Splide('#home-banner-slider', {
+                    type: 'fade',
+                    autoplay: true,
+                    interval: 5000,
+                    speed: 2000,
+                    arrows: false,
+                    pagination: false,
+                    pauseOnHover: false,
+                    rewind: true,
+                });
 
-                    if (slides.length > 1) {
-                        const splide = new Splide('#home-banner-slider', {
-                            type: 'fade',
-                            autoplay: true,
-                            interval: 3000,
-                            speed: 1000,
-                            arrows: false,
-                            pagination: false,
-                            pauseOnHover: false,
-                            rewind: true,
-                        });
+                splide.mount();
 
-                        splide.mount();
-
-                        splide.on('move', (newIndex) => {
-                            if (newIndex === slides.length - 1) {
-                                setTimeout(() => {
-                                    splide.go(0);
-                                }, 3000);
-                            }
-                        });
-                    } else {
-                        console.warn('Not enough slides for a slider.');
+                splide.on('move', (newIndex) => {
+                    if (newIndex === slides.length - 1) {
+                        setTimeout(() => {
+                            splide.go(0);
+                        }, 3000);
                     }
-                }, 100); // 100ms delay after page fully loaded — feel free to reduce to 10ms if you want it faster
-            });
-
-
+                });
+            } else {
+                console.warn('Not enough slides for a slider.');
+            }
         });
+
+
 
         document.addEventListener('DOMContentLoaded', function() {
             // Initialize Splide
