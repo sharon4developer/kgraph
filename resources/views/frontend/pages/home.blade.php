@@ -1456,11 +1456,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
-<script>
-    document.addEventListener("DOMContentLoaded", () => {
-        gsap.to(".content-container", { opacity: 1, duration: 1 });
-    });
-</script>
 
     <script>
         document.querySelectorAll('.accordion-header').forEach(header => {

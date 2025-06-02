@@ -57,4 +57,11 @@
     }
 </style>
 
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        gsap.to(".content-container", { opacity: 1, duration: 1 });
+    });
+</script>
+
 </html>
