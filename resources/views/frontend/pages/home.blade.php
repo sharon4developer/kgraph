@@ -4,9 +4,6 @@
     {{-- Load GSAP --}}
 
     
-
-
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400..800&display=swap');
     </style>
@@ -579,56 +576,56 @@
     <div class="" style="">
         {{-- <div class=""> --}}
             <div class="">
-                    <!-- Splide Slider Section -->
-                    <div id="home-banner-slider" class="splide h-screen" style="background-image: url('{{ asset('assets/home_Banner/homebannerdummy.webp') }}');"> 
-                        <div class="splide__track !h-full">
-                            <ul class="splide__list !h-full">
-                                @foreach ($banner as $data)
-                                    <li class="splide__slide !h-full w-screen">
-                                        <div class="bg-cover bg-center bg-no-repeat !pt-[16%] h-full" style="background-image: url('{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}');">
-                                            <div class="absolute inset-0 banner-gradient-overlay"></div>
-                                            <div class="container relative z-10 w-full h-full px-5 pt-12 mx-auto lg:pt-0 xl:px-12">
-                                                <div>
-                                                    <img class="pt-[22px] md:pt-0 w-[40px] lg:w-[100px] !opacity-10"
-                                                        src="{{ asset('assets/home_Banner/rocketicon.png') }}"
-                                                        loading="eager"
-                                                        style="display: none;"
-                                                        alt="rocket icon">
-                                                    <h2 class="banner-contain-text text-[20px] lg:text-[23px] font_inter font-medium text-white text-center banner-container-elem capitalize">
-                                                        Journey with Confidence <span class="text-[#579aff]">Migrate</span> with Us
-                                                    </h2>
-                                                </div>
+                <!-- Splide Slider Section -->
+                <div id="home-banner-slider" class="splide h-screen" style="background-image: url('{{ asset('assets/home_Banner/homebannerdummy.webp') }}');"> 
+                    <div class="splide__track !h-full">
+                        <ul class="splide__list !h-full">
+                            @foreach ($banner as $data)
+                                <li class="splide__slide !h-full w-screen">
+                                    <div class="bg-cover bg-center bg-no-repeat !pt-[16%] lg:!pt-[11%] h-full" style="background-image: url('{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}');">
+                                        <div class="absolute inset-0 banner-gradient-overlay"></div>
+                                        <div class="container relative z-10 w-full h-full px-5 mx-auto ">
+                                            <div>
+                                                <img class="pt-[22px] md:pt-0 w-[40px] lg:w-[100px] !opacity-10"
+                                                    src="{{ asset('assets/home_Banner/rocketicon.png') }}"
+                                                    loading="eager"
+                                                    style="display: none;"
+                                                    alt="rocket icon">
+                                                <h2 class="banner-contain-text text-[20px] lg:text-[23px] font_inter font-medium text-white text-center banner-container-elem capitalize">
+                                                    Journey with Confidence <span class="text-[#579aff]">Migrate</span> with Us
+                                                </h2>
+                                            </div>
 
-                                                <div class="flex flex-col items-start justify-center gap-4 md:items-center lg:mb-7 lg:mt-10 z-[999]">
-                                                    <h1 id="animated-heading" class="md:text-center text-[31px] md:text-[55px] 2xl:text-[85px] lg:text-[70px] lg:w-[80%] font-medium font_inter gradient-text z-10 lg:mt-8 banner_main-text banner-container-elem lg:inline-block leading-[1.2]">
-                                                        {{ $data->title }}
-                                                    </h1>
-                                                    <h6 class="font_inter font-medium text-[20px] lg:text-[23px] banner-container-elem !text-center z-20 text-white lg:mt-14">
-                                                        {{ $data->sub_title }}
-                                                    </h6>
+                                            <div class="flex flex-col items-start justify-center gap-4 md:items-center lg:mb-7 lg:mt-10 z-[999]">
+                                                <h1 id="animated-heading" class="text-center text-[31px] md:text-[55px] 2xl:text-[85px] lg:text-[70px] lg:w-[80%] font-medium font_inter gradient-text z-10 lg:mt-8 banner_main-text banner-container-elem lg:inline-block leading-[1.2]">
+                                                    {{ $data->title }}
+                                                </h1>
+                                                <div class="text-center flex items-center justify-center">
+                                                    <h6 class="font_inter lg:w-3/4 font-medium text-[20px] lg:text-[23px] banner-container-elem !text-center z-20 text-white lg:mt-14">{{ $data->sub_title }}</h6>
                                                 </div>
+                                            </div>
 
-                                                <div class="flex flex-col items-start justify-center gap-4 md:flex-row md:items-center lg:mb-7 lg:mt-10 z-[999]">
-                                                    <div class="flex items-center gap-2">
-                                                        <img width="52px" src="{{ asset('assets/home_Banner/CanadaFlag.png') }}" alt="CanadaFlag">
-                                                        <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-[4.5px] pl-6 pr-1 overflow-hidden group w-fit">
-                                                            <div class="absolute inset-0 left-0 w-full transition-all duration-500 ease-out bg-blue-600 group-hover:left-full"></div>
-                                                            <h6 class="relative z-10 text-white text-[10px] md:text-[14px]">
-                                                                Let's turn your vision into reality.
-                                                            </h6>
-                                                            <div class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:py-[4px] rounded-full whitespace-nowrap">
-                                                                <a href="{{ url('contact-us') }}" class="h-full text-[12px] lg:text-[16px] font-semibold">Connect Us</a>
-                                                            </div>
+                                            <div class="flex flex-col items-start justify-center gap-4 md:flex-row md:items-center lg:mb-7 mt-8 lg:mt-10 z-[999]">
+                                                <div class="flex flex-col md:flex-row md:items-center gap-2">
+                                                    <img width="52px" src="{{ asset('assets/home_Banner/CanadaFlag.png') }}" alt="CanadaFlag">
+                                                    <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-[4.5px] pl-6 pr-1 overflow-hidden group w-fit">
+                                                        <div class="absolute inset-0 left-0 w-full transition-all duration-500 ease-out bg-blue-600 group-hover:left-full"></div>
+                                                        <h6 class="relative z-10 text-white text-[10px] md:text-[14px]">
+                                                            Let's turn your vision into reality.
+                                                        </h6>
+                                                        <div class="relative z-10 bg-white text-blue-600 px-[20px] lg:px-[35px] py-1 lg:py-[4px] rounded-full whitespace-nowrap">
+                                                            <a href="{{ url('contact-us') }}" class="h-full text-[12px] lg:text-[16px] font-semibold">Connect Us</a>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
+                                    </div>
+                                </li>
+                            @endforeach
+                        </ul>
                     </div>
+                </div>
             </div>
         {{-- </div> --}}
         @include('frontend.Common.modal-contact')
@@ -2098,9 +2095,9 @@
             x: 0, // Move to its original position
             scale: 1,
             opacity: 1,
-            duration: 2,
+            duration: 0.5,
             ease: "power2.out"
-        }, "+=0.5"); // Delay of 0.5 seconds after the first animation
+        }, "+=0.1"); // Delay of 0.5 seconds after the first animation
 
 
         gsap.to('.award_certificates_s .splide__slide', {

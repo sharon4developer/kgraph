@@ -20,25 +20,36 @@
     @stack('styles')
     @stack('scripts')
 
-    {{-- Tailwind CSS --}}
-    <script src="https://cdn.tailwindcss.com"></script>
+
 
     {{-- Slick Carousel --}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" /> --}}
+    <link rel="stylesheet" href="{{ asset('assets/css/slick.css') }}" />
+    
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" /> --}}
+    <link rel="stylesheet" href="{{ asset('assets/css/slick-theme.css') }}" />
+
+    {{-- <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> --}}
+    <script src="{{ asset('assets/js/slick.min.js') }}"></script>
 
     {{-- jQuery --}}
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
+    <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
 
     {{-- GSAP --}}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> --}}
+    <script src="{{ asset('assets/js/gsap.min.js') }}"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script> --}}
+    <script src="{{ asset('assets/js/ScrollTrigger.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/SplitText.min.js"></script>
 
+
     {{-- Splide.js --}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/css/splide.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/js/splide.min.js"></script>
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/css/splide.min.css" /> --}}
+    <link rel="stylesheet" href="{{ asset('assets/css/splide.min.css') }}" />
+
+    {{-- <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4/dist/js/splide.min.js"></script> --}}
+    <script src="{{ asset('assets/js/splide.min.js') }}"></script>
 
     {{-- Alertify & SweetAlerts2 --}}
     <link href="{{ asset('admin/theme/alertifyjs/build/css/alertify.min.css')}}" rel="stylesheet" />
@@ -50,10 +61,10 @@
 </head>
 
 
-<body style="overflow-x: hidden !important; margin: 0; padding: 0;" class="bg-cover !bg-[#041937] ">
+<body style="overflow-x: hidden !important; margin: 0; padding: 0;" class="bg-cover !bg-[#041937de] ">
     @include('frontend.Common.navbar')
     <input type="hidden" id="base-route" value="{{ url('/') }}">
-    <main class="content-container h-full w-full opacity-0 transition-opacity duration-700 ease-in-out">
+    <main class="content-container h-full w-full opacity-0 transition-opacity duration-500 ease-in-out">
         @yield('content')
     </main>
 
@@ -76,7 +87,7 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        gsap.to(".content-container", { opacity: 1, duration: 1 });
+        gsap.to(".content-container", { opacity: 1, duration: 0.5, ease: "power2.inOut" });
     });
 </script>
 
