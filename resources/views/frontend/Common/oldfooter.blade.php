@@ -123,9 +123,9 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
 
     </div>
 </footer>
-<script src="{{ asset('admin/theme/assets/libs/jquery/jquery.min.js') }}"></script>
+{{-- <script src="{{ asset('admin/theme/assets/libs/jquery/jquery.min.js') }}"></script>
 <script src="{{ asset('admin/theme/src/assets/js/forms/jquery.validate.min.js') }}"></script>
 <script src="{{ asset('admin/theme/alertifyjs/build/alertify.min.js') }}"></script>
 <script src="{{ asset('admin/theme/src/assets/js/forms/sweetalert.min.js') }}"></script>
 <script src="{{ asset('admin/theme/src/plugins/src/sweetalerts2/sweetalerts2.min.js') }}"></script>
-<script src="{{ asset('common/theme/js/common.js') }}?v={{ config('app.version') }}"></script>
+<script src="{{ asset('common/theme/js/common.js') }}?v={{ config('app.version') }}"></script> --}}
