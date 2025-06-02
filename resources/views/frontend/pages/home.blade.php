@@ -600,13 +600,13 @@
                                                 <h1 id="animated-heading" class="text-center text-[31px] md:text-[55px] 2xl:text-[85px] lg:text-[70px] lg:w-[80%] font-medium font_inter gradient-text z-10 lg:mt-8 banner_main-text banner-container-elem lg:inline-block leading-[1.2]">
                                                     {{ $data->title }}
                                                 </h1>
-                                                <div class="text-center flex items-center justify-center">
+                                                <div class="text-center flex items-center justify-center mt-4 lg:mt-0">
                                                     <h6 class="font_inter lg:w-3/4 font-medium text-[20px] lg:text-[23px] banner-container-elem !text-center z-20 text-white lg:mt-14">{{ $data->sub_title }}</h6>
                                                 </div>
                                             </div>
 
                                             <div class="flex flex-col items-start justify-center gap-4 md:flex-row md:items-center lg:mb-7 mt-8 lg:mt-10 z-[999]">
-                                                <div class="flex flex-col md:flex-row md:items-center gap-2">
+                                                <div class="flex w-full justify-center flex-col md:flex-row items-center gap-2">
                                                     <img width="52px" src="{{ asset('assets/home_Banner/CanadaFlag.png') }}" alt="CanadaFlag">
                                                     <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-[4.5px] pl-6 pr-1 overflow-hidden group w-fit">
                                                         <div class="absolute inset-0 left-0 w-full transition-all duration-500 ease-out bg-blue-600 group-hover:left-full"></div>
