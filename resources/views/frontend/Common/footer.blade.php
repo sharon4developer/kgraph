@@ -222,3 +222,6 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
 <script src="{{ asset('admin/theme/src/assets/js/forms/sweetalert.min.js') }}"></script>
 <script src="{{ asset('admin/theme/src/plugins/src/sweetalerts2/sweetalerts2.min.js') }}"></script>
 <script src="{{ asset('common/theme/js/common.js') }}?v={{ config('app.version') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
