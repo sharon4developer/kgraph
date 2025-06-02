@@ -226,4 +226,5 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
 <script src="{{ asset('common/theme/js/common.js') }}?v={{ config('app.version') }}"></script>
 
 {{-- Splide.js (load once only) --}}
-<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
+{{-- <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script> --}}
+<script src="{{ asset('assets/js/splide.min.js') }}"></script>
