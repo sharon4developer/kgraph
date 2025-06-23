@@ -15,25 +15,28 @@ class AppliedCareer extends Model
 
     protected $table = 'applied_careers';
 
-    protected $fillable = ['email','name','country_code','mobile','branch','department','message','resume','career_id','order'];
+    protected $fillable = ['email', 'name', 'country_code', 'mobile', 'branch', 'department', 'message', 'resume', 'career_id', 'order'];
 
-    public function Branch(){
-        return  $this->belongsTo(CareerBranch::class,'branch')->withTrashed();
+    public function Branch()
+    {
+        return  $this->belongsTo(CareerBranch::class, 'branch')->withTrashed();
     }
 
-    public function Career(){
-        return  $this->belongsTo(Career::class,'career_id')->withTrashed();
+    public function Career()
+    {
+        return  $this->belongsTo(Career::class, 'career_id')->withTrashed();
     }
 
-    public function Department(){
-        return  $this->belongsTo(CareerDepartment::class,'department')->withTrashed();
+    public function Department()
+    {
+        return  $this->belongsTo(CareerDepartment::class, 'department')->withTrashed();
     }
 
     public static function getFullData($request)
     {
         $locationData = getLocationData();
 
-        $value =  SELF::with(['Branch:id,title','Department:id,title'])->select('email', 'id', 'created_at','name','country_code','mobile','branch','department','message','resume','career_id')->orderBy('order', 'asc');
+        $value =  SELF::with(['Branch:id,title', 'Department:id,title'])->select('email', 'id', 'created_at', 'name', 'country_code', 'mobile', 'branch', 'department', 'message', 'resume', 'career_id')->orderBy('order', 'asc');
 
         if ($request->has('from_date') && $request->filled('from_date')) {
             $value->whereDate('created_at', '>=', $request->input('from_date'));
@@ -44,66 +47,63 @@ class AppliedCareer extends Model
         }
 
         // return DataTables::of($value)
-            // ->addIndexColumn()
-            // ->editColumn('mobile', function ($row) {
-            //     return $row->country_code . $row->mobile;
-            // })
-            // ->editColumn('branch', function ($row) {
-            //     return $row->branch ? $row->Branch->title : '';
-            // })
-            // ->editColumn('career_id', function ($row) {
+        // ->addIndexColumn()
+        // ->editColumn('mobile', function ($row) {
+        //     return $row->country_code . $row->mobile;
+        // })
+        // ->editColumn('branch', function ($row) {
+        //     return $row->branch ? $row->Branch->title : '';
+        // })
+        // ->editColumn('career_id', function ($row) {
 
-            //     return $row->career_id ? $row->Career->title : '';
-            // })
-            // ->editColumn('department', function ($row) {
-            //     return $row->department ? $row->Department->title : '';
-            // })
-            // ->editColumn('resume', function ($row) use($locationData) {
-            //     return isset($row->resume) ? $locationData['storage_server_path'].$locationData['storage_image_path'].$row->resume : NULL;
-            // })
-            // ->editColumn('message', function ($row) use($locationData) {
-            //     return isset($row->message) ?  $locationData['storage_server_path'].$locationData['storage_image_path'].$row->message : NULL;
-            // })
-            // ->editColumn('created_at', function ($row) {
-            //     return date('Y-m-d H:i:s',strtotime($row->created_at));
-            // })
-            // ->make(true);
+        //     return $row->career_id ? $row->Career->title : '';
+        // })
+        // ->editColumn('department', function ($row) {
+        //     return $row->department ? $row->Department->title : '';
+        // })
+        // ->editColumn('resume', function ($row) use($locationData) {
+        //     return isset($row->resume) ? $locationData['storage_server_path'].$locationData['storage_image_path'].$row->resume : NULL;
+        // })
+        // ->editColumn('message', function ($row) use($locationData) {
+        //     return isset($row->message) ?  $locationData['storage_server_path'].$locationData['storage_image_path'].$row->message : NULL;
+        // })
+        // ->editColumn('created_at', function ($row) {
+        //     return date('Y-m-d H:i:s',strtotime($row->created_at));
+        // })
+        // ->make(true);
 
-            return DataTables::of($value)
-    ->addIndexColumn()
-    ->editColumn('mobile', function ($row) {
-        return $row->country_code . $row->mobile;
-    })
-    ->editColumn('branch', function ($row) {
-        return $row->branch ? $row->Branch->title : '';
-    })
-    ->editColumn('career_id', function ($row) {
-        return $row->career_id ? $row->Career->title : '';
-    })
-    ->editColumn('department', function ($row) {
-        return $row->department ? $row->Department->title : '';
-    })
-    ->editColumn('resume', function ($row) use($locationData) {
-        return isset($row->resume) ? $locationData['storage_server_path'] . $locationData['storage_image_path'] . $row->resume : NULL;
-    })
-    ->editColumn('message', function ($row) use($locationData) {
-        return isset($row->message) ? $locationData['storage_server_path'] . $locationData['storage_image_path'] . $row->message : NULL;
-    })
-    ->editColumn('created_at', function ($row) {
-        return date('Y-m-d H:i:s', strtotime($row->created_at));
-    })
-    ->addColumn('can_delete', function ($row) {
-        return Gate::allows('faq-delete');
-    })
-    ->addColumn('can_edit', function ($row) {
-        return Gate::allows('faq-edit');
-    })
-    ->rawColumns(['action'])
-    ->make(true);
-
-
-
-        }
+        return DataTables::of($value)
+            ->addIndexColumn()
+            ->editColumn('mobile', function ($row) {
+                return $row->country_code . $row->mobile;
+            })
+            ->editColumn('branch', function ($row) {
+                return $row->branch ? $row->Branch->title : '';
+            })
+            ->editColumn('career_id', function ($row) {
+                return $row->career_id ? $row->Career->title : '';
+            })
+            ->editColumn('department', function ($row) {
+                return $row->department ? $row->Department->title : '';
+            })
+            ->editColumn('resume', function ($row) use ($locationData) {
+                return isset($row->resume) ? $locationData['storage_server_path'] . $locationData['storage_image_path'] . $row->resume : NULL;
+            })
+            ->editColumn('message', function ($row) use ($locationData) {
+                return isset($row->message) ? $locationData['storage_server_path'] . $locationData['storage_image_path'] . $row->message : NULL;
+            })
+            ->editColumn('created_at', function ($row) {
+                return date('Y-m-d H:i:s', strtotime($row->created_at));
+            })
+            ->addColumn('can_delete', function ($row) {
+                return Gate::allows('faq-delete');
+            })
+            ->addColumn('can_edit', function ($row) {
+                return Gate::allows('faq-edit');
+            })
+            ->rawColumns(['action'])
+            ->make(true);
+    }
 
     public static function saveCareer($data)
     {
@@ -137,7 +137,7 @@ class AppliedCareer extends Model
         $emailData = [
             'name' => $data->name,
             'email' => $data->email,
-            'mobile' => $data->country.' '.$data->mobile,
+            'mobile' => $data->country . ' ' . $data->mobile,
             'branchName' => $branchName,
             'departmentName' => $departmentName,
             'jobName' => $jobName,
@@ -146,7 +146,7 @@ class AppliedCareer extends Model
         ];
 
         // Send email with resume as attachment
-        Mail::to($data->email)->send(new CareerApplication($emailData, $emailData['resume'],$emailData['message']));
+        // Mail::to($data->email)->send(new CareerApplication($emailData, $emailData['resume'],$emailData['message']));
 
 
 
@@ -186,7 +186,7 @@ class AppliedCareer extends Model
         $emailData = [
             'name' => $data->name_n,
             'email' => $data->email_n,
-            'mobile' => $data->country_n.' '.$data->mobile_n,
+            'mobile' => $data->country_n . ' ' . $data->mobile_n,
             'branchName' => $branchName,
             'departmentName' => $departmentName,
             'jobName' => $jobName,
@@ -195,7 +195,7 @@ class AppliedCareer extends Model
         ];
 
         // Send email with resume as attachment
-        Mail::to($data->email_n)->send(new CareerApplication($emailData, $emailData['resume'],$emailData['message']));
+        // Mail::to($data->email_n)->send(new CareerApplication($emailData, $emailData['resume'], $emailData['message']));
 
         return true;
     }

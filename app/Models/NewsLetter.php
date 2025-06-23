@@ -15,7 +15,7 @@ class NewsLetter extends Model
 
     protected $table = 'news_letters';
 
-    protected $fillable = ['email','order'];
+    protected $fillable = ['email', 'order'];
 
     public static function getFullData($request)
     {
@@ -33,13 +33,14 @@ class NewsLetter extends Model
 
             ->addIndexColumn()
             ->editColumn('created_at', function ($row) {
-                return date('Y-m-d H:i:s',strtotime($row->created_at));
+                return date('Y-m-d H:i:s', strtotime($row->created_at));
             })
             ->addColumn('can_delete', function ($row) {
                 return Gate::allows('news-letter-delete');
             })
             ->addColumn('can_edit', function ($row) {
-                return Gate::allows('news-letter-edit'); })
+                return Gate::allows('news-letter-edit');
+            })
             ->addIndexColumn()
             ->rawColumns(['action', 'edit', 'delete'])
             ->make(true);
@@ -47,7 +48,7 @@ class NewsLetter extends Model
 
     public static function saveNewsLetter($data)
     {
-        Mail::to($data->news_letter_email)->send(new NewsLetterSubscribed($data->news_letter_email));
+        // Mail::to($data->news_letter_email)->send(new NewsLetterSubscribed($data->news_letter_email));
         $value = new NewsLetter;
         $value->email = $data->news_letter_email;
         return $value->save();
