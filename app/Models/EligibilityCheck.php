@@ -115,7 +115,7 @@ class EligibilityCheck extends Model
 
         $eligibilityData = $data->toArray();
 
-        // Mail::to($data->email)->send(new EligibilityCheckMail($eligibilityData));
+        Mail::to($data->email)->send(new EligibilityCheckMail($eligibilityData));
 
         return $value->save();
     }

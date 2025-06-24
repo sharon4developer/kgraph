@@ -48,7 +48,7 @@ class NewsLetter extends Model
 
     public static function saveNewsLetter($data)
     {
-        // Mail::to($data->news_letter_email)->send(new NewsLetterSubscribed($data->news_letter_email));
+        Mail::to($data->news_letter_email)->send(new NewsLetterSubscribed($data->news_letter_email));
         $value = new NewsLetter;
         $value->email = $data->news_letter_email;
         return $value->save();

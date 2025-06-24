@@ -70,7 +70,7 @@ class Contact extends Model
 
         if (isset($email) && isset($email->email)) {
 
-            // Mail::to($email->email)->send(new ContactMessage($contactData));
+            Mail::to($email->email)->send(new ContactMessage($contactData));
         }
         return true;
     }

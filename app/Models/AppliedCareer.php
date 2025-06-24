@@ -146,7 +146,7 @@ class AppliedCareer extends Model
         ];
 
         // Send email with resume as attachment
-        // Mail::to($data->email)->send(new CareerApplication($emailData, $emailData['resume'],$emailData['message']));
+        Mail::to($data->email)->send(new CareerApplication($emailData, $emailData['resume'], $emailData['message']));
 
 
 
@@ -195,7 +195,7 @@ class AppliedCareer extends Model
         ];
 
         // Send email with resume as attachment
-        // Mail::to($data->email_n)->send(new CareerApplication($emailData, $emailData['resume'], $emailData['message']));
+        Mail::to($data->email_n)->send(new CareerApplication($emailData, $emailData['resume'], $emailData['message']));
 
         return true;
     }
