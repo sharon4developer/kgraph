@@ -221,53 +221,53 @@
         }
 
         /* .custom-list {
-                                                            list-style: none;
-                                                            padding: 0;
-                                                            margin: 0;
-                                                        }
+                                                                        list-style: none;
+                                                                        padding: 0;
+                                                                        margin: 0;
+                                                                    }
 
-                                                        .custom-list > li {
-                                                            position: relative;
-                                                            padding-left: 30px;
-                                                            margin-top: 15px !important;
-                                                            margin-bottom: 15px !important;
-                                                            font-size: 16px;
-                                                            line-height: 1.6;
-                                                        }
+                                                                    .custom-list > li {
+                                                                        position: relative;
+                                                                        padding-left: 30px;
+                                                                        margin-top: 15px !important;
+                                                                        margin-bottom: 15px !important;
+                                                                        font-size: 16px;
+                                                                        line-height: 1.6;
+                                                                    }
 
-                                                        .custom-list > li::before {
-                                                            content: '\2713';
-                                                            position: absolute;
-                                                            left: 0;
-                                                            top: 50%;
-                                                            transform: translateY(-50%);
-                                                            width: 15px;
-                                                            height: 15px;
-                                                            background-color: #ffffff;
-                                                            border-radius: 50%;
-                                                            color: #062358;
-                                                            font-size: 10px;
-                                                            text-align: center;
-                                                            line-height: 15px;
-                                                            font-weight: 800;
-                                                        }
+                                                                    .custom-list > li::before {
+                                                                        content: '\2713';
+                                                                        position: absolute;
+                                                                        left: 0;
+                                                                        top: 50%;
+                                                                        transform: translateY(-50%);
+                                                                        width: 15px;
+                                                                        height: 15px;
+                                                                        background-color: #ffffff;
+                                                                        border-radius: 50%;
+                                                                        color: #062358;
+                                                                        font-size: 10px;
+                                                                        text-align: center;
+                                                                        line-height: 15px;
+                                                                        font-weight: 800;
+                                                                    }
 
-                                                        .custom-list ul {
-                                                            list-style: none;
-                                                            padding: 0;
-                                                            margin: 0;
-                                                            padding-left: 30px;
-                                                        }
+                                                                    .custom-list ul {
+                                                                        list-style: none;
+                                                                        padding: 0;
+                                                                        margin: 0;
+                                                                        padding-left: 30px;
+                                                                    }
 
-                                                        .custom-list ul > li {
-                                                            margin-top: 15px !important;
-                                                            margin-bottom: 15px !important;
-                                                            padding-left: 30px;
-                                                        }
+                                                                    .custom-list ul > li {
+                                                                        margin-top: 15px !important;
+                                                                        margin-bottom: 15px !important;
+                                                                        padding-left: 30px;
+                                                                    }
 
-                                                        .custom-list > li:has(ul)::before {
-                                                            top: 11%;
-                                                        } */
+                                                                    .custom-list > li:has(ul)::before {
+                                                                        top: 11%;
+                                                                    } */
 
 
 
@@ -288,28 +288,28 @@
         }
 
         /* @media (min-width: 768px){
-                                                            .content-btn.active-button {
-                                                                background-color: white;
-                                                                color: #062358;
-                                                                font-weight: 700;
-                                                                border-top-right-radius: 7px;
-                                                                border-top-left-radius: 7px;
-                                                                border: none;
-                                                            }
-                                                        } */
+                                                                        .content-btn.active-button {
+                                                                            background-color: white;
+                                                                            color: #062358;
+                                                                            font-weight: 700;
+                                                                            border-top-right-radius: 7px;
+                                                                            border-top-left-radius: 7px;
+                                                                            border: none;
+                                                                        }
+                                                                    } */
 
         /* .custom-tab-content {
-                                                            display: none;
-                                                        } */
+                                                                        display: none;
+                                                                    } */
 
         /* .custom-tab-content:not(.hidden) {
-                                                            display: block;
-                                                        } */
+                                                                        display: block;
+                                                                    } */
 
 
         /* .custom-tab-content {
-                                                            display: none;
-                                                        } */
+                                                                        display: none;
+                                                                    } */
 
         .custom-tab-content.active {
             display: block !important;
@@ -423,10 +423,12 @@
                                                     {{ $title->name }}</h2>
                                                 @if (count($title->paragraphs))
                                                     @foreach ($title->paragraphs as $paragraph)
-                                                        <p class="text-white">{{ $paragraph->content }} @if ($paragraph->url)
+                                                        <p class="text-white">
+                                                            {!! $paragraph->content !!}
+                                                            {{-- @if ($paragraph->url)
                                                                 <a href="{{ $paragraph->url }}" class="text-white"><b> Read
                                                                         more...</b></a>
-                                                            @endif
+                                                            @endif --}}
                                                         </p>
                                                     @endforeach
                                                 @endif

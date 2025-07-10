@@ -175,10 +175,30 @@
                                                             </div>
                                                             <div class="col-md-6"
                                                                 id="option-content_{{ $titleIndex }}_{{ $paragraphIndex }}">
-                                                                <textarea class="form-control" required name="titles[{{ $titleIndex }}][options][{{ $paragraphIndex }}][content]">{{ $paragraph->content }}</textarea><br>
-                                                                <input type="url" class="form-control"
+                                                                {{-- <textarea class="form-control" id="summernote_{{ $paragraphIndex }}" required
+                                                                    name="titles[{{ $titleIndex }}][options][{{ $paragraphIndex }}][content]">{{ $paragraph->content }}</textarea><br> --}}
+                                                                <?php
+                                                                if (isset($paragraph)) {
+                                                                    $description = $paragraph->content;
+                                                                } else {
+                                                                    $description = '<p><br></p> ';
+                                                                }
+                                                                ?>
+                                                                <div class="quill-editor-wrapper"
+                                                                    data-title-id="{{ $titleIndex }}"
+                                                                    data-option-id="{{ $paragraphIndex }}">
+                                                                    <div id="quill_editor_{{ $titleIndex }}_{{ $paragraphIndex }}"
+                                                                        class="quill-editor"></div>
+                                                                    <input type="hidden"
+                                                                        name="titles[{{ $titleIndex }}][options][{{ $paragraphIndex }}][content]"
+                                                                        value="{{ $description }}"
+                                                                        class="quill-content-input">
+                                                                </div>
+                                                                <br>
+                                                                {{-- <input type="url" class="form-control"
                                                                     name="titles[{{ $titleIndex }}][options][{{ $paragraphIndex }}][url]"
                                                                     value="{{ $paragraph->url }}" placeholder="Url">
+                                                            </div> --}}
                                                             </div>
                                                             <div class="col-md-2">
                                                                 <button type="button"
@@ -216,7 +236,17 @@
 
 @endsection
 @push('style')
+    <link rel="stylesheet" type="text/css" href="{{ asset('quill/quill.snow.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('quill/quill.snow-dark.css') }}">
+    <style>
+        div#summernote {
+            min-height: 250px;
+        }
+    </style>
 @endpush
 @push('script')
+    <script src="{{ asset('quill/quill.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quill-image-resize-module@3.0.0/image-resize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/quill-full-html-edit-button@1.0.1/dist/quill.htmlEditButton.min.js"></script>
     <script src="{{ asset('admin/backend/js/service-point-content-points.js') }}"></script>
 @endpush

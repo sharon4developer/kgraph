@@ -248,10 +248,17 @@ $(document).on("change", ".option-type", function () {
     const contentId = `#option-content_${titleId}_${optionId}`;
 
     if (type === "paragraph") {
+        // $(contentId).html(`
+        //     <textarea class="form-control" required placeholder="Enter paragraph..." name="titles[${titleId}][options][${optionId}][content]"></textarea><br>
+        //     <input class="form-control" type="url" name="titles[${titleId}][options][${optionId}][url]" placeholder="Url">
+        // `);
         $(contentId).html(`
-            <textarea class="form-control" required placeholder="Enter paragraph..." name="titles[${titleId}][options][${optionId}][content]"></textarea><br>
-            <input class="form-control" type="url" name="titles[${titleId}][options][${optionId}][url]" placeholder="Url">
-        `);
+        <div class="quill-editor-wrapper" data-title-id="${titleId}" data-option-id="${optionId}">
+            <div id="quill_editor_${titleId}_${optionId}" class="quill-editor" style="height: 200px;"></div>
+            <input type="hidden" name="titles[${titleId}][options][${optionId}][content]" class="quill-content-input">
+        </div>
+    `);
+        setTimeout(() => initializeQuillEditor(titleId, optionId), 100);
     } else if (type === "option") {
         $(contentId).html(`
             <div id="multi-options_${titleId}_${optionId}">
@@ -359,7 +366,7 @@ function serializeForm() {
             .each(function () {
                 let optionType = $(this).find(".option-type").val();
                 let optionContent = $(this).find("[name$='[content]']").val();
-                let optionUrl = $(this).find("[name$='[url]']").val();
+                // let optionUrl = $(this).find("[name$='[url]']").val();
                 let multiOptions = [];
 
                 if (optionType === "option") {
@@ -388,7 +395,7 @@ function serializeForm() {
                         ? {
                               type: "paragraph",
                               content: optionContent,
-                              url: optionUrl,
+                              //   url: optionUrl,
                           }
                         : { type: "option", multiOptions }
                 );
@@ -403,6 +410,15 @@ function serializeForm() {
 // On form submit, serialize and send the data
 $("#dynamic-form").on("submit", function (e) {
     e.preventDefault();
+    $(".quill-editor-wrapper").each(function () {
+        const titleId = $(this).data("title-id");
+        const optionId = $(this).data("option-id");
+        const key = `${titleId}_${optionId}`;
+        if (quillEditors[key]) {
+            const html = quillEditors[key].root.innerHTML;
+            $(this).find(".quill-content-input").val(html);
+        }
+    });
     let serializedData = serializeForm();
 
     $.ajax({
@@ -422,5 +438,88 @@ $("#dynamic-form").on("submit", function (e) {
         error: function (error) {
             console.log(error);
         },
+    });
+});
+
+let quillEditors = {};
+
+function initializeQuillEditor(titleId, optionId, initialContent = "") {
+    const editorId = `quill_editor_${titleId}_${optionId}`;
+    const inputSelector = `#option_${titleId}_${optionId} .quill-content-input`;
+
+    var Parchment = Quill.import("parchment");
+    var lineHeightConfig = new Parchment.Attributor.Style(
+        "lineHeight",
+        "line-height",
+        {
+            scope: Parchment.Scope.BLOCK,
+            whitelist: ["1", "1.5", "2", "2.5", "3", "4"],
+        }
+    );
+    Quill.register(lineHeightConfig, true);
+
+    const toolbarOptions = [
+        ["bold", "italic", "underline", "strike"],
+        ["blockquote", "code-block"],
+        ["image", "code-block"],
+        [{ header: 1 }, { header: 2 }],
+        [{ list: "ordered" }, { list: "bullet" }],
+        [{ script: "sub" }, { script: "super" }],
+        [{ indent: "-1" }, { indent: "+1" }],
+        [{ direction: "rtl" }],
+        [{ size: ["small", false, "large", "huge"] }],
+        [{ header: [1, 2, 3, 4, 5, 6, false] }],
+        [{ color: [] }, { background: [] }],
+        [{ font: [] }],
+        [
+            { align: "" },
+            { align: "center" },
+            { align: "right" },
+            { align: "justify" },
+        ],
+        [{ lineHeight: ["1", "1.5", "2", "2.5", "3", "4"] }],
+        ["link", "image", "video"],
+        ["clean"],
+    ];
+
+    const quill = new Quill(`#${editorId}`, {
+        theme: "snow",
+        modules: {
+            toolbar: toolbarOptions,
+        },
+        placeholder: "Enter paragraph content...",
+    });
+
+    if (initialContent) {
+        quill.root.innerHTML = initialContent;
+    }
+
+    quill.on("text-change", function () {
+        $(inputSelector).val(quill.root.innerHTML);
+    });
+
+    quillEditors[`${titleId}_${optionId}`] = quill;
+}
+
+$(document).ready(function () {
+    // Register Parchment line-height config only once
+    var Parchment = Quill.import("parchment");
+    var lineHeightConfig = new Parchment.Attributor.Style(
+        "lineHeight",
+        "line-height",
+        {
+            scope: Parchment.Scope.BLOCK,
+            whitelist: ["1", "1.5", "2", "2.5", "3", "4"],
+        }
+    );
+    Quill.register(lineHeightConfig, true);
+
+    // Initialize Quill editors for all existing paragraph fields
+    $(".quill-editor-wrapper").each(function () {
+        const titleId = $(this).data("title-id");
+        const optionId = $(this).data("option-id");
+        const initialContent =
+            $(this).find("input.quill-content-input").val() || "";
+        initializeQuillEditor(titleId, optionId, initialContent);
     });
 });
