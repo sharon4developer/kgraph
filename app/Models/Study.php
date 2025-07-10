@@ -160,7 +160,6 @@ class Study extends Model
 
     public static function updateData($data)
     {
-
         $study = Study::find($data->table_id);
 
         if (!$study) {
@@ -272,7 +271,8 @@ class Study extends Model
 
 
 
-    public static function getFullDataForHome(){
+    public static function getFullDataForHome()
+    {
         return SELF::with(['faqs', 'cities', 'packages'])->get();
     }
 }

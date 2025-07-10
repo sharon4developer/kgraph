@@ -38,7 +38,7 @@
                         <h1 class="font_inter font-semibold text-3xl lg:text-[40px] uppercase">
                             {{ $data->study_banner_title }}</h1>
                         <p class="lg:w-1/2 mt-5 font_inter font-medium text-sm lg:text-[14px]">
-                            {{ $data->banner_description }}
+                            {!! $data->banner_description !!}
                         </p>
                     </div>
                     <div class="flex justify-center items-center lg:mt-16">
@@ -71,7 +71,7 @@
                             <div>
                                 <h3 class="font-bold text-4xl text-white uppercase mb-5">{{ $data->sub_content_title }}</h3>
                                 <p class="font_inter text-sm font-semibold mb-5 text-white clamp-text-twelve lg:w-[80%]">
-                                    {{ $data->sub_content_description }}
+                                    {!! $data->sub_content_description !!}
                                 </p>
                             </div>
                             <button
@@ -82,7 +82,8 @@
 
                         <div rightto class="h-[400px] md:w-1/2 z-10 relative opacity-0 translate-x-20 overflow-hidden">
 
-                            <img class="h-[400px] object-cover object-left-top rounded-3xl overflow-hidden" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->sub_image }}"
+                            <img class="h-[400px] object-cover object-left-top rounded-3xl overflow-hidden"
+                                src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->sub_image }}"
                                 alt="">
 
                         </div>
@@ -99,7 +100,7 @@
                 <div bottomtotoppara class="lg:w-1/2 opacity-0 translate-y-20">
                     @foreach ($study as $data)
                         <h2 liho class="font-semibold font_inter text-3xl capitalize mb-3">{{ $data->package_title }}</h2>
-                        <p class="text-sm font-medium font_inter mb-3">{{ $data->package_description }}
+                        <p class="text-sm font-medium font_inter mb-3">{!! $data->package_description !!}
                         </p>
                     @endforeach
 
@@ -123,7 +124,7 @@
 
                                         <p>{{ $package->package_list_title }}</p>
                                     </h3>
-                                    <p class="clamp-text-seven font_inter text-sm">{{ $package->package_list_description }}
+                                    <p class="clamp-text-seven font_inter text-sm">{!! $package->package_list_description !!}
                                     </p>
                                 </div>
                             </div>
@@ -146,22 +147,21 @@
                             <ul class="splide__list">
 
                                 @foreach ($study as $demo)
-
                                     @foreach ($demo->cities as $city)
-
                                         @if (isset($city->cities_list_image))
                                             <li class="splide__slide">
                                                 <div class="relative">
-                                                    <img class="h-[200px] md:h-[260px] w-full md:w-[430px] rounded-[25px] object-cover" src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $city->cities_list_image }}" alt="">
+                                                    <img class="h-[200px] md:h-[260px] w-full md:w-[430px] rounded-[25px] object-cover"
+                                                        src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $city->cities_list_image }}"
+                                                        alt="">
                                                     <div class="">
-                                                        <p class="pl-6 pt-2 font_inter font-semibold text-[14px]" style="color: white;">{{$city->cities_list_place}}</p>
+                                                        <p class="pl-6 pt-2 font_inter font-semibold text-[14px]"
+                                                            style="color: white;">{{ $city->cities_list_place }}</p>
                                                         <!-- <img src="" alt=""> -->
                                                     </div>
                                                 </div>
                                             </li>
-
                                         @endif
-
                                     @endforeach
                                 @endforeach
                             </ul>
@@ -198,39 +198,40 @@
             </div>
             <div class="mt-8 faq-parent lg:px-[10%]">
                 @foreach ($study as $demo)
-                @foreach ($demo->faqs as $faq)
-                    <div class="accordion bg-white rounded-2xl my-3 lg:my-0 h-fit p-6">
-                        <div class="accordion-header flex justify-between items-center  cursor-pointer">
-                            <h6>{{ $faq->faq_question }}</h6>
-                            <div class="icon">
-                                <!-- Collapsed Icon -->
-                                <svg class="icon-collapsed" width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="20" cy="20" r="20" fill="#E4E4E4" />
-                                    <path
-                                        d="M14 18C14 17.7188 14.0938 17.4688 14.2812 17.2812C14.6562 16.875 15.3125 16.875 15.6875 17.2812L20 21.5625L24.2812 17.2812C24.6562 16.875 25.3125 16.875 25.6875 17.2812C26.0938 17.6562 26.0938 18.3125 25.6875 18.6875L20.6875 23.6875C20.3125 24.0938 19.6562 24.0938 19.2812 23.6875L14.2812 18.6875C14.0938 18.5 14 18.25 14 18Z"
-                                        fill="#072558" />
-                                </svg>
-                                <!-- Expanded Icon -->
-                                <svg class="icon-expanded hidden" width="40" height="40" viewBox="0 0 40 40"
-                                    fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="20" cy="20" r="20" fill="#072558" />
-                                    <path
-                                        d="M26 22C26 22.2813 25.9062 22.5313 25.7188 22.7188C25.3438 23.125 24.6875 23.125 24.3125 22.7188L20 18.4375L15.7188 22.7188C15.3438 23.125 14.6875 23.125 14.3125 22.7188C13.9062 22.3438 13.9062 21.6875 14.3125 21.3125L19.3125 16.3125C19.6875 15.9063 20.3438 15.9063 20.7188 16.3125L25.7188 21.3125C25.9062 21.5 26 21.75 26 22Z"
-                                        fill="white" />
-                                </svg>
+                    @foreach ($demo->faqs as $faq)
+                        <div class="accordion bg-white rounded-2xl my-3 lg:my-0 h-fit p-6">
+                            <div class="accordion-header flex justify-between items-center  cursor-pointer">
+                                <h6>{{ $faq->faq_question }}</h6>
+                                <div class="icon">
+                                    <!-- Collapsed Icon -->
+                                    <svg class="icon-collapsed" width="40" height="40" viewBox="0 0 40 40"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="20" cy="20" r="20" fill="#E4E4E4" />
+                                        <path
+                                            d="M14 18C14 17.7188 14.0938 17.4688 14.2812 17.2812C14.6562 16.875 15.3125 16.875 15.6875 17.2812L20 21.5625L24.2812 17.2812C24.6562 16.875 25.3125 16.875 25.6875 17.2812C26.0938 17.6562 26.0938 18.3125 25.6875 18.6875L20.6875 23.6875C20.3125 24.0938 19.6562 24.0938 19.2812 23.6875L14.2812 18.6875C14.0938 18.5 14 18.25 14 18Z"
+                                            fill="#072558" />
+                                    </svg>
+                                    <!-- Expanded Icon -->
+                                    <svg class="icon-expanded hidden" width="40" height="40" viewBox="0 0 40 40"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="20" cy="20" r="20" fill="#072558" />
+                                        <path
+                                            d="M26 22C26 22.2813 25.9062 22.5313 25.7188 22.7188C25.3438 23.125 24.6875 23.125 24.3125 22.7188L20 18.4375L15.7188 22.7188C15.3438 23.125 14.6875 23.125 14.3125 22.7188C13.9062 22.3438 13.9062 21.6875 14.3125 21.3125L19.3125 16.3125C19.6875 15.9063 20.3438 15.9063 20.7188 16.3125L25.7188 21.3125C25.9062 21.5 26 21.75 26 22Z"
+                                            fill="white" />
+                                    </svg>
+                                </div>
+                            </div>
+                            <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 ease-out">
+                                {!! $faq->faq_answer !!}
                             </div>
                         </div>
-                        <div class="accordion-content overflow-hidden max-h-0 transition-all duration-500 ease-out">
-                            {{ $faq->faq_answer }}
-                        </div>
-                    </div>
-                @endforeach
+                    @endforeach
                 @endforeach
 
             </div>
             <div class="flex justify-center py-6 lg:mt-10">
-                <div class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group w-fit">
+                <div
+                    class="relative cursor-pointer flex justify-center items-center rounded-full gap-5 py-[6.5px] lg:py-1 xl:py-[6.5px] pl-5 pr-2 overflow-hidden group w-fit">
                     <!-- Background that moves on hover -->
                     <div
                         class="absolute inset-0 bg-blue-600 transition-all duration-500 ease-out group-hover:left-full left-0 w-full">

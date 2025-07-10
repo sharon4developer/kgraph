@@ -1,7 +1,7 @@
 $.ajaxSetup({
     headers: {
-    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content'),
-    }
+        "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+    },
 });
 
 $(document).ready(function () {
@@ -9,22 +9,22 @@ $(document).ready(function () {
 });
 
 function loadDataTable() {
-    table = $('#table-details').DataTable({
+    table = $("#table-details").DataTable({
         processing: true,
         serverSide: true,
-        ajax: $('#route-for-user').val() + '/study/show',
+        ajax: $("#route-for-user").val() + "/study/show",
         columns: [
-            { data: 'DT_RowIndex', orderable: false, searchable: false },
-            { data: 'study_banner_title' }, // Use the correct field here
-            { data: 'sub_content_title' },
-            { data: 'package_title' },
+            { data: "DT_RowIndex", orderable: false, searchable: false },
+            { data: "study_banner_title" }, // Use the correct field here
+            { data: "sub_content_title" },
+            { data: "package_title" },
             {
-                data: 'created_at',
+                data: "created_at",
                 render: function (data) {
-                    return moment(data).format('DD MMM YYYY hh:mm a');
+                    return moment(data).format("DD MMM YYYY hh:mm a");
                 },
                 orderable: false,
-                searchable: false
+                searchable: false,
             },
             {
                 data: null,
@@ -37,7 +37,9 @@ function loadDataTable() {
                             <a class="datatable-buttons btn btn-outline-primary btn-rounded mb-2 me-1 _effect--ripple waves-effect waves-light"
                                 data-bs-toggle="popover" data-bs-trigger="hover"
                                 data-bs-original-title="Edit" data-bs-placement="top"
-                                href="${$("#route-for-user").val()}/study/${row.id}/edit">
+                                href="${$("#route-for-user").val()}/study/${
+                            row.id
+                        }/edit">
                                 <i class="fa fa-edit"></i>
                             </a>`;
                     }
@@ -75,26 +77,33 @@ function loadDataTable() {
                     buttons += `</div>`;
                     return buttons;
                 },
-                orderable: false, searchable: false
-            }
+                orderable: false,
+                searchable: false,
+            },
         ],
 
         pagingType: "full_numbers",
-        "dom": "<'dt--top-section'<'row'<'col-12 col-sm-6 d-flex justify-content-sm-start justify-content-center'l><'col-12 col-sm-6 d-flex justify-content-sm-end justify-content-center mt-sm-0 mt-3'f>>>" +
+        dom:
+            "<'dt--top-section'<'row'<'col-12 col-sm-6 d-flex justify-content-sm-start justify-content-center'l><'col-12 col-sm-6 d-flex justify-content-sm-end justify-content-center mt-sm-0 mt-3'f>>>" +
             "<'table-responsive'tr>" +
             "<'dt--bottom-section d-sm-flex justify-content-sm-between text-center'<'dt--pages-count  mb-sm-0 mb-3'i><'dt--pagination'p>>",
-        "oLanguage": {
-            "oPaginate": { "sPrevious": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>', "sNext": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>' },
+        oLanguage: {
+            oPaginate: {
+                sPrevious:
+                    '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>',
+                sNext: '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>',
+            },
             // "sInfo": "Showing page _PAGE_ of _PAGES_",
-            "sSearch": '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
-            "sSearchPlaceholder": "Search...",
-            "sLengthMenu": "Results :  _MENU_",
+            sSearch:
+                '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>',
+            sSearchPlaceholder: "Search...",
+            sLengthMenu: "Results :  _MENU_",
         },
-        "stripeClasses": [],
+        stripeClasses: [],
     });
 }
 
-$('#table-add-form').validate({
+$("#table-add-form").validate({
     rules: {
         study_banner_image: {
             // No required rule
@@ -112,16 +121,16 @@ $('#table-add-form').validate({
             // No required rule
         },
         package_title: {
-            required:true,
+            required: true,
         },
         package_description: {
-            required:true,
+            required: true,
         },
         "package_list_title[]": {
-            required:true,
+            required: true,
         },
         "package_list_description[]": {
-            required:true,
+            required: true,
         },
         cities_title: {
             // No required rule
@@ -140,88 +149,114 @@ $('#table-add-form').validate({
         },
     },
     messages: {
-        sudy_banner_image: "Banner image is required",  // This message can be removed if not required
-        sudy_banner_title: "Title is required",  // This message can be removed if not required
-        sub_content_title: "Sub content title is required",  // This message can be removed if not required
-        sub_content_description: "Sub content description is required",  // This message can be removed if not required
-        sub_image: "Sub image is required",  // This message can be removed if not required
-        package_title: "Package title is required",  // This message can be removed if not required
-        package_description: "Package description is required",  // This message can be removed if not required
-        "package_list_title[]": "Package title is required",  // This message can be removed if not required
-        "package_list_description[]": "Package description is required",  // This message can be removed if not required
-        cities_title: "City title is required",  // This message can be removed if not required
-        "cities_list_image[]": "City image is required",  // This message can be removed if not required
-        "cities_list_place[]": "City place is required",  // This message can be removed if not required
-        "faq_question[]": "FAQ question is required",  // This message can be removed if not required
-        "faq_answer[]": "FAQ answer is required",  // This message can be removed if not required
+        sudy_banner_image: "Banner image is required", // This message can be removed if not required
+        sudy_banner_title: "Title is required", // This message can be removed if not required
+        sub_content_title: "Sub content title is required", // This message can be removed if not required
+        sub_content_description: "Sub content description is required", // This message can be removed if not required
+        sub_image: "Sub image is required", // This message can be removed if not required
+        package_title: "Package title is required", // This message can be removed if not required
+        package_description: "Package description is required", // This message can be removed if not required
+        "package_list_title[]": "Package title is required", // This message can be removed if not required
+        "package_list_description[]": "Package description is required", // This message can be removed if not required
+        cities_title: "City title is required", // This message can be removed if not required
+        "cities_list_image[]": "City image is required", // This message can be removed if not required
+        "cities_list_place[]": "City place is required", // This message can be removed if not required
+        "faq_question[]": "FAQ question is required", // This message can be removed if not required
+        "faq_answer[]": "FAQ answer is required", // This message can be removed if not required
     },
-    errorElement: 'span',
+    errorElement: "span",
     submitHandler: function (form, event) {
+        $(".quill-editor-wrapper").each(function () {
+            const input = $(this).find(".quill-content-input");
+            const inputId = input.attr("id");
+            if (quillEditors[inputId]) {
+                const html = quillEditors[inputId].root.innerHTML;
+                input.val(html);
+            }
+        });
+
         var formData = new FormData($(form)[0]);
-        $('.error').html('');
-        var submitButton = $(form).find('[type=submit]');
+        $(".error").html("");
+        var submitButton = $(form).find("[type=submit]");
         var current_btn_text = submitButton.html();
-        button_loading_text = 'Saving...';
+        button_loading_text = "Saving...";
         // Create
         $.ajax({
             type: "POST",
-            url: $('#route-for-user').val() + '/study',
+            url: $("#route-for-user").val() + "/study",
             contentType: false,
             processData: false,
             data: formData,
             cache: false,
             beforeSend: function () {
-                submitButton.html(`
+                submitButton
+                    .html(
+                        `
                     <span class="spinner-border spinner-border-sm"></span>
-                    ` + button_loading_text + `
-                `).attr('disabled', true);
+                    ` +
+                            button_loading_text +
+                            `
+                `
+                    )
+                    .attr("disabled", true);
             },
             success: function (response) {
                 if (response.status) {
-                    showMessage('success', response.message);
+                    showMessage("success", response.message);
                     setTimeout(function () {
                         window.location = response.return_url;
                     }, 500);
                 } else {
-                    showMessage('warning', response.message);
+                    showMessage("warning", response.message);
                 }
             },
             error: function (response) {
                 console.log(response);
-                submitButton.html(current_btn_text).attr('disabled', false);
+                submitButton.html(current_btn_text).attr("disabled", false);
                 if (response.responseJSON.errors) {
                     $.each(response.responseJSON.errors, function (i, v) {
-                        element = $(form).find('[name=' + i + ']');
-                        element.addClass('is-invalid');
-                        if ($(form).find('#' + i + '-error').length) {
-                            $(form).find('#' + i + '-error').html(v).show();
+                        element = $(form).find("[name=" + i + "]");
+                        element.addClass("is-invalid");
+                        if ($(form).find("#" + i + "-error").length) {
+                            $(form)
+                                .find("#" + i + "-error")
+                                .html(v)
+                                .show();
                         } else {
-                            element.closest('.form-group').append(`<span id="` + i + `-error" class="error invalid-feedback">` + v + `</span>`);
-                            $('.error').show();
+                            element
+                                .closest(".form-group")
+                                .append(
+                                    `<span id="` +
+                                        i +
+                                        `-error" class="error invalid-feedback">` +
+                                        v +
+                                        `</span>`
+                                );
+                            $(".error").show();
                         }
-                        element.attr('aria-invalid', true);
+                        element.attr("aria-invalid", true);
                         element.attr("aria-describedby", i + "-error");
                         element.focus();
                     });
                 } else {
-                    showMessage('warning', 'Something went wrong...');
+                    showMessage("warning", "Something went wrong...");
                 }
             },
             complete: function () {
-                submitButton.html(current_btn_text).attr('disabled', false);
-            }
+                submitButton.html(current_btn_text).attr("disabled", false);
+            },
         });
         event.preventDefault();
     },
     highlight: function (element, errorClass, validClass) {
-        $(element).addClass('is-invalid');
+        $(element).addClass("is-invalid");
     },
     unhighlight: function (element, errorClass, validClass) {
-        $(element).removeClass('is-invalid');
-    }
+        $(element).removeClass("is-invalid");
+    },
 });
 
-$('#table-edit-form').validate({
+$("#table-edit-form").validate({
     rules: {
         study_banner_image: {
             // No required rule
@@ -239,16 +274,16 @@ $('#table-edit-form').validate({
             // No required rule
         },
         package_title: {
-            required:true,
+            required: true,
         },
         package_description: {
-            required:true,
+            required: true,
         },
         "package_list_title[]": {
-            required:true,
+            required: true,
         },
         "package_list_description[]": {
-            required:true,
+            required: true,
         },
         cities_title: {
             // No required rule
@@ -267,114 +302,136 @@ $('#table-edit-form').validate({
         },
     },
     messages: {
-        name    : "Name field is required",
-        role_id : "Role field is required",
+        name: "Name field is required",
+        role_id: "Role field is required",
 
-
-        email   : "email field is required",
+        email: "email field is required",
     },
-    errorElement: 'span',
+    errorElement: "span",
     submitHandler: function (form, event) {
         //
+        $(".quill-editor-wrapper").each(function () {
+            const $editorWrapper = $(this);
+            const $input = $editorWrapper.find("input[type=hidden]");
+            const inputId = $input.attr("id");
+
+            if (window.quillEditors && quillEditors[inputId]) {
+                const html = quillEditors[inputId].root.innerHTML;
+                $input.val(html); // ✅ sync HTML content into hidden input
+            }
+        });
+
         var formData = new FormData($(form)[0]);
-        $('.error').html('');
-        var submitButton = $(form).find('[type=submit]');
+        $(".error").html("");
+        var submitButton = $(form).find("[type=submit]");
         var current_btn_text = submitButton.html();
-        button_loading_text = 'Saving...';
-        var table_id = $(form).find('input[name=table_id]').val();
+        button_loading_text = "Saving...";
+        var table_id = $(form).find("input[name=table_id]").val();
         // Create
         $.ajax({
             type: "POST",
-            url: $('#route-for-user').val() + '/study/' + table_id,
+            url: $("#route-for-user").val() + "/study/" + table_id,
             contentType: false,
             processData: false,
             data: formData,
             cache: false,
             beforeSend: function () {
-                submitButton.html(`
+                submitButton
+                    .html(
+                        `
                     <span class="spinner-border spinner-border-sm"></span>
-                    `+ button_loading_text + `
-                `).attr('disabled', true);
+                    ` +
+                            button_loading_text +
+                            `
+                `
+                    )
+                    .attr("disabled", true);
             },
             success: function (response) {
                 if (response.status) {
-                    showMessage('success', response.message);
+                    showMessage("success", response.message);
                     setTimeout(function () {
                         window.location = response.return_url;
                     }, 500);
                 } else {
-                    showMessage('warning', response.message);
+                    showMessage("warning", response.message);
                 }
             },
 
             error: function (response) {
-                submitButton.html(current_btn_text).attr('disabled', false);
+                submitButton.html(current_btn_text).attr("disabled", false);
                 if (response.responseJSON.errors) {
                     $.each(response.responseJSON.errors, function (i, v) {
-                        element = $(form).find('[name=' + i + ']');
-                        element.addClass('is-invalid');
-                        if ($(form).find('#' + i + '-error').length) {
-                            $(form).find('#' + i + '-error').html(v).show();
+                        element = $(form).find("[name=" + i + "]");
+                        element.addClass("is-invalid");
+                        if ($(form).find("#" + i + "-error").length) {
+                            $(form)
+                                .find("#" + i + "-error")
+                                .html(v)
+                                .show();
                         } else {
-                            element.closest('.form-group').
-                                append(`<span id="` + i + `-error" class="error invalid-feedback">` + v + `</span>`);
-                            $('.error').show();
+                            element
+                                .closest(".form-group")
+                                .append(
+                                    `<span id="` +
+                                        i +
+                                        `-error" class="error invalid-feedback">` +
+                                        v +
+                                        `</span>`
+                                );
+                            $(".error").show();
                         }
-                        element.attr('aria-invalid', true);
+                        element.attr("aria-invalid", true);
                         element.attr("area-describedby", i + "-error");
                         element.focus();
                     });
-                }
-                else {
-                    showMessage('warning', 'Something went wrong...');
+                } else {
+                    showMessage("warning", "Something went wrong...");
                 }
             },
             complete: function () {
-                submitButton.html(current_btn_text).attr('disabled', false);
-            }
+                submitButton.html(current_btn_text).attr("disabled", false);
+            },
         });
         event.preventDefault();
     },
     highlight: function (element, errorClass, validClass) {
-        $(element).addClass('is-invalid');
+        $(element).addClass("is-invalid");
     },
     unhighlight: function (element, errorClass, validClass) {
-        $(element).removeClass('is-invalid');
-    }
+        $(element).removeClass("is-invalid");
+    },
 });
-
-
 
 function deleteData(id) {
     Swal.fire({
-        title: 'Are you sure?',
+        title: "Are you sure?",
         text: "Are you sure, do yo want to delete the User ?",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonText: 'Yes!',
-        cancelButtonText: 'No, cancel!',
-        reverseButtons: true
+        confirmButtonText: "Yes!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
     }).then((result) => {
         if (result.isConfirmed) {
             $.ajax({
                 type: "DELETE",
-                url: $("#route-for-user").val() + '/study/' + id,
+                url: $("#route-for-user").val() + "/study/" + id,
                 data: {
                     id: id,
                 },
                 success: function (data) {
                     table.ajax.reload(null, false);
                     if (data == true)
-                        showMessage('success', "User deleted successfully");
+                        showMessage("success", "User deleted successfully");
                 },
                 error: function (data) {
                     showMessage("warning", "Something went wrong...");
                 },
             });
         }
-    })
+    });
 }
-
 
 // $('#table-add-role-permission-form').validate({
 //     rules: {
@@ -511,6 +568,9 @@ $(document).ready(function () {
 
     // Handle the "Add More" button click
     $("#addMore").click(function () {
+        const count = $(".list").length;
+        const newEditorId = `package_list_description_${count}_editor`;
+        const newInputId = `package_list_description_${count}`;
         var newField = `
             <div class="list">
                 <div class="form-group">
@@ -519,9 +579,12 @@ $(document).ready(function () {
                 </div>
                 <div class="col-md-12">
                     <div class="mb-3">
-                        <div class="form-group">
-                            <label class="form-label">Packages List Description</label>
-                            <textarea class="form-control" name="package_list_description[]" placeholder="Description" required></textarea>
+                          <div class="form-group">
+                            <label>Packages List Description</label>
+                            <div class="quill-wrapper">
+                                <div id="${newEditorId}" class="quill-editor" style="height: 200px;"></div>
+                                <input type="hidden" name="package_list_description[]" id="${newInputId}">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -530,6 +593,10 @@ $(document).ready(function () {
 
         // Append the new field inside the #packageContainer
         $("#packageContainer").append(newField);
+
+        setTimeout(() => {
+            initQuillEditor(newEditorId, newInputId);
+        }, 100);
         toggleRemoveButtons(); // Check button visibility
     });
 
@@ -539,8 +606,6 @@ $(document).ready(function () {
         toggleRemoveButtons(); // Check button visibility
     });
 });
-
-
 
 // city
 $(document).ready(function () {
@@ -571,14 +636,13 @@ $(document).ready(function () {
     });
 });
 
-
-
-
-
 // faq
 $(document).ready(function () {
     // Handle the "Add More" button click
     $("#addMoreFaq").click(function () {
+        const count = $(".faqList").length;
+        const newEditorId = `faq_answer_${count}_editor`;
+        const newInputId = `faq_answer_${count}`;
         var newField = `
             <div class="faqList">
                 <div class="form-group">
@@ -587,11 +651,12 @@ $(document).ready(function () {
                     </label>
                     <input type="text" name="faq_question[]" class="form-control" placeholder="Enter the Question">
                 </div>
-                <div class="form-group">
-                    <label for="exampleFormControlInput1">Faq Answer
-                        <span class="text-danger">*</span>
-                    </label>
-                    <input type="text" name="faq_answer[]" class="form-control" placeholder="Enter the Answer">
+                 <div class="form-group">
+                    <label>Faq Answer <span class="text-danger">*</span></label>
+                    <div class="quill-wrapper">
+                        <div id="${newEditorId}" class="quill-editor" style="height: 200px;"></div>
+                        <input type="hidden" name="faq_answer[]" id="${newInputId}">
+                    </div>
                 </div>
                 <button type="button" class="btn btn-danger remove">Remove</button>
             </div>
@@ -599,6 +664,9 @@ $(document).ready(function () {
 
         // Append the new field inside the #faqContainer
         $("#faqContainer").append(newField);
+        setTimeout(() => {
+            initQuillEditor(newEditorId, newInputId);
+        }, 100);
     });
 
     // Handle the "Remove" button click to delete the field
@@ -609,50 +677,49 @@ $(document).ready(function () {
 
 function deleteData(id) {
     Swal.fire({
-        title: 'Are you sure?',
+        title: "Are you sure?",
         text: "Are you sure, do yo want to delete  ?",
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonText: 'Yes!',
-        cancelButtonText: 'No, cancel!',
-        reverseButtons: true
+        confirmButtonText: "Yes!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
     }).then((result) => {
         if (result.isConfirmed) {
             $.ajax({
                 type: "DELETE",
-                url: $("#route-for-user").val() + '/study/' + id,
+                url: $("#route-for-user").val() + "/study/" + id,
                 data: {
                     id: id,
                 },
                 success: function (data) {
                     table.ajax.reload(null, false);
                     if (data == true)
-                        showMessage('success', "Deleted successfully");
+                        showMessage("success", "Deleted successfully");
                 },
                 error: function (data) {
                     showMessage("warning", "Something went wrong...");
                 },
             });
         }
-    })
+    });
 }
 function changeStatus(id, status) {
     if (status == 1) {
-        text = 'You want to deactivate this servicev !';
-        message = 'Deactivated successfully';
-    }
-    else {
-        text = 'You want to activate this service !';
-        message = 'Activated successfully';
+        text = "You want to deactivate this servicev !";
+        message = "Deactivated successfully";
+    } else {
+        text = "You want to activate this service !";
+        message = "Activated successfully";
     }
     Swal.fire({
-        title: 'Are you sure?',
+        title: "Are you sure?",
         text: text,
-        icon: 'warning',
+        icon: "warning",
         showCancelButton: true,
-        confirmButtonText: 'Yes!',
-        cancelButtonText: 'No, cancel!',
-        reverseButtons: true
+        confirmButtonText: "Yes!",
+        cancelButtonText: "No, cancel!",
+        reverseButtons: true,
     }).then((result) => {
         if (result.isConfirmed) {
             $.ajax({
@@ -663,16 +730,98 @@ function changeStatus(id, status) {
                 },
                 success: function (data) {
                     table.ajax.reload(null, false);
-                    if (data == true)
-                        showMessage(
-                            "success",
-                            message
-                        );
+                    if (data == true) showMessage("success", message);
                 },
                 error: function (data) {
                     showMessage("warning", "Something went wrong...");
                 },
             });
         }
-    })
+    });
 }
+
+let quillEditors = {};
+
+function initQuillEditor(selectorId, inputId, initialContent = "") {
+    // Register Line Height
+    const Parchment = Quill.import("parchment");
+    const LineHeight = new Parchment.Attributor.Style(
+        "lineHeight",
+        "line-height",
+        {
+            scope: Parchment.Scope.BLOCK,
+            whitelist: ["1", "1.5", "2", "2.5", "3", "4"],
+        }
+    );
+    Quill.register(LineHeight, true);
+
+    // Register Modules
+    Quill.register("modules/imageResize", window.ImageResize);
+    // Quill.register("modules/htmlEditButton", window.quillHtmlEditButton);
+
+    const toolbarOptions = [
+        ["bold", "italic", "underline", "strike"],
+        ["blockquote", "code-block"],
+        [{ header: 1 }, { header: 2 }],
+        [{ list: "ordered" }, { list: "bullet" }],
+        [{ script: "sub" }, { script: "super" }],
+        [{ indent: "-1" }, { indent: "+1" }],
+        [{ direction: "rtl" }],
+        [{ size: ["small", false, "large", "huge"] }],
+        [{ header: [1, 2, 3, 4, 5, 6, false] }],
+        [{ color: [] }, { background: [] }],
+        [{ font: [] }],
+        [{ align: [] }],
+        [{ lineHeight: ["1", "1.5", "2", "2.5", "3", "4"] }],
+        ["link", "image", "video"],
+        ["clean"],
+        ["htmlEditButton"],
+    ];
+    console.log(selectorId);
+
+    const quill = new Quill(`#${selectorId}`, {
+        theme: "snow",
+        modules: {
+            toolbar: toolbarOptions,
+        },
+        placeholder: "Enter content here...",
+    });
+
+    if (initialContent) {
+        quill.root.innerHTML = initialContent;
+    }
+
+    quill.on("text-change", function () {
+        $(`#${inputId}`).val(quill.root.innerHTML);
+    });
+
+    quillEditors[inputId] = quill;
+}
+
+initQuillEditor(
+    "banner_description_editor",
+    "banner_description",
+    $("#banner_description").val()
+);
+initQuillEditor(
+    "sub_content_description_editor",
+    "sub_content_description",
+    $("#sub_content_description").val()
+);
+initQuillEditor(
+    "package_description_editor",
+    "package_description",
+    $("#package_description").val()
+);
+$("[id^='package_list_description_'][id$='_editor']").each(function () {
+    const baseId = $(this).attr("id").replace("_editor", "");
+    initQuillEditor(baseId + "_editor", baseId, $("#" + baseId).val());
+});
+
+$("[id^='faq_answer_'][id$='_editor']").each(function () {
+    const editorId = $(this).attr("id"); // e.g. faq_answer_0_editor
+    const inputId = editorId.replace("_editor", ""); // faq_answer_0
+    const initialContent = $("#" + inputId).val(); // hidden input value
+
+    initQuillEditor(editorId, inputId, initialContent);
+});
