@@ -11,7 +11,7 @@
         .servicesIIner-banner {
             background-image: url(/assets/servicesinner.jpg) !important;
             /* background-position-y: center;
-                                                                                                                                                        background-position-x: center; */
+                                                                                                                                                                    background-position-x: center; */
             background-size: cover;
             background-repeat: no-repeat;
         }
@@ -208,8 +208,9 @@
                 max-width: 320px;
             }
         }
-        @media (max-width: 650px){
-            .tab-content>*{
+
+        @media (max-width: 650px) {
+            .tab-content>* {
                 overflow-x: hidden;
             }
         }
@@ -260,7 +261,7 @@
             <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[3%]">
                 <div class="lg:w-1/2 font_inter">
                     <h2 class="font-semibold text-xl lg:text-4xl text-[#062358]">{{ $services->inner_title }}</h2>
-                    <p>{{ $services->description }}</p>
+                    <p>{!! $services->description !!}</p>
                     <div class="px-5 py-3 my-6 text-white rounded-md blufader-grade">Key Highlight</div>
                     <div>
                         <ul class="list-disc pl-5 text-[#062358] leading-normal">
