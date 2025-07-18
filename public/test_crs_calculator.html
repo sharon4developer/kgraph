@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Express Entry CRS Calculator</title>
+  <!-- Tailwind CSS for styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- jsPDF for PDF generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <div class="container mx-auto p-6">
+    <!-- Header and Language Toggle -->
+    <div class="flex justify-between items-center mb-6">
+      <h1 class="text-3xl font-bold" data-lang-en>Express Entry CRS Calculator</h1>
+      <h1 class="text-3xl font-bold hidden" data-lang-fr>Calculateur CRS Entrée Express</h1>
+      <div>
+        <button id="lang-en-btn" class="px-4 py-2 bg-blue-500 text-white rounded mr-2">EN</button>
+        <button id="lang-fr-btn" class="px-4 py-2 bg-green-600 text-white rounded">FR</button>
+      </div>
+    </div>
+
+    <form id="crs-form" class="space-y-6">
+      <!-- Core / Human Capital Factors -->
+      <section class="bg-white p-4 rounded shadow">
+        <h2 class="text-xl font-semibold mb-4" data-lang-en>1. Core / Human Capital Factors</h2>
+        <h2 class="text-xl font-semibold mb-4 hidden" data-lang-fr>1. Facteurs fondamentaux / capital humain</h2>
+
+        <!-- Age -->
+        <div>
+          <label class="block font-medium mb-1" data-lang-en>Age:</label>
+          <label class="block font-medium mb-1 hidden" data-lang-fr>Âge :</label>
+          <select id="age" required class="w-full border rounded p-2">
+            <option value="" disabled selected data-lang-en>Select your age</option>
+            <option value="17">17 or less</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20-29">20–29</option>
+            <option value="30">30</option>
+            <option value="31">31</option>
+            <option value="32">32</option>
+            <option value="33">33</option>
+            <option value="34">34</option>
+            <option value="35">35</option>
+            <option value="36">36</option>
+            <option value="37">37</option>
+            <option value="38">38</option>
+            <option value="39">39</option>
+            <option value="40">40</option>
+            <option value="41">41</option>
+            <option value="42">42</option>
+            <option value="43">43</option>
+            <option value="44">44</option>
+            <option value="45+">45 or more</option>
+          </select>
+        </div>
+
+        <!-- Education -->
+        <div>
+          <label class="block font-medium mb-1" data-lang-en>Level of Education:</label>
+          <label class="block font-medium mb-1 hidden" data-lang-fr>Niveau de scolarité :</label>
+          <select id="education" required class="w-full border rounded p-2">
+            <option value="" disabled selected data-lang-en>Select education</option>
+            <option value="less_secondary">Less than secondary school</option>
+            <option value="secondary">Secondary diploma</option>
+            <option value="one_year">One-year post-secondary</option>
+            <option value="two_year">Two-year post-secondary</option>
+            <option value="bachelors">Bachelor’s degree or three-year post-secondary</option>
+            <option value="masters">Master’s degree or professional degree</option>
+            <option value="doctoral">Doctoral (PhD) level</option>
+          </select>
+        </div>
+
+        <!-- Languages -->
+        <div>
+          <label class="block font-medium mb-1" data-lang-en>First Official Language (CLB):</label>
+          <label class="block font-medium mb-1 hidden" data-lang-fr>Première langue officielle (NCLC) :</label>
+          <select id="lang1" required class="w-full border rounded p-2">
+            <option value="" disabled selected data-lang-en>Select CLB level</option>
+            <option value="4">CLB 4 or less</option>
+            <option value="5">CLB 5 or 6</option>
+            <option value="7">CLB 7 or 8</option>
+            <option value="9">CLB 9 or higher</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-medium mb-1" data-lang-en>Second Official Language (CLB):</label>
+          <label class="block font-medium mb-1 hidden" data-lang-fr>Deuxième langue officielle (NCLC) :</label>
+          <select id="lang2" required class="w-full border rounded p-2">
+            <option value="" disabled selected data-lang-en>Select CLB level</option>
+            <option value="0">None or less than CLB 5</option>
+            <option value="1">CLB 5 or higher</option>
+          </select>
+        </div>
+
+        <!-- Canadian Experience -->
+        <div>
+          <label class="block font-medium mb-1" data-lang-en>Canadian Work Experience (years):</label>
+          <label class="block font-medium mb-1 hidden" data-lang-fr>Expérience de travail au Canada (années) :</label>
+          <input id="canExp" type="number" min="0" max="10" step="1" required class="w-full border rounded p-2" placeholder="0–10+">
+        </div>
+      </section>
+
+      <!-- Spouse / Common-Law Partner Factors -->
+      <section class="bg-white p-4 rounded shadow">
+        <h2 class="text-xl font-semibold mb-4" data-lang-en>2. Spouse or Common-Law Partner Factors</h2>
+        <h2 class="text-xl font-semibold mb-4 hidden" data-lang-fr>2. Facteurs du conjoint ou partenaire de fait</h2>
+
+        <div>
+          <label class="inline-flex items-center" data-lang-en>
+            <input id="hasSpouse" type="checkbox" class="mr-2">
+            Include spouse / partner factors
+          </label>
+          <label class="inline-flex items-center hidden" data-lang-fr>
+            <input id="hasSpouse" type="checkbox" class="mr-2">
+            Inclure les facteurs du conjoint / partenaire
+          </label>
+        </div>
+
+        <div id="spouseSection" class="mt-4 hidden space-y-4">
+          <div>
+            <label class="block font-medium mb-1" data-lang-en>Spouse’s Level of Education:</label>
+            <label class="block font-medium mb-1 hidden" data-lang-fr>Niveau d’études du conjoint :</label>
+            <select id="spEducation" class="w-full border rounded p-2">
+              <option value="" disabled selected data-lang-en>Select education</option>
+              <option value="less_secondary">Less than secondary school</option>
+              <option value="secondary">Secondary diploma</option>
+              <option value="one_year">One-year post-secondary</option>
+              <option value="two_year">Two-year post-secondary</option>
+              <option value="bachelors">Bachelor’s degree or three-year post-secondary</option>
+              <option value="masters">Master’s degree or professional degree</option>
+              <option value="doctoral">Doctoral (PhD) level</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block font-medium mb-1" data-lang-en>Spouse’s Language Proficiency (CLB):</label>
+            <label class="block font-medium mb-1 hidden" data-lang-fr>Compétence linguistique du conjoint (NCLC) :</label>
+            <select id="spLang" class="w-full border rounded p-2">
+              <option value="" disabled selected data-lang-en>Select CLB level</option>
+              <option value="4">CLB 4 or less</option>
+              <option value="5">CLB 5 or 6</option>
+              <option value="7">CLB 7 or 8</option>
+              <option value="9">CLB 9 or higher</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block font-medium mb-1" data-lang-en>Spouse’s Canadian Work Experience (years):</label>
+            <label class="block font-medium mb-1 hidden" data-lang-fr>Expérience de travail du conjoint au Canada (années) :</label>
+            <input id="spCanExp" type="number" min="0" max="10" step="1" class="w-full border rounded p-2" placeholder="0–10+">
+          </div>
+        </div>
+      </section>
+
+      <!-- Transferability Factors -->
+      <section class="bg-white p-4 rounded shadow">
+        <h2 class="text-xl font-semibold mb-4" data-lang-en>3. Skills Transferability Factors</h2>
+        <h2 class="text-xl font-semibold mb-4 hidden" data-lang-fr>3. Facteurs de transférabilité des compétences</h2>
+
+        <div>
+          <label class="block font-medium mb-2" data-lang-en>Education & Language:</label>
+          <label class="block font-medium mb-2 hidden" data-lang-fr>Éducation et langue :</label>
+          <select id="tranEduLang" class="w-full border rounded p-2">
+            <option value="" disabled selected data-lang-en>Select combination</option>
+            <option value="0">No combination</option>
+            <option value="50">Education + First official language CLB 7 or higher</option>
+            <option value="25">Education + First official language CLB 9 or higher</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-medium mb-2" data-lang-en>Foreign Work Experience & Language:</label>
+          <label class="block font-medium mb-2 hidden" data-lang-fr>Expérience de travail à l’étranger et langue :</label>
+          <select id="tranWorkLang" class="w-full border rounded p-2">
+            <option value="" disabled selected data-lang-en>Select combination</option>
+            <option value="0">No combination</option>
+            <option value="50">Foreign experience + CLB 7 or higher</option>
+            <option value="25">Foreign experience + CLB 9 or higher</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-medium mb-2" data-lang-en>Canadian Work Experience & Education:</label>
+          <label class="block font-medium mb-2 hidden" data-lang-fr>Expérience de travail au Canada et éducation :</label>
+          <select id="tranCanEdu" class="w-full border rounded p-2">
+            <option value="" disabled selected data-lang-en>Select combination</option>
+            <option value="0">No combination</option>
+            <option value="50">Canadian experience + post-secondary education</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-medium mb-2" data-lang-en>Certificate of Qualification (Trade):</label>
+          <label class="block font-medium mb-2 hidden" data-lang-fr>Certificat de qualification (métier) :</label>
+          <select id="tranCert" class="w-full border rounded p-2">
+            <option value="" disabled selected data-lang-en>Select certificate</option>
+            <option value="0">None</option>
+            <option value="50">Certificate + CLB 7 or higher</option>
+            <option value="25">Certificate + CLB 9 or higher</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Additional Points -->
+      <section class="bg-white p-4 rounded shadow">
+        <h2 class="text-xl font-semibold mb-4" data-lang-en>4. Additional Points</h2>
+        <h2 class="text-xl font-semibold mb-4 hidden" data-lang-fr>4. Points supplémentaires</h2>
+
+        <div>
+          <label class="block font-medium mb-2" data-lang-en>Provincial Nomination:</label>
+          <label class="block font-medium mb-2 hidden" data-lang-fr>Nomination provinciale :</label>
+          <select id="pnp" class="w-full border rounded p-2">
+            <option value="" disabled selected data-lang-en>Select option</option>
+            <option value="0">No</option>
+            <option value="600">Yes</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-medium mb-2" data-lang-en>Job Offer (NOC 00 = 200; others = 50):</label>
+          <label class="block font-medium mb-2 hidden" data-lang-fr>Offre d’emploi (NOC 00 = 200; autres = 50) :</label>
+          <select id="jobOffer" class="w-full border rounded p-2">
+            <option value="" disabled selected data-lang-en>Select option</option>
+            <option value="0">None</option>
+            <option value="50">Valid job offer</option>
+            <option value="200">Valid NOC 00 offer</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-medium mb-2" data-lang-en>French Language Proficiency:</label>
+          <label class="block font-medium mb-2 hidden" data-lang-fr>Compétence en français :</label>
+          <select id="french" class="w-full border rounded p-2">
+            <option value="" disabled selected data-lang-en>Select CLB</option>
+            <option value="0">Below CLB 7</option>
+            <option value="15">CLB 7–8</option>
+            <option value="30">CLB 9 or higher</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-medium mb-2" data-lang-en>Sibling in Canada (Canadian citizen or PR):</label>
+          <label class="block font-medium mb-2 hidden" data-lang-fr>Frère/sœur au Canada :</label>
+          <select id="sibling" class="w-full border rounded p-2">
+            <option value="" disabled selected data-lang-en>Select option</option>
+            <option value="0">No</option>
+            <option value="15">Yes</option>
+          </select>
+        </div>
+      </section>
+
+      <!-- Score Display and Actions -->
+      <div class="text-center space-y-4">
+        <div id="scoreDisplay" class="text-2xl font-bold">Score: 0 / 1200</div>
+        <button type="button" id="downloadPdf" class="px-6 py-3 bg-blue-600 text-white rounded">Download PDF / Télécharger PDF</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // Language toggle
+    const langEnBtn = document.getElementById('lang-en-btn');
+    const langFrBtn = document.getElementById('lang-fr-btn');
+    function setLanguage(lang) {
+      document.querySelectorAll('[data-lang-en]').forEach(el => el.style.display = lang === 'en' ? '' : 'none');
+      document.querySelectorAll('[data-lang-fr]').forEach(el => el.style.display = lang === 'fr' ? '' : 'none');
+    }
+    langEnBtn.addEventListener('click', () => setLanguage('en'));
+    langFrBtn.addEventListener('click', () => setLanguage('fr'));
+    setLanguage('en');
+
+    // Show/hide spouse section
+    document.getElementById('hasSpouse').addEventListener('change', function() {
+      document.getElementById('spouseSection').classList.toggle('hidden', !this.checked);
+    });
+
+    // CRS calculation mapping
+    const agePoints = { '17': 0, '18': 90, '19': 95, '20-29': 100, '30': 95, '31': 90, '32': 85, '33': 80, '34': 75, '35': 70, '36': 65, '37': 60, '38': 55, '39': 50, '40': 45, '41': 35, '42': 25, '43': 15, '44': 5, '45+': 0 };
+    const edPoints = { 'less_secondary': 0, 'secondary': 28, 'one_year': 84, 'two_year': 91, 'bachelors': 112, 'masters': 126, 'doctoral': 140 };
+    const edPointsNoSp = { 'less_secondary': 0, 'secondary': 30, 'one_year': 90, 'two_year': 98, 'bachelors': 120, 'masters': 135, 'doctoral': 150 };
+    const langPoints = { '4': 0, '5': 6, '7': 17, '9': 34 };
+    const langPointsNoSp = { '4': 0, '5': 6, '7': 17, '9': 34 };
+    const canExpPoints = { 0: 0, 1: 40, 2: 53, 3: 64, 4: 72, 5: 80, 6: 88, 7: 96, 8: 104, 9: 112, 10: 120 };
+    const spouseEdPoints = { 'less_secondary': 0, 'secondary': 2, 'one_year': 6, 'two_year': 7, 'bachelors': 8, 'masters': 10, 'doctoral': 10 };
+    const spouseLangPoints = { '4': 0, '5': 1, '7': 3, '9': 3 };
+    const spouseCanExpPoints = { 0: 0, 1: 1, 2: 3, 3: 3, 4: 5, 5: 7, 6: 7, 7: 8, 8: 8, 9: 9, 10: 10 };
+
+    function calculateScore() {
+      const withSpouse = document.getElementById('hasSpouse').checked;
+      let total = 0;
+      // Core
+      const ageVal = document.getElementById('age').value;
+      total += agePoints[ageVal] || 0;
+      const edVal = document.getElementById('education').value;
+      total += (withSpouse ? edPoints[edVal] : edPointsNoSp[edVal]) || 0;
+      const lang1Val = document.getElementById('lang1').value;
+      total += langPoints[lang1Val] || 0;
+      const lang2Val = document.getElementById('lang2').value;
+      total += parseInt(lang2Val) === 1 ? 6 : 0;
+      const canExpVal = parseInt(document.getElementById('canExp').value) || 0;
+      total += canExpPoints[canExpVal] || (canExpVal > 10 ? 120 : 0);
+
+      // Spouse
+      if (withSpouse) {
+        total = 0; // reset core max to 460 logic if needed
+        total += agePoints[ageVal] || 0;
+        total += edPoints[edVal] || 0;
+        total += langPoints[lang1Val] || 0;
+        total += parseInt(lang2Val) === 1 ? 4 : 0;
+        total += canExpPoints[canExpVal] ? Math.floor(canExpPoints[canExpVal] * 0.9) : 0;
+        // spouse factors
+        total += spouseEdPoints[document.getElementById('spEducation').value] || 0;
+        total += spouseLangPoints[document.getElementById('spLang').value] || 0;
+        total += spouseCanExpPoints[parseInt(document.getElementById('spCanExp').value)] || 0;
+      }
+
+      // Transferability
+      total += parseInt(document.getElementById('tranEduLang').value) || 0;
+      total += parseInt(document.getElementById('tranWorkLang').value) || 0;
+      total += parseInt(document.getElementById('tranCanEdu').value) || 0;
+      total += parseInt(document.getElementById('tranCert').value) || 0;
+
+      // Additional
+      total += parseInt(document.getElementById('pnp').value) || 0;
+      total += parseInt(document.getElementById('jobOffer').value) || 0;
+      total += parseInt(document.getElementById('french').value) || 0;
+      total += parseInt(document.getElementById('sibling').value) || 0;
+
+      document.getElementById('scoreDisplay').innerText = `Score: ${total} / 1200`;
+      return total;
+    }
+    document.querySelectorAll('#crs-form select, #crs-form input').forEach(el => el.addEventListener('change', calculateScore));
+
+    // PDF generation
+    document.getElementById('downloadPdf').addEventListener('click', () => {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      doc.setFontSize(16);
+      doc.text('CRS Score Summary', 10, 20);
+      doc.setFontSize(12);
+      const score = calculateScore();
+      doc.text(`Total Score: ${score} / 1200`, 10, 30);
+      doc.text('Refer to IRCC for complete criteria.', 10, 40);
+      doc.save('CRS_Score_Summary.pdf');
+    });
+  </script>
+</body>
+</html>
