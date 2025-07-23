@@ -29,12 +29,15 @@
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" /> --}}
     <link rel="stylesheet" href="{{ asset('assets/css/slick-theme.css') }}" />
 
-    {{-- <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> --}}
-    <script src="{{ asset('assets/js/slick.min.js') }}"></script>
 
     {{-- jQuery --}}
     {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
     <script src="{{ asset('assets/js/jquery-3.6.0.min.js') }}"></script>
+
+
+    {{-- <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> --}}
+    <script src="{{ asset('assets/js/slick.min.js') }}"></script>
+
 
     {{-- GSAP --}}
     {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script> --}}

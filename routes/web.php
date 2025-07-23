@@ -70,6 +70,8 @@ use App\Http\Controllers\FrontEnd\LinkController as FrontEndLinkController;
 use App\Http\Controllers\FrontEnd\StudyController as FrontEndStudyController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FrontEnd\CrsController;
+
 
 Route::get('links/{slug}', [FrontEndLinkController::class, 'show']);
 
@@ -94,6 +96,8 @@ Route::get('terms-and-conditions', [FrontEndController::class, 'termsConditions'
 Route::get('privacy-policy', [FrontEndController::class, 'privacyPolicy']);
 Route::get('sub-service-details/{slug}', [FrontEndServiceController::class, 'subServiceDetails']);
 Route::get('study', [FrontEndStudyController::class, 'index']);
+Route::get('crs-calculator', [CrsController::class, 'index'])->name('crs.calculator');
+
 
 Route::post('submit-career-form-new', [NewsLetterController::class, 'submitCareerNew'])->name('submit-career-form-new');
 
