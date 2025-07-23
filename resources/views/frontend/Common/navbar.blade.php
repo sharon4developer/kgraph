@@ -223,7 +223,7 @@
                             @endforeach
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="{{ url('crs-calculator') }}">CRS Calculator</a></li>
+                    {{-- <li class="nav-item"><a class="nav-link" href="{{ url('crs-calculator') }}">CRS Calculator</a></li> --}}
                     <li class="nav-item"><a class="nav-link" href="{{ url('study') }}">Study</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('careers') }}">Careers</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('blogs') }}">Blogs</a></li>
