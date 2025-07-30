@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use Illuminate\Support\Facades\Storage; 
 use App\Mail\CareerApplication;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Mail;
@@ -87,10 +87,17 @@ class AppliedCareer extends Model
                 return $row->department ? $row->Department->title : '';
             })
             ->editColumn('resume', function ($row) use ($locationData) {
-                return isset($row->resume) ? $locationData['storage_server_path'] . $locationData['storage_image_path'] . $row->resume : NULL;
+                //return isset($row->resume) ? $locationData['storage_server_path'] . $locationData['storage_image_path'] . $row->resume : NULL;
+                if (! $row->resume) return null;
+                $fileNewPath = $locationData['storage_image_path'] . $row->resume;
+                return Storage::disk('public')->url($fileNewPath);
             })
             ->editColumn('message', function ($row) use ($locationData) {
-                return isset($row->message) ? $locationData['storage_server_path'] . $locationData['storage_image_path'] . $row->message : NULL;
+                // return isset($row->message) ? $locationData['storage_server_path'] . $locationData['storage_image_path'] . $row->message : NULL;
+                if (! $row->message) return null;
+                $fileNewPath = $locationData['storage_image_path'] . $row->message;
+                return Storage::disk('public')->url($fileNewPath);
+
             })
             ->editColumn('created_at', function ($row) {
                 return date('Y-m-d H:i:s', strtotime($row->created_at));

@@ -77,11 +77,12 @@ class Cms extends Model
         $fileName = $video->getClientOriginalName();
         $fileName =  str_replace(' ', '', pathinfo($fileName, PATHINFO_FILENAME));
         $slugTitle = str_replace(' ', '', Str::slug($title));
-        $filePath =  $slugTitle . '-' . $fileName . '-' . Str::random(15) . '.' . $video->getClientOriginalExtension();
+        $filePath =  $slugTitle . '-' . $fileName . '-' . Str::random(5).date('ymdhis') . '.' . $video->getClientOriginalExtension();
         $locationData = getLocationData();
         $fileNewPath = $locationData['storage_video_path'] . $filePath;
         // dd(Storage::disk('s3')->put($fileNewPath, file_get_contents($video)),$fileNewPath );
-        Storage::disk('s3')->put($fileNewPath, file_get_contents($video));
+        //Storage::disk('s3')->put($fileNewPath, file_get_contents($video));
+        Storage::disk('public')->put($fileNewPath, file_get_contents($video));
         return $filePath;
     }
 
@@ -91,10 +92,12 @@ class Cms extends Model
         $fileName = $image->getClientOriginalName();
         $fileName =  str_replace(' ', '', pathinfo($fileName, PATHINFO_FILENAME));
         $slugTitle = str_replace(' ', '', Str::slug($title));
-        $filePath =  $slugTitle . '-' . $fileName . '-' . Str::random(15) . '.' . $image->getClientOriginalExtension();
+        $filePath =  $slugTitle . '-' . $fileName . '-' . Str::random(5).date('ymdhis') . '.' . $image->getClientOriginalExtension();
         $locationData = getLocationData();
         $fileNewPath = $locationData['storage_image_path'] . $filePath;
-        Storage::disk('s3')->put($fileNewPath, file_get_contents($image));
+        //Storage::disk('s3')->put($fileNewPath, file_get_contents($image));
+        Storage::disk('public')->put($fileNewPath, file_get_contents($image));
+
         return $filePath;
     }
     public static function storeBase64Image($image, $title)
@@ -104,9 +107,12 @@ class Cms extends Model
         //decode base64 string
         $image = base64_decode($base64_str);
         $locationData = getLocationData();
-        $imageNmae = Str::random(10) . '.' . 'png';
+        $imageNmae = Str::random(5).date('ymdhis') . '.' . 'png';
         $safeName = $locationData['storage_image_path'] . $imageNmae;
-        Storage::disk('s3')->put($safeName, $image);
+        //Storage::disk('s3')->put($safeName, $image);
+        Storage::disk('public')->put($safeName, $image);
+
+
         return $imageNmae;
     }
 }
