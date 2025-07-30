@@ -202,16 +202,9 @@ class AppliedCareer extends Model
         ];
 
         // Send email with resume as attachment
-        //Mail::to($data->email_n)->send(new CareerApplication($emailData, $emailData['resume'], $emailData['message']));
-
-        // Send email with resume as attachment to both customer and HR
-        Mail::to($data->email_n)
-            ->bcc(config('services.career_notifications.email'))
-            ->send(new CareerApplication(
-            $emailData,
-            $emailData['resume'],
-            $emailData['message']
-        ));
+        Mail::to($data->email_n)->send(new CareerApplication($emailData, $emailData['resume'], $emailData['message']));
+        $careerEmail = config('services.career_notifications.email');
+        Mail::to($careerEmail)->send(new CareerApplication($emailData, $emailData['resume'], $emailData['message']));
 
         return true;
     }
