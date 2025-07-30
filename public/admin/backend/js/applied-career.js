@@ -196,6 +196,7 @@ function loadDataTableForCareer() {
                 orderable: false, searchable: false
             }
         ],
+        order: [[ 9, 'desc' ]],
         pagingType: "full_numbers",
         dom: "<'dt--top-section'<'row'<'col-12 col-sm-6 d-flex justify-content-sm-start justify-content-center'l><'col-12 col-sm-6 d-flex justify-content-sm-end justify-content-center mt-sm-0 mt-3'f>>>" +
             "<'table-responsive'tr>" +
