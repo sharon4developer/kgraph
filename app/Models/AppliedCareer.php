@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use App\Helpers\RawMailer;
 use Illuminate\Support\Facades\Storage; 
 use App\Mail\CareerApplication;
 use Illuminate\Support\Facades\Gate;
@@ -159,6 +160,9 @@ class AppliedCareer extends Model
 
         return true;
     }
+/*
+    
+    //Augest 4 2025 commented to use the simple php mailer function
 
     public static function saveCareerNew($data)
     {
@@ -208,6 +212,101 @@ class AppliedCareer extends Model
 
         return true;
     }
+*/
+
+
+
+   /**
+ * Save a new career application and send email via PHP mail() with attachments.
+ *
+ * @param  object  $data
+ * @return bool
+ */
+public static function saveCareerNew($data)
+{
+    // 1) Persist the record
+    $value = new self;
+    $value->name         = $data->name_n;
+    $value->email        = $data->email_n;
+    $value->country_code = $data->country_n;
+    $value->career_id    = $data->job_id;
+    $value->mobile       = $data->mobile_n;
+    $value->branch       = $data->branch_n;
+    $value->department   = $data->department_n;
+
+    if ($data->resume_n) {
+        $value->resume = Cms::storeImage($data->resume_n, $data->name_n);
+    }
+    if ($data->message_n) {
+        $value->message = Cms::storeImage($data->message_n, $data->name_n);
+    }
+
+    $value->save();
+
+    // 2) Lookup friendly names
+    $career     = Career::find($data->job_id);
+    $jobName    = $career ? $career->title : '';
+    $branch     = CareerBranch::find($data->branch_n);
+    $branchName = $branch ? $branch->title : '';
+    $dept       = CareerDepartment::find($data->department_n);
+    $deptName   = $dept ? $dept->title : '';
+
+    // 3) Prepare data for Blade view
+    $contactData = [
+        'name'           => $data->name_n,
+        'email'          => $data->email_n,
+        'mobile'         => $data->country_n . ' ' . $data->mobile_n,
+        'branchName'     => $branchName,
+        'departmentName' => $deptName,
+        'jobName'        => $jobName,
+        'resume'         => $value->resume,
+        'message'        => $value->message,
+    ];
+
+    // 4) Render HTML email body
+    $subject  = "Your application for “{$jobName}”";
+    $htmlBody = view('emails.career_application', [
+        'contactData' => $contactData,
+    ])->render();
+
+    // 5) Resolve attachment paths
+    $attachments = [];
+    if ($value->resume) {
+        $path = storage_path("assets/uploads/{$value->resume}");
+        if (file_exists($path)) {
+            $attachments[] = $path;
+        }
+    }
+    if ($value->message) {
+        $path = storage_path("assets/uploads/{$value->message}");
+        if (file_exists($path)) {
+            $attachments[] = $path;
+        }
+    }
+
+    // 6) Send to applicant
+    RawMailer::sendWithAttachments(
+        $data->email_n,
+        $subject,
+        $htmlBody,
+        $attachments
+    );
+
+    // 7) Notify internal team
+    $careerEmail = config('services.career_notifications.email');
+    RawMailer::sendWithAttachments(
+        $careerEmail,
+        "New application received for “{$jobName}”",
+        $htmlBody,
+        $attachments
+    );
+
+    return true;
+}
+
+
+
+
 
     public static function deleteData($data)
     {

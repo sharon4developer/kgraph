@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Models;
-
+use App\Helpers\RawMailer;
+use App\Models\whatsApp;       
 use App\Mail\EligibilityCheckMail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -103,7 +104,9 @@ class EligibilityCheck extends Model
 
             ->make(true);
     }
-
+    
+    
+/*
     public static function createData($data)
     {
         $value = new EligibilityCheck;
@@ -119,6 +122,59 @@ class EligibilityCheck extends Model
 
         return $value->save();
     }
+*/
+
+    public static function createData($data)
+{
+    // 1) Persist the record
+    $value = new self;
+    $value->fill($data->only($value->getFillable()));
+
+    if (! empty($data->resume)) {
+        $value->resume = Cms::storeImage(
+            $data->resume,
+            $data->first_name . '_' . $data->last_name
+        );
+    }
+
+    $value->save();
+
+    // 2) Prepare the data array for your mailable
+    $eligibilityData = $data->toArray();
+
+    // 3) Instantiate the mailable and render its HTML body
+    $mailable = new EligibilityCheckMail($eligibilityData);
+    $htmlBody = $mailable->render();
+
+    // 4) Define a fixed subject (must be a string)
+    $subject = "Eligibility Check Results for {$data->first_name} {$data->last_name}";
+
+    // 5) Resolve the resume attachment path
+    $attachments = [];
+    if (! empty($value->resume)) {
+        $path = storage_path("assets/uploads/{$value->resume}");
+        if (file_exists($path)) {
+            $attachments[] = $path;
+        }
+    }
+
+    // 6) Determine recipients: applicant + internal team
+    $recipients = array_filter([
+        $data->email,
+        whatsApp::value('email'),
+    ]);
+
+    // 7) Send via RawMailer
+    foreach ($recipients as $to) {
+        RawMailer::sendWithAttachments($to, $subject, $htmlBody, $attachments);
+    }
+
+    return true;
+}
+
+
+
+
 
     public static function getFullData($id)
     {

@@ -151,127 +151,25 @@
             background: #04183c;
         }
 
-        .career-desc {
-            max-height: 150px;        /* collapsed height */
-            overflow: hidden;         
-            transition: max-height 0.3s ease;
-            position: relative;
-        }
-        .career-desc.expanded {
-            max-height: 2000px;       /* plenty to show all content */
-        }
     </style>
     @include('frontend.Common.whatsapplogo')
-    <div class="w-full h-full contact-US-banner">
-        <div class="w-full h-full contact-US">
-            <div class="container mx-auto px-5 xl:px-12 h-full w-full py-8 lg:pt-[8%] text-white">
-                <div class="flex flex-col lg:flex-row justify-between items-start gap-[15%] lg:pt-[50px] md:mt-36 lg:mt-0">
-                    <div class="w-full h-full mb-8 font_inter">
-                        <h1 class="mainHead font-semibold text-[40px] xl:w-[70%] uppercase">
-                            @if(isset($careerContents)) {{ $careerContents->title }} @endif
-                        </h1>
-                        <p class="font-semibold text-[12px] lg:text-[12px]" style="padding-top: 5px;">
-                            @if(isset($careerContents)) {{ $careerContents->sub_title }} @endif
-                        </p>
-
-                        @if(isset($careerContents))
-                            <div class="career-desc">
-                            {!! $careerContents->description !!}
-                            </div>
-                            <a href="#" class="read-more mt-2 inline-block font-semibold text-blue-600">Read more</a>
-                        @endif
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="open-positions bg-[#04183c] py-8 lg:pt-[%] lg:pb-[4%]">
-        @if(count($careers))
-            <div class="container w-full h-full px-5 mx-auto text-white xl:px-12">
-                <h2 class="my-10 font_inter font-semibold text-[25px] md:text-[50px] uppercase w-[50%]">Open positions</h2>
-            </div>
-        @endif
-        @if(count($careers))
-        @foreach ($careers as $index => $data)
-        <div class="container mx-auto px-5 xl:px-12 lg:pb-[2px] h-full w-full text-white">
-            <div class="cursor-pointer rounded-[33px] my-12 lg:my-4 border border-white" data-accordion>
-                <div class="accordion-header-careers">
-                    <div class="flex items-center justify-between px-5 pt-6 pb-4">
-                        <div class="flex flex-col gap-6 md:flex-row lg:gap-10 md:items-center">
-                            <div class="flex items-end gap-3">
-                                <img class="w-[28px]" src="{{asset('assets/home_Banner/jobbox.png')}}" alt="">
-                                <h2 class="font_inter font-bold text-[15px] text-white uppercase">{{ $data->title }}</h2>
-                            </div>
-                            <div class="flex flex-col gap-2 md:flex-row md:items-baseline">
-                                <p class="text-[10px] font-extralight uppercase md:whitespace-nowrap lg:whitespace-normal">{{ $data->location }} /</p><p class="text-[10px] font-extralight uppercase">{{$data->type}}/ </p><p class="text-[10px] font-extralight uppercase">{{ $data->experience }}</p>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center gap-2">
-                            <div class="flex items-center gap-2 pr-5">
-                                <img class="w-[13px]" src="{{asset('assets/home_Banner/dateicon.png')}}" alt="">
-                                <div class="text-[12px] font-extralight uppercase">{{ \Carbon\Carbon::parse($data->created_at)->format('d/m/Y') }}</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="px-5 lg:pr-8 lg:pl-[62px] pt-3 pb-6 flex flex-col lg:flex-row lg:items-end h-fit lg:justify-between gap-7">
-                        <div class="lg:w-[70%]">
-                            {{-- <h2 class="pb-3 text-sm font-extrabold font_inter">overview</h2> --}}
-
-                            @if(!empty($data->overview))
-                                <p class="pb-3 text-sm font-light font_inter">{{ $data->overview }}</p>
-                            @else
-                                <p class="pb-3 text-sm font-light lowercase font_inter">We help unlock value through a start-up mindset and modern methods, fusing strategy, consulting and customer experience with agile engineering and problem-solving creativity. United by our core values and our purpose of helping people thrive in the brave pursuit.</p>
-                            @endif
-                        </div>
-
-                        <div class="lg:w-[30%] flex justify-end items-center">
-                            <button  class="viewmorebtn rounded-full px-16 py-2 text-sm border-[2px] font-semibold border-white uppercase font_inter">View More</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="accordion-content-careers">
-                    <div class="px-5 py-4 text-white lg:px-8 job-decsript">
-                        {!! $data->description !!}
-                    </div>
-                    <div class="accordion-content-careers">
-                        <div class="flex items-center justify-end px-5 py-4">
-                            <!-- Unique Button ID -->
-                            <button id="applyNowBtn" data-job-id="{{$data->id}}"
-                                    class="relative py-2 overflow-hidden font-semibold text-white transition-all duration-500 ease-out border border-white rounded-md font_inter px-7 hover:text-black group applyNowBtn">
-                                <span class="absolute inset-0 transition-transform duration-500 ease-out transform -translate-x-full bg-white group-hover:translate-x-0"></span>
-                                <span class="relative z-10 block font-bold font_inter">Apply now</span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @endforeach
-
-
-        @else
-        <div class="container flex justify-center w-full h-full px-5 mx-auto text-white xl:px-12">
-            <h2 class="mb-8 font_inter font-semibold text-center text-[25px] md:text-[50px] uppercase w-[50%]">Open positions</h2>
-        </div>
-        <div class="flex items-center justify-center mb-10">
-            <div class="container flex items-center justify-center w-full h-full px-5 mx-auto text-white xl:px-12">
-                <div class="flex items-center justify-center">
-                    <h2 class="px-5 text-sm font-medium text-center text-white capitalize rounded-lg lg:w-1/2 font_inter"><span class="block px-2 mb-3 text-2xl text-white bg-black">At present, we do not have any available positions !!</span>However, we are continuously seeking skilled and talented individuals to join our workforce. We encourage you to visit our careers page regularly or follow us on social media for updates on future job openings</h2>
-                </div>
-            </div>
-        </div>
-        @endif
-    </div>
-
-    {{-- New --}}
-
     <div class="w-full h-full careers-parent contact-US-banner">
         <div class="w-full h-full contact-US">
             <div class="container mx-auto px-5 xl:px-12 h-full w-full py-8 lg:pt-[8%] text-white">
                 <div class="flex flex-col lg:flex-row justify-between items-start gap-[15%] lg:py-[50px] md:mt-36 lg:mt-0">
+                    <div class="w-full h-full mb-8 font_inter">
+                        <h1 class="mainHead font-semibold text-[40px] xl:w-[70%] uppercase">@if(isset($careerContents)) {{$careerContents->title}} @endif
+                        </h1>
+                        <p class="font-semibold text-[12px] lg:text-[15px] py-[30px]">@if(isset($careerContents)) {{$careerContents->sub_title}} @endif</p>
+                        @if(isset($careerContents)) {!!$careerContents->description!!} @endif
+                        {{-- <h2 class="font-semibold text-[30px]">Our Team Identity :</h2>
+                        <ul class="list-disc pl-5 text-[18px] mb-6 lg:mb-0">
+                            <li class="py-2">Assist with Value-added services</li>
+                            <li class="py-2">Learners Before Leaders</li>
+                            <li class="py-2">Prepared for marathon</li>
+                            <li class="py-2">Replace Self - Mentoring Other Team Members</li>
+                        </ul> --}}
+                    </div>
                     <div class="relative w-full bg-white rounded-xl h-fit canada-flag">
                         <div class="absolute right-6 top-[-10px]">
                             <img src="assets/home_Banner/reduse.png" class="flag-img" alt="Canada Flag" />
@@ -577,11 +475,88 @@
                 </div>
             </div>
         </div>
-    </div>      
+    </div>
+
+    <div class="open-positions bg-[#04183c] py-8 lg:pt-[%] lg:pb-[4%]">
+        @if(count($careers))
+            <div class="container w-full h-full px-5 mx-auto text-white xl:px-12">
+                <h2 class="my-10 font_inter font-semibold text-[25px] md:text-[50px] uppercase w-[50%]">Open positions</h2>
+            </div>
+        @endif
+        @if(count($careers))
+        @foreach ($careers as $index => $data)
+        <div class="container mx-auto px-5 xl:px-12 lg:pb-[2px] h-full w-full text-white">
+            <div class="cursor-pointer rounded-[33px] my-12 lg:my-4 border border-white" data-accordion>
+                <div class="accordion-header-careers">
+                    <div class="flex items-center justify-between px-5 pt-6 pb-4">
+                        <div class="flex flex-col gap-6 md:flex-row lg:gap-10 md:items-center">
+                            <div class="flex items-end gap-3">
+                                <img class="w-[28px]" src="{{asset('assets/home_Banner/jobbox.png')}}" alt="">
+                                <h2 class="font_inter font-bold text-[15px] text-white uppercase">{{ $data->title }}</h2>
+                            </div>
+                            <div class="flex flex-col gap-2 md:flex-row md:items-baseline">
+                                <p class="text-[10px] font-extralight uppercase md:whitespace-nowrap lg:whitespace-normal">{{ $data->location }} /</p><p class="text-[10px] font-extralight uppercase">{{$data->type}}/ </p><p class="text-[10px] font-extralight uppercase">{{ $data->experience }}</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            <div class="flex items-center gap-2 pr-5">
+                                <img class="w-[13px]" src="{{asset('assets/home_Banner/dateicon.png')}}" alt="">
+                                <div class="text-[12px] font-extralight uppercase">{{ \Carbon\Carbon::parse($data->created_at)->format('d/m/Y') }}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="px-5 lg:pr-8 lg:pl-[62px] pt-3 pb-6 flex flex-col lg:flex-row lg:items-end h-fit lg:justify-between gap-7">
+                        <div class="lg:w-[70%]">
+                            {{-- <h2 class="pb-3 text-sm font-extrabold font_inter">overview</h2> --}}
+
+                            @if(!empty($data->overview))
+                                <p class="pb-3 text-sm font-light font_inter">{{ $data->overview }}</p>
+                            @else
+                                <p class="pb-3 text-sm font-light lowercase font_inter">We help unlock value through a start-up mindset and modern methods, fusing strategy, consulting and customer experience with agile engineering and problem-solving creativity. United by our core values and our purpose of helping people thrive in the brave pursuit.</p>
+                            @endif
+                        </div>
+
+                        <div class="lg:w-[30%] flex justify-end items-center">
+                            <button  class="viewmorebtn rounded-full px-16 py-2 text-sm border-[2px] font-semibold border-white uppercase font_inter">View More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-content-careers">
+                    <div class="px-5 py-4 text-white lg:px-8 job-decsript">
+                        {!! $data->description !!}
+                    </div>
+                    <div class="accordion-content-careers">
+                        <div class="flex items-center justify-end px-5 py-4">
+                            <!-- Unique Button ID -->
+                            <button id="applyNowBtn" data-job-id="{{$data->id}}"
+                                    class="relative py-2 overflow-hidden font-semibold text-white transition-all duration-500 ease-out border border-white rounded-md font_inter px-7 hover:text-black group applyNowBtn">
+                                <span class="absolute inset-0 transition-transform duration-500 ease-out transform -translate-x-full bg-white group-hover:translate-x-0"></span>
+                                <span class="relative z-10 block font-bold font_inter">Apply now</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endforeach
 
 
+        @else
+        <div class="container flex justify-center w-full h-full px-5 mx-auto text-white xl:px-12">
+            <h2 class="mb-8 font_inter font-semibold text-center text-[25px] md:text-[50px] uppercase w-[50%]">Open positions</h2>
+        </div>
+        <div class="flex items-center justify-center mb-10">
+            <div class="container flex items-center justify-center w-full h-full px-5 mx-auto text-white xl:px-12">
+                <div class="flex items-center justify-center">
+                    <h2 class="px-5 text-sm font-medium text-center text-white capitalize rounded-lg lg:w-1/2 font_inter"><span class="block px-2 mb-3 text-2xl text-white bg-black">At present, we do not have any available positions !!</span>However, we are continuously seeking skilled and talented individuals to join our workforce. We encourage you to visit our careers page regularly or follow us on social media for updates on future job openings</h2>
+                </div>
+            </div>
+        </div>
+        @endif
+    </div>
 
-    {{-- New ends --}}
     <div class="relative">
         <!-- Unique Modal ID -->
         <div id="jobenquirey" class="fixed inset-0 z-50 items-center justify-center hidden bg-gray-800 bg-opacity-50 modalPopup">
@@ -1003,18 +978,6 @@
         } else {
             console.error('Element with ID "applyNowBtn" or "jobenquirey" not found.');
         }
-    });
-
-    document.addEventListener('DOMContentLoaded', function() {
-    const desc = document.querySelector('.career-desc');
-    const toggle = document.querySelector('.read-more');
-    if (!desc || !toggle) return;
-
-    toggle.addEventListener('click', function(e) {
-        e.preventDefault();
-        const isExpanded = desc.classList.toggle('expanded');
-        toggle.textContent = isExpanded ? 'Read less' : 'Read more';
-    });
     });
     </script>
 

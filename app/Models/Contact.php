@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-
+use App\Helpers\RawMailer;
 use App\Mail\ContactMessage;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Mail;
@@ -46,7 +46,7 @@ class Contact extends Model
             ->rawColumns(['action', 'edit', 'delete'])
             ->make(true);
     }
-
+/*
     public static function saveContact($data)
     {
         $value = new Contact;
@@ -74,6 +74,60 @@ class Contact extends Model
         }
         return true;
     }
+    */
+    
+    
+    /**
+     * Save a new contact message and send email via PHP mail().
+     *
+     * @param  object  $data
+     * @return bool
+     */
+    public static function saveContact($data)
+    {
+        // 1) Persist the record
+        $value = new self;
+        $value->name         = $data->name;
+        $value->email        = $data->email;
+        $value->country_code = $data->country;
+        $value->mobile       = $data->mobile;
+        $value->message      = $data->message;
+        $value->save();
+
+        // 2) Prepare data for the view
+        $contactData = [
+            'name'    => $data->name,
+            'email'   => $data->email,
+            'mobile'  => $data->country . ' ' . $data->mobile,
+            'message' => $data->message,
+        ];
+
+        // 3) Find the recipient
+        $recipient = whatsApp::value('email');
+        if (! $recipient) {
+            return true; // nothing to send to
+        }
+
+        // 4) Render the HTML body
+        $subject  = "New contact message from {$data->name}";
+        $htmlBody = view('emails.contact_message', [
+            'contactData' => $contactData,
+        ])->render();
+
+        // 5) Send with RawMailer (no attachments)
+        RawMailer::sendWithAttachments(
+            $recipient,
+            $subject,
+            $htmlBody,
+            []
+        );
+
+        return true;
+    }
+
+    
+    
+    
 
     public static function deleteData($data)
     {

@@ -96,7 +96,9 @@ class Cms extends Model
         $locationData = getLocationData();
         $fileNewPath = $locationData['storage_image_path'] . $filePath;
         //Storage::disk('s3')->put($fileNewPath, file_get_contents($image));
-        Storage::disk('public')->put($fileNewPath, file_get_contents($image));
+        //Storage::disk('public')->put($fileNewPath, file_get_contents($image));
+        Storage::disk('career')->put($filePath, file_get_contents($image));
+
 
         return $filePath;
     }

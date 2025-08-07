@@ -71,6 +71,15 @@ return [
             'root' => storage_path('app/public/assets/small'),
             'throw' => false,
         ],
+        'career' => [
+        'driver'     => 'local',
+        // points at public_html/kgraph_live/storage/assets/uploads
+        'root'       => storage_path('assets/uploads'),
+        'url'        => env('APP_URL').'/storage/assets/uploads',
+        'visibility' => 'public',
+        'throw'      => false,
+        ],
+    
     ],
 
     /*
