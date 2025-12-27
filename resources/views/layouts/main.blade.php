@@ -61,20 +61,107 @@
     {{-- Custom Styles --}}
     <link href="{{ asset('admin/backend/css/custom.css') }}" rel="stylesheet" />
 
+    {{-- Alpine.js for interactivity --}}
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        [x-cloak] { display: none !important; }
+    </style>
+
 </head>
 
 
-<body style="overflow-x: hidden !important; margin: 0; padding: 0;" class="bg-cover !bg-[#041937de] ">
-    @include('frontend.Common.navbar')
+<body style="overflow-x: hidden !important; margin: 0; padding: 0;" class="min-h-screen flex flex-col bg-blue-950 text-white overflow-x-hidden">
+    @include('layouts.partials.header')
+    
     <input type="hidden" id="base-route" value="{{ url('/') }}">
-    <main class="content-container h-full w-full opacity-0 transition-opacity duration-500 ease-in-out">
+    
+    <main class="flex-grow pt-20 content-container transition-opacity duration-500 ease-in-out" role="main">
         @yield('content')
     </main>
 
-    @include('frontend.Common.footer')
+    @include('layouts.partials.footer')
+    
+    {{-- Scroll to Top Button --}}
+    <div 
+        x-data="{ showButton: false }"
+        x-init="
+            window.addEventListener('scroll', () => {
+                showButton = window.scrollY > 400;
+            });
+        "
+        x-show="showButton"
+        x-transition:enter="transition ease-out duration-200"
+        x-transition:enter-start="opacity-0 scale-0"
+        x-transition:enter-end="opacity-100 scale-100"
+        x-transition:leave="transition ease-in duration-150"
+        x-transition:leave-start="opacity-100 scale-100"
+        x-transition:leave-end="opacity-0 scale-0"
+        style="display: none;"
+    >
+        <button
+            @click="window.scrollTo({ top: 0, behavior: 'smooth' })"
+            class="fixed bottom-8 right-8 z-40 w-12 h-12 bg-blue-700 text-white rounded-full shadow-lg hover:bg-blue-600 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-blue-900/50 flex items-center justify-center"
+            aria-label="Scroll to top"
+        >
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+            </svg>
+        </button>
+    </div>
+    
+    {{-- WhatsApp Floating Button --}}
+    @php
+        $whatsapp = \App\Models\whatsApp::first();
+        $whatsappNumber = isset($whatsapp) && $whatsapp->whatsapp ? $whatsapp->whatsapp : '+14169897788';
+        $whatsappMessage = "Hi! I'm interested in learning more about Canadian immigration services.";
+    @endphp
+    <div class="fixed bottom-24 right-8 z-40" x-data="{ showRipple: true }">
+        {{-- Ripple Effect Background --}}
+        <div 
+            class="absolute inset-0 bg-blue-400 rounded-full"
+            x-show="showRipple"
+            style="animation: ripple 2s ease-in-out infinite;"
+        ></div>
+        <div 
+            class="absolute inset-0 bg-blue-400 rounded-full"
+            x-show="showRipple"
+            style="animation: ripple 2s ease-in-out infinite 0.5s;"
+        ></div>
+        
+        {{-- Main Button --}}
+        <a
+            href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $whatsappNumber) }}?text={{ urlencode($whatsappMessage) }}"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="relative w-14 h-14 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-blue-900/50 flex items-center justify-center"
+            aria-label="Contact us on WhatsApp"
+            title="Chat with us on WhatsApp"
+        >
+            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+            </svg>
+        </a>
+    </div>
+    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
     
+    <style>
+        @keyframes ripple {
+            0% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+            50% {
+                transform: scale(1.4);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1.4);
+                opacity: 0;
+            }
+        }
+    </style>
 </body>
 
 
@@ -90,7 +177,16 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
+        // Fade in content on page load
+        const contentContainer = document.querySelector('.content-container');
+        if (contentContainer) {
+            contentContainer.style.opacity = '1';
+        }
+        
+        // GSAP animation if available
+        if (typeof gsap !== 'undefined') {
         gsap.to(".content-container", { opacity: 1, duration: 0.5, ease: "power2.inOut" });
+        }
     });
 </script>
 

@@ -2,6 +2,165 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Prevent layout shift during image transitions */
+section.relative.py-20 {
+    position: relative;
+    overflow: hidden;
+}
+
+section.relative.py-20 .absolute.inset-0[style*="background-image"] {
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+}
+
+@layer base {
+  html {
+    overflow-x: hidden;
+    background-color: #091521;
+  }
+
+  body {
+    overflow-x: hidden;
+    background-color: #091521;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Timeline horizontal scroll override - allow horizontal scrolling */
+  .timeline-section {
+    overflow-x: visible !important;
+  }
+
+  .timeline-scroll-wrapper {
+    overflow-x: auto !important;
+    overflow-y: visible !important;
+  }
+
+  .timeline-scroll-wrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  .timeline-scroll-wrapper {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .button-glow {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .button-glow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: glowSweep 2s ease-in-out infinite;
+  }
+
+  .button-glow:hover::before {
+    animation-play-state: paused;
+    right: 100%;
+    transition: right 0.6s ease-in-out;
+  }
+
+  @keyframes glowSweep {
+    0% {
+      right: -100%;
+    }
+    50% {
+      right: 100%;
+    }
+    100% {
+      right: 100%;
+    }
+  }
+
+  /* Hover scale effect for buttons */
+  .hover\:scale-102:hover {
+    transform: scale(1.02);
+  }
+
+  /* Active scale effect for buttons */
+  .active\:scale-95:active {
+    transform: scale(0.98);
+  }
+
+  /* Fade-in animations */
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fade-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fade-in-scale {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in-left {
+    animation: fade-in-left 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in-right {
+    animation: fade-in-right 0.6s ease-out forwards;
+  }
+
+  .animate-fade-in-scale {
+    animation: fade-in-scale 0.5s ease-out forwards;
+  }
+}
+
 
 
 
@@ -56,7 +215,7 @@ h1,h2,h3,h4,h5,h6,a,p,li,span{
 }
 
 p{
-    text-align: justify;
+    /* text-align: justify; - Removed to allow center alignment */
 }
 .accordion-content{
     text-align: justify;
@@ -194,6 +353,40 @@ width: 100%; /* Expand the underline */
 
 
 
+
+/* Header Navigation Fixes */
+header nav a {
+    white-space: nowrap;
+    display: inline-block;
+}
+
+header .flex.justify-between {
+    gap: 1rem;
+    align-items: center;
+}
+
+header nav {
+    flex-wrap: nowrap;
+    min-width: 0;
+}
+
+@media (min-width: 1024px) {
+    header nav {
+        flex-shrink: 0;
+    }
+    
+    /* Ensure proper spacing between nav items */
+    header nav > a,
+    header nav > div {
+        margin: 0;
+        padding: 0;
+    }
+    
+    /* Prevent overlap */
+    header .max-w-7xl {
+        overflow: visible;
+    }
+}
 
 .nav-link {
     position: relative;

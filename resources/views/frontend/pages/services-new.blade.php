@@ -31,7 +31,7 @@
                     <ul class="space-y-3">
                         @foreach(['Express Entry', 'PNP', 'Family Sponsorship', 'Business/Investor Visa'] as $service)
                             <li>
-                                <a href="{{ $serviceLinks[$service] ?? url('services') }}" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center">
+                                <a href="{{ url('services') }}" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center">
                                     <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
                                     {{ $service }}
                                 </a>
@@ -46,7 +46,7 @@
                     <ul class="space-y-3">
                         @foreach(['PGWP', 'Spouse Open Work Permit', 'Visiting Visa', 'Super Visa'] as $service)
                             <li>
-                                <a href="{{ $serviceLinks[$service] ?? url('services') }}" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center">
+                                <a href="{{ url('services') }}" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center">
                                     <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
                                     {{ $service }}
                                 </a>
@@ -61,7 +61,7 @@
                     <ul class="space-y-3">
                         @foreach(['IAD Appeals', 'Refusal and Reapplication'] as $service)
                             <li>
-                                <a href="{{ $serviceLinks[$service] ?? url('services') }}" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center">
+                                <a href="{{ url('services') }}" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center">
                                     <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
                                     {{ $service }}
                                 </a>
@@ -76,7 +76,7 @@
                     <ul class="space-y-3">
                         @foreach(['RCIP', 'AIP', 'Home Caregiver'] as $service)
                             <li>
-                                <a href="{{ $serviceLinks[$service] ?? url('services') }}" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center">
+                                <a href="{{ url('services') }}" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center">
                                     <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
                                     {{ $service }}
                                 </a>
@@ -99,22 +99,14 @@
     {{-- Services Grid --}}
     <section class="py-16 bg-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            @php
-                // Collect all services from all categories with proper indexing
-                $allServices = collect();
-                if(isset($serviceCategory)) {
-                    foreach($serviceCategory as $category) {
-                        $categoryServices = $category->Service->where('status', 1)->take(6);
-                        foreach($categoryServices as $service) {
-                            $allServices->push($service);
-                        }
-                    }
-                }
-            @endphp
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                @foreach($allServices as $index => $service)
+                @if(isset($serviceCategory))
+                    @foreach($serviceCategory as $category)
+                        @foreach($category->Service->where('status', 1)->take(6) as $index => $service)
                             @include('frontend.Common.service-card', ['service' => $service, 'index' => $index])
                         @endforeach
+                    @endforeach
+                @endif
             </div>
         </div>
     </section>

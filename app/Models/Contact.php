@@ -2,12 +2,11 @@
 
 namespace App\Models;
 use App\Helpers\RawMailer;
-use App\Mail\ContactMessage;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Database\Eloquent\Model;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Storage;
 
 class Contact extends Model
 {
@@ -15,7 +14,7 @@ class Contact extends Model
 
     protected $table = 'contacts';
 
-    protected $fillable = ['email', 'name', 'country_code', 'mobile', 'message', 'order'];
+    protected $fillable = ['email', 'name', 'country_code', 'mobile', 'message', 'order', 'service_of_interest', 'preferred_contact_method'];
 
     public static function getFullData($request)
     {
@@ -87,19 +86,46 @@ class Contact extends Model
     {
         // 1) Persist the record
         $value = new self;
-        $value->name         = $data->name;
+        // Combine first_name and last_name if they exist, otherwise use name
+        $value->name = isset($data->first_name) && isset($data->last_name) 
+            ? trim($data->first_name . ' ' . $data->last_name) 
+            : ($data->name ?? '');
         $value->email        = $data->email;
-        $value->country_code = $data->country;
-        $value->mobile       = $data->mobile;
-        $value->message      = $data->message;
+        // Handle phone - if it's a single field, try to extract country code
+        if (isset($data->phone)) {
+            // If phone starts with +, extract country code
+            $phone = $data->phone;
+            if (strpos($phone, '+') === 0) {
+                // Try to extract country code (assume 1-3 digits after +)
+                preg_match('/^\+(\d{1,3})\s*(.+)$/', $phone, $matches);
+                if (!empty($matches)) {
+                    $value->country_code = '+' . $matches[1];
+                    $value->mobile = $matches[2];
+                } else {
+                    $value->country_code = '+1'; // Default
+                    $value->mobile = str_replace('+', '', $phone);
+                }
+            } else {
+                $value->country_code = $data->country ?? '+1';
+                $value->mobile = $phone;
+            }
+        } else {
+            $value->country_code = $data->country ?? '+1';
+            $value->mobile = $data->mobile ?? '';
+        }
+        $value->message      = $data->message ?? '';
+        $value->service_of_interest = $data->service_of_interest ?? null;
+        $value->preferred_contact_method = $data->preferred_contact_method ?? null;
         $value->save();
 
         // 2) Prepare data for the view
         $contactData = [
-            'name'    => $data->name,
-            'email'   => $data->email,
-            'mobile'  => $data->country . ' ' . $data->mobile,
-            'message' => $data->message,
+            'name'    => $value->name,
+            'email'   => $value->email,
+            'mobile'  => $value->country_code . ' ' . $value->mobile,
+            'message' => $value->message,
+            'service_of_interest' => $value->service_of_interest,
+            'preferred_contact_method' => $value->preferred_contact_method,
         ];
 
         // 3) Find the recipient
@@ -108,18 +134,47 @@ class Contact extends Model
             return true; // nothing to send to
         }
 
-        // 4) Render the HTML body
-        $subject  = "New contact message from {$data->name}";
+        // 4) Handle file uploads and prepare attachment paths
+        $attachmentPaths = [];
+        if ($data->hasFile('file')) {
+            $file = $data->file('file');
+            
+            // Store file using the same method as careers form
+            $filename = Cms::storeImage($file, $value->name);
+            
+            // Get full path for email attachment using Storage disk
+            $fullPath = Storage::disk('career')->path($filename);
+            if (file_exists($fullPath)) {
+                $attachmentPaths[] = $fullPath;
+            }
+        }
+        
+        // Handle multiple files if needed (e.g., documents array)
+        if ($data->hasFile('files')) {
+            foreach ($data->file('files') as $file) {
+                if ($file && $file->isValid()) {
+                    $filename = Cms::storeImage($file, $value->name);
+                    $fullPath = Storage::disk('career')->path($filename);
+                    if (file_exists($fullPath)) {
+                        $attachmentPaths[] = $fullPath;
+                    }
+                }
+            }
+        }
+
+        // 5) Render the HTML body
+        // FIX: Use $value->name instead of $data->name
+        $subject  = "New contact message from {$value->name}";
         $htmlBody = view('emails.contact_message', [
             'contactData' => $contactData,
         ])->render();
 
-        // 5) Send with RawMailer (no attachments)
+        // 6) Send with RawMailer (with attachments)
         RawMailer::sendWithAttachments(
             $recipient,
             $subject,
             $htmlBody,
-            []
+            $attachmentPaths
         );
 
         return true;

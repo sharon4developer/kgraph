@@ -9,6 +9,7 @@ use App\Models\Journey;
 use App\Models\Location;
 use App\Models\OurStory;
 use App\Models\Page;
+use App\Models\WhoWeAre;
 use Illuminate\Http\Request;
 
 class AboutController extends Controller
@@ -23,7 +24,8 @@ class AboutController extends Controller
         $crew = Crew::getFullDataForHome();
         $outMain = Crew::getFullDataForAbout();
 
-        return view('frontend.pages.about',compact('journey','ourStory','locations','aboutUs','seo','crew','outMain'));
+        $whoweare = WhoWeAre::getFullDataForHome();
+        return view('frontend.pages.about-new',compact('journey','ourStory','locations','aboutUs','seo','crew','outMain','whoweare'));
     }
 
     public function crewShow()

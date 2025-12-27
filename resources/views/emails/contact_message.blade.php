@@ -18,8 +18,19 @@
             <p style="color: #555555;"><strong>Name:</strong> {{ $contactData['name'] }}</p>
             <p style="color: #555555;"><strong>Email:</strong> {{ $contactData['email'] }}</p>
             <p style="color: #555555;"><strong>Mobile:</strong> {{ $contactData['mobile'] }}</p>
-            @isset($contactData['message'])<p style="color: #555555;"><strong>Message:</strong></p>
-            <p style="color: #555555;">{{ $contactData['message'] }}</p>@endisset
+            
+            @isset($contactData['service_of_interest'])
+            <p style="color: #555555;"><strong>Service of Interest:</strong> {{ $contactData['service_of_interest'] }}</p>
+            @endisset
+            
+            @isset($contactData['preferred_contact_method'])
+            <p style="color: #555555;"><strong>Preferred Contact Method:</strong> {{ ucfirst($contactData['preferred_contact_method']) }}</p>
+            @endisset
+            
+            @isset($contactData['message'])
+            <p style="color: #555555;"><strong>Message:</strong></p>
+            <p style="color: #555555;">{{ $contactData['message'] }}</p>
+            @endisset
             <div style="text-align: center; margin-top: 20px;">
                 <a href="{{ url('/') }}" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Visit Our Website</a>
             </div>
