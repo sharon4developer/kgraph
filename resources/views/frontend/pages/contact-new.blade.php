@@ -151,7 +151,7 @@
                 </p>
             </div>
             <div class="bg-slate-700 rounded-2xl p-8 border border-slate-600">
-                <form action="{{ route('submit-contact-form') }}" method="POST" class="space-y-6">
+                <form id="contact-form" action="{{ route('submit-contact-form') }}" method="POST" class="space-y-6" enctype="multipart/form-data">
                     @csrf
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
@@ -202,8 +202,9 @@
                         <textarea name="message" rows="5" required class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Tell us about your immigration goals and any specific questions you have..."></textarea>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="w-full px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl">
-                            Book Free Consultation
+                        <button type="submit" id="submit-btn" class="w-full px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed">
+                            <span id="submit-text">Book Free Consultation</span>
+                            <span id="submit-loading" class="hidden">Submitting...</span>
                         </button>
                         <p class="mt-4 text-sm text-slate-400">
                             We'll respond within 24 hours. For urgent matters, call <a href="tel:+14169897788" class="text-blue-400 hover:text-blue-300 underline">+1 416 989 7788</a>
@@ -213,6 +214,207 @@
             </div>
         </div>
     </section>
+
+    {{-- Success Modal Popup --}}
+    <div id="success-modal" class="fixed inset-0 z-50 overflow-hidden hidden" style="display: none;">
+        <!-- Background overlay -->
+        <div class="fixed inset-0 bg-black bg-opacity-50 transition-opacity" onclick="closeSuccessModal()"></div>
+        
+        <!-- Modal container -->
+        <div class="fixed inset-0 flex items-center justify-center px-4 py-4 pointer-events-none">
+            <!-- Modal panel -->
+            <div class="relative bg-white rounded-2xl text-left shadow-2xl transform transition-all w-full max-w-md z-50 pointer-events-auto">
+                <!-- Header -->
+                <div class="bg-gradient-to-r from-green-500 to-green-600 px-6 py-5 flex items-center justify-between rounded-t-2xl">
+                    <h3 class="text-lg font-bold text-white">Success!</h3>
+                    <button onclick="closeSuccessModal()" class="text-white hover:text-green-200 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Content -->
+                <div class="px-6 py-8 text-center">
+                    <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Thank You!</h3>
+                    <p class="text-gray-700 mb-6" id="success-text">Your consultation request has been submitted successfully. We'll get back to you soon!</p>
+                    <button onclick="closeSuccessModal()" class="px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition-colors">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{-- Error Modal Popup --}}
+    <div id="error-modal" class="fixed inset-0 z-50 overflow-hidden hidden" style="display: none;">
+        <!-- Background overlay -->
+        <div class="fixed inset-0 bg-black bg-opacity-50 transition-opacity" onclick="closeErrorModal()"></div>
+        
+        <!-- Modal container -->
+        <div class="fixed inset-0 flex items-center justify-center px-4 py-4 pointer-events-none">
+            <!-- Modal panel -->
+            <div class="relative bg-white rounded-2xl text-left shadow-2xl transform transition-all w-full max-w-md z-50 pointer-events-auto">
+                <!-- Header -->
+                <div class="bg-gradient-to-r from-red-500 to-red-600 px-6 py-5 flex items-center justify-between rounded-t-2xl">
+                    <h3 class="text-lg font-bold text-white">Error</h3>
+                    <button onclick="closeErrorModal()" class="text-white hover:text-red-200 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Content -->
+                <div class="px-6 py-8 text-center">
+                    <div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-10 h-10 text-red-600" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-3">Oops!</h3>
+                    <p class="text-gray-700 mb-6" id="error-text">Something went wrong. Please try again.</p>
+                    <button onclick="closeErrorModal()" class="px-6 py-3 bg-red-600 hover:bg-red-700 text-white rounded-lg font-semibold transition-colors">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function closeSuccessModal() {
+            const modal = document.getElementById('success-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        }
+
+        function closeErrorModal() {
+            const modal = document.getElementById('error-modal');
+            if (modal) {
+                modal.classList.add('hidden');
+                modal.style.display = 'none';
+                document.body.style.overflow = '';
+            }
+        }
+
+        function showSuccessModal(message) {
+            const modal = document.getElementById('success-modal');
+            const successText = document.getElementById('success-text');
+            if (modal && successText) {
+                successText.textContent = message || 'Your consultation request has been submitted successfully. We\'ll get back to you soon!';
+                modal.classList.remove('hidden');
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                
+                // Auto close and refresh after 3 seconds
+                setTimeout(function() {
+                    closeSuccessModal();
+                    window.location.reload();
+                }, 3000);
+            }
+        }
+
+        function showErrorModal(message) {
+            const modal = document.getElementById('error-modal');
+            const errorText = document.getElementById('error-text');
+            if (modal && errorText) {
+                errorText.textContent = message || 'Something went wrong. Please try again.';
+                modal.classList.remove('hidden');
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+        }
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contact-form');
+            
+            if (!form) {
+                console.error('Contact form not found');
+                return;
+            }
+            
+            const submitBtn = document.getElementById('submit-btn');
+            const submitText = document.getElementById('submit-text');
+            const submitLoading = document.getElementById('submit-loading');
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Disable submit button and show loading
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                }
+                if (submitText) submitText.classList.add('hidden');
+                if (submitLoading) submitLoading.classList.remove('hidden');
+                
+                // Get form data
+                const formData = new FormData(form);
+                
+                // Get CSRF token
+                const csrfToken = document.querySelector('input[name="_token"]')?.value;
+                if (csrfToken) {
+                    formData.append('_token', csrfToken);
+                }
+                
+                // Submit via AJAX
+                fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'Accept': 'application/json',
+                    }
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.status === true) {
+                        // Reset form
+                        form.reset();
+                        
+                        // Show success modal popup
+                        showSuccessModal(data.message || 'Your consultation request has been submitted successfully. We\'ll get back to you soon!');
+                    } else {
+                        // Show error modal popup
+                        showErrorModal(data.message || 'Something went wrong. Please try again.');
+                        
+                        // Re-enable submit button
+                        if (submitBtn) submitBtn.disabled = false;
+                        if (submitText) submitText.classList.remove('hidden');
+                        if (submitLoading) submitLoading.classList.add('hidden');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // Show error modal popup
+                    showErrorModal('Something went wrong. Please try again.');
+                    
+                    // Re-enable submit button
+                    if (submitBtn) submitBtn.disabled = false;
+                    if (submitText) submitText.classList.remove('hidden');
+                    if (submitLoading) submitLoading.classList.add('hidden');
+                });
+                
+                return false;
+            });
+        });
+    </script>
 
     {{-- Office Hours --}}
     <section class="py-20 bg-slate-800">
