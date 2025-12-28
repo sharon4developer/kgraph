@@ -87,7 +87,7 @@
                             <img src="{{ $filePath }}" alt="Learn More About Our Team" class="w-full max-w-md h-auto rounded-3xl shadow-2xl">
                         @endif
                     @else
-                        <img src="https://kgraph.ca/storage/assets/uploads/learn-more-about-our-team-33-LxbevsCZg8tU72N.jpg" alt="Learn More About Our Team" class="w-full max-w-md h-auto rounded-3xl shadow-2xl">
+                        <img src="{{ asset('assets/template/learn-more-about-our-team-33-LxbevsCZg8tU72N.jpg') }}" alt="Learn More About Our Team" class="w-full max-w-md h-auto rounded-3xl shadow-2xl">
                     @endif
                 </div>
             </div>
@@ -99,7 +99,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 <div class="order-2 lg:order-1 flex justify-center lg:justify-start opacity-0 animate-fade-in-left" style="animation-fill-mode: forwards;">
-                    <img src="https://kgraph.ca/storage/assets/uploads/mathews-benny-director(1)-FNewO59bME0sVWc.png" alt="Mathews Benny" class="w-full max-w-md h-auto rounded-3xl shadow-2xl">
+                    <img src="{{ asset('assets/template/mathews-benny-director(1)-FNewO59bME0sVWc.png') }}" alt="Mathews Benny" class="w-full max-w-md h-auto rounded-3xl shadow-2xl">
                 </div>
 
                 <div class="order-1 lg:order-2 opacity-0 animate-fade-in-right" style="animation-fill-mode: forwards;">
