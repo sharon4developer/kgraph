@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-use App\Helpers\RawMailer;
+use App\Helpers\UnifiedMailer;
 use App\Models\whatsApp;       
 use App\Mail\EligibilityCheckMail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -164,9 +164,9 @@ class EligibilityCheck extends Model
         whatsApp::value('email'),
     ]);
 
-    // 7) Send via RawMailer
+    // 7) Send via UnifiedMailer (SMTP primary, RawMailer fallback)
     foreach ($recipients as $to) {
-        RawMailer::sendWithAttachments($to, $subject, $htmlBody, $attachments);
+        UnifiedMailer::sendWithAttachments($to, $subject, $htmlBody, $attachments);
     }
 
     return true;

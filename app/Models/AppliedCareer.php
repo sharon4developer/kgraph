@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-use App\Helpers\RawMailer;
+use App\Helpers\UnifiedMailer;
 use Illuminate\Support\Facades\Storage; 
 use App\Mail\CareerApplication;
 use Illuminate\Support\Facades\Gate;
@@ -285,7 +285,7 @@ public static function saveCareerNew($data)
     }
 
     // 6) Send to applicant
-    RawMailer::sendWithAttachments(
+    UnifiedMailer::sendWithAttachments(
         $data->email_n,
         $subject,
         $htmlBody,
@@ -294,9 +294,9 @@ public static function saveCareerNew($data)
 
     // 7) Notify internal team
     $careerEmail = config('services.career_notifications.email');
-    RawMailer::sendWithAttachments(
+    UnifiedMailer::sendWithAttachments(
         $careerEmail,
-        "New application received for “{$jobName}”",
+        "New application received for "{$jobName}"",
         $htmlBody,
         $attachments
     );

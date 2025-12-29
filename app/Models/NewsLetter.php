@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use App\Mail\NewsLetterSubscribed;
+use App\Helpers\UnifiedMailer;
 use Illuminate\Support\Facades\Gate;
-use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Database\Eloquent\Model;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -48,10 +48,24 @@ class NewsLetter extends Model
 
     public static function saveNewsLetter($data)
     {
-        Mail::to($data->news_letter_email)->send(new NewsLetterSubscribed($data->news_letter_email));
         $value = new NewsLetter;
         $value->email = $data->news_letter_email;
-        return $value->save();
+        $value->save();
+
+        // Send confirmation email using UnifiedMailer (SMTP primary, RawMailer fallback)
+        $subject = "Newsletter Subscription Successful";
+        $htmlBody = view('emails.newsletter_subscribed', [
+            'email' => $data->news_letter_email,
+        ])->render();
+
+        UnifiedMailer::sendWithAttachments(
+            $data->news_letter_email,
+            $subject,
+            $htmlBody,
+            [] // No attachments
+        );
+
+        return true;
     }
 
     public static function deleteData($data)

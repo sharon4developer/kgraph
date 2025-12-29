@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Models;
-use App\Helpers\RawMailer;
+use App\Helpers\UnifiedMailer;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Database\Eloquent\Model;
 use Yajra\DataTables\Facades\DataTables;
@@ -169,8 +169,8 @@ class Contact extends Model
             'contactData' => $contactData,
         ])->render();
 
-        // 6) Send with RawMailer (with attachments)
-        RawMailer::sendWithAttachments(
+        // 6) Send with UnifiedMailer (SMTP primary, RawMailer fallback)
+        UnifiedMailer::sendWithAttachments(
             $recipient,
             $subject,
             $htmlBody,
