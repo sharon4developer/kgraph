@@ -177,6 +177,19 @@ class Contact extends Model
             $attachmentPaths
         );
 
+        // 7) Send confirmation email to sender
+        $confirmationSubject = "Thank You for Your Consultation Request - KGraph";
+        $confirmationBody = view('emails.contact_confirmation', [
+            'contactData' => $contactData,
+        ])->render();
+
+        UnifiedMailer::sendWithAttachments(
+            $value->email,
+            $confirmationSubject,
+            $confirmationBody,
+            [] // No attachments for confirmation
+        );
+
         return true;
     }
 

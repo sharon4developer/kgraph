@@ -113,53 +113,6 @@ class AppliedCareer extends Model
             ->make(true);
     }
 
-    public static function saveCareer($data)
-    {
-        $locationData = getLocationData();
-
-        $value = new AppliedCareer;
-        $value->name = $data->name;
-        $value->email = $data->email;
-        $value->country_code = $data->country;
-        $value->mobile = $data->mobile;
-        $value->branch = $data->branch;
-        $value->department = $data->department;
-        // $value->message = $data->message;
-
-        if ($data->resume) {
-            $value->resume = Cms::storeImage($data->resume, $data->name);
-        };
-
-        if ($data->message) {
-            $value->message = Cms::storeImage($data->message, $data->name);
-        };
-
-        $value->save();
-
-        $career = Career::find($data->job_id);
-        $jobName = $career ? $career->title : NULL;
-        $branch = CareerBranch::find($data->branch);
-        $branchName = $branch ? $branch->title : NULL;
-        $department = CareerDepartment::find($data->department);
-        $departmentName = $department ? $department->title : NULL;
-        $emailData = [
-            'name' => $data->name,
-            'email' => $data->email,
-            'mobile' => $data->country . ' ' . $data->mobile,
-            'branchName' => $branchName,
-            'departmentName' => $departmentName,
-            'jobName' => $jobName,
-            'resume' =>  isset($data->resume) ? $data->resume : NULL,
-            'message' =>  isset($data->message) ? $data->message : NULL,
-        ];
-
-        // Send email with resume as attachment
-        Mail::to($data->email)->send(new CareerApplication($emailData, $emailData['resume'], $emailData['message']));
-
-
-
-        return true;
-    }
 /*
     
     //Augest 4 2025 commented to use the simple php mailer function

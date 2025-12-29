@@ -91,7 +91,6 @@ Route::get('test-email', [EmailTestController::class, 'show'])->name('test-email
 Route::post('test-email', [EmailTestController::class, 'send'])->name('test-email.send');
 Route::post('submit-news-letter', [NewsLetterController::class, 'submitNewsLetter'])->name('submit-news-letter');
 Route::post('submit-contact-form', [NewsLetterController::class, 'submitContact'])->name('submit-contact-form');
-Route::post('submit-career-form', [NewsLetterController::class, 'submitCareer'])->name('submit-career-form');
 Route::get('blog-details/{slug}', [FrontEndBlogController::class, 'blogDetails']);
 Route::post('submit-eligibility-form', [NewsLetterController::class, 'submitEligibility'])->name('submit-eligibility-form');
 Route::get('eligibility-check', [FrontEndServiceController::class, 'eligibilityCheck']);
