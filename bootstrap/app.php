@@ -13,6 +13,11 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
+        // Exclude test-email route from CSRF verification for testing purposes
+        $middleware->validateCsrfTokens(except: [
+            'test-email',
+            'test-email/*',
+        ]);
 
         // $middleware->append(Authenticate::class);
     })
