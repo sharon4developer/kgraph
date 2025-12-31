@@ -12,9 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('banners', function (Blueprint $table) {
-            $table->string('badge_text')->nullable()->after('sub_title');
-            $table->longText('description')->nullable()->after('badge_text');
-            // Change sub_title from string to longText to support rich HTML content
+            // Add new columns
+            if (!Schema::hasColumn('banners', 'badge_text')) {
+                $table->string('badge_text')->nullable()->after('sub_title');
+            }
+            if (!Schema::hasColumn('banners', 'description')) {
+                $table->longText('description')->nullable()->after('badge_text');
+            }
+        });
+        
+        // Change sub_title column type separately to avoid issues
+        Schema::table('banners', function (Blueprint $table) {
             $table->longText('sub_title')->nullable()->change();
         });
     }
