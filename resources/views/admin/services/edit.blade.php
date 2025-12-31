@@ -15,8 +15,8 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="sub_title">Select Category</label>
-                                        <select class="form-select" name="service_category_id">
+                                        <label class="form-label" for="service_category_id">Select Category</label>
+                                        <select class="form-select" id="service_category_id" name="service_category_id">
                                             <option value="" selected disabled>---Select---</option>
                                             @foreach ($serviceCategories as $category)
                                                 <option value="{{ $category->id }}"
@@ -65,7 +65,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="title">Alt Tag</label>
+                                        <label class="form-label" for="alt_tag">Alt Tag</label>
                                         <input type="text" class="form-control" id="alt_tag" name="alt_tag"
                                             placeholder="Alt Tag" required value="{{ $data->alt_tag }}">
                                         <div class="valid-feedback">
@@ -76,7 +76,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="ckeditor-classic">Description</label>
+                                        <label class="form-label" for="summernote">Description</label>
                                         <?php
                                         if (isset($data)) {
                                             $description = $data->description;
@@ -85,7 +85,7 @@
                                         }
                                         ?>
                                         <input type="hidden" value="{{ $description }}" id="text-content">
-                                        <div id="summernote" name="content"></div>
+                                        <div id="summernote" name="content" role="textbox" aria-label="Description editor"></div>
                                         {{-- <div id="ckeditor-classic">@isset($data){!! $data->description !!}@endisset</div> --}}
                                         <div class="valid-feedback">
                                         </div>
@@ -101,7 +101,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="sub_title">Image</label>
+                                        <label class="form-label" for="image">Image</label>
                                         <input type="file" accept=".png, .jpg, .jpeg,.webp" class="form-control"
                                             id="image" name="image">
                                         <div class="valid-feedback">
@@ -112,7 +112,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="title">Banner Alt Tag</label>
+                                        <label class="form-label" for="banner_image_alt_tag">Banner Alt Tag</label>
                                         <input type="text" class="form-control" id="banner_image_alt_tag"
                                             name="banner_image_alt_tag" placeholder="Banner Alt Tag" required
                                             value="{{ $data->banner_image_alt_tag }}">
@@ -124,7 +124,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="sub_title">Banner Image</label>
+                                        <label class="form-label" for="banner_image">Banner Image</label>
                                         <input type="file" accept=".png, .jpg, .jpeg,.webp" class="form-control"
                                             id="banner_image" name="banner_image">
                                         <div class="valid-feedback">
@@ -134,8 +134,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Previous Image</label>
-                                    <div class="avatar-preview">
+                                    <label for="previous_image_preview">Previous Image</label>
+                                    <div class="avatar-preview" id="previous_image_preview">
                                         <img class="previous-image"
                                             src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"
                                             alt="profile-image"
@@ -145,8 +145,8 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Previous Banner Image</label>
-                                    <div class="avatar-preview">
+                                    <label for="previous_banner_image_preview">Previous Banner Image</label>
+                                    <div class="avatar-preview" id="previous_banner_image_preview">
                                         <img class="previous-image"
                                             src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->banner_image }}"
                                             alt="profile-image"

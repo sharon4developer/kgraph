@@ -13,8 +13,8 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="sub_title">Select Category</label>
-                                        <select class="form-select" name="service_category_id">
+                                        <label class="form-label" for="service_category_id">Select Category</label>
+                                        <select class="form-select" id="service_category_id" name="service_category_id">
                                             <option value="" selected disabled>---Select---</option>
                                             @foreach ($serviceCategories as $category)
                                                 <option value="{{ $category->id }}">{{ $category->title }}</option>
@@ -61,7 +61,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="title">Alt Tag</label>
+                                        <label class="form-label" for="alt_tag">Alt Tag</label>
                                         <input type="text" class="form-control" id="alt_tag" name="alt_tag"
                                             placeholder="Alt Tag" required>
                                         <div class="valid-feedback">
@@ -72,8 +72,8 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="ckeditor-classic">Description</label>
-                                        <div id="summernote" name="content"></div>
+                                        <label class="form-label" for="summernote">Description</label>
+                                        <div id="summernote" name="content" role="textbox" aria-label="Description editor"></div>
                                         <div class="valid-feedback">
                                         </div>
                                     </div>
@@ -88,7 +88,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="sub_title">Image</label>
+                                        <label class="form-label" for="image">Image</label>
                                         <input type="file" accept=".png, .jpg, .jpeg,.webp" class="form-control"
                                             id="image" name="image" required>
                                         <div class="valid-feedback">
@@ -99,7 +99,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="title">Banner Alt Tag</label>
+                                        <label class="form-label" for="banner_image_alt_tag">Banner Alt Tag</label>
                                         <input type="text" class="form-control" id="banner_image_alt_tag"
                                             name="banner_image_alt_tag" placeholder="Banner Alt Tag" required>
                                         <div class="valid-feedback">
@@ -110,7 +110,7 @@
                             <div class="col-md-6">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="sub_title">Banner Image</label>
+                                        <label class="form-label" for="banner_image">Banner Image</label>
                                         <input type="file" accept=".png, .jpg, .jpeg,.webp" class="form-control"
                                             id="banner_image" name="banner_image" required>
                                         <div class="valid-feedback">

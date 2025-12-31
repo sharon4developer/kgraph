@@ -13,7 +13,7 @@ class Banner extends Model
 
     protected $table = 'banners';
 
-    protected $fillable = ['title', 'sub_title', 'image', 'intervention_image', 'status','order','alt_tag'];
+    protected $fillable = ['title', 'sub_title', 'badge_text', 'description', 'image', 'intervention_image', 'status','order','alt_tag'];
 
     public static function getFullData($data)
     {
@@ -23,6 +23,10 @@ class Banner extends Model
 
         return DataTables::of($value)
             ->editColumn('image', function ($row) use($locationData) {
+                // Check if image is external URL or local path
+                if (str_starts_with($row->image, 'http://') || str_starts_with($row->image, 'https://')) {
+                    return $row->image;
+                }
                 return $locationData['storage_server_path'].$locationData['storage_image_path'].$row->image;
             })
             ->addIndexColumn()
@@ -34,7 +38,9 @@ class Banner extends Model
     {
         $value = new Banner;
         $value->title        = $data->title;
-        $value->sub_title  = $data->sub_title;
+        $value->sub_title  = $data->sub_title ?? null;
+        $value->badge_text  = $data->badge_text ?? null;
+        $value->description  = $data->description ?? null;
         $value->alt_tag           =  $data->alt_tag;
         if ($data->image) {
             $value->image = Cms::storeImage($data->image, $data->title);
@@ -55,7 +61,9 @@ class Banner extends Model
     {
         $value = Banner::find($data->banner_id);
         $value->title        = $data->title;
-        $value->sub_title  = $data->sub_title;
+        $value->sub_title  = $data->sub_title ?? null;
+        $value->badge_text  = $data->badge_text ?? null;
+        $value->description  = $data->description ?? null;
         $value->alt_tag           =  $data->alt_tag;
         if ($data->image) {
             $value->image = Cms::storeImage($data->image, $data->title);
@@ -88,7 +96,7 @@ class Banner extends Model
     }
 
     public static function getFullDataForHome(){
-        return SELF::select('image','id','title','sub_title','alt_tag')->orderBy('order','asc')->where('status',1)->get();
+        return SELF::select('image','id','title','sub_title','badge_text','description','alt_tag')->orderBy('order','asc')->where('status',1)->get();
     }
 
     public static function updateOrder($data)

@@ -27,6 +27,7 @@ class HomeController extends Controller
     {
         $banner = Banner::getFullDataForHome();
         $serviceCategory = ServiceCategory::getFullDataForHome();
+        $services = Service::getFullDataForHome(); // Load services with ServicePoint relationship
         $whoweare = WhoWeAre::getFullDataForHome();
         $journey = Journey::getFullDataForHome();
         $certificate = Certificate::getFullDataForHome();
@@ -38,7 +39,7 @@ class HomeController extends Controller
         $home = Home::getFullDataForHome();
         $icons = Icon::getFullDataForHome();
 
-        return view('frontend.pages.home', compact('certificate', 'testimonials', 'seo', 'banner', 'serviceCategory', 'whoweare', 'journey', 'blogs', 'explore', 'faqs', 'home', 'icons'));
+        return view('frontend.pages.home-new', compact('certificate', 'testimonials', 'seo', 'banner', 'serviceCategory', 'services', 'whoweare', 'journey', 'blogs', 'explore', 'faqs', 'home', 'icons'));
     }
 
     function convertHtml()

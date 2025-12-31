@@ -38,7 +38,7 @@ class BannerController extends Controller
                 $response=[
                     'status'=>true,
                     'message'=>'Saved successfully...',
-                    'return_url'=>'/admin/banners',
+                    'return_url'=>url('admin/banners'),
                 ];
             }else{
                 $response=[
@@ -87,7 +87,7 @@ class BannerController extends Controller
                 $response=[
                     'status'=>true,
                     'message'=>'Saved successfully...',
-                    'return_url'=>'/admin/banners',
+                    'return_url'=>url('admin/banners'),
                 ];
             }else{
                 $response=[

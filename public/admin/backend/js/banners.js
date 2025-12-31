@@ -40,9 +40,12 @@ function loadDataTableForBanners() {
             { data: 'DT_RowIndex', orderable: false, searchable: false },
             { data: 'title' },
             {
-                data: null,
-                render: function (row) {
-                    return `<img class="table-img" src=` + row.image + `>`;
+                data: 'image',
+                render: function (data, type, row) {
+                    if (data) {
+                        return `<img class="table-img" src="` + data + `" alt="Banner Image" style="max-width: 100px; height: auto;">`;
+                    }
+                    return '<span class="text-muted">No Image</span>';
                 },
                 orderable: false,
                 searchable: false,
@@ -108,12 +111,369 @@ function loadDataTableForBanners() {
     });
 }
 
+// Initialize Quill editors
+var quillSubTitle, quillDescription;
+
+// Make function globally accessible
+window.initializeQuillEditors = function initializeQuillEditors() {
+    console.log('=== Starting Quill initialization ===');
+    console.log('Quill available:', typeof Quill !== 'undefined');
+    
+    // CRITICAL: Wait for Quill to be available
+    if (typeof Quill === 'undefined') {
+        console.log('Quill not loaded yet, retrying in 200ms...');
+        setTimeout(initializeQuillEditors, 200);
+        return;
+    }
+    
+    // Verify Quill is actually a constructor
+    if (typeof Quill !== 'function') {
+        console.error('Quill is not a function:', typeof Quill);
+        setTimeout(initializeQuillEditors, 200);
+        return;
+    }
+
+    // Check if editors exist on page
+    var subTitleEditor = document.getElementById('sub_title_editor');
+    var descriptionEditor = document.getElementById('description_editor');
+    
+    console.log('Sub title editor element found:', !!subTitleEditor);
+    console.log('Description editor element found:', !!descriptionEditor);
+    
+    if (!subTitleEditor && !descriptionEditor) {
+        console.log('Editor elements not found on page, retrying...');
+        setTimeout(initializeQuillEditors, 200);
+        return;
+    }
+
+    var toolbarOptions = [
+        [{ 'header': [1, 2, 3, false] }],
+        ['bold', 'italic', 'underline', 'strike'],
+        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+        [{ 'color': [] }, { 'background': [] }],
+        [{ 'align': [] }],
+        [{ lineHeight: ["1", "1.5", "2", "2.5", "3", "4"] }],
+        ["link", "image", "video"],
+        ["clean"],
+    ];
+
+    // Initialize Quill editor for sub_title
+    if (subTitleEditor && !quillSubTitle) {
+        // Check if already initialized
+        if (subTitleEditor.querySelector('.ql-container') || subTitleEditor.querySelector('.ql-toolbar')) {
+            console.log('Sub title editor already initialized, skipping...');
+            return;
+        }
+        
+        try {
+            // Clear any existing content
+            subTitleEditor.innerHTML = '';
+            
+            console.log('Creating new Quill instance for sub_title with element:', subTitleEditor);
+            console.log('Quill constructor:', typeof Quill);
+            
+            quillSubTitle = new Quill('#sub_title_editor', {
+                theme: "snow",
+                modules: {
+                    toolbar: toolbarOptions,
+                },
+                placeholder: "Enter content...",
+            });
+            
+            console.log('Quill instance created successfully:', !!quillSubTitle);
+            console.log('Quill root element:', quillSubTitle.root);
+            console.log('Quill container exists:', !!quillSubTitle.container);
+
+            // Load content - prioritize JavaScript variable, then hidden input
+            var contentToLoad = '';
+            if (typeof subTitleContent !== 'undefined' && subTitleContent && subTitleContent.trim() !== '') {
+                contentToLoad = subTitleContent;
+                console.log('Loading sub_title from JavaScript variable, length:', contentToLoad.length);
+            } else {
+                var hiddenInput = document.getElementById('sub_title');
+                if (hiddenInput && hiddenInput.value && hiddenInput.value.trim() !== '') {
+                    // Decode HTML entities from hidden input
+                    var tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = hiddenInput.value;
+                    contentToLoad = tempDiv.textContent || tempDiv.innerText || hiddenInput.value;
+                    console.log('Loading sub_title from hidden input, length:', contentToLoad.length);
+                }
+            }
+
+            if (contentToLoad) {
+                console.log('Setting sub_title content:', contentToLoad.substring(0, 50) + '...');
+                // Convert plain text to HTML if needed
+                var htmlContent = contentToLoad.trim();
+                
+                // If content doesn't start with <, it's plain text - wrap it in <p> tags
+                if (!htmlContent.startsWith('<')) {
+                    htmlContent = '<p>' + htmlContent + '</p>';
+                }
+                
+                // Set content using Quill's API - use the simplest method that works
+                setTimeout(function() {
+                    try {
+                        // Method 1: Use dangerouslyPasteHTML (most reliable)
+                        quillSubTitle.clipboard.dangerouslyPasteHTML(htmlContent);
+                        console.log('Content set using dangerouslyPasteHTML');
+                    } catch (e) {
+                        console.log('Error with dangerouslyPasteHTML, trying setContents:', e);
+                        try {
+                            // Method 2: Convert to Delta and set
+                            var delta = quillSubTitle.clipboard.convert(htmlContent);
+                            quillSubTitle.setContents(delta, 'silent');
+                            console.log('Content set using setContents with Delta');
+                        } catch (e2) {
+                            console.log('Error with setContents, trying innerHTML:', e2);
+                            try {
+                                // Method 3: Direct innerHTML (fallback)
+                                quillSubTitle.root.innerHTML = htmlContent;
+                                console.log('Content set using innerHTML');
+                            } catch (e3) {
+                                console.error('All methods failed:', e3);
+                            }
+                        }
+                    }
+                    
+                    // Update hidden input with the actual Quill content
+                    var hiddenInput = document.getElementById('sub_title');
+                    if (hiddenInput) {
+                        hiddenInput.value = quillSubTitle.root.innerHTML;
+                    }
+                    
+                    console.log('Sub title content loaded. Editor has content:', quillSubTitle.root.innerHTML.length > 0);
+                    console.log('Sub title editor root innerHTML:', quillSubTitle.root.innerHTML.substring(0, 150));
+                }, 100);
+            } else {
+                console.log('No content to load for sub_title');
+            }
+
+            // Sync changes back to hidden input
+            quillSubTitle.on("text-change", function () {
+                var hiddenInput = document.getElementById('sub_title');
+                if (hiddenInput) {
+                    hiddenInput.value = quillSubTitle.root.innerHTML;
+                }
+            });
+
+            console.log('Sub title editor initialized successfully. Is editable:', !quillSubTitle.isEnabled());
+        } catch (e) {
+            console.error('Error initializing sub_title editor:', e);
+            console.error('Stack trace:', e.stack);
+        }
+    }
+
+    // Initialize Quill editor for description
+    if (descriptionEditor && !quillDescription) {
+        // Check if already initialized
+        if (descriptionEditor.querySelector('.ql-container') || descriptionEditor.querySelector('.ql-toolbar')) {
+            console.log('Description editor already initialized, skipping...');
+            return;
+        }
+        
+        try {
+            // Clear any existing content
+            descriptionEditor.innerHTML = '';
+            
+            console.log('Creating new Quill instance for description with element:', descriptionEditor);
+            
+            quillDescription = new Quill('#description_editor', {
+                theme: "snow",
+                modules: {
+                    toolbar: toolbarOptions,
+                },
+                placeholder: "Enter description...",
+            });
+            
+            console.log('Quill instance created successfully:', !!quillDescription);
+            console.log('Quill root element:', quillDescription.root);
+            console.log('Quill container exists:', !!quillDescription.container);
+
+            // Load content - prioritize JavaScript variable, then hidden input
+            var contentToLoad = '';
+            if (typeof descriptionContent !== 'undefined' && descriptionContent && descriptionContent.trim() !== '') {
+                contentToLoad = descriptionContent;
+                console.log('Loading description from JavaScript variable, length:', contentToLoad.length);
+            } else {
+                var hiddenInput = document.getElementById('description');
+                if (hiddenInput && hiddenInput.value && hiddenInput.value.trim() !== '') {
+                    // Decode HTML entities from hidden input
+                    var tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = hiddenInput.value;
+                    contentToLoad = tempDiv.textContent || tempDiv.innerText || hiddenInput.value;
+                    console.log('Loading description from hidden input, length:', contentToLoad.length);
+                }
+            }
+
+            if (contentToLoad) {
+                console.log('Setting description content:', contentToLoad.substring(0, 50) + '...');
+                // Convert plain text to HTML if needed
+                var htmlContent = contentToLoad.trim();
+                
+                // If content doesn't start with <, it's plain text - wrap it in <p> tags
+                if (!htmlContent.startsWith('<')) {
+                    htmlContent = '<p>' + htmlContent + '</p>';
+                }
+                
+                // Set content using Quill's API - use the simplest method that works
+                setTimeout(function() {
+                    try {
+                        // Method 1: Use dangerouslyPasteHTML (most reliable)
+                        quillDescription.clipboard.dangerouslyPasteHTML(htmlContent);
+                        console.log('Content set using dangerouslyPasteHTML');
+                    } catch (e) {
+                        console.log('Error with dangerouslyPasteHTML, trying setContents:', e);
+                        try {
+                            // Method 2: Convert to Delta and set
+                            var delta = quillDescription.clipboard.convert(htmlContent);
+                            quillDescription.setContents(delta, 'silent');
+                            console.log('Content set using setContents with Delta');
+                        } catch (e2) {
+                            console.log('Error with setContents, trying innerHTML:', e2);
+                            try {
+                                // Method 3: Direct innerHTML (fallback)
+                                quillDescription.root.innerHTML = htmlContent;
+                                console.log('Content set using innerHTML');
+                            } catch (e3) {
+                                console.error('All methods failed:', e3);
+                            }
+                        }
+                    }
+                    
+                    // Update hidden input with the actual Quill content
+                    var hiddenInput = document.getElementById('description');
+                    if (hiddenInput) {
+                        hiddenInput.value = quillDescription.root.innerHTML;
+                    }
+                    
+                    console.log('Description content loaded. Editor has content:', quillDescription.root.innerHTML.length > 0);
+                    console.log('Description editor root innerHTML:', quillDescription.root.innerHTML.substring(0, 150));
+                }, 100);
+            } else {
+                console.log('No content to load for description');
+            }
+
+            // Sync changes back to hidden input
+            quillDescription.on("text-change", function () {
+                var hiddenInput = document.getElementById('description');
+                if (hiddenInput) {
+                    hiddenInput.value = quillDescription.root.innerHTML;
+                }
+            });
+
+            console.log('Description editor initialized successfully. Is editable:', !quillDescription.isEnabled());
+        } catch (e) {
+            console.error('Error initializing description editor:', e);
+            console.error('Stack trace:', e.stack);
+        }
+    }
+    
+    console.log('=== Quill initialization complete ===');
+};
+
+// Simple, direct initialization that waits for everything
+(function() {
+    console.log('=== Banners.js loaded ===');
+    console.log('Quill available:', typeof Quill !== 'undefined');
+    console.log('Quill is function:', typeof Quill === 'function');
+    console.log('initializeQuillEditors function exists:', typeof initializeQuillEditors === 'function');
+    console.log('Document ready:', document.readyState);
+    
+    var initialized = false;
+    
+    function waitAndInit() {
+        if (initialized) {
+            console.log('Already initialized, skipping...');
+            return;
+        }
+        
+        // Check all requirements
+        var quillReady = typeof Quill !== 'undefined' && typeof Quill === 'function';
+        var subTitleEl = document.getElementById('sub_title_editor');
+        var descEl = document.getElementById('description_editor');
+        var elementsReady = !!(subTitleEl || descEl);
+        var initFunctionReady = typeof initializeQuillEditors === 'function';
+        
+        console.log('=== Check Status ===');
+        console.log('Quill ready:', quillReady);
+        console.log('Elements ready:', elementsReady);
+        console.log('sub_title_editor exists:', !!subTitleEl);
+        console.log('description_editor exists:', !!descEl);
+        console.log('initFunction ready:', initFunctionReady);
+        
+        // Check if Quill is already initialized (to prevent double initialization)
+        var alreadyInitialized = false;
+        if (subTitleEl && (subTitleEl.querySelector('.ql-container') || subTitleEl.querySelector('.ql-toolbar'))) {
+            alreadyInitialized = true;
+        }
+        if (descEl && (descEl.querySelector('.ql-container') || descEl.querySelector('.ql-toolbar'))) {
+            alreadyInitialized = true;
+        }
+        
+        if (alreadyInitialized) {
+            console.log('Quill editors already initialized, skipping banners.js initialization');
+            initialized = true;
+            return;
+        }
+        
+        if (quillReady && elementsReady && initFunctionReady) {
+            console.log('✓ All ready! Calling initializeQuillEditors()...');
+            initialized = true;
+            try {
+                initializeQuillEditors();
+                console.log('✓ initializeQuillEditors() called successfully');
+            } catch (e) {
+                console.error('✗ Error in initializeQuillEditors:', e);
+                console.error('Error message:', e.message);
+                console.error('Stack:', e.stack);
+                initialized = false; // Allow retry on error
+            }
+        } else {
+            // Retry after a short delay (max 50 attempts = 5 seconds)
+            var attempts = waitAndInit.attempts || 0;
+            waitAndInit.attempts = attempts + 1;
+            if (attempts < 50) {
+                setTimeout(waitAndInit, 100);
+            } else {
+                console.error('✗ Failed to initialize after 50 attempts');
+                console.error('Final status - Quill:', quillReady, 'Elements:', elementsReady, 'Function:', initFunctionReady);
+            }
+        }
+    }
+    
+    // Start checking immediately
+    console.log('Starting initialization check...');
+    waitAndInit();
+    
+    // Also try when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOMContentLoaded event fired');
+            waitAndInit();
+        });
+    } else {
+        console.log('DOM already ready, trying immediately...');
+        setTimeout(waitAndInit, 100);
+    }
+    
+    // Also try when window loads
+    window.addEventListener('load', function() {
+        console.log('Window load event fired');
+        setTimeout(waitAndInit, 200);
+    });
+    
+    // jQuery fallback
+    if (typeof jQuery !== 'undefined') {
+        jQuery(document).ready(function() {
+            console.log('jQuery ready fired');
+            waitAndInit();
+        });
+    }
+})();
+
 $('#banner-add-form').validate({
     rules: {
         title: {
-            required: true,
-        },
-        sub_title: {
             required: true,
         },
         image: {
@@ -122,11 +482,17 @@ $('#banner-add-form').validate({
     },
     messages: {
         title: "Title field is required",
-        sub_title: "Sub title field is required",
         image: "Image field is required",
     },
     errorElement: 'span',
     submitHandler: function (form, event) {
+        // Update hidden inputs with Quill content before submission
+        if (quillSubTitle) {
+            $('#sub_title').val(quillSubTitle.root.innerHTML);
+        }
+        if (quillDescription) {
+            $('#description').val(quillDescription.root.innerHTML);
+        }
         //
         var formData = new FormData($(form)[0]);
         $('.error').html('');
@@ -198,20 +564,22 @@ $('#banner-edit-form').validate({
         title: {
             required: true,
         },
-        sub_title: {
-            required: true,
-        },
         banner_id: {
             required: true,
         },
     },
     messages: {
         title: "Title field is required",
-        sub_title: "Sub title field is required",
-        image: "Image field is required",
     },
     errorElement: 'span',
     submitHandler: function (form, event) {
+        // Update hidden inputs with Quill content before submission
+        if (quillSubTitle) {
+            $('#sub_title').val(quillSubTitle.root.innerHTML);
+        }
+        if (quillDescription) {
+            $('#description').val(quillDescription.root.innerHTML);
+        }
         //
         var formData = new FormData($(form)[0]);
         $('.error').html('');
