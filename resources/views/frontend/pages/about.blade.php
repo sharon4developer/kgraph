@@ -13,10 +13,10 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">About KGraph Immigration</h1>
             <p class="text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto mb-8">
-                For over 12 years, we've been helping individuals and families achieve their Canadian dream through expert immigration guidance, personalized service, and unwavering commitment to success.
+                For over 10 years, we've been helping individuals and families achieve their Canadian dream through expert immigration guidance, personalized service, and unwavering commitment to success.
             </p>
             <div class="inline-flex items-center px-6 py-3 bg-blue-900 text-blue-300 rounded-full font-medium">
-                🇨🇦 Your Trusted Immigration Partner Since 2012
+                🇨🇦 Your Trusted Immigration Partner Since 2015
             </div>
         </div>
     </section>
@@ -50,7 +50,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="text-center">
-                    <div class="text-3xl font-bold text-white mb-2">{{ $journeyData->experience ?? '12' }}+</div>
+                    <div class="text-3xl font-bold text-white mb-2">{{ $journeyData->experience ?? '10' }}+</div>
                     <div class="text-blue-300">Years Experience</div>
                 </div>
                 <div class="text-center">

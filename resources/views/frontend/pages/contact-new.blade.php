@@ -12,59 +12,48 @@
 <div class="min-h-screen">
     {{-- Hero Section --}}
     <section class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-20">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div class="opacity-0 animate-fade-in-up" style="animation-fill-mode: forwards;">
                 <h1 class="text-4xl md:text-5xl font-bold text-white mb-6">
                     Get in Touch with KGraph Immigration
                 </h1>
-                <p class="text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto mb-8">
+                <p class="text-xl text-slate-300 leading-relaxed mb-8">
                     Gateway to a New Life in Canada
                 </p>
-                <p class="text-lg text-slate-300 leading-relaxed max-w-3xl mx-auto mb-8">
+                <p class="text-lg text-slate-300 leading-relaxed mb-8">
                     We understand that navigating the immigration process can be complex and overwhelming. Whether you're looking to study, work, visit, or settle in Canada, the team at KGraph Immigration is here to support you every step of the way. We are committed to providing expert advice, personalized guidance, and tailored solutions to meet your unique immigration needs. With years of experience in the field, our immigration consultants are well-equipped to help you understand your options, prepare your applications, and overcome any challenges that may arise along the way. At KGraph Immigration, we pride ourselves on offering the highest level of service, ensuring that your immigration journey is as smooth and stress-free as possible. Reach out to us today for a consultation, and let us help you take the next step toward your new life in Canada.
                 </p>
 
-                <div class="max-w-5xl mx-auto mt-16">
-                    <h2 class="text-3xl font-bold text-white mb-4 text-center">Our Team Identity</h2>
-                    <p class="text-slate-300 text-center mb-10 max-w-2xl mx-auto">
-                        Specialized expertise across all immigration pathways to make your Canadian dream a reality
-                    </p>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {{-- Study Permits --}}
-                        <div class="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-8 border border-slate-600 hover:border-blue-500 transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/20 opacity-0 animate-fade-in-up" style="animation-delay: 0.1s; animation-fill-mode: forwards;">
-                            <div class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                                @include('frontend.icons.book-open', ['class' => 'w-7 h-7 text-white'])
+                <div class="mt-10 mb-8">
+                    <h2 class="text-2xl font-bold text-white mb-6 text-center">Our Team Identity</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl mx-auto text-left">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <div>
+                                <p class="text-white font-semibold mb-1">Study Permits:</p>
+                                <p class="text-slate-300 text-sm">Assistance with securing study permits for international students wishing to study in Canada.</p>
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-3">Study Permits</h3>
-                            <p class="text-slate-300 leading-relaxed">Assistance with securing study permits for international students wishing to study in Canada.</p>
                         </div>
-
-                        {{-- Work Permits --}}
-                        <div class="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-8 border border-slate-600 hover:border-blue-500 transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/20 opacity-0 animate-fade-in-up" style="animation-delay: 0.2s; animation-fill-mode: forwards;">
-                            <div class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                                @include('frontend.icons.briefcase', ['class' => 'w-7 h-7 text-white'])
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <div>
+                                <p class="text-white font-semibold mb-1">Work Permits:</p>
+                                <p class="text-slate-300 text-sm">Guidance for obtaining temporary or permanent work permits for skilled workers, entrepreneurs, and other professionals.</p>
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-3">Work Permits</h3>
-                            <p class="text-slate-300 leading-relaxed">Guidance for obtaining temporary or permanent work permits for skilled workers, entrepreneurs, and other professionals.</p>
                         </div>
-
-                        {{-- Permanent Residency --}}
-                        <div class="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-8 border border-slate-600 hover:border-blue-500 transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/20 opacity-0 animate-fade-in-up" style="animation-delay: 0.3s; animation-fill-mode: forwards;">
-                            <div class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                                @include('frontend.icons.home', ['class' => 'w-7 h-7 text-white'])
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <div>
+                                <p class="text-white font-semibold mb-1">Permanent Residency:</p>
+                                <p class="text-slate-300 text-sm">Expert advice on applying for Canadian Permanent Residency through Express Entry, Provincial Nominee Programs (PNPs), and other pathways.</p>
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-3">Permanent Residency</h3>
-                            <p class="text-slate-300 leading-relaxed">Expert advice on applying for Canadian Permanent Residency through Express Entry, Provincial Nominee Programs (PNPs), and other pathways.</p>
                         </div>
-
-                        {{-- Family Sponsorship --}}
-                        <div class="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-8 border border-slate-600 hover:border-blue-500 transition-all duration-300 hover:shadow-lg hover:shadow-blue-900/20 opacity-0 animate-fade-in-up" style="animation-delay: 0.4s; animation-fill-mode: forwards;">
-                            <div class="w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center mb-4 shadow-lg">
-                                @include('frontend.icons.users-group', ['class' => 'w-7 h-7 text-white'])
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
+                            <div>
+                                <p class="text-white font-semibold mb-1">Family Sponsorship:</p>
+                                <p class="text-slate-300 text-sm">Helping Canadian citizens and permanent residents sponsor their loved ones for reunification in Canada.</p>
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-3">Family Sponsorship</h3>
-                            <p class="text-slate-300 leading-relaxed">Helping Canadian citizens and permanent residents sponsor their loved ones for reunification in Canada.</p>
                         </div>
                     </div>
                 </div>
@@ -76,73 +65,8 @@
         </div>
     </section>
 
-    {{-- Contact Methods --}}
-    <section class="py-20 bg-slate-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-white mb-4">
-                    Multiple Ways to Reach Us
-                </h2>
-                <p class="text-slate-300 max-w-2xl mx-auto">
-                    Choose the contact method that works best for you. We're committed to responding 
-                    quickly and providing the support you need.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {{-- Call Us --}}
-                <div class="bg-slate-700 rounded-2xl p-8 text-center hover:shadow-md transition-shadow border border-slate-600 opacity-0 animate-fade-in-up" style="animation-delay: 0s; animation-fill-mode: forwards;">
-                    <div class="w-16 h-16 bg-slate-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm">
-                        @include('frontend.icons.phone', ['class' => 'w-6 h-6 text-blue-600'])
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Call Us</h3>
-                    <p class="text-slate-300 mb-4">Speak directly with our immigration experts</p>
-                    <div class="space-y-2">
-                        <p class="font-semibold text-white">+1 416 989 7788</p>
-                        <p class="text-sm text-slate-400">Monday - Friday: 9:00 AM - 6:00 PM EST</p>
-                    </div>
-                    <a href="tel:+14169897788" class="inline-block mt-6 px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors font-medium">
-                        Call Now
-                    </a>
-                </div>
-
-                {{-- Email Us --}}
-                <div class="bg-slate-700 rounded-2xl p-8 text-center hover:shadow-md transition-shadow border border-slate-600 opacity-0 animate-fade-in-up" style="animation-delay: 0.2s; animation-fill-mode: forwards;">
-                    <div class="w-16 h-16 bg-slate-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm">
-                        @include('frontend.icons.mail', ['class' => 'w-6 h-6 text-blue-600'])
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Email Us</h3>
-                    <p class="text-slate-300 mb-4">Send us your questions and we'll respond within 24 hours</p>
-                    <div class="space-y-2">
-                        <p class="font-semibold text-white">canada@kgraph.ca</p>
-                        <p class="text-sm text-slate-400">For urgent matters, please call</p>
-                    </div>
-                    <a href="mailto:canada@kgraph.ca" class="inline-block mt-6 px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors font-medium">
-                        Send Email
-                    </a>
-                </div>
-
-                {{-- Free Consultation --}}
-                <div class="bg-slate-700 rounded-2xl p-8 text-center hover:shadow-md transition-shadow border border-slate-600 opacity-0 animate-fade-in-up" style="animation-delay: 0.4s; animation-fill-mode: forwards;">
-                    <div class="w-16 h-16 bg-slate-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-sm">
-                        @include('frontend.icons.message-square', ['class' => 'w-6 h-6 text-blue-600'])
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Free Consultation</h3>
-                    <p class="text-slate-300 mb-4">Book a personalized consultation with our experts</p>
-                    <div class="space-y-2">
-                        <p class="font-semibold text-white">Schedule Your Meeting</p>
-                        <p class="text-sm text-slate-400">30-minute consultation available</p>
-                    </div>
-                    <a href="{{ url('contact-us') }}" class="inline-block mt-6 px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors font-medium">
-                        Book Now
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     {{-- Book Your Free Consultation Section --}}
-    <section class="py-20 bg-slate-900">
+    <section class="py-16 bg-slate-900">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-white mb-4">Book Your Free Consultation</h2>
@@ -150,32 +74,32 @@
                     Get personalized guidance from our immigration experts
                 </p>
             </div>
-            <div class="bg-slate-700 rounded-2xl p-8 border border-slate-600">
+            <div class="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-8 border border-slate-600 shadow-2xl">
                 <form id="contact-form" action="{{ route('submit-contact-form') }}" method="POST" class="space-y-6" enctype="multipart/form-data">
                     @csrf
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-white mb-2 font-semibold">First Name <span class="text-red-500">*</span></label>
-                            <input type="text" name="first_name" required class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="John">
+                            <input type="text" name="first_name" required class="w-full px-4 py-3 rounded-lg bg-slate-700/50 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="John">
                         </div>
                         <div>
                             <label class="block text-white mb-2 font-semibold">Last Name <span class="text-red-500">*</span></label>
-                            <input type="text" name="last_name" required class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Doe">
+                            <input type="text" name="last_name" required class="w-full px-4 py-3 rounded-lg bg-slate-700/50 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Doe">
                         </div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-white mb-2 font-semibold">Email Address <span class="text-red-500">*</span></label>
-                            <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="john.doe@example.com">
+                            <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg bg-slate-700/50 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="john.doe@example.com">
                         </div>
                         <div>
                             <label class="block text-white mb-2 font-semibold">Phone Number <span class="text-red-500">*</span></label>
-                            <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="+1 (555) 123-4567">
+                            <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-lg bg-slate-700/50 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="+1 (555) 123-4567">
                         </div>
                     </div>
                     <div>
                         <label class="block text-white mb-2 font-semibold">Service of Interest <span class="text-red-500">*</span></label>
-                        <select name="service_of_interest" required class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        <select name="service_of_interest" required class="w-full px-4 py-3 rounded-lg bg-slate-700/50 border border-slate-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                             <option value="" class="bg-slate-800 text-white">Select a service</option>
                             @if(isset($allServices) && $allServices->count() > 0)
                                 @foreach($allServices as $service)
@@ -188,18 +112,18 @@
                         <label class="block text-white mb-2 font-semibold">Preferred Contact Method <span class="text-red-500">*</span></label>
                         <div class="flex gap-6 mt-3">
                             <label class="flex items-center cursor-pointer group">
-                                <input type="radio" name="preferred_contact_method" value="email" checked class="w-5 h-5 text-blue-600 bg-slate-800 border-2 border-slate-500 focus:ring-blue-500 focus:ring-2 focus:ring-offset-0 cursor-pointer">
+                                <input type="radio" name="preferred_contact_method" value="email" checked class="w-5 h-5 text-blue-600 bg-slate-700/50 border-2 border-slate-500 focus:ring-blue-500 focus:ring-2 focus:ring-offset-0 cursor-pointer">
                                 <span class="ml-3 text-white font-medium">Email</span>
                             </label>
                             <label class="flex items-center cursor-pointer group">
-                                <input type="radio" name="preferred_contact_method" value="phone" class="w-5 h-5 text-blue-600 bg-slate-800 border-2 border-slate-500 focus:ring-blue-500 focus:ring-2 focus:ring-offset-0 cursor-pointer">
+                                <input type="radio" name="preferred_contact_method" value="phone" class="w-5 h-5 text-blue-600 bg-slate-700/50 border-2 border-slate-500 focus:ring-blue-500 focus:ring-2 focus:ring-offset-0 cursor-pointer">
                                 <span class="ml-3 text-white font-medium">Phone</span>
                             </label>
                         </div>
                     </div>
                     <div>
                         <label class="block text-white mb-2 font-semibold">Message <span class="text-red-500">*</span></label>
-                        <textarea name="message" rows="5" required class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Tell us about your immigration goals and any specific questions you have..."></textarea>
+                        <textarea name="message" rows="5" required class="w-full px-4 py-3 rounded-lg bg-slate-700/50 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Tell us about your immigration goals and any specific questions you have..."></textarea>
                     </div>
                     <div class="text-center">
                         <button type="submit" id="submit-btn" class="w-full px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed">
@@ -214,6 +138,75 @@
             </div>
         </div>
     </section>
+            </div>
+        </div>
+    </section>
+
+    {{-- Contact Methods --}}
+    <section class="py-16 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-white mb-4">
+                    Multiple Ways to Reach Us
+                </h2>
+                <p class="text-slate-300 max-w-2xl mx-auto">
+                    Choose the contact method that works best for you. We're committed to responding 
+                    quickly and providing the support you need.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {{-- Call Us --}}
+                <div class="bg-gradient-to-br from-slate-700 to-slate-600 rounded-2xl p-8 text-center hover:shadow-lg hover:shadow-blue-900/20 transition-all border border-slate-600/50 opacity-0 animate-fade-in-up" style="animation-delay: 0s; animation-fill-mode: forwards;">
+                    <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        @include('frontend.icons.phone', ['class' => 'w-6 h-6 text-white'])
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Call Us</h3>
+                    <p class="text-slate-300 mb-4">Speak directly with our immigration experts</p>
+                    <div class="space-y-2 mb-6">
+                        <p class="font-semibold text-white">+1 416 989 7788</p>
+                        <p class="text-sm text-slate-400">Monday - Friday: 9:00 AM - 6:00 PM EST</p>
+                    </div>
+                    <a href="tel:+14169897788" class="inline-block px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors font-medium">
+                        Call Now
+                    </a>
+                </div>
+
+                {{-- Email Us --}}
+                <div class="bg-gradient-to-br from-slate-700 to-slate-600 rounded-2xl p-8 text-center hover:shadow-lg hover:shadow-blue-900/20 transition-all border border-slate-600/50 opacity-0 animate-fade-in-up" style="animation-delay: 0.2s; animation-fill-mode: forwards;">
+                    <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        @include('frontend.icons.mail', ['class' => 'w-6 h-6 text-white'])
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Email Us</h3>
+                    <p class="text-slate-300 mb-4">Send us your questions and we'll respond within 24 hours</p>
+                    <div class="space-y-2 mb-6">
+                        <p class="font-semibold text-white">canada@kgraph.ca</p>
+                        <p class="text-sm text-slate-400">For urgent matters, please call</p>
+                    </div>
+                    <a href="mailto:canada@kgraph.ca" class="inline-block px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors font-medium">
+                        Send Email
+                    </a>
+                </div>
+
+                {{-- Free Consultation --}}
+                <div class="bg-gradient-to-br from-slate-700 to-slate-600 rounded-2xl p-8 text-center hover:shadow-lg hover:shadow-blue-900/20 transition-all border border-slate-600/50 opacity-0 animate-fade-in-up" style="animation-delay: 0.4s; animation-fill-mode: forwards;">
+                    <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
+                        @include('frontend.icons.message-square', ['class' => 'w-6 h-6 text-white'])
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Free Consultation</h3>
+                    <p class="text-slate-300 mb-4">Book a personalized consultation with our experts</p>
+                    <div class="space-y-2 mb-6">
+                        <p class="font-semibold text-white">Schedule Your Meeting</p>
+                        <p class="text-sm text-slate-400">30-minute consultation available</p>
+                    </div>
+                    <a href="{{ url('contact-us') }}" class="inline-block px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors font-medium">
+                        Book Now
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
     {{-- Success Modal Popup --}}
     <div id="success-modal" class="fixed inset-0 z-50 overflow-hidden hidden" style="display: none;">
@@ -417,7 +410,7 @@
     </script>
 
     {{-- Office Hours --}}
-    <section class="py-20 bg-slate-800">
+    <section class="py-16 bg-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div class="opacity-0 animate-fade-in-left" style="animation-fill-mode: forwards;">
@@ -442,28 +435,10 @@
                                 <p class="text-slate-300">Monday - Saturday: 9:00 AM - 6:00 PM</p>
                             </div>
                         </div>
-                        <div class="flex items-start space-x-4">
-                            @include('frontend.icons.clock', ['class' => 'w-6 h-6 text-blue-600 flex-shrink-0 mt-1'])
-                            <div>
-                                <h3 class="font-semibold text-white">Emergency Support</h3>
-                                <p class="text-slate-300">24/7 for urgent immigration matters</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="mt-8 p-6 bg-slate-700 rounded-2xl border border-slate-600">
-                        <h3 class="font-semibold text-blue-400 mb-2">Emergency Contact</h3>
-                        <p class="text-slate-300">
-                            For urgent immigration matters requiring immediate attention, 
-                            please call our emergency line: 
-                            <a href="tel:+14169897788" class="font-medium hover:underline ml-1 text-blue-400">
-                                +1 416 989 7788
-                            </a>
-                        </p>
                     </div>
                 </div>
                 
-                <div class="bg-gradient-to-br from-blue-600 to-blue-700 rounded-3xl p-8 text-white opacity-0 animate-fade-in-right" style="animation-fill-mode: forwards;">
+                <div class="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 rounded-3xl p-8 text-white opacity-0 animate-fade-in-right shadow-xl" style="animation-fill-mode: forwards;">
                     <h3 class="text-2xl font-bold mb-6">What to Expect</h3>
                     <div class="space-y-4">
                         @foreach([
@@ -521,7 +496,7 @@
             return "https://www.google.com/maps?q={$encodedAddress}";
         }
     @endphp
-    <section class="py-20 bg-slate-900">
+    <section class="py-16 bg-slate-900">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold text-white mb-4">Visit Our Offices</h2>
@@ -538,7 +513,7 @@
                         $hours = $businessHours[$locationName] ?? 'Monday - Friday: 9:00 AM - 6:00 PM';
                         $mapUrl = getMapUrl($locationName, $location->address ?? '', $mapUrls);
                     @endphp
-                    <div class="bg-slate-800 rounded-2xl p-5 border border-slate-700 opacity-0 animate-fade-in-up flex flex-col" style="animation-delay: {{ $index * 0.1 }}s; animation-fill-mode: forwards;">
+                    <div class="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-5 border border-slate-600 opacity-0 animate-fade-in-up flex flex-col shadow-lg hover:shadow-xl hover:shadow-blue-900/20 hover:border-blue-500 transition-all" style="animation-delay: {{ $index * 0.1 }}s; animation-fill-mode: forwards;">
                         {{-- Map Icon --}}
                         <div class="flex justify-center mb-4">
                             <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center shadow-lg">
@@ -594,44 +569,5 @@
     </section>
     @endif
 
-    {{-- FAQ Preview --}}
-    <section class="py-20 bg-slate-800">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-white mb-4">
-                    Quick Questions?
-                </h2>
-                <p class="text-slate-300 max-w-2xl mx-auto">
-                    Find answers to common questions or contact us for personalized guidance.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                @foreach([
-                    [
-                        'question' => 'How much does a consultation cost?',
-                        'answer' => 'Your initial 30-minute consultation is completely free with no obligation.'
-                    ],
-                    [
-                        'question' => 'How quickly can you respond to my inquiry?',
-                        'answer' => 'We typically respond to emails within 24 hours and answer calls during business hours.'
-                    ],
-                    [
-                        'question' => 'Do you offer virtual consultations?',
-                        'answer' => 'Yes, we offer video consultations for clients who cannot visit our offices in person.'
-                    ],
-                    [
-                        'question' => 'What documents should I prepare?',
-                        'answer' => 'We\'ll provide a personalized checklist during your consultation based on your specific case.'
-                    ]
-                ] as $index => $faq)
-                    <div class="bg-slate-700 rounded-2xl p-6 border border-slate-600 opacity-0 animate-fade-in-up" style="animation-delay: {{ $index * 0.1 }}s; animation-fill-mode: forwards;">
-                        <h3 class="font-semibold text-white mb-3">{{ $faq['question'] }}</h3>
-                        <p class="text-slate-300">{{ $faq['answer'] }}</p>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
 </div>
 @endsection

@@ -161,7 +161,7 @@
                     </div>
                     
                     <div class="absolute -bottom-4 -left-4 bg-blue-600 text-white px-4 py-2 rounded-2xl text-sm font-medium shadow-lg z-20 opacity-0 animate-fade-in-scale" style="animation-delay: 1.2s; animation-fill-mode: forwards;">
-                        12+ Years Experience
+                        10+ Years Experience
                     </div>
                 </div>
             </div>
@@ -278,7 +278,7 @@
                     $stats = [
                         ['value' => $journeyData->customers ?? '3,500+', 'label' => 'Clients Helped', 'icon' => 'users'],
                         ['value' => '98%', 'label' => 'Success Rate', 'icon' => 'trending'],
-                        ['value' => ($journeyData->experience ?? '12') . '+', 'label' => 'Years Experience', 'icon' => 'award'],
+                        ['value' => ($journeyData->experience ?? '10') . '+', 'label' => 'Years Experience', 'icon' => 'award'],
                         ['value' => '4-6 months', 'label' => 'Average Processing', 'icon' => 'clock']
                     ];
                 @endphp
@@ -509,7 +509,7 @@
                     <div class="grid grid-cols-2 gap-3 md:gap-6">
                         @php
                             $dreamStats = [
-                                ['value' => ($journeyData->experience ?? '9') . '+', 'label' => 'Years of Experience'],
+                                ['value' => ($journeyData->experience ?? '10') . '+', 'label' => 'Years of Experience'],
                                 ['value' => ($journeyData->employees ?? '30') . '+', 'label' => 'Employees'],
                                 ['value' => ($journeyData->ratings ?? '4.8'), 'label' => 'Google Rating'],
                                 ['value' => ($journeyData->offices ?? '5'), 'label' => 'Offices'],
