@@ -1,5 +1,16 @@
 @extends('layouts.main')
 
+@push('styles')
+<style>
+    .line-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+</style>
+@endpush
+
 @section('content')
 @php
     $locationData = getLocationData();
@@ -20,9 +31,18 @@
                 <p class="text-xl text-slate-300 leading-relaxed mb-8">
                     Gateway to a New Life in Canada
                 </p>
-                <p class="text-lg text-slate-300 leading-relaxed mb-8">
-                    We understand that navigating the immigration process can be complex and overwhelming. Whether you're looking to study, work, visit, or settle in Canada, the team at KGraph Immigration is here to support you every step of the way. We are committed to providing expert advice, personalized guidance, and tailored solutions to meet your unique immigration needs. With years of experience in the field, our immigration consultants are well-equipped to help you understand your options, prepare your applications, and overcome any challenges that may arise along the way. At KGraph Immigration, we pride ourselves on offering the highest level of service, ensuring that your immigration journey is as smooth and stress-free as possible. Reach out to us today for a consultation, and let us help you take the next step toward your new life in Canada.
-                </p>
+                <div x-data="{ showFullText: false }" class="mb-8">
+                    <p class="text-lg text-slate-300 leading-relaxed md:mb-8" 
+                       :class="showFullText ? '' : 'line-clamp-3'"
+                       x-ref="contentText">
+                        We understand that navigating the immigration process can be complex and overwhelming. Whether you're looking to study, work, visit, or settle in Canada, the team at KGraph Immigration is here to support you every step of the way. We are committed to providing expert advice, personalized guidance, and tailored solutions to meet your unique immigration needs. With years of experience in the field, our immigration consultants are well-equipped to help you understand your options, prepare your applications, and overcome any challenges that may arise along the way. At KGraph Immigration, we pride ourselves on offering the highest level of service, ensuring that your immigration journey is as smooth and stress-free as possible. Reach out to us today for a consultation, and let us help you take the next step toward your new life in Canada.
+                    </p>
+                    <button @click="showFullText = !showFullText" 
+                            class="md:hidden text-blue-400 hover:text-blue-300 font-medium text-sm mt-2 underline">
+                        <span x-show="!showFullText">Read More</span>
+                        <span x-show="showFullText">Read Less</span>
+                    </button>
+                </div>
 
                 <div class="mt-10 mb-8">
                     <h2 class="text-2xl font-bold text-white mb-6 text-center">Our Team Identity</h2>
@@ -59,17 +79,17 @@
                 </div>
 
                 <div class="inline-flex items-center px-6 py-3 bg-green-900 text-green-300 rounded-full font-medium mt-8">
-                    ✅ Free Consultation • Quick Response • Expert Guidance
+                    ✅ Free Assessment • Quick Response • Expert Guidance
                 </div>
             </div>
         </div>
     </section>
 
-    {{-- Book Your Free Consultation Section --}}
+    {{-- Book Your Free Assessment Section --}}
     <section class="py-16 bg-slate-900">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-white mb-4">Book Your Free Consultation</h2>
+                <h2 class="text-3xl font-bold text-white mb-4">Book Your Free Assessment</h2>
                 <p class="text-slate-300 max-w-2xl mx-auto">
                     Get personalized guidance from our immigration experts
                 </p>
@@ -127,7 +147,7 @@
                     </div>
                     <div class="text-center">
                         <button type="submit" id="submit-btn" class="w-full px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed">
-                            <span id="submit-text">Book Free Consultation</span>
+                            <span id="submit-text">Book Free Assessment</span>
                             <span id="submit-loading" class="hidden">Submitting...</span>
                         </button>
                         <p class="mt-4 text-sm text-slate-400">
@@ -188,13 +208,13 @@
                     </a>
                 </div>
 
-                {{-- Free Consultation --}}
+                {{-- Free Assessment --}}
                 <div class="bg-gradient-to-br from-slate-700 to-slate-600 rounded-2xl p-8 text-center hover:shadow-lg hover:shadow-blue-900/20 transition-all border border-slate-600/50 opacity-0 animate-fade-in-up" style="animation-delay: 0.4s; animation-fill-mode: forwards;">
                     <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg">
                         @include('frontend.icons.message-square', ['class' => 'w-6 h-6 text-white'])
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-3">Free Consultation</h3>
-                    <p class="text-slate-300 mb-4">Book a personalized consultation with our experts</p>
+                    <h3 class="text-xl font-bold text-white mb-3">Free Assessment</h3>
+                    <p class="text-slate-300 mb-4">Book a personalized assessment with our experts</p>
                     <div class="space-y-2 mb-6">
                         <p class="font-semibold text-white">Schedule Your Meeting</p>
                         <p class="text-sm text-slate-400">30-minute consultation available</p>

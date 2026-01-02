@@ -30,6 +30,11 @@ class PermissionSeeder extends Seeder
             'service-points-edit',
             'service-points-delete',
 
+            'process-steps',
+            'process-steps-create',
+            'process-steps-edit',
+            'process-steps-delete',
+
             'service-faq',
             'service-faq-create',
             'service-faq-edit',
@@ -289,20 +294,17 @@ class PermissionSeeder extends Seeder
             'icons-delete',
         ];
 
+        $data = [];
         foreach ($permissions as $permission) {
             $permissionExists = Permission::where('name', $permission)->exists();
             if (!$permissionExists) {
-                $data = [];
-                foreach ($permissions as $permission) {
-                    $permissionExists = Permission::where('name', $permission)->exists();
-                    if (!$permissionExists) {
-                        $data[] = ['name' => $permission, 'guard_name' => 'web', 'status' => str_contains($permission, 'delete') ? 1 : 0, 'created_at' => now(), 'updated_at' => now(),];
-                    }
-                }
+                $data[] = ['name' => $permission, 'guard_name' => 'web', 'status' => str_contains($permission, 'delete') ? 1 : 0, 'created_at' => now(), 'updated_at' => now(),];
             }
         }
 
         // Insert permissions in bulk
-        Permission::insert($data);
+        if (!empty($data)) {
+            Permission::insert($data);
+        }
     }
 }

@@ -187,6 +187,8 @@
                         auth()->user()->hasPermissionTo('services-create') ||
                         auth()->user()->hasPermissionTo('sub-services') ||
                         auth()->user()->hasPermissionTo('sub-services-create') ||
+                        auth()->user()->hasPermissionTo('process-steps') ||
+                        auth()->user()->hasPermissionTo('process-steps-create') ||
                         auth()->user()->hasPermissionTo('service-points') ||
                         auth()->user()->hasPermissionTo('service-points-create') ||
                         auth()->user()->hasPermissionTo('sub-service-points') ||
@@ -233,6 +235,22 @@
                                 </li>
                             @endif
 
+                            @if (auth()->user()->hasPermissionTo('process-steps'))
+                                <li>
+                                    <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Process
+                                        Steps</a>
+                                    <ul class="sub-menu" aria-expanded="true">
+                                        <li><a href="{{ url('admin/process-steps') }}" data-key="t-level-2-2">View
+                                            </a>
+                                        </li>
+                                        @if (auth()->user()->hasPermissionTo('process-steps-create'))
+                                            <li><a href="{{ url('admin/process-steps/create') }}"
+                                                    data-key="t-level-2-1">Add </a>
+                                            </li>
+                                        @endif
+                                    </ul>
+                                </li>
+                            @endif
                             @if (auth()->user()->hasPermissionTo('service-points'))
                                 <li>
                                     <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Service

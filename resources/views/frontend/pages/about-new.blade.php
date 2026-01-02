@@ -139,13 +139,12 @@
 
             <div class="mt-10">
                 <h3 class="text-xl font-bold text-white text-center mb-6">Journey with KGraph</h3>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                     @foreach([
                         ['value' => ($journeyData->experience ?? '10') . '+', 'label' => 'Years of Experience'],
-                        ['value' => ($journeyData->employees ?? '30') . '+', 'label' => 'Employees'],
-                        ['value' => ($journeyData->ratings ?? '4.8'), 'label' => 'Google Rating'],
+                        ['value' => ($journeyData->ratings ?? '4.9'), 'label' => 'Google Rating'],
                         ['value' => ($journeyData->offices ?? '5'), 'label' => 'Offices'],
-                        ['value' => ($journeyData->customers ?? '10000') . '+', 'label' => 'Customers Served']
+                        ['value' => rtrim($journeyData->customers ?? '10000', '+') . '+', 'label' => 'Customers Served']
                     ] as $index => $stat)
                         <div class="text-center opacity-0 animate-fade-in-up" style="animation-delay: {{ $index * 0.1 }}s; animation-fill-mode: forwards;">
                             <div class="bg-slate-700 rounded-xl p-4 border border-slate-600">
@@ -198,11 +197,11 @@
     </section>
 
     {{-- Timeline Section --}}
-    <section class="py-20 bg-slate-800 timeline-section">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+    <section class="py-10 bg-slate-800 timeline-section">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
             <div class="text-center">
-                <h2 class="text-3xl font-bold text-white mb-4">Our Journey Through Time</h2>
-                <p class="text-slate-300 max-w-2xl mx-auto">
+                <h2 class="text-xl font-bold text-white mb-2">Our Journey Through Time</h2>
+                <p class="text-slate-300 max-w-2xl mx-auto text-sm">
                     From humble beginnings to pioneering the future of immigration services.
                 </p>
             </div>
@@ -212,14 +211,14 @@
             id="timeline-scroll-wrapper"
             class="timeline-scroll-wrapper" 
             style="overflow-x: auto !important; overflow-y: visible !important; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; -ms-overflow-style: none; scrollbar-width: none; width: 100%; cursor: grab;">
-            <div class="flex space-x-6 px-4 sm:px-6 lg:px-8 pb-4 timeline-scroll-content" style="display: inline-flex; flex-wrap: nowrap; width: max-content;">
+            <div class="flex space-x-3 px-4 sm:px-6 lg:px-8 pb-4 timeline-scroll-content" style="display: inline-flex; flex-wrap: nowrap; width: max-content;">
                 @foreach(array_merge($timelineEvents, $timelineEvents) as $index => $event)
-                    <div class="flex-shrink-0 w-80 bg-slate-700 rounded-2xl p-8 border border-slate-600 opacity-0 animate-fade-in-up" style="animation-delay: {{ ($index % 4) * 0.1 }}s; animation-fill-mode: forwards;">
-                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mb-6">
-                            <span class="text-2xl font-bold text-white">{{ $event['year'] }}</span>
+                    <div class="flex-shrink-0 w-40 bg-slate-700 rounded-xl p-4 border border-slate-600 opacity-0 animate-fade-in-up" style="animation-delay: {{ ($index % 4) * 0.1 }}s; animation-fill-mode: forwards;">
+                        <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mb-3">
+                            <span class="text-sm font-bold text-white">{{ $event['year'] }}</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white mb-4">{{ $event['title'] }}</h3>
-                        <p class="text-slate-300 leading-relaxed">{{ $event['description'] }}</p>
+                        <h3 class="text-sm font-bold text-white mb-2">{{ $event['title'] }}</h3>
+                        <p class="text-slate-300 text-xs leading-relaxed">{{ $event['description'] }}</p>
                     </div>
                 @endforeach
             </div>

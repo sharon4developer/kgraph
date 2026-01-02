@@ -312,7 +312,7 @@
         </div>
     </section>
 
-    {{-- Services Section --}}
+    {{-- Service Categories --}}
     <section class="py-20 bg-blue-950">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-16">
@@ -323,12 +323,79 @@
                     We provide expert guidance for all your Canadian immigration needs - permanent residency & temporary permits.
                 </p>
             </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {{-- Permanent Residency --}}
+                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up" style="animation-delay: 0s; animation-fill-mode: forwards;">
+                    <h3 class="text-2xl font-bold text-white mb-4">Permanent Residency</h3>
+                    <ul class="space-y-3">
+                        @foreach(['Express Entry', 'PNP', 'Family Sponsorship', 'Business/Investor Visa'] as $service)
+                            <li>
+                                <a href="{{ $serviceLinks[$service] ?? url('services') }}" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center">
+                                    <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
+                                    {{ $service }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
 
-            <div class="overflow-x-auto md:overflow-x-visible -mx-4 px-4 md:mx-0 md:px-0 scrollbar-hide">
-                <div class="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 pb-4 md:pb-0" style="min-width: min-content;">
-                    @foreach($featuredServices as $index => $service)
-                        @include('frontend.Common.service-card', ['service' => $service, 'index' => $index])
-                    @endforeach
+                {{-- Temporary Residency --}}
+                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up" style="animation-delay: 0.1s; animation-fill-mode: forwards;">
+                    <h3 class="text-2xl font-bold text-white mb-4">Temporary Residency</h3>
+                    <ul class="space-y-3">
+                        @foreach(['PGWP', 'Spouse Open Work Permit', 'Visiting Visa', 'Super Visa'] as $service)
+                            <li>
+                                <a href="{{ $serviceLinks[$service] ?? url('services') }}" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center">
+                                    <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
+                                    {{ $service }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+
+                {{-- Refusals and Appeals --}}
+                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up" style="animation-delay: 0.2s; animation-fill-mode: forwards;">
+                    <h3 class="text-2xl font-bold text-white mb-4">Refusals and Appeals</h3>
+                    <ul class="space-y-3">
+                        @foreach(['IAD Appeals', 'Refusal and Reapplication'] as $service)
+                            <li>
+                                <a href="{{ $serviceLinks[$service] ?? url('services') }}" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center">
+                                    <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
+                                    {{ $service }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+
+                {{-- Pilot and Rural Programs --}}
+                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up" style="animation-delay: 0.3s; animation-fill-mode: forwards;">
+                    <h3 class="text-2xl font-bold text-white mb-4">Pilot and Rural Programs</h3>
+                    <ul class="space-y-3">
+                        @foreach(['RCIP', 'AIP', 'Home Caregiver'] as $service)
+                            <li>
+                                <a href="{{ $serviceLinks[$service] ?? url('services') }}" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center">
+                                    <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
+                                    {{ $service }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+
+                {{-- LMIA --}}
+                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up" style="animation-delay: 0.4s; animation-fill-mode: forwards;">
+                    <h3 class="text-2xl font-bold text-white mb-4">LMIA</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="{{ $serviceLinks['Labour Market Impact Assessment'] ?? url('service-details/labour-market-impact-assessment') }}" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center">
+                                <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
+                                Labour Market Impact Assessment
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -350,60 +417,107 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                @php
-                    $processSteps = [
-                        [
-                            'step' => '01',
-                            'title' => 'Free Assessment',
-                            'description' => 'We understand your background, goals, and concerns, assessing your eligibility to explain which immigration pathways best suit you.',
-                            'icon' => 'users'
-                        ],
-                        [
-                            'step' => '02',
-                            'title' => 'Strategy Development',
-                            'description' => 'We develop a clear immigration strategy for your profile by assessing your eligibility, documentation, and long-term plans.',
-                            'icon' => 'shield'
-                        ],
-                        [
-                            'step' => '03',
-                            'title' => 'Application Preparation',
-                            'description' => 'Our team manages your application preparation, ensuring accuracy with Canadian immigration requirements.',
-                            'icon' => 'check'
-                        ],
-                        [
-                            'step' => '04',
-                            'title' => 'Success & Ongoing Support',
-                            'description' => 'After submission or approval, guide you in preparing for your next steps to support your transition to Canada.',
-                            'icon' => 'award'
-                        ]
-                    ];
-                @endphp
-                @foreach($processSteps as $index => $item)
-                    <div class="text-center md:text-center opacity-0 animate-fade-in-up" style="animation-delay: {{ $index * 0.2 }}s; animation-fill-mode: forwards;">
-                        <div class="flex md:flex-col items-start md:items-center gap-4 md:gap-0">
-                            <div class="relative flex-shrink-0 md:mb-6">
-                                <div class="w-12 h-12 md:w-20 md:h-20 bg-blue-700 rounded-2xl flex items-center justify-center text-white">
-                                    @if($item['icon'] == 'users')
-                                        @include('frontend.icons.users', ['class' => 'w-8 h-8 text-blue-300'])
-                                    @elseif($item['icon'] == 'shield')
-                                        @include('frontend.icons.shield', ['class' => 'w-8 h-8 text-blue-300'])
-                                    @elseif($item['icon'] == 'check')
-                                        @include('frontend.icons.check-circle', ['class' => 'w-8 h-8 text-blue-300'])
-                                    @else
-                                        @include('frontend.icons.award', ['class' => 'w-8 h-8 text-blue-300'])
+                @if(isset($processSteps) && $processSteps->count() > 0)
+                    @foreach($processSteps as $index => $item)
+                        <div class="text-center md:text-center opacity-0 animate-fade-in-up" style="animation-delay: {{ $index * 0.2 }}s; animation-fill-mode: forwards;">
+                            <div class="flex md:flex-col items-start md:items-center gap-4 md:gap-0">
+                                <div class="relative flex-shrink-0 md:mb-6">
+                                    <div class="w-12 h-12 md:w-20 md:h-20 bg-blue-700 rounded-2xl flex items-center justify-center text-white">
+                                        @if($item->icon == 'users')
+                                            @include('frontend.icons.users', ['class' => 'w-8 h-8 text-blue-300'])
+                                        @elseif($item->icon == 'shield')
+                                            @include('frontend.icons.shield', ['class' => 'w-8 h-8 text-blue-300'])
+                                        @elseif($item->icon == 'check' || $item->icon == 'check-circle')
+                                            @include('frontend.icons.check-circle', ['class' => 'w-8 h-8 text-blue-300'])
+                                        @elseif($item->icon == 'award')
+                                            @include('frontend.icons.award', ['class' => 'w-8 h-8 text-blue-300'])
+                                        @elseif($item->icon == 'trending-up')
+                                            @include('frontend.icons.trending-up', ['class' => 'w-8 h-8 text-blue-300'])
+                                        @elseif($item->icon == 'globe')
+                                            @include('frontend.icons.globe', ['class' => 'w-8 h-8 text-blue-300'])
+                                        @elseif($item->icon == 'book-open')
+                                            @include('frontend.icons.book-open', ['class' => 'w-8 h-8 text-blue-300'])
+                                        @elseif($item->icon == 'briefcase')
+                                            @include('frontend.icons.briefcase', ['class' => 'w-8 h-8 text-blue-300'])
+                                        @elseif($item->icon == 'clock')
+                                            @include('frontend.icons.clock', ['class' => 'w-8 h-8 text-blue-300'])
+                                        @elseif($item->icon == 'users-group')
+                                            @include('frontend.icons.users-group', ['class' => 'w-8 h-8 text-blue-300'])
+                                        @else
+                                            @include('frontend.icons.users', ['class' => 'w-8 h-8 text-blue-300'])
+                                        @endif
+                                    </div>
+                                    <div class="absolute -top-1 -right-1 md:-top-2 md:-right-2 w-6 h-6 md:w-8 md:h-8 bg-blue-200 text-blue-800 rounded-full flex items-center justify-center text-xs md:text-sm font-bold">
+                                        {{ $item->step_number }}
+                                    </div>
+                                </div>
+                                <div class="flex-1 text-left md:text-center">
+                                    <h3 class="text-lg md:text-xl font-bold text-white mb-2 md:mb-3">Step {{ $item->step_number }} – {{ $item->title }}</h3>
+                                    <p class="text-blue-200 text-sm md:text-base leading-relaxed">{{ $item->description }}</p>
+                                    @if($item->timeline)
+                                        <p class="text-blue-300 text-xs md:text-sm mt-2 font-semibold">{{ $item->timeline }}</p>
                                     @endif
                                 </div>
-                                <div class="absolute -top-1 -right-1 md:-top-2 md:-right-2 w-6 h-6 md:w-8 md:h-8 bg-blue-200 text-blue-800 rounded-full flex items-center justify-center text-xs md:text-sm font-bold">
-                                    {{ $item['step'] }}
-                                </div>
-                            </div>
-                            <div class="flex-1 text-left md:text-center">
-                                <h3 class="text-lg md:text-xl font-bold text-white mb-2 md:mb-3">Step {{ $item['step'] }} – {{ $item['title'] }}</h3>
-                                <p class="text-blue-200 text-sm md:text-base leading-relaxed">{{ $item['description'] }}</p>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                @else
+                    {{-- Fallback to hardcoded data if no steps in database --}}
+                    @php
+                        $fallbackSteps = [
+                            [
+                                'step' => '01',
+                                'title' => 'Free Assessment',
+                                'description' => 'We understand your background, goals, and concerns, assessing your eligibility to explain which immigration pathways best suit you.',
+                                'icon' => 'users'
+                            ],
+                            [
+                                'step' => '02',
+                                'title' => 'Strategy Development',
+                                'description' => 'We develop a clear immigration strategy for your profile by assessing your eligibility, documentation, and long-term plans.',
+                                'icon' => 'shield'
+                            ],
+                            [
+                                'step' => '03',
+                                'title' => 'Application Preparation',
+                                'description' => 'Our team manages your application preparation, ensuring accuracy with Canadian immigration requirements.',
+                                'icon' => 'check'
+                            ],
+                            [
+                                'step' => '04',
+                                'title' => 'Success & Ongoing Support',
+                                'description' => 'After submission or approval, guide you in preparing for your next steps to support your transition to Canada.',
+                                'icon' => 'award'
+                            ]
+                        ];
+                    @endphp
+                    @foreach($fallbackSteps as $index => $item)
+                        <div class="text-center md:text-center opacity-0 animate-fade-in-up" style="animation-delay: {{ $index * 0.2 }}s; animation-fill-mode: forwards;">
+                            <div class="flex md:flex-col items-start md:items-center gap-4 md:gap-0">
+                                <div class="relative flex-shrink-0 md:mb-6">
+                                    <div class="w-12 h-12 md:w-20 md:h-20 bg-blue-700 rounded-2xl flex items-center justify-center text-white">
+                                        @if($item['icon'] == 'users')
+                                            @include('frontend.icons.users', ['class' => 'w-8 h-8 text-blue-300'])
+                                        @elseif($item['icon'] == 'shield')
+                                            @include('frontend.icons.shield', ['class' => 'w-8 h-8 text-blue-300'])
+                                        @elseif($item['icon'] == 'check')
+                                            @include('frontend.icons.check-circle', ['class' => 'w-8 h-8 text-blue-300'])
+                                        @else
+                                            @include('frontend.icons.award', ['class' => 'w-8 h-8 text-blue-300'])
+                                        @endif
+                                    </div>
+                                    <div class="absolute -top-1 -right-1 md:-top-2 md:-right-2 w-6 h-6 md:w-8 md:h-8 bg-blue-200 text-blue-800 rounded-full flex items-center justify-center text-xs md:text-sm font-bold">
+                                        {{ $item['step'] }}
+                                    </div>
+                                </div>
+                                <div class="flex-1 text-left md:text-center">
+                                    <h3 class="text-lg md:text-xl font-bold text-white mb-2 md:mb-3">Step {{ $item['step'] }} – {{ $item['title'] }}</h3>
+                                    <p class="text-blue-200 text-sm md:text-base leading-relaxed">{{ $item['description'] }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                @endif
             </div>
         </div>
     </section>

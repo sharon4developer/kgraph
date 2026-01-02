@@ -15,6 +15,8 @@ use App\Models\Journey;
 use App\Models\Page;
 use App\Models\Service;
 use App\Models\ServiceCategory;
+use App\Models\SubServices;
+use App\Models\ProcessStep;
 use App\Models\ServicePoint;
 use App\Models\Testimonial;
 use App\Models\WhoWeAre;
@@ -38,8 +40,12 @@ class HomeController extends Controller
         $seo = Page::getSeoDetails(request()->path());
         $home = Home::getFullDataForHome();
         $icons = Icon::getFullDataForHome();
+        $processSteps = ProcessStep::getFullDataForHome();
+        
+        // Create mapping of service names to their URLs (same as services page)
+        $serviceLinks = $this->buildServiceLinksMapping();
 
-        return view('frontend.pages.home-new', compact('certificate', 'testimonials', 'seo', 'banner', 'serviceCategory', 'services', 'whoweare', 'journey', 'blogs', 'explore', 'faqs', 'home', 'icons'));
+        return view('frontend.pages.home-new', compact('certificate', 'testimonials', 'seo', 'banner', 'serviceCategory', 'services', 'whoweare', 'journey', 'blogs', 'explore', 'faqs', 'home', 'icons', 'serviceLinks', 'processSteps'));
     }
 
     function convertHtml()
@@ -93,5 +99,58 @@ class HomeController extends Controller
             $value->description = $output;
             $value->save();
         }
+    }
+    
+    /**
+     * Build a mapping of service names to their detail page URLs
+     * Checks both Service and SubServices models
+     *
+     * @return array
+     */
+    private function buildServiceLinksMapping()
+    {
+        $serviceLinks = [];
+        
+        // List of service names to map (as they appear in the category cards)
+        $serviceNames = [
+            'Express Entry',
+            'PNP',
+            'Family Sponsorship',
+            'Business/Investor Visa',
+            'PGWP',
+            'Spouse Open Work Permit',
+            'Visiting Visa',
+            'Super Visa',
+            'IAD Appeals',
+            'Refusal and Reapplication',
+            'RCIP',
+            'AIP',
+            'Home Caregiver',
+            'Labour Market Impact Assessment'
+        ];
+
+        // Fetch services from Service model
+        $services = Service::whereIn('title', $serviceNames)
+            ->where('status', 1)
+            ->get();
+
+        foreach ($services as $service) {
+            if ($service->slug) {
+                $serviceLinks[$service->title] = url('service-details/' . $service->slug);
+            }
+        }
+
+        // Fetch services from SubServices model
+        $subServices = SubServices::whereIn('title', $serviceNames)
+            ->where('status', 1)
+            ->get();
+
+        foreach ($subServices as $subService) {
+            if ($subService->slug) {
+                $serviceLinks[$subService->title] = url('sub-service-details/' . $subService->slug);
+            }
+        }
+
+        return $serviceLinks;
     }
 }

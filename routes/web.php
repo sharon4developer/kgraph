@@ -44,6 +44,7 @@ use App\Http\Controllers\Admin\ServiceContentPointController;
 use App\Http\Controllers\Admin\ServiceController;
 use App\Http\Controllers\Admin\ServiceFaqController;
 use App\Http\Controllers\Admin\ServicePointContentPointsController;
+use App\Http\Controllers\Admin\ProcessStepController;
 use App\Http\Controllers\Admin\ServicePointController;
 use App\Http\Controllers\Admin\ServiceSeoController;
 use App\Http\Controllers\Admin\SubAdminController;
@@ -140,6 +141,7 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
 
         'banners' => BannerController::class,
         'services' => ServiceController::class,
+        'process-steps' => ProcessStepController::class,
         'service-points' => ServicePointController::class,
         'service-faq' => ServiceFaqController::class,
         'who-we-are' => WhoWeAreController::class,
@@ -221,6 +223,11 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         ]);
         Route::post('change/status', [ServiceController::class, 'changeStatus'])->name('change-status');
         Route::post('update/order', [ServiceController::class, 'changeOrder'])->name('update-order');
+    });
+
+    Route::prefix('process-steps')->name('.process-steps')->group(function () {
+        Route::post('change/status', [ProcessStepController::class, 'changeStatus'])->name('change-status');
+        Route::post('update/order', [ProcessStepController::class, 'changeOrder'])->name('update-order');
     });
 
     Route::prefix('service-points')->name('.service-points')->group(function () {

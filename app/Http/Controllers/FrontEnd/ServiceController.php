@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Certificate;
 use App\Models\Cms;
 use App\Models\Page;
+use App\Models\ProcessStep;
 use App\Models\Service;
 use App\Models\ServiceCategory;
 use App\Models\ServiceContent;
@@ -53,7 +54,8 @@ class ServiceController extends Controller
             'Refusal and Reapplication',
             'RCIP',
             'AIP',
-            'Home Caregiver'
+            'Home Caregiver',
+            'Labour Market Impact Assessment'
         ];
 
         // Fetch services from Service model
@@ -124,6 +126,11 @@ class ServiceController extends Controller
         // Extract processing time durations for all programs
         $processingTimeDurations = $this->extractProcessingTimeDurationsByProgram($services);
         
+        // Fetch service-specific process steps, fall back to default if none exist
+        $processSteps = ProcessStep::getFullDataForService($services->id);
+        if ($processSteps->isEmpty()) {
+            $processSteps = ProcessStep::getFullDataForHome();
+        }
 
         $hasSubServices = $services->SubService->count() > 0;
         $hasServicePointContents = $services->ServicePoint
@@ -132,9 +139,9 @@ class ServiceController extends Controller
             ->isNotEmpty();
 
         if ($hasSubServices || !$hasServicePointContents) {
-            return view('frontend.pages.servicesinner', compact('services', 'seo', 'relatedServices', 'processingTimeDurations'));
+            return view('frontend.pages.servicesinner', compact('services', 'seo', 'relatedServices', 'processingTimeDurations', 'processSteps'));
         } else {
-            return view('frontend.pages.subservicesinner', compact('services', 'seo', 'relatedServices', 'processingTimeDurations'));
+            return view('frontend.pages.subservicesinner', compact('services', 'seo', 'relatedServices', 'processingTimeDurations', 'processSteps'));
         }
     }
 
@@ -187,8 +194,14 @@ class ServiceController extends Controller
 
         // Extract processing time durations for all programs
         $processingTimeDurations = $this->extractProcessingTimeDurationsByProgram($services);
+        
+        // Fetch process steps for parent service, fall back to default if none exist
+        $processSteps = ProcessStep::getFullDataForService($services->service_id);
+        if ($processSteps->isEmpty()) {
+            $processSteps = ProcessStep::getFullDataForHome();
+        }
 
-        return view('frontend.pages.subservicesinner', compact('services', 'seo', 'relatedServices', 'processingTimeDurations'));
+        return view('frontend.pages.subservicesinner', compact('services', 'seo', 'relatedServices', 'processingTimeDurations', 'processSteps'));
     }
 
     /**

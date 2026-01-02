@@ -88,9 +88,14 @@
                 {{-- LMIA --}}
                 <div class="bg-slate-700 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-slate-600 opacity-0 animate-fade-in-up" style="animation-delay: 0.4s; animation-fill-mode: forwards;">
                     <h3 class="text-2xl font-bold text-white mb-4">LMIA</h3>
-                    <p class="text-slate-300">
-                        Labour Market Impact Assessment applications for Canadian employers and foreign workers.
-                    </p>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="{{ $serviceLinks['Labour Market Impact Assessment'] ?? url('service-details/labour-market-impact-assessment') }}" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center">
+                                <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
+                                Labour Market Impact Assessment
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -101,12 +106,18 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             @php
                 // Collect all services from all categories with proper indexing
+                // Deduplicate by service ID to ensure each service appears only once
                 $allServices = collect();
+                $serviceIds = [];
                 if(isset($serviceCategory)) {
                     foreach($serviceCategory as $category) {
                         $categoryServices = $category->Service->where('status', 1)->take(6);
                         foreach($categoryServices as $service) {
-                            $allServices->push($service);
+                            // Only add if we haven't seen this service ID before
+                            if(!in_array($service->id, $serviceIds)) {
+                                $serviceIds[] = $service->id;
+                                $allServices->push($service);
+                            }
                         }
                     }
                 }

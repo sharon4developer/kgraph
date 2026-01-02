@@ -88,9 +88,14 @@
                 {{-- LMIA --}}
                 <div class="bg-slate-700 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-slate-600 opacity-0 animate-fade-in-up" style="animation-delay: 0.4s; animation-fill-mode: forwards;">
                     <h3 class="text-2xl font-bold text-white mb-4">LMIA</h3>
-                    <p class="text-slate-300">
-                        Labour Market Impact Assessment applications for Canadian employers and foreign workers.
-                    </p>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="{{ $serviceLinks['Labour Market Impact Assessment'] ?? url('service-details/labour-market-impact-assessment') }}" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center">
+                                <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
+                                Labour Market Impact Assessment
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

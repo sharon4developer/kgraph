@@ -58,7 +58,7 @@
                     <div class="text-blue-300">Employees</div>
                 </div>
                 <div class="text-center">
-                    <div class="text-3xl font-bold text-white mb-2">{{ $journeyData->ratings ?? '4.8' }}</div>
+                    <div class="text-3xl font-bold text-white mb-2">{{ $journeyData->ratings ?? '4.9' }}</div>
                     <div class="text-blue-300">Google Rating</div>
                 </div>
                 <div class="text-center">

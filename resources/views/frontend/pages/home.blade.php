@@ -511,7 +511,7 @@
                             $dreamStats = [
                                 ['value' => ($journeyData->experience ?? '10') . '+', 'label' => 'Years of Experience'],
                                 ['value' => ($journeyData->employees ?? '30') . '+', 'label' => 'Employees'],
-                                ['value' => ($journeyData->ratings ?? '4.8'), 'label' => 'Google Rating'],
+                                ['value' => ($journeyData->ratings ?? '4.9'), 'label' => 'Google Rating'],
                                 ['value' => ($journeyData->offices ?? '5'), 'label' => 'Offices'],
                             ];
                         @endphp

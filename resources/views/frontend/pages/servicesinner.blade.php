@@ -287,54 +287,78 @@
                         <h2 class="text-2xl font-bold text-white mb-6">Application Process</h2>
                         
                         <div class="space-y-6">
-                            @php
-                                $processSteps = [
-                                    [
-                                        'step' => 1,
-                                        'title' => 'Initial Assessment',
-                                        'description' => 'We evaluate your eligibility and create a personalized strategy',
-                                        'duration' => '1-2 days'
-                                    ],
-                                    [
-                                        'step' => 2,
-                                        'title' => 'Document Preparation',
-                                        'description' => 'Compile and prepare all required documentation',
-                                        'duration' => '2-4 weeks'
-                                    ],
-                                    [
-                                        'step' => 3,
-                                        'title' => 'Application Submission',
-                                        'description' => 'Submit your complete application to IRCC',
-                                        'duration' => '1 week'
-                                    ],
-                                    [
-                                        'step' => 4,
-                                        'title' => 'Processing & Follow-up',
-                                        'description' => 'Monitor application status and respond to any requests',
-                                        'duration' => 'dynamic' // Will be replaced dynamically
-                                    ]
-                                ];
-                            @endphp
-                            @foreach($processSteps as $item)
-                                <div class="flex items-start space-x-4">
-                                    <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
-                                        {{ $item['step'] }}
-                                    </div>
-                                    <div class="flex-1">
-                                        <div class="flex items-center justify-between mb-2">
-                                            <h3 class="text-lg font-semibold text-white">{{ $item['title'] }}</h3>
-                                            <span class="text-sm text-slate-400 bg-slate-700 px-3 py-1 rounded-full">
-                                                @if($item['step'] === 4 && $servicePoints->count() > 0 && isset($processingTimeDurations) && count($processingTimeDurations) > 0)
-                                                    <span x-text="processingTimes[activeProgram] || processingTimes[0] || '4 - 12 months'"></span>
-                                                @else
-                                                    {{ $item['step'] === 4 ? '4 - 12 months' : $item['duration'] }}
-                                                @endif
-                                            </span>
+                            @if(isset($processSteps) && $processSteps->count() > 0)
+                                @foreach($processSteps as $item)
+                                    <div class="flex items-start space-x-4">
+                                        <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                                            {{ str_replace('0', '', $item->step_number) }}
                                         </div>
-                                        <p class="text-slate-300">{{ $item['description'] }}</p>
+                                        <div class="flex-1">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h3 class="text-lg font-semibold text-white">{{ $item->title }}</h3>
+                                                <span class="text-sm text-slate-400 bg-slate-700 px-3 py-1 rounded-full">
+                                                    @if(str_replace('0', '', $item->step_number) == 4 && $servicePoints->count() > 0 && isset($processingTimeDurations) && count($processingTimeDurations) > 0)
+                                                        <span x-text="processingTimes[activeProgram] || processingTimes[0] || '4 - 12 months'"></span>
+                                                    @else
+                                                        {{ $item->timeline ?: '4 - 12 months' }}
+                                                    @endif
+                                                </span>
+                                            </div>
+                                            <p class="text-slate-300">{{ $item->description }}</p>
+                                        </div>
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
+                            @else
+                                {{-- Fallback to hardcoded data if no steps in database --}}
+                                @php
+                                    $fallbackSteps = [
+                                        [
+                                            'step' => 1,
+                                            'title' => 'Initial Assessment',
+                                            'description' => 'We evaluate your eligibility and create a personalized strategy',
+                                            'duration' => '1-2 days'
+                                        ],
+                                        [
+                                            'step' => 2,
+                                            'title' => 'Document Preparation',
+                                            'description' => 'Compile and prepare all required documentation',
+                                            'duration' => '2-4 weeks'
+                                        ],
+                                        [
+                                            'step' => 3,
+                                            'title' => 'Application Submission',
+                                            'description' => 'Submit your complete application to IRCC',
+                                            'duration' => '1 week'
+                                        ],
+                                        [
+                                            'step' => 4,
+                                            'title' => 'Processing & Follow-up',
+                                            'description' => 'Monitor application status and respond to any requests',
+                                            'duration' => 'dynamic'
+                                        ]
+                                    ];
+                                @endphp
+                                @foreach($fallbackSteps as $item)
+                                    <div class="flex items-start space-x-4">
+                                        <div class="w-10 h-10 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                                            {{ $item['step'] }}
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="flex items-center justify-between mb-2">
+                                                <h3 class="text-lg font-semibold text-white">{{ $item['title'] }}</h3>
+                                                <span class="text-sm text-slate-400 bg-slate-700 px-3 py-1 rounded-full">
+                                                    @if($item['step'] === 4 && $servicePoints->count() > 0 && isset($processingTimeDurations) && count($processingTimeDurations) > 0)
+                                                        <span x-text="processingTimes[activeProgram] || processingTimes[0] || '4 - 12 months'"></span>
+                                                    @else
+                                                        {{ $item['step'] === 4 ? '4 - 12 months' : $item['duration'] }}
+                                                    @endif
+                                                </span>
+                                            </div>
+                                            <p class="text-slate-300">{{ $item['description'] }}</p>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endif
                         </div>
                     </section>
 
