@@ -198,6 +198,27 @@
 
     {{-- Timeline Section --}}
     <section class="py-10 bg-slate-800 timeline-section">
+        <style>
+            .timeline-card-mobile {
+                width: 135px !important;
+                min-width: 135px !important;
+                max-width: 135px !important;
+            }
+            @media (min-width: 640px) {
+                .timeline-card-mobile {
+                    width: 144px !important;
+                    min-width: 144px !important;
+                    max-width: 144px !important;
+                }
+            }
+            @media (min-width: 768px) {
+                .timeline-card-mobile {
+                    width: 160px !important;
+                    min-width: 160px !important;
+                    max-width: 160px !important;
+                }
+            }
+        </style>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
             <div class="text-center">
                 <h2 class="text-xl font-bold text-white mb-2">Our Journey Through Time</h2>
@@ -213,7 +234,7 @@
             style="overflow-x: auto !important; overflow-y: visible !important; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; -ms-overflow-style: none; scrollbar-width: none; width: 100%; cursor: grab;">
             <div class="flex space-x-3 px-4 sm:px-6 lg:px-8 pb-4 timeline-scroll-content" style="display: inline-flex; flex-wrap: nowrap; width: max-content;">
                 @foreach(array_merge($timelineEvents, $timelineEvents) as $index => $event)
-                    <div class="flex-shrink-0 w-40 bg-slate-700 rounded-xl p-4 border border-slate-600 opacity-0 animate-fade-in-up" style="animation-delay: {{ ($index % 4) * 0.1 }}s; animation-fill-mode: forwards;">
+                    <div class="flex-shrink-0 timeline-card-mobile bg-slate-700 rounded-xl p-3 sm:p-4 border border-slate-600 opacity-0 animate-fade-in-up" style="animation-delay: {{ ($index % 4) * 0.1 }}s; animation-fill-mode: forwards;">
                         <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mb-3">
                             <span class="text-sm font-bold text-white">{{ $event['year'] }}</span>
                         </div>
