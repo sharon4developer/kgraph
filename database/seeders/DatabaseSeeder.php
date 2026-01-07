@@ -16,12 +16,14 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-
-        User::create([
-            'name' => 'Admin',
-            'email' => 'admin@kgraph.com',
-            'password'=> Hash::make('kgraph@123'),
-        ]);
+        // Check if admin user exists, if not create it
+        User::firstOrCreate(
+            ['email' => 'admin@kgraph.com'],
+            [
+                'name' => 'Admin',
+                'password' => Hash::make('kgraph@123'),
+            ]
+        );
 
         $this->call(PageSeeder::class);
         $this->call(PermissionSeeder::class);
