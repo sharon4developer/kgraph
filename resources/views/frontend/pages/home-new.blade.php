@@ -244,7 +244,7 @@
                                 </div>
                             @endforeach
                         </div>
-                        <a href="{{ url('contact-us') }}" class="w-full inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 text-white rounded-lg font-medium transition-colors shadow-lg shadow-green-600/30">
+                        <a href="{{ url('contact-us') }}" class="w-full inline-flex items-center justify-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors shadow-lg shadow-green-600/30">
                             Free Eligibility Check
                         </a>
                     </div>
