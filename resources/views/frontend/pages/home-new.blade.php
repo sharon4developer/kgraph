@@ -69,7 +69,7 @@
             <div class="absolute inset-0 bg-blue-950 bg-opacity-40"></div>
         </div>
         
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 -mt-8 lg:mt-0">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div class="opacity-0 animate-fade-in-left">
                     @if(isset($banner) && $banner->count() > 0)
@@ -244,7 +244,7 @@
                                 </div>
                             @endforeach
                         </div>
-                        <a href="{{ url('contact-us') }}" class="w-full inline-flex items-center justify-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors shadow-lg shadow-green-600/30">
+                        <a href="{{ url('eligibility-check') }}" class="w-full inline-flex items-center justify-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors shadow-lg shadow-green-600/30">
                             Free Eligibility Check
                         </a>
                     </div>

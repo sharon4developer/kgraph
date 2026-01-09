@@ -183,7 +183,7 @@
                 Let our experienced team guide you through the immigration process with personalized service and expert knowledge.
             </p>
             <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                <a href="{{ url('contact-us') }}" class="px-8 py-4 bg-white text-blue-600 rounded-2xl hover:bg-blue-50 transition-colors font-medium text-lg">
+                <a href="{{ url('eligibility-check') }}" class="px-8 py-4 bg-white text-blue-600 rounded-2xl hover:bg-blue-50 transition-colors font-medium text-lg">
                     Check your Eligibility
                 </a>
                 <a href="tel:+14169897788" class="px-8 py-4 border-2 border-blue-200 text-blue-200 rounded-2xl hover:bg-blue-200 hover:text-blue-600 transition-colors font-medium text-lg">
