@@ -109,7 +109,7 @@
                             <h3 class="text-xl font-bold text-white mb-4">Ready to Get Started?</h3>
                             <p class="text-blue-100 mb-6">Book a free consultation with our immigration experts today.</p>
                             <a href="{{ url('contact-us') }}" class="w-full inline-flex items-center justify-center px-6 py-3 bg-white text-blue-600 rounded-lg font-medium hover:bg-blue-50 transition-colors">
-                                Book Free Consultation
+                                Check your Eligibility
                             </a>
                         </div>
                     </div>

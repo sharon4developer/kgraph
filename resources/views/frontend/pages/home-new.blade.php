@@ -135,7 +135,7 @@
                         </p>
                     @endif
                     
-                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 hidden">
                         <a href="{{ url('contact-us') }}" class="inline-flex items-center justify-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors">
                             Book Free Consultation
                             <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -173,7 +173,7 @@
                             </div>
                         </div>
                         
-                        <a href="{{ url('contact-us') }}" class="w-full mt-6 inline-flex items-center justify-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors">
+                        <a href="{{ url('contact-us') }}" class="w-full mt-6 inline-flex items-center justify-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors">
                             Start Your Free Assessment Today
                         </a>
                     </div>
@@ -244,7 +244,7 @@
                                 </div>
                             @endforeach
                         </div>
-                        <a href="{{ url('contact-us') }}" class="w-full inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-500 hover:to-blue-600 text-white rounded-lg font-medium transition-colors shadow-lg shadow-blue-600/30">
+                        <a href="{{ url('contact-us') }}" class="w-full inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-500 hover:to-green-600 text-white rounded-lg font-medium transition-colors shadow-lg shadow-green-600/30">
                             Free Eligibility Check
                         </a>
                     </div>

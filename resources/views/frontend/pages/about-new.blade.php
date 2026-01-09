@@ -390,7 +390,7 @@
                 
                 <div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
                     <a href="{{ url('contact-us') }}" class="px-6 py-3 bg-white text-blue-600 rounded-xl hover:bg-blue-50 transition-colors font-medium">
-                        Book Free Consultation
+                        Check your Eligibility
                     </a>
                     <a href="tel:+14169897788" class="px-6 py-3 border-2 border-blue-200 text-blue-200 rounded-xl hover:bg-blue-200 hover:text-blue-600 transition-colors font-medium">
                         Call +1 416 989 7788

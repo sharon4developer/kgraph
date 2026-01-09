@@ -121,7 +121,7 @@
                     
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 mt-8">
                         <a href="{{ url('contact-us') }}" class="inline-flex items-center justify-center px-8 py-4 bg-green-500 hover:bg-green-600 text-white rounded-lg font-semibold text-lg transition-all duration-200 shadow-lg active:brightness-125 active:scale-95 hover:scale-102 button-glow focus:outline-none focus:ring-2 focus:ring-green-500">
-                            Book Free Consultation
+                            Check your Eligibility
                             @include('frontend.icons.arrow-right', ['class' => 'w-5 h-5 ml-2'])
                         </a>
                     </div>
@@ -736,7 +736,7 @@
             </p>
             <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6 mb-8">
                 <a href="{{ url('contact-us') }}" class="inline-flex items-center justify-center px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold text-lg transition-all duration-200 shadow-lg active:brightness-125 active:scale-95 hover:scale-102 button-glow focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    Book Free Consultation
+                    Check your Eligibility
                     @include('frontend.icons.arrow-right', ['class' => 'w-5 h-5 ml-2'])
                 </a>
                 <a href="tel:+14169897788" class="inline-flex items-center justify-center px-8 py-4 border-2 border-blue-200 text-blue-200 rounded-lg font-semibold text-lg transition-all duration-200 hover:bg-blue-200 hover:text-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 active:brightness-125 active:scale-95 hover:scale-102 button-glow">

@@ -147,7 +147,7 @@
                     </div>
                     <div class="text-center">
                         <button type="submit" id="submit-btn" class="w-full px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed">
-                            <span id="submit-text">Book Free Assessment</span>
+                            <span id="submit-text">Check your Eligibility</span>
                             <span id="submit-loading" class="hidden">Submitting...</span>
                         </button>
                         <p class="mt-4 text-sm text-slate-400">
@@ -158,9 +158,108 @@
             </div>
         </div>
     </section>
+
+    {{-- Office Locations --}}
+    @if($locations->count() > 0)
+    @php
+        // Business hours mapping based on location
+        $businessHours = [
+            'Toronto' => 'Monday - Friday: 9:00 AM - 6:00 PM',
+            'Kitchener' => 'Monday - Friday: 9:00 AM - 5:30 PM',
+            'Mississauga' => 'Monday - Friday: 9:00 AM - 6:00 PM',
+            'Kochi' => 'Monday - Saturday: 9:00 AM - 6:00 PM',
+        ];
+        
+        // Google Maps URLs for each location
+        $mapUrls = [
+            'Toronto' => 'https://www.google.com/maps?q=200+Bay+Street+Suite+2900+Toronto+ON+M5J+2J2',
+            'Kitchener' => 'https://www.google.com/maps?q=50+Queen+Street+North+Suite+320+Kitchener+ON+N2H+6P4',
+            'Mississauga' => 'https://www.google.com/maps?q=100+Matheson+Blvd+East+Suite+104+Mississauga+ON+L4Z+2G7',
+            'Kochi' => 'https://www.google.com/maps?q=Marine+Drive+Ernakulam+Kochi+Kerala+682031+India',
+        ];
+        
+        // Helper function to generate Google Maps URL from address
+        function getMapUrl($location, $address, $mapUrls) {
+            if (isset($mapUrls[$location])) {
+                return $mapUrls[$location];
+            }
+            // Fallback: generate URL from address
+            $encodedAddress = urlencode($address);
+            return "https://www.google.com/maps?q={$encodedAddress}";
+        }
+    @endphp
+    <section class="py-16 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-white mb-4">Visit Our Offices</h2>
+                <p class="text-slate-300 max-w-2xl mx-auto">
+                    We have convenient locations across Canada and India to serve you better. 
+                    Schedule an in-person consultation at any of our offices.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                @foreach($locations as $index => $location)
+                    @php
+                        $locationName = $location->location;
+                        $hours = $businessHours[$locationName] ?? 'Monday - Friday: 9:00 AM - 6:00 PM';
+                        $mapUrl = getMapUrl($locationName, $location->address ?? '', $mapUrls);
+                    @endphp
+                    <div class="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-5 border border-slate-600 opacity-0 animate-fade-in-up flex flex-col shadow-lg hover:shadow-xl hover:shadow-blue-900/20 hover:border-blue-500 transition-all" style="animation-delay: {{ $index * 0.1 }}s; animation-fill-mode: forwards;">
+                        {{-- Map Icon --}}
+                        <div class="flex justify-center mb-4">
+                            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center shadow-lg">
+                                @include('frontend.icons.map-pin', ['class' => 'w-8 h-8 text-white'])
+                            </div>
+                        </div>
+                        
+                        {{-- City Name --}}
+                        <h3 class="text-xl font-bold text-white mb-6 text-center">{{ $locationName }}</h3>
+                        
+                        {{-- Contact Information --}}
+                        <div class="space-y-3 mb-6 flex-1">
+                            @if($location->address)
+                                <div class="flex items-start space-x-3">
+                                    @include('frontend.icons.map-pin', ['class' => 'w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5'])
+                                    <p class="text-slate-300 text-sm">{{ $location->address }}</p>
+                                </div>
+                            @endif
+                            
+                            @if($location->phone)
+                                <div class="flex items-center space-x-3">
+                                    @include('frontend.icons.phone', ['class' => 'w-5 h-5 text-blue-400 flex-shrink-0'])
+                                    <a href="tel:{{ $location->phone }}" class="text-blue-400 hover:text-blue-300 text-sm">{{ $location->phone }}</a>
+                                </div>
+                            @endif
+                            
+                            @if($location->email)
+                                <div class="flex items-center space-x-3">
+                                    @include('frontend.icons.mail', ['class' => 'w-5 h-5 text-blue-400 flex-shrink-0'])
+                                    <a href="mailto:{{ $location->email }}" class="text-blue-400 hover:text-blue-300 text-sm">{{ $location->email }}</a>
+                                </div>
+                            @endif
+                            
+                            <div class="flex items-center space-x-3">
+                                @include('frontend.icons.clock', ['class' => 'w-5 h-5 text-blue-400 flex-shrink-0'])
+                                <p class="text-slate-300 text-sm">{{ $hours }}</p>
+                            </div>
+                        </div>
+                        
+                        {{-- View on Map Button --}}
+                        <a 
+                            href="{{ $mapUrl }}" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            class="w-full mt-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium text-center transition-colors"
+                        >
+                            View on Map
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>
+    @endif
 
     {{-- Contact Methods --}}
     <section class="py-16 bg-gradient-to-br from-slate-800 via-slate-700 to-slate-800">
@@ -486,108 +585,6 @@
             </div>
         </div>
     </section>
-
-    {{-- Office Locations --}}
-    @if($locations->count() > 0)
-    @php
-        // Business hours mapping based on location
-        $businessHours = [
-            'Toronto' => 'Monday - Friday: 9:00 AM - 6:00 PM',
-            'Kitchener' => 'Monday - Friday: 9:00 AM - 5:30 PM',
-            'Mississauga' => 'Monday - Friday: 9:00 AM - 6:00 PM',
-            'Kochi' => 'Monday - Saturday: 9:00 AM - 6:00 PM',
-        ];
-        
-        // Google Maps URLs for each location
-        $mapUrls = [
-            'Toronto' => 'https://www.google.com/maps?q=200+Bay+Street+Suite+2900+Toronto+ON+M5J+2J2',
-            'Kitchener' => 'https://www.google.com/maps?q=50+Queen+Street+North+Suite+320+Kitchener+ON+N2H+6P4',
-            'Mississauga' => 'https://www.google.com/maps?q=100+Matheson+Blvd+East+Suite+104+Mississauga+ON+L4Z+2G7',
-            'Kochi' => 'https://www.google.com/maps?q=Marine+Drive+Ernakulam+Kochi+Kerala+682031+India',
-        ];
-        
-        // Helper function to generate Google Maps URL from address
-        function getMapUrl($location, $address, $mapUrls) {
-            if (isset($mapUrls[$location])) {
-                return $mapUrls[$location];
-            }
-            // Fallback: generate URL from address
-            $encodedAddress = urlencode($address);
-            return "https://www.google.com/maps?q={$encodedAddress}";
-        }
-    @endphp
-    <section class="py-16 bg-slate-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-white mb-4">Visit Our Offices</h2>
-                <p class="text-slate-300 max-w-2xl mx-auto">
-                    We have convenient locations across Canada and India to serve you better. 
-                    Schedule an in-person consultation at any of our offices.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-                @foreach($locations as $index => $location)
-                    @php
-                        $locationName = $location->location;
-                        $hours = $businessHours[$locationName] ?? 'Monday - Friday: 9:00 AM - 6:00 PM';
-                        $mapUrl = getMapUrl($locationName, $location->address ?? '', $mapUrls);
-                    @endphp
-                    <div class="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-5 border border-slate-600 opacity-0 animate-fade-in-up flex flex-col shadow-lg hover:shadow-xl hover:shadow-blue-900/20 hover:border-blue-500 transition-all" style="animation-delay: {{ $index * 0.1 }}s; animation-fill-mode: forwards;">
-                        {{-- Map Icon --}}
-                        <div class="flex justify-center mb-4">
-                            <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center shadow-lg">
-                                @include('frontend.icons.map-pin', ['class' => 'w-8 h-8 text-white'])
-                            </div>
-                        </div>
-                        
-                        {{-- City Name --}}
-                        <h3 class="text-xl font-bold text-white mb-6 text-center">{{ $locationName }}</h3>
-                        
-                        {{-- Contact Information --}}
-                        <div class="space-y-3 mb-6 flex-1">
-                            @if($location->address)
-                                <div class="flex items-start space-x-3">
-                                    @include('frontend.icons.map-pin', ['class' => 'w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5'])
-                                    <p class="text-slate-300 text-sm">{{ $location->address }}</p>
-                                </div>
-                            @endif
-                            
-                            @if($location->phone)
-                                <div class="flex items-center space-x-3">
-                                    @include('frontend.icons.phone', ['class' => 'w-5 h-5 text-blue-400 flex-shrink-0'])
-                                    <a href="tel:{{ $location->phone }}" class="text-blue-400 hover:text-blue-300 text-sm">{{ $location->phone }}</a>
-                                </div>
-                            @endif
-                            
-                            @if($location->email)
-                                <div class="flex items-center space-x-3">
-                                    @include('frontend.icons.mail', ['class' => 'w-5 h-5 text-blue-400 flex-shrink-0'])
-                                    <a href="mailto:{{ $location->email }}" class="text-blue-400 hover:text-blue-300 text-sm">{{ $location->email }}</a>
-                                </div>
-                            @endif
-                            
-                            <div class="flex items-center space-x-3">
-                                @include('frontend.icons.clock', ['class' => 'w-5 h-5 text-blue-400 flex-shrink-0'])
-                                <p class="text-slate-300 text-sm">{{ $hours }}</p>
-                            </div>
-                        </div>
-                        
-                        {{-- View on Map Button --}}
-                        <a 
-                            href="{{ $mapUrl }}" 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                            class="w-full mt-auto px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium text-center transition-colors"
-                        >
-                            View on Map
-                        </a>
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-    @endif
 
 </div>
 @endsection

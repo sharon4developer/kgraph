@@ -23,6 +23,89 @@
         </div>
     </section>
 
+    {{-- Book Your Free Consultation Section --}}
+    <section class="py-20 bg-slate-900">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-white mb-4">Book Your Free Consultation</h2>
+                <p class="text-slate-300 max-w-2xl mx-auto">
+                    Take the first step towards your Canadian dream. Fill out the form below and our immigration experts will get back to you within 24 hours.
+                </p>
+            </div>
+            <div class="bg-slate-700 rounded-2xl p-8 border border-slate-600">
+                <form action="{{ route('submit-contact-form') }}" method="POST" class="space-y-6">
+                    @csrf
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-white mb-2 font-semibold">First Name <span class="text-red-500">*</span></label>
+                            <input type="text" name="first_name" required class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="John">
+                        </div>
+                        <div>
+                            <label class="block text-white mb-2 font-semibold">Last Name <span class="text-red-500">*</span></label>
+                            <input type="text" name="last_name" required class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Doe">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-white mb-2 font-semibold">Email <span class="text-red-500">*</span></label>
+                            <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="john.doe@example.com">
+                        </div>
+                        <div>
+                            <label class="block text-white mb-2 font-semibold">Phone <span class="text-red-500">*</span></label>
+                            <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="+1 416 989 7788">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-white mb-2 font-semibold">Message <span class="text-red-500">*</span></label>
+                        <textarea name="message" rows="5" required class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Tell us about your immigration goals and how we can help you..."></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl">
+                            Check your Eligibility
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    {{-- Office Locations --}}
+    @if($locations->count() > 0)
+    <section class="py-20 bg-slate-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-white mb-4">Visit Our Offices</h2>
+                <p class="text-slate-300 max-w-2xl mx-auto">
+                    We have convenient locations across Canada and India to serve you better. 
+                    Schedule an in-person consultation at any of our offices.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                @foreach($locations as $index => $location)
+                    <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700 opacity-0 animate-fade-in-up" style="animation-delay: {{ $index * 0.1 }}s; animation-fill-mode: forwards;">
+                        <h3 class="text-xl font-bold text-white mb-3">{{ $location->location }}</h3>
+                        <div class="flex items-start space-x-2 mb-3">
+                            @include('frontend.icons.map-pin', ['class' => 'w-4 h-4 text-blue-400 flex-shrink-0 mt-1'])
+                            <p class="text-slate-300 text-sm">{{ $location->address }}</p>
+                        </div>
+                        <div class="flex items-center space-x-2 mb-2">
+                            @include('frontend.icons.phone', ['class' => 'w-4 h-4 text-blue-400'])
+                        <a href="tel:{{ $location->phone }}" class="text-blue-400 hover:text-blue-300 text-sm">{{ $location->phone }}</a>
+                        </div>
+                        @if($location->email)
+                            <div class="flex items-center space-x-2">
+                                @include('frontend.icons.mail', ['class' => 'w-4 h-4 text-blue-400'])
+                                <a href="mailto:{{ $location->email }}" class="text-blue-400 hover:text-blue-300 text-sm">{{ $location->email }}</a>
+                            </div>
+                        @endif
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+    @endif
+
     {{-- Contact Methods --}}
     <section class="py-20 bg-slate-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -76,89 +159,6 @@
                         Book Now
                     </a>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    {{-- Office Locations --}}
-    @if($locations->count() > 0)
-    <section class="py-20 bg-slate-900">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-white mb-4">Visit Our Offices</h2>
-                <p class="text-slate-300 max-w-2xl mx-auto">
-                    We have convenient locations across Canada and India to serve you better. 
-                    Schedule an in-person consultation at any of our offices.
-                </p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                @foreach($locations as $index => $location)
-                    <div class="bg-slate-800 rounded-2xl p-6 border border-slate-700 opacity-0 animate-fade-in-up" style="animation-delay: {{ $index * 0.1 }}s; animation-fill-mode: forwards;">
-                        <h3 class="text-xl font-bold text-white mb-3">{{ $location->location }}</h3>
-                        <div class="flex items-start space-x-2 mb-3">
-                            @include('frontend.icons.map-pin', ['class' => 'w-4 h-4 text-blue-400 flex-shrink-0 mt-1'])
-                            <p class="text-slate-300 text-sm">{{ $location->address }}</p>
-                        </div>
-                        <div class="flex items-center space-x-2 mb-2">
-                            @include('frontend.icons.phone', ['class' => 'w-4 h-4 text-blue-400'])
-                        <a href="tel:{{ $location->phone }}" class="text-blue-400 hover:text-blue-300 text-sm">{{ $location->phone }}</a>
-                        </div>
-                        @if($location->email)
-                            <div class="flex items-center space-x-2">
-                                @include('frontend.icons.mail', ['class' => 'w-4 h-4 text-blue-400'])
-                                <a href="mailto:{{ $location->email }}" class="text-blue-400 hover:text-blue-300 text-sm">{{ $location->email }}</a>
-                            </div>
-                        @endif
-                    </div>
-                @endforeach
-            </div>
-        </div>
-    </section>
-    @endif
-
-    {{-- Book Your Free Consultation Section --}}
-    <section class="py-20 bg-slate-900">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-white mb-4">Book Your Free Consultation</h2>
-                <p class="text-slate-300 max-w-2xl mx-auto">
-                    Take the first step towards your Canadian dream. Fill out the form below and our immigration experts will get back to you within 24 hours.
-                </p>
-            </div>
-            <div class="bg-slate-700 rounded-2xl p-8 border border-slate-600">
-                <form action="{{ route('submit-contact-form') }}" method="POST" class="space-y-6">
-                    @csrf
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-white mb-2 font-semibold">First Name <span class="text-red-500">*</span></label>
-                            <input type="text" name="first_name" required class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="John">
-                        </div>
-                        <div>
-                            <label class="block text-white mb-2 font-semibold">Last Name <span class="text-red-500">*</span></label>
-                            <input type="text" name="last_name" required class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Doe">
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <label class="block text-white mb-2 font-semibold">Email <span class="text-red-500">*</span></label>
-                            <input type="email" name="email" required class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="john.doe@example.com">
-                        </div>
-                        <div>
-                            <label class="block text-white mb-2 font-semibold">Phone <span class="text-red-500">*</span></label>
-                            <input type="tel" name="phone" required class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="+1 416 989 7788">
-                        </div>
-                    </div>
-                    <div>
-                        <label class="block text-white mb-2 font-semibold">Message <span class="text-red-500">*</span></label>
-                        <textarea name="message" rows="5" required class="w-full px-4 py-3 rounded-lg bg-slate-800 border border-slate-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Tell us about your immigration goals and how we can help you..."></textarea>
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors shadow-lg hover:shadow-xl">
-                            Book Free Consultation
-                        </button>
-                    </div>
-                </form>
             </div>
         </div>
     </section>

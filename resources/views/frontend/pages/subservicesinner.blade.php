@@ -259,7 +259,7 @@
                             ? $services->ServicePoint->where('status', 1) 
                             : collect([]);
                     @endphp
-                    <section class="mb-12" 
+                    <section class="mb-12 hidden" 
                         @if($servicePoints->count() > 0)
                         x-data="{ 
                             activeProgram: 0,
@@ -384,7 +384,7 @@
                             </p>
                             <div class="space-y-3">
                                 <a href="{{ url('contact-us') }}" class="w-full inline-flex items-center justify-center px-6 py-3 bg-white text-blue-600 rounded-lg font-medium hover:bg-blue-50 transition-colors">
-                                    Book Free Consultation
+                                    Check your Eligibility
                                 </a>
                                 <a href="tel:+14169897788" class="w-full inline-flex items-center justify-center px-6 py-3 border-2 border-blue-200 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors">
                                     Call +1 416 989 7788
