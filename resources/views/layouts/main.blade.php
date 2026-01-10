@@ -15,7 +15,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-    @vite('resources/css/app.css')
+    {{-- CSS Loading - Try Vite first, fallback to direct asset link --}}
+    @if(file_exists(public_path('build/manifest.json')))
+        @php
+            $manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
+            $cssFile = $manifest['resources/css/app.css']['file'] ?? null;
+        @endphp
+        @if($cssFile)
+            <link rel="stylesheet" href="{{ asset('build/' . $cssFile) }}">
+        @else
+            @vite('resources/css/app.css')
+        @endif
+    @else
+        @vite('resources/css/app.css')
+    @endif
 
     @stack('styles')
     @stack('scripts')
