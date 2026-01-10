@@ -324,9 +324,9 @@
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-x-auto md:overflow-x-visible pb-4 md:pb-0 scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
                 {{-- Permanent Residency --}}
-                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up" style="animation-delay: 0s; animation-fill-mode: forwards;">
+                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up flex-shrink-0 w-[85%] md:w-auto" style="animation-delay: 0s; animation-fill-mode: forwards;">
                     <h3 class="text-2xl font-bold text-white mb-4">Permanent Residency</h3>
                     <ul class="space-y-3">
                         @foreach(['Express Entry', 'PNP', 'Family Sponsorship', 'Business/Investor Visa'] as $service)
@@ -341,7 +341,7 @@
                 </div>
 
                 {{-- Temporary Residency --}}
-                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up" style="animation-delay: 0.1s; animation-fill-mode: forwards;">
+                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up flex-shrink-0 w-[85%] md:w-auto" style="animation-delay: 0.1s; animation-fill-mode: forwards;">
                     <h3 class="text-2xl font-bold text-white mb-4">Temporary Residency</h3>
                     <ul class="space-y-3">
                         @foreach(['PGWP', 'Spouse Open Work Permit', 'Visiting Visa', 'Super Visa'] as $service)
@@ -356,7 +356,7 @@
                 </div>
 
                 {{-- Refusals and Appeals --}}
-                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up" style="animation-delay: 0.2s; animation-fill-mode: forwards;">
+                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up flex-shrink-0 w-[85%] md:w-auto" style="animation-delay: 0.2s; animation-fill-mode: forwards;">
                     <h3 class="text-2xl font-bold text-white mb-4">Refusals and Appeals</h3>
                     <ul class="space-y-3">
                         @foreach(['IAD Appeals', 'Refusal and Reapplication'] as $service)
@@ -371,7 +371,7 @@
                 </div>
 
                 {{-- Pilot and Rural Programs --}}
-                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up" style="animation-delay: 0.3s; animation-fill-mode: forwards;">
+                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up flex-shrink-0 w-[85%] md:w-auto" style="animation-delay: 0.3s; animation-fill-mode: forwards;">
                     <h3 class="text-2xl font-bold text-white mb-4">Pilot and Rural Programs</h3>
                     <ul class="space-y-3">
                         @foreach(['RCIP', 'AIP', 'Home Caregiver'] as $service)
@@ -386,7 +386,7 @@
                 </div>
 
                 {{-- LMIA --}}
-                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up" style="animation-delay: 0.4s; animation-fill-mode: forwards;">
+                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up flex-shrink-0 w-[85%] md:w-auto" style="animation-delay: 0.4s; animation-fill-mode: forwards;">
                     <h3 class="text-2xl font-bold text-white mb-4">LMIA</h3>
                     <ul class="space-y-3">
                         <li>
@@ -547,9 +547,11 @@
                 </div>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-8 overflow-x-auto md:overflow-x-visible pb-4 md:pb-0 scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
                 @foreach($featuredTestimonials as $index => $testimonial)
-                    @include('frontend.Common.testimonial-card', ['testimonial' => $testimonial, 'index' => $index])
+                    <div class="flex-shrink-0 w-[85%] md:w-auto">
+                        @include('frontend.Common.testimonial-card', ['testimonial' => $testimonial, 'index' => $index])
+                    </div>
                 @endforeach
             </div>
         </div>
@@ -782,6 +784,13 @@
     }
     .animate-fade-in-right {
         animation: fade-in-right 0.8s ease-out 0.2s forwards;
+    }
+    .scrollbar-hide {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    .scrollbar-hide::-webkit-scrollbar {
+        display: none;
     }
 </style>
 @endsection
