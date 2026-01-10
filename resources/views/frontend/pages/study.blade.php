@@ -4,15 +4,27 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/css/splide.min.css">
 <style>
     .packaginner-banner {
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center top;
         position: relative;
+        min-height: 500px;
+        background: #062358;
+    }
+    
+    .packaginner-banner img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        z-index: 0;
     }
     
     .packages-banner-overlay {
         background: rgba(0, 0, 0, 0.6);
         height: 100%;
+        position: relative;
+        z-index: 1;
     }
     
     .line-clamp-3 {
@@ -85,10 +97,11 @@
 <div class="min-h-screen bg-slate-50">
     @if($studyData)
         {{-- Hero Section --}}
-        <div class="packaginner-banner h-full relative overflow-hidden" 
-             @if($studyData->study_banner_image)
-             style="background-image: url('{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $studyData->study_banner_image }}');"
-             @endif>
+        <div class="packaginner-banner h-full relative overflow-hidden min-h-[500px]">
+            @if($studyData->study_banner_image)
+                <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $studyData->study_banner_image }}"
+                     alt="Study in Canada">
+            @endif
             <div class="packages-banner-overlay">
                 <div class="container mx-auto px-5 lg:px-12 h-full w-full py-8 md:pt-[15%] lg:py-[8%]">
                     <div class="opacity-0 animate-fade-in-up" style="animation-fill-mode: forwards;">
