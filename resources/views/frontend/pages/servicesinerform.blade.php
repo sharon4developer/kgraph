@@ -2,6 +2,13 @@
 
 @push('styles')
 <style>
+    .line-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+    
     .form-input,
     .form-select,
     .form-textarea {
@@ -178,35 +185,74 @@
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
                     Immigration Pre-Assessment
                 </h1>
-                <p class="text-slate-300 leading-relaxed mb-6 max-w-4xl" style="font-size: 1.12rem;">
-                    By filling out this Immigration Pre-Assessment Form you will provide us information to access your eligibility to come and immigrate to Canada as a worker, student, investor or permanent resident. You will be required to provide details on your education, language skills, work experience and other factors considered by Immigration Canada to access candidates' eligibility.
-                </p>
-                
-                <div class="bg-slate-800/50 rounded-xl p-5 border border-slate-700 mb-4">
-                    <div class="space-y-3 text-slate-300">
-                        <div class="flex items-start space-x-3">
-                            <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            <p>We respect your privacy. Your personal information will not be released to any third party.</p>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                            <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            <p>The Pre-Assessment is free. If you need a consultation with our immigration consultant, charges apply.</p>
-                        </div>
-                        <div class="flex items-start space-x-3">
-                            <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                            <p>We will contact you via email within 3 business days after you submit the form. If you do not hear from us after that period, please check your junk/spam emails.</p>
+                <div x-data="{ showFullContent: false }" class="mb-6 max-w-4xl">
+                    <p class="text-slate-300 leading-relaxed mb-6" style="font-size: 1.12rem;" 
+                       :class="showFullContent ? '' : 'line-clamp-3 md:line-clamp-none'">
+                        By filling out this Immigration Pre-Assessment Form you will provide us information to access your eligibility to come and immigrate to Canada as a worker, student, investor or permanent resident. You will be required to provide details on your education, language skills, work experience and other factors considered by Immigration Canada to access candidates' eligibility.
+                    </p>
+                    
+                    <div class="bg-slate-800/50 rounded-xl p-5 border border-slate-700 mb-4" 
+                         :class="showFullContent ? '' : 'hidden md:block'">
+                        <div class="space-y-3 text-slate-300">
+                            <div class="flex items-start space-x-3">
+                                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <p>We respect your privacy. Your personal information will not be released to any third party.</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <p>The Pre-Assessment is free. If you need a consultation with our immigration consultant, charges apply.</p>
+                            </div>
+                            <div class="flex items-start space-x-3">
+                                <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                                <p>We will contact you via email within 3 business days after you submit the form. If you do not hear from us after that period, please check your junk/spam emails.</p>
+                            </div>
                         </div>
                     </div>
+                    
+                    <div x-show="showFullContent" x-cloak class="md:hidden">
+                        <div class="bg-slate-800/50 rounded-xl p-5 border border-slate-700 mb-4">
+                            <div class="space-y-3 text-slate-300">
+                                <div class="flex items-start space-x-3">
+                                    <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <p>We respect your privacy. Your personal information will not be released to any third party.</p>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <p>The Pre-Assessment is free. If you need a consultation with our immigration consultant, charges apply.</p>
+                                </div>
+                                <div class="flex items-start space-x-3">
+                                    <svg class="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <p>We will contact you via email within 3 business days after you submit the form. If you do not hear from us after that period, please check your junk/spam emails.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-slate-400 text-sm mb-2">We look forward to assisting you with your immigration matter.</p>
+                        <p class="text-white font-semibold">KGraph Immigration Services</p>
+                    </div>
+                    
+                    <div class="hidden md:block">
+                        <p class="text-slate-400 text-sm">We look forward to assisting you with your immigration matter.</p>
+                        <p class="text-white font-semibold mt-2">KGraph Immigration Services</p>
+                    </div>
+                    
+                    <button @click="showFullContent = !showFullContent" 
+                            class="md:hidden mt-4 text-blue-400 hover:text-blue-300 font-medium text-sm underline transition-colors">
+                        <span x-show="!showFullContent">Read More</span>
+                        <span x-show="showFullContent">Read Less</span>
+                    </button>
                 </div>
-                
-                <p class="text-slate-400 text-sm">We look forward to assisting you with your immigration matter.</p>
-                <p class="text-white font-semibold mt-2">KGraph Immigration Services</p>
             </div>
         </div>
     </section>

@@ -173,7 +173,7 @@
                             </div>
                         </div>
                         
-                        <a href="{{ url('contact-us') }}" class="w-full mt-6 inline-flex items-center justify-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors">
+                        <a href="{{ url('eligibility-check') }}" class="w-full mt-6 inline-flex items-center justify-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors">
                             Start Your Free Assessment Today
                         </a>
                     </div>
@@ -538,7 +538,7 @@
                     Client-rated 4.9 out of 5 based on verified experiences
                 </p>
                 <div class="mt-6">
-                    <a href="{{ url('contact-us') }}" class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors">
+                    <a href="{{ url('eligibility-check') }}" class="inline-flex items-center justify-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors">
                         Thinking about your next step? Start with a free eligibility review.
                         <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
