@@ -13,14 +13,14 @@
     .form-select,
     .form-textarea {
         width: 100%;
-        padding: 0.75rem 1rem;
+        padding: 0.625rem 0.875rem;
         background-color: white !important;
         border: 1px solid #cbd5e1 !important;
         border-radius: 0.5rem;
         color: #0f172a !important;
         font-size: 1rem;
         transition: all 0.2s;
-        min-height: 44px;
+        min-height: 42px;
         display: block;
         opacity: 1;
         visibility: visible;
@@ -44,7 +44,7 @@
         font-size: 0.875rem;
         font-weight: 600;
         color: #334155;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.375rem;
     }
     
     .form-select {
@@ -58,7 +58,7 @@
     
     .form-textarea {
         resize: none;
-        min-height: 100px;
+        min-height: 80px;
     }
     
     .radio-group {
@@ -94,7 +94,7 @@
     
     .section-divider {
         border-top: 1px solid #e2e8f0;
-        margin: 2rem 0;
+        margin: 1rem 0;
     }
     
     /* Override any conflicting styles from contact-form class */
@@ -258,24 +258,24 @@
     </section>
 
     {{-- Form Section --}}
-    <section class="py-16 bg-white">
+    <section class="py-6 md:py-8 bg-white">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-8 md:p-12">
-                <div class="flex items-center justify-between mb-8 pb-6 border-b border-slate-200">
+            <div class="bg-white rounded-2xl shadow-xl border border-slate-200 p-4 md:p-6">
+                <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-200">
                     <h2 class="text-2xl md:text-3xl font-bold text-slate-900">Immigration Pre-Assessment Form</h2>
                     <img class="h-12 md:h-16" src="{{ asset('assets/home_Banner/k-graph-logo-blue.png') }}" alt="K-Graph Logo">
                 </div>
                 
-                <p class="text-slate-600 mb-8">
+                <p class="text-slate-800 mb-4" style="color: #1e293b !important;">
                     <strong>Note:</strong> In case you are filling out the form for a friend or sponsored person, please input the information of the person who wants to immigrate.
                 </p>
 
                 <form action="" class="contact-form" id="eligibility-form">
                     {{-- Personal Information Section --}}
-                    <div class="mb-10">
-                        <h3 class="text-xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">Personal Information</h3>
+                    <div class="mb-5">
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 pb-2 border-b border-slate-200">Personal Information</h3>
                         
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                             <div>
                                 <label for="first-name" class="form-label">First Name <span class="text-red-500">*</span></label>
                                 <input type="text" id="first-name" name="first_name" class="form-input" required>
@@ -286,7 +286,7 @@
                             </div>
                         </div>
                         
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                             <div>
                                 <label for="dob" class="form-label">Date of Birth <span class="text-red-500">*</span></label>
                                 <input type="date" id="dob" name="dob" value="2000-01-01" class="form-input" required>
@@ -305,7 +305,7 @@
                             </div>
                         </div>
                         
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                             <div>
                                 <label for="email" class="form-label">Email <span class="text-red-500">*</span></label>
                                 <input type="email" id="email" name="email" class="form-input lowercase" required>
@@ -441,7 +441,7 @@
                             </div>
                         </div>
                         
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label for="street-address-1" class="form-label">Address <span class="text-red-500">*</span></label>
                                 <input type="text" id="street-address-1" name="street_address" class="form-input" required>
@@ -456,10 +456,10 @@
                     <div class="section-divider"></div>
 
                     {{-- Education Section --}}
-                    <div class="mb-10">
-                        <h3 class="text-xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">Education & Qualifications</h3>
+                    <div class="mb-5">
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 pb-2 border-b border-slate-200">Education & Qualifications</h3>
                         
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label for="highest-education-inside" class="form-label">Highest Level of Education <span class="text-red-500">*</span></label>
                                 <select id="highest-education-inside" name="highest_education_inside_can" class="form-select" required>
@@ -492,10 +492,10 @@
                     <div class="section-divider"></div>
 
                     {{-- Language Skills Section --}}
-                    <div class="mb-10">
-                        <h3 class="text-xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">Language Skills</h3>
+                    <div class="mb-5">
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 pb-2 border-b border-slate-200">Language Skills</h3>
                         
-                        <div class="mb-6">
+                        <div class="mb-4">
                             <label class="form-label">Do you have a valid Language Skills Test Result <span class="text-red-500">*</span></label>
                             <div class="radio-group">
                                 <div class="radio-option">
@@ -509,7 +509,7 @@
                             </div>
                         </div>
 
-                        <div id="language-test" class="hidden mb-6">
+                        <div id="language-test" class="hidden mb-4">
                             <label for="which-lang" class="form-label">Which language test did you take? <span class="text-red-500">*</span></label>
                             <select id="which-lang" name="language_test" class="form-select">
                                 <option value="" disabled selected>Select</option>
@@ -522,8 +522,8 @@
                         </div>
 
                         <div id="language-scores" class="hidden">
-                            <label class="form-label mb-4">Language Test Scores <span class="text-red-500">*</span></label>
-                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                            <label class="form-label mb-3">Language Test Scores <span class="text-red-500">*</span></label>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
                                 <div>
                                     <label for="speaking" class="form-label">Speaking</label>
                                     <input type="number" id="speaking" name="speaking" class="form-input" min="0" oninput="this.value = this.value < 0 ? 0 : this.value">
@@ -547,10 +547,10 @@
                     <div class="section-divider"></div>
 
                     {{-- Work Experience Section --}}
-                    <div class="mb-10">
-                        <h3 class="text-xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">Work Experience</h3>
+                    <div class="mb-5">
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 pb-2 border-b border-slate-200">Work Experience</h3>
                         
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
                                 <label for="state" class="form-label">Canadian Experience <span class="text-red-500">*</span></label>
                                 <select id="state" name="state" class="form-select" required>
@@ -579,10 +579,10 @@
                     <div class="section-divider"></div>
 
                     {{-- Additional Information Section --}}
-                    <div class="mb-10">
-                        <h3 class="text-xl font-bold text-slate-900 mb-6 pb-2 border-b border-slate-200">Additional Information</h3>
+                    <div class="mb-5">
+                        <h3 class="text-xl font-bold text-slate-900 mb-3 pb-2 border-b border-slate-200">Additional Information</h3>
                         
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                             <div>
                                 <label class="form-label">Any Previous Visa Refusal <span class="text-red-500">*</span></label>
                                 <div class="radio-group">
@@ -611,7 +611,7 @@
                             </div>
                         </div>
                         
-                        <div class="mb-6">
+                        <div class="mb-4">
                             <label class="form-label">Do you or your spouse or common-law partner have a blood relative living in Canada who is a citizen or a permanent resident of Canada <span class="text-red-500">*</span></label>
                             <div class="radio-group">
                                 <div class="radio-option">
@@ -625,7 +625,7 @@
                             </div>
                         </div>
                         
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                             <div>
                                 <label for="hear-about-us" class="form-label">How Did You Hear About Us <span class="text-red-500">*</span></label>
                                 <select id="hear-about-us" name="hear_about_canada" class="form-select" required>
@@ -648,11 +648,11 @@
                     <div class="section-divider"></div>
 
                     {{-- Submit Section --}}
-                    <div class="mt-12 mb-8">
-                        <div class="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 rounded-2xl p-8 md:p-12 shadow-2xl border border-blue-500/20">
+                    <div class="mt-6 mb-4">
+                        <div class="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 rounded-2xl p-6 md:p-8 shadow-2xl border border-blue-500/20">
                             <div class="max-w-3xl mx-auto">
                                 {{-- Submit Button --}}
-                                <div class="text-center mb-8">
+                                <div class="text-center mb-6">
                                     <button type="submit" class="group relative inline-flex items-center justify-center w-full md:w-auto px-10 md:px-16 py-4 md:py-5 bg-white text-blue-700 rounded-xl font-bold text-base md:text-lg hover:bg-blue-100 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-100 border-2 border-transparent hover:border-blue-300">
                                         <span class="relative z-10 flex items-center space-x-2">
                                             <span class="group-hover:text-blue-800 transition-colors duration-300">SUBMIT FORM</span>
@@ -664,7 +664,7 @@
                                 </div>
                                 
                                 {{-- Disclaimer Block --}}
-                                <div class="bg-white/10 backdrop-blur-md rounded-xl p-6 md:p-8 border border-white/30 shadow-lg">
+                                <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 md:p-6 border border-white/30 shadow-lg">
                                     <div class="flex items-start space-x-4">
                                         <div class="flex-shrink-0">
                                             <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">

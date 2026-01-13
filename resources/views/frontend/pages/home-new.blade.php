@@ -136,8 +136,8 @@
                     @endif
                     
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 hidden">
-                        <a href="{{ url('contact-us') }}" class="inline-flex items-center justify-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors">
-                            Book Free Consultation
+                        <a href="{{ url('eligibility-check') }}" class="inline-flex items-center justify-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors">
+                            Free Eligibility Check
                             <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                             </svg>
@@ -324,16 +324,89 @@
                 </p>
             </div>
             
-            <div class="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 overflow-x-auto md:overflow-x-visible pb-4 md:pb-0 scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
+            {{-- Horizontal Scrollable Cards - All Devices with Navigation Arrows --}}
+            <div class="relative px-8 md:px-12 py-8" x-data="{ 
+                scrollContainer: null,
+                canScrollLeft: false,
+                canScrollRight: true,
+                checkScroll() {
+                    if (this.scrollContainer) {
+                        this.canScrollLeft = this.scrollContainer.scrollLeft > 0;
+                        this.canScrollRight = this.scrollContainer.scrollLeft < (this.scrollContainer.scrollWidth - this.scrollContainer.clientWidth - 10);
+                    }
+                },
+                scrollLeft() {
+                    if (this.scrollContainer) {
+                        this.scrollContainer.scrollBy({ left: -400, behavior: 'smooth' });
+                    }
+                },
+                scrollRight() {
+                    if (this.scrollContainer) {
+                        this.scrollContainer.scrollBy({ left: 400, behavior: 'smooth' });
+                    }
+                }
+            }" x-init="
+                scrollContainer = $refs.scrollContainer;
+                checkScroll();
+                scrollContainer.addEventListener('scroll', () => checkScroll());
+                new ResizeObserver(() => checkScroll()).observe(scrollContainer);
+            ">
+                {{-- Left Arrow --}}
+                <button 
+                    @click="scrollLeft()"
+                    x-show="canScrollLeft"
+                    x-cloak
+                    x-transition:enter="transition ease-out duration-200"
+                    x-transition:enter-start="opacity-0 scale-90"
+                    x-transition:enter-end="opacity-100 scale-100"
+                    x-transition:leave="transition ease-in duration-150"
+                    x-transition:leave-start="opacity-100 scale-100"
+                    x-transition:leave-end="opacity-0 scale-90"
+                    class="absolute left-0 z-20 bg-blue-800/20 hover:bg-blue-800/40 backdrop-blur-md text-white rounded-full p-3 md:p-4 shadow-lg hover:shadow-xl border border-white/20 hover:border-white/30 transition-all duration-200 flex items-center justify-center w-12 h-12 md:w-14 md:h-14"
+                    style="top: 50%; transform: translateY(-50%);"
+                    aria-label="Scroll left"
+                >
+                    <svg class="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+
+                {{-- Right Arrow --}}
+                <button 
+                    @click="scrollRight()"
+                    x-show="canScrollRight"
+                    x-cloak
+                    x-transition:enter="transition ease-out duration-200"
+                    x-transition:enter-start="opacity-0 scale-90"
+                    x-transition:enter-end="opacity-100 scale-100"
+                    x-transition:leave="transition ease-in duration-150"
+                    x-transition:leave-start="opacity-100 scale-100"
+                    x-transition:leave-end="opacity-0 scale-90"
+                    class="absolute right-0 z-20 bg-blue-800/20 hover:bg-blue-800/40 backdrop-blur-md text-white rounded-full p-3 md:p-4 shadow-lg hover:shadow-xl border border-white/20 hover:border-white/30 transition-all duration-200 flex items-center justify-center w-12 h-12 md:w-14 md:h-14"
+                    style="top: 50%; transform: translateY(-50%);"
+                    aria-label="Scroll right"
+                >
+                    <svg class="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+
+                <div 
+                    x-ref="scrollContainer"
+                    class="flex flex-nowrap gap-6 overflow-x-auto pb-4 scrollbar-hide scroll-smooth snap-x snap-mandatory touch-pan-x"
+                >
                 {{-- Permanent Residency --}}
-                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up flex-shrink-0 w-[85%] md:w-auto" style="animation-delay: 0s; animation-fill-mode: forwards;">
+                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up flex-shrink-0 w-[90%] sm:w-[85%] md:w-[400px] lg:w-[350px] snap-start" style="animation-delay: 0s; animation-fill-mode: forwards;">
                     <h3 class="text-2xl font-bold text-white mb-4">Permanent Residency</h3>
-                    <ul class="space-y-3">
+                    <ul class="space-y-2">
                         @foreach(['Express Entry', 'PNP', 'Family Sponsorship', 'Business/Investor Visa'] as $service)
                             <li>
-                                <a href="{{ $serviceLinks[$service] ?? url('services') }}" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center">
-                                    <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
-                                    {{ $service }}
+                                <a href="{{ $serviceLinks[$service] ?? url('services') }}" class="group text-blue-200 hover:text-white transition-all duration-200 flex items-center py-2.5 px-4 rounded-lg bg-blue-800/30 hover:bg-blue-700/60 border border-blue-700/50 hover:border-blue-500 hover:shadow-lg cursor-pointer">
+                                    <span class="w-2.5 h-2.5 bg-blue-400 rounded-full mr-3 group-hover:bg-blue-300 transition-colors flex-shrink-0"></span>
+                                    <span class="font-medium underline decoration-blue-400/50 hover:decoration-blue-300 flex-grow">{{ $service }}</span>
+                                    <svg class="w-4 h-4 ml-2 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                    </svg>
                                 </a>
                             </li>
                         @endforeach
@@ -341,14 +414,17 @@
                 </div>
 
                 {{-- Temporary Residency --}}
-                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up flex-shrink-0 w-[85%] md:w-auto" style="animation-delay: 0.1s; animation-fill-mode: forwards;">
+                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up flex-shrink-0 w-[90%] sm:w-[85%] md:w-[400px] lg:w-[350px] snap-start" style="animation-delay: 0.1s; animation-fill-mode: forwards;">
                     <h3 class="text-2xl font-bold text-white mb-4">Temporary Residency</h3>
-                    <ul class="space-y-3">
+                    <ul class="space-y-2">
                         @foreach(['PGWP', 'Spouse Open Work Permit', 'Visiting Visa', 'Super Visa'] as $service)
                             <li>
-                                <a href="{{ $serviceLinks[$service] ?? url('services') }}" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center">
-                                    <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
-                                    {{ $service }}
+                                <a href="{{ $serviceLinks[$service] ?? url('services') }}" class="group text-blue-200 hover:text-white transition-all duration-200 flex items-center py-2.5 px-4 rounded-lg bg-blue-800/30 hover:bg-blue-700/60 border border-blue-700/50 hover:border-blue-500 hover:shadow-lg cursor-pointer">
+                                    <span class="w-2.5 h-2.5 bg-blue-400 rounded-full mr-3 group-hover:bg-blue-300 transition-colors flex-shrink-0"></span>
+                                    <span class="font-medium underline decoration-blue-400/50 hover:decoration-blue-300 flex-grow">{{ $service }}</span>
+                                    <svg class="w-4 h-4 ml-2 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                    </svg>
                                 </a>
                             </li>
                         @endforeach
@@ -356,14 +432,17 @@
                 </div>
 
                 {{-- Refusals and Appeals --}}
-                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up flex-shrink-0 w-[85%] md:w-auto" style="animation-delay: 0.2s; animation-fill-mode: forwards;">
+                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up flex-shrink-0 w-[90%] sm:w-[85%] md:w-[400px] lg:w-[350px] snap-start" style="animation-delay: 0.2s; animation-fill-mode: forwards;">
                     <h3 class="text-2xl font-bold text-white mb-4">Refusals and Appeals</h3>
-                    <ul class="space-y-3">
+                    <ul class="space-y-2">
                         @foreach(['IAD Appeals', 'Refusal and Reapplication'] as $service)
                             <li>
-                                <a href="{{ $serviceLinks[$service] ?? url('services') }}" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center">
-                                    <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
-                                    {{ $service }}
+                                <a href="{{ $serviceLinks[$service] ?? url('services') }}" class="group text-blue-200 hover:text-white transition-all duration-200 flex items-center py-2.5 px-4 rounded-lg bg-blue-800/30 hover:bg-blue-700/60 border border-blue-700/50 hover:border-blue-500 hover:shadow-lg cursor-pointer">
+                                    <span class="w-2.5 h-2.5 bg-blue-400 rounded-full mr-3 group-hover:bg-blue-300 transition-colors flex-shrink-0"></span>
+                                    <span class="font-medium underline decoration-blue-400/50 hover:decoration-blue-300 flex-grow">{{ $service }}</span>
+                                    <svg class="w-4 h-4 ml-2 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                    </svg>
                                 </a>
                             </li>
                         @endforeach
@@ -371,14 +450,17 @@
                 </div>
 
                 {{-- Pilot and Rural Programs --}}
-                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up flex-shrink-0 w-[85%] md:w-auto" style="animation-delay: 0.3s; animation-fill-mode: forwards;">
+                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up flex-shrink-0 w-[90%] sm:w-[85%] md:w-[400px] lg:w-[350px] snap-start" style="animation-delay: 0.3s; animation-fill-mode: forwards;">
                     <h3 class="text-2xl font-bold text-white mb-4">Pilot and Rural Programs</h3>
-                    <ul class="space-y-3">
+                    <ul class="space-y-2">
                         @foreach(['RCIP', 'AIP', 'Home Caregiver'] as $service)
                             <li>
-                                <a href="{{ $serviceLinks[$service] ?? url('services') }}" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center">
-                                    <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
-                                    {{ $service }}
+                                <a href="{{ $serviceLinks[$service] ?? url('services') }}" class="group text-blue-200 hover:text-white transition-all duration-200 flex items-center py-2.5 px-4 rounded-lg bg-blue-800/30 hover:bg-blue-700/60 border border-blue-700/50 hover:border-blue-500 hover:shadow-lg cursor-pointer">
+                                    <span class="w-2.5 h-2.5 bg-blue-400 rounded-full mr-3 group-hover:bg-blue-300 transition-colors flex-shrink-0"></span>
+                                    <span class="font-medium underline decoration-blue-400/50 hover:decoration-blue-300 flex-grow">{{ $service }}</span>
+                                    <svg class="w-4 h-4 ml-2 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                    </svg>
                                 </a>
                             </li>
                         @endforeach
@@ -386,16 +468,20 @@
                 </div>
 
                 {{-- LMIA --}}
-                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up flex-shrink-0 w-[85%] md:w-auto" style="animation-delay: 0.4s; animation-fill-mode: forwards;">
+                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up flex-shrink-0 w-[90%] sm:w-[85%] md:w-[400px] lg:w-[350px] snap-start" style="animation-delay: 0.4s; animation-fill-mode: forwards;">
                     <h3 class="text-2xl font-bold text-white mb-4">LMIA</h3>
-                    <ul class="space-y-3">
+                    <ul class="space-y-2">
                         <li>
-                            <a href="{{ $serviceLinks['Labour Market Impact Assessment'] ?? url('service-details/labour-market-impact-assessment') }}" class="text-blue-400 hover:text-blue-300 transition-colors flex items-center">
-                                <span class="w-2 h-2 bg-blue-400 rounded-full mr-3"></span>
-                                Labour Market Impact Assessment
+                            <a href="{{ $serviceLinks['Labour Market Impact Assessment'] ?? url('service-details/labour-market-impact-assessment') }}" class="group text-blue-200 hover:text-white transition-all duration-200 flex items-center py-2.5 px-4 rounded-lg bg-blue-800/30 hover:bg-blue-700/60 border border-blue-700/50 hover:border-blue-500 hover:shadow-lg cursor-pointer">
+                                <span class="w-2.5 h-2.5 bg-blue-400 rounded-full mr-3 group-hover:bg-blue-300 transition-colors flex-shrink-0"></span>
+                                <span class="font-medium underline decoration-blue-400/50 hover:decoration-blue-300 flex-grow">Labour Market Impact Assessment</span>
+                                <svg class="w-4 h-4 ml-2 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                </svg>
                             </a>
                         </li>
                     </ul>
+                </div>
                 </div>
             </div>
         </div>
@@ -744,8 +830,8 @@
                 Contact KGraph today for a smooth & guided process with successful immigration approval.
             </p>
             <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
-                <a href="{{ url('contact-us') }}" class="inline-flex items-center justify-center px-6 py-3 bg-white text-blue-800 rounded-lg font-medium hover:bg-blue-50 transition-colors">
-                    Book Free Consultation
+                <a href="{{ url('eligibility-check') }}" class="inline-flex items-center justify-center px-6 py-3 bg-white text-blue-800 rounded-lg font-medium hover:bg-blue-50 transition-colors">
+                    Free Eligibility Check
                     <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                     </svg>
