@@ -24,14 +24,63 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
-    {{-- CSS Loading - Try Vite first, fallback to direct asset link --}}
+    {{-- CSS Loading - Try live server first, fallback to dev server --}}
     @if(file_exists(public_path('build/manifest.json')))
         @php
             $manifest = json_decode(file_get_contents(public_path('build/manifest.json')), true);
             $cssFile = $manifest['resources/css/app.css']['file'] ?? null;
         @endphp
         @if($cssFile)
-            <link rel="stylesheet" href="{{ asset('build/' . $cssFile) }}">
+            {{-- Primary CSS from live server --}}
+            <link rel="stylesheet" href="{{ asset('build/' . $cssFile) }}" id="main-css">
+            {{-- Fallback mechanism via JavaScript --}}
+            <script>
+                (function() {
+                    var cssLink = document.getElementById('main-css');
+                    var fallbackCss = 'https://dev2.luminefy.com/build/assets/app-DIj0EiP8.css';
+                    var cssFileName = '{{ basename($cssFile) }}';
+                    
+                    // Check if CSS loaded successfully after a short delay
+                    setTimeout(function() {
+                        var sheets = document.styleSheets;
+                        var cssLoaded = false;
+                        
+                        // Check if main CSS is loaded
+                        for (var i = 0; i < sheets.length; i++) {
+                            try {
+                                if (sheets[i].href && sheets[i].href.includes(cssFileName)) {
+                                    cssLoaded = true;
+                                    break;
+                                }
+                            } catch(e) {
+                                // Cross-origin stylesheet, skip
+                            }
+                        }
+                        
+                        // If CSS not loaded, add fallback
+                        if (!cssLoaded) {
+                            var link = document.createElement('link');
+                            link.rel = 'stylesheet';
+                            link.href = fallbackCss;
+                            link.id = 'fallback-css';
+                            document.head.appendChild(link);
+                            console.log('CSS fallback loaded from dev server');
+                        }
+                    }, 1000);
+                    
+                    // Also check on error event
+                    cssLink.onerror = function() {
+                        if (!document.getElementById('fallback-css')) {
+                            var link = document.createElement('link');
+                            link.rel = 'stylesheet';
+                            link.href = fallbackCss;
+                            link.id = 'fallback-css';
+                            document.head.appendChild(link);
+                            console.log('CSS fallback loaded from dev server (error detected)');
+                        }
+                    };
+                })();
+            </script>
         @else
             @vite('resources/css/app.css')
         @endif
