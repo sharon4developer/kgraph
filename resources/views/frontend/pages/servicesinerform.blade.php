@@ -214,7 +214,7 @@
 
 <div class="min-h-screen bg-slate-50">
     {{-- Hero Section --}}
-    <section class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-12 md:py-16">
+    <section class="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 pt-12 pb-4 md:pt-16 md:pb-4">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="opacity-0 animate-fade-in-up" style="animation-fill-mode: forwards;">
                 <div class="text-sm text-slate-400 mb-4">
