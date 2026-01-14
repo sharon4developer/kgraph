@@ -310,7 +310,8 @@
                     <strong>Note:</strong> In case you are filling out the form for a friend or sponsored person, please input the information of the person who wants to immigrate.
                 </p>
 
-                <form action="" class="contact-form" id="eligibility-form">
+                <form action="{{ route('submit-eligibility-form') }}" method="POST" class="contact-form" id="eligibility-form">
+                    @csrf
                     {{-- Personal Information Section --}}
                     <div class="mb-5">
                         <h3 class="text-xl font-bold text-slate-900 mb-3 pb-2 border-b border-slate-200">Personal Information</h3>
@@ -777,13 +778,20 @@
                     <div class="mt-6 mb-4">
                         <div class="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 rounded-2xl p-6 md:p-8 shadow-2xl border border-blue-500/20">
                             <div class="max-w-3xl mx-auto">
+                                {{-- Success/Error Message Display --}}
+                                <div id="form-message" class="hidden mb-6"></div>
+                                
                                 {{-- Submit Button --}}
                                 <div class="text-center mb-6">
-                                    <button type="submit" class="group relative inline-flex items-center justify-center w-full md:w-auto px-10 md:px-16 py-4 md:py-5 bg-white text-blue-700 rounded-xl font-bold text-base md:text-lg hover:bg-blue-100 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-100 border-2 border-transparent hover:border-blue-300">
+                                    <button type="submit" id="submit-btn" class="group relative inline-flex items-center justify-center w-full md:w-auto px-10 md:px-16 py-4 md:py-5 bg-white text-blue-700 rounded-xl font-bold text-base md:text-lg hover:bg-blue-100 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-100 border-2 border-transparent hover:border-blue-300 disabled:opacity-50 disabled:cursor-not-allowed">
                                         <span class="relative z-10 flex items-center space-x-2">
-                                            <span class="group-hover:text-blue-800 transition-colors duration-300">SUBMIT FORM</span>
-                                            <svg class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <span id="submit-text" class="group-hover:text-blue-800 transition-colors duration-300">SUBMIT FORM</span>
+                                            <svg id="submit-icon" class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                                            </svg>
+                                            <svg id="submit-spinner" class="hidden w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
+                                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                             </svg>
                                         </span>
                                     </button>
@@ -854,6 +862,159 @@
                 languageScoresDiv.classList.add('hidden');
                 languageScoresDiv.classList.remove('block');
             }
+        });
+    });
+
+    // Form submission handler
+    document.getElementById('eligibility-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const form = this;
+        const submitBtn = document.getElementById('submit-btn');
+        const submitText = document.getElementById('submit-text');
+        const submitIcon = document.getElementById('submit-icon');
+        const submitSpinner = document.getElementById('submit-spinner');
+        const messageDiv = document.getElementById('form-message');
+        
+        // Disable submit button and show loading state
+        submitBtn.disabled = true;
+        submitText.textContent = 'SUBMITTING...';
+        submitIcon.classList.add('hidden');
+        submitSpinner.classList.remove('hidden');
+        messageDiv.classList.add('hidden');
+        
+        // Get form data
+        const formData = new FormData(form);
+        
+        // Submit via AJAX
+        fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest',
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Reset button state
+            submitBtn.disabled = false;
+            submitText.textContent = 'SUBMIT FORM';
+            submitIcon.classList.remove('hidden');
+            submitSpinner.classList.add('hidden');
+            
+            // Show message
+            messageDiv.classList.remove('hidden');
+            
+            if (data.status) {
+                // Success - Enhanced Design
+                messageDiv.className = 'mb-6 p-6 rounded-xl bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-400 shadow-lg';
+                messageDiv.innerHTML = `
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-md">
+                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-green-800 font-bold text-lg mb-1">Success!</h4>
+                            <p class="text-green-700 text-base leading-relaxed">
+                                ${data.message || 'Your eligibility check form has been submitted successfully! We will contact you via email within 3 business days.'}
+                            </p>
+                        </div>
+                        <button onclick="document.getElementById('form-message').classList.add('hidden')" class="flex-shrink-0 text-green-600 hover:text-green-800 transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                `;
+                
+                // Reset form
+                form.reset();
+                
+                // Scroll to message with smooth animation
+                setTimeout(() => {
+                    messageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 100);
+                
+                // Auto-hide after 10 seconds
+                setTimeout(() => {
+                    messageDiv.classList.add('hidden');
+                }, 10000);
+            } else {
+                // Error - Enhanced Design
+                messageDiv.className = 'mb-6 p-6 rounded-xl bg-gradient-to-r from-red-50 to-rose-50 border-2 border-red-400 shadow-lg';
+                messageDiv.innerHTML = `
+                    <div class="flex items-start space-x-4">
+                        <div class="flex-shrink-0">
+                            <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center shadow-md">
+                                <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-red-800 font-bold text-lg mb-1">Error</h4>
+                            <p class="text-red-700 text-base leading-relaxed">
+                                ${data.message || 'Something went wrong. Please check your connection and try again.'}
+                            </p>
+                        </div>
+                        <button onclick="document.getElementById('form-message').classList.add('hidden')" class="flex-shrink-0 text-red-600 hover:text-red-800 transition-colors">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                `;
+                
+                // Scroll to message
+                setTimeout(() => {
+                    messageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 100);
+            }
+        })
+        .catch(error => {
+            // Reset button state
+            submitBtn.disabled = false;
+            submitText.textContent = 'SUBMIT FORM';
+            submitIcon.classList.remove('hidden');
+            submitSpinner.classList.add('hidden');
+            
+            // Show error message - Enhanced Design
+            messageDiv.classList.remove('hidden');
+            messageDiv.className = 'mb-6 p-6 rounded-xl bg-gradient-to-r from-red-50 to-rose-50 border-2 border-red-400 shadow-lg';
+            messageDiv.innerHTML = `
+                <div class="flex items-start space-x-4">
+                    <div class="flex-shrink-0">
+                        <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center shadow-md">
+                            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="text-red-800 font-bold text-lg mb-1">Network Error</h4>
+                        <p class="text-red-700 text-base leading-relaxed">
+                            Please check your internet connection and try again.
+                        </p>
+                    </div>
+                    <button onclick="document.getElementById('form-message').classList.add('hidden')" class="flex-shrink-0 text-red-600 hover:text-red-800 transition-colors">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            `;
+            
+            // Scroll to message
+            setTimeout(() => {
+                messageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+            
+            console.error('Form submission error:', error);
         });
     });
 </script>
