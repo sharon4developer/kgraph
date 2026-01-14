@@ -1,4 +1,14 @@
-@if(isset($seo) && $seo->Seo)
+@php
+    $customTitle = null;
+    if (isset($pageTitle)) {
+        $customTitle = $pageTitle;
+    }
+@endphp
+
+@if($customTitle)
+<title>{{$customTitle}}</title>
+<meta name="title" content="{{$customTitle}}">
+@elseif(isset($seo) && $seo->Seo)
 <title>{{$seo->Seo->meta_title ?? ''}}</title>
 <meta name="title" content="{{$seo->Seo->meta_title ?? ''}}">
 <meta name="description" content="{{$seo->Seo->meta_description ?? ''}}" />
@@ -11,5 +21,5 @@
     {!! $seo->Seo->schema !!}
 </script>
 @else
-<title>K-Graph</title>
+<title>KGRAPH</title>
 @endif

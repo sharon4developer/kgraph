@@ -254,7 +254,7 @@
     </section>
 
     {{-- Your Canadian Immigration - In Trusted Hands --}}
-    <section class="py-20 bg-blue-800">
+    <section class="pt-20 pb-4 bg-blue-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Your Canadian Immigration - In Trusted Hands</h2>
@@ -313,9 +313,9 @@
     </section>
 
     {{-- Service Categories --}}
-    <section class="py-20 bg-blue-950">
+    <section class="pt-12 pb-4 bg-blue-950">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="mb-16">
+            <div class="mb-4">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 text-left md:text-center">
                     Comprehensive Immigration Services Built Around Your Eligibility
                 </h2>
@@ -823,7 +823,7 @@
     @endif
 
     {{-- CTA Section --}}
-    <section class="py-20 bg-blue-800">
+    <section class="pt-20 pb-4 bg-blue-800">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready To Apply For Canadian Immigration?</h2>
             <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
