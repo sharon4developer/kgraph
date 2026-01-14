@@ -149,8 +149,9 @@ class ServiceController extends Controller
     public function eligibilityCheck($id = 1)
     {
         $seo = Page::getSeoDetails(request()->path());
+        $pageTitle = 'KGRAPH Assessment';
 
-        return view('frontend.pages.servicesinerform');
+        return view('frontend.pages.servicesinerform', compact('seo', 'pageTitle'));
     }
 
     public function subServiceDetails($slug)

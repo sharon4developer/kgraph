@@ -1,9 +1,5 @@
 @extends('layouts.main')
 
-@php
-    $pageTitle = 'KGRAPH Assessment';
-@endphp
-
 @push('styles')
 <style>
     .line-clamp-3 {
