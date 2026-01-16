@@ -783,16 +783,13 @@
                                 
                                 {{-- Submit Button --}}
                                 <div class="text-center mb-6">
-                                    <button type="submit" id="submit-btn" class="group relative inline-flex items-center justify-center w-full md:w-auto px-10 md:px-16 py-4 md:py-5 bg-white text-blue-700 rounded-xl font-bold text-base md:text-lg hover:bg-blue-100 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-100 border-2 border-transparent hover:border-blue-300 disabled:opacity-50 disabled:cursor-not-allowed">
-                                        <span class="relative z-10 flex items-center space-x-2">
+                                    <button type="submit" id="submit-btn" class="group relative inline-flex items-center justify-center w-full md:w-auto px-10 md:px-16 py-4 md:py-5 bg-white text-blue-700 rounded-xl font-bold text-base md:text-lg hover:bg-blue-100 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 active:scale-100 border-2 border-transparent hover:border-blue-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:bg-white">
+                                        <span class="relative z-10 flex items-center space-x-3">
                                             <span id="submit-text" class="group-hover:text-blue-800 transition-colors duration-300">SUBMIT FORM</span>
                                             <svg id="submit-icon" class="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
                                             </svg>
-                                            <svg id="submit-spinner" class="hidden w-5 h-5 animate-spin" fill="none" viewBox="0 0 24 24">
-                                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                            </svg>
+                                            <img id="submit-loader-gif" class="hidden w-6 h-6" src="https://i.gifer.com/origin/34/34338d26023e5515f6cc8969aa027bca_w200.gif" alt="Loading..." style="display: none;">
                                         </span>
                                     </button>
                                 </div>
@@ -873,14 +870,16 @@
         const submitBtn = document.getElementById('submit-btn');
         const submitText = document.getElementById('submit-text');
         const submitIcon = document.getElementById('submit-icon');
-        const submitSpinner = document.getElementById('submit-spinner');
+        const submitLoaderGif = document.getElementById('submit-loader-gif');
         const messageDiv = document.getElementById('form-message');
         
         // Disable submit button and show loading state
         submitBtn.disabled = true;
+        submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
         submitText.textContent = 'SUBMITTING...';
         submitIcon.classList.add('hidden');
-        submitSpinner.classList.remove('hidden');
+        submitLoaderGif.classList.remove('hidden');
+        submitLoaderGif.style.display = 'block';
         messageDiv.classList.add('hidden');
         
         // Get form data
@@ -897,11 +896,13 @@
         })
         .then(response => response.json())
         .then(data => {
-            // Reset button state
+            // Reset button state only on success/error
             submitBtn.disabled = false;
+            submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
             submitText.textContent = 'SUBMIT FORM';
             submitIcon.classList.remove('hidden');
-            submitSpinner.classList.add('hidden');
+            submitLoaderGif.classList.add('hidden');
+            submitLoaderGif.style.display = 'none';
             
             // Show message
             messageDiv.classList.remove('hidden');
@@ -977,11 +978,13 @@
             }
         })
         .catch(error => {
-            // Reset button state
+            // Reset button state on error
             submitBtn.disabled = false;
+            submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
             submitText.textContent = 'SUBMIT FORM';
             submitIcon.classList.remove('hidden');
-            submitSpinner.classList.add('hidden');
+            submitLoaderGif.classList.add('hidden');
+            submitLoaderGif.style.display = 'none';
             
             // Show error message - Enhanced Design
             messageDiv.classList.remove('hidden');
