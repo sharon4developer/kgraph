@@ -429,11 +429,11 @@
                     make Canada their new home.
                 </p>
                 
-                <div class="flex flex-col sm:flex-row justify-center space-y-3 sm:space-y-0 sm:space-x-4">
-                    <a href="{{ url('eligibility-check') }}" class="px-6 py-3 bg-white text-blue-600 rounded-xl hover:bg-blue-50 transition-colors font-medium">
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <a href="{{ url('eligibility-check') }}" class="inline-flex items-center justify-center px-8 py-3.5 bg-white text-blue-600 rounded-xl hover:bg-blue-50 transition-all duration-300 font-semibold text-base shadow-lg hover:shadow-xl hover:scale-105 active:scale-100 min-w-[200px] sm:min-w-[220px]">
                         Check your Eligibility
                     </a>
-                    <a href="tel:+14169897788" class="px-6 py-3 border-2 border-blue-200 text-blue-200 rounded-xl hover:bg-blue-200 hover:text-blue-600 transition-colors font-medium">
+                    <a href="tel:+14169897788" class="inline-flex items-center justify-center px-8 py-3.5 border-2 border-blue-200 text-blue-200 rounded-xl hover:bg-blue-200 hover:text-blue-600 transition-all duration-300 font-semibold text-base hover:shadow-xl hover:scale-105 active:scale-100 min-w-[200px] sm:min-w-[220px]">
                         Call +1 416 989 7788
                     </a>
                 </div>
