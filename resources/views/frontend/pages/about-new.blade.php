@@ -260,6 +260,26 @@
             .timeline-scroll-wrapper:active {
                 cursor: grabbing;
             }
+            .timeline-card-mobile .rounded-full {
+                width: 36px !important;
+                height: 36px !important;
+                min-width: 36px !important;
+                min-height: 36px !important;
+                max-width: 36px !important;
+                max-height: 36px !important;
+                flex-shrink: 0;
+                aspect-ratio: 1 / 1;
+            }
+            @media (min-width: 768px) {
+                .timeline-card-mobile .rounded-full {
+                    width: 48px !important;
+                    height: 48px !important;
+                    min-width: 48px !important;
+                    min-height: 48px !important;
+                    max-width: 48px !important;
+                    max-height: 48px !important;
+                }
+            }
         </style>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
             <div class="text-center">
@@ -276,7 +296,7 @@
             <div class="flex flex-nowrap gap-4 md:gap-6 px-4 sm:px-6 lg:px-8 pb-4 timeline-scroll-content" style="display: inline-flex; width: max-content;">
                 @foreach(array_merge($timelineEvents, $timelineEvents) as $index => $event)
                     <div class="flex-shrink-0 timeline-card-mobile bg-slate-700 rounded-xl p-4 md:p-5 lg:p-6 border border-slate-600 opacity-0 animate-fade-in-up" style="animation-delay: {{ ($index % 4) * 0.1 }}s; animation-fill-mode: forwards;">
-                        <div class="w-9 h-9 md:w-12 md:h-12 bg-blue-600 rounded-full flex items-center justify-center mb-2.5 md:mb-4">
+                        <div class="bg-blue-600 rounded-full flex items-center justify-center mb-2.5 md:mb-4">
                             <span class="text-xs md:text-sm lg:text-base font-bold text-white">{{ $event['year'] }}</span>
                         </div>
                         <h3 class="text-sm md:text-base lg:text-lg font-bold text-white mb-2 md:mb-3 leading-tight">{{ $event['title'] }}</h3>
