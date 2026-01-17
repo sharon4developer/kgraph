@@ -200,15 +200,15 @@
     <section class="py-10 bg-slate-800 timeline-section">
         <style>
             .timeline-card-mobile {
-                width: 200px !important;
-                min-width: 200px !important;
-                max-width: 200px !important;
+                width: 260px !important;
+                min-width: 260px !important;
+                max-width: 260px !important;
             }
             @media (min-width: 640px) {
                 .timeline-card-mobile {
-                    width: 180px !important;
-                    min-width: 180px !important;
-                    max-width: 180px !important;
+                    width: 200px !important;
+                    min-width: 200px !important;
+                    max-width: 200px !important;
                 }
             }
             @media (min-width: 768px) {
@@ -275,12 +275,12 @@
             class="timeline-scroll-wrapper">
             <div class="flex flex-nowrap gap-4 md:gap-6 px-4 sm:px-6 lg:px-8 pb-4 timeline-scroll-content" style="display: inline-flex; width: max-content;">
                 @foreach(array_merge($timelineEvents, $timelineEvents) as $index => $event)
-                    <div class="flex-shrink-0 timeline-card-mobile bg-slate-700 rounded-xl p-3 md:p-5 lg:p-6 border border-slate-600 opacity-0 animate-fade-in-up" style="animation-delay: {{ ($index % 4) * 0.1 }}s; animation-fill-mode: forwards;">
-                        <div class="w-8 h-8 md:w-12 md:h-12 bg-blue-600 rounded-full flex items-center justify-center mb-2 md:mb-4">
+                    <div class="flex-shrink-0 timeline-card-mobile bg-slate-700 rounded-xl p-4 md:p-5 lg:p-6 border border-slate-600 opacity-0 animate-fade-in-up" style="animation-delay: {{ ($index % 4) * 0.1 }}s; animation-fill-mode: forwards;">
+                        <div class="w-9 h-9 md:w-12 md:h-12 bg-blue-600 rounded-full flex items-center justify-center mb-2.5 md:mb-4">
                             <span class="text-xs md:text-sm lg:text-base font-bold text-white">{{ $event['year'] }}</span>
                         </div>
-                        <h3 class="text-xs md:text-base lg:text-lg font-bold text-white mb-1.5 md:mb-3 leading-tight">{{ $event['title'] }}</h3>
-                        <p class="text-slate-300 text-xs md:text-sm leading-snug md:leading-relaxed line-clamp-3 md:line-clamp-none">{{ $event['description'] }}</p>
+                        <h3 class="text-sm md:text-base lg:text-lg font-bold text-white mb-2 md:mb-3 leading-tight">{{ $event['title'] }}</h3>
+                        <p class="text-slate-300 text-xs md:text-sm leading-relaxed">{{ $event['description'] }}</p>
                     </div>
                 @endforeach
             </div>
