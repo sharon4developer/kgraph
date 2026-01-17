@@ -206,17 +206,59 @@
             }
             @media (min-width: 640px) {
                 .timeline-card-mobile {
-                    width: 144px !important;
-                    min-width: 144px !important;
-                    max-width: 144px !important;
+                    width: 180px !important;
+                    min-width: 180px !important;
+                    max-width: 180px !important;
                 }
             }
             @media (min-width: 768px) {
                 .timeline-card-mobile {
-                    width: 160px !important;
-                    min-width: 160px !important;
-                    max-width: 160px !important;
+                    width: 240px !important;
+                    min-width: 240px !important;
+                    max-width: 240px !important;
                 }
+            }
+            @media (min-width: 1024px) {
+                .timeline-card-mobile {
+                    width: 280px !important;
+                    min-width: 280px !important;
+                    max-width: 280px !important;
+                }
+            }
+            @media (min-width: 1280px) {
+                .timeline-card-mobile {
+                    width: 320px !important;
+                    min-width: 320px !important;
+                    max-width: 320px !important;
+                }
+            }
+            .timeline-scroll-wrapper {
+                overflow-x: auto !important;
+                overflow-y: hidden !important;
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+                -ms-overflow-style: none;
+                scrollbar-width: thin;
+                scrollbar-color: rgba(59, 130, 246, 0.5) transparent;
+                width: 100%;
+                cursor: grab;
+            }
+            .timeline-scroll-wrapper::-webkit-scrollbar {
+                height: 8px;
+            }
+            .timeline-scroll-wrapper::-webkit-scrollbar-track {
+                background: rgba(51, 65, 85, 0.3);
+                border-radius: 4px;
+            }
+            .timeline-scroll-wrapper::-webkit-scrollbar-thumb {
+                background: rgba(59, 130, 246, 0.6);
+                border-radius: 4px;
+            }
+            .timeline-scroll-wrapper::-webkit-scrollbar-thumb:hover {
+                background: rgba(59, 130, 246, 0.8);
+            }
+            .timeline-scroll-wrapper:active {
+                cursor: grabbing;
             }
         </style>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
@@ -230,16 +272,15 @@
 
         <div 
             id="timeline-scroll-wrapper"
-            class="timeline-scroll-wrapper" 
-            style="overflow-x: auto !important; overflow-y: visible !important; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; -ms-overflow-style: none; scrollbar-width: none; width: 100%; cursor: grab;">
-            <div class="flex space-x-3 px-4 sm:px-6 lg:px-8 pb-4 timeline-scroll-content" style="display: inline-flex; flex-wrap: nowrap; width: max-content;">
+            class="timeline-scroll-wrapper">
+            <div class="flex flex-nowrap gap-4 md:gap-6 px-4 sm:px-6 lg:px-8 pb-4 timeline-scroll-content" style="display: inline-flex; width: max-content;">
                 @foreach(array_merge($timelineEvents, $timelineEvents) as $index => $event)
-                    <div class="flex-shrink-0 timeline-card-mobile bg-slate-700 rounded-xl p-3 sm:p-4 border border-slate-600 opacity-0 animate-fade-in-up" style="animation-delay: {{ ($index % 4) * 0.1 }}s; animation-fill-mode: forwards;">
-                        <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center mb-3">
-                            <span class="text-sm font-bold text-white">{{ $event['year'] }}</span>
+                    <div class="flex-shrink-0 timeline-card-mobile bg-slate-700 rounded-xl p-4 md:p-5 lg:p-6 border border-slate-600 opacity-0 animate-fade-in-up" style="animation-delay: {{ ($index % 4) * 0.1 }}s; animation-fill-mode: forwards;">
+                        <div class="w-10 h-10 md:w-12 md:h-12 bg-blue-600 rounded-full flex items-center justify-center mb-3 md:mb-4">
+                            <span class="text-xs md:text-sm lg:text-base font-bold text-white">{{ $event['year'] }}</span>
                         </div>
-                        <h3 class="text-sm font-bold text-white mb-2">{{ $event['title'] }}</h3>
-                        <p class="text-slate-300 text-xs leading-relaxed">{{ $event['description'] }}</p>
+                        <h3 class="text-sm md:text-base lg:text-lg font-bold text-white mb-2 md:mb-3">{{ $event['title'] }}</h3>
+                        <p class="text-slate-300 text-xs md:text-sm leading-relaxed">{{ $event['description'] }}</p>
                     </div>
                 @endforeach
             </div>
