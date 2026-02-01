@@ -293,8 +293,8 @@
                                                 </span>
                                             </div>
                                             <p class="text-slate-300">{{ $item->description }}</p>
-                                        </div>
-                                    </div>
+        </div>
+    </div>
                                 @endforeach
                             @else
                                 {{-- Fallback to hardcoded data if no steps in database --}}
@@ -343,8 +343,8 @@
                                                 </span>
                                             </div>
                                             <p class="text-slate-300">{{ $item['description'] }}</p>
-                                        </div>
-                                    </div>
+                </div>
+            </div>
                                 @endforeach
                             @endif
                         </div>
