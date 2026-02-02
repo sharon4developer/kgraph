@@ -91,6 +91,9 @@ $socialLinks = whatsApp::first();
                     <a href="{{ url('careers') }}" class="block text-blue-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-1">
                         Careers
                     </a>
+                    <a href="{{ url('blogs') }}" class="block text-blue-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-1">
+                        Blogs
+                    </a>
                     <a href="{{ url('contact-us') }}" class="block text-blue-300 hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-1 py-1">
                         Contact
                     </a>

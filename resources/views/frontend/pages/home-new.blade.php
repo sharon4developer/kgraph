@@ -21,16 +21,146 @@
     $homeData = $home ?? null;
     $journeyData = $journey->first() ?? null;
     $certificateData = $certificate->first() ?? null;
+    
+    // Toronto phone number - format for WhatsApp (remove + and spaces)
+    $phoneNumber = '+14169897788';
+    $whatsappNumber = preg_replace('/[^0-9]/', '', $phoneNumber); // Remove + and spaces: 14169897788
+    $displayNumber = '+1 416 989 7788';
 @endphp
 
 <div class="min-h-screen overflow-x-hidden" x-data="{ 
     currentImageIndex: 0,
     currentNewsIndex: 0,
+    heroHeight: 'auto',
     init() {
+        // Wait for images to load before calculating height
+        this.waitForImagesAndCalculate();
+        
+        // Recalculate on window resize with debounce
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                this.calculateHeroHeight();
+            }, 250);
+        });
+        
         // Auto-rotate hero images
         setInterval(() => {
             this.currentImageIndex = (this.currentImageIndex + 1) % 3;
         }, 5000);
+    },
+    waitForImagesAndCalculate() {
+        // Wait for DOM to be ready and images to potentially load
+        const heroSection = this.$refs.heroSection;
+        if (!heroSection) {
+            setTimeout(() => this.waitForImagesAndCalculate(), 100);
+            return;
+        }
+        
+        // Wait for regular img tags to load
+        const images = heroSection.querySelectorAll('img');
+        let loadedCount = 0;
+        const totalImages = images.length;
+        
+        const checkComplete = () => {
+            loadedCount++;
+            if (loadedCount >= totalImages) {
+                // All images loaded, wait a bit more for background images to render, then calculate
+                setTimeout(() => this.calculateHeroHeight(), 300);
+            }
+        };
+        
+        if (totalImages === 0) {
+            // No img tags, wait a bit for background images to render
+            setTimeout(() => this.calculateHeroHeight(), 500);
+            return;
+        }
+        
+        images.forEach(img => {
+            if (img.complete) {
+                checkComplete();
+            } else {
+                img.addEventListener('load', checkComplete);
+                img.addEventListener('error', checkComplete);
+            }
+        });
+        
+        // Fallback timeout - calculate even if some images haven't loaded
+        setTimeout(() => {
+            this.calculateHeroHeight();
+        }, 2000);
+    },
+    calculateHeroHeight() {
+        this.$nextTick(() => {
+            const heroSection = this.$refs.heroSection;
+            if (!heroSection) return;
+            
+            const contentContainer = heroSection.querySelector('[data-content-container]');
+            if (!contentContainer) return;
+            
+            // Temporarily show all slides to measure their heights
+            const slides = contentContainer.querySelectorAll('[data-slide-index]');
+            if (slides.length === 0) {
+                // Fallback to minimum height
+                const minHeight = window.innerWidth >= 768 ? 600 : 500;
+                this.heroHeight = minHeight + 'px';
+                return;
+            }
+            
+            let maxHeight = 0;
+            
+            slides.forEach(slide => {
+                // Save original styles
+                const originalStyles = {
+                    display: slide.style.display,
+                    visibility: slide.style.visibility,
+                    opacity: slide.style.opacity,
+                    position: slide.style.position,
+                    height: slide.style.height,
+                    maxHeight: slide.style.maxHeight
+                };
+                
+                // Temporarily show the slide to measure its natural height
+                slide.style.display = 'block';
+                slide.style.visibility = 'hidden';
+                slide.style.opacity = '0';
+                slide.style.position = 'absolute';
+                slide.style.height = 'auto';
+                slide.style.maxHeight = 'none';
+                
+                // Force a reflow to ensure accurate measurement
+                slide.offsetHeight;
+                
+                // Measure the height including margins
+                const rect = slide.getBoundingClientRect();
+                const computedStyle = window.getComputedStyle(slide);
+                const marginTop = parseInt(computedStyle.marginTop) || 0;
+                const marginBottom = parseInt(computedStyle.marginBottom) || 0;
+                const height = rect.height + marginTop + marginBottom;
+                
+                maxHeight = Math.max(maxHeight, height);
+                
+                // Restore original styles
+                Object.keys(originalStyles).forEach(key => {
+                    slide.style[key] = originalStyles[key] || '';
+                });
+            });
+            
+            // Add padding (py-12 = 48px, md:py-20 = 80px)
+            const paddingTop = window.innerWidth >= 768 ? 80 : 48;
+            const paddingBottom = window.innerWidth >= 768 ? 80 : 48;
+            
+            // Add spacing for margins and grid gaps
+            const gridGap = window.innerWidth >= 1024 ? 48 : 48; // gap-12 = 48px
+            const additionalSpacing = 120; // Extra space for margins and safe area
+            
+            const totalHeight = maxHeight + paddingTop + paddingBottom + additionalSpacing;
+            
+            // Set minimum height for very small content
+            const minHeight = window.innerWidth >= 768 ? 600 : 500;
+            this.heroHeight = Math.max(totalHeight, minHeight) + 'px';
+        });
     },
     prevNews() {
         if (this.currentNewsIndex > 0) {
@@ -45,7 +175,7 @@
     }
 }">
     {{-- Hero Section --}}
-    <section class="relative py-20 overflow-hidden min-h-[600px]">
+    <section x-ref="heroSection" class="relative py-12 md:py-20 overflow-hidden" :style="{ height: heroHeight || 'auto', minHeight: heroHeight ? '0' : '500px' }">
         <div class="absolute inset-0 bg-blue-950">
             <div class="absolute inset-0 bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800"></div>
             @if(isset($banner) && $banner->count() > 0)
@@ -69,11 +199,11 @@
             <div class="absolute inset-0 bg-blue-950 bg-opacity-40"></div>
         </div>
         
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 -mt-8 lg:mt-0">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-                <div class="opacity-0 animate-fade-in-left">
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 h-full flex items-center -mt-8 lg:mt-0">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+                <div class="opacity-0 animate-fade-in-left" data-content-container>
                     @if(isset($banner) && $banner->count() > 0)
-                        <div class="relative mb-8 min-h-[550px]">
+                        <div class="relative mb-8">
                             @foreach($banner->take(3) as $index => $bannerItem)
                                 <div 
                                     data-slide-index="{{ $index }}"
@@ -135,12 +265,21 @@
                         </p>
                     @endif
                     
-                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 hidden">
-                        <a href="{{ url('eligibility-check') }}" class="inline-flex items-center justify-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors">
-                            Free Eligibility Check
-                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
+                        <a 
+                            href="tel:{{ $phoneNumber }}" 
+                            onclick="handlePhoneClick(event, '{{ $phoneNumber }}', '{{ $whatsappNumber }}')"
+                            class="inline-flex items-center justify-center px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors phone-whatsapp-link"
+                        >
+                            {{-- Phone Icon (shown on mobile) --}}
+                            <svg class="w-5 h-5 mr-2 phone-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                             </svg>
+                            {{-- WhatsApp Icon (shown on desktop) --}}
+                            <svg class="w-5 h-5 mr-2 whatsapp-icon hidden" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                            </svg>
+                            <span class="link-text">Call {{ $displayNumber }}</span>
                         </a>
                     </div>
                 </div>
@@ -843,6 +982,46 @@
         </div>
     </section>
 </div>
+
+<script>
+(function() {
+    // Detect if device is mobile
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const link = document.querySelector('.phone-whatsapp-link');
+    const displayNumber = '{{ $displayNumber }}';
+    
+    if (link) {
+        const phoneIcon = link.querySelector('.phone-icon');
+        const whatsappIcon = link.querySelector('.whatsapp-icon');
+        const linkText = link.querySelector('.link-text');
+        
+        if (!isMobile) {
+            // Desktop: Show WhatsApp icon, hide phone icon
+            if (phoneIcon) phoneIcon.classList.add('hidden');
+            if (whatsappIcon) whatsappIcon.classList.remove('hidden');
+            if (linkText) linkText.textContent = 'Chat on WhatsApp';
+        } else {
+            // Mobile: Show phone icon, hide WhatsApp icon
+            if (phoneIcon) phoneIcon.classList.remove('hidden');
+            if (whatsappIcon) whatsappIcon.classList.add('hidden');
+            if (linkText) linkText.textContent = 'Call ' + displayNumber;
+        }
+    }
+    
+    // Handle click event
+    window.handlePhoneClick = function(event, phoneNumber, whatsappNumber) {
+        const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        
+        if (!isMobileDevice) {
+            // Desktop/Web: Open WhatsApp chat
+            event.preventDefault();
+            const whatsappUrl = `https://wa.me/${whatsappNumber}`;
+            window.open(whatsappUrl, '_blank');
+        }
+        // Mobile: Let the default tel: link work (normal phone call)
+    };
+})();
+</script>
 
 <style>
     @keyframes fade-in-left {

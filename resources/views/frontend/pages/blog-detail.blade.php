@@ -105,6 +105,35 @@
 
     <div class="blog-detail overflow-hidden relative">
         <div class="container mx-auto px-5 lg:px-32 2xl:px-48 mt-[5%] relative z-10">
+            {{-- Breadcrumb --}}
+            <nav class="mb-8 pt-5" aria-label="Breadcrumb">
+                <ol class="flex items-center space-x-2 text-sm">
+                    <li>
+                        <a href="{{ url('/') }}" class="text-blue-400 hover:text-blue-300 transition-colors">
+                            Home
+                        </a>
+                    </li>
+                    <li>
+                        <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </li>
+                    <li>
+                        <a href="{{ url('blogs') }}" class="text-blue-400 hover:text-blue-300 transition-colors">
+                            Blogs
+                        </a>
+                    </li>
+                    <li>
+                        <svg class="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </li>
+                    <li>
+                        <span class="text-white font-medium">{{ $blog->title }}</span>
+                    </li>
+                </ol>
+            </nav>
+            
             <div class="pt-5 blog__content">
 
                 <!-- Dynamic Main Image -->
