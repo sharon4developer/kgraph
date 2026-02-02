@@ -281,7 +281,7 @@
         
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 h-full pt-8 pb-8 md:flex md:items-center md:pt-0 md:pb-0">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center w-full">
-                <div class="opacity-0 animate-fade-in-left" data-content-container>
+                <div class="opacity-0 animate-fade-in-left" data-content-container style="min-height: 450px;">
                     @if(isset($banner) && $banner->count() > 0)
                         <div class="relative mb-8">
                             @foreach($banner->take(3) as $index => $bannerItem)
