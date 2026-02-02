@@ -31,14 +31,24 @@
 <div class="min-h-screen overflow-x-hidden" x-data="{ 
     currentImageIndex: 0,
     currentNewsIndex: 0,
-    heroHeight: 'auto',
+    heroHeight: window.innerWidth < 768 ? '700px' : 'auto',
+    isMobile: window.innerWidth < 768,
     init() {
+        // Detect mobile on init
+        this.isMobile = window.innerWidth < 768;
+        
+        // Set initial height to prevent shift
+        if (this.isMobile) {
+            this.heroHeight = '700px';
+        }
+        
         // Wait for images to load before calculating height
         this.waitForImagesAndCalculate();
         
         // Recalculate on window resize with debounce
         let resizeTimeout;
         window.addEventListener('resize', () => {
+            this.isMobile = window.innerWidth < 768;
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(() => {
                 this.calculateHeroHeight();
@@ -51,6 +61,9 @@
         }, 5000);
     },
     waitForImagesAndCalculate() {
+        // Calculate height immediately first to prevent shift
+        this.calculateHeroHeight();
+        
         // Wait for DOM to be ready and images to potentially load
         const heroSection = this.$refs.heroSection;
         if (!heroSection) {
@@ -66,14 +79,14 @@
         const checkComplete = () => {
             loadedCount++;
             if (loadedCount >= totalImages) {
-                // All images loaded, wait a bit more for background images to render, then calculate
-                setTimeout(() => this.calculateHeroHeight(), 300);
+                // All images loaded, recalculate with final height
+                setTimeout(() => this.calculateHeroHeight(), 200);
             }
         };
         
         if (totalImages === 0) {
-            // No img tags, wait a bit for background images to render
-            setTimeout(() => this.calculateHeroHeight(), 500);
+            // No img tags, recalculate after a short delay
+            setTimeout(() => this.calculateHeroHeight(), 300);
             return;
         }
         
@@ -85,6 +98,11 @@
                 img.addEventListener('error', checkComplete);
             }
         });
+        
+        // Fallback: recalculate after timeout even if images haven't loaded
+        setTimeout(() => {
+            this.calculateHeroHeight();
+        }, 1000);
         
         // Fallback timeout - calculate even if some images haven't loaded
         setTimeout(() => {
@@ -99,67 +117,129 @@
             const contentContainer = heroSection.querySelector('[data-content-container]');
             if (!contentContainer) return;
             
+            const isMobile = window.innerWidth < 768;
+            
             // Temporarily show all slides to measure their heights
             const slides = contentContainer.querySelectorAll('[data-slide-index]');
-            if (slides.length === 0) {
-                // Fallback to minimum height
-                const minHeight = window.innerWidth >= 768 ? 600 : 500;
-                this.heroHeight = minHeight + 'px';
-                return;
+            let maxSlideHeight = 0;
+            
+            if (slides.length > 0) {
+                slides.forEach(slide => {
+                    // Save original styles
+                    const originalStyles = {
+                        display: slide.style.display,
+                        visibility: slide.style.visibility,
+                        opacity: slide.style.opacity,
+                        position: slide.style.position,
+                        height: slide.style.height,
+                        maxHeight: slide.style.maxHeight
+                    };
+                    
+                    // Temporarily show the slide to measure its natural height
+                    slide.style.display = 'block';
+                    slide.style.visibility = 'hidden';
+                    slide.style.opacity = '0';
+                    slide.style.position = 'absolute';
+                    slide.style.height = 'auto';
+                    slide.style.maxHeight = 'none';
+                    
+                    // Force a reflow to ensure accurate measurement
+                    slide.offsetHeight;
+                    
+                    // Measure the height including margins
+                    const rect = slide.getBoundingClientRect();
+                    const computedStyle = window.getComputedStyle(slide);
+                    const marginTop = parseInt(computedStyle.marginTop) || 0;
+                    const marginBottom = parseInt(computedStyle.marginBottom) || 0;
+                    const height = rect.height + marginTop + marginBottom;
+                    
+                    maxSlideHeight = Math.max(maxSlideHeight, height);
+                    
+                    // Restore original styles
+                    Object.keys(originalStyles).forEach(key => {
+                        slide.style[key] = originalStyles[key] || '';
+                    });
+                });
+            } else {
+                // If no slides, measure the fallback content
+                const fallbackContent = contentContainer.querySelector('h1, .mb-6');
+                if (fallbackContent) {
+                    const rect = contentContainer.getBoundingClientRect();
+                    maxSlideHeight = rect.height || 0;
+                }
             }
             
-            let maxHeight = 0;
+            // Measure the entire content container including button - measure actual rendered height
+            // Get the parent grid container to measure full height
+            const gridContainer = contentContainer.parentElement;
+            let containerHeight = 0;
             
-            slides.forEach(slide => {
-                // Save original styles
-                const originalStyles = {
-                    display: slide.style.display,
-                    visibility: slide.style.visibility,
-                    opacity: slide.style.opacity,
-                    position: slide.style.position,
-                    height: slide.style.height,
-                    maxHeight: slide.style.maxHeight
-                };
+            if (gridContainer) {
+                // Measure the grid container which includes all content
+                const gridRect = gridContainer.getBoundingClientRect();
+                containerHeight = gridRect.height || 0;
+            }
+            
+            // If we couldn't get grid height, measure content container directly
+            if (containerHeight === 0) {
+                // Temporarily ensure container is visible and in normal flow
+                const originalOpacity = contentContainer.style.opacity;
+                contentContainer.style.opacity = '1';
+                contentContainer.style.visibility = 'visible';
+                contentContainer.style.display = 'block';
                 
-                // Temporarily show the slide to measure its natural height
-                slide.style.display = 'block';
-                slide.style.visibility = 'hidden';
-                slide.style.opacity = '0';
-                slide.style.position = 'absolute';
-                slide.style.height = 'auto';
-                slide.style.maxHeight = 'none';
+                // Force reflow
+                contentContainer.offsetHeight;
                 
-                // Force a reflow to ensure accurate measurement
-                slide.offsetHeight;
+                // Measure the full container height
+                const containerRect = contentContainer.getBoundingClientRect();
+                const containerComputedStyle = window.getComputedStyle(contentContainer);
+                const containerMarginTop = parseInt(containerComputedStyle.marginTop) || 0;
+                const containerMarginBottom = parseInt(containerComputedStyle.marginBottom) || 0;
+                containerHeight = containerRect.height + containerMarginTop + containerMarginBottom;
                 
-                // Measure the height including margins
-                const rect = slide.getBoundingClientRect();
-                const computedStyle = window.getComputedStyle(slide);
-                const marginTop = parseInt(computedStyle.marginTop) || 0;
-                const marginBottom = parseInt(computedStyle.marginBottom) || 0;
-                const height = rect.height + marginTop + marginBottom;
+                // Restore opacity
+                contentContainer.style.opacity = originalOpacity || '';
+            }
+            
+            // If container height is still too small, calculate from components
+            if (containerHeight < maxSlideHeight || containerHeight === 0) {
+                // Measure button height
+                const buttonContainer = contentContainer.querySelector('.phone-whatsapp-link')?.parentElement;
+                let buttonHeight = 0;
+                if (buttonContainer) {
+                    const buttonRect = buttonContainer.getBoundingClientRect();
+                    buttonHeight = buttonRect.height || 60;
+                } else {
+                    buttonHeight = 60; // Estimate button height
+                }
                 
-                maxHeight = Math.max(maxHeight, height);
-                
-                // Restore original styles
-                Object.keys(originalStyles).forEach(key => {
-                    slide.style[key] = originalStyles[key] || '';
-                });
-            });
+                // Calculate total: slide height + button + spacing
+                containerHeight = maxSlideHeight + buttonHeight + 40; // Add gap and margins
+            }
             
             // Add padding (py-12 = 48px, md:py-20 = 80px)
-            const paddingTop = window.innerWidth >= 768 ? 80 : 48;
-            const paddingBottom = window.innerWidth >= 768 ? 80 : 48;
+            const paddingTop = isMobile ? 48 : 80;
+            const paddingBottom = isMobile ? 48 : 80;
             
-            // Add spacing for margins and grid gaps
-            const gridGap = window.innerWidth >= 1024 ? 48 : 48; // gap-12 = 48px
-            const additionalSpacing = 120; // Extra space for margins and safe area
+            // Add container padding (pt-8 pb-8 on mobile = 32px top + 32px bottom)
+            const containerPadding = isMobile ? 64 : 0;
             
-            const totalHeight = maxHeight + paddingTop + paddingBottom + additionalSpacing;
+            // Additional spacing for safe area (more on mobile to ensure nothing is cut off)
+            const additionalSpacing = isMobile ? 250 : 150;
+            
+            // Calculate total height with all spacing
+            const totalHeight = containerHeight + paddingTop + paddingBottom + containerPadding + additionalSpacing;
             
             // Set minimum height for very small content
-            const minHeight = window.innerWidth >= 768 ? 600 : 500;
-            this.heroHeight = Math.max(totalHeight, minHeight) + 'px';
+            const minHeight = isMobile ? 700 : 700;
+            const calculatedHeight = Math.max(totalHeight, minHeight);
+            
+            // Only update if height changed significantly to prevent micro-shifts
+            const currentHeight = parseInt(this.heroHeight) || minHeight;
+            if (Math.abs(calculatedHeight - currentHeight) > 20 || !this.heroHeight || this.heroHeight === 'auto') {
+                this.heroHeight = calculatedHeight + 'px';
+            }
         });
     },
     prevNews() {
@@ -175,7 +255,7 @@
     }
 }">
     {{-- Hero Section --}}
-    <section x-ref="heroSection" class="relative py-12 md:py-20 overflow-hidden" :style="{ height: heroHeight || 'auto', minHeight: heroHeight ? '0' : '500px' }">
+    <section x-ref="heroSection" class="relative py-12 md:py-20 overflow-hidden" :style="{ height: heroHeight || (isMobile ? '700px' : 'auto'), minHeight: heroHeight ? '0' : (isMobile ? '700px' : '500px') }">
         <div class="absolute inset-0 bg-blue-950">
             <div class="absolute inset-0 bg-gradient-to-br from-blue-950 via-blue-900 to-blue-800"></div>
             @if(isset($banner) && $banner->count() > 0)
@@ -199,8 +279,8 @@
             <div class="absolute inset-0 bg-blue-950 bg-opacity-40"></div>
         </div>
         
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 h-full flex items-center -mt-8 lg:mt-0">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center w-full">
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 h-full pt-8 pb-8 md:flex md:items-center md:pt-0 md:pb-0">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center w-full">
                 <div class="opacity-0 animate-fade-in-left" data-content-container>
                     @if(isset($banner) && $banner->count() > 0)
                         <div class="relative mb-8">
