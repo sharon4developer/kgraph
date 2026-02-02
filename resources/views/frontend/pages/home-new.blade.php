@@ -58,7 +58,30 @@
         // Auto-rotate hero images
         setInterval(() => {
             this.currentImageIndex = (this.currentImageIndex + 1) % 3;
+            this.updateSlidePositions();
         }, 5000);
+        
+        // Update slide positions on init
+        this.$nextTick(() => {
+            this.updateSlidePositions();
+        });
+    },
+    updateSlidePositions() {
+        this.$nextTick(() => {
+            const slides = document.querySelectorAll('[data-slide-index]');
+            slides.forEach((slide, index) => {
+                const isActive = this.currentImageIndex === index;
+                if (isActive) {
+                    slide.style.position = 'relative';
+                    slide.style.opacity = '1';
+                } else {
+                    slide.style.position = 'absolute';
+                    slide.style.top = '0';
+                    slide.style.left = '0';
+                    slide.style.opacity = '0';
+                }
+            });
+        });
     },
     waitForImagesAndCalculate() {
         // Calculate height immediately first to prevent shift
@@ -222,11 +245,11 @@
             const paddingTop = isMobile ? 48 : 80;
             const paddingBottom = isMobile ? 48 : 80;
             
-            // Add container padding (pt-8 pb-8 on mobile = 32px top + 32px bottom)
-            const containerPadding = isMobile ? 64 : 0;
+            // Container padding already included in measured containerHeight, so don't add again
+            const containerPadding = 0;
             
-            // Additional spacing for safe area (more on mobile to ensure nothing is cut off)
-            const additionalSpacing = isMobile ? 250 : 150;
+            // Additional spacing for safe area (minimal buffer to prevent cut-off)
+            const additionalSpacing = isMobile ? 40 : 20;
             
             // Calculate total height with all spacing
             const totalHeight = containerHeight + paddingTop + paddingBottom + containerPadding + additionalSpacing;
@@ -281,26 +304,15 @@
         
         <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10 h-full pt-8 pb-8 md:flex md:items-center md:pt-0 md:pb-0">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center w-full">
-                <div class="opacity-0 animate-fade-in-left" data-content-container style="min-height: 450px;">
+                <div class="opacity-0 animate-slide-up-fade" data-content-container style="min-height: 325px;">
                     @if(isset($banner) && $banner->count() > 0)
-                        <div class="relative mb-8">
+                        <div class="relative mb-8" style="min-height: 325px;">
                             @foreach($banner->take(3) as $index => $bannerItem)
                                 <div 
                                     data-slide-index="{{ $index }}"
-                                    x-show="currentImageIndex === parseInt($el.dataset.slideIndex)"
-                                    x-transition:enter="transition ease-out duration-500"
-                                    x-transition:enter-start="opacity-0 translate-y-4"
-                                    x-transition:enter-end="opacity-1 translate-y-0"
-                                    x-transition:leave="transition ease-in duration-300"
-                                    x-transition:leave-start="opacity-1 translate-y-0"
-                                    x-transition:leave-end="opacity-0 -translate-y-4"
-                                    class="relative"
+                                    x-bind:style="currentImageIndex === {{ $index }} ? 'position: relative; opacity: 1; z-index: 10;' : 'position: absolute; top: 0; left: 0; opacity: 0; z-index: 1; pointer-events: none;'"
+                                    class="w-full transition-opacity duration-700 ease-out"
                                     x-cloak
-                                    @if($index === 0)
-                                        style="display: block;"
-                                    @else
-                                        style="display: none;"
-                                    @endif
                                 >
                                     @if($bannerItem->badge_text)
                                         <div class="mb-6">
@@ -1104,6 +1116,37 @@
 </script>
 
 <style>
+    @keyframes smooth-fade-in {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+    .animate-slide-up-fade {
+        animation: smooth-fade-in 1s ease-in-out forwards !important;
+        animation-delay: 0.15s !important;
+        will-change: opacity;
+    }
+    @media (max-width: 767px) {
+        .animate-slide-up-fade {
+            animation: smooth-fade-in 1s ease-in-out forwards !important;
+            animation-delay: 0.15s !important;
+            will-change: opacity;
+        }
+    }
+    /* Smooth slide transitions - prevent layout shifts */
+    [data-slide-index] {
+        will-change: opacity;
+        transition: opacity 0.7s ease-out;
+    }
+    [data-slide-index][style*="position: absolute"] {
+        pointer-events: none;
+    }
+    [data-slide-index][style*="opacity: 1"] {
+        pointer-events: auto;
+    }
     @keyframes fade-in-left {
         from {
             opacity: 0;
