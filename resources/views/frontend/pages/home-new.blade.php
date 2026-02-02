@@ -556,7 +556,7 @@
             </div>
             
             {{-- Horizontal Scrollable Cards - All Devices with Navigation Arrows --}}
-            <div class="relative px-8 md:px-12 py-8" x-data="{ 
+            <div class="relative px-4 md:px-12 py-8" x-data="{ 
                 scrollContainer: null,
                 canScrollLeft: false,
                 canScrollRight: true,
@@ -593,11 +593,11 @@
                     x-transition:leave="transition ease-in duration-150"
                     x-transition:leave-start="opacity-100 scale-100"
                     x-transition:leave-end="opacity-0 scale-90"
-                    class="absolute left-0 z-20 bg-blue-800/20 hover:bg-blue-800/40 backdrop-blur-md text-white rounded-full p-3 md:p-4 shadow-lg hover:shadow-xl border border-white/20 hover:border-white/30 transition-all duration-200 flex items-center justify-center w-12 h-12 md:w-14 md:h-14"
+                    class="absolute left-0 z-20 bg-blue-800/20 hover:bg-blue-800/40 backdrop-blur-md text-white rounded-full p-1.5 md:p-4 shadow-lg hover:shadow-xl border border-white/20 hover:border-white/30 transition-all duration-200 flex items-center justify-center w-8 h-8 md:w-14 md:h-14"
                     style="top: 50%; transform: translateY(-50%);"
                     aria-label="Scroll left"
                 >
-                    <svg class="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                    <svg class="w-4 h-4 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                     </svg>
                 </button>
@@ -613,11 +613,11 @@
                     x-transition:leave="transition ease-in duration-150"
                     x-transition:leave-start="opacity-100 scale-100"
                     x-transition:leave-end="opacity-0 scale-90"
-                    class="absolute right-0 z-20 bg-blue-800/20 hover:bg-blue-800/40 backdrop-blur-md text-white rounded-full p-3 md:p-4 shadow-lg hover:shadow-xl border border-white/20 hover:border-white/30 transition-all duration-200 flex items-center justify-center w-12 h-12 md:w-14 md:h-14"
+                    class="absolute right-0 z-20 bg-blue-800/20 hover:bg-blue-800/40 backdrop-blur-md text-white rounded-full p-1.5 md:p-4 shadow-lg hover:shadow-xl border border-white/20 hover:border-white/30 transition-all duration-200 flex items-center justify-center w-8 h-8 md:w-14 md:h-14"
                     style="top: 50%; transform: translateY(-50%);"
                     aria-label="Scroll right"
                 >
-                    <svg class="w-6 h-6 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                    <svg class="w-4 h-4 md:w-7 md:h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                     </svg>
                 </button>
