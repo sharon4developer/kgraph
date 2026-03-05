@@ -99,6 +99,151 @@
             height: auto;
             object-fit: cover;
         }
+
+        /* TinyMCE Content Styling */
+        .blog-content-body {
+            color: #1f2937;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .blog-content-body p {
+            margin-bottom: 20px;
+            color: #374151;
+        }
+
+        .blog-content-body h1,
+        .blog-content-body h2,
+        .blog-content-body h3,
+        .blog-content-body h4,
+        .blog-content-body h5,
+        .blog-content-body h6 {
+            color: #062358;
+            font-weight: bold;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .blog-content-body h1 { font-size: 34px; }
+        .blog-content-body h2 { font-size: 30px; }
+        .blog-content-body h3 { font-size: 24px; }
+        .blog-content-body h4 { font-size: 20px; }
+        .blog-content-body h5 { font-size: 18px; }
+        .blog-content-body h6 { font-size: 16px; }
+
+        .blog-content-body ul,
+        .blog-content-body ol {
+            margin: 20px 0;
+            padding-left: 40px;
+            color: #374151;
+        }
+
+        .blog-content-body ul li,
+        .blog-content-body ol li {
+            margin-bottom: 10px;
+            color: #374151;
+        }
+
+        .blog-content-body table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-content-body table th,
+        .blog-content-body table td {
+            border: 1px solid #e5e7eb;
+            padding: 12px;
+            text-align: left;
+            color: #374151;
+        }
+
+        .blog-content-body table th {
+            background-color: #f3f4f6;
+            font-weight: bold;
+            color: #062358;
+        }
+
+        .blog-content-body table tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+
+        .blog-content-body table tr:hover {
+            background-color: #f3f4f6;
+        }
+
+        .blog-content-body img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .blog-content-body a {
+            color: #2563eb;
+            text-decoration: underline;
+        }
+
+        .blog-content-body a:hover {
+            color: #1d4ed8;
+        }
+
+        .blog-content-body blockquote {
+            border-left: 4px solid #2563eb;
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #4b5563;
+            background-color: #f9fafb;
+            padding: 15px 20px;
+            border-radius: 4px;
+        }
+
+        .blog-content-body code {
+            background-color: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #dc2626;
+            border: 1px solid #e5e7eb;
+        }
+
+        .blog-content-body pre {
+            background-color: #1f2937;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid #e5e7eb;
+        }
+
+        .blog-content-body pre code {
+            background-color: transparent;
+            padding: 0;
+            color: #f3f4f6;
+            border: none;
+        }
+
+        .blog-content-body strong,
+        .blog-content-body b {
+            font-weight: bold;
+            color: #1f2937;
+        }
+
+        .blog-content-body em,
+        .blog-content-body i {
+            font-style: italic;
+        }
+
+        .blog-content-body hr {
+            border: none;
+            border-top: 2px solid #e5e7eb;
+            margin: 30px 0;
+        }
     </style>
 
     @include('frontend.Common.whatsapplogo')
@@ -161,7 +306,7 @@
                     {{-- <h2 class="text-2xl font-bold mt-8">{{ $blog->name }}</h2> --}}
 
                     <!-- Dynamic Section Content -->
-                    <div class="text-lg text-gray-700 mt-4 leading-[29.6px]">{!! $blog->description !!}</div>
+                    <div class="blog-content-body mt-4 bg-white rounded-lg p-8 shadow-lg">{!! $blog->description !!}</div>
                 </div>
 
                 <!-- Footer Section or Additional Links -->

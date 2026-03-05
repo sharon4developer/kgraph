@@ -58,9 +58,52 @@
                                 <div class="mb-3">
                                     <div class="form-group">
                                         <label class="form-label" for="description">Description</label>
-                                        {{-- <textarea rows="15" class="form-control" name="description" id="summernote" required></textarea> --}}
-                                        {{-- <div id="ckeditor-classic"></div> --}}
-                                        <div id="summernote" name="content"></div>
+                                        
+                                        {{-- Import Options --}}
+                                        <div class="card mb-3 border-info">
+                                            <div class="card-header bg-info text-white">
+                                                <i class="ti-info-alt"></i> Import Content Options
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Import from Google Docs</label>
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control" id="google-docs-url" 
+                                                                       placeholder="Paste Google Docs URL">
+                                                                <button type="button" class="btn btn-primary" id="import-google-docs">
+                                                                    <i class="ti-import"></i> Import
+                                                                </button>
+                                                            </div>
+                                                            <small class="text-muted">Paste the Google Docs shareable link (document must be shared with "Anyone with the link")</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Upload Word Document</label>
+                                                            <input type="file" class="form-control" id="docx-file" accept=".docx,.doc">
+                                                            <small class="text-muted">Upload .docx or .doc file</small>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="mb-3">
+                                                            <label class="form-label">Tips for Copy-Paste</label>
+                                                            <div class="alert alert-info mb-0 p-2">
+                                                                <small>
+                                                                    <strong>Tips:</strong><br>
+                                                                    • Copy-paste from Google Docs works perfectly<br>
+                                                                    • Tables and styles are preserved automatically<br>
+                                                                    • Use Code view button to edit raw HTML if needed
+                                                                </small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <textarea id="summernote" name="description"></textarea>
                                         <div class="valid-feedback">
                                         </div>
                                     </div>
@@ -142,24 +185,205 @@
     </div>
 @endsection
 @push('style')
-{{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css" rel="stylesheet"> --}}
-<link rel="stylesheet" type="text/css"
-href="{{ asset('quill/quill.snow.css') }}">
-<link rel="stylesheet" type="text/css"
-href="{{ asset('quill/quill.snow-dark.css') }}">
 <style>
-    div#summernote {
-        min-height: 200px;
+    #summernote {
+        min-height: 400px;
     }
 </style>
 @endpush
 @push('script')
-{{-- <script src="{{ asset('admin/theme/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js')}}"></script> --}}
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-<script src="{{ asset('quill/quill.js') }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/quill-image-resize-module@3.0.0/image-resize.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/quill-full-html-edit-button@1.0.1/dist/quill.htmlEditButton.min.js"></script>
-{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script> --}}
-{{-- <script src="{{ asset('admin/theme/assets/js/pages/form-editor.init.js')}}"></script> --}}
+<script src="https://cdn.tiny.cloud/1/fps7p0ymix0em4o8aao5p6orbjnkqpmrxs8msflnx5giakw7/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
 <script src="{{ asset('admin/backend/js/blogs.js') }}"></script>
+<script>
+$(document).ready(function() {
+    // Initialize TinyMCE
+    tinymce.init({
+        selector: '#summernote',
+        height: 600,
+        menubar: true,
+        plugins: [
+            'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+            'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
+            'insertdatetime', 'media', 'table', 'code', 'help', 'wordcount'
+        ],
+        toolbar: 'undo redo | blocks | ' +
+            'bold italic forecolor | alignleft aligncenter ' +
+            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'removeformat | table | link image | code | help',
+        content_style: 'body { font-family: Arial, sans-serif; font-size: 14px; }',
+        paste_as_text: false,
+        paste_merge_formats: true,
+        paste_remove_styles_if_webkit: false,
+        paste_strip_class_attributes: "none",
+        table_default_attributes: {
+            border: '1'
+        },
+        table_default_styles: {
+            'border-collapse': 'collapse',
+            'width': '100%',
+            'border': '1px solid #ddd'
+        },
+        table_class_list: [
+            {title: 'None', value: ''},
+            {title: 'Table', value: 'table table-bordered'}
+        ],
+        setup: function(editor) {
+            editor.on('init', function() {
+                // Setup import handlers after editor is ready
+                setupImportHandlers();
+            });
+        }
+    });
+    
+    // Function to setup import handlers
+    function setupImportHandlers() {
+        // Google Docs Import Handler
+        $('#import-google-docs').on('click', function() {
+            var url = $('#google-docs-url').val().trim();
+            if (!url) {
+                alert('Please enter a Google Docs URL');
+                return;
+            }
+            
+            // Show loading
+            var btn = $(this);
+            var originalText = btn.html();
+            btn.html('<span class="spinner-border spinner-border-sm"></span> Loading...');
+            btn.prop('disabled', true);
+            
+            // Use backend endpoint to avoid CORS issues
+            $.ajax({
+                url: $("#route-for-user").val() + '/blogs/import/google-docs',
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                data: JSON.stringify({ url: url }),
+                contentType: 'application/json',
+                dataType: 'json',
+                success: function(data) {
+                    if (data.status) {
+                        try {
+                            var editor = tinymce.get('summernote');
+                            if (editor) {
+                                // Set content directly - TinyMCE preserves HTML/CSS/tables
+                                editor.setContent(data.html);
+                                
+                                // Show success message
+                                if (typeof showMessage === 'function') {
+                                    showMessage('success', data.message || 'Content imported successfully from Google Docs!');
+                                } else {
+                                    alert('Content imported successfully!');
+                                }
+                                
+                                // Clear the URL input
+                                $('#google-docs-url').val('');
+                                
+                                // Scroll to editor
+                                $('html, body').animate({
+                                    scrollTop: $('#summernote').offset().top - 100
+                                }, 500);
+                            } else {
+                                alert('Editor not ready. Please wait a moment and try again.');
+                            }
+                        } catch (error) {
+                            console.error('Error inserting content:', error);
+                            alert('Failed to insert content. Please try again.');
+                        }
+                    } else {
+                        alert(data.message || 'Failed to import from Google Docs');
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error:', error);
+                    var errorMsg = 'Failed to import from Google Docs. ';
+                    if (xhr.responseJSON && xhr.responseJSON.message) {
+                        errorMsg += xhr.responseJSON.message;
+                    } else {
+                        errorMsg += 'Please ensure:\n1. The document is publicly accessible (share with "Anyone with the link")\n2. Or use copy-paste method';
+                    }
+                    alert(errorMsg);
+                },
+                complete: function() {
+                    btn.html(originalText);
+                    btn.prop('disabled', false);
+                }
+            });
+        });
+
+        // Word Document Upload Handler
+        $('#docx-file').on('change', function(e) {
+            var file = e.target.files[0];
+            if (!file) return;
+            
+            if (!file.name.match(/\.(docx|doc)$/i)) {
+                alert('Please upload a .docx or .doc file');
+                $(this).val('');
+                return;
+            }
+            
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                var arrayBuffer = e.target.result;
+                
+                // Show loading
+                if (typeof showMessage === 'function') {
+                    showMessage('info', 'Converting document...');
+                }
+                
+                // Use mammoth.js to convert DOCX to HTML
+                if (typeof mammoth !== 'undefined') {
+                    mammoth.convertToHtml({arrayBuffer: arrayBuffer})
+                        .then(function(result) {
+                            var html = result.value;
+                            var warnings = result.messages;
+                            
+                            try {
+                                var editor = tinymce.get('summernote');
+                                if (editor) {
+                                    // Set content directly - TinyMCE preserves HTML/CSS/tables
+                                    editor.setContent(html);
+                                    
+                                    if (typeof showMessage === 'function') {
+                                        showMessage('success', 'Document imported successfully!');
+                                    } else {
+                                        alert('Document imported successfully!');
+                                    }
+                                    
+                                    if (warnings.length > 0) {
+                                        console.warn('Conversion warnings:', warnings);
+                                    }
+                                    
+                                    // Clear file input
+                                    $('#docx-file').val('');
+                                    
+                                    // Scroll to editor
+                                    $('html, body').animate({
+                                        scrollTop: $('#summernote').offset().top - 100
+                                    }, 500);
+                                } else {
+                                    alert('Editor not ready. Please wait a moment and try again.');
+                                }
+                            } catch (error) {
+                                console.error('Error inserting content:', error);
+                                alert('Failed to insert content. Please try copying and pasting manually.');
+                            }
+                        })
+                        .catch(function(error) {
+                            console.error('Error converting document:', error);
+                            alert('Failed to convert document. Please try copying and pasting the content manually.');
+                            $('#docx-file').val('');
+                        });
+                } else {
+                    alert('Document converter not loaded. Please refresh the page.');
+                    $('#docx-file').val('');
+                }
+            };
+            
+            reader.readAsArrayBuffer(file);
+        });
+    }
+});
+</script>
 @endpush

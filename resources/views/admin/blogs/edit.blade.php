@@ -60,8 +60,8 @@
                                 <div class="mb-3">
                                     <div class="form-group">
                                         <label class="form-label" for="description">Description</label>
-                                        <input type="hidden" value="{{ $data->description }}" id="text-content">
-                                        <div id="summernote" name="content"></div>
+                                        
+                                        <textarea id="summernote" name="description">{{ $data->description }}</textarea>
                                         {{-- <textarea rows="15" class="form-control" name="description" id="summernote" required>{!!$data->description!!}</textarea> --}}
                                         {{-- <div id="ckeditor-classic">{!!$data->description!!}</div> --}}
                                         <div class="valid-feedback">
@@ -159,24 +159,50 @@
     </div>
 @endsection
 @push('style')
-{{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css" rel="stylesheet"> --}}
-<link rel="stylesheet" type="text/css"
-href="{{ asset('quill/quill.snow.css') }}">
-<link rel="stylesheet" type="text/css"
-href="{{ asset('quill/quill.snow-dark.css') }}">
 <style>
-    div#summernote {
-        min-height: 200px;
+    #summernote {
+        min-height: 400px;
     }
 </style>
 @endpush
 @push('script')
-{{-- <script src="{{ asset('admin/theme/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js')}}"></script> --}}
-{{-- <script src="{{ asset('admin/theme/assets/js/pages/form-editor.init.js')}}"></script> --}}
-{{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script> --}}
-<script src="{{ asset('quill/quill.js') }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/quill-image-resize-module@3.0.0/image-resize.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/quill-full-html-edit-button@1.0.1/dist/quill.htmlEditButton.min.js"></script>
+<script src="https://cdn.tiny.cloud/1/fps7p0ymix0em4o8aao5p6orbjnkqpmrxs8msflnx5giakw7/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
 <script src="{{ asset('admin/backend/js/blogs.js') }}"></script>
+<script>
+$(document).ready(function() {
+    // Initialize TinyMCE
+    tinymce.init({
+        selector: '#summernote',
+        height: 600,
+        menubar: true,
+        plugins: [
+            'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+            'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
+            'insertdatetime', 'media', 'table', 'code', 'help', 'wordcount'
+        ],
+        toolbar: 'undo redo | blocks | ' +
+            'bold italic forecolor | alignleft aligncenter ' +
+            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'removeformat | table | link image | code | help',
+        content_style: 'body { font-family: Arial, sans-serif; font-size: 14px; }',
+        paste_as_text: false,
+        paste_merge_formats: true,
+        paste_remove_styles_if_webkit: false,
+        paste_strip_class_attributes: "none",
+        table_default_attributes: {
+            border: '1'
+        },
+        table_default_styles: {
+            'border-collapse': 'collapse',
+            'width': '100%',
+            'border': '1px solid #ddd'
+        },
+        table_class_list: [
+            {title: 'None', value: ''},
+            {title: 'Table', value: 'table table-bordered'}
+        ]
+    });
+});
+</script>
 @endpush

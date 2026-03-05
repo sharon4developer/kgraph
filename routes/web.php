@@ -393,6 +393,7 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
 
         Route::post('change/status', [BlogController::class, 'changeStatus'])->name('change-status');
         Route::post('update/order', [BlogController::class, 'changeOrder'])->name('update-order');
+        Route::post('import/google-docs', [BlogController::class, 'importGoogleDocs'])->name('import-google-docs');
     });
 
     Route::prefix('news-letter')->name('.news-letter')->group(function () {

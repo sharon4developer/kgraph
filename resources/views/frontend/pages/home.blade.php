@@ -681,7 +681,7 @@
                                         @endif
 
                                         {{-- Read More Button --}}
-                                        <a href="{{ url('blogs/' . ($article->slug ?? $article->id)) }}" class="inline-flex items-center text-blue-300 hover:text-blue-200 font-medium transition-colors group button-glow">
+                                        <a href="{{ url('blog-details/' . ($article->slug ?? $article->id)) }}" class="inline-flex items-center text-blue-300 hover:text-blue-200 font-medium transition-colors group button-glow">
                                             Read More
                                             @include('frontend.icons.arrow-right', ['class' => 'w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform'])
                                         </a>
