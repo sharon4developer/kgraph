@@ -426,12 +426,12 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                 <div class="lg:sticky lg:top-8">
                     <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">KGraph Immigration</h2>
-                    <p class="text-xl text-blue-200 font-medium mb-8">Get the Most Accurate Guided Pathway to Canada</p>
-                    <p class="text-lg text-blue-200 leading-relaxed mb-8 text-justify">
-                        At KGraph Immigration, we help you plan to move to Canada with the right steps. We have hands-on experience in Canadian immigration with more than 10 thousand past cases and hundreds of ongoing applications. We focus on simplifying the process for you. Our team of experts review your profile carefully, explains your options clearly, and helps you make informed decisions at every stage. As Regulated Canadian Immigration Consultants, we follow all the legal steps that protect your application and your future. Our role is simple: to guide you step by step with clarity, honesty, and strategy, and get your immigration completed smoothly.
+                    <p class="text-xl text-blue-200 font-medium" style="margin-bottom: 1.4rem;">Get the Most Accurate Guided Pathway to Canada</p>
+                    <p class="text-lg text-blue-200 leading-relaxed text-justify" style="margin-bottom: 1.4rem;">
+                        At KGraph Immigration, we help you plan your move to Canada with the right steps. With over 10,000 successful cases and hundreds of ongoing applications, our team of Regulated Canadian Immigration Consultants reviews your profile carefully, explains your options clearly, and guides you through every stage with clarity, honesty, and strategic expertise.
                     </p>
                     @if($certificateData)
-                        <div class="bg-blue-800/50 rounded-2xl p-6 border border-blue-700">
+                        <div class="bg-blue-800/50 rounded-2xl p-4 border border-blue-700">
                             <div class="flex items-start space-x-4">
                                 <div class="w-24 min-h-32 md:w-72 md:h-auto bg-white rounded-xl flex items-center justify-center flex-shrink-0 p-3 md:p-6">
                                     @if($certificateData->image)
