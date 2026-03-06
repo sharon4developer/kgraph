@@ -192,7 +192,7 @@
 </style>
 @endpush
 @push('script')
-<script src="https://cdn.tiny.cloud/1/fps7p0ymix0em4o8aao5p6orbjnkqpmrxs8msflnx5giakw7/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/uuplv3gdf7kqs57rfobqxdrreyfr5dxkotezevdekz1wscug/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
 <script src="{{ asset('admin/backend/js/blogs.js') }}"></script>
 <script>
