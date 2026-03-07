@@ -60,8 +60,7 @@
                                 <div class="mb-3">
                                     <div class="form-group">
                                         <label class="form-label" for="description">Description <span class="text-danger">*</span></label>
-                                        <textarea type="text" class="form-control" id="description" name="description"
-                                            placeholder="Description" required>{{$data->description}}</textarea>
+                                        <textarea id="description" name="description" required>{{$data->description}}</textarea>
                                         <div class="valid-feedback">
                                         </div>
                                     </div>
@@ -132,7 +131,19 @@
     </div>
 @endsection
 @push('style')
+<style>
+    #description {
+        min-height: 200px;
+    }
+</style>
 @endpush
 @push('script')
-    <script src="{{ asset('admin/backend/js/testimonials.js') }}"></script>
+@include('admin.layouts.includes.tinymce-script')
+<script src="{{ asset('admin/backend/js/testimonials.js') }}"></script>
+<script>
+$(document).ready(function() {
+    // Initialize TinyMCE for description (compact editor)
+    initTinyMCE('#description', TINYMCE_COMPACT_CONFIG);
+});
+</script>
 @endpush

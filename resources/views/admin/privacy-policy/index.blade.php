@@ -13,13 +13,8 @@
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="ckeditor-classic">Description</label>
-                                        <?php
-                                        if(isset($data)) $description =  $data->description; else  $description =  '<p><br></p> '
-                                        ?>
-                                        <input type="hidden" value="{{$description}}" id="text-content">
-                                        <div id="summernote" name="content"></div>
-                                        {{-- <div id="ckeditor-classic">@isset($data){!! $data->description !!}@endisset</div> --}}
+                                        <label class="form-label" for="description">Description</label>
+                                        <textarea class="form-control" id="description" name="description" placeholder="Description" required>@isset($data){!! $data->description !!}@endisset</textarea>
                                         <div class="valid-feedback">
                                         </div>
                                     </div>
@@ -42,21 +37,13 @@
     </div>
 @endsection
 @push('style')
-<link rel="stylesheet" type="text/css"
-href="{{ asset('quill/quill.snow.css') }}">
-<link rel="stylesheet" type="text/css"
-href="{{ asset('quill/quill.snow-dark.css') }}">
-<style>
-    div#summernote {
-        min-height: 250px;
-    }
-</style>
 @endpush
 @push('script')
-{{-- <script src="{{ asset('admin/theme/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js')}}"></script>
-<script src="{{ asset('admin/theme/assets/js/pages/form-editor.init.js')}}"></script> --}}
-<script src="{{ asset('quill/quill.js') }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/quill-image-resize-module@3.0.0/image-resize.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/quill-full-html-edit-button@1.0.1/dist/quill.htmlEditButton.min.js"></script>
+@include('admin.layouts.includes.tinymce-script')
+<script>
+    $(document).ready(function() {
+        initTinyMCE('#description', TINYMCE_STANDARD_CONFIG);
+    });
+</script>
 <script src="{{ asset('admin/backend/js/privacy-policy.js') }}"></script>
 @endpush

@@ -166,14 +166,7 @@ $("#table-add-form").validate({
     },
     errorElement: "span",
     submitHandler: function (form, event) {
-        $(".quill-editor-wrapper").each(function () {
-            const input = $(this).find(".quill-content-input");
-            const inputId = input.attr("id");
-            if (quillEditors[inputId]) {
-                const html = quillEditors[inputId].root.innerHTML;
-                input.val(html);
-            }
-        });
+        // TinyMCE content is automatically synced to textareas, no need to manually sync
 
         var formData = new FormData($(form)[0]);
         $(".error").html("");
@@ -309,17 +302,7 @@ $("#table-edit-form").validate({
     },
     errorElement: "span",
     submitHandler: function (form, event) {
-        //
-        $(".quill-editor-wrapper").each(function () {
-            const $editorWrapper = $(this);
-            const $input = $editorWrapper.find("input[type=hidden]");
-            const inputId = $input.attr("id");
-
-            if (window.quillEditors && quillEditors[inputId]) {
-                const html = quillEditors[inputId].root.innerHTML;
-                $input.val(html); // ✅ sync HTML content into hidden input
-            }
-        });
+        // TinyMCE content is automatically synced to textareas, no need to manually sync
 
         var formData = new FormData($(form)[0]);
         $(".error").html("");
@@ -569,8 +552,7 @@ $(document).ready(function () {
     // Handle the "Add More" button click
     $("#addMore").click(function () {
         const count = $(".list").length;
-        const newEditorId = `package_list_description_${count}_editor`;
-        const newInputId = `package_list_description_${count}`;
+        const newTextareaId = `package_list_description_${count}`;
         var newField = `
             <div class="list">
                 <div class="form-group">
@@ -581,10 +563,7 @@ $(document).ready(function () {
                     <div class="mb-3">
                           <div class="form-group">
                             <label>Packages List Description</label>
-                            <div class="quill-wrapper">
-                                <div id="${newEditorId}" class="quill-editor" style="height: 200px;"></div>
-                                <input type="hidden" name="package_list_description[]" id="${newInputId}">
-                            </div>
+                            <textarea class="form-control" id="${newTextareaId}" name="package_list_description[]" placeholder="Packages List Description"></textarea>
                         </div>
                     </div>
                 </div>
@@ -595,7 +574,7 @@ $(document).ready(function () {
         $("#packageContainer").append(newField);
 
         setTimeout(() => {
-            initQuillEditor(newEditorId, newInputId);
+            initTinyMCE('#' + newTextareaId, TINYMCE_COMPACT_CONFIG);
         }, 100);
         toggleRemoveButtons(); // Check button visibility
     });
@@ -641,8 +620,7 @@ $(document).ready(function () {
     // Handle the "Add More" button click
     $("#addMoreFaq").click(function () {
         const count = $(".faqList").length;
-        const newEditorId = `faq_answer_${count}_editor`;
-        const newInputId = `faq_answer_${count}`;
+        const newTextareaId = `faq_answer_${count}`;
         var newField = `
             <div class="faqList">
                 <div class="form-group">
@@ -653,10 +631,7 @@ $(document).ready(function () {
                 </div>
                  <div class="form-group">
                     <label>Faq Answer <span class="text-danger">*</span></label>
-                    <div class="quill-wrapper">
-                        <div id="${newEditorId}" class="quill-editor" style="height: 200px;"></div>
-                        <input type="hidden" name="faq_answer[]" id="${newInputId}">
-                    </div>
+                    <textarea class="form-control" id="${newTextareaId}" name="faq_answer[]" placeholder="Faq Answer" required></textarea>
                 </div>
                 <button type="button" class="btn btn-danger remove">Remove</button>
             </div>
@@ -665,7 +640,7 @@ $(document).ready(function () {
         // Append the new field inside the #faqContainer
         $("#faqContainer").append(newField);
         setTimeout(() => {
-            initQuillEditor(newEditorId, newInputId);
+            initTinyMCE('#' + newTextareaId, TINYMCE_COMPACT_CONFIG);
         }, 100);
     });
 
@@ -740,88 +715,4 @@ function changeStatus(id, status) {
     });
 }
 
-let quillEditors = {};
-
-function initQuillEditor(selectorId, inputId, initialContent = "") {
-    // Register Line Height
-    const Parchment = Quill.import("parchment");
-    const LineHeight = new Parchment.Attributor.Style(
-        "lineHeight",
-        "line-height",
-        {
-            scope: Parchment.Scope.BLOCK,
-            whitelist: ["1", "1.5", "2", "2.5", "3", "4"],
-        }
-    );
-    Quill.register(LineHeight, true);
-
-    // Register Modules
-    Quill.register("modules/imageResize", window.ImageResize);
-    // Quill.register("modules/htmlEditButton", window.quillHtmlEditButton);
-
-    const toolbarOptions = [
-        ["bold", "italic", "underline", "strike"],
-        ["blockquote", "code-block"],
-        [{ header: 1 }, { header: 2 }],
-        [{ list: "ordered" }, { list: "bullet" }],
-        [{ script: "sub" }, { script: "super" }],
-        [{ indent: "-1" }, { indent: "+1" }],
-        [{ direction: "rtl" }],
-        [{ size: ["small", false, "large", "huge"] }],
-        [{ header: [1, 2, 3, 4, 5, 6, false] }],
-        [{ color: [] }, { background: [] }],
-        [{ font: [] }],
-        [{ align: [] }],
-        [{ lineHeight: ["1", "1.5", "2", "2.5", "3", "4"] }],
-        ["link", "image", "video"],
-        ["clean"],
-        ["htmlEditButton"],
-    ];
-    console.log(selectorId);
-
-    const quill = new Quill(`#${selectorId}`, {
-        theme: "snow",
-        modules: {
-            toolbar: toolbarOptions,
-        },
-        placeholder: "Enter content here...",
-    });
-
-    if (initialContent) {
-        quill.root.innerHTML = initialContent;
-    }
-
-    quill.on("text-change", function () {
-        $(`#${inputId}`).val(quill.root.innerHTML);
-    });
-
-    quillEditors[inputId] = quill;
-}
-
-initQuillEditor(
-    "banner_description_editor",
-    "banner_description",
-    $("#banner_description").val()
-);
-initQuillEditor(
-    "sub_content_description_editor",
-    "sub_content_description",
-    $("#sub_content_description").val()
-);
-initQuillEditor(
-    "package_description_editor",
-    "package_description",
-    $("#package_description").val()
-);
-$("[id^='package_list_description_'][id$='_editor']").each(function () {
-    const baseId = $(this).attr("id").replace("_editor", "");
-    initQuillEditor(baseId + "_editor", baseId, $("#" + baseId).val());
-});
-
-$("[id^='faq_answer_'][id$='_editor']").each(function () {
-    const editorId = $(this).attr("id"); // e.g. faq_answer_0_editor
-    const inputId = editorId.replace("_editor", ""); // faq_answer_0
-    const initialContent = $("#" + inputId).val(); // hidden input value
-
-    initQuillEditor(editorId, inputId, initialContent);
-});
+// Quill initialization removed - TinyMCE is initialized in Blade templates

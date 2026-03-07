@@ -34,11 +34,7 @@
                             {{-- <input type="text" name="banner_description" class="form-control" id="banner_description"
                             value="{{ old('banner_description', $data->banner_description) }}"      placeholder="Enter the title"> --}}
                             <label>Banner Description <span class="text-danger">*</span></label>
-                            <input type="hidden" name="banner_description" id="banner_description"
-                                value="{{ old('banner_description', $data->banner_description) }}">
-                            <div id="banner_description_editor" class="quill-editor">
-                                {!! old('banner_description', $data->banner_description) !!}
-                            </div>
+                            <textarea class="form-control" id="banner_description" name="banner_description" placeholder="Banner Description" required>{!! old('banner_description', $data->banner_description) !!}</textarea>
                         </div>
                         <div class="form-group">
                             <label for="study_banner_title">Title <span class="text-danger">*</span></label>
@@ -60,9 +56,7 @@
                                     {{-- <label class="form-label" for="sub_content_description">Sub content Description</label> --}}
                                     {{-- <textarea class="form-control" id="sub_content_description" name="sub_content_description" placeholder="Description">{{ old('sub_content_description', $data->sub_content_description) }}</textarea> --}}
                                     <label>Sub Content Description</label>
-                                    <input type="hidden" name="sub_content_description" id="sub_content_description"
-                                        value="{{ old('sub_content_description', $data->sub_content_description) }}">
-                                    <div id="sub_content_description_editor">{!! $data->sub_content_description !!}</div>
+                                    <textarea class="form-control" id="sub_content_description" name="sub_content_description" placeholder="Sub Content Description">{!! old('sub_content_description', $data->sub_content_description) !!}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -96,11 +90,7 @@
                                     {{-- <label class="form-label" for="package_description">Package Description</label>
                                     <textarea class="form-control" id="package_description" name="package_description[]" placeholder="Description">{{ $data->package_description }}</textarea> --}}
                                     <label>Package Description <span class="text-danger">*</span></label>
-                                    <input type="hidden" name="package_description" id="package_description"
-                                        value="{{ old('package_description', $data->package_description) }}">
-                                    <div id="package_description_editor" class="quill-editor">
-                                        {!! old('package_description', $data->package_description) !!}
-                                    </div>
+                                    <textarea class="form-control" id="package_description" name="package_description" placeholder="Package Description" required>{!! old('package_description', $data->package_description) !!}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -126,13 +116,7 @@
                                         </div> --}}
                                         <div class="form-group">
                                             <label>Packages List Description <span class="text-danger">*</span></label>
-                                            <input type="hidden" name="package_list_description[]"
-                                                id="package_list_description_{{ $key }}"
-                                                value="{{ $package->package_list_description }}">
-                                            <div id="package_list_description_{{ $key }}_editor"
-                                                class="quill-editor">
-                                                {!! $package->package_list_description !!}
-                                            </div>
+                                            <textarea class="form-control" id="package_list_description_{{ $key }}" name="package_list_description[]" placeholder="Packages List Description">{!! $package->package_list_description !!}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -214,11 +198,7 @@
 
                                     <div class="form-group">
                                         <label>FAQ Answer <span class="text-danger">*</span></label>
-                                        <input type="hidden" name="faq_answer[]" id="faq_answer_{{ $key }}"
-                                            value="{{ $faq->faq_answer }}">
-                                        <div id="faq_answer_{{ $key }}_editor" class="quill-editor">
-                                            {!! $faq->faq_answer !!}
-                                        </div>
+                                        <textarea class="form-control" id="faq_answer_{{ $key }}" name="faq_answer[]" placeholder="Faq Answer" required>{!! $faq->faq_answer !!}</textarea>
                                     </div>
                                 </div>
                             @endforeach
@@ -245,21 +225,25 @@
     </div>
 @endsection
 @push('style')
-    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css" rel="stylesheet">
- --}}
-    <link rel="stylesheet" type="text/css" href="{{ asset('quill/quill.snow.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('quill/quill.snow-dark.css') }}">
-    <style>
-        div#summernote {
-            min-height: 200px;
-        }
-    </style>
 @endpush
 @push('script')
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
-    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script> --}}
-    <script src="{{ asset('quill/quill.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/quill-image-resize-module@3.0.0/image-resize.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/quill-full-html-edit-button@1.0.1/dist/quill.htmlEditButton.min.js"></script>
-    <script src="{{ asset('admin/backend/js/study.js') }}"></script>
+@include('admin.layouts.includes.tinymce-script')
+<script>
+    $(document).ready(function() {
+        // Initialize static editors
+        initTinyMCE('#banner_description', TINYMCE_COMPACT_CONFIG);
+        initTinyMCE('#sub_content_description', TINYMCE_COMPACT_CONFIG);
+        initTinyMCE('#package_description', TINYMCE_COMPACT_CONFIG);
+        
+        // Initialize dynamic editors from loops
+        @foreach ($data->packages as $key => $package)
+            initTinyMCE('#package_list_description_{{ $key }}', TINYMCE_COMPACT_CONFIG);
+        @endforeach
+        
+        @foreach ($data->faqs as $key => $faq)
+            initTinyMCE('#faq_answer_{{ $key }}', TINYMCE_COMPACT_CONFIG);
+        @endforeach
+    });
+</script>
+<script src="{{ asset('admin/backend/js/study.js') }}"></script>
 @endpush

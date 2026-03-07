@@ -24,10 +24,8 @@
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="ckeditor-classic">Description</label>
-                                        {{-- <textarea type="text" class="form-control" id="description" name="description"
-                                        placeholder="Description" required></textarea> --}}
-                                        <div id="summernote" name="content"></div>
+                                        <label class="form-label" for="description">Description</label>
+                                        <textarea id="description" name="description" required></textarea>
                                         <div class="valid-feedback">
                                         </div>
                                     </div>
@@ -55,17 +53,19 @@
     </div>
 @endsection
 @push('style')
-    <link rel="stylesheet" type="text/css" href="{{ asset('quill/quill.snow.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('quill/quill.snow-dark.css') }}">
-    <style>
-        div#summernote {
-            min-height: 200px;
-        }
-    </style>
+<style>
+    #description {
+        min-height: 200px;
+    }
+</style>
 @endpush
 @push('script')
-    <script src="{{ asset('quill/quill.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/quill-image-resize-module@3.0.0/image-resize.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/quill-full-html-edit-button@1.0.1/dist/quill.htmlEditButton.min.js"></script>
-    <script src="{{ asset('admin/backend/js/faq.js') }}"></script>
+@include('admin.layouts.includes.tinymce-script')
+<script src="{{ asset('admin/backend/js/faq.js') }}"></script>
+<script>
+$(document).ready(function() {
+    // Initialize TinyMCE for description
+    initTinyMCE('#description', TINYMCE_STANDARD_CONFIG);
+});
+</script>
 @endpush

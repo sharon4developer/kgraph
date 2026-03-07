@@ -8,7 +8,7 @@ $('#contact-add-form').validate({
     submitHandler: function(form,event) {
         //
         var formData = new FormData($(form)[0]);
-        formData.append('description', $('.ck-content').html());
+        formData.append('description', getTinyMCEContent('#description'));
         $('.error').html('');
         var submitButton=$(form).find('[type=submit]');
         var current_btn_text=submitButton.html();

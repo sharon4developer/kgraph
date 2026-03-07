@@ -14,8 +14,8 @@
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="ckeditor-classic">Description</label>
-                                        <div id="ckeditor-classic">@isset($data){!! $data->description !!}@endisset</div>
+                                        <label class="form-label" for="description">Description</label>
+                                        <textarea class="form-control" id="description" name="description" placeholder="Description" required>@isset($data){!! $data->description !!}@endisset</textarea>
                                         <div class="valid-feedback">
                                         </div>
                                     </div>
@@ -40,7 +40,11 @@
 @push('style')
 @endpush
 @push('script')
-    <script src="{{ asset('admin/theme/assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js')}}"></script>
-    <script src="{{ asset('admin/theme/assets/js/pages/form-editor.init.js')}}"></script>
-    <script src="{{ asset('admin/backend/js/contact-us.js') }}"></script>
+@include('admin.layouts.includes.tinymce-script')
+<script>
+    $(document).ready(function() {
+        initTinyMCE('#description', TINYMCE_STANDARD_CONFIG);
+    });
+</script>
+<script src="{{ asset('admin/backend/js/contact-us.js') }}"></script>
 @endpush

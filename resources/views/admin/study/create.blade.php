@@ -19,10 +19,7 @@
 
                                 <label for="banner_description">Banner Description <span
                                         class="text-danger">*</span></label>
-                                <div class="quill-wrapper">
-                                    <div id="banner_description_editor" class="quill-editor" style="height: 200px;"></div>
-                                    <input type="hidden" name="banner_description" id="banner_description">
-                                </div>
+                                <textarea class="form-control" id="banner_description" name="banner_description" placeholder="Banner Description" required></textarea>
                                 {{-- <textarea class="form-control" id="sub_content_description" name="banner_description"
                                        placeholder="Description" ></textarea> --}}
 
@@ -43,12 +40,7 @@
                                     </div> --}}
                                     <div class="form-group">
                                         <label for="sub_content_description">Sub Content Description</label>
-                                        <div class="quill-wrapper">
-                                            <div id="sub_content_description_editor" class="quill-editor"
-                                                style="height: 200px;"></div>
-                                            <input type="hidden" name="sub_content_description"
-                                                id="sub_content_description">
-                                        </div>
+                                        <textarea class="form-control" id="sub_content_description" name="sub_content_description" placeholder="Sub Content Description"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -73,11 +65,7 @@
                                     </div> --}}
                                     <div class="form-group">
                                         <label for="package_description">Package Description</label>
-                                        <div class="quill-wrapper">
-                                            <div id="package_description_editor" class="quill-editor"
-                                                style="height: 200px;"></div>
-                                            <input type="hidden" name="package_description" id="package_description">
-                                        </div>
+                                        <textarea class="form-control" id="package_description" name="package_description" placeholder="Package Description" required></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -97,12 +85,7 @@
                                         </div> --}}
                                         <div class="form-group">
                                             <label class="form-label">Packages List Description</label>
-                                            <div class="quill-wrapper">
-                                                <div id="package_list_description_0_editor" class="quill-editor"
-                                                    style="height: 200px;"></div>
-                                                <input type="hidden" name="package_list_description[]"
-                                                    id="package_list_description_0">
-                                            </div>
+                                            <textarea class="form-control" id="package_list_description_0" name="package_list_description[]" placeholder="Packages List Description"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -152,11 +135,7 @@
                                     </div> --}}
                                     <div class="form-group">
                                         <label for="faq_answer">Faq Answer <span class="text-danger">*</span></label>
-                                        <div class="quill-wrapper">
-                                            <div id="faq_answer_0_editor" class="quill-editor" style="height: 200px;">
-                                            </div>
-                                            <input type="hidden" name="faq_answer[]" id="faq_answer_0">
-                                        </div>
+                                        <textarea class="form-control" id="faq_answer_0" name="faq_answer[]" placeholder="Faq Answer" required></textarea>
                                     </div>
                                 </div>
                             </div> <br>
@@ -187,18 +166,19 @@
 
 @push('style')
     <link rel="stylesheet" href="{{ asset('admin/backend/css/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('quill/quill.snow.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('quill/quill.snow-dark.css') }}">
-    <style>
-        div#summernote {
-            min-height: 250px;
-        }
-    </style>
 @endpush
 
 @push('script')
-    <script src="{{ asset('quill/quill.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/quill-image-resize-module@3.0.0/image-resize.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/quill-full-html-edit-button@1.0.1/dist/quill.htmlEditButton.min.js"></script>
-    <script src="{{ asset('admin/backend/js/study.js') }}?v={{ config('app.version') }}"></script>
+@include('admin.layouts.includes.tinymce-script')
+<script>
+    $(document).ready(function() {
+        // Initialize static editors
+        initTinyMCE('#banner_description', TINYMCE_COMPACT_CONFIG);
+        initTinyMCE('#sub_content_description', TINYMCE_COMPACT_CONFIG);
+        initTinyMCE('#package_description', TINYMCE_COMPACT_CONFIG);
+        initTinyMCE('#package_list_description_0', TINYMCE_COMPACT_CONFIG);
+        initTinyMCE('#faq_answer_0', TINYMCE_COMPACT_CONFIG);
+    });
+</script>
+<script src="{{ asset('admin/backend/js/study.js') }}?v={{ config('app.version') }}"></script>
 @endpush

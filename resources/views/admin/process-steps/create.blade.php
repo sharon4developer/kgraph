@@ -96,7 +96,7 @@
                                 <div class="mb-3">
                                     <div class="form-group">
                                         <label class="form-label" for="description">Description</label>
-                                        <textarea rows="5" class="form-control" name="description" id="description" required></textarea>
+                                        <textarea name="description" id="description" required></textarea>
                                         <div class="valid-feedback">
                                         </div>
                                     </div>
@@ -143,6 +143,13 @@
     </div>
 @endsection
 @push('script')
-    <script src="{{ asset('admin/backend/js/process-steps.js') }}"></script>
+@include('admin.layouts.includes.tinymce-script')
+<script src="{{ asset('admin/backend/js/process-steps.js') }}"></script>
+<script>
+$(document).ready(function() {
+    // Initialize TinyMCE for description (compact editor)
+    initTinyMCE('#description', TINYMCE_COMPACT_CONFIG);
+});
+</script>
 @endpush
 

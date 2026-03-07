@@ -34,11 +34,8 @@
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="sub_title_editor">Content</label>
-                                        <div class="quill-wrapper">
-                                            <div id="sub_title_editor" class="quill-editor" role="textbox" aria-label="Content editor" aria-describedby="sub_title_help" style="height: 200px;"></div>
-                                            <input type="hidden" name="sub_title" id="sub_title" aria-hidden="true">
-                                        </div>
+                                        <label class="form-label" for="sub_title">Content</label>
+                                        <textarea id="sub_title" name="sub_title" aria-describedby="sub_title_help"></textarea>
                                         <small id="sub_title_help" class="form-text text-muted">First paragraph(s) of content</small>
                                     </div>
                                 </div>
@@ -46,11 +43,8 @@
                             <div class="col-md-12">
                                 <div class="mb-3">
                                     <div class="form-group">
-                                        <label class="form-label" for="description_editor">Description</label>
-                                        <div class="quill-wrapper">
-                                            <div id="description_editor" class="quill-editor" role="textbox" aria-label="Description editor" aria-describedby="description_help" style="height: 200px;"></div>
-                                            <input type="hidden" name="description" id="description" aria-hidden="true">
-                                        </div>
+                                        <label class="form-label" for="description">Description</label>
+                                        <textarea id="description" name="description" aria-describedby="description_help"></textarea>
                                         <small id="description_help" class="form-text text-muted">Additional longer content (optional)</small>
                                     </div>
                                 </div>
@@ -99,12 +93,34 @@
     </div>
 @endsection
 @push('style')
-    <link rel="stylesheet" type="text/css" href="{{ asset('quill/quill.snow.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('quill/quill.snow-dark.css') }}">
+<style>
+    #sub_title, #description {
+        min-height: 200px;
+    }
+</style>
 @endpush
 @push('script')
-    <script src="{{ asset('quill/quill.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/quill-image-resize-module@3.0.0/image-resize.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/quill-full-html-edit-button@1.0.1/dist/quill.htmlEditButton.min.js"></script>
-    <script src="{{ asset('admin/backend/js/banners.js') }}"></script>
+@include('admin.layouts.includes.tinymce-script')
+<script src="{{ asset('admin/backend/js/banners.js') }}"></script>
+<script>
+$(document).ready(function() {
+    // Wait for TinyMCE to be fully loaded before initializing multiple editors
+    function initializeEditors() {
+        if (typeof tinymce === 'undefined') {
+            setTimeout(initializeEditors, 100);
+            return;
+        }
+        
+        // Initialize TinyMCE for sub_title (compact editor)
+        initTinyMCE('#sub_title', TINYMCE_COMPACT_CONFIG);
+        
+        // Initialize second editor with a small delay to ensure first one is ready
+        setTimeout(function() {
+            initTinyMCE('#description', TINYMCE_COMPACT_CONFIG);
+        }, 200);
+    }
+    
+    initializeEditors();
+});
+</script>
 @endpush
