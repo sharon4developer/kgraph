@@ -479,6 +479,8 @@
             <div class="bg-slate-800 rounded-2xl p-8 border border-slate-700">
                 <form action="{{ route('submit-contact-form') }}" method="POST" class="space-y-6">
                     @csrf
+                    {{-- Honeypot: hidden field to trap bots --}}
+                    <input type="text" name="website" style="display:none !important;position:absolute;left:-9999px;" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <input type="hidden" name="service" value="{{ $services->title ?? '' }}">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>

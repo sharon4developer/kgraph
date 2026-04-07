@@ -63,6 +63,7 @@
         this.errorMessage = '';
         const formDataObj = new FormData();
         formDataObj.append('name_n', this.formData.name_n);
+        formDataObj.append('website', ''); // Honeypot: always empty for real users
         formDataObj.append('email_n', this.formData.email_n);
         formDataObj.append('country_n', this.formData.country_n);
         formDataObj.append('mobile_n', this.formData.mobile_n);

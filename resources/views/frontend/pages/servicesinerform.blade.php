@@ -312,6 +312,8 @@
 
                 <form action="{{ route('submit-eligibility-form') }}" method="POST" class="contact-form" id="eligibility-form">
                     @csrf
+                    {{-- Honeypot: hidden field to trap bots --}}
+                    <input type="text" name="website" style="display:none !important;position:absolute;left:-9999px;" tabindex="-1" autocomplete="off" aria-hidden="true">
                     {{-- Personal Information Section --}}
                     <div class="mb-5">
                         <h3 class="text-xl font-bold text-slate-900 mb-3 pb-2 border-b border-slate-200">Personal Information</h3>

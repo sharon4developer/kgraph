@@ -35,6 +35,8 @@
             <div class="bg-slate-700 rounded-2xl p-8 border border-slate-600">
                 <form action="{{ route('submit-contact-form') }}" method="POST" class="space-y-6">
                     @csrf
+                    {{-- Honeypot: hidden field to trap bots --}}
+                    <input type="text" name="website" style="display:none !important;position:absolute;left:-9999px;" tabindex="-1" autocomplete="off" aria-hidden="true">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-white mb-2 font-semibold">First Name <span class="text-red-500">*</span></label>

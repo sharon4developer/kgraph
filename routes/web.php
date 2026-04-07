@@ -90,10 +90,10 @@ Route::get('careers', [FrontEndCareerController::class, 'index']);
 Route::get('contact-us', [FrontEndContactUsController::class, 'index']);
 Route::get('test-email', [EmailTestController::class, 'show'])->name('test-email');
 Route::post('test-email', [EmailTestController::class, 'send'])->name('test-email.send');
-Route::post('submit-news-letter', [NewsLetterController::class, 'submitNewsLetter'])->name('submit-news-letter');
-Route::post('submit-contact-form', [NewsLetterController::class, 'submitContact'])->name('submit-contact-form');
+Route::post('submit-news-letter', [NewsLetterController::class, 'submitNewsLetter'])->name('submit-news-letter')->middleware('throttle:5,1');
+Route::post('submit-contact-form', [NewsLetterController::class, 'submitContact'])->name('submit-contact-form')->middleware('throttle:5,1');
 Route::get('blog-details/{slug}', [FrontEndBlogController::class, 'blogDetails']);
-Route::post('submit-eligibility-form', [NewsLetterController::class, 'submitEligibility'])->name('submit-eligibility-form');
+Route::post('submit-eligibility-form', [NewsLetterController::class, 'submitEligibility'])->name('submit-eligibility-form')->middleware('throttle:5,1');
 Route::get('eligibility-check', [FrontEndServiceController::class, 'eligibilityCheck']);
 Route::get('terms-and-conditions', [FrontEndController::class, 'termsConditions']);
 Route::get('privacy-policy', [FrontEndController::class, 'privacyPolicy']);
@@ -102,7 +102,7 @@ Route::get('study', [FrontEndStudyController::class, 'index']);
 Route::get('crs-calculator', [CrsController::class, 'index'])->name('crs.calculator');
 
 
-Route::post('submit-career-form-new', [NewsLetterController::class, 'submitCareerNew'])->name('submit-career-form-new');
+Route::post('submit-career-form-new', [NewsLetterController::class, 'submitCareerNew'])->name('submit-career-form-new')->middleware('throttle:5,1');
 
 Route::get('convert-html', [HomeController::class, 'convertHtml']);
 

@@ -15,6 +15,10 @@ class NewsLetterController extends Controller
 {
     public function submitNewsLetter(Request $request)
     {
+        // Honeypot: bots fill hidden fields, humans don't
+        if ($request->filled('website')) {
+            return response()->json(['status' => true, 'message' => 'Thank you for subscribing! We will keep you informed about immigration updates']);
+        }
         try {
             $save = NewsLetter::saveNewsLetter($request);
             if ($save) {
@@ -41,6 +45,10 @@ class NewsLetterController extends Controller
 
     public function submitContact(Request $request)
     {
+        // Honeypot: bots fill hidden fields, humans don't
+        if ($request->filled('website')) {
+            return response()->json(['status' => true, 'message' => 'Submitted successfully']);
+        }
         try {
             $save = Contact::saveContact($request);
             if ($save) {
@@ -67,6 +75,10 @@ class NewsLetterController extends Controller
 
     public function submitCareerNew(EligibilityCheck_nRequest $request)
     {
+        // Honeypot: bots fill hidden fields, humans don't
+        if ($request->filled('website')) {
+            return response()->json(['status' => true, 'message' => 'Submitted successfully']);
+        }
         try {
             $save = AppliedCareer::saveCareerNew($request);
             if ($save) {
@@ -94,6 +106,10 @@ class NewsLetterController extends Controller
 
     public function submitEligibility(Request $request)
     {
+        // Honeypot: bots fill hidden fields, humans don't
+        if ($request->filled('website')) {
+            return response()->json(['status' => true, 'message' => 'Submitted successfully']);
+        }
         try {
             $save = EligibilityCheck::createData($request);
             if ($save) {
