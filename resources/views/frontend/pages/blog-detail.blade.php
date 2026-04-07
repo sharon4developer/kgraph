@@ -145,13 +145,18 @@
         }
 
         .blog-content-body table {
-            width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
             background-color: #ffffff;
             border-radius: 8px;
-            overflow: hidden;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            /* Mobile responsive: scrollable table */
+            display: block;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            max-width: 100%;
+            width: max-content;
+            min-width: 100%;
         }
 
         .blog-content-body table th,

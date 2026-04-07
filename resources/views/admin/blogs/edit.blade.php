@@ -201,7 +201,17 @@ $(document).ready(function() {
         table_class_list: [
             {title: 'None', value: ''},
             {title: 'Table', value: 'table table-bordered'}
-        ]
+        ],
+        paste_postprocess: function(plugin, args) {
+            args.node.querySelectorAll('table, td, th, col, colgroup').forEach(function(el) {
+                el.style.removeProperty('width');
+                el.style.removeProperty('min-width');
+                el.removeAttribute('width');
+            });
+            args.node.querySelectorAll('table').forEach(function(el) {
+                el.style.width = '100%';
+            });
+        }
     });
 });
 </script>
