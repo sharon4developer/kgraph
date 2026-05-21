@@ -192,7 +192,7 @@
         $whatsappNumber = isset($whatsapp) && $whatsapp->whatsapp ? $whatsapp->whatsapp : '+14169897788';
         $whatsappMessage = "Hi! I'm interested in learning more about Canadian immigration services.";
     @endphp
-    <div class="fixed bottom-24 right-4 z-50" style="width:56px;height:56px;">
+    <div style="position:fixed;bottom:96px;right:16px;z-index:9999;width:56px;height:56px;">
         {{-- Ripple rings --}}
         <span style="position:absolute;inset:0;border-radius:9999px;background:#25D366;opacity:0.4;animation:wa-ripple 2s ease-out infinite;"></span>
         <span style="position:absolute;inset:0;border-radius:9999px;background:#25D366;opacity:0.25;animation:wa-ripple 2s ease-out infinite 0.6s;"></span>
