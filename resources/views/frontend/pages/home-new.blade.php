@@ -12,8 +12,8 @@
 
     /* Blog slider peek effect on mobile */
     .blog-card-mobile {
-        width: 82%;
-        min-width: 82%;
+        width: 82% !important;
+        min-width: 82% !important;
         scroll-snap-align: start;
     }
     .blog-slider-mobile {
@@ -22,8 +22,8 @@
     }
     @media (min-width: 768px) {
         .blog-card-mobile {
-            width: 33.333%;
-            min-width: 33.333%;
+            width: 33.333% !important;
+            min-width: 33.333% !important;
             scroll-snap-align: unset;
         }
         .blog-slider-mobile {
