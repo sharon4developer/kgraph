@@ -9,6 +9,27 @@
             line-height: 1;
         }
     }
+
+    /* Blog slider peek effect on mobile */
+    .blog-card-mobile {
+        width: 82%;
+        min-width: 82%;
+        scroll-snap-align: start;
+    }
+    .blog-slider-mobile {
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+    }
+    @media (min-width: 768px) {
+        .blog-card-mobile {
+            width: 33.333%;
+            min-width: 33.333%;
+            scroll-snap-align: unset;
+        }
+        .blog-slider-mobile {
+            scroll-snap-type: unset;
+        }
+    }
 </style>
 @endpush
 
@@ -931,14 +952,14 @@
                     </div>
                 </div>
 
-                <div class="relative overflow-x-auto md:overflow-hidden -mx-3 scrollbar-hide">
+                <div class="relative overflow-x-auto md:overflow-hidden -mx-3 scrollbar-hide blog-slider-mobile">
                     <div 
                         class="flex transition-transform duration-500 ease-in-out"
                         x-bind:style="'transform: translateX(-' + (currentNewsIndex * (100 / 3)) + '%)'"
                         x-cloak
                     >
                         @foreach($featuredBlogs as $index => $article)
-                            <div class="w-full md:w-1/3 flex-shrink-0 px-3 opacity-0 animate-fade-in-up" style="animation-delay: {{ $index * 0.1 }}s; animation-fill-mode: forwards;">
+                            <div class="blog-card-mobile md:w-1/3 flex-shrink-0 px-3 opacity-0 animate-fade-in-up" style="animation-delay: {{ $index * 0.1 }}s; animation-fill-mode: forwards;">
                                 <div class="bg-blue-800 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 border border-blue-700 overflow-hidden h-full">
                                     {{-- Image --}}
                                     <div class="relative aspect-video overflow-hidden">
