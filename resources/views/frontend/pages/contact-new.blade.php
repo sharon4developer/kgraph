@@ -166,10 +166,10 @@
     @php
         // Business hours mapping based on location
         $businessHours = [
-            'Toronto' => 'Monday - Friday: 9:00 AM - 6:00 PM',
-            'Kitchener' => 'Monday - Friday: 9:00 AM - 5:30 PM',
-            'Mississauga' => 'Monday - Friday: 9:00 AM - 6:00 PM',
-            'Kochi' => 'Monday - Saturday: 9:00 AM - 6:00 PM',
+            'Toronto' => 'Monday - Saturday: 10:00 AM - 5:00 PM',
+            'Kitchener' => 'Monday - Saturday: 10:00 AM - 5:00 PM',
+            'Mississauga' => 'Monday - Saturday: 10:00 AM - 5:00 PM',
+            'Kochi' => 'Monday - Saturday: 8:00 AM - 3:00 PM',
         ];
         
         // Google Maps URLs for each location
@@ -204,7 +204,7 @@
                 @foreach($locations as $index => $location)
                     @php
                         $locationName = $location->location;
-                        $hours = $businessHours[$locationName] ?? 'Monday - Friday: 9:00 AM - 6:00 PM';
+                        $hours = $businessHours[$locationName] ?? 'Monday - Saturday: 10:00 AM - 5:00 PM';
                         $mapUrl = getMapUrl($locationName, $location->address ?? '', $mapUrls);
                     @endphp
                     <div class="bg-gradient-to-br from-slate-800 to-slate-700 rounded-2xl p-5 border border-slate-600 opacity-0 animate-fade-in-up flex flex-col shadow-lg hover:shadow-xl hover:shadow-blue-900/20 hover:border-blue-500 transition-all" style="animation-delay: {{ $index * 0.1 }}s; animation-fill-mode: forwards;">
@@ -286,7 +286,7 @@
                     <p class="text-slate-300 mb-4">Speak directly with our immigration experts</p>
                     <div class="space-y-2 mb-6">
                         <p class="font-semibold text-white">+1 416 989 7788</p>
-                        <p class="text-sm text-slate-400">Monday - Friday: 9:00 AM - 6:00 PM EST</p>
+                        <p class="text-sm text-slate-400">Monday - Saturday: 10:00 AM - 5:00 PM EST</p>
                     </div>
                     <a href="tel:+14169897788" class="inline-block px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors font-medium">
                         Call Now
@@ -546,14 +546,14 @@
                             @include('frontend.icons.clock', ['class' => 'w-6 h-6 text-blue-600 flex-shrink-0 mt-1'])
                             <div>
                                 <h3 class="font-semibold text-white">Canada Offices (EST)</h3>
-                                <p class="text-slate-300">Monday - Friday: 9:00 AM - 6:00 PM</p>
+                                <p class="text-slate-300">Monday - Saturday: 10:00 AM - 5:00 PM</p>
                             </div>
                         </div>
                         <div class="flex items-start space-x-4">
                             @include('frontend.icons.clock', ['class' => 'w-6 h-6 text-blue-600 flex-shrink-0 mt-1'])
                             <div>
                                 <h3 class="font-semibold text-white">Kochi Office (IST)</h3>
-                                <p class="text-slate-300">Monday - Saturday: 9:00 AM - 6:00 PM</p>
+                                <p class="text-slate-300">Monday - Saturday: 8:00 AM - 3:00 PM</p>
                             </div>
                         </div>
                     </div>

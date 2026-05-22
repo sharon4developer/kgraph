@@ -125,7 +125,7 @@
                     <p class="text-slate-300 mb-4">Speak directly with our immigration experts</p>
                     <div class="space-y-2">
                         <p class="font-semibold text-white">+1 416 989 7788</p>
-                        <p class="text-sm text-slate-400">Monday - Friday: 9:00 AM - 6:00 PM EST</p>
+                        <p class="text-sm text-slate-400">Monday - Saturday: 10:00 AM - 5:00 PM EST</p>
                     </div>
                     <a href="tel:+14169897788" class="inline-block mt-6 px-6 py-3 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors font-medium">
                         Call Now
