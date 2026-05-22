@@ -648,12 +648,12 @@
                     class="flex flex-nowrap gap-6 overflow-x-auto pb-4 scrollbar-hide scroll-smooth snap-x snap-mandatory touch-pan-x"
                 >
                 {{-- Permanent Residency --}}
-                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up flex-shrink-0 w-[90%] sm:w-[85%] md:w-[400px] lg:w-[350px] snap-start" style="animation-delay: 0s; animation-fill-mode: forwards;">
-                    <h3 class="text-2xl font-bold text-white mb-4">Permanent Residency</h3>
+                <div class="bg-blue-900 rounded-2xl p-5 md:p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up flex-shrink-0 w-[76%] sm:w-[80%] md:w-[400px] lg:w-[350px] snap-start" style="animation-delay: 0s; animation-fill-mode: forwards;">
+                    <h3 class="text-lg md:text-2xl font-bold text-white mb-4">Permanent Residency</h3>
                     <ul class="space-y-2">
                         @foreach(['Express Entry', 'PNP', 'Family Sponsorship', 'Business/Investor Visa'] as $service)
                             <li>
-                                <a href="{{ $serviceLinks[$service] ?? url('services') }}" class="group text-blue-200 hover:text-white transition-all duration-200 flex items-center py-5 md:py-2.5 px-4 rounded-lg bg-blue-800/30 hover:bg-blue-700/60 border border-blue-700/50 hover:border-blue-500 hover:shadow-lg cursor-pointer">
+                                <a href="{{ $serviceLinks[$service] ?? url('services') }}" class="group text-blue-200 hover:text-white transition-all duration-200 flex items-center py-3 md:py-2.5 px-4 rounded-lg bg-blue-800/30 hover:bg-blue-700/60 border border-blue-700/50 hover:border-blue-500 hover:shadow-lg cursor-pointer">
                                     <span class="w-2.5 h-2.5 bg-blue-400 rounded-full mr-3 group-hover:bg-blue-300 transition-colors flex-shrink-0"></span>
                                     <span class="text-base md:text-sm font-medium underline decoration-blue-400/50 hover:decoration-blue-300 flex-grow">{{ $service }}</span>
                                     <svg class="w-4 h-4 ml-2 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -666,12 +666,12 @@
                 </div>
 
                 {{-- Temporary Residency --}}
-                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up flex-shrink-0 w-[90%] sm:w-[85%] md:w-[400px] lg:w-[350px] snap-start" style="animation-delay: 0.1s; animation-fill-mode: forwards;">
-                    <h3 class="text-2xl font-bold text-white mb-4">Temporary Residency</h3>
+                <div class="bg-blue-900 rounded-2xl p-5 md:p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up flex-shrink-0 w-[76%] sm:w-[80%] md:w-[400px] lg:w-[350px] snap-start" style="animation-delay: 0.1s; animation-fill-mode: forwards;">
+                    <h3 class="text-lg md:text-2xl font-bold text-white mb-4">Temporary Residency</h3>
                     <ul class="space-y-2">
                         @foreach(['PGWP', 'Spouse Open Work Permit', 'Visiting Visa', 'Super Visa'] as $service)
                             <li>
-                                <a href="{{ $serviceLinks[$service] ?? url('services') }}" class="group text-blue-200 hover:text-white transition-all duration-200 flex items-center py-5 md:py-2.5 px-4 rounded-lg bg-blue-800/30 hover:bg-blue-700/60 border border-blue-700/50 hover:border-blue-500 hover:shadow-lg cursor-pointer">
+                                <a href="{{ $serviceLinks[$service] ?? url('services') }}" class="group text-blue-200 hover:text-white transition-all duration-200 flex items-center py-3 md:py-2.5 px-4 rounded-lg bg-blue-800/30 hover:bg-blue-700/60 border border-blue-700/50 hover:border-blue-500 hover:shadow-lg cursor-pointer">
                                     <span class="w-2.5 h-2.5 bg-blue-400 rounded-full mr-3 group-hover:bg-blue-300 transition-colors flex-shrink-0"></span>
                                     <span class="text-base md:text-sm font-medium underline decoration-blue-400/50 hover:decoration-blue-300 flex-grow">{{ $service }}</span>
                                     <svg class="w-4 h-4 ml-2 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -684,12 +684,12 @@
                 </div>
 
                 {{-- Refusals and Appeals --}}
-                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up flex-shrink-0 w-[90%] sm:w-[85%] md:w-[400px] lg:w-[350px] snap-start" style="animation-delay: 0.2s; animation-fill-mode: forwards;">
-                    <h3 class="text-2xl font-bold text-white mb-4">Refusals and Appeals</h3>
+                <div class="bg-blue-900 rounded-2xl p-5 md:p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up flex-shrink-0 w-[76%] sm:w-[80%] md:w-[400px] lg:w-[350px] snap-start" style="animation-delay: 0.2s; animation-fill-mode: forwards;">
+                    <h3 class="text-lg md:text-2xl font-bold text-white mb-4">Refusals and Appeals</h3>
                     <ul class="space-y-2">
                         @foreach(['IAD Appeals', 'Refusal and Reapplication'] as $service)
                             <li>
-                                <a href="{{ $serviceLinks[$service] ?? url('services') }}" class="group text-blue-200 hover:text-white transition-all duration-200 flex items-center py-5 md:py-2.5 px-4 rounded-lg bg-blue-800/30 hover:bg-blue-700/60 border border-blue-700/50 hover:border-blue-500 hover:shadow-lg cursor-pointer">
+                                <a href="{{ $serviceLinks[$service] ?? url('services') }}" class="group text-blue-200 hover:text-white transition-all duration-200 flex items-center py-3 md:py-2.5 px-4 rounded-lg bg-blue-800/30 hover:bg-blue-700/60 border border-blue-700/50 hover:border-blue-500 hover:shadow-lg cursor-pointer">
                                     <span class="w-2.5 h-2.5 bg-blue-400 rounded-full mr-3 group-hover:bg-blue-300 transition-colors flex-shrink-0"></span>
                                     <span class="text-base md:text-sm font-medium underline decoration-blue-400/50 hover:decoration-blue-300 flex-grow">{{ $service }}</span>
                                     <svg class="w-4 h-4 ml-2 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -702,12 +702,12 @@
                 </div>
 
                 {{-- Pilot and Rural Programs --}}
-                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up flex-shrink-0 w-[90%] sm:w-[85%] md:w-[400px] lg:w-[350px] snap-start" style="animation-delay: 0.3s; animation-fill-mode: forwards;">
-                    <h3 class="text-2xl font-bold text-white mb-4">Pilot and Rural Programs</h3>
+                <div class="bg-blue-900 rounded-2xl p-5 md:p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up flex-shrink-0 w-[76%] sm:w-[80%] md:w-[400px] lg:w-[350px] snap-start" style="animation-delay: 0.3s; animation-fill-mode: forwards;">
+                    <h3 class="text-lg md:text-2xl font-bold text-white mb-4">Pilot and Rural Programs</h3>
                     <ul class="space-y-2">
                         @foreach(['RCIP', 'AIP', 'Home Caregiver'] as $service)
                             <li>
-                                <a href="{{ $serviceLinks[$service] ?? url('services') }}" class="group text-blue-200 hover:text-white transition-all duration-200 flex items-center py-5 md:py-2.5 px-4 rounded-lg bg-blue-800/30 hover:bg-blue-700/60 border border-blue-700/50 hover:border-blue-500 hover:shadow-lg cursor-pointer">
+                                <a href="{{ $serviceLinks[$service] ?? url('services') }}" class="group text-blue-200 hover:text-white transition-all duration-200 flex items-center py-3 md:py-2.5 px-4 rounded-lg bg-blue-800/30 hover:bg-blue-700/60 border border-blue-700/50 hover:border-blue-500 hover:shadow-lg cursor-pointer">
                                     <span class="w-2.5 h-2.5 bg-blue-400 rounded-full mr-3 group-hover:bg-blue-300 transition-colors flex-shrink-0"></span>
                                     <span class="text-base md:text-sm font-medium underline decoration-blue-400/50 hover:decoration-blue-300 flex-grow">{{ $service }}</span>
                                     <svg class="w-4 h-4 ml-2 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -720,11 +720,11 @@
                 </div>
 
                 {{-- LMIA --}}
-                <div class="bg-blue-900 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up flex-shrink-0 w-[90%] sm:w-[85%] md:w-[400px] lg:w-[350px] snap-start" style="animation-delay: 0.4s; animation-fill-mode: forwards;">
-                    <h3 class="text-2xl font-bold text-white mb-4">LMIA</h3>
+                <div class="bg-blue-900 rounded-2xl p-5 md:p-8 shadow-lg hover:shadow-xl transition-shadow border border-blue-800 opacity-0 animate-fade-in-up flex-shrink-0 w-[76%] sm:w-[80%] md:w-[400px] lg:w-[350px] snap-start" style="animation-delay: 0.4s; animation-fill-mode: forwards;">
+                    <h3 class="text-lg md:text-2xl font-bold text-white mb-4">LMIA</h3>
                     <ul class="space-y-2">
                         <li>
-                            <a href="{{ $serviceLinks['Labour Market Impact Assessment'] ?? url('service-details/labour-market-impact-assessment') }}" class="group text-blue-200 hover:text-white transition-all duration-200 flex items-center py-5 md:py-2.5 px-4 rounded-lg bg-blue-800/30 hover:bg-blue-700/60 border border-blue-700/50 hover:border-blue-500 hover:shadow-lg cursor-pointer">
+                            <a href="{{ $serviceLinks['Labour Market Impact Assessment'] ?? url('service-details/labour-market-impact-assessment') }}" class="group text-blue-200 hover:text-white transition-all duration-200 flex items-center py-3 md:py-2.5 px-4 rounded-lg bg-blue-800/30 hover:bg-blue-700/60 border border-blue-700/50 hover:border-blue-500 hover:shadow-lg cursor-pointer">
                                 <span class="w-2.5 h-2.5 bg-blue-400 rounded-full mr-3 group-hover:bg-blue-300 transition-colors flex-shrink-0"></span>
                                 <span class="text-base md:text-sm font-medium underline decoration-blue-400/50 hover:decoration-blue-300 flex-grow">Labour Market Impact Assessment</span>
                                 <svg class="w-4 h-4 ml-2 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
