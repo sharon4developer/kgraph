@@ -6,6 +6,10 @@ use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BlogContentController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BlogSeoController;
+use App\Http\Controllers\Admin\ResourceController;
+use App\Http\Controllers\Admin\ResourceCategoryController;
+use App\Http\Controllers\Admin\ResourceContentController;
+use App\Http\Controllers\Admin\ResourceSeoController;
 use App\Http\Controllers\Admin\CareerBranchController;
 use App\Http\Controllers\Admin\CareerContentController;
 use App\Http\Controllers\Admin\CareerController;
@@ -58,6 +62,7 @@ use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\WhoWeAreController;
 use App\Http\Controllers\FrontEnd\AboutController;
 use App\Http\Controllers\FrontEnd\BlogController as FrontEndBlogController;
+use App\Http\Controllers\FrontEnd\ResourceController as FrontEndResourceController;
 use App\Http\Controllers\FrontEnd\CareerController as FrontEndCareerController;
 use App\Http\Controllers\FrontEnd\ContactUsController as FrontEndContactUsController;
 use App\Http\Controllers\FrontEnd\EmailTestController;
@@ -82,6 +87,8 @@ Route::get('services', [FrontEndServiceController::class, 'index']);
 Route::get('service-details/{slug}', [FrontEndServiceController::class, 'serviceDetails']);
 Route::get('eligibility-check/{slug}', [FrontEndServiceController::class, 'eligibilityCheck']);
 Route::get('blogs', [FrontEndBlogController::class, 'index']);
+Route::get('resources', [FrontEndResourceController::class, 'index']);
+Route::get('resource-details/{slug}', [FrontEndResourceController::class, 'show']);
 Route::get('about-us', [AboutController::class, 'index']);
 Route::post('fetch-crew', [AboutController::class, 'crewShow']);
 Route::get('packages', [FrontEndPackageController::class, 'index']);
@@ -148,6 +155,9 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         'testimonials' => TestimonialController::class,
         'faq' => FaqController::class,
         'blogs' => BlogController::class,
+        'resources' => ResourceController::class,
+        'resource-categories' => ResourceCategoryController::class,
+        'resource-contents' => ResourceContentController::class,
         'explore' => ExploreController::class,
         'certificates' => CertificateController::class,
         'journey' => JourneyController::class,
@@ -394,6 +404,23 @@ Route::prefix('admin')->name('admin')->middleware('auth')->group(function () {
         Route::post('change/status', [BlogController::class, 'changeStatus'])->name('change-status');
         Route::post('update/order', [BlogController::class, 'changeOrder'])->name('update-order');
         Route::post('import/google-docs', [BlogController::class, 'importGoogleDocs'])->name('import-google-docs');
+    });
+
+    Route::prefix('resources')->name('.resources')->group(function () {
+
+        Route::resources([
+            'seo' => ResourceSeoController::class,
+        ]);
+
+        Route::post('change/status', [ResourceController::class, 'changeStatus'])->name('change-status');
+        Route::post('update/order', [ResourceController::class, 'changeOrder'])->name('update-order');
+        Route::post('import/google-docs', [ResourceController::class, 'importGoogleDocs'])->name('import-google-docs');
+    });
+
+    Route::prefix('resource-categories')->name('.resource-categories')->group(function () {
+
+        Route::post('change/status', [ResourceCategoryController::class, 'changeStatus'])->name('change-status');
+        Route::post('update/order', [ResourceCategoryController::class, 'changeOrder'])->name('update-order');
     });
 
     Route::prefix('news-letter')->name('.news-letter')->group(function () {

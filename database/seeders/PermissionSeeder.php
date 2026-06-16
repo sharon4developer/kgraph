@@ -69,6 +69,25 @@ class PermissionSeeder extends Seeder
             'blog-content-create',
             'blog-content-edit',
 
+            'resources',
+            'resources-create',
+            'resources-edit',
+            'resources-delete',
+
+            'resources-seo',
+            'resources-seo-create',
+            'resources-seo-edit',
+            'resources-seo-delete',
+
+            'resource-categories',
+            'resource-categories-create',
+            'resource-categories-edit',
+            'resource-categories-delete',
+
+            'resource-contents',
+            'resource-contents-create',
+            'resource-contents-edit',
+
             'explore',
             'explore-create',
             'explore-edit',

@@ -21,6 +21,7 @@ class PageSeeder extends Seeder
             ['title'=>'Careers','url'=>'careers','main_role'=>'1','parent_id'=>NULL,'submenu_count'=>0,'status'=>1],
             ['title'=>'Contact Us','url'=>'contact-us','main_role'=>'1','parent_id'=>NULL,'submenu_count'=>0,'status'=>1],
             ['title'=>'Blogs','url'=>'blogs','main_role'=>'1','parent_id'=>NULL,'submenu_count'=>0,'status'=>1],
+            ['title'=>'Resources','url'=>'resources','main_role'=>'1','parent_id'=>NULL,'submenu_count'=>0,'status'=>1],
             // ['title'=>'News','url'=>'news','main_role'=>'1','parent_id'=>NULL,'submenu_count'=>0,'status'=>1],
             // ['title'=>'Legal','url'=>'legal','main_role'=>'1','parent_id'=>NULL,'submenu_count'=>0,'status'=>1],
             ['title'=>'Privacy Policy','url'=>'privacy-policy','main_role'=>'1','parent_id'=>NULL,'submenu_count'=>0,'status'=>1],

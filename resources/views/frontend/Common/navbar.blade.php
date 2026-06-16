@@ -176,6 +176,9 @@
                                 <a href="{{ url('blogs') }}">Blogs</a>
                             </li>
                             <li class="px-4 py-2">
+                                <a href="{{ url('resources') }}">Resources</a>
+                            </li>
+                            <li class="px-4 py-2">
                                 <a href="{{ url('contact-us') }}" class="px-4 py-1 text-blue-600 bg-white rounded-sm">Contact Us</a>
                             </li>
                         </ul>
@@ -227,6 +230,7 @@
                     <li class="nav-item"><a class="nav-link" href="{{ url('study') }}">Study</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('careers') }}">Careers</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ url('blogs') }}">Blogs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ url('resources') }}">Resources</a></li>
                 </ul>
                 <a href="{{ url('contact-us') }}" class="bg-white block text-blue-600 hover:bg-blue-600 hover:text-white px-[26px] py-[7px] rounded-3xl ease-in duration-500 cursor-pointer">
                     <span  class="h-full font-semibold">Contact Us</span>

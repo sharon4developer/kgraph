@@ -1,0 +1,189 @@
+@extends('admin.layouts.app')
+@section('content')
+    <!-- end page title -->
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="card-title">Edit Resource</h4>
+                </div>
+                <div class="card-body">
+                    <form class="needs-validation" novalidate id="resource-edit-form" method="POST">
+                        @method('PUT')
+                        <input type="hidden" name="resource_id" value="{{$data->id}}">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label class="form-label" for="title">Title</label>
+                                        <input type="text" class="form-control" id="title" name="title"
+                                            placeholder="Title" required value="{{$data->title}}">
+                                        <div class="valid-feedback">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label class="form-label" for="category_id">Category</label>
+                                        <select class="form-control" id="category_id" name="category_id" required>
+                                            <option value="">Select Category</option>
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category->id }}" {{ $data->category_id == $category->id ? 'selected' : '' }}>{{ $category->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <div class="valid-feedback">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label class="form-label" for="date">Date</label>
+                                        <input type="date" class="form-control" id="date" name="date"
+                                            placeholder="Date" required value="{{$data->date}}">
+                                        <div class="valid-feedback">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label class="form-label" for="time">Time</label>
+                                        <input type="time" class="form-control" id="time" name="time"
+                                            placeholder="Time" required value="{{$data->time}}">
+                                        <div class="valid-feedback">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label class="form-label" for="excerpt">Short Description (Excerpt)</label>
+                                        <textarea type="text" class="form-control" id="excerpt" name="excerpt"
+                                            placeholder="Short summary shown on the listing page">{{$data->excerpt}}</textarea>
+                                        <div class="valid-feedback">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label class="form-label" for="description">Description</label>
+
+                                        <textarea id="summernote" name="description">{{ $data->description }}</textarea>
+                                        <div class="valid-feedback">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label class="form-label" for="alt_tag">Alt Tag</label>
+                                        <input type="text" class="form-control" id="alt_tag" name="alt_tag"
+                                            placeholder="Alt Tag" value="{{ $data->alt_tag }}">
+                                        <div class="valid-feedback">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <div class="form-group">
+                                        <label class="form-label" for="image">Image</label>
+                                        <input type="file" accept=".png, .jpg, .jpeg,.webp" class="form-control"
+                                            id="image" name="image">
+                                        <div class="valid-feedback">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Previous Image</label>
+                                    <div class="avatar-preview">
+                                        <img class="previous-image" src="{{ $locationData['storage_server_path'].$locationData['storage_image_path'].$data->image }}" alt="resource-image" onerror="this.src='{{ $locationData['storage_server_path'].$locationData['admin_assets_path'].'placeholder.png' }}';">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="mb-3">
+                                    <a type="button" href="{{ url('admin/resources') }}"
+                                        class="btn btn-outline-warning btn-rounded mb-2">
+                                        <i class="ti-close"></i> Cancel
+                                    </a>
+                                    <button class="btn btn-outline-secondary btn-rounded mb-2" type="submit"> <i class="ti-save-alt"></i>
+                                        Save</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- end card -->
+        </div> <!-- end col -->
+    </div>
+@endsection
+@push('style')
+<style>
+    #summernote {
+        min-height: 400px;
+    }
+</style>
+@endpush
+@push('script')
+<script src="https://cdn.tiny.cloud/1/uuplv3gdf7kqs57rfobqxdrreyfr5dxkotezevdekz1wscug/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+<script src="{{ asset('admin/backend/js/resources.js') }}"></script>
+<script>
+$(document).ready(function() {
+    tinymce.init({
+        selector: '#summernote',
+        height: 600,
+        menubar: true,
+        plugins: [
+            'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+            'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
+            'insertdatetime', 'media', 'table', 'code', 'help', 'wordcount'
+        ],
+        toolbar: 'undo redo | blocks | ' +
+            'bold italic forecolor | alignleft aligncenter ' +
+            'alignright alignjustify | bullist numlist outdent indent | ' +
+            'removeformat | table | link image | code | help',
+        content_style: 'body { font-family: Arial, sans-serif; font-size: 14px; }',
+        paste_as_text: false,
+        paste_merge_formats: true,
+        paste_remove_styles_if_webkit: false,
+        paste_strip_class_attributes: "none",
+        table_default_attributes: {
+            border: '1'
+        },
+        table_default_styles: {
+            'border-collapse': 'collapse',
+            'width': '100%',
+            'border': '1px solid #ddd'
+        },
+        table_class_list: [
+            {title: 'None', value: ''},
+            {title: 'Table', value: 'table table-bordered'}
+        ],
+        paste_postprocess: function(plugin, args) {
+            args.node.querySelectorAll('table, td, th, col, colgroup').forEach(function(el) {
+                el.style.removeProperty('width');
+                el.style.removeProperty('min-width');
+                el.removeAttribute('width');
+            });
+            args.node.querySelectorAll('table').forEach(function(el) {
+                el.style.width = '100%';
+            });
+        }
+    });
+});
+</script>
+@endpush

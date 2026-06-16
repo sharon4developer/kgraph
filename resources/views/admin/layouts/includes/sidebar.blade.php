@@ -153,6 +153,37 @@
                                     </ul>
                                 </li>
                             @endif
+                            @if (auth()->user()->hasPermissionTo('resource-contents') ||
+                                    auth()->user()->hasPermissionTo('resources-create') ||
+                                    auth()->user()->hasPermissionTo('resources'))
+                                <li><a href="{{ url('admin/resource-contents') }}" data-key="t-level-2-2">Resource Contents
+                                    </a></li>
+                            @endif
+                            @if (auth()->user()->hasPermissionTo('resource-categories'))
+                                <li>
+                                    <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Resource Categories</a>
+                                    <ul class="sub-menu" aria-expanded="true">
+                                        <li><a href="{{ url('admin/resource-categories') }}" data-key="t-level-2-2">View </a></li>
+                                        @if (auth()->user()->hasPermissionTo('resource-categories-create'))
+                                            <li><a href="{{ url('admin/resource-categories/create') }}" data-key="t-level-2-1">Add
+                                                </a></li>
+                                        @endif
+                                    </ul>
+                                </li>
+                            @endif
+                            @if (auth()->user()->hasPermissionTo('resources'))
+                                <li>
+                                    <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Resources</a>
+                                    <ul class="sub-menu" aria-expanded="true">
+
+                                        <li><a href="{{ url('admin/resources') }}" data-key="t-level-2-2">View </a></li>
+                                        @if (auth()->user()->hasPermissionTo('resources-create'))
+                                            <li><a href="{{ url('admin/resources/create') }}" data-key="t-level-2-1">Add
+                                                </a></li>
+                                        @endif
+                                    </ul>
+                                </li>
+                            @endif
                             @if (auth()->user()->hasPermissionTo('explore'))
                                 <li>
                                     <a href="javascript: void(0);" class="has-arrow" data-key="t-level-1-2">Explore</a>

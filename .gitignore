@@ -27,3 +27,7 @@ yarn-error.log
 # ignore the same under public/storage (the symlink target)
 /public/storage/assets/uploads/*
 !/public/storage/assets/uploads/.gitignore
+
+# ignore user uploads stored via the 'career' disk (storage/assets/uploads)
+/storage/assets/uploads/*
+!/storage/assets/uploads/.gitignore

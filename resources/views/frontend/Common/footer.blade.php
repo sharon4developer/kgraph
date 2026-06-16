@@ -144,6 +144,7 @@ $serviceCategories = ServiceCategory::select('image','id','title','alt_tag','slu
                             <li><a href="{{ url('privacy-policy') }}" class="text-sm text-white hover:underline whitespace-nowrap">Privacy Policy</a></li>
                             <li><a href="{{ url('careers') }}" class="text-sm text-white hover:underline whitespace-nowrap">Careers</a></li>
                             <li><a href="{{ url('blogs') }}" class="text-sm text-white hover:underline whitespace-nowrap">Blogs</a></li>
+                            <li><a href="{{ url('resources') }}" class="text-sm text-white hover:underline whitespace-nowrap">Resources</a></li>
                         </ul>
                     </div>
                 </div>
