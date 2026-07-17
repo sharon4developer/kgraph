@@ -34,6 +34,12 @@
     .res-pill { background: #f1f5f9; color: #334155; }
     .res-pill:hover { background: #e2e8f0; }
     .res-pill.is-active { background: #2563eb; color: #ffffff; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+
+    /* Thumbnail: keep a uniform 16:9 card, but never stretch/upscale the image.
+       Small images sit centered on a neutral background; large ones fit inside. */
+    .res-thumb-box { background: #f1f5f9; display: flex; align-items: center; justify-content: center; }
+    .res-thumb-img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; transition: transform .5s ease; }
+    .group:hover .res-thumb-img { transform: scale(1.05); }
 </style>
 @endpush
 
@@ -92,8 +98,8 @@
                                  style="animation-delay: {{ ($index % 3) * 0.1 }}s; animation-fill-mode: forwards;">
                             <a href="{{ url('resource-details/'.$data->slug) }}" class="block">
                                 {{-- Image --}}
-                                <div class="relative overflow-hidden bg-slate-200 aspect-video">
-                                    <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                <div class="relative overflow-hidden aspect-video res-thumb-box">
+                                    <img class="res-thumb-img"
                                          src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $data->image }}"
                                          alt="{{ $data->alt_tag ?? $data->title }}">
                                     @if($data->Category)

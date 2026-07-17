@@ -91,6 +91,15 @@
     .resource-content-body table tr:nth-child(even) {
         background-color: #f9fafb;
     }
+
+    /* Featured image: center it and never upscale a small image to full width. */
+    .res-featured-box { background: #ffffff; display: flex; align-items: center; justify-content: center; padding: 16px; min-height: 220px; }
+    .res-featured-img { max-width: 100%; max-height: 520px; width: auto; height: auto; display: block; object-fit: contain; }
+
+    /* Related-resource thumbnails: uniform 16:9 card, image contained (no stretch). */
+    .res-thumb-box { background: #f1f5f9; display: flex; align-items: center; justify-content: center; }
+    .res-thumb-img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; transition: transform .5s ease; }
+    .group:hover .res-thumb-img { transform: scale(1.05); }
 </style>
 
 <div class="min-h-screen bg-slate-50">
@@ -134,9 +143,9 @@
     <section class="py-12">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             {{-- Featured Image --}}
-            <div class="rounded-2xl overflow-hidden shadow-lg mb-10 -mt-20 relative z-10 bg-white">
+            <div class="rounded-2xl overflow-hidden shadow-lg mb-10 -mt-20 relative z-10 res-featured-box">
                 <img src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $resource->image }}"
-                     class="w-full h-auto object-cover" alt="{{ $resource->alt_tag ?? $resource->title }}">
+                     class="res-featured-img" alt="{{ $resource->alt_tag ?? $resource->title }}">
             </div>
 
             {{-- Content --}}
@@ -165,8 +174,8 @@
                 @foreach ($relatedResources as $related)
                     <article class="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-slate-200 group flex flex-col">
                         <a href="{{ url('resource-details/'.$related->slug) }}" class="block">
-                            <div class="relative overflow-hidden bg-slate-200 aspect-video">
-                                <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            <div class="relative overflow-hidden aspect-video res-thumb-box">
+                                <img class="res-thumb-img"
                                      src="{{ $locationData['storage_server_path'] . $locationData['storage_image_path'] . $related->image }}"
                                      alt="{{ $related->alt_tag ?? $related->title }}">
                             </div>
