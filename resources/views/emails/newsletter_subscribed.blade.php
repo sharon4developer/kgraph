@@ -22,9 +22,18 @@
             <div style="text-align: center; margin-top: 20px;">
                 <a href="{{ url('/') }}" style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Visit Our Website</a>
             </div>
-            <p style="margin-top: 20px; color: #888888; text-align: center;">
-                If you have any questions, feel free to contact us at <a href="mailto:support@k-graph.com" style="color: #4CAF50; text-decoration: none;">support@k-graph.com</a>.
-            </p>
+            <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid #eeeeee; color: #888888; text-align: center; font-size: 13px; line-height: 1.6;">
+                <p style="margin: 0 0 6px 0; font-weight: bold; color: #555555;">KGraph Immigration Consultancy Inc.</p>
+                <p style="margin: 0 0 12px 0;">
+                    <a href="{{ url('/') }}" style="color: #4CAF50; text-decoration: none;">{{ preg_replace('#^https?://#', '', rtrim(url('/'), '/')) }}</a>
+                    &nbsp;|&nbsp;
+                    <a href="{{ url('contact-us') }}" style="color: #4CAF50; text-decoration: none;">Contact KGraph</a>
+                </p>
+                <p style="margin: 0 0 8px 0; font-size: 12px;">
+                    <strong>Confidentiality notice:</strong> This automated email is intended only for the named recipient and may contain confidential case information. If you received it in error, please delete it and contact KGraph.
+                </p>
+                <p style="margin: 0; font-size: 12px;">Please do not reply to this email.</p>
+            </div>
         </div>
     </div>
 </body>
